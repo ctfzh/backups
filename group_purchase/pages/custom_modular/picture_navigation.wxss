@@ -1,0 +1,88 @@
+/*引用全局样式  */
+@import "../../app.wxss";
+/*图片导航组件CSS */
+.picture_navigation_style{
+  padding: 35rpx 2% 0rpx 2%;
+  display: flex;
+  flex-flow: row wrap;
+  background-color: #fff;
+}
+.navigation_block{
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+.navigation_img{
+  background-color: #fff;
+  overflow: hidden; 
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.navigation_img_src{
+  position: absolute;
+  top: 0rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  overflow: hidden; 
+}
+.navigation_img_back{
+  top: 1rpx;
+  bottom: 1rpx;
+  left: 1rpx;
+  right: 1rpx;
+}
+
+.navigation_text{
+  margin: 15rpx 0 35rpx 0;
+}
+
+ .navigation_biao_src{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+} 
+
+/*图片导航三个一行CSS  */
+.picture_navigation_style3 .navigation_block{
+  width: 33%;
+}
+.picture_navigation_style3 .navigation_img{
+  width: 100rpx;
+  height: 100rpx;
+}
+.picture_navigation_style3 .navigation_text{
+  font-size: 26rpx;
+}
+
+/*图片导航四个一行CSS  */
+.picture_navigation_style4 .navigation_block{
+  width: 25%;
+}
+.picture_navigation_style4 .navigation_img{
+  width: 100rpx;
+  height: 100rpx;
+}
+.picture_navigation_style4 .navigation_text{
+  font-size: 26rpx;
+}
+
+
+/*图片导航五个一行CSS  */
+.picture_navigation_style5 .navigation_block{
+  width: 20%;
+}
+.picture_navigation_style5 .navigation_img{
+  width: 86rpx;
+  height: 86rpx;
+}
+.picture_navigation_style5 .navigation_text{
+  font-size: 24rpx;
+}
+
+.font_overflow{
+  -webkit-line-clamp: 1; /** 显示的行数 **/
+}

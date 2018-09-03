@@ -1,0 +1,22 @@
+<!--图文组件HTML-->
+<view class='picture_text_style picture_text_style{{list.style}}'>
+  <!--图文列表=>开始  -->
+    <view class='picture_text_list' wx:for="{{list.list}}" wx:for-item="data" wx:key="key" wx:for-index="index" 
+    bindtap='custom_url' data-data='{{data}}'>
+    <!--分割线=>开始  -->
+      <view class='segmenting_line line_color' wx:if="{{index>0}}"></view>
+      <!--分割线=>结束  -->
+      <view class='picture_text_left'>
+        <view class='picture_text_left_img'>
+          <image class='picture_text_left_img' mode='aspectFill' src='{{data.imgSrc}}' lazy-load="true"></image>
+        </view>
+      </view>
+
+      <view class='picture_text_right'>
+        <view class='picture_text_right_h1 font_color1 font_overflow'>{{data.title}}</view>
+        <view class='picture_text_right_h2 font_color3 font_overflow'>{{data.textarea}}</view>
+      </view>
+
+    </view>
+  <!--图文列表=>结束  -->
+</view>

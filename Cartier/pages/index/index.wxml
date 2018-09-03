@@ -1,0 +1,14 @@
+<!-- 登录 -->
+<view class='sign_max'>
+  <view class='sign'>
+    <view class='input_sign'>
+      <view class='input_img'><image src='../img/account_number.png'></image></view>
+      <input class='sign_input' type="text" placeholder='Account Number' placeholder-style=" color: #C73C3E" bindinput="account_number"></input>
+    </view>
+    <view class='input_sign'>
+      <view class='input_img'><image src='../img/password.png'></image></view>
+    <input class='sign_input' type="text" placeholder='Password' password="true" placeholder-style=" color: #C73C3E" bindinput="password"></input>  
+    </view>
+    <button class='sign_an' type='warn' catchtap='sign_an'>登录</button>
+  </view>
+</view>

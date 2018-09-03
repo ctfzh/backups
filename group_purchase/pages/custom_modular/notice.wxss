@@ -1,0 +1,56 @@
+/*引用全局样式  */
+@import "../../app.wxss";
+/* 公告组件CSS */
+.notice_style1{
+  background-color: #fff;
+  position: relative;
+}
+.back_notice{
+  position: absolute;
+  top: 0rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  background-color: #F03F2B;
+  opacity: 0.1;
+}
+
+.notice_container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+  }
+.scrolltxt{
+  padding:0rpx 30rpx 0rpx 80rpx;
+}
+.marquee_box {
+  position:relative;
+  height:60rpx;
+  display:block;
+  overflow:hidden;
+  } 
+.marquee_text {
+  white-space: nowrap;
+  position:absolute;
+  top:0;
+  font-size:14px;
+  height:60rpx;
+  line-height:60rpx;
+}
+
+.notice_img_c{
+  width: 40rpx;
+  height: 60rpx;
+  position: absolute;
+  left: 30rpx;
+  top: 0;
+  display: flex;
+  align-items: center;
+}
+.notice_img{
+  width: 30rpx;
+  height: 30rpx;
+}

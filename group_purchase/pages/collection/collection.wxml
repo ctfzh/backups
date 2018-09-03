@@ -1,0 +1,63 @@
+<!-- 我的收藏 -->
+<view class='collection_max font_color1'>
+	<view class='list_top'>
+		<view class='top_item {{current==0?"item_sele font_color2":""}}' data-current='0' catchtap='swiper'>店铺<view class='top_item_line'></view></view>
+		<view class='top_item {{current==1?"item_sele font_color2":""}}' data-current='1' catchtap='swiper'>商品<view class='top_item_line'></view></view>
+	</view>
+
+	<view class='list_bottom'>
+		<swiper class='tap_swiper'
+		current="{{current}}" 
+		bindchange="change"
+		duration="300">
+			<!-- 店铺 -->
+			<swiper-item>
+				<view class='order_item'>
+					<view class='goods_info'>
+						<view class='goods_img'><image src='../img/banner/test.png' mode='aspectFill' ></image></view>
+						<view class='goods'>
+							<view class='goods_h1'>
+								<view class='goods_title font_overflow'>西海港火锅</view>
+								<view class='goods_text font_color4'>0.99km</view>
+							</view>
+							<view class='goods_h2'>
+								<view class='goods_text font_color5'>￥95/人</view>
+							</view>
+							<view class='goods_h3 font_color4'>
+								<view class='label'>日本料理</view>
+								<view class='goods_text'>松江</view>
+							</view>
+						</view>
+					</view>
+				</view>
+
+			</swiper-item>
+
+			<!-- 商品 -->
+			<swiper-item>
+			
+				<view class='order_item'>
+					<view class='goods_info'>
+						<view class='goods_img'><image src='../img/banner/test.png' mode='aspectFill' ></image></view>
+						<view class='goods'>
+							<view class='goods_h1'>
+								<view class='goods_title font_overflow'>西海港火锅</view>
+								<view class='goods_text font_color4'>0.99km</view>
+							</view>
+							<view class='goods_h2'>
+								<view class='goods_text font_color5'>团购套餐名称</view>
+							</view>
+							<view class='goods_h3'>
+								<view class='money font_color6'>￥<text class='price'>49.00</text>元</view>
+								<view class='original_price font_color5'>￥56.00元</view>
+							</view>
+						</view>
+					</view>
+				</view>
+
+			</swiper-item>
+
+		</swiper>
+	</view>
+	
+</view>

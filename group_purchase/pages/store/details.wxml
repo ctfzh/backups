@@ -1,0 +1,193 @@
+<!-- 门店详情 -->
+<view class='details_max font_color1'>
+	<view class='details_top'>
+		<view class='advertisement'><image src='../img/banner/test.png' mode='aspectFill' ></image></view>
+		<view class='store_info'>
+			<view class='info_top'>
+				<view class='shop_hours'>
+					<view class='shop_hours_title'>
+						<text>龙庭琇厨</text>
+						<text class='per_capita font_color4'>￥95/人</text>
+					</view>
+					<view class='shop_hours_text font_color5'>
+						<view class='time_img'><image src='../img/income/time.png'></image></view>
+						<view class='time_title'>营业时间</view>
+						<view class='time_text'>周一至周日 10:30-20:00</view>
+					</view>
+				</view>
+				<view class='collection'>
+					<image src='../img/income/collection.png'></image>
+				</view>
+			</view>
+			<view class='info_bottom' catchtap='address' data-lat='' data-lng=''>
+				<view class='location'><image src='../img/income/position.png'></image></view>
+				<view class='location_text font_overflow'>国定东路88号凯悦酒店7楼</view>
+				<view class='distance'>距您788m</view>
+				<view class='phone_img' catchtap='phone' data-phone=''><image src='../img/income/phone.png'></image></view>
+			</view>
+		</view>
+	</view>
+
+	<!-- 团购优惠 -->
+	<view class='activity'>
+		<view class='activity_title'>
+			<view class='sign'>团</view>
+			<view class='activity_text'>团购优惠</view>
+		</view>
+
+		<view class='goods_item'>
+			<view class='goods_img'>
+				<view class='discount'>5.4折</view>
+				<image src='../img/banner/test.png' mode='aspectFill' ></image>
+			</view>
+			<view class='goods_info'>
+
+				<view class='goods_h1'>
+					<view class='goods_title font_overflow'>3-4人餐</view>
+					<view class='sales_volume font_color4'>销量485</view>
+				</view>
+
+				<view class='goods_h2'>
+					<view class='goods_label'>
+						<view class='label_item'>
+							<view class='label_img'><image src='../img/income/label_time.png'></image></view>
+							<view class='label_text font_color4'>随时退</view>
+						</view>
+						<view class='label_item'>
+							<view class='label_img'><image src='../img/income/label_time.png'></image></view>
+							<view class='label_text font_color4'>过期退</view>
+						</view>
+					</view>
+					<view class='arrow_img'><image src='../img/income/arrow.png'></image></view>
+				</view>
+
+				<view class='goods_h3'>
+					<view class='goods_money font_color6'>
+						<text class='fu'>￥</text>49.00<text class='fu'>元</text>
+					</view>
+					<view class='original_price font_color5'>￥56.00元</view>
+				</view>
+			</view>
+		</view>
+
+		<view class='goods_item'>
+			<view class='goods_img'>
+				<view class='discount'>5.4折</view>
+				<image src='../img/banner/test.png' mode='aspectFill' ></image>
+			</view>
+			<view class='goods_info'>
+
+				<view class='goods_h1'>
+					<view class='goods_title font_overflow'>3-4人餐</view>
+					<view class='sales_volume font_color4'>销量485</view>
+				</view>
+
+				<view class='goods_h2'>
+					<view class='goods_label'>
+						<view class='label_item'>
+							<view class='label_img'><image src='../img/income/label_time.png'></image></view>
+							<view class='label_text font_color4'>随时退</view>
+						</view>
+						<view class='label_item'>
+							<view class='label_img'><image src='../img/income/label_time.png'></image></view>
+							<view class='label_text font_color4'>过期退</view>
+						</view>
+					</view>
+					<view class='arrow_img'><image src='../img/income/arrow.png'></image></view>
+				</view>
+
+				<view class='goods_h3'>
+					<view class='goods_money font_color6'>
+						<text class='fu'>￥</text>49.00<text class='fu'>元</text>
+					</view>
+					<view class='original_price font_color5'>￥56.00元</view>
+				</view>
+			</view>
+		</view>
+
+	</view>
+	
+		<!-- 限时抢购 -->
+	<view class='activity'>
+		<view class='activity_title'>
+			<view class='sign back'>抢</view>
+			<view class='activity_text'>限时抢购</view>
+		</view>
+
+		<view class='goods_item'>
+			<view class='goods_img'>
+				<view class='discount'>5.4折</view>
+				<image src='../img/banner/test.png' mode='aspectFill' ></image>
+			</view>
+			<view class='goods_info'>
+
+				<view class='goods_h1'>
+					<view class='goods_title font_overflow'>3-4人餐</view>
+					<view class='sales_volume font_color4'>销量485</view>
+				</view>
+
+				<view class='goods_h2'>
+					<view class='goods_label'>
+						<view class='label_item'>
+							<view class='label_img'><image src='../img/income/label_time.png'></image></view>
+							<view class='label_text font_color4'>随时退</view>
+						</view>
+						<view class='label_item'>
+							<view class='label_img'><image src='../img/income/label_time.png'></image></view>
+							<view class='label_text font_color4'>过期退</view>
+						</view>
+					</view>
+					<view class='arrow_img'><image src='../img/income/arrow.png'></image></view>
+				</view>
+
+				<view class='goods_h3'>
+					<view class='goods_money font_color6'>
+						<text class='fu'>￥</text>49.00<text class='fu'>元</text>
+					</view>
+					<view class='original_price font_color5'>￥56.00元</view>
+				</view>
+			</view>
+		</view>
+
+		<view class='goods_item'>
+			<view class='goods_img'>
+				<view class='discount'>5.4折</view>
+				<image src='../img/banner/test.png' mode='aspectFill' ></image>
+			</view>
+			<view class='goods_info'>
+
+				<view class='goods_h1'>
+					<view class='goods_title font_overflow'>3-4人餐</view>
+					<view class='sales_volume font_color4'>销量485</view>
+				</view>
+
+				<view class='goods_h2'>
+					<view class='goods_label'>
+						<view class='label_item'>
+							<view class='label_img'><image src='../img/income/label_time.png'></image></view>
+							<view class='label_text font_color4'>随时退</view>
+						</view>
+						<view class='label_item'>
+							<view class='label_img'><image src='../img/income/label_time.png'></image></view>
+							<view class='label_text font_color4'>过期退</view>
+						</view>
+					</view>
+					<view class='arrow_img'><image src='../img/income/arrow.png'></image></view>
+				</view>
+
+				<view class='goods_h3'>
+					<view class='goods_money font_color6'>
+						<text class='fu'>￥</text>49.00<text class='fu'>元</text>
+					</view>
+					<view class='original_price font_color5'>￥56.00元</view>
+				</view>
+			</view>
+		</view>
+
+	</view>
+
+	<view class='shop_details'>
+		<view class='shop_title'>店铺介绍</view>
+	</view>
+
+</view>

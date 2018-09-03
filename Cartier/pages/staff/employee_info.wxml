@@ -1,0 +1,47 @@
+<!-- 员工信息 -->
+<view class='employee_info_max'>
+  <view class='employee_info_item'>
+    <view class='employee_info_h1'>姓名</view>
+    <view class='employee_info_h2'>{{list.name}}<text wx:if="{{list.name&&list.name}}">/</text>{{list.english_name}}</view>
+  </view>
+
+  <view class='employee_info_item'>
+    <view class='employee_info_h1'>工号</view>
+    <view class='employee_info_h2'>{{list.employee_no?list.employee_no:"未知"}}</view>
+  </view>
+
+  <view class='employee_info_item'>
+    <view class='employee_info_h1'>手机</view>
+    <view class='employee_info_h2'>{{list.telephone?list.telephone:"未知"}}</view>
+  </view>
+
+  <view class='employee_info_item'>
+    <view class='employee_info_h1'>地区</view>
+    <view class='employee_info_h2'>{{list.area?list.area:"未知"}}</view>
+  </view>
+
+  <view class='employee_info_item'>
+    <view class='employee_info_h1'>部门</view>
+    <view class='employee_info_h'>
+      <view class='employee_info_h2' wx:if="{{list.department_name}}">{{list.department_name}}</view>
+      <view class='employee_info_h3' wx:if="{{list.department_english_name}}">{{list.department_english_name}}</view>
+    </view>
+
+  </view>  
+  <view class='employee_info_item'>
+    <view class='employee_info_h1'>职位</view>
+    <view class='employee_info_h'>
+      <view class='employee_info_h2' wx:if="{{list.position}}">{{list.position}}</view>
+      <view class='employee_info_h3' wx:if="{{list.position_english}}">{{list.position_english}}</view>
+    </view>
+
+  </view>  
+  
+  <view class='employee_info_item'>
+    <view class='employee_info_h1'>照片</view>
+    <image class='employee_info_img' src='{{list.head_thumb_image}}' mode='widthFix' catchtap='sele' data-img='{{list.head_img}}' wx:if="{{list.head_img}}"></image>
+  </view>
+  <view class='an'>
+    <button class='sign_an' type='warn' catchtap='state_not'>重新拍照</button>
+  </view>
+</view>
