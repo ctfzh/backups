@@ -1,0 +1,255 @@
+/**app.wxss**/
+@import "pages/template/loading_fall_ui.wxss";
+
+page {
+  background-color: #f7f7f7;
+}
+
+/* 页面最大父容器  防止定位遮罩层出现后页面滚动*/
+.window_cover{
+  height: 100vh;
+  overflow: auto;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+/*左右对齐垂直居中*/
+
+.left_right_vertical_center {
+  /*布局方式*/
+  display: flex;
+  flex-flow: row nowrap;
+  /*垂直居中*/
+  align-items: center;
+  justify-content: space-between;
+	background-color: #fff;
+}
+.left_right_view{
+   /*布局方式*/
+  display: flex;
+  justify-content: space-between;
+}
+/*垂直居中*/
+
+.vertical {
+  /*布局方式*/
+  display: flex;
+  /*垂直居中*/
+  align-items: center;
+}
+
+/*需要子元素居中的父元素*/
+
+.center_class {
+  /*布局方式*/
+  display: flex;
+  /*垂直居中*/
+  align-items: center;
+  /*水平居中*/
+  justify-content: center;
+}
+
+.stytle-line {
+  height: 1rpx;
+  background: #e5e5e5;
+  box-sizing: border-box;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+.lin-height{
+  float: left;
+  width: 1rpx;
+  height: 100%;
+  background: #e5e5e5;
+}
+.stytle-line-left-right {
+  height: 1rpx;
+  background: #e5e5e5;
+margin: -1rpx 30rpx 0 30rpx;
+  box-sizing: border-box;
+}
+
+.stytle-line-left {
+  height: 1rpx;
+  background: #e5e5e5;
+  /* margin-left: 30rpx; */
+  /* box-sizing: border-box; */
+	border: none;
+}
+
+.stytle-line-right {
+  height: 1rpx;
+  background: #e5e5e5;
+  margin-right: 30rpx;
+  box-sizing: border-box;
+}
+.s_right_text{
+	position: absolute;
+	right: 40rpx;
+}
+/* 右边箭头 */
+.arrows-right-img{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 25rpx;
+  margin-top: 5rpx;
+  text-align: right;
+  flex-shrink:0;
+}
+.white-padding20rpx{
+	border-top: 1rpx solid #e5e5e5;
+  background: white;
+  padding: 20rpx 25rpx 0 25rpx;
+}
+.white-padding20rpx-top-bottom-border{
+  background: white;
+	margin-top: 20rpx;
+}
+.left-text{
+  font-size: 30rpx;
+  color: #1A1A1A;
+  flex-shrink:0;
+  padding:25rpx;
+}
+.left-text-center{
+  font-size: 30rpx;
+  color: #808083;
+  flex-shrink:0;
+  padding:30rpx;
+}
+.right-text{
+  font-size: 30rpx;
+  color: #4D4D4D;
+  padding: 25rpx;
+}
+.qian{
+	color: #F03F2B;
+}
+.gradient_button{
+  background: linear-gradient(to left, #F83600, #FF6A00);
+}
+
+/* 顶部分割线 */
+	.top_fixed_solid,
+	.bottom_fixed_solid{
+		height: 1rpx;
+		position: fixed;
+		left: 0;
+		right: 0;
+		background-color: #e5e5e5;
+		z-index: 99;
+	}
+	/* 顶部分割线 */
+	.top_fixed_solid{
+		top: 0;
+	}
+	/* 底部分割线 */
+	.bottom_fixed_solid{
+		bottom: 0;
+	}
+
+
+  /*通用字体样式  */
+.font1{
+  color: #1A1A1A;
+  font-size: 30rpx;
+}
+.font2{
+  font-size: 24rpx;
+  color: #8F8F8F;
+}
+
+/*通用字体颜色CSS  */
+.font_color1{
+  color: #2C2F33;
+}
+.font_color2{
+  color: #42464C;
+}
+.font_color3{
+  color: #757A80;
+}
+
+/*通用文字省略CSS  */
+.font_overflow{
+  word-break: break-all;/*字母，数字换行*/
+  text-overflow: ellipsis;
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+  -webkit-line-clamp: 2; /** 显示的行数 **/
+  overflow: hidden;  /** 隐藏超出的内容 **/
+}
+
+
+/*左边指标  */
+.right_arrow{
+  width: 30rpx;
+  height: 30rpx;
+}
+/*分割线颜色  */
+.line_color{
+	border-width:0rpx;
+	border-color:#E3E4E5;
+	border-style:solid;
+}
+
+
+/* 折扣金额字体颜色 */
+.discount_color{
+  color: #FF9A36;
+}
+
+/* 字体图标 */
+@font-face {
+  font-family: 'iconfont';  /* project id 583201 */
+  src: url('//at.alicdn.com/t/font_583201_c7tem8m0od2t9.eot');
+  src: url('//at.alicdn.com/t/font_583201_c7tem8m0od2t9.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_583201_c7tem8m0od2t9.woff') format('woff'),
+  url('//at.alicdn.com/t/font_583201_c7tem8m0od2t9.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_583201_c7tem8m0od2t9.svg#iconfont') format('svg');
+}
+ 
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* 通知 */
+.icon-sousuo:before { content: "\e601"; }
+/* 查看 */
+.icon-see:before { content: "\e603"; }
+/* 下拉 */
+.icon-drop:before { content: "\e604"; }
+
+.miniProgram{
+	position: absolute;
+	top: 0rpx;
+	bottom: 0rpx;
+	left: 0rpx;
+	right: 0rpx;
+	z-index: 1;
+}
+
+.authorize_t{
+	margin-top: -125rpx  !important;
+}
+
+.login{
+  position: fixed;
+  top: 0rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  z-index: 99;
+}

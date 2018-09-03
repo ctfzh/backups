@@ -1,0 +1,180 @@
+/* 拼团商品列表模板CSS */
+
+.groups_package {
+  background-color: #fff;
+  padding: 10rpx;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.segmenting {
+  padding: 9rpx 10rpx 10rpx 10rpx;
+  border-top: 1rpx solid #f5f5f5;
+}
+
+.groups_goods_left {
+  position: relative;
+  width: 320rpx;
+  height: 320rpx;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.groups_goods_img {
+  position: absolute;
+  top: 0rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+}
+
+.groups_label {
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  width: 132rpx;
+  height: 44rpx;
+  font-size: 24rpx;
+  color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-right-radius: 45rpx;
+  background: linear-gradient(to left, #F76B1C, #F51853);
+  z-index: 2;
+}
+
+.groups_goods_right{
+  flex:1;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  margin: 10rpx 20rpx 20rpx 25rpx;
+}
+.groups_goods_title{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  word-wrap:break-word;
+}
+.goods_money{
+  font-weight: bold;
+}
+.group_money{
+  font-size: 40rpx;
+  color: #F53A25;
+}
+.f_mo{
+  font-size: 24rpx;
+}
+.group_save_money{
+  margin-left: 20rpx;
+  text-decoration:line-through;
+}
+.production_group{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-end;
+}
+
+.group_stock{
+  flex: 1;
+}
+
+.group_proportional{
+  position: relative;
+  width: 160rpx;
+  height: 16rpx;
+  border-radius: 8rpx; 
+  overflow: hidden;
+  margin-top: 15rpx;
+}
+
+.stock{
+  width: 160rpx;
+  height: 16rpx;
+  border-radius: 8rpx; 
+  background-color: #FF7803;
+  opacity: 0.18;
+}
+.stock_sold{
+  position: absolute;
+  top: 0;
+  width: 0rpx;
+  height: 16rpx;
+  /* border-radius: 8rpx;  */
+  background-color: #FF7803;
+}
+
+.production_group_buy{
+  width: 160rpx;
+  height: 52rpx;
+  border-radius: 4rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F53A25;
+}
+.buy_text{
+  font-size: 26rpx;
+  color: #fff;
+}
+
+/*失效商品  */
+#Invalid_groups_package{
+  color: #F51853;
+}
+#Invalid_groups_package .groups_goods_title{
+  color: #8F8F8F;
+}
+#Invalid_groups_package .group_money{
+  color: #8F8F8F;
+}
+#Invalid_groups_package .group_save_money{
+  color: #8F8F8F;
+}
+#Invalid_groups_package .group_stock_sold{
+  color: #8F8F8F;
+}
+#Invalid_groups_package .gradient_button{
+  background-color: #999999;
+}
+#Invalid_groups_package .stock_sold{
+  background-color: #999999;
+}
+#Invalid_groups_package .stock{
+  background-color: #999999;
+}
+.Invalid_groups_back{
+  position: absolute;
+  background-color: #000;
+  top: 0;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  opacity: 0.5;
+}
+#Invalid_groups_package .production_group_buy{
+  background-color: #999999;
+}
+.Invalid_groups_text{
+  position: relative;
+  width: 188rpx;
+  height: 188rpx;
+  font-size:42rpx;
+  color:#fff;
+  border: 3rpx solid #fff;
+  border-radius: 50%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+	letter-spacing: 2rpx;
+}
+.huodong_text{
+	letter-spacing: 12rpx;
+  padding-left: 12rpx;
+}

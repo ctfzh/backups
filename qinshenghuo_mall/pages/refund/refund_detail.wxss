@@ -1,0 +1,4 @@
+/* pages/refund/refund_detail.wxss */
+@import "get_refund.wxss";
+@import "../template/top_message.wxss";
+@import "../template/loading_fall_ui.wxss";

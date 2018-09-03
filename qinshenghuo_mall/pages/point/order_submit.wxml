@@ -1,0 +1,133 @@
+
+<!--pages/communal/place_an_order.wxml-->
+<import src="../template/address_list.wxml" />
+<import src="../template/addres_add_and_edit.wxml" />
+<import src="../template/delivery_method.wxml" />
+<view hidden='{{!show_loading_faill}}'>
+  <!-- 下单界面 -->
+<!-- 分割线 -->
+<view class='top_fixed_solid'></view>
+<!-- 分割线 -->
+  <view class='content-view'>
+    <!-- <view class='stytle-line' /> -->
+    <view wx:if="{{default_address}}">
+      <view class='address-view' bindtap="address_onclick">
+        <view class='left_right_vertical_center' id='address-text-view' style='width:100%'>
+
+          <view class='addressee'>
+            <view class='left_right_vertical_center'>
+              <view class='addres_text addres_ni'>收货人： {{default_address.name}}</view>
+              <view class='addres_text'> {{default_address.phone}}</view>
+            </view>
+						<view class='addres_right'>
+        			<image class='location-view' src='../img/location.png'></image>
+            	<view class='address-text max_address_text'>收货地址：{{default_address.address_full}}</view>
+							<view class='address-right-img'>
+           			<image class='arrows-right-img' src='../img/arrows_right.png'></image> 
+							</view>
+						</view>
+          </view>
+        </view>
+      </view>
+				<view class='bar_img'>
+					<image src='../img/Bar.png'></image>
+				</view>
+    </view>
+    <view wx:else>
+      <view class='add-address-view add_address'>
+        <view class='add-addres-text' bindtap="address_onclick_wx">
+          添加您的收货地址
+        </view>
+      </view>
+    </view>
+    <block wx:for="{{commodity_list}}" wx:for-index="idx" wx:for-item="itemName" wx:key="unique">
+
+      <view wx:if="{{idx!=0}}">
+        <view class='stytle-line-left' />
+      </view>
+      <view class='left_right_commodity'>
+        <view class='commodity-view'>
+          <image class='commodity-img' src='{{itemName.img}}' />
+        </view>
+        <view class='commodity-right-view'>
+          <view class='commodity-left-view'>
+            <view class='commodity-name'>{{itemName.goods_name}}</view>
+            <view class='commodity-classify'>{{itemName.property}}</view>
+          </view>
+					<view class='commodity_bottom_p'>
+						<text class='commodity-price'>
+              <text class='bonus'>{{itemName.bonus}}积分</text>
+              <!-- <text class='f_mo'>￥</text> -->
+              <text class='price' wx:if="{{itemName.price}}">+{{itemName.price}}元</text>
+            </text>
+						<text class='commodity-cart'><text class='f_x'>X</text>{{itemName.in_cart_num}}</text>
+					</view>
+        </view>
+      </view>
+    </block>
+    <view class='stytle-line-left-right' />
+    <view class='left_right_vertical_center' bindtap='select_express_onclick'>
+      <view class='left-text'>配送方式</view>
+      <view class='right-text-jian-view'>
+        <view class='right-text' style='margin-right: -15rpx;'>{{express_text? express_text:'请选择配送方式'}}</view>
+							<view class='address-right-img_k'>
+           			<image class='arrows-right-img' src='../img/arrows_right.png'></image> 
+							</view>
+      </view>
+    </view>
+    <view class='stytle-line-left-right ' />
+    <view class='vertical' bindtap="modalinput">
+      <view class='left-text'>买家留言：</view>
+  		 <input class='input' type='text' placeholder="请输入留言信息" bindinput="bindInputremark" bindblur="confirm" /> 
+    </view>
+
+    <view class='stytle-line-left-right ' />
+    <view>
+      <view id='commodity-account-text' class='heji'><text>共{{num}}件商品  </text>   小计:<text class='qian'> {{pay_bonus}}积分</text> <text class='qian' wx:if="{{cost_money}}">+{{cost_money}}元</text></view>
+    </view>
+  </view>
+   <view class='commodity-discounts-list-view-view'>
+    <view class='stytle-line' />
+    <view class='left_right_vertical_center'>
+      <view class='left-text'>运费</view>
+       <view class='right-text right-text-freight' wx:if="{{express_text}}">+<text class='q_f_mo'>￥</text>{{active_list.select_data.is_postage==1 ?"0.00" : freight_money}}</view> 
+    </view>
+    <view class='stytle-line' />
+  </view>
+ 
+	<import src="../template/bottom_Logo.wxml" />
+	<template is="bottom_Logo" data="{{guanzhu:guanzhu,daohang:fales,qrcode_url:qrcode_url}}"/> 
+
+  <view class='bottom-view'>
+    <view wx:if="{{express_type==2&&up_to_send_goods_money}}">
+      <view class='explain-text'>商品未满同城起送金额{{up_to_send_goods_money}}元，请凑足金额再下单</view>
+    </view>
+		<view wx:if="{{express_text==''}}">
+      <view class='explain-text'>非常抱歉，您的收货地址不支持快递配送，请修改地址</view>
+    </view>
+    <view class='bottom-submit-view'>
+      <view id='submit-view' bindtap='submit_onclick' class='gradient_button'>兑换</view>
+      <view id='oeder-money'>
+        <text class='bonus'>{{pay_bonus}}积分</text>
+        <text class='money' wx:if="{{money}}">+{{money}}元</text>
+      </view>
+      <view id='heji-view'>合计：</view>
+    </view>
+
+    <template is="address-view" data="{{address_showDialog:address_showDialog,array:address_list,checked_id:checked_id}}" />
+    <template is="address-view-edit" data="{{address_edit_showDialog:address_edit_showDialog,province_array:province_array,city_array:city_array,region_array:region_array,province_index:province_index,city_index:city_index,region_index:region_index,address_name: address_name, address_phone: address_phone, address_information: address_information, address_postal_code: address_postal_code,addres_id:addres_id,delete_show:delete_show}}"
+    />
+    <template is="delivery_method_diaView" data="{{delivery_method_showDialog:delivery_method_showDialog,delivery_method_list:delivery_method_list}}" />
+  </view>
+</view>
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" />
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

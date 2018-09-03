@@ -1,0 +1,325 @@
+/* pages/communal/commodity_details.wxss */
+@import "../template/display_advertising.wxss";
+@import "../custom_modular/wxParse/wxParse.wxss";
+@import "../template/bottom_dialog.wxss";
+@import "../template/top_message.wxss";
+@import "../template/loading_fall_ui.wxss";
+@import "../template/login.wxss";
+@import "../template/bottom_Logo.wxss"; 
+
+#outmoded-money {
+  text-decoration: line-through;
+  font-size: 30rpx;
+  color: #999999;
+	margin-top: 20rpx;
+}
+
+.right-text{
+	/* padding: 27rpx 0 0 0; */
+}
+#price-money-text {
+  font-size: 48rpx;
+  color: #F03F2B;
+}
+.f_mo{
+  font-size: 32rpx;
+}
+.count-view {
+  background: white;
+  /* display: -webkit-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; */
+  padding: 20rpx 25rpx;
+	text-align: center;
+  overflow: hidden;
+}
+
+.commodity-name {
+  font-size: 34rpx;
+  color: #1A1A1A;
+	margin-bottom: 15rpx;
+	letter-spacing: 2rpx;
+}
+
+.tab-text-view {
+	width: 33%;
+	float: left;
+}
+
+.text-view-count {
+  font-size: 30rpx;
+  color: #999999;
+}
+
+.store-home-text {
+  font-size: 30rpx;
+  color: #1A1A1A;
+  padding: 25rpx;
+}
+.right-text-jian-view{
+  display:flex;
+  flex-shrink:0;
+  align-items: center;
+}
+
+.commodity-details-view {
+  background: white;
+  padding: 25rpx;
+}
+.commodity-details-title {
+  font-size: 30rpx;
+  color: #1A1A1A;
+}
+
+.details-view {
+  background: white; 
+  margin-bottom: 100rpx;
+	/* font-size: 28rpx;
+	color: #888; */
+}
+
+/* border-top: 1rpx solid #f3efef; */
+
+.bottom-view {
+  background: white;
+  position: fixed;
+  bottom: 0;
+  height: 98rpx;
+  width: 100%;
+  display: flex;
+  z-index: 9;
+}
+
+.bottom-tab-img {
+  width: 45rpx;
+  height: 45rpx;
+  display: block;
+	margin: 10rpx auto 5rpx auto;
+}
+
+.bottom-tab-text {
+  font-size: 22rpx;
+  color: #4D4D4D;
+  display: block;
+  margin: 0 auto;
+	letter-spacing: 2rpx;
+}
+
+.bottom-itm-view {
+  width: 120rpx;
+  height: 96rpx;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1rpx solid #e5e5e5;
+}
+
+.bottom-tab-level-view {
+  width: 100%;
+	text-align: center;
+}
+
+.add-shopping-view {
+  width: 202rpx;
+  font-size: 30rpx;
+  color: #FFFFFF;
+  text-align: center;
+  background: linear-gradient(to left, #FFAA0D, #FFD012);
+  line-height: 98rpx;
+  height: 98rpx;
+}
+
+.buy-immediately-view {
+  width: 202rpx;
+  font-size: 30rpx;
+  color: white;
+  text-align: center;
+  line-height: 98rpx;
+  height: 98rpx;
+  background: linear-gradient(to left, #F83600, #FF5500);
+}
+
+.left_right_vertical_center_commodity {
+  /*布局方式*/
+  display: flex;
+  /*垂直居中*/
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+}
+.bottom{
+  padding-bottom: 98rpx;
+}
+.left_right_vertical_center{
+}
+
+/*活动模块CSS=>开始  */
+.goods_activity{
+	padding:25rpx 25rpx 0rpx 25rpx;
+	font-size: 30rpx;
+	background-color: #fff;
+	display: flex;
+	align-items: center;
+	border: 1rpx solid #e5e5e5;
+	border-left: none;
+	border-right: none;
+}
+.goods_activity_left{
+	flex: 1;
+}
+.promotions_point{
+	width: 40rpx;
+	height: 40rpx;
+	margin-top: -25rpx;
+}
+.promotions_point image{
+	width: 40rpx;
+	height: 40rpx;
+}
+.goods_activity_list{
+	display: flex;
+	align-items: flex-start;
+	flex-flow: row wrap;
+	padding-bottom: 25rpx;
+}
+.goods_activity_label{
+	color: #F03F2B;
+	border: 1rpx solid #F03F2B;
+	padding: 2rpx 5rpx;
+	font-size: 24rpx;
+	margin-top: 2rpx;
+}
+.goods_activity_discount{
+	flex: 1;
+	margin-left: 25rpx;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis; 
+}
+/*弹出窗CSS  */
+.activity_eject{
+}
+.activity_mask{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 9;
+	background-color: #000;
+	opacity: 0.5;
+}
+.activity_layer{
+	position: fixed;
+	width: 100%;
+	min-height: 400rpx;
+	background-color: #fff;
+	bottom: 0;
+	z-index: 10;
+}
+.activity_layer_close{
+	width: 50rpx;
+	height: 50rpx;
+	position: absolute;
+	right: 10rpx;
+	margin-top: 20rpx;
+}
+.activity_layer_close image{
+	width: 40rpx;
+	height: 40rpx;
+	margin: 5rpx;
+}
+.activity_layer_h1{
+	width: 100%;
+	padding: 25rpx;
+	font-size: 32rpx;
+	border-bottom: 1rpx solid #e5e5e5;
+	text-align: center;
+}
+.activity_layer{
+	transform:translateY(150%);
+	transition:all 0.3s ease;
+}
+.transform{
+	transform:translateY(0);
+}
+/*弹出窗促销活动CSS  */
+.promotions_activity_list{
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	padding: 25rpx 0;
+	border-top: 1rpx solid #e5e5e5;
+	margin: -1rpx 25rpx 0rpx 25rpx;
+}
+.promotions_activity_list_option{
+	width: 40rpx;
+	height: 40rpx;
+	margin-top: 1rpx;
+}
+.promotions_activity_list_option image{
+	width: 40rpx;
+	height: 40rpx;
+}
+.promotions_activity_list_text{
+	flex: 1;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin: 0 0 0 25rpx;
+	font-size: 30rpx;
+}
+/*活动模块CSS=>结束  */
+/*限时折扣  */
+
+.discount_wraper {
+  background: #fff;
+}
+.discount {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 18rpx 0 18rpx 0;
+  border-top: 1rpx solid #f5f5f5;
+  margin: 0 25rpx;
+}
+
+.discount .icon {
+  min-width: 130rpx;
+  height: 50rpx;
+  padding: 0rpx 10rpx;
+  border-radius: 3rpx;
+  font-size: 30rpx;
+  color: #fff;
+  line-height: 50rpx;
+  text-align: center;
+  background: -webkit-linear-gradient(left, #e04887, #b433ff);
+}
+
+.discount .decrease {
+  flex: 1;
+  margin-left: 22rpx;
+  font-size: 30rpx;
+  color: #1a1a1a;
+}
+
+.discount .time {
+  font-size: 30rpx;
+  color: #1a1a1a;
+  white-space: nowrap;
+}
+.regular_sale{
+	position: fixed;
+	right: 0rpx;
+	left: 0rpx;
+	height: 73rpx;
+	bottom: 98rpx;
+	background-color: #7336F8;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	font-size: 30rpx;
+}

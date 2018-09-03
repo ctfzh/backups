@@ -1,0 +1,10 @@
+<!-- 购物车数量增减模板 -->
+<template name="quantity">
+  <view class="quantityViewStyle">
+    <view class="minusStyle" style="{{num==1 ? 'background-color:#D6D6D6; color:#B3B3B3' : ''}};" bindtap="onTapMinus">-</view>
+    <view class="inputViewStyle">
+      <input class="inputView1Style"  value="{{num}}" type="number"  bindinput="onInputNum" bindblur="lossFocus" />
+    </view>
+    <view class="plusStyle" style="color:{{num>=totalNum? 'background-color:#D6D6D6; color:#B3B3B3' : ''}}" bindtap="onTapPlus">+</view>
+  </view>
+</template>

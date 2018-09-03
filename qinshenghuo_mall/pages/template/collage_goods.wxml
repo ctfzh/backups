@@ -1,0 +1,40 @@
+<!-- 拼团商品列表模板 -->
+<template name="collage_goods">
+  <view class='groups_package {{idx>=0?"segmenting":""}}' id='{{fightG.date.isOver?"Invalid_groups_package":""}}'wx:for="{{fightG.list}}" wx:for-item="itemName" wx:key="unique" wx:for-index="idx" bindtap='into_commodity_details_onclick' data-idx="{{itemName}}">
+
+    <view class='groups_goods_left' >
+      <view class='groups_label' wx:if="{{!fightG.date.isOver}}">{{fightG.label}}</view>
+      <view class='groups_goods_img'>
+        <image src="{{itemName.src}}"></image>
+      </view>
+      <view class='Invalid_groups_back' wx:if="{{fightG.date.isOver}}"></view>
+      <view class='Invalid_groups_text' wx:if="{{fightG.date.isOver}}">
+        <view class='huodong_text'>活动</view>
+        <view>已结束</view>
+      </view>
+    </view>
+
+    <view class='groups_goods_right'>
+      <view class='groups_goods_title font1'>{{itemName.title}}</view>
+      <!--团价  -->
+      <view class='goods_money'>
+        <text class='group_money'><text class='f_mo'>￥</text>{{itemName.group_price}}</text>
+        <text class='group_save_money font2'>￥{{itemName.price_cost}}</text>
+      </view>
+      <!--参团  -->
+      <view class='production_group'>
+        <view class='group_stock'>
+          <view class='group_stock_sold font2'>已团{{itemName.stock_sold}}件</view>
+          <view class='group_proportional '>
+            <view class='stock'></view>
+            <view class='stock_sold' style='width:{{itemName.stock_sold/itemName.stock*100}}%'></view>
+          </view>
+        </view>
+        <!--产团按钮  -->
+        <view class='production_group_buy  {{fightG.date.isOver}}'><text class='buy_text'>去开团</text></view>
+
+      </view>
+
+    </view>
+  </view>
+</template>

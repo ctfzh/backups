@@ -1,0 +1,19 @@
+{
+  "usingComponents": {
+    "picture_advert": "../custom_modular/picture_advert",
+    "picture_navigation": "../custom_modular/picture_navigation",
+    "notice": "../custom_modular/notice",
+    "assist_line": "../custom_modular/assist_line",
+    "assist_blank": "../custom_modular/assist_blank",
+    "picture_text": "../custom_modular/picture_text",
+    "title": "../custom_modular/title",
+    "richText": "../custom_modular/richText",
+    "video_mould": "../custom_modular/video_mould",
+    "discounts": "../custom_modular/discounts",
+    "time_limit_discount": "../template/time_limit_discount",
+	"authorize": "../custom_modular/authorize"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": " "
+}

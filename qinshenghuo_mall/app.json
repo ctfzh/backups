@@ -1,0 +1,86 @@
+{
+   "pages": [
+      "pages/home/home",
+      "pages/home/home_group",
+      "pages/home/home_mall",
+      "pages/service/service",
+      "pages/allcommodity/allcommodity",
+      "pages/refund/consultation_record",
+      "pages/refund/edit_express",
+      "pages/refund/get_refund",
+      "pages/refund/refund_detail",
+      "pages/payment/paymentsuccess",
+      "pages/payment/paymentchoice",
+      "pages/payment/pay_web-view",
+      "pages/shoppingcart/shoppingcart",
+      "pages/user/user",
+      "pages/communal/order_detail",
+      "pages/user/personal_information",
+      "pages/user/expense_calendar",
+      "pages/user/my_wallet",
+      "pages/communal/place_an_order",
+      "pages/communal/order_list",
+      "pages/communal/commodity_details",
+      "pages/communal/searchlist",
+      "pages/point/order_submit",
+      "pages/point/point_list",
+      "pages/point/point_detail",
+      "pages/groups/groups_details",
+      "pages/groups/groups_commodity_details",
+      "pages/time_limit_detail/time_limit_detail",
+      "pages/distribution/distribution",
+      "pages/distribution/spread_goods",
+      "pages/distribution/commission",
+      "pages/distribution/commission_detailed",
+      "pages/distribution/spread_statistics",
+      "pages/distribution/withdraw_cash",
+      "pages/distribution/withdraw_cash_mode",
+      "pages/distribution/withdraw_cash_record",
+      "pages/distribution/distribution_rule",
+      "pages/recharge_code/recharge_code",
+      "pages/recharge_activity/recharge_activity",
+      "pages/recharge_activity/balance_detailed",
+      "pages/account_number/bind_account",
+      "pages/timing_details/timing_details",
+      "pages/user/coupon_list"
+   ],
+   "window": {
+      "navigationBarBackgroundColor": "#fff",
+      "navigationBarTextStyle": "black",
+      "backgroundTextStyle": "light"
+   },
+   "tabBar": {
+      "position": "bottom",
+      "selectedColor": "#F53A25",
+      "color": "#4D4D4D",
+      "backgroundColor": "#fff",
+      "borderStyle": "white",
+      "list": [
+         {
+            "pagePath": "pages/home/home",
+            "text": "首页",
+            "iconPath": "pages/img/home_hide.png",
+            "selectedIconPath": "pages/img/home_show.png"
+         },
+         {
+            "pagePath": "pages/allcommodity/allcommodity",
+            "text": "全部商品",
+            "iconPath": "pages/img/all_commodity_hide.png",
+            "selectedIconPath": "pages/img/all_commodity_show.png"
+         },
+         {
+            "pagePath": "pages/shoppingcart/shoppingcart",
+            "text": "购物车",
+            "iconPath": "pages/img/shoppingcart_hide.png",
+            "selectedIconPath": "pages/img/shoppingcart_show.png"
+         },
+         {
+            "pagePath": "pages/user/user",
+            "text": "我的",
+            "iconPath": "pages/img/user_hide.png",
+            "selectedIconPath": "pages/img/user_show.png"
+         }
+      ]
+   },
+   "debug": false
+}

@@ -1,0 +1,16 @@
+.quantityViewStyle {
+  display:flex;border:1rpx solid #DADADA;border-radius:4rpx;
+}
+.minusStyle {
+  height:58rpx;width:60rpx;border-right:1rpx solid #DADADA;display:flex;justify-content:center;align-items:center;
+}
+.inputViewStyle {
+  height:58rpx;width:80rpx;border-right:1rpx solid #DADADA;
+}
+.inputView1Style {
+  width:80rpx;text-align:center;font-size:26rpx;background:white;height:58rpx; line-height: 58rpx;
+}
+
+.plusStyle {
+  height:58rpx;width:60rpx;display:flex;justify-content:center;align-items:center;line-height: 58rpx;
+}

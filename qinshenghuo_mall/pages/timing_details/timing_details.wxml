@@ -1,0 +1,125 @@
+<!-- 定时折扣-商品详情 -->
+<import src="../template/display_advertising.wxml" />
+ <import src="../custom_modular/wxParse/wxParse.wxml" /> 
+<view hidden='{{!show_loading_faill}}'>
+  <template is="display-advertising" data="{{slider:commodity_data.img,swiperCurrent:swiperCurrent,display_height:display_height}}" />
+  <view class='white-padding20rpx'>
+    <view class='commodity-name'>{{commodity_data.name}}</view>
+    <view class='price-view'>
+      <text id='price-money-text'><text class='f_mo'>￥</text>{{commodity_data.price}}
+      <text wx:if="{{commodity_data.max_price>commodity_data.price}}">~<text class='f_mo'>￥</text>{{commodity_data.max_price}}</text>
+      </text>
+      <view id='outmoded-money' wx:if="{{commodity_data.original_price!=''}}">￥{{commodity_data.original_price}}</view>
+    </view>
+  </view>
+  <view class='count-view'>
+    <view class='tab-text-view' style='text-align:left;'>
+      <text class='text-view-count'>运费: </text>
+      <text class='text-view-count'>{{freight_money}}</text>
+    </view>
+    <view class='tab-text-view'>
+      <text class='text-view-count'>剩余: </text>
+      <text class='text-view-count'>{{commodity_data.stock}}件</text>
+    </view>
+    <view class='tab-text-view' style='text-align:right;'>
+      <text class='text-view-count'>销量: </text>
+      <text class='text-view-count'>{{commodity_data.buyed_num}}笔</text>
+    </view>
+
+  </view>
+  <view class='discount_wraper'>
+    <view class='discount'>
+      <view class='icon'>discount</view>
+      <text class='decrease'>减300元</text>
+      <text class='time'>11月17日 20:00 开售</text>
+    </view>
+  </view>
+  <!--活动=>开始 -->
+  <view class='goods_activity' bindtap='tap_promotions_layer' wx:if="{{activity_data!=''}}">
+    <view class='goods_activity_left'>
+      <view class='goods_activity_list' wx:for="{{activity_data}}" wx:for-item="itemName" wx:key="key" wx:for-index="index">
+        <text class='goods_activity_label'>{{itemName.discount_type}}</text>
+        <text class='goods_activity_discount'>{{itemName.discount_text}}</text>
+      </view>
+    </view>
+    <view class='promotions_point'>
+      <image src='../img/arrows_right.png'></image>
+    </view>
+  </view>
+  <!--弹出窗=>开始  -->
+  <view class='activity_eject'>
+    <view class='activity_mask' bindtap='tap_activity_layer_close' style='{{activity_eject=="none"?"display: none":""}}'></view>
+    <!--促销活动选择窗口=>开始 wx:if="{{activity=='promotions'}}" -->
+    <view class='promotions_layer activity_layer {{activity=="promotions"?"transform":""}}'>
+      <view class='activity_layer_close' bindtap='tap_activity_layer_close'>
+        <image src='../img/dialog-del.png'></image>
+      </view>
+      <view class='activity_layer_h1'>促销详情</view>
+      <view class='promotions_activity_list' wx:for="{{activity_data}}" wx:for-item="itemName" wx:key="key" wx:for-index="index">
+        <text class='goods_activity_label'>{{itemName.discount_type}}</text>
+        <view class='promotions_activity_list_text'>{{itemName.discount_text}}</view>
+      </view>
+    </view>
+    <!--促销活动选择窗口=>开始  -->
+  </view>
+  <!--弹出窗=>结束  -->
+  <!--活动=>结束 -->
+  <view class='white-padding20rpx-top-bottom-border'>
+    <view class='left_right_vertical_center' bindtap='home_onclick'>
+      <view class='store-home-text'>商城首页</view>
+      <text class='store-home-text s_right_text'>进入店铺</text>
+      <image class='arrows-right-img' src='../img/arrows_right.png' />
+    </view>
+  </view>
+  <view class="stytle-line-left-right"></view>
+  <view class='commodity-details-view'>
+    <view class='commodity-details-title'>商品详情</view>
+  </view>
+  <view class="stytle-line-left-right"></view>
+  <view class='details-view'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+  <view class='remain_time'>距开售 仅剩1天4小时33分22秒</view>
+  <view class='bottom-view'>
+    <view class='bottom-itm-view' bindtap='home_onclick'>
+      <view class='bottom-tab-level-view'>
+        <image class='bottom-tab-img' src='../img/home_img.png' />
+        <text class='bottom-tab-text'>首页</text>
+      </view>
+    </view>
+    <view class='bottom-itm-view' bindtap='msg_onclick'>
+      <view class='bottom-tab-level-view'>
+        <image class='bottom-tab-img' src='../img/service.png' />
+        <text class='bottom-tab-text'>客服</text>
+      </view>
+    </view>
+    <view class='bottom-itm-view' bindtap='shopping_trolley_onclick'>
+      <view class='bottom-tab-level-view'>
+        <image class='bottom-tab-img' src='../img/shp_img.png' />
+        <text class='bottom-tab-text'>购物车</text>
+      </view>
+    </view>
+    <view class='left_right_vertical_center_commodity'>
+      <view class='add-shopping-view' bindtap="add_shopping">加入购物车</view>
+    </view>
+  </view>
+  <import src="../template/bottom_Logo.wxml" />
+  <template is="bottom_Logo" data="{{guanzhu:guanzhu,daohang:true,qrcode_url:qrcode_url}}" />
+</view>
+<import src="../template/bottom_dialog.wxml" />
+<template is="diaView" data="{{showDialog:showDialog,property_data:property_data,num:num,propertyid:propertyid,price_text:price_text,goods_bonus:goods_bonus,goods_price:goods_price,totalNum:totalNum,add:add,integral_limit_num:integral_limit_num}}" />
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<import src="../template/login.wxml" />
+<template is="login_view" data="{{login_show:login_show,second:second,show_secound:show_secound,phone:phone,code:code,hide_delete:hide_delete}}" />
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" />
+
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

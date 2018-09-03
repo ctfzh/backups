@@ -1,0 +1,14 @@
+<!--底部导航  -->
+<template name="bottom_Logo">
+	<view class='bottom'>
+		<view class='daohang'>
+			<navigator url='../home/home' open-type="switchTab" class='dao_it font_color1' hover-class="none">返回首页</navigator>
+      <text class='rigth_line'></text>
+			<navigator url='../user/user' open-type="switchTab" class='dao_it font_color1' hover-class="none">会员中心</navigator>
+		</view>
+		<view class='logo'>
+				<image src='../img/logo.png' class='logo_png'></image>
+				<text class='font_color1'>亲享提供技术支持</text>
+		</view>
+	</view>
+</template>

@@ -1,0 +1,28 @@
+/* 储值卡/码页CSS */
+@import "../template/top_message.wxss";
+@import "../template/loading_fall_ui.wxss";
+.code{
+  height: 90rpx;
+  background-color: #fff;
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+}
+input{
+  flex: 1;
+  margin: 0rpx 30rpx;
+}
+/* 按钮 */
+
+.button_an{
+  margin: 60rpx 30rpx 0rpx 30rpx;
+  height: 90rpx;
+  display: flex;
+  color: #fff;
+  background-color: #09BB07;
+  font-size: 32rpx;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7rpx;
+}

@@ -1,0 +1,3 @@
+/* pages/payment/pay_web-view.wxss */
+@import "../template/top_message.wxss";
+@import "../template/loading_fall_ui.wxss";

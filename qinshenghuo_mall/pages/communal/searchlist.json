@@ -1,0 +1,7 @@
+{
+	"usingComponents": {
+		"authorize": "../custom_modular/authorize"
+	},
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "商品搜索"
+}

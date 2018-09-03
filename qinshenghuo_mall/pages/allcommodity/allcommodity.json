@@ -1,0 +1,9 @@
+{
+	"usingComponents": {
+		"authorize": "../custom_modular/authorize"
+	},
+  "enablePullDownRefresh":true,
+  "backgroundTextStyle":"dark",
+  "navigationBarTitleText": "全部商品",
+  "disableScroll": true
+}

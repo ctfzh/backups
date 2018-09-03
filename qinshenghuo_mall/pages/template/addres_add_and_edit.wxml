@@ -1,0 +1,76 @@
+<!-- 收货地址编辑或新增事件 -->
+<!-- 收货地址列表 -->
+<template name="address-view-edit">
+  <view class="dialog {{ address_edit_showDialog ? 'dialog_show_edit' : '' }}">
+
+    <view class="dialog_mask" bindtap="onClickdiaView_edit" />
+    <view class="dialog_container">
+      <scroll-view scroll-y>
+        <!--  //此区域自定义视图  -->
+        <view class='title-view'>
+          <view class='title-text'>编辑收货地址</view>
+          <image id="dialog-del" src="../img/dialog-del.png" bindtap="onClickdiaView_edit" />
+        </view>
+        <view class='stytle-line' />
+        <view>
+          <view class='input-view-view'>
+            <view class='title-text-text'>收货人:</view>
+            <input class='content-text-text' value='{{address_name}}' placeholder="姓名" bindinput="bindInputName"></input>
+          </view>
+          <view class='stytle-line-left' />
+          <view class='input-view-view'>
+            <view class='title-text-text'>联系电话:</view>
+            <input class='content-text-text' placeholder="手机或者固定电话" maxlength='11' value='{{address_phone}}' type='number' bindinput="bindInputPhone"></input>
+          </view>
+					
+          <view class='stytle-line-left' />
+          <view class='input-view-view'>
+            <view class='title-text-text'>收货地区:</view>
+            <view class='content-text-text'>
+              <!-- <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}"> -->
+              <view class="picker-view">
+                <view class='picker-view-itm-text'>
+                  <picker bindchange="bindProvinceChange" value="{{province_index}}" range="{{province_array}}" range-key="name">
+                    <view>
+                      {{province_array[province_index].name? province_array[province_index].name:'请选择'}}
+                    </view>
+                  </picker>
+                </view>
+                <view class='picker-view-itm-text'>
+                  <picker bindchange="bindCityChange" value="{{city_index}}" range="{{city_array}}" range-key="name">
+                    <view>
+                      {{city_array[city_index].name? city_array[city_index].name:'请选择'}}
+                    </view>
+                  </picker>
+                </view>
+                <view class='picker-view-itm-text'>
+                  <picker bindchange="bindRegionChange" value="{{region_index}}" range="{{region_array}}" range-key="name">
+                    <view>
+                      {{region_array[region_index].name? region_array[region_index].name:'请选择'}}
+                    </view>
+                  </picker>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='stytle-line-left' />
+          <view class='input-view-view'>
+            <view class='title-text-text'>详细地址:</view>
+            <input class='content-text-text' placeholder="街道门牌信息" value='{{address_information}}' bindinput="bindInputAddressInformation"></input>
+          </view>
+          <view class='stytle-line-left' />
+          <view class='input-view-view'>
+            <view class='title-text-text'>邮政编码:</view>
+            <input class='content-text-text' placeholder="邮政编码（选填）" value='{{address_postal_code}}' type='number' bindinput="bindInputPostalCode"></input>
+          </view>
+          <view class='stytle-line' />
+          <view class='button-background-view' id='save-view' bindtap="onClickdiaView_edit_save">保存</view>
+          <view wx:if="{{addres_id}}">
+            <view wx:if="{{delete_show}}" class='button-background-view' id='set-default-view' bindtap="onClickdiaView_edit_default">设为默认</view>
+          </view>
+          <view wx:if="{{delete_show}}"  class='button-background-view' id='cancel-view' bindtap="onClickdiaView_edit_delete">删除收货地址</view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</template>

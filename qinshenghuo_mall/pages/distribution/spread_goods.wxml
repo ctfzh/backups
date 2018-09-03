@@ -1,0 +1,124 @@
+<!--推广商品  -->
+<view class='container_spr_gd window_cover' hidden='{{!show_loading_faill}}'>
+  <!-- 分销错误提示 -->
+  <import src="../distribution/distribution_anomaly.wxml" />
+  <template is="distribution_anomaly" data="{{ anomaly_code:anomaly_code}}" />
+
+  <!--顶部start  -->
+  <view class='spr_top'>
+    <view class='search_wraper'>
+      <view class='sear_icon'>
+        <image src="../img/search_spread.png"></image>
+      </view>
+      <input class='search' placeholder='搜索商品' bindconfirm="search_dcon">
+      </input>
+    </view>
+    <view class='tab'>
+      <view class="tab_item {{curIndex=='1'? 'active':''}}" data-id='1' catchtap='tab'>高佣金</view>
+      <view class="tab_item {{curIndex=='2'? 'active':''}}" data-id='2' catchtap='tab'>销量</view>
+    </view>
+  </view>
+  <!--顶部end  -->
+  <!--商品列表start  -->
+  <view class='goods_list'>
+    <view class='items_wraper'>
+      <!--商品项start  -->
+      <view class='goods_item' wx:for='{{data}}' wx:for-item='data' wx:key='key' data-goods='{{data}}' catchtap='goods_details'>
+        <view class='item_left'>
+          <image src='{{data.img}}'></image>
+        </view>
+        <view class='item_right'>
+          <view class='name font_overflow'>{{data.name}}</view>
+          <view class='price'>￥{{data.price}}</view>
+          <!--比例 收益 推广部分start  -->
+          <view class='to_spread'>
+            <view class='extra'>
+              <view class='percentage'>佣金比例:
+                <text class='num'>{{data.first_stage_commission_rate}}%</text>
+              </view>
+              <view class='income'>预计收益:
+                <text class='num'>{{data.expect_commission}}元</text>
+              </view>
+            </view>
+            <view class='btn' catchtap='to_spread' data-goods='{{data}}'>立即推广</view>
+          </view>
+          <!--比例 收益 推广部分end  -->
+        </view>
+      </view>
+      <!--商品项end  -->
+    </view>
+
+  </view>
+  <!--商品列表end  -->
+
+  <!--弹出浮动层start  -->
+  <view class='container_share'>
+    <!--阴影层  -->
+    <view class='share_shadow' bindtap='close_share' wx:if="{{share_friend||flag_shar_gd||flag_sha_code}}" catchtouchmove="preventD"></view>
+    <!--分享部分  -->
+    <view class='share_friend {{share_friend?"share_friend_x":""}}'>
+      <button class='share_item' plain open-type="share" data-recruit='{{recruit}}'>
+        <text class='share_text'>发送给朋友</text>
+      </button>
+      <button class='share_item' plain bindtap='circle_friends'>
+        <text class='share_text'>分享到朋友圈</text>
+      </button>
+      <button class='share_item' plain bindtap='Small_program_code'>
+        <text class='share_text'>小程序码</text>
+      </button>
+      <button class='share_item' plain bindtap='close_share'>
+        <text class='share_text'>取消</text>
+      </button>
+    </view>
+    <!--商品分享 邀请好友start  -->
+    <view class='share_wraper' wx:if='{{flag_shar_gd}}' catchtouchmove="preventD">
+      <view class='img circle_friends_canvas'>
+        <canvas canvas-id='extension_goods' bindtap='{{img_See?"img_See":""}}' hidden="{{time_img}}" disable-scroll="true" catchtouchmove="preventD"></canvas>
+        <view class='time_img' hidden="{{!time_img}}">
+          <image src='../img/timg.gif'></image>
+        </view>
+      </view>
+      <view class='save_wraper'>
+        <view class='txt_wraper'>
+          <view class='txt'>保存图片分享至朋友圈</view>
+          <view class='cross_line'></view>
+        </view>
+        <view class='save_btn' bindtap='{{time_img?"":"save_btn"}}'>保存图片</view>
+      </view>
+    </view>
+    <!--商品分享 邀请好友end  -->
+
+    <!--分享小程序码start  -->
+    <view class='share_wraper share_code' wx:if='{{flag_sha_code}}' catchtouchmove="preventD">
+      <view class='img canvas_code'>
+        <canvas canvas-id='canvas_code' bindtap='{{img_See?"img_See":""}}' hidden="{{time_img}}"disable-scroll="true" catchtouchmove="preventD"></canvas>
+        <view class='time_img' hidden="{{!time_img}}">
+          <image src='../img/timg.gif'></image>
+        </view>
+      </view>
+      <view class='save_wraper'>
+        <view class='txt_wraper'>
+          <view class='txt'>保存图片分享至朋友圈</view>
+        </view>
+        <view class='save_btn' bindtap='{{time_img?"":"save_btn"}}'>保存图片</view>
+      </view>
+    </view>
+    <!--分享小程序码end   -->
+
+  </view>
+  <!--分享浮动层end  -->
+</view>
+
+<!-- 顶部提示 -->
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" /> 
+
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

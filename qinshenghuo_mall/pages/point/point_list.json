@@ -1,0 +1,8 @@
+{
+	"usingComponents": {
+		"authorize": "../custom_modular/authorize"
+	},
+  "navigationBarTitleText": "积分兑换",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

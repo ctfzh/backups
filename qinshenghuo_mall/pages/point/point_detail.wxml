@@ -1,0 +1,92 @@
+          <!-- 积分商城商品详情页面 -->
+<import src="../template/display_advertising.wxml" />
+<import src="../custom_modular/wxParse/wxParse.wxml" />
+<view hidden='{{!show_loading_faill}}'>
+  <template is="display-advertising" data="{{slider:commodity_data.img,swiperCurrent:swiperCurrent,display_height:display_height}}" />
+  <view class='white-padding20rpx'>
+    <view class='commodity-name'>{{commodity_data.name}}</view>
+    <view class='price-view'>
+      <!-- <text id='price-money-text'><text class='f_mo'>￥</text>{{commodity_data.price}}</text> -->
+      <text id='price-money-text'>{{commodity_data.integral_goods_bonus}}积分</text>
+      <text id='price-money-text' wx:if="{{commodity_data.integral_goods_price>0}}">+{{commodity_data.integral_goods_price}}元</text>
+      <view id='outmoded-money'wx:if="{{commodity_data.original_price!=''}}">￥{{commodity_data.original_price}}</view>
+    </view>
+  </view>
+  <view class='count-view'>
+    <view class='tab-text-view' style='text-align:left;'>
+      <text class='text-view-count'>运费: </text>
+      <text class='text-view-count'>{{commodity_data.freight_money}}元</text>
+    </view>
+    <view class='tab-text-view'>
+      <text class='text-view-count'>可兑换: </text>
+      <text class='text-view-count'>{{commodity_data.stock}}件</text>
+    </view>
+    <view class='tab-text-view'style='text-align:right;'>
+      <text class='text-view-count'>已兑换: </text>
+      <text class='text-view-count'>{{commodity_data.buyed_num}}笔</text>
+    </view>
+
+  </view>
+
+  <view class='discount_wraper' wx:if="{{commodity_data.timelimimt_view.start_time>current_time}}">
+    <view class='discount'>
+      <view class='icon'>{{commodity_data.timelimimt_view.tip}}</view>
+      <text class='decrease'>{{commodity_data.timelimimt_view.tag}}</text>
+      <text class='time'>{{start_date}} {{start_time}} 开售</text>
+    </view>
+  </view>
+
+  <view class='white-padding20rpx-top-bottom-border'>
+    <view class='left_right_vertical_center' bindtap='home_onclick'>
+      <view class='store-home-text'>商城首页</view>
+			<text class='store-home-text s_right_text'>进入店铺</text>
+      <image class='arrows-right-img' src='../img/arrows_right.png' />
+    </view>
+  </view>
+	<view class="stytle-line-left-right"></view>
+  <view class='commodity-details-view'>
+    <view class='commodity-details-title'>商品详情</view>
+  </view>
+	<view class="stytle-line-left-right"></view>
+  <view class='details-view'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+  <view class='bottom-view'>
+    <view class='bottom-itm-view' bindtap='home_onclick'>
+      <view class='bottom-tab-level-view'>
+        <image class='bottom-tab-img' src='../img/home_img.png' />
+        <text class='bottom-tab-text'>首页</text>
+      </view>
+    </view>
+	    <view class='bottom-itm-view' bindtap='msg_onclick'>
+					<view class='bottom-tab-level-view'>
+						<image class='bottom-tab-img' src='../img/service.png' />
+						<text class='bottom-tab-text'>客服</text>
+					</view>
+				</view>
+    <view class='left_right_vertical_center_commodity'>
+      <view class='buy-immediately-view' bindtap='buy_commodity' wx:if ="{{anniu_duihuan!=2}}">立即兑换</view>
+      <view class='buy-immediately-view anniu_hui' wx:if ="{{anniu_duihuan==2}}">暂未开放</view>
+    </view>
+  </view>
+	<import src="../template/bottom_Logo.wxml" />
+	<template is="bottom_Logo" data="{{guanzhu:guanzhu,daohang:true,qrcode_url:qrcode_url}}"/> 
+</view>
+<import src="../template/bottom_dialog.wxml" />
+<template is="diaView" data="{{showDialog:showDialog,anniu_duihuan:anniu_duihuan,property_data:property_data,num:num,propertyid:propertyid,price_text:price_text,goods_bonus:goods_bonus,goods_price:goods_price,totalNum:totalNum,add:add,integral_limit_num:integral_limit_num}}" />
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<import src="../template/login.wxml" />
+<!-- <template is="login_view" data="{{login_show:login_show,second:second,show_secound:show_secound}}" /> -->
+<template is="login_view" data="{{login_show:login_show,second:second,show_secound:show_secound,phone:phone,code:code,hide_delete:hide_delete}}" />
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" />
+
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

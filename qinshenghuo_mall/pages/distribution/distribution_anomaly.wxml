@@ -1,0 +1,40 @@
+<template name='distribution_anomaly'>
+  <!--分销异常  -->
+  <view class='dis_error' hidden='{{!anomaly_code}}'>
+
+    <view class='error_img' wx:if="{{anomaly_code != 3}}">
+      <image src='../img/distribution_error.png'></image>
+    </view>
+
+    <view class='err_txt_wraper' wx:if="{{anomaly_code == 1}}">
+      <view class='err_txt'>非常抱歉，分销功能已关闭</view>
+      <view class='err_txt'>如有疑问请联系商家客户</view>
+    </view>
+
+    <view class='err_txt_wraper' wx:if="{{anomaly_code == 2}}">
+      <view class='err_txt'>非常抱歉，您的分销功能无法使用</view>
+      <view class='err_txt'>如有任何疑问，联系商家客服</view>
+    </view>
+
+    <view class='err_3' wx:if="{{anomaly_code == 3}}">
+      <view class='error_img'>
+        <image src='../img/distribution_error.png'></image>
+      </view>
+      <view class='err_txt_wraper'>
+        <view class='err_txt'>非常抱歉，您的申请已被驳回</view>
+        <view class='err_txt'>如有任何疑问，联系商家客服</view>
+      </view>
+      <view class='err_txt_reason font_overflow'>驳回理由：{{reject_reason}}</view>
+      <view class='btn_wraper' bindtap='apply'>
+        <text>重新申请开启分销</text>
+      </view>
+      <view class='cancel' bindtap='cancel'>取消</view>
+    </view>
+
+  </view>
+</template>
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

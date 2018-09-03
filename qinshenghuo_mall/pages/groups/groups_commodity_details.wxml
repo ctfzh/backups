@@ -1,0 +1,264 @@
+<!--pages/communal/commodity_details.wxml-->
+<import src="../template/display_advertising.wxml" />
+<import src="../custom_modular/wxParse/wxParse.wxml" />
+<view hidden='{{!show_loading_faill}}'>
+  <template is="display-advertising" data="{{slider:commodity_data.img,swiperCurrent:swiperCurrent,display_height:display_height}}" />
+  <view class='white-padding20rpx'>
+    <view class='price-view'>
+      <view id='price-money-text'>
+        <text class='f_mo'>￥</text>{{commodity_data.group_price}}<text wx:if="{{commodity_data.max_price>commodity_data.group_price}}">~<text class='f_mo'>￥</text>{{commodity_data.max_price}}</text>
+      </view>
+      <text id='outmoded-money' wx:if="{{commodity_data.price}}">￥{{commodity_data.price}}</text>
+      <text class='price_right'>
+				<text class='already_group'>已团{{commodity_data.buyed_num}}件</text>
+      <text class='Is_group'>{{commodity_data.group_num}}人团</text>
+      </text>
+    </view>
+    <view class='commodity-name'>{{commodity_data.name}}</view>
+
+  </view>
+
+  <!-- <view class='count-view'>
+    <view class='tab-text-view' style='text-align:left;'>
+      <text class='text-view-count'>运费: </text>
+      <text class='text-view-count'>{{freight_money}}</text>
+    </view>
+    <view class='tab-text-view'>
+      <text class='text-view-count'>剩余: </text>
+      <text class='text-view-count'>{{commodity_data.stock}}件</text>
+    </view>
+    <view class='tab-text-view'style='text-align:right;'>
+      <text class='text-view-count'>销量: </text>
+      <text class='text-view-count'>{{commodity_data.buyed_num}}笔</text>
+    </view>
+
+  </view> -->
+  <!--活动=>开始 -->
+  <view class='goods_activity' bindtap='tap_promotions_layer' wx:if="{{activity_data}}">
+    <view class='goods_activity_left'>
+      <view class='goods_activity_list' wx:for="{{activity_data}}" wx:for-item="itemName" wx:key="key" wx:for-index="index">
+        <text class='goods_activity_label'>{{itemName.discount_type}}</text>
+        <text class='goods_activity_discount'>{{itemName.discount_text}}</text>
+      </view>
+    </view>
+    <view class='promotions_point'>
+      <image src='../img/arrows_right.png'></image>
+    </view>
+  </view>
+  <!--弹出窗=>开始  -->
+  <view class='activity_eject'>
+    <view class='activity_mask' bindtap='tap_activity_layer_close' style='{{activity_eject=="none"?"display: none":""}}'></view>
+    <!--促销活动选择窗口=>开始 wx:if="{{activity=='promotions'}}" -->
+    <view class='promotions_layer activity_layer {{activity=="promotions"?"transform":""}}'>
+      <view class='activity_layer_close' bindtap='tap_activity_layer_close'>
+        <image src='../img/dialog-del.png'></image>
+      </view>
+      <view class='activity_layer_h1'>促销详情</view>
+      <!--促销活动列表  -->
+      <view class='promotions_activity_list' wx:for="{{activity_data}}" wx:for-item="itemName" wx:key="key" wx:for-index="index">
+
+        <!--活动类型  -->
+        <text class='goods_activity_label'>{{itemName.discount_type}}</text>
+
+        <!--活动详情  -->
+        <view class='promotions_activity_list_text'>{{itemName.discount_text}}</view>
+      </view>
+    </view>
+    <!--促销活动选择窗口=>开始  -->
+  </view>
+  <!--弹出窗=>结束  -->
+  <!--活动=>结束 -->
+
+  <!--团列表=>开始  -->
+    <view class='fight_groups' wx:if="{{commodity_data.is_show_group==1&&groups_list.length>0}}">
+      <view class='left_right_vertical_center'>
+        <view class='store-home-text'>{{groups_list.length}}人正在开团，可直接参与</view>
+        <text class='store-home-text s_right_text' bindtap='see_groups_list'>查看更多</text>
+        <image class='arrows-right-img' src='../img/arrows_right.png' />
+      </view>
+      <view class="stytle-line-left-right"></view>
+      <view class='fight_groups_list' wx:for="{{groups_list}}" wx:for-item="itemName" wx:key="key" wx:for-index="index" wx:if="{{index<2}}">
+        <view class="stytle-line-left-right"></view>
+
+          <view class='baoguo'>
+            <view class='fight_groups_list_left'>
+              <image class='fight_groups_img' src='{{itemName.head_img}}'></image>
+              <text class='fight_groups_name font1'>{{itemName.nickname}}</text>
+            </view>
+
+            <view class='fight_groups_list_right'>
+              <view class='fight_groups_right_item'>
+                <view class='fight_groups_surplus_member'>还差<text class='surplus_member'>{{itemName.surplus_member}}人</text>拼成</view>
+                <view class='fight_groups_end_time'>剩余{{clockarr[index+1]}}</view>
+              </view>
+              <view class='fight_groups_details' data-data='{{itemName}}' bindtap='participate_group'>去参团</view>
+            </view>
+        </view>
+        <view class="stytle-line-left-right"></view>
+
+      </view>
+    </view>
+  <!--团列表=>结束  -->
+
+  <!--团列表详情弹窗=>开始  -->
+  <view class='groups_details_layer' style='{{groups_details_layer=="none"?"display: none":""}}'>
+    <view class='groups_mask'  bindtap='tap_groups_details_layer_close' ></view>
+     <view class='groups_details_eject'>
+      <view class='is_groups'>
+        <text>正在开团</text>
+        <image class='close_is_groups' bindtap='tap_groups_details_layer_close' src='../img/dialog-del.png'></image>
+      </view>
+      <view class='overflow'>
+        <view class='fight_groups_list' wx:for="{{groups_list}}" wx:for-item="itemName" wx:key="key" wx:for-index="index">
+
+          <view class='baoguo'>
+            <view class='fight_groups_list_left'>
+              <image class='fight_groups_img' src='{{itemName.head_img}}'></image>
+              <text class='fight_groups_name font1'>{{itemName.nickname}}</text>
+            </view>
+
+            <view class='fight_groups_list_right'>
+              <view class='fight_groups_right_item'>
+                <view class='fight_groups_surplus_member'>还差<text class='surplus_member'>{{itemName.surplus_member}}人</text>拼成</view>
+                <view class='fight_groups_end_time'>剩余{{clockarr[index+1]}}</view>
+              </view>
+              <view class='fight_groups_details' data-data='{{itemName}}' bindtap='participate_group'>去参团</view>
+            </view>
+          </view>
+          <view class="stytle-line-left-right"></view>
+
+        </view>
+      </view>
+      
+    </view> 
+  </view>
+  <!--团列表详情弹窗=>结束  -->
+
+  <view class='white-padding20rpx-top-bottom-border'>
+    <view class='left_right_vertical_center' bindtap='home_onclick'>
+      <view class='store-home-text'>商城首页</view>
+      <text class='store-home-text s_right_text'>进入店铺</text>
+      <image class='arrows-right-img' src='../img/arrows_right.png' />
+    </view>
+  </view>
+  <view class="stytle-line-left-right"></view>
+  <view class='commodity-details-view'>
+    <view class='commodity-details-title'>商品详情</view>
+  </view>
+  <view class="stytle-line-left-right"></view>
+  <view class='details-view'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+  <view class='bottom-view'>
+    <view class='bottom-itm-view' bindtap='home_onclick'>
+      <view class='bottom-tab-level-view'>
+        <image class='bottom-tab-img' src='../img/home_img.png' />
+        <text class='bottom-tab-text'>首页</text>
+      </view>
+    </view>
+    <view class='bottom-itm-view' bindtap='msg_onclick'>
+      <view class='bottom-tab-level-view'>
+        <image class='bottom-tab-img' src='../img/service.png' />
+        <text class='bottom-tab-text'>客服</text>
+      </view>
+    </view>
+    <view class='left_right_vertical_center_commodity'>
+      <view class='add-shopping-view' bindtap="add_shopping" wx:if="{{!participate||commodity_data.is_join_group==1}}">
+        <view class='price_money'>
+          <text class='fu_money'>￥</text>{{commodity_data.price}}</view>
+        <view>单独购买</view>
+      </view>
+      <view class='buy-immediately-view' bindtap="buy_commodity" wx:if="{{!participate||commodity_data.is_join_group==1}}">
+        <view class='price_money'>
+          <text class='fu_money'>￥</text>{{commodity_data.group_price}}
+        </view>
+        <view>一键开团</view>
+      </view>
+      <view class='buy-immediately-view Invitation' bindtap="buy_commodity" wx:if="{{participate&&commodity_data.is_join_group==2}}">
+        <view class='price_money'>
+          <text class='fu_money'>￥</text>{{commodity_data.group_price}}
+        </view>
+        <view>一键参团</view>
+      </view>
+    </view>
+  </view>
+
+<!--购买弹窗=>开始  -->
+<view class="dialog {{ showDialog ? 'dialog_show' : '' }}">
+  <view class="dialog_mask" bindtap="onClickdiaView" />
+  <view class="dialog_container">
+    <scroll-view scroll-y>
+      <!--  //此区域自定义视图  -->
+      <view class='dialog-view'>
+        <view class="title-view">
+          <image id="commodity-img1" src="{{property_data.img}}" />
+          <view id="commodity-text">
+            <!--商品名称  -->
+            <!-- <view id='commodity-name'>
+                 <view>{{property_data.name}}</view> 
+              </view> -->
+            <!--价格  -->
+            <view class="commodity-price">
+              <!-- <text wx:if="{{goods_bonus > 0}}">{{goods_bonus}}积分</text>
+								<text wx:if="{{goods_price > 0}}">+{{goods_price}}元</text> -->
+              <text wx:if="{{price_text > 0 && ! goods_bonus}}">￥{{price_text}}</text>
+            </view>
+            <!--商品可购买数量  -->
+            <view class='surplus-number'>
+              <text>剩余{{totalNum}}件 </text>
+              <text class='restrictions' wx:if="{{integral_limit_num > 0}}">(限购{{integral_limit_num}}件)</text>
+            </view>
+            <view></view>
+          </view>
+          <image id="dialog-del" src="../img/dialog-del.png" bindtap="onClickdiaView" />
+        </view>
+
+        <view wx:for='{{property_data.sku}}' wx:for-item="itemSku" wx:for-index="idx1" wx:key="unique">
+          <view class='title-itm-name'>{{itemSku.category.name}}</view>
+          <view class='itm-content'>
+            <view class="itm-name {{ propertyid[idx1]==itemName.id? 'itm-text-checked':'itm-text-text'}}" wx:for='{{itemSku.property}}' wx:for-index="idx" data-idx="{{itemName}}" data-postion="{{idx1}}" data-itmpostion="{{idx}}" wx:for-item="itemName" wx:key="unique"
+              bindtap='checked_property_oncilick'>{{itemName.val}}</view>
+          </view>
+        </view>
+        <view class='left_right_vertical_center purchase_num'>
+          <view>
+            <view class='buy-number'>购买数量：</view>
+          </view>
+          <view class='number-view'>
+            <import src="../template/numberPlusMinus.wxml" />
+            <template is="quantity" data="{{num:num,totalNum:totalNum}}" />
+          </view>
+        </view>
+        <view style='padding-bottom: 10rpx;'></view>
+        <view class='left_right_vertical_center' style="display:{{add?'none':'flex'}}">
+          <view wx:if="{{buy==1}}" class='buy-immediately duihuan' bindtap='buy_onlick'>立即购买</view>
+        </view>
+        <view wx:if="{{buy==2&&!group_id||commodity_data.is_join_group==1}}" class='buy-immediately' bindtap='open_group'>确定</view>
+        <view wx:if="{{buy==2&&group_id&&commodity_data.is_join_group==2}}" class='buy-immediately' bindtap='buy_onlick'>确定</view>
+      </view>
+
+    </scroll-view>
+  </view>
+</view>
+<!--购买弹窗=>结束  -->
+
+  <import src="../template/bottom_Logo.wxml" />
+  <template is="bottom_Logo" data="{{guanzhu:guanzhu,daohang:true,qrcode_url:qrcode_url}}" />
+</view>
+
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<import src="../template/login.wxml" />
+<!-- <template is="login_view" data="{{login_show:login_show,second:second,show_secound:show_secound}}" /> -->
+<template is="login_view" data="{{login_show:login_show,second:second,show_secound:show_secound,phone:phone,code:code,hide_delete:hide_delete}}" />
+
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" /> 
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

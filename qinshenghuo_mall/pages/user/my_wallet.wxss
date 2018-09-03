@@ -1,0 +1,18 @@
+/* pages/user/my_wallet.wxss */
+/* 我的钱包 */
+.user-view {
+  text-align: center;
+  background: #d43c33;
+  padding-top: 100rpx;
+  padding-bottom: 100rpx;
+}
+.money-view {
+ color: white;
+  font-size: 40rpx;
+  margin: 20rpx;
+}
+.user-name-view {
+  color: white;
+  font-size: 32rpx;
+  margin: 20rpx;
+}

@@ -1,0 +1,133 @@
+<!-- 首页 -->
+<!-- 分割线 -->
+<view class='top_fixed_solid'></view>
+<!-- 分割线 -->
+
+
+<view hidden='{{!show_loading_faill}}'>
+  <view wx:for="{{content}}" wx:for-item="itemName" wx:key="unique">
+
+<!-- 商品列表 -->
+<import src="../template/product_list.wxml" />
+    <template wx:if="{{itemName.type=='goods'&&itemName.list&&itemName.list.length>0}}" is="product-list" data="{{array:itemName.list,listStyle:itemName.listStyle,shopStyle:itemName.shopStyle,showPrice:itemName.showPrice,showTitle:itemName.showTitle,showBuy:itemName.showBuy,btnStyle:itemName.btnStyle,btnText:itemName.btnText}}"
+    />
+
+	<!-- 图片导航模板 -->
+	<import src="../template/image_navigation.wxml" />
+    <template wx:if="{{itemName.type=='nav'&&itemName.list&&itemName.list.length>0}}" is="image-navigation" data="{{array:itemName.list}}" />
+
+		<!-- 富文本转译 -->
+		<import src="../custom_modular/wxParse/wxParse.wxml" />
+    <template wx:if="{{itemName.type=='富文本'}}" is="wxParse" data="{{wxParseData:article.nodes}}" />
+
+		<!-- 搜索 -->
+		<import src="../template/search.wxml" />
+    <template wx:if="{{itemName.type=='search'}}" is="seach" data="{{defaultColor:itemName.defaultColor,clear_type:clear_type,searchinput:searchinput}}" />
+
+    <!--拼团商品=>开始  -->
+		<import src="../template/collage_goods.wxml" />
+    <template is="collage_goods" wx:if="{{itemName.type=='fightG'&&itemName.list&&itemName.list.length>0}}" data="{{fightG:itemName}}" />
+    <!--拼团商品=>结束  -->
+
+    <!--图片广告=>开始 -->
+    <view class='home_picture_advert' wx:if='{{itemName.type=="banner"}}'>
+      <!--引入图片广告页面  -->
+      <picture_advert list="{{itemName}}"></picture_advert>
+    </view>
+    <!--图片广告=>结束  -->
+
+    <!--图标导航=>开始 -->
+    <view class='home_picture_navigation' wx:if='{{itemName.type=="nav"}}'>
+      <!--引入图标导航模块  -->
+      <picture_navigation list="{{itemName}}"></picture_navigation>
+    </view>
+    <!--图标导航=>结束 -->
+
+    <!--公告=>开始  -->
+    <view class='home_notice' wx:if='{{itemName.type=="post"}}'>
+      <!--引入公告  -->
+      <notice list="{{itemName}}"></notice>
+    </view>
+    <!--公告=>结束  -->
+
+    <!--辅助线=>开始  -->
+    <view class='home_assist_line' wx:if='{{itemName.type=="guideLine"}}'>
+      <!--引入辅助线模块  -->
+      <assist_line list="{{itemName}}"></assist_line>
+    </view>
+    <!--辅助线结束  -->
+
+    <!--辅助空白=>开始  -->
+    <view class='home_assist_blank' wx:if='{{itemName.type=="guidePadding"}}'>
+      <!--引入辅助空白模块  -->
+      <assist_blank list="{{itemName}}"></assist_blank>
+    </view>
+    <!--辅助空白=>结束  -->
+
+    <!--图文=>开始  -->
+    <view class='home_picture_text' wx:if='{{itemName.type=="imageText"}}'>
+      <!--引入图文模块  -->
+      <picture_text list="{{itemName}}"></picture_text>
+    </view>
+    <!--图文模块结束  -->
+
+    <!--标题=>开始  -->
+    <view class='home_title' wx:if='{{itemName.type=="headline"}}'>
+      <!--引入标题模块  -->
+      <title list="{{itemName}}"></title>
+    </view>
+    <!--标题结束  -->
+
+    <!--富文本=>开始  -->
+    <view class='home_richText' wx:if='{{itemName.type=="richText"}}'>
+      <!-- 引入富文本模块 -->
+      <richText list="{{itemName}}"></richText>
+    </view>
+    <!--富文本=>结束  -->
+
+    <!--视频=>开始  -->
+    <view class='home_video_mould' wx:if='{{itemName.type=="video"}}'>
+      <!--引入视频  -->
+      <video_mould list="{{itemName}}"></video_mould>
+    </view>
+    <!--视频=>结束  -->
+
+    <!--优惠券=>开始  -->
+    <view class='home_discounts' wx:if='{{itemName.type=="coupon"}}'>
+      <!--引入优惠券模块  -->
+      <discounts bind:receive="receive" bind:share="share"  list="{{itemName}}"></discounts>
+    </view>
+    <!--优惠券结束  -->
+    
+    <!--限时折扣开始  -->
+    <view class='home_limit_disc' wx:if='{{itemName.type=="discount"}}'>
+      <time_limit_discount list="{{itemName}}"></time_limit_discount>
+    </view>
+    <!--限时折扣开始  -->
+
+  </view>
+
+
+  <!--页面底部logo=>开始  -->
+  <import src="../template/bottom_Logo.wxml" />
+  <template is="bottom_Logo" wx:if="{{content}}"  data="{{guanzhu:guanzhu,daohang:true,qrcode_url:qrcode_url}}" />
+  <!--页面底部logo=>结束  -->
+
+</view>
+
+<!-- 添加购物车模板 -->
+<import src="../template/bottom_dialog.wxml" />
+<template is="diaView" data="{{showDialog:showDialog,property_data:property_data,num:num,propertyid:propertyid,price_text:price_text,totalNum:totalNum,add:add,integral_limit_num}}" />
+<!-- 顶部提示 -->
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" /> 
+
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize"></authorize>
+	</view>

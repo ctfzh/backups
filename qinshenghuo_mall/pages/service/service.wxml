@@ -1,0 +1,81 @@
+<!-- 客服 HTML-->
+<view class='top_fixed_solid'></view>
+<view class='max_window' hidden='{{!show_loading_faill}}'>
+	<scroll-view class='service_window' scroll-y="true" scroll-into-view="{{into_view}}" bindscrolltoupper="scrolltop">
+	<import src="../template/top_message.wxml" />
+	<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+		<!-- 消息 -->
+		 <view class='service_cont' wx:for="{{array}}" wx:for-item="itemName" wx:key="key" wx:for-index="index">
+			<!--当前时间  -->
+			 <view class='time' wx:if="{{itemName.msg_type=='goods_fa'}}">{{time}}</view> 
+			<!--气泡  -->
+			<view class='news {{itemName.type=="right"? "news_right":"news_left"}} {{goods_close}}' style="{{index==goods_close ? 'display:none' : ''}}">
+				<view class='portrait'>
+					<image src='{{itemName.type=="right"? user_avatar : customer_avatar}}'></image>
+				</view>
+				<view class='user'>
+					<view class='user_name'>{{itemName.type=="right"? user_name : customer_name}}</view>
+					<view class='se_content'>
+						<view class='jiao'></view>
+							<!--文字消息  -->
+						<view class='se_content_text' wx:if="{{itemName.msg_type=='text'}}">
+							{{itemName.content}}
+						</view>
+						<!--图片消息  -->
+						<view class='se_content_img' wx:if="{{itemName.msg_type=='img'}}">
+							<image src='{{itemName.content}}' mode='aspectFill' bindtap="previewImage" style="width: {{itemName.img_width}}rpx; height:{{itemName.img_height}}rpx; background-color: #fff;"></image>
+						</view>
+						<!--商品链接  -->
+						<view class='goods' wx:if="{{itemName.msg_type=='goods'}}" data-content="{{itemName.content}}" bindtap='getgoods'>
+							<view class='goods_img'>
+								<image src='{{itemName.content.goods_img}}'></image>
+							</view>
+							<view>
+								<view class='goods_text'>{{itemName.content.goods_name}}</view>
+								<view class='goods_money'>￥{{itemName.content.goods_price}}</view>
+							</view>
+						</view>
+						<!--商品发送链接  -->
+						<view class='goods' wx:if="{{itemName.msg_type==='goods_fa'}}">
+							<view class='goods_img'>
+								<image src='{{goods.img[0].img}}'></image>
+							</view>
+								<view class='goods_close' bindtap='goods_close' data-index="{{index}}"><image src='../img/del.png'></image></view>
+							<view class='goods_cont'>
+								<view class='goods_text'>{{goods.name}}aaa</view>
+								<view class='goods_money'>￥{{goods.price}}</view>
+								<view class='goods_send' bindtap='goods_send'>发送链接</view>
+							</view>
+						</view>
+						<!--商品发送链接  -->
+
+					</view>
+				</view>
+			</view>
+
+		</view>
+		<!-- 消息 -->
+			<view  id='j_page' style='height:10rpx;'></view>
+	</scroll-view>
+	<view class='service_bottom' >
+		<view class='imgUP' bindtap='imgup'>
+		<image src='../img/imgup.png'></image>
+		</view>
+		<view class='chat_input'>
+			<!-- <textarea class='Input_box' auto-height='true' show-confirm-bar="" cursor-spacing="15" bindfocus='bindblur'></textarea> -->
+			<input class='Input_box' bindinput='text_content' value='{{push_parameter}}' confirm-hold="true" focus="{{focus}}" cursor-spacing="25"></input>
+		</view>
+		<view  class='send_button' bindtap='send'>发送</view>
+	</view>
+</view>
+
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" />
+
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

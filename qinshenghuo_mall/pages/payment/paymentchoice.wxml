@@ -1,0 +1,43 @@
+<!-- 支付渠道选择界面 -->
+<view class='view-content' hidden='{{!show_loading_faill}}'>
+  <view class='stytle-line' />
+  <view class='title-view'>选择支付方式</view>
+  <view class='stytle-line' />
+   <view class='content-view' bindtap='weixin_pay'>
+    <view class='left-view'>
+      <image class='payment-img' src="../img/weixin.png" />
+      <view>微信支付</view>
+    </view>
+    <image class='payment-img-select' src="../img/{{weixin_pay_type? 'pay_true.png':'pay_false.png'}}"  />
+  </view>
+  <view class='stytle-line-left' /> 
+  <view class='content-view'  bindtap='chuzhi_pay'>
+    <view class='left-view'>
+      <image class='payment-img' src="../img/chuzhi.png" />
+      <view>储值支付</view>
+    </view>
+    <image class='payment-img-select' src="../img/{{chuzhi_pay_type? 'pay_true.png':'pay_false.png'}}" />
+  </view>
+  <view class='stytle-line' />
+</view>
+<view class='bottom-view'>
+  <view wx:if="{{chuzhi_pay_type&&chzhi_money - money<0}}" class='hint-view'>
+   储值余额不足，请选择其他支付方式
+  </view>
+  <!-- <view wx:if="{{!chzhi_money&&chuzhi_pay_type}}" class='hint-view'>
+    储值余额获取失败
+  </view> -->
+  <view bindtap='{{!is_sumbit_pay?"sumbit_pay":""}}' class='subitm-view' style="background:{{weixin_pay_type||(chuzhi_pay_type&&chzhi_money - money>=0)? '#41b035':'#bfbfbf'}}" >确认支付{{money}}元</view>
+</view>
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" />
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

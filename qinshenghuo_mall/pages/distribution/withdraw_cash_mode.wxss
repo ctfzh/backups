@@ -1,0 +1,166 @@
+/*页面数据加载失败显示的模块  */
+@import '../template/loading_fall_ui.wxss';
+@import "../template/top_message.wxss";
+@import "../distribution/distribution_anomaly.wxss";
+/*提现方式选择  */
+page {
+  background-color: #fff;
+}
+
+.container_account {
+  padding: 60rpx 30rpx 0 30rpx;
+}
+
+.account_item {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 180rpx;
+  margin-bottom: 20rpx;
+  padding: 0 60rpx 0 45rpx;
+  border-radius: 10rpx;
+}
+
+image {
+  width: 100%;
+  height: 100%;
+}
+
+/*微信start  */
+
+/*背景  */
+
+.wechat {
+  background: -webkit-linear-gradient(left, #23c22d, #07b813);
+}
+
+/*图  */
+
+.icon_wc_wraper {
+  width: 95rpx;
+  height: 80rpx;
+  position: relative;
+}
+
+.icon_wc {
+  position: absolute;
+  top: -10rpx;
+  bottom: -11rpx;
+  left: -2rpx;
+  right: -3rpx;
+}
+
+/*描述  */
+
+.account_item .des {
+  flex: 1;
+  margin-left: 30rpx;
+  color: #fff;
+  font-size: 38rpx;
+}
+
+/*背景图  */
+
+.wc_bg_wraper {
+  width: 170rpx;
+  height: 100rpx;
+  position: relative;
+  align-self: flex-end;
+}
+
+.wc_bg {
+  position: absolute;
+  top: -40rpx;
+  bottom: -40rpx;
+  left: -6rpx;
+  right: -6rpx;
+}
+
+/*微信end  */
+
+/*支付宝start  */
+
+/*背景  */
+
+.alipay {
+  background: -webkit-linear-gradient(left, #24b2ff, #00a7ff);
+}
+
+/*图  */
+
+.icon_ali_wraper {
+  width: 85rpx;
+  height: 85rpx;
+  position: relative;
+}
+
+.icon_ali {
+  position: absolute;
+  top: -8rpx;
+  bottom: -8rpx;
+  left: -8rpx;
+  right: -8rpx;
+}
+
+/*背景图  */
+
+.ali_bg_wraper {
+  width: 140rpx;
+  height: 100rpx;
+  position: relative;
+  align-self: flex-end;
+  margin-right: 15rpx;
+}
+
+.ali_bg {
+  position: absolute;
+  top: -40rpx;
+  bottom: -40rpx;
+  left: -20rpx;
+  right: -20rpx;
+}
+
+/*支付宝end  */
+
+/*银行卡start  */
+
+/*背景  */
+
+.brand_card {
+  background: -webkit-linear-gradient(left, #1085eb, #0875d4);
+}
+
+/*图  */
+
+.icon_br_wraper {
+  width: 100rpx;
+  height: 62rpx;
+  position: relative;
+}
+
+.icon_br {
+  position: absolute;
+  top: -19rpx;
+  bottom: -19rpx;
+  left: 0rpx;
+  right: 0rpx;
+}
+
+/*背景图  */
+
+.brand_bg_wraper {
+  width: 160rpx;
+  height: 80rpx;
+  position: relative;
+  align-self: flex-end;
+}
+
+.brand_bg {
+  position: absolute;
+  top: -50rpx;
+  bottom: -50rpx;
+  left: -10rpx;
+  right: -10rpx;
+}
+
+/*银行卡end  */

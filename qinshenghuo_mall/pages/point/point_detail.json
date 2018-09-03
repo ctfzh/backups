@@ -1,0 +1,8 @@
+{
+	"usingComponents": {
+		"authorize": "../custom_modular/authorize"
+	},
+	"navigationBarTitleText": "积分商品",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

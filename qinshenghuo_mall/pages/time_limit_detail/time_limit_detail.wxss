@@ -1,0 +1,116 @@
+/*限时折扣样式  */
+@import "../communal/commodity_details.wxss";
+
+/*价格时间部分  */
+
+.disc_top {
+  display: flex;
+}
+
+.dis_price {
+  flex: 1;
+  background: -webkit-linear-gradient(left, #ff196b, #ff3b44);
+  /* display: flex;
+  flex-flow: row nowrap;
+  align-items: center; */
+  height: 120rpx;
+  color: #fff;
+  overflow: hidden;
+}
+
+.dis_price .now_price {
+  display: inline-block;
+  font-size: 70rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  margin-left: 15rpx;
+}
+
+.dis_price .now_price .now_unit {
+  font-size: 34rpx;
+}
+
+.dis_price .old_price {
+  display: inline-block;
+  font-size: 30rpx;
+  text-decoration: line-through;
+  vertical-align: center;
+  margin-left: 15rpx;
+}
+
+.dis_time {
+  display: flex;
+  width: 264rpx;
+  height:120rpx;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  background: #ffe8e8;
+  color: #ff2859;
+  font-size: 30rpx;
+}
+
+/*限时折扣图标行  */
+
+.disc_bot {
+  display: flex;
+  flex-flow: row nowrap;
+  background: #fff;
+  height: 50rpx;
+  padding: 25rpx 15rpx;
+}
+
+.disc_bot_ico {
+  height: 50rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12rpx;
+  box-sizing: border-box;
+  border-radius: 3rpx;
+  background: -webkit-linear-gradient(left, #e04887, #b433ff);
+}
+
+.pic_ico {
+  width: 25rpx;
+  height: 25rpx;
+  margin-right: 5rpx;
+}
+
+.pic_ico image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.font {
+  flex: 1;
+  color: #fff;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.disc_bot_name {
+  flex:1;
+  margin-left: 30rpx;
+  font-size: 36rpx;
+  -webkit-line-clamp: 1; /** 显示的行数 **/
+}
+.dis_time_top{
+	line-height: 30rpx;
+}
+.dis_time_bot{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 15rpx;
+}
+.limit_item{
+	width: 50rpx;
+	height: 54rpx;
+	background-color: #FF2859;
+	border-radius: 4rpx;
+	color: #fff;
+	line-height: 54rpx;
+	text-align: center;
+}

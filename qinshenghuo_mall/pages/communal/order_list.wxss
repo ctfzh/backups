@@ -1,0 +1,153 @@
+/* pages/communal/order_list.wxss */
+
+/* 订单列表界面 */
+
+@import "../template/top_message.wxss";
+@import "../template/loading_fall_ui.wxss";
+.content-view-itm {
+  background: white;
+  margin-bottom: 20rpx;
+}
+
+.orderno-text {
+  font-size: 26rpx;
+  color: #4d4d4d;
+	margin: 25rpx;
+}
+
+.order-state-text {
+  font-size: 26rpx;
+  color: #F03F2B;
+	margin: 25rpx;
+}
+
+.left_right_commodity {
+  /*布局方式*/
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 30rpx;
+	background-color: #F7F7F7;
+}
+
+.commodity-view {
+  display: flex;
+}
+
+.commodity-img {
+  width: 150rpx;
+  height: 150rpx;
+	flex-shrink:0
+}
+
+.commodity-right-view {
+  text-align: right;
+	flex-shrink:0;
+}
+
+.commodity-left-view {
+  margin-left: 30rpx;
+}
+
+.commodity-name {
+	width: 320rpx;
+  font-size: 30rpx;
+  color: #1A1A1A;
+  display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	justify-content: flex-start;
+	text-overflow:ellipsis;
+	letter-spacing: 2rpx;
+}
+.commodity-price{
+	color: #4D4D4D;
+	font-size: 30rpx;
+}
+
+.commodity-classify {
+  font-size: 24rpx;
+  color: #8F8F8F;
+  margin-top: 8rpx;
+}
+.f_x{
+  font-size: 18rpx;
+}
+.order_total{
+	padding: 25rpx 30rpx;
+	text-align: right;
+	font-size: 26rpx;
+	color: #1A1A1A;
+}
+.order_total_money{
+	font-size: 30rpx;
+}
+.stytle-line-left{
+	width: 100%;
+	height: 8rpx;
+	background-color: #fff;
+}
+.look-all-commodity-view {
+  padding: 20rpx 30rpx;
+  font-size: 28rpx;
+  color: #4d4d4d;
+  text-align: center;
+	background-color: #F7F7F7;
+	margin-top: 8rpx;
+}
+
+#commodity-number {
+  color: #1fa5ff;
+}
+
+.operation-view {
+	border-top: 1rpx solid #e5e5e5;
+  padding-right: 30rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  text-align: right;
+}
+
+.operation-itm-view {
+  background: white;
+  border-radius: 4rpx;
+  border-style: solid;
+  border-width: 1rpx;
+  display: inline-flex;
+  font-size: 30rpx;
+  margin-left: 30rpx;
+  width: 150rpx;
+  height: 54rpx;
+  text-align: center;
+  /*布局方式*/
+  /*垂直居中*/
+  align-items: center;
+  /*水平居中*/
+  justify-content: center;
+}
+
+#pay-view {
+  color: #4D4D4D;
+  border-color: #8F8F8F;
+}
+
+#receive-view {
+  color: #FF5500;
+  border-color: #FF5500;
+}
+.Invitation_operation{
+  width: 237rpx;
+  height: 54rpx;
+  background: #F53A25;
+  display: inline-flex;
+  font-size: 30rpx;
+  margin-left: 30rpx;
+  text-align: center;
+  /*布局方式*/
+  /*垂直居中*/
+  align-items: center;
+  /*水平居中*/
+  justify-content: center;
+  color: #fff;
+  border-radius: 4rpx;
+}

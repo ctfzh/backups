@@ -1,0 +1,66 @@
+/* pages/refund/consultation_record.wxss */
+/* 协商记录 */
+@import "get_refund.wxss";
+@import "../template/top_message.wxss";
+@import "../template/loading_fall_ui.wxss";
+.content-view-express{
+  padding-top: 20rpx;
+  background: white;
+  padding-bottom:20rpx; 
+}
+.left_right_commodity {
+  /*布局方式*/
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx;
+}
+
+.commodity-view {
+  display: flex;
+  
+}
+
+.commodity-img {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.commodity-right-view {
+  text-align: right;
+}
+
+.commodity-left-view {
+  margin-left: 30rpx;
+	flex: 1;
+}
+
+.commodity-name {
+  font-size: 32rpx;
+  color: #000;
+}
+
+.commodity-classify {
+  font-size: 28rpx;
+  color: #4d4d4d;
+}
+#set-default-view{
+  background: #d43c33;
+  color: white;
+  margin-bottom: 30rpx;
+}
+
+.left-text-text-time{
+ font-size: 30rpx;
+  color: #4d4d4d;
+  flex-shrink: 0;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  /*布局方式*/
+  display: flex;
+  /*垂直居中*/
+  align-items: center;
+  /*水平居中*/
+  justify-content: center;
+}

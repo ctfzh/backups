@@ -1,0 +1,89 @@
+<!--我的佣金  -->
+<view class='commission_wraper  window_cover'  hidden='{{!show_loading_faill}}'>
+    <!-- 分销错误提示 -->
+    <import src="../distribution/distribution_anomaly.wxml" />
+    <template is="distribution_anomaly" data="{{ anomaly_code:anomaly_code}}" />
+
+  <view class='top'>
+    <!--可提现佣金  -->
+    <view class='usable_comm'>
+      <view class='num'>
+        <view class='money_wraper'>
+          <view class='unit'>￥</view>
+          <view class='money'>{{distribution.commission?distribution.commission:"0.00"}}</view>
+        </view>
+      </view>
+      <view class='des'>可提现佣金</view>
+    </view>
+    <!--累计佣金收益  -->
+    <view class='accumulative'>
+      <view class='accu_item'>
+        <view class='num'>
+          <view class='money_wraper'>
+            <view class='unit'>￥</view>
+            <view class='money'>{{distribution.withdraw_money?distribution.withdraw_money:"0.00"}}</view>
+          </view>
+
+        </view>
+        <view class='des'>已提现佣金</view>
+      </view>
+      <!--中间线  -->
+      <view class='line'></view>
+      <view class='accu_item'>
+        <view class='num'>
+          <view class='money_wraper'>
+            <view class='unit'>￥</view>
+            <view class='money'>{{distribution.total_commission?distribution.total_commission:"0.00"}}</view>
+          </view>
+        </view>
+        <view class='des'>累计佣金收益</view>
+      </view>
+    </view>
+  </view>
+  <!--底部列表  -->
+  <view class='bottom'>
+    <!--申请提现  -->
+    <view class='bot_item' catchtap='to_withdraw_cash'>
+      <view class='icon'>
+        <image src='../img/apply_money.png'></image>
+      </view>
+      <view class='des'>申请提现</view>
+      <view class='more'>
+        <image src='../img/more.png'></image>
+      </view>
+    </view>
+    <!--提现记录  -->
+    <view class='bot_item' catchtap='to_withdraw_cash_record'>
+      <view class='icon'>
+        <image src='../img/withdraw_record.png'></image>
+      </view>
+      <view class='des'>提现记录</view>
+      <view class='more'>
+        <image src='../img/more.png'></image>
+      </view>
+    </view>
+    <!--佣金明细  -->
+    <view class='bot_item' catchtap='to_commission_detailed'>
+      <view class='icon'>
+        <image src='../img/commission_detail.png'></image>
+      </view>
+      <view class='des'>佣金明细</view>
+      <view class='more'>
+        <image src='../img/more.png'></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 顶部提示 -->
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" /> 
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

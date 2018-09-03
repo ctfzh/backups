@@ -1,0 +1,62 @@
+<!-- 提现账户选择 -->
+<view class='container_account'  hidden='{{!show_loading_faill}}'>
+    <!-- 分销错误提示 -->
+    <import src="../distribution/distribution_anomaly.wxml" />
+    <template is="distribution_anomaly" data="{{ anomaly_code:anomaly_code}}" />
+    
+  <!--微信  -->
+  <view class='account_item wechat' data-flag='1' catchtap='to_draw_cash' wx:if="{{weChat}}">
+    <view class='icon_wc_wraper'>
+      <view class='icon_wc'>
+        <image src='../img/wc_account.png'></image>
+      </view>
+    </view>
+    <view class='des'>微信</view>
+    <view class='wc_bg_wraper'>
+      <view class='wc_bg'>
+        <image src='../img/wc_bg.png'></image>
+      </view>
+    </view>
+  </view>
+  <!--支付宝  -->
+  <view class='account_item alipay' data-flag='2' catchtap='to_draw_cash' wx:if="{{ali}}">
+    <view class='icon_ali_wraper'>
+      <view class='icon_ali'>
+        <image src='../img/alipay_account.png'></image>
+      </view>
+    </view>
+    <view class='des'>支付宝</view>
+    <view class='ali_bg_wraper'>
+      <view class='ali_bg'>
+        <image src='../img/alipay_bg.png'></image>
+      </view>
+    </view>
+  </view>
+  <!--银联  -->
+  <view class='account_item brand_card' data-flag='3' catchtap='to_draw_cash' wx:if="{{unionPay}}">
+    <view class='icon_br_wraper'>
+      <view class='icon_br'>
+        <image src='../img/brand_account.png'></image>
+      </view>
+    </view>
+    <view class='des'>银联</view>
+    <view class='brand_bg_wraper'>
+      <view class='brand_bg'>
+        <image src='../img/brand_bg.png'></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 顶部提示 -->
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" /> 
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

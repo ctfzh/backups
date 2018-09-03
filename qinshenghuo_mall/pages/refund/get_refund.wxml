@@ -1,0 +1,89 @@
+<!--pages/refund/get_refund.wxml-->
+<!-- 申请退款 -->
+<view hidden='{{!show_loading_faill}}'>
+  <view class='stytle-line' />
+  <view class='top-content'>
+    <view class='left_right_vertical_center'>
+      <view class='left-text-text'>订单编号</view>
+      <view class='right-text-text'>{{order_no}}</view>
+    </view>
+    <view class='left_right_vertical_center'>
+      <view class='left-text-text'>交易时间</view>
+      <view class='right-text-text'>{{create_time}}</view>
+    </view>
+    <view class='left_right_vertical_center'>
+      <view class='left-text-text'>商品名称</view>
+      <view class='right-text-text'>{{goods_name}}</view>
+    </view>
+    <view class='left_right_vertical_center'>
+      <view class='left-text-text'>实付金额</view>
+      <view class='right-text-text' id='money'>{{money}}</view>
+    </view>
+  </view>
+  <view class='stytle-line' />
+  <view class='content-view'>
+    <view class='stytle-line' />
+    <picker value="{{dispose_state.index}}" range="{{dispose_state.itm}}" bindchange="bindDisposeStateChange">
+      <view class='vertical'>
+        <view class='left-text-text'>处理方式</view>
+        <view class='left-text-center' style='flex: 1;'>{{dispose_state.itm[dispose_state.index]}}
+        </view>
+        <image class='arrows-right-img' src='../img/arrows_right.png' />
+
+      </view>
+    </picker>
+    <view class='stytle-line' />
+    <picker value="{{refund_cause.index}}" range="{{refund_cause.itm}}" bindchange="bindRefundCauseChange">
+      <view class='vertical'>
+        <view class='left-text-text'>退款原因</view>
+        <view class='left-text-center' style='flex: 1;'>{{refund_cause.itm[refund_cause.index]}}
+        </view>
+        <image class='arrows-right-img' src='../img/arrows_right.png' />
+      </view>
+    </picker>
+    <view class='stytle-line' />
+    <view class='vertical'>
+      <view class='left-text-text'>退款金额</view>
+
+      <input class='left-text-center' type='number' style='flex: 1;' placeholder="请输入退款金额" value='{{input_money}}' bindinput="bindInputMoney"></input>
+
+    </view>
+    <view class='stytle-line' />
+    <view class='vertical'>
+      <view class='left-text-text'>手机号码</view>
+      <input class='left-text-center' type='number' style='flex: 1;' placeholder="请填写手机号码便于卖家联系您" maxlength='11' bindinput="bindInputPhone"></input>
+    </view>
+    <view class='stytle-line' />
+    <view class='vertical'>
+      <view class='left-text-text'>备注信息</view>
+      <input class='left-text-center' style='flex: 1;' bindinput="bindInputRemark"></input>
+    </view>
+    <view class='stytle-line' />
+    <view class='left-text-text' style='padding-top:30rpx;padding-bottom:20rpx;'>图片说明 可上传5张图片</view>
+    <view class='img-view-view' style='padding-left:30rpx;padding-right:30rpx;padding-top:-10rpx;padding-left:30rpx;;padding-bottom:30rpx;'>
+      <image class='upload-img-view' src="{{imgUrl +'mall_refund_img/source/'+ itemNameImg}}" wx:for="{{img}}" bindlongtap='delete_img_longOnclick' data-index="{{index}}" wx:for-item="itemNameImg" wx:key="unique" />
+
+      <view wx:if="{{img.length< 5||!img}}" class='upload-img-view' bindtap='add_img_onclick'>
+        <image class='add-img' src='../img/add_img.png' />
+      </view>
+
+    </view>
+  </view>
+
+  <view class='stytle-line' style='margin-bottom:30rpx;' />
+  <view>
+  <view class='button-background-view' id='save-view'  bindtap='sumbit_onclick'>提交</view>
+  </view>
+</view>
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" />
+
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

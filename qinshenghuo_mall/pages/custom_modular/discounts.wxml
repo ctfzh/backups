@@ -1,0 +1,79 @@
+<!-- 优惠券列表start  -->
+<view class='discounts-wraper-first' wx:if="{{list.style==1}}">
+  <view class="discounts-first">
+    <view class="dis-item line_color" wx:for="{{list.list}}" wx:for-item="data" wx:key>
+      <view class='img-wraper'>
+        <view class="img">
+          <image src="/pages/img/discount_2x.png"></image>
+        </view>
+        <!--券的类型cType  -->
+        <view class="money" wx:if="{{data.cType=='代金券'}}">
+          <text class='number font_overflow'><text class='unit'>￥</text>{{data.number}}</text>
+        </view>
+        <view class='money font_overflow' wx:if="{{data.cType=='折扣券'}}">
+          <text class='z-left'>{{data.number}}</text>
+          <text class='z-right'>折</text>
+        </view>
+      </view>
+      <!--是否为裂变券  -->
+      <!--代金券  -->
+      <view class="describe  " wx:if="{{data.if_fission==2}}">
+        <view class="des-top font_color2 font_overflow">{{data.name}}</view>
+        <view class="des-bot font_color3 font_overflow">{{data.condition}}</view>
+      </view>
+      <!--普通券  -->
+      <view class="describe " wx:if="{{data.if_fission==1}}">
+        <view class="des-unfission font_color2 font_overflow">{{data.number}}{{data.cType=="代金券"?"代金券":"折扣券"}}</view>
+      </view>
+      <button class="button" plain open-type="{{data.if_fission==2?'share':''}}" data-discount='{{data}}' catchtap="{{data.if_fission==1?'_receive':'_share'}}">{{data.if_fission==1?"领券":"分享"}}</button>
+    </view>
+  </view>
+</view>
+<!--优惠券列表end  -->
+
+<!--优惠券竖版tart  "-->
+<view class='discounts-wraper-second' wx:if="{{list.style==3}}">
+  <view class='discounts-second'>
+    <view class='discounts-item' wx:for="{{list.list}}" wx:for-item="data" wx:key>
+       <button class='button_an' plain open-type="{{data.if_fission==2?'share':''}}" data-discount='{{data}}' catchtap="{{data.if_fission==1?'_receive':'_share'}}"></button> 
+      <view class='bg-img'>
+        <image src='/pages/img/discount_y.png'></image>
+      </view>
+      <view class='money' wx:if="{{data.cType=='代金券'}}">
+        <text class='number font_overflow'><text class='unit'>￥</text>{{data.number}}</text>
+      </view>
+      <view class='money font_overflow' wx:if="{{data.cType=='折扣券'}}">
+        <text class='left'>{{data.number}}<text class='right'> 折</text></text>
+      </view>
+      <view class='describe font_overflow'>{{data.condition}}</view>
+      <view class='name'>{{data.cType}}</view>
+    </view>
+    <view class='discounts-item_c'></view>
+    <view class='discounts-item_c'></view>
+    <view class='discounts-item_c'></view>
+
+
+  </view>
+</view>
+<!--优惠券竖版end  -->
+
+<!--优惠券横板start"-->
+<view class='discounts-wraper-third' wx:if="{{list.style==2}}">
+  <view class='discounts-third'>
+    <view class='discounts-item' wx:for="{{list.list}}" wx:for-item="data" wx:key>
+      <view class='bg-img'>
+        <image src='/pages/img/discount_x.png'></image>
+      </view>
+      <view class='money'>
+        <view class='number  font_overflow'>
+          <text class='unit' wx:if="{{data.cType=='代金券'}}">￥</text>{{data.number}}<text class='right' wx:if="{{data.cType=='折扣券'}}">折</text>
+        </view>
+        <view class='descibe'>{{data.condition}}</view>
+      </view>
+      <button class='name' plain open-type="{{data.if_fission==2?'share':''}}" data-discount='{{data}}' catchtap="{{data.if_fission==1?'_receive':'_share'}}">{{data.if_fission==1?"领券":"分享"}}</button>
+    </view>
+    <view class='discounts-item_h'></view>
+    <view class='discounts-item_h'></view>
+  </view>
+</view>
+<!--优惠券横板end  -->

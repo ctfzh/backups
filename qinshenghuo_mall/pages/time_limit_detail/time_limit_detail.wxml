@@ -1,0 +1,110 @@
+<!-- 限时折扣-商品详情 -->
+<import src="../template/display_advertising.wxml" />
+<import src="../custom_modular/wxParse/wxParse.wxml" />
+<view hidden='{{!show_loading_faill}}'>
+  <template is="display-advertising" data="{{slider:commodity_data.img,swiperCurrent:swiperCurrent,display_height:display_height}}" />
+  <view class='discount_container'>
+    <view class='disc_top'>
+      <view class='dis_price'>
+        <view class='now_price'>
+          <text class='now_unit'>￥</text>{{commodity_data.timelimimt_data.price}}</view>
+        <view class='old_price'>￥{{commodity_data.price}}</view>
+      </view>
+      <view class='dis_time'>
+        <view class='dis_time_top'>{{limit?"距离结束仅剩":"结束时间"}}</view>
+        <view class='dis_time_bot' wx:if="{{!limit}}">{{end_date}}{{end_time}}</view>
+        <view class='dis_time_bot' wx:if="{{limit}}">
+		  	<view class='limit_item'>{{clock_hr}}</view>
+          <text decode="{{true}}">&nbsp;:&nbsp;</text>
+		  	<view class='limit_item'>{{clock_min}}</view>
+          <text decode="{{true}}">&nbsp;:&nbsp;</text>
+		  	<view class='limit_item'>{{clock_sec}}</view>
+		  </view>
+      </view>
+    </view>
+    <view class='disc_bot'>
+      <view class='disc_bot_ico'>
+        <view class='pic_ico'>
+          <image src='/pages/img/time.png'></image>
+        </view>
+        <view class='font'>{{commodity_data.timelimimt_data.tip}}</view>
+      </view>
+      <view class='disc_bot_name font_overflow'>{{commodity_data.name}}</view>
+    </view>
+
+  </view>
+  <view class='count-view'>
+    <view class='tab-text-view' style='text-align:left;'>
+      <text class='text-view-count'>运费: </text>
+      <text class='text-view-count'>{{freight_money}}</text>
+    </view>
+    <view class='tab-text-view'>
+      <text class='text-view-count'>剩余: </text>
+      <text class='text-view-count'>{{commodity_data.stock}}件</text>
+    </view>
+    <view class='tab-text-view' style='text-align:right;'>
+      <text class='text-view-count'>销量: </text>
+      <text class='text-view-count'>{{commodity_data.buyed_num}}笔</text>
+    </view>
+  </view>
+
+  <view class='white-padding20rpx-top-bottom-border'>
+    <view class='left_right_vertical_center' bindtap='home_onclick'>
+      <view class='store-home-text'>商城首页</view>
+      <text class='store-home-text s_right_text'>进入店铺</text>
+      <image class='arrows-right-img' src='../img/arrows_right.png' />
+    </view>
+  </view>
+  <view class="stytle-line-left-right"></view>
+  <view class='commodity-details-view'>
+    <view class='commodity-details-title'>商品详情</view>
+  </view>
+  <view class="stytle-line-left-right"></view>
+  <view class='details-view'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+  <view class='bottom-view'>
+    <view class='bottom-itm-view' bindtap='home_onclick'>
+      <view class='bottom-tab-level-view'>
+        <image class='bottom-tab-img' src='../img/home_img.png' />
+        <text class='bottom-tab-text'>首页</text>
+      </view>
+    </view>
+    <view class='bottom-itm-view' bindtap='msg_onclick'>
+      <view class='bottom-tab-level-view'>
+        <image class='bottom-tab-img' src='../img/service.png' />
+        <text class='bottom-tab-text'>客服</text>
+      </view>
+    </view>
+    <view class='bottom-itm-view' bindtap='shopping_trolley_onclick'>
+      <view class='bottom-tab-level-view'>
+        <image class='bottom-tab-img' src='../img/shp_img.png' />
+        <text class='bottom-tab-text'>购物车</text>
+      </view>
+    </view>
+    <view class='left_right_vertical_center_commodity'>
+      <view class='add-shopping-view' bindtap="add_shopping">加入购物车</view>
+      <view class='buy-immediately-view' bindtap="buy_commodity">立即购买</view>
+    </view>
+  </view>
+  <import src="../template/bottom_Logo.wxml" />
+  <template is="bottom_Logo" data="{{guanzhu:guanzhu,daohang:true,qrcode_url:qrcode_url}}" />
+</view>
+<import src="../template/bottom_dialog.wxml" />
+<template is="diaView" data="{{showDialog:showDialog,property_data:property_data,num:num,propertyid:propertyid,price_text:price_text,goods_bonus:goods_bonus,goods_price:goods_price,totalNum:totalNum,add:add,integral_limit_num:integral_limit_num}}" />
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<import src="../template/login.wxml" />
+<!-- <template is="login_view" data="{{login_show:login_show,second:second,show_secound:show_secound}}" /> -->
+<template is="login_view" data="{{login_show:login_show,second:second,show_secound:show_secound,phone:phone,code:code,hide_delete:hide_delete}}" />
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" />
+
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

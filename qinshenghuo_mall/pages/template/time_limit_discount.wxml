@@ -1,0 +1,72 @@
+<!-- 限时折扣活动组件 -->
+<view class='groups_package {{list.date.isOver?"Invalid_groups_package":""}}'wx:for="{{list.list}}" wx:for-item="data" wx:key="key" wx:for-index="index" data-data='{{data}}' bindtap='goods_discount_jump'>
+  <view class='groups_goods_left'>
+    <view class='groups_label'  wx:if="{{!list.date.isOver}}">{{list.label}}</view>
+    <view class='groups_goods_img'>
+      <image src="{{data.src}}"></image>
+    </view>
+    <view class='countdown' wx:if="{{!list.date.isOver}}">
+      <view class='predict'  wx:if='{{clock_hr>99}}'>预计 {{list.date.startTime>current_time?start_date+' '+start_time+' 开始':end_date+' '+end_time+' 结束'}}</view> 
+       <view class='started'  wx:if='{{clock_hr<=99}}'>
+        <text>{{list.date.startTime>current_time?'距开始: ':'距结束: '}}</text>
+        <view class='started_con'>
+          <view class='started_icon'>
+            <view class='img_wraper'>
+              <image src="/pages/img/countdown2x.png"></image>
+            </view>
+            <view class='icon_number'><text>{{clock_hr}}</text></view>
+          </view>
+          <text decode="{{true}}">&nbsp;:&nbsp;</text>
+          <view class='started_icon'>
+            <view class='img_wraper'>
+              <image src="/pages/img/countdown2x.png"></image>
+            </view>
+            <view class='icon_number'><text>{{clock_min}}</text></view>
+          </view>
+          <text decode="{{true}}">&nbsp;:&nbsp;</text>
+          <view class='started_icon'>
+            <view class='img_wraper'>
+              <image src="/pages/img/countdown2x.png"></image>
+            </view>
+            <view class='icon_number'><text>{{clock_sec}}</text></view>
+          </view>
+        </view>
+      </view> 
+    </view>
+    <view class='Invalid_groups_back' wx:if="{{list.date.isOver}}"></view>
+     <view class='Invalid_groups_text' wx:if="{{list.date.isOver}}">
+      <view class='huodong_text'>活动</view>
+      <view>已结束</view>
+    </view> 
+  </view>
+
+  <view class='groups_goods_right'>
+    <view class='groups_goods_title font1'>{{data.title}}</view>
+    <view class='label_wraper'>
+      <view class='activity_label'>{{data.tag}}</view>
+    </view>
+      <view class='bottorm_goods'>
+      <!-- 商品价格  -->
+      <view class='goods_money'>
+        <text class='group_money'><text class='f_mo'>￥</text>{{data.price_discount}}</text>
+        <text class='group_save_money font2'>￥{{data.price_cost}}</text>
+      </view>
+      <!-- 已售 -->
+      <view class='production_group'>
+        <view class='group_stock group_stock_sold font2 font_overflow restrictions'  wx:if='{{list.date.startTime>current_time}}'>限购{{data.stock}}件</view>
+        <view class='group_stock' wx:if='{{list.date.startTime<current_time||list.date.isOver}}'>
+          <view class='group_stock_sold font2 font_overflow'>已售{{data.stock_sold}}件</view>
+          <view class='group_proportional'>
+            <view class='stock'></view>
+            <view class='stock_sold' style='width:{{data.stock_sold/data.stock*100}}%'></view>
+          </view>
+        </view>
+        <!--按钮  -->
+        <view class='production_group_buy btn_color' wx:if='{{list.date.startTime>current_time}}'><text class='buy_text'>即将开抢</text></view>
+        <view class='production_group_buy' wx:if='{{list.date.startTime<current_time||list.date.isOver}}'><text class='buy_text'>立即抢购</text></view>
+      </view>
+    </view>
+    
+
+  </view>
+</view>

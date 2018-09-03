@@ -1,0 +1,6 @@
+{
+	"usingComponents": {
+		"authorize": "../custom_modular/authorize"
+	},
+  "navigationBarTitleText": "绑定手机号"
+}

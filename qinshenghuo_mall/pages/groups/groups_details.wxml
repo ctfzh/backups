@@ -1,0 +1,133 @@
+<!--拼团团详情  -->
+<!-- 分割线 -->
+<view class='top_fixed_solid'></view>
+<!-- 分割线 -->
+
+<!--页面包裹层=>开始  -->
+<view class='wrapping' hidden='{{!show_loading_faill}}'>
+
+   <!--商品详情=>开始  -->
+   <view class='goods_details' bindtap='Jump'>
+
+      <view class='details_left'>
+         <!--商品图片  -->
+         <image class='goods_img' src='{{group.goods_img}}'></image>
+      </view>
+
+      <view class='details_right'>
+         <!--商品简介  -->
+         <view class='goods_name font1'>{{group.goods_name}}</view>
+         <!--抱团  -->
+         <view class='group_num'>
+            <text class='is_group font1'>{{group.group_num}}人团</text>
+            <text class='already_group font2'>已团{{group.buyed_num}}件</text>
+         </view>
+         <!--团价  -->
+         <view class='goods_money'>
+            <text class='group_money'><text class='f_mo'>￥</text>{{group.price}}</text>
+            <text class='group_save_money font2'>拼团省{{group.difference}}元</text>
+         </view>
+
+      </view>
+
+   </view>
+   <!--商品详情=>结束  -->
+
+   <!--拼团人员=>开始  -->
+   <view class='group_personnel_details'>
+      <!--拼团成功 -->
+      <view class='group_success' wx:if="{{group.group_status!=1}}">
+         <view class='group_success_img' wx:if="{{group.group_status==2}}">
+            <image src='../img/success.png'></image>
+         </view>
+         <view class='group_success_text' wx:if="{{group.group_status==2}}">已顺利成团</view>
+         <view class='group_success_text group_fail_text' wx:if="{{group.group_status==3}}">拼团失败！</view>
+         <view class='group_hr'></view>
+      </view>
+
+      <view class='group_personnel'>
+         <!--团员-拼主  -->
+         <view class='group_personnel_list' wx:for="{{group.group_num}}" wx:for-index="idx" wx:for-item="itemName" wx:key="unique">
+            <view class='head' wx:if="{{group.member_info[idx].if_first==1}}">拼主</view>
+            <view class='head_portrait' wx:if="{{group.member_info[idx].head_img}}">
+               <image class='head_portrait_img' src='{{group.member_info[idx].head_img}}'></image>
+            </view>
+            <text class='group_personnel_null' wx:if="{{!group.member_info[idx].head_img}}">?</text>
+         </view>
+
+      </view>
+      <!--拼团还差几人  -->
+      <view class='Lack_number font1' wx:if="{{group.group_status==1}}">
+         <text wx:if="{{group.is_in_group==1}}">拼团中，还差<text class='number'>{{group.difference_group_num}}</text>人</text>
+         <text wx:if="{{group.is_in_group==2}}">还差<text class='number'>{{group.difference_group_num}}</text>人
+         <text class='itme'>{{clock}}</text>结束</text>
+      </view>
+      <!--邀请拼团  -->
+      <view class='Invitation_group' wx:if="{{group.group_status!=2}}">
+         <text class='Invitation_group_an gradient_button' wx:if="{{group.is_in_group==2&&group.group_status==1}}" bindtap='onekey'>一键参团</text>
+         <text class='Invitation_group_an gradient_button' wx:if="{{group.group_status==3}}" bindtap='again'>重新开团</text>
+         <button open-type="share" class='Invitation_group_an gradient_button' wx:if="{{group.is_in_group==1&&group.group_status==1}}">邀请好友参团
+            <text class='itme'>{{clock}}</text>结束</button>
+         <!--bindtap='Invitation'弹出分享二维码  -->
+      </view>
+   </view>
+   <!--拼团人员=>结束  -->
+
+   <!--拼团须知=>开始  -->
+   <view class='group_notice'>
+      <view class='font1'>拼团须知</view>
+      <view class='notice'>
+         <text class='font2'>邀请好友参团</text>
+         <text class='font2'>人满分别发货</text>
+         <text class='font2'>人不满将退货</text>
+      </view>
+   </view>
+   <!--拼团须知=>结束  -->
+
+   <!--页面底部logo模块=>开始  -->
+   <import src="../template/bottom_Logo.wxml" />
+   <template is="bottom_Logo" data="{{guanzhu:guanzhu,daohang:true,qrcode_url:qrcode_url}}" />
+   <!--页面底部logo模块=>开始  -->
+
+   <!--弹出窗=>开始  -->
+   <view class='activity_eject' style='{{activity_eject=="none"?"display: none":""}}'>
+      <view class='activity_mask' bindtap='tap_activity_layer_close'></view>
+      <image class='forward_img' src='../img/share.png'></image>
+      <view class='forward_text'>
+         <view>好友不在身边？</view>
+         <view>将链接分享给好友</view>
+      </view>
+      <view class='frame'>
+         <image class='frame_img' src='../img/fightG_share.png'></image>
+         <image class='frame_close_img' src='../img/Icon.png' bindtap='tap_activity_layer_close'></image>
+         <view class='QR_code'>
+            <view class='QR_code_img'>
+               <image class='QR_code_img' src='{{QR_code_img}}'></image>
+               <!-- <canvas class='canvas' canvas-id='canvas' bindlongtap='save'></canvas> -->
+            </view>
+            <view class='QR_code_text' bindtap='createQrCode'>邀好友扫一扫参团</view>
+         </view>
+      </view>
+   </view>
+   <!--弹出窗=>结束  -->
+
+</view>
+<!--页面包裹层=>结束  -->
+
+<!--页面顶部提示模块=>开始  -->
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+<!--页面顶部提示模块=>结束  -->
+
+<!--请求页面数据失败显示模块=>结束  -->
+
+
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" />
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

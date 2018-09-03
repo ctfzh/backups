@@ -1,0 +1,7 @@
+{
+	"usingComponents": {
+		"authorize": "../custom_modular/authorize"
+	},
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

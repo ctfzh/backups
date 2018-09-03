@@ -1,0 +1,38 @@
+/*分销异常  */
+
+.dis_error {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.dis_error .error_img {
+  width: 540rpx;
+  height: 540rpx;
+  margin-top: 130rpx;
+}
+
+.error_img image {
+  width: 100%;
+  height: 100%;
+}
+
+.err_txt_wraper {
+  display: table;
+  text-align: center;
+  padding: 0 105rpx;
+  line-height: 60rpx;
+}
+
+.err_txt {
+  display: table-row;
+  color: #2c2f33;
+  font-size: 32rpx;
+}
+
+.err_txt_reason {
+  text-align: center;
+  color: #2c2f33;
+  font-size: 32rpx;
+    line-height: 60rpx;
+}

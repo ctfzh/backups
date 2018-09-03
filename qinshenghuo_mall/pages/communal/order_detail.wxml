@@ -1,0 +1,265 @@
+<!--pages/communal/order_detail.wxml-->
+<!-- 订单详情 -->
+<view hidden='{{!show_loading_faill}}'>
+  <view class='content-view'>
+    <view class='order-state-view'>
+      <image src='../img/title.png' class='order-state-bg'></image>
+      <view class="order-state-bd">
+        <image wx:if="{{data.order_status.status==1}}" class='order-time-img' src='../img/time.png'></image>
+        <image wx:if="{{data.order_status.status==2}}" class='order-delivered-img' src='../img/delivered.png'></image>
+        <image wx:if="{{data.order_status.status==3}}" class='order-delivered-img' src='../img/delivered.png'></image>
+        <image wx:if="{{data.order_status.status==4}}" class='order-delivered-img' src='../img/delivered.png'></image>
+        <image wx:if="{{data.order_status.status==5}}" class='order-completed-img' src='../img/completed.png'></image>
+        <image wx:if="{{data.order_status.status==7}}" class='order-refund-img' src='../img/refund.png'></image>
+        <image wx:if="{{data.order_status.status==6}}" class='order-state-img' src='../img/off.png'></image>
+        <view>
+          <view wx:if="{{data.order_type==2}}">
+            <view class='state-text' wx:if="{{data.order_status.status==2&&data.group_info.group_status==1}}">拼团还未成功，等待成团
+</view>
+            <view class='state-text' wx:if="{{data.order_status.status==3&&data.group_info.group_status==1}}">拼团还未成功，等待成团</view>
+            <view class='state-text' wx:if="{{data.order_status.status==3&&data.group_info.group_status==2}}">拼团已成功，等待发货</view>
+            <view class='state-text' wx:if="{{data.order_status.status==6&&data.group_info.group_status==3}}">拼团失败，交易关闭
+</view>
+             <view class='state-text'wx:if="{{data.order_status.status!=2&&data.order_status.status!=3&&data.order_status.status!=6}}">{{data.order_status.text}}</view> 
+          </view>
+          <view wx:else>
+             <view class='state-text'>{{data.order_status.text}}</view> 
+          </view>
+          <!-- 请于59分59秒内付款，超时订单将自动取消 -->
+          <view class='state-text-text'> </view>
+        </view>
+      </view>
+    </view>
+    <view class='qgj-list mb15'>
+      <view class='qgj-list-item'>
+        <view class='left_right_vertical_center' id='address-text-view'>
+          <view class='address-text-view-inner'>
+            <view class='left_right_vertical_center'>
+              <view class='addres-name addres_ni'>收货人： {{data.customer_name}}</view>
+              <view class='addres-name'>{{data.customer_mobile}}</view>
+            </view>
+						<view class='addres_er'>
+							<image class='qgj-icon icon-location' src='../img/location.png'></image>
+							<view class='address-text'>收货地址：{{data.address}}</view>
+						</view>
+          </view>
+        </view>
+      </view>
+			 
+      <view class='qgj-list-item border-b' wx:if="{{data.remark!=''}}">
+        <view class='left_right_vertical_center' id='address-text-view'>
+        <image class='qgj-icon icon-msg' src='../img/msg.png'></image>
+          <view class='address-text-view-inner'>
+            <view class='left_right_vertical_center'>
+              <view class='addres-name'>买家留言</view>
+            </view>
+            <view class='address-text'>{{data.remark}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--拼团团信息  -->
+    <view wx:if="{{data.order_type==2&&data.group_id}}" class='group_information'>
+      <view class='group_information_left'>
+        <image class='group_information_img' src='{{data.group_info.head_img}}'></image>
+        <text class='group_information_name font1'>{{data.group_info.nickname}}</text>
+        <view class='group_information_head'>拼主</view>
+      </view>
+      <view class='group_information_right'>
+        <view class='group_information_success' wx:if="{{data.group_info.group_status!=1}}">
+          <image class='group_success_img' src='../img/success.png' wx:if="{{data.group_info.group_status==2}}"></image>
+          <text class='success_text' wx:if="{{data.group_info.group_status==2}}">已成团</text>
+          <!-- <text class='success_text' wx:if="{{data.group_info.group_status==3}}">拼团失败</text> -->
+        </view>
+        <view class='group_information_right_item' wx:if="{{data.group_info.group_status==1}}">
+          <view class='group_information_surplus_member'>还差<text class='surplus_member'>{{data.group_info.surplus_member}}人</text>拼成</view>
+          <view class='group_information_end_time'>剩余{{clock}}</view>
+        </view>
+
+        <view class='group_information_details' bindtap='Invitation'>团详情</view>
+      </view>
+    </view>
+
+    <view class='qgj-list'>
+      <block wx:for="{{data.goods}}" wx:for-index="idx" wx:for-item="itemName" wx:key="unique">
+        <view wx:if="{{idx!=0}}">
+          <view class='stytle-line-left' />
+        </view>
+        <view class='left_right_commodity'>
+          <view class='commodity-view'>
+            <image class='commodity-img' src='{{itemName.img[0]}}' />
+            <view class='commodity-left-view'>
+              <view class='commodity-name'>{{itemName.name}}</view>
+              <view class='commodity-classify'>{{itemName.property[1]}}</view>
+            </view>
+          </view>
+          <view class='commodity-right-view'>
+            <view class='commodity-price' wx:if="{{data.order_type==3}}"> {{itemName.bonus}}积分</view>
+            <view class='commodity-price' wx:if="{{data.order_type==3&&itemName.price>0}}"> +{{itemName.price}}元</view>
+            <view class='commodity-price' wx:if="{{data.order_type!=3}}"> <text class='f_mo'>￥</text>{{itemName.price}}</view>
+            <view class='commodity-classify'><text class='f_x'>X</text>{{itemName.num}}</view>
+            <view>
+            <view class='operation-view'>
+              <view 
+                  wx:if="{{data.order_type!=3&&itemName.status==1&&(data.order_status.status==2||data.order_status.status==3||data.order_status.status==4)&&(data.order_type == 1||data.group_info.group_status==2)}}" 
+                  class='operation-itm-view-ing' id='pay-view' bindtap='apply_for_refund_onclick' data-idx="{{itemName}}">
+                  申请退款
+              </view>
+              <view wx:if="{{itemName.status==7&&(data.order_status.status==2||data.order_status.status==3||data.order_status.status==4)}}" class='operation-itm-view-ing' id='pay-view' bindtap='refund_succeed_onclick' data-idx="{{itemName}}">退款成功</view>
+              <view wx:if="{{itemName.status==8&&(data.order_status.status==2||data.order_status.status==3||data.order_status.status==4)}}" class='operation-itm-view-ing' id='pay-view' bindtap='refund_reject_onclick' data-idx="{{itemName}}">退款已拒</view>
+              <view wx:if="{{(itemName.status==2||itemName.status==3||itemName.status==4||itemName.status==5||itemName.status==6||itemName.status==9)&&(data.order_status.status==2||data.order_status.status==3||data.order_status.status==4||data.order_status.status==7)}}"
+                class='operation-itm-view-ing' id='pay-view' bindtap='refunding_onclick' data-idx="{{itemName}}">退款中</view>
+            </view>
+          </view>
+          </view>
+        </view>
+      </block>
+			<view class='border-b border_bottom'>
+				<view class='left_right_vertical_center padding-bottom'>
+					<view class='left-text'>配送方式</view>
+					<view wx:if="{{data.express_type==2}}" class='right-text'>同城配送</view>
+					<view wx:if="{{data.express_type==3}}" class='right-text'>快递配送</view>
+				</view>
+				<view class='left_right_vertical_center padding-bottom'>
+					<view class='left-text'>运费</view>
+					<view class='right-text'>{{data.freight_money? '+￥'+data.freight_money:'包邮'}}</view>
+    		</view>
+				<view class='left_right_vertical_center padding-bottom'  wx:if="{{data.sales_promotion_discount_money>0.00}}">
+					<view class='left-text'>促销优惠</view>
+					<view class='right-text'>-￥{{data.sales_promotion_discount_money}}</view>
+    		</view>
+				<view class='left_right_vertical_center padding-bottom'  wx:if="{{data.timelimit_discount_money>0.00}}">
+					<view class='left-text'>限时折扣</view>
+					<view class='right-text'>-￥{{data.timelimit_discount_money}}</view>
+    		</view>
+				<view class='left_right_vertical_center padding-bottom'  wx:if="{{data.coupon_discount_money>0.00}}">
+					<view class='left-text'>优惠券</view>
+					<view class='right-text'>-￥{{data.coupon_discount_money}}</view>
+    		</view>
+				<view class='left_right_vertical_center padding-bottom'  wx:if="{{data.member_discount_money>0.00}}">
+					<view class='left-text'>会员折扣</view>
+					<view class='right-text'>-￥{{data.member_discount_money}}</view>
+    		</view>
+				<view class='left_right_vertical_center padding-bottom'  wx:if="{{data.bonus_discount_money>0.00}}">
+					<view class='left-text'>积分优惠</view>
+					<view class='right-text'>-￥{{data.bonus_discount_money}}</view>
+    		</view>
+				<view class='left_right_vertical_center'>
+					<view class='left-text'>实付金额</view>
+					<view class='right-text' style=' color:#d43c33' wx:if="{{data.order_type==3}}">
+						<text wx:if="{{data.order_type==3}}">{{data.order_bonus}} 积分</text> 
+						<text wx:if="{{data.order_type==3 && data.order_money>0}}">+{{data.pay_money}} 元</text> 
+						<text wx:if="{{data.order_type!=3}}"><text class='f_mo'>￥</text>{{data.pay_money}} </text> 
+					</view>
+					<view class='right-text pay_money'wx:if="{{data.order_type!=3}}"><text class='f_mo'>￥</text>{{data.pay_money}}</view>
+				</view>
+			</view>
+      <view>
+        <!-- 总重{{data.total_num}}kg -->
+        <!-- <view id='commodity-account-text'>共{{data.total_num}}件商品，小计 
+          <text style=' color:#d43c33' wx:if="{{data.order_type==3}}">{{data.order_bonus}}  积分 </text>
+          <text style=' color:#d43c33' wx:if="{{data.order_type==3 && data.order_money>0}}">+{{data.order_money}}元 </text> 
+          <text style=' color:#d43c33' wx:if="{{data.order_type!=3}}">￥{{data.order_money}} </text> 
+        </view> -->
+      </view>
+    </view>
+    
+    
+    <!-- <view>
+      <view class='stytle-line' />
+      <view class='left_right_vertical_center'>
+        <view class='left-text'>送达时间</view>
+        <view class='right-text-jian-view'>
+          <view class='right-text' style='margin-right: -20rpx;'>选择期望送达的时间</view>
+          <image class='arrows-right-img' src='../img/arrows_right.png'></image>
+        </view>
+      </view>
+    </view> -->
+    
+  </view>
+  <!-- <view class='commodity-discounts-list-view'>
+    <view class='commodity-view' style='margin-top: -30rpx;'>
+      <view class='left-text'>优惠券</view>
+      <view id='discounts-list-view' style='margin-top: 30rpx;'>
+        <view class='left_right_vertical_center' wx:for="{{array}}" wx:for-index="idx" wx:for-item="itemName" wx:key="unique" style='margin-top: -30rpx;'>
+          <view class='left-text-center'>15元代金券</view>
+          <view class='right-text'>-15</view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+	<!-- wx:if="{{data.order_status.status!=1}}"  -->
+    <view class='stytle-line' />
+   <view class='commodity-discounts-list-view dingdan'> 
+    <view class='vertical'>
+      <view class='left-text'>订单编号：</view>
+      <view class='right-text'>{{data.order_no}}</view>
+    </view>
+    <view class='vertical padding-top' wx:if="{{data.group_info.group_no}}">
+      <view class='left-text'>拼团编号：</view>
+      <view class='right-text'>{{data.group_info.group_no}}</view>
+    </view>
+    <view class='vertical padding-top'>
+      <view class='left-text'>下单时间：</view>
+      <view class='right-text'>{{data.create_time}}</view>
+    </view>
+    <view class='vertical padding-top' wx:if="{{data.order_status.status!=1}}">
+      <view class='left-text'>支付方式：</view>
+      <view class='right-text' wx:if="{{data.pay_channel==1}}">支付宝支付</view>
+      <view class='right-text' wx:if="{{data.pay_channel==2}}">微信支付</view>
+      <view class='right-text' wx:if="{{data.pay_channel==3}}">银联支付</view>
+      <view class='right-text' wx:if="{{data.pay_channel==4}}">现金支付</view>
+      <view class='right-text' wx:if="{{data.pay_channel==5}}">储值支付</view>
+    </view>
+    <view class='vertical padding-top' wx:if="{{data.order_status.status!=1}}">
+      <view class='left-text'>支付时间：</view>
+      <view class='right-text'>{{data.pay_time}}</view>
+    </view>
+
+    <!-- <view class='commodity-view' style='margin-top: -30rpx;'>
+      <view class='left-text'>优惠券</view>
+      <view id='discounts-list-view' style='margin-top: 30rpx;'>
+        <view class='left_right_vertical_center' wx:for="{{array}}" wx:for-index="idx" wx:for-item="itemName" wx:key="unique" style='margin-top: -30rpx;'>
+          <view class='left-text-center'>15元代金券</view>
+          <view class='right-text'>-15</view>
+        </view>
+      </view>
+    </view> -->
+  </view>
+    <view class='stytle-line' />
+  <view class='bottom-view'>
+
+    <view wx:if="{{data.order_status.status==3&&data.group_info.group_status==1}}" class='bottom-submit-view'>
+      <button open-type="share"  bindtap='Invitation'  class='Invitation_operation'>邀请好友拼团</button>
+      <!-- <view id='oeder-money'>￥{{data.pay_money}}</view>
+      <view id='heji-view'>合计：</view> -->
+    </view>
+
+    <view wx:if="{{data.order_status.status==1}}" class='bottom-submit-view'>
+      <view id='submit-view' bindtap='payment_onclick'>去支付</view>
+      <!-- <view id='oeder-money'>￥{{data.pay_money}}</view>
+      <view id='heji-view'>合计：</view> -->
+    </view>
+
+    <view wx:if="{{data.order_status.status==4}}" class='operation-view1'>
+      <view class='operation-itm-view' id='receive-view' bindtap='confirm_receipt_onclick' data-idx="{{itemNameList}}">确认收货</view>
+    </view>
+  </view>
+	<import src="../template/bottom_Logo.wxml" />
+  <view class='{{data.order_status.status==1||(data.order_status.status==3&&data.group_info.group_status==1)|data.order_status.status==4?"bottom_Logo":""}}'>
+	  <template is="bottom_Logo" data="{{guanzhu:guanzhu,daohang:true,qrcode_url:qrcode_url}}"/> 
+  </view>
+</view>
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" /> 
+
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

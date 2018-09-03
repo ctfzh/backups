@@ -1,0 +1,125 @@
+<!-- 推广统计 -->
+<view class='spr_sta_container window_cover'  hidden='{{!show_loading_faill}}'>
+
+  <!-- 分销错误提示 -->
+  <import src="../distribution/distribution_anomaly.wxml" />
+  <template is="distribution_anomaly" data="{{ anomaly_code:anomaly_code}}" />
+
+  <!--顶部  -->
+  <view class='top'>
+    <!--上  成交金额  佣金收益  -->
+    <view class='first_floor'>
+      <view class='fir_item'>
+        <view class='num'>
+          <view class='money_wraper'>
+            <view class='unit'>￥</view>
+            <view class='money'>{{accumulative.total_order_money?accumulative.total_order_money:"0.00"}}</view>
+          </view>
+
+        </view>
+        <view class='des'>累计成交金额</view>
+      </view>
+
+      <view class='fir_item'>
+        <view class='num'>
+          <view class='money_wraper'>
+            <view class='unit'>￥</view>
+            <view class='money'>{{accumulative.total_commission?accumulative.total_commission:"0.00"}}</view>
+          </view>
+        </view>
+        <view class='des'>累计佣金收益</view>
+      </view>
+    </view>
+    <!-- 订单 客户 邀请部分  -->
+    <view class='second_floor'>
+      <view class='sec_item'>
+        <view class='num'>{{accumulative.total_order_num?accumulative.total_order_num:"0.00"}}</view>
+        <view class='des'>累计成交订单</view>
+      </view>
+      <view class='item_line'></view>
+      <view class='sec_item'>
+        <view class='num'>{{accumulative.customer?accumulative.customer:"0.00"}}</view>
+        <view class='des'>累计客户</view>
+      </view>
+      <view class='item_line'></view>
+      <view class='sec_item'>
+        <view class='num'>{{accumulative.distributor?accumulative.distributor:"0.00"}}</view>
+        <view class='des'>累计邀请</view>
+      </view>
+    </view>
+  </view>
+
+  <!--中部  -->
+  <view class='middle'>
+    <view class='tab'>
+      <!--导航  -->
+      <view class='nav'>
+        <view class="nav_item {{curMdIndex==0?'active': ''}}" data-id='0' catchtap='tabFun_m'>昨日</view>
+        <view class="nav_item {{curMdIndex==1?'active':''}}" data-id='1' catchtap='tabFun_m'>7日</view>
+        <view class="nav_item {{curMdIndex==2?'active':''}}" data-id='2' catchtap='tabFun_m'>30日</view>
+      </view>
+      <!--数据统计  -->
+    </view>
+    <view class="mid_statis">
+      <view class='sta_item'>
+        <view class='num'>{{Statistics.total_order_num}}</view>
+        <view class='des'>成交订单</view>
+      </view>
+      <view class='sta_item'>
+        <view class='money_wraper'>
+          <view class='unit'>￥</view>
+          <view class='num'>{{Statistics.total_order_money}}</view>
+        </view>
+        <view class='des'>成交金额</view>
+      </view>
+      <view class='sta_item'>
+        <view class='money_wraper'>
+          <view class='unit'>￥</view>
+          <view class='num'>{{Statistics.total_commission}}</view>
+        </view>
+        <view class='des'>佣金收益</view>
+      </view>
+
+    </view>
+  </view>
+
+  <!--底部  -->
+  <view class='bottom'>
+    <!--导航  -->
+    <view class='bot_nav'>
+      <view class="bot_nav_item {{curBtIndex==0?'active':''}}" data-id='0' catchtap='tabFun_b'>成交订单</view>
+      <view class="bot_nav_item {{curBtIndex==1?'active':''}}" data-id='1' catchtap='tabFun_b'>成交金额</view>
+      <view class="bot_nav_item {{curBtIndex==2?'active':''}}" data-id='2' catchtap='tabFun_b'>佣金收益</view>
+    </view>
+    <!--统计图  -->
+    <view class='statis_chart '>
+      <view  class='statistics_item statis_chart_th'>
+        <view class='date_time'>日期</view>
+        <view class='data_text'>
+          <text wx:if="{{curBtIndex==0}}">订单数/单</text>
+          <text wx:if="{{curBtIndex==1}}">成交金额/元</text>
+          <text wx:if="{{curBtIndex==2}}">佣金收益/元</text>
+        </view>
+      </view>
+      <view class='statistics_item' wx:for="{{Statistics.date}}" wx:for-item="list" wx:key="key" wx:for-index="index">
+        <view class='date_time'>{{list}}</view>
+        <view class='data_text'>{{content[index]}}</view>
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<!-- 顶部提示 -->
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" /> 
+
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

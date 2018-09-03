@@ -1,0 +1,43 @@
+.bottom{
+	font-size: 24rpx;
+	margin-top: 50rpx;
+	color: #777;
+  overflow: hidden;
+}
+.daohang{
+	display: flex;
+	flex-flow: row wrap;
+	align-items:center;
+	justify-content:center;
+}
+.dao_it font_color1{
+  opacity: 0.8;
+}
+.rigth_line{
+  width: 1rpx;
+  height: 24rpx;
+  background-color: #2C2F33;
+  opacity: 0.6;
+}
+.dao_it{
+	padding: 0 15rpx;
+}
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	color:#999;
+	margin-top: 35rpx;
+  padding-bottom: 50rpx;
+}
+.logo_png{
+	width: 24rpx;
+	height: 24rpx;
+	margin-right: 10rpx;
+	vertical-align: middle;
+  opacity: 0.4;
+}
+.logo text{
+	vertical-align: middle;
+  opacity: 0.6;
+}

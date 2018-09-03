@@ -1,0 +1,32 @@
+<view class='top_line'></view>
+<!-- 余额明细HTML -->
+<view class='max_balance font-color1'  hidden='{{!show_loading_faill}}'>
+  <view class='balance_list line_color' wx:for="{{content}}" wx:for-item="data" wx:key="key">
+    <view class='balance_detailed'>
+      <view class='balance_detailed_type'>{{data.title}}</view>
+      <!-- type 1:增加  2:减少 -->
+      <view class='balance_detailed_money'>{{data.type==1?'+'+data.give_money:'-'+data.give_money}}</view>
+    </view>
+    <view class='balance_detailed_item font_color3'>{{data.create_time}}</view>
+  </view>
+
+  <!-- <view class='balance_list line_color'>
+    <view class='balance_detailed'>
+      <view class='balance_detailed_type'>商城消费</view>
+      <view class='balance_detailed_money'>-100</view>
+    </view>
+    <view class='balance_detailed_item font_color3'>2018-03-12 14:16</view>
+  </view> -->
+</view>
+
+<!-- 顶部提示 -->
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" />
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

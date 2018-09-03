@@ -1,0 +1,87 @@
+/*分销异常  */
+
+.dis_error {
+  position: absolute;
+  top: 0rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  background-color: #fff;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  z-index: 9;
+  margin-bottom: 0rpx;
+}
+
+.dis_error .error_img {
+  width: 110rpx;
+  height: 110rpx;
+   margin-top: 243rpx; 
+}
+
+.error_img image {
+  width: 100%;
+  height: 100%;
+}
+
+.err_txt_wraper {
+	margin-top: 256rpx;
+  text-align: center;
+  line-height: 50rpx;
+}
+
+.err_txt {
+  color: #2c2f33;
+  font-size: 28rpx;
+}
+
+.err_txt_reason {
+  text-align: center;
+  color: #2c2f33;
+  font-size: 28rpx;
+    line-height: 50rpx;
+}
+
+.dis_error .cancel {
+  width: 430rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #DB3927;
+  font-size: 32rpx;
+  border: 1rpx solid #DB3927;
+}
+.dis_error .btn_wraper {
+  width: 430rpx;
+  margin-top: 40rpx;
+  position: relative;
+  height: 90rpx;
+  margin: 140rpx 0rpx 30rpx 0rpx;
+}
+
+.btn_become {
+  position: absolute;
+  top: -30rpx;
+  bottom: -42rpx;
+  left: -7rpx;
+  right: -8rpx;
+  z-index: -1;
+}
+.btn_become image{
+  width: 100%;
+  height: 100%;
+}
+
+.err_3{
+  position: absolute;
+  left: 0rpx;
+  right: 0rpx;
+  padding: 0rpx 25rpx 30rpx 0rpx;
+  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.dis_error .font_overflow{
+  -webkit-line-clamp: 3; /** 显示的行数 **/
+}

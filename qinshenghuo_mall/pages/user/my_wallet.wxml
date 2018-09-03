@@ -1,0 +1,17 @@
+<!--pages/user/my_wallet.wxml-->
+<!-- 我的钱包 -->
+ <!-- style="background: url('{{user_background}}') no-repeat" -->
+ <view class='user-view'>
+   <view class='money-view'> ￥200.00</view>
+    <view class='user-name-view'>当前余额</view>
+  </view>
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" />
+
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

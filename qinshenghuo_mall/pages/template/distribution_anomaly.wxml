@@ -1,0 +1,23 @@
+<template name='distribution_anomaly'>
+  <!--分销异常  -->
+  <view class='dis_error'>
+    <view class='error_img'>
+      <image src='../img/distribution_error.png'></image>
+    </view>
+    <view class='err_txt_wraper' wx:if="{{data == 1}}">
+      <view class='err_txt'>非常抱歉，分销功能已关闭，如有疑问请联系商家客户
+      </view>
+    </view>
+    <view class='err_txt_wraper'  wx:if="{{data == 2}}">
+      <view class='err_txt'>非常抱歉，您的分销功能无法使用如有任何疑问，请联系商家客户
+      </view>
+    </view>
+    <view class='err_3'  wx:if="{{data == 3}}">
+      <view class='err_txt_wraper'>
+        <view class='err_txt'>非常抱歉，您的申请已被驳回，如有 任何疑问，联系商家客服
+        </view>
+      </view>
+      <view class='err_txt_reason'>驳回理由：不满足分销商条件</view>
+    </view>
+  </view>
+</template>

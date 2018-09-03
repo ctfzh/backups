@@ -1,0 +1,77 @@
+/* pages/refund/get_refund.wxss */
+@import "../template/top_message.wxss";
+@import "../template/loading_fall_ui.wxss";
+.top-content {
+  background: white;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+.left-text-text {
+  font-size: 30rpx;
+  color: #4d4d4d;
+  flex-shrink: 0;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+.right-text-text {
+  font-size: 30rpx;
+  color: #9f9fa3;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+#money{
+  font-size: 30rpx;
+  color: #d43c33;
+}
+.content-view{
+  background: white;
+  margin-top: 30rpx;
+}
+.content-view-view{
+  background: white;
+}
+.img-view-view{
+  display: flex;
+ flex-direction:row;
+ flex-wrap:wrap;
+}
+.upload-img-view{
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 10rpx;
+  margin-top: 10rpx;
+  border: lightgrey;
+  border-style: solid;
+  border-width: 1rpx;
+  flex-shrink:0;
+  text-align: center;
+}
+
+.add-img{
+  width: 50rpx;
+  height: 50rpx;
+  padding: 50rpx;
+}
+.button-background-view{
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  margin-top: 30rpx;
+  border-radius: 12rpx;
+  border-width: 1rpx;
+  font-size: 30rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-color: #dedcdc;
+  text-align: center;
+  border-style: solid;
+}
+#save-view{
+  background: #41b035;
+  color: white;
+}

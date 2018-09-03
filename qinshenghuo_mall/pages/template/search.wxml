@@ -1,0 +1,18 @@
+<!-- 商品搜索模板 -->
+<template name="seach">
+  <view class='secah_view_wraper' style='background-color:{{defaultColor}}'>
+			<view class="secah_view">
+			<view>
+					<image id="search-img" src="../img/search_q.png" />
+			</view>
+					<input id="search-text" bindinput="Input_text" confirm-type="search" bindconfirm="Input_over" placeholder="搜索商品" value="{{searchinput}}"  bindtap='input_tiao'/>
+					<view class='search-del'>
+						<image id="search-img-del" src="../img/del.png" style="display:{{clear_type}}" bindtap="Cler_input" />
+					</view>
+			</view>
+  <!-- <view class="secah_view" bindtap="Search_Onclick" >
+    <image class="search-img" src="../img/search.png"/>
+    <view id="search-text"> 搜索商品</view>
+  </view> -->
+  </view>
+</template>

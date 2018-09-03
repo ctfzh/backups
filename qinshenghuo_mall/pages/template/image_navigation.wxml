@@ -1,0 +1,17 @@
+<!-- 图片导航模板 -->
+<template name="image-navigation">
+  <view>
+    <view class="tab-nav">
+      <block wx:for="{{array}}" wx:key="property" wx:for-item="itemName">
+        <view wx:if="{{itemName&&itemName.img}}" class="tab-nav-item" data-idx="{{itemName}}" bindtap='image_navigation_onclick_img'>
+          <!-- <view class="tab-nav-item-img"> -->
+          <image class="tab-nav-item-img" src="{{itemName.img}}" mode="widthFix" />
+          <!-- </view> -->
+          <view class='tab-nav-item-text '>
+            {{itemName.title}}
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</template>

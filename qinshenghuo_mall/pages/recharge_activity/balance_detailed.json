@@ -1,0 +1,6 @@
+{
+	"usingComponents": {
+		"authorize": "../custom_modular/authorize"
+	},
+  "navigationBarTitleText": "余额明细"
+}

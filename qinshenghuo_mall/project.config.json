@@ -1,0 +1,79 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.7",
+	"appid": "wx62dde569cd37ea93",
+	"projectname": "%E5%88%86%E9%94%80%E9%97%AE%E9%A2%98",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/user/user",
+					"query": ""
+				},
+				{
+					"id": 9,
+					"name": "分销中心",
+					"pathName": "pages/distribution/distribution",
+					"query": "distributor_no=123"
+				},
+				{
+					"id": -1,
+					"name": "推广商品",
+					"pathName": "pages/distribution/spread_goods",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "推广统计",
+					"pathName": "pages/distribution/spread_statistics",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "测试页面",
+					"pathName": "pages/web-view/payment_web_success",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "积分商城",
+					"pathName": "pages/point/point_list",
+					"query": ""
+				},
+				{
+					"id": 6,
+					"name": "积分商城提交订单",
+					"pathName": "pages/point/order_submit",
+					"query": "goods_id=141&sku_id=99&is_cart=2&num=1"
+				}
+			]
+		}
+	}
+}

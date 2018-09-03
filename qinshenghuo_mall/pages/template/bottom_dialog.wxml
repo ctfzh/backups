@@ -1,0 +1,68 @@
+<!--购物车模板  -->
+<template name="diaView">
+  <view class="dialog {{ showDialog ? 'dialog_show' : '' }}">
+
+    <view class="dialog_mask" bindtap="onClickdiaView" catchtouchmove="preventD" />
+    <view class="dialog_container">
+      <scroll-view scroll-y>
+        <!--  //此区域自定义视图  -->
+        <view class='dialog-view'>
+          <view class="title-view">
+            <image id="commodity-img1" src="{{property_data.img}}" />
+            <view id="commodity-text">
+              <!-- <view id='commodity-name'>
+                <view>{{property_data.name}}</view>
+              </view> -->
+              <view class="commodity-price">
+								<text wx:if="{{goods_bonus > 0}}">{{goods_bonus}}积分</text>
+								<text wx:if="{{goods_price > 0}}">+{{goods_price}}元</text>
+								<text wx:if="{{price_text > 0 && ! goods_bonus}}">￥{{price_text}}</text>
+							</view>
+              <!--商品可购买数量  -->
+              <view class='surplus-number'>
+                <text>剩余{{totalNum}}件 </text>
+                <text class='restrictions' wx:if="{{integral_limit_num > 0}}">(限购{{integral_limit_num}}件)</text>
+              </view>
+            </view>
+            <image id="dialog-del" src="../img/dialog-del.png" bindtap="onClickdiaView" />
+          </view>
+
+          <view wx:for='{{property_data.sku}}' wx:for-item="itemSku" wx:for-index="idx1" wx:key="unique">
+            <view class='title-itm-name'>{{itemSku.category.name}}</view>
+            <view class='itm-content'>
+              <view class="itm-name {{ propertyid[idx1]==itemName.id? 'itm-text-checked':'itm-text-text'}}" wx:for='{{itemSku.property}}' wx:for-index="idx" data-idx="{{itemName}}" data-postion="{{idx1}}" data-itmpostion="{{idx}}" wx:for-item="itemName" wx:key="unique"
+                bindtap='checked_property_oncilick'>{{itemName.val}}</view>
+            </view>
+          </view>
+          <view class='left_right_vertical_center purchase_num'>
+            <view>
+              <view class='buy-number'>购买数量</view>
+              <!-- <view class='surplus-number'>剩余{{totalNum}}件 <text class='restrictions' wx:if="{{integral_limit_num > 0}}">限购{{integral_limit_num}}件</text></view> -->
+            </view>
+            <view class='number-view'>
+              <!-- <import src="numberPlusMinus.wxml" />
+              <template is="quantity" data="{{num:num,totalNum:totalNum}}" /> -->
+              <view class="quantityViewStyle">
+                <view class="minusStyle" style="{{num==1 ? 'background-color:#FAFAFA;' : ''}};" bindtap="onTapMinus">-</view>
+                <view class="inputViewStyle">
+                  <input class="inputView1Style"  value="{{num}}" type="number"  bindinput="onInputNum" bindblur="lossFocus" />
+                </view>
+                <view class="plusStyle" style="color:{{num>=totalNum? 'background-color:#FAFAFA;' : ''}}" bindtap="onTapPlus">+</view>
+              </view>
+            </view>
+          </view>
+          <view class='left_right_vertical_center' style="display:{{add?'none':'flex'}}">
+            <view class='add-shopping duihuan' bindtap='add_shoppingtrolley_onlick' wx:if ="{{!anniu_duihuan}}">加入购物车</view>
+            <view class='buy-immediately duihuan' bindtap='buy_onlick' wx:if ="{{!anniu_duihuan}}">立即购买</view>
+            <view class='buy-immediately' bindtap='buy_onlick' wx:if ="{{anniu_duihuan==0}}">立即兑换</view>
+            <view class='buy-immediately anniu_hui' wx:if ="{{anniu_duihuan==1}}">积分不足</view>
+            <view class='buy-immediately anniu_hui' wx:if ="{{anniu_duihuan==2}}">暂未开放</view>
+          </view>
+          <view wx:if="{{add==1}}" class='add-shopping' bindtap='add_shoppingtrolley_onlick'>确定</view>
+          <view wx:if="{{add==2}}" class='buy-immediately' bindtap='buy_onlick'>确定</view>
+        </view>
+
+      </scroll-view>
+    </view>
+  </view>
+</template>

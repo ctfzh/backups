@@ -1,0 +1,82 @@
+/* pages/home/home.wxss */
+ @import "../template/product_list.wxss"; 
+ @import "../template/display_advertising.wxss"; 
+ @import "../template/image_navigation.wxss"; 
+ @import "../template/search.wxss"; 
+ @import "../custom_modular/wxParse/wxParse.wxss";
+
+ @import "../template/bottom_dialog.wxss";
+@import "../template/top_message.wxss";
+@import "../template/loading_fall_ui.wxss";
+@import "../template/login.wxss"; 
+@import "../template/bottom_Logo.wxss"; 
+
+.swiper{
+  width: 100%;
+  height: 240px;
+}
+.itemimage{
+  width: 100%;
+}
+.search{
+	border: 1rpx solid #CCC;
+	border-radius: 5px;
+	margin: 15rpx 30rpx 0 30rpx;
+	padding: 15rpx 30rpx; 
+	display: flex;
+	background-color: #FFF;
+}
+
+.background{
+	background-color: #FFF;
+	padding-bottom: 15rpx;
+}
+
+.in_search{
+	width: 100%;
+	margin-left: 15rpx;
+	font-size: 30rpx;
+}
+.commodity{
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+	padding: 30rpx 30rpx 30rpx 0;
+}
+.com_item{
+  box-sizing: border-box;
+	flex: 0 0 50%;
+	padding: 0 0 30rpx 30rpx;
+}
+.cit_b{
+	background-color: #FFF;
+	padding: 10rpx;
+}
+.com_img{
+	width: 100%;
+	height: 100px;
+}
+.com_text{
+	font-size: 30rpx;
+	margin: 30rpx 0;
+}
+.jf_m{
+	color: red;
+	font-size: 26rpx;
+}
+
+.Relevant{
+	display: flex;
+	margin: 30rpx 0 60rpx 0;
+	background-color: #FFF;
+}
+.Relevant_itme{
+	width: 25%;
+	text-align: center;
+	color: #4da2fd;
+	font-size: 30rpx;
+}
+.relevant_img{
+	width: 100%;
+	height: 200rpx;
+}

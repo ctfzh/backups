@@ -1,0 +1,21 @@
+@import "../template/display_advertising.wxss";
+@import "../custom_modular/wxParse/wxParse.wxss";
+@import "../template/bottom_dialog.wxss";
+@import "../template/top_message.wxss";
+@import "../template/loading_fall_ui.wxss";
+@import "../template/login.wxss";
+@import "../communal/commodity_details.wxss";
+@import "../template/bottom_Logo.wxss"; 
+.duihuan{
+	display: none;
+}
+.buy-immediately-view{
+  width: 100%;
+}
+.anniu_hui{
+  width: 100%;
+  background: #ccc;
+}
+.bottom{
+	margin-bottom: 150rpx;
+}

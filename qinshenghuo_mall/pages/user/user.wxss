@@ -1,0 +1,277 @@
+
+/* pages/user/user.wxss */
+
+/* 会员中心 */
+@import "../template/login.wxss";
+@import "../template/top_message.wxss";
+@import "../template/loading_fall_ui.wxss";
+@import "../template/bottom_Logo.wxss"; 
+
+
+.user-view {
+	position: relative;
+  text-align: center;
+  background: #5885cf;
+	height: 265rpx;
+	padding-top: 55rpx; 
+}
+.user_shadow{
+	position: relative;
+  border-radius: 50%;
+  width: 150rpx;
+  height: 150rpx;
+	margin: 0 auto;
+	display: flex;
+}
+.di_shadow{
+	position: absolute;
+	top: -6rpx;
+	bottom: -6rpx;
+	left: -6rpx;
+	right: -6rpx;
+	border: 6rpx solid #9e9e9e;
+  border-radius: 50%; 
+	opacity: 0.2;
+}
+.user-avatar {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	/* margin: 6rpx; */
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+
+.tab-view {
+  background: white;
+  clear: both;
+  display: -webkit-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.itm-view {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  /* margin-left: 20rpx;
+  margin-right: 20rpx; */
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+#itm-center-view {
+  border-left: 1rpx solid #e5e5e5;
+  border-right: 1rpx solid #e5e5e5;
+}
+
+.tab-text-view {
+  clear: none;
+  font-size: 30rpx;
+  color: #1A1A1A;
+  padding-left: 10rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+.tab-img-view {
+  width: 45rpx;
+  height: 45rpx;
+}
+
+#coupon-number {
+  color: #f7a80a;
+}
+
+.number-text-view {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+#money-number {
+  color: #f56618;
+}
+
+#jifen-number {
+  color: black;
+}
+
+.unit-view {
+  color: #a7a8a9;
+  font-weight: normal;
+  padding-left: 6rpx;
+}
+
+.user-name-view {
+	position: relative;
+  color: white;
+  font-size: 32rpx;
+	padding-top: 35rpx;
+  text-shadow: 0rpx 0rpx 2px rgba(0, 0, 0, 0.5);
+}
+
+.all-order-view {
+  height: 80rpx;
+  background: white;
+  /*布局方式*/
+  display: flex;
+  /*垂直居中*/
+  align-items: center;
+  justify-content: space-between;
+}
+
+.all-order-text {
+  text-align: center;
+  font-size: 28rpx;
+  color: #1A1A1A;
+  margin-left: 38rpx;
+}
+
+.left_img{
+	margin-left: 2rpx;
+}
+
+
+
+.order-state-img {
+  width: 55rpx;
+  height: 55rpx;
+}
+
+.order-state-text {
+  text-align: center;
+  font-size: 25rpx;
+  color: #1A1A1A;
+  margin-top: 10rpx;
+}
+
+.trackpoint-view {
+  position: absolute;
+  right: 25rpx;
+  top: -10rpx;
+  background: red;
+  font-size: 20rpx;
+  height: 32rpx;
+  color: white;
+  min-width: 32rpx;
+  border-radius: 50%;
+  /*布局方式*/
+  display: flex;
+  /*垂直居中*/
+  align-items: center;
+  /*水平居中*/
+  justify-content: center;
+}
+
+.list-view {
+  background: white;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.list-itm-view {
+  /*布局方式*/
+  display: flex;
+  /*垂直居中*/
+  align-items: center;
+  padding: 0 25rpx;
+  /* padding-right: 30rpx;  */
+}
+
+.list-itm-img{
+width:40rpx;
+height:40rpx;
+text-align:right;
+flex-shrink:0;
+}
+
+.dis_wraper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.distribution {
+  width: 50rpx;
+  height: 50rpx;
+
+}
+
+.list-itm-text {
+	width: 100%;
+  font-size: 32rpx;
+  color: #2C2F33;
+  float: right;
+  margin-left: 20rpx;
+	padding: 25rpx 0;
+}
+
+.new {
+  width: 86rpx;
+  height: 32rpx;
+  border-radius: 16rpx;
+  background: #DB3927;
+   padding: 0rpx 15rpx; 
+  margin-right: 10rpx;
+  color: #fff;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 32rpx;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+
+.user_style_back{
+  position: absolute;
+  top: 0rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  overflow: hidden;
+}
+.user_style_back image{
+	width: 100%;
+}
+
+.no_entry {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.no_entry_an {
+   position: relative;
+  margin-top: 100rpx;
+  width: 335rpx;
+  height: 90rpx;
+  border-radius: 4rpx;
+  background-color: #fff;
+  font-size: 32rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #F24B4B;
+}
+.no_entry_boder{
+   position: absolute;
+   top: 0rpx;
+   bottom: 0rpx;
+   left: 0rpx;
+   right: 0rpx;
+   opacity: 0.5;
+  border: 2rpx solid #F24B4B;
+}
+
+
+.no_bottom{
+	position: absolute;
+	left: 0rpx;
+	right: 0rpx;
+	bottom: 0rpx;
+}

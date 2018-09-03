@@ -1,0 +1,73 @@
+/* pages/user/personal_information.wxss */
+@import "../template/top_message.wxss";
+@import "../template/loading_fall_ui.wxss";
+.top-view{
+  width: 100%;
+  background: white;
+  margin-top: 30rpx;
+}
+.user-avatar {
+  border: 1rpx solid #dedcdc;
+  border-radius: 300rpx;
+  background-color: #9f9fa3;
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 30rpx;
+  margin-left: 10rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  /*布局方式*/
+  display: flex;
+  /*垂直居中*/
+  align-items: center;
+}
+
+.line-text-view{
+  width: 100%;
+  background: white; 
+  /*布局方式*/
+  display: flex;
+  /*垂直居中*/
+  align-items: center;
+}
+.title-text-view{
+  font-size: 30rpx;
+  color: #4d4d4d;
+  flex-shrink:0;
+  margin-left:30rpx;
+  width: 120rpx;
+	padding: 20rpx 0;
+}
+.content-text-view{
+  font-size: 30rpx;
+  color: #808083;
+  flex-shrink:0;
+  padding:20rpx;
+  flex: 1;
+}
+.button-background-view{
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-top: 40rpx;
+  border-radius: 12rpx;
+  border-width: 1rpx;
+  font-size: 30rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-color: #dedcdc;
+  text-align: center;
+  border-style: solid;
+  background: #41B035;
+  color: white;
+}
+/* 获取验证码 */
+.obtain_code{
+	font-size: 24rpx;
+	display: flex;
+	align-items: center;
+	margin: 0 30rpx;
+	color:#41B035;
+}
+.recapture_obtain{
+	color: #ccc;
+}

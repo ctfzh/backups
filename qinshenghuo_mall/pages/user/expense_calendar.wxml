@@ -1,0 +1,29 @@
+<!--pages/user/expense_calendar .wxml-->
+<!-- 消费记录 -->
+<view class='content-view'>
+  <view wx:for="{{array}}" wx:key="property" wx:for-item="itemName">
+    <view class='left_right_view' style=' background: white;padding:30rpx;'>
+      <view>
+        <view class='name-view'>菠萝家</view>
+        <view class='text-view'>菠萝家</view>
+        <view class='text-view'>菠萝家</view>
+      </view>
+      <view>
+        <view class='name-view'>菠萝家</view>
+        <view class='text-view'>菠萝家</view>
+      </view>
+    </view>
+
+    <view class='stytle-line' />
+  </view>
+</view>
+
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" />
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

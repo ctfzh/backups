@@ -1,0 +1,42 @@
+<!-- 收货地址列表 -->
+<template name="address-view">
+  <view class="dialog {{ address_showDialog ? 'dialog_show' : '' }}">
+
+    <view class="dialog_mask" bindtap="onClickdiaView" />
+    <view class="dialog_container">
+
+      <!--  //此区域自定义视图  -->
+      <view class='title-view'>
+        <view class='title-text'>选择收货地址</view>
+        <image id="dialog-del" src="../img/dialog-del.png" bindtap="onClickdiaView" />
+      </view>
+      <view class='stytle-line' />
+      <scroll-view scroll-y style='max-height: 800rpx;min-height: 300rpx;'>
+        <view wx:for="{{array}}" wx:for-index="idx" wx:for-item="itemName" wx:key="unique">
+          <view class='add-address-list-view'>
+
+            <image class='address-img-list-view' src="{{itemName.id==checked_id? '../img/select_true.png':'../img/select_false.png'}}" bindtap='checked_onclick' data-idx="{{itemName}}" />
+
+            <view style='padding:30rpx;width:100%'>
+              <view class='addres-name' bindtap='checked_onclick' data-idx="{{itemName}}">{{itemName.name}},{{itemName.phone}}</view>
+              <view class='address-text' bindtap='checked_onclick' data-idx="{{itemName}}">收货地址：{{itemName.address_full}}</view>
+              <view class='default-view' bindtap='checked_onclick' data-idx="{{itemName}}">{{itemName.is_default==1? '[默认地址]':''}}</view>
+            </view>
+            <image class='edit-img-view' src='../img/edit.png' bindtap='edit_onclick' data-idx="{{itemName}}"></image>
+          </view>
+          <view class='stytle-line' />
+        </view>
+        <view class='address-view-view-view' bindtap='add_onclick'>
+          <view class='add-address-list-view' >
+            <image class='address-img-list-view' src='../img/address_list_add.png' />
+            <view class='addres-name' id='add-addres-text-view'>
+              <text>新增收货地址</text>
+            </view>
+            <image class='arrows-right-img' src='../img/arrows_right.png'></image>
+          </view>
+        </view>
+        <view class='stytle-line' />
+      </scroll-view>
+    </view>
+  </view>
+</template>

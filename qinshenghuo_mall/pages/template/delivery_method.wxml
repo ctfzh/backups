@@ -1,0 +1,27 @@
+<!-- 配送方式选择器 -->
+<template name="delivery_method_diaView">
+  <view class="dialog {{ delivery_method_showDialog ? 'delivery_method_dialog_show' : '' }}">
+
+    <view class="delivery-method-dialog_mask" bindtap="delivery_method_onClickdiaView" />
+    <view class="delivery-method-dialog_container">
+      <scroll-view scroll-y style='min-height:400rpx;'>
+        <!--  //此区域自定义视图  -->
+        <view class='title-view'>
+          <view class='title-text'>配送方式</view>
+          <image id="dialog-del" src="../img/dialog-del.png" bindtap="delivery_method_onClickdiaView" />
+        </view>
+        <view class='stytle-line' />
+        <view wx:for="{{delivery_method_list}}" wx:for-item="itemName" wx:key="unique">
+          <view class='add-address-list-view'  bindtap='delivery_method_checked_onclick'data-idx="{{itemName.id}}">
+            <image class='address-img-list-view' src='{{itemName.checked ? "../img/delivery_method_select_true.png":"../img/delivery_method_select_false.png"}}' />
+            <view style='padding:30rpx;'>
+              <view class='addres-name' style='width:100%' >{{itemName.title}}</view>
+              <view class='address-text' style='width:100%'>{{itemName.content}}</view>
+            </view>
+          </view>
+          <view class='stytle-line' />
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</template>

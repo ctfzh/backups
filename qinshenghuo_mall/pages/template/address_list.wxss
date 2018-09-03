@@ -1,0 +1,72 @@
+/* 收货地址列表 */
+.dialog_mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  
+}
+
+.dialog_container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  transform: translateY(150%);
+  transition: all 0.4s ease;
+  z-index: 11;
+}
+
+.dialog_show .dialog_container {
+  transform: translateY(0);
+}
+
+.dialog_show .dialog_mask {
+  display: block;
+}
+.title-view{
+  text-align: center;
+}
+#dialog-del {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 30rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.title-text{
+  font-size: 30rpx;
+  color: black;
+  padding: 30rpx;
+}
+.address-img-list-view{
+  width: 40rpx;
+  height: 40rpx;
+  flex-shrink:0;
+}
+.add-address-list-view{
+  /*布局方式*/
+  display: flex;
+  /*垂直居中*/
+  align-items: center;
+  padding-left: 30rpx;
+}
+.address-view-view-view{
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.edit-img-view{
+  width: 50rpx;
+  height: 50rpx;
+  flex-shrink:0;
+  margin: 30rpx;
+}
+.default-view{
+  font-size: 26rpx;
+  color:#d43c33;
+}

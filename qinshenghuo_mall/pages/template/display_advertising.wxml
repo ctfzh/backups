@@ -1,0 +1,18 @@
+<!-- 图片广告模板 -->
+<template name="display-advertising">
+  <view class="swiper-container">
+    <swiper autoplay="auto" interval="5000" bindchange="swiperChange" class="swiper" style="height:{{display_height}}px" circular="true">
+      <block wx:for="{{slider}}" wx:key="unique">
+        <swiper-item data-id="{{item.id}}" data-url="{{item.linkUrl}}">
+        <!-- Math.max.apply(null,banner.height) -->
+          <image bindtap="advert_onclick_img" data-idx="{{item}}"  src="{{item.img}}" class="img"    mode='aspectFit'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="dots" wx:if="{{slider.length>1}}">
+      <block wx:for="{{slider}}" wx:key="unique">
+        <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+      </block>
+    </view>
+  </view>
+</template>

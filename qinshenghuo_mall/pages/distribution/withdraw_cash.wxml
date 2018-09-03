@@ -1,0 +1,143 @@
+<!-- 提现申请 -->
+<view class='container_draw  window_cover'  hidden='{{!show_loading_faill}}'>
+    <!-- 分销错误提示 -->
+    <import src="../distribution/distribution_anomaly.wxml" />
+    <template is="distribution_anomaly" data="{{ anomaly_code:anomaly_code}}" />
+
+  <form bindsubmit='withdraw'>
+    <view class='mode1_wraper' wx:if='{{draw_method==1}}'>
+      <!--提现到微信等  -->
+      <view class='where_draw' catchtap='to_withdraw_cash_mode'>
+        <view class='icon_wraper'>
+          <view class='icon'>
+            <image src='../img/wechat.png'></image>
+          </view>
+        </view>
+        <view class='des'>提现到微信</view>
+        <view class='more'>
+          <image src='../img/more.png'></image>
+        </view>
+      </view>
+      <!--填写信息  -->
+      <view class='draw_item' wx:if="{{!myphone}}">
+        <view class='label'>手机号</view>
+        <input type='number' placeholder='请输入手机号' bindinput='phoneInput' value='{{mun}}'></input>
+      </view>
+      <view class='draw_item' wx:if="{{!myphone}}">
+        <view class='label'>验证码</view>
+        <input class='verify_in' type='number' placeholder='请输入验证码' bindblur="edit_user_information" value='{{mun}}'></input>
+        <view class='verify' catchtap='bindtapcode' style='display:{{show_secound!="none"?"none":""}}'>验证</view>
+        <view class='obtain_code recapture_obtain' style='display:{{show_secound}}'>{{second}}秒后重新获取</view>
+      </view>
+      <view class='draw_item' wx:if="{{!username}}">
+        <view class='label'>真实姓名</view>
+        <input type='text' placeholder='请填写真实姓名' bindinput='userNameInput' bindblur="edit_user_name" value='{{mun}}'></input>
+      </view>
+      <view class='draw_item'>
+        <view class='label'>微信号</view>
+        <input type='text' placeholder='请输入微信号' bindinput='wxNumberInput' name='wechat_no' value='{{mun}}'></input>
+      </view>
+      <view class='draw_item'>
+        <view class='label'>提现金额</view>
+        <input type='digit' placeholder='请输入提现金额' bindinput='withDrawInput' name='withdraw_money' value='{{mun}}'></input>
+      </view>
+    </view>
+
+    <view class='mode2_wraper' wx:if='{{draw_method==2}}'>
+      <!--提现到支付宝  -->
+      <view class='where_draw' catchtap='to_withdraw_cash_mode'>
+        <view class='icon_wraper ali'>
+          <view class='icon alipay'>
+            <image src='../img/alipay.png'></image>
+          </view>
+        </view>
+        <view class='des'>提现到支付宝</view>
+        <view class='more'>
+          <image src='../img/more.png'></image>
+        </view>
+      </view>
+      <!--填写信息  -->
+      <view class='draw_item' wx:if="{{!myphone}}">
+        <view class='label'>手机号</view>
+        <input type='number' placeholder='请输入手机号' bindinput='phoneInput' value='{{mun}}'></input>
+      </view>
+      <!--支付宝验证码项  -->
+      <view class='draw_item' wx:if="{{!myphone}}">
+        <view class='label'>验证码</view>
+        <input class='verify_in' type='number' placeholder='请输入验证码' bindblur="edit_user_information" value='{{mun}}'></input>
+        <view class='verify' catchtap='bindtapcode' style='display:{{show_secound!="none"?"none":""}}'>验证</view>
+        <view class='obtain_code recapture_obtain' style='display:{{show_secound}}'>{{second}}秒后重新获取</view>
+      </view>
+      <view class='draw_item' wx:if="{{!username}}">
+        <view class='label'>真实姓名</view>
+        <input type='text' placeholder='请填写真实姓名' bindinput='userNameInput' bindblur="edit_user_name" value='{{mun}}'></input>
+      </view>
+      <view class='draw_item'>
+        <view class='label'>支付宝账号</view>
+        <input type='text' placeholder='请输入支付宝账号' bindinput='aliAccountInput' name='alipay_no' value='{{mun}}'></input>
+      </view>
+      <view class='draw_item'>
+        <view class='label'>提现金额</view>
+        <input type='digit' placeholder='请输入提现金额' bindinput='withDrawInput' name='withdraw_money' value='{{mun}}'></input>
+      </view>
+    </view>
+
+    <view class='mode3_wraper' wx:if='{{draw_method==3}}'>
+      <!--提现到银行卡  -->
+      <view class='where_draw' catchtap='to_withdraw_cash_mode'>
+        <view class='icon_wraper bra_card'>
+          <view class='icon brand_card'>
+            <image src='../img/brand_card.png'></image>
+          </view>
+        </view>
+        <view class='des'>提现到银行卡</view>
+        <view class='more'>
+          <image src='../img/more.png'></image>
+        </view>
+      </view>
+      <!--填写信息  -->
+      <view class='draw_item' wx:if="{{!myphone}}">
+        <view class='label'>验证码</view>
+        <input class='verify_in' type='number' placeholder='请输入验证码' bindblur="edit_user_information" value='{{mun}}'></input>
+        <view class='verify' catchtap='bindtapcode' style='display:{{show_secound!="none"?"none":""}}'>验证</view>
+        <view class='obtain_code recapture_obtain' style='display:{{show_secound}}'>{{second}}秒后重新获取</view>
+      </view>
+      <view class='draw_item' wx:if="{{!username}}">
+        <view class='label'>真实姓名</view>
+        <input type='text' placeholder='请填写真实姓名' bindinput='userNameInput' bindblur="edit_user_name" value='{{mun}}'></input>
+      </view>
+      <view class='draw_item'>
+        <view class='label'>开户人姓名</view>
+        <input type='text' placeholder='请与银行卡开户人一致' bindinput='accountNameInput' name='bank_card_name' value='{{mun}}'></input>
+      </view>
+      <view class='draw_item'>
+        <view class='label'>开户行</view>
+        <input type='text' placeholder='请输入正确的开户行' bindinput='banckInput' name='bank_name' value='{{mun}}'></input>
+      </view>
+      <view class='draw_item'>
+        <view class='label'>银行卡号</view>
+        <input type='text' placeholder='请输入正确的银行卡号' bindinput='banckCardNoInput' name='bank_card_no' value='{{mun}}'></input>
+      </view>
+      <view class='draw_item'>
+        <view class='label'>提现金额</view>
+        <input type='digit' placeholder='请输入提现金额' bindinput='withDrawInput' name='withdraw_money' value='{{mun}}'></input>
+      </view>
+    </view>
+    <!--确认提现  -->
+    <button formType='submit' class='ok'>确认提现</button>
+  </form>
+
+</view>
+
+<!-- 顶部提示 -->
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" /> 
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

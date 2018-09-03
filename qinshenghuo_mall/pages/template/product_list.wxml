@@ -1,0 +1,37 @@
+<!-- 商品列表模板 -->
+<template name="product-list">
+  <view class="product_list">
+    <block wx:for="{{array}}" wx:key="property" wx:for-item="itemName">
+      <view id="{{listStyle==0? 'product-100':'product-50'}}" class='product'>
+        <view class="product_itm" data-idx="{{itemName}}" catchtap="into_commodity_details_onclick">
+          <view class="product_img_view" id="{{listStyle==0? '':'product-img-view-50'}}">
+            <image class="product_img" id="{{listStyle==0? '':'product-img-50'}}" src="{{itemName.img}}" data-idx="{{itemName}}" mode='widthFix' />
+          </view>
+          <view hidden="{{shopStyle==1? true:false}}" class="product_text">
+            <view hidden="{{showTitle? false:true}}" class="product_name" data-idx="{{itemName}}">
+              {{itemName.name}}
+            </view>
+            <view class="left_right_vertical_center">
+              <view hidden="{{showPrice? false:true}}" class="product_price {{shopStyle!=1&&btnStyle==2?'product_price_ji':''}}">
+                {{itemName.price}}
+              </view>
+              <view hidden="{{showPrice? true:false}}" style='height:80rpx;'></view>
+            </view>
+          </view>
+        </view>
+        <view class="vertical" id='buy_shopping_onclick' wx:if="{{showBuy}}">
+          <view hidden="{{shopStyle==1&&showPrice? false:true}}" id="simpleness-view-price">{{itemName.price}}</view>
+          <view hidden="{{shopStyle==1? true:false}}">
+            <view wx:if="{{btnStyle==2}}" id="buy_words" catchtap="showModal" data-idx="{{itemName}}">
+              {{btnText}}
+            </view>
+            <!-- <image wx:if="{{btnStyle==0}}" catchtap="showModal" data-idx="{{itemName}}" class="shopping_trolley_img" src="../img/add.png" /> -->
+            <view wx:if="{{btnStyle==0}}" catchtap="showModal" data-idx="{{itemName}}" class="btn0"></view>
+
+            <image wx:if="{{btnStyle==1}}" catchtap="showModal" data-idx="{{itemName}}" class="shopping_trolley_img" src="../img/shoppingtrolley.png" />
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</template>

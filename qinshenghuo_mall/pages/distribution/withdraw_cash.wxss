@@ -1,0 +1,156 @@
+/*提现申请  */
+/*引入样式  */
+@import '../template/loading_fall_ui.wxss';
+@import "../template/top_message.wxss";
+@import "../distribution/distribution_anomaly.wxss";
+.container_draw {
+  margin: 30rpx 30rpx 0 30rpx;
+}
+
+/*提现到 微信等  */
+
+.where_draw {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 120rpx;
+  background: #fff;
+  padding: 0 30rpx;
+}
+
+/*微信图片的W H  */
+
+.where_draw .icon_wraper {
+  width: 70rpx;
+  height: 60rpx;
+  position: relative;
+}
+
+/*支付宝图片的W H  */
+
+.where_draw .ali {
+  width: 63rpx;
+  height: 63rpx;
+  position: relative;
+}
+
+/*银行卡图片的W H  */
+
+.where_draw .bra_card {
+  width: 70rpx;
+  height: 44rpx;
+  position: relative;
+}
+
+/*抵消微信图片白边  */
+
+.where_draw .icon {
+  position: absolute;
+  top: -6rpx;
+  bottom: -7rpx;
+  left: 0;
+  right: 0;
+}
+
+/*抵消支付宝图片白边  */
+
+.where_draw .alipay {
+  position: absolute;
+  top: -3rpx;
+  bottom: -4rpx;
+  left: -3rpx;
+  right: -4rpx;
+}
+
+/*抵消银行卡图片白边  */
+
+.where_draw .brand_card {
+  position: absolute;
+  top: -13rpx;
+  bottom: -13rpx;
+  left: 0;
+  right: 0;
+}
+
+.where_draw image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.where_draw .des {
+  flex: 1;
+  color: #2c2f33;
+  font-size: 32rpx;
+  margin-left: 30rpx;
+}
+
+.where_draw .more {
+  width: 20rpx;
+  height: 35rpx;
+}
+
+/* 填写信息项 */
+
+.draw_item {
+  position: relative;
+  display: flex;
+  height: 100rpx;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  margin-top: 20rpx;
+  padding-left: 30rpx;
+}
+
+.draw_item .label {
+  color: #2c2f33;
+  font-size: 32rpx;
+}
+
+.draw_item input {
+  position: absolute;
+  left: 220rpx;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28rpx;
+}
+.verify_in {
+  width:300rpx;
+}
+/*支付宝验证码项  */
+
+.draw_item .verify {
+  padding: 0 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-left: 1rpx solid #dedfe0;
+  font-size: 32rpx;
+  color: #00a7ff;
+}
+
+/*确认提现  */
+
+.ok {
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #fff;
+  font-size: 32rpx;
+  background: #09bb07;
+  text-align: center;
+  /* border-radius: 4rpx; */
+  margin-top: 80rpx;
+}
+
+/* 获取验证码 */
+.obtain_code{
+	font-size: 24rpx;
+	display: flex;
+	align-items: center;
+	margin: 0 30rpx;
+	color:#41B035;
+}
+.recapture_obtain{
+	color: #ccc;
+}

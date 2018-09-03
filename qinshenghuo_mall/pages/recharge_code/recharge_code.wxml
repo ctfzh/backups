@@ -1,0 +1,19 @@
+<!-- 储值卡/码页HTML -->
+<view class='max_code'>
+  <view  class='code'><input type='text' placeholder='请输入储值卡/码' bindinput='getCode'></input></view>
+  <view class='button_an' bindtap="getRechargeCode">兑换</view>
+</view>
+
+<!-- 顶部提示 -->
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<!--请求页面数据失败显示模块  -->
+ <import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{ show_loading_faill:show_loading_faill, remind_text:remind_text,img_url:img_url,retry_text:retry_text,loading_type:loading_type}}" /> 
+
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

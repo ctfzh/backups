@@ -1,0 +1,103 @@
+<!-- 退款详情 -->
+<view hidden='{{!show_loading_faill}}'>
+  <view class='stytle-line' />
+  <view class='top-content'>
+
+
+    <view class='center_class'>
+      <text class='left-text'>{{refund_data.order_sku_refund_data.status_text}}</text>
+    </view>
+
+
+    <view wx:if="{{refund_data.order_sku_refund_data.status==8}}" class='top-content'>
+      <view class='stytle-line' />
+      <view class='left-text-text'>拒绝理由：
+        <text>{{refund_data.order_sku_refund_data.reject_reason}}</text>
+      </view>
+      <view style='height:100rpx'></view>
+      <!-- <view class='left-text-text'>退款金额：
+        <text>90.00</text>
+      </view>
+      <view class='left-text-text'>退款时间：
+        <text>2017-07-25 21:29:23</text>
+      </view> -->
+    </view>
+    <view wx:if="{{refund_data.order_sku_refund_data.status==7}}" class='top-content'>
+      <view class='stytle-line' />
+
+      <view class='left-text-text'>退款金额：
+        <text>{{refund_data.order_sku_refund_data.money}}</text>
+      </view>
+      <view class='left-text-text'>退款时间：
+        <text>{{refund_data.order_sku_refund_data.approval_date}}</text>
+      </view>
+    </view>
+    <!-- 同意退款需退货 -->
+    <view wx:if="{{refund_data.order_sku_refund_data.status==3}}" class='top-content'>
+      <view class='stytle-line' />
+
+      <view class='left-text-text' style='margin-top: 20rpx;'>退货地址：
+        <text>{{refund_data.merchant_address}}</text>
+      </view>
+      <!-- <view class='left-text-text'>退款时间：
+        <text>{{refund_data.order_sku_refund_data.approval_date}}</text>
+      </view>  -->
+      <view class='button-background-view' id='save-view' style='margin-bottom: 30rpx;' bindtap='refund_express_onclick'>填写退货物流信息</view>
+    </view>
+    <view class='stytle-line' />
+    <view class='left_right_vertical_center'style='margin-top: 10rpx;' >
+      <view class='left-text-text'>订单编号</view>
+      <view class='right-text-text'>{{refund_data.order_no}}</view>
+    </view>
+    <view class='left_right_vertical_center'>
+      <view class='left-text-text'>交易时间</view>
+      <view class='right-text-text'>{{refund_data.create_time}}</view>
+    </view>
+    <view class='left_right_vertical_center'>
+      <view class='left-text-text'>退款原因</view>
+      <view class='right-text-text'>{{reason}}</view>
+    </view>
+    <view class='left_right_vertical_center'>
+      <view class='left-text-text'>处理方式</view>
+      <view class='right-text-text'>{{refund_data_type}}</view>
+    </view>
+    <view class='left_right_vertical_center'>
+      <view class='left-text-text'>退款金额</view>
+      <view class='right-text-text' id='money'>{{refund_data.order_sku_refund_data.money}}</view>
+    </view>
+    <view wx:if="{{refund_data.order_sku_refund_data.remark}}" class='left_right_vertical_center'>
+      <view class='left-text-text'>备注</view>
+      <view class='right-text-text'>{{refund_data.order_sku_refund_data.remark}}</view>
+    </view>
+    <view wx:if="{{refund_data.order_sku_refund_data.img&&refund_data.order_sku_refund_data.img.length>0}}">
+      <view class='left-text-text'>图片</view>
+      <view class='img-view-view' style='padding-left:30rpx;padding-right:30rpx;padding-top:-10rpx;padding-left:30rpx;;padding-bottom:30rpx;'>
+        <image class='upload-img-view' src="{{itemName}}" wx:for="{{refund_data.order_sku_refund_data.img}}" wx:for-index="idx" wx:for-item="itemName" wx:key="unique" />
+      </view>
+    </view>
+  </view>
+  <view class='content-view-view'>
+    <view class='stytle-line' />
+    <view class='center_class' bindtap='look_consultation_onclick'>
+      <text class='left-text'>查看协商记录</text>
+    </view>
+    <view class='stytle-line' />
+  </view>
+  <view style='margin-bottom: 30rpx;'>
+    <view wx:if="{{refund_data.order_sku_refund_data.status==2||refund_data.order_sku_refund_data.status==3||refund_data.order_sku_refund_data.status==5}}" class='button-background-view' id='save-view' bindtap='cancel_refund_onclick'>取消退款</view>
+    <view wx:if="{{refund_data.order_sku_refund_data.status==8}}" bindtap='anew_submit_onclick' class='button-background-view' id='save-view'>重新提交退款申请</view>
+    <view wx:if="{{refund_data.order_sku_refund_data.status==5}}" class='button-background-view' id='save-view' bindtap='refund_express_onclick'>填写退货物流信息</view>
+  </view>
+</view>
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" />
+
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

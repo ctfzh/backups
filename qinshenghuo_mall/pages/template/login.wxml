@@ -1,0 +1,38 @@
+<!-- 登录模板 -->
+<template name="login_view">
+  <view class="dialog {{ login_show ? 'dialog--show' : '' }}">
+    <view class="dialog__mask_login" />
+    <view class="dialog__container_login" style="display:flex;align-items:center;justify-content:center;flex-direction:column;" bindtap='onClickdiaCenterView'>
+
+      <!--  //此区域自定义视图  -->
+      <view style='width:100%'>
+        <view class='login-view-view'>
+          <view class='title-view-login'>
+            <view class='title-text-login'>用户登录</view>
+            <image wx:if="{{!hide_delete}}" id="dialog-del" src="../img/dialog-del.png" bindtap="onClickdiaView_edit" />
+          </view>
+          <view class='stytle-line' />
+          <view class='login-login-view'>
+            <view class='login-line-input-view'>
+              <input class='content-text-text-login' bindinput="phone_Input" value='{{phone}}' placeholder="手机号码" type='number'></input>
+            </view>
+            <view class='stytle-line' />
+            <view class='login-line-input-view'>
+              <view class='code-view'>
+                <input class='content-text-text-number' bindinput="code_Input" value='{{code}}' placeholder="验证码" type='number'></input>
+                <view class='verification-code-view' bindtap='get_verification_onclick'>
+                  <text>{{second}}</text>
+                  <view style='display:{{show_secound}}'>秒</view>
+                </view>
+
+              </view>
+            </view>
+            <view>
+            </view>
+          </view>
+          <view class='button-background-view' bindtap='login_submit'>登录</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

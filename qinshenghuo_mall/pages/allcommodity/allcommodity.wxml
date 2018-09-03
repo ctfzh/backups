@@ -1,0 +1,101 @@
+<!--全部商品列表-->
+<!-- 分割线 -->
+<view class='top_fixed_solid'></view>
+<!-- 分割线 -->
+
+<view hidden='{{!show_loading_faill}}'>
+
+	<view class='good-listNew'>
+	<!--搜索 -->
+		<view class="left_right_vertical_center">
+			<view class="secah_view">
+			<view>
+					<image id="search-img" src="../img/search_q.png" />
+			</view>
+					<input id="search-text" bindinput="Input_text" confirm-type="search" bindconfirm="Input_over" placeholder="搜索商品" value="{{searchinput}}"  bindtap='input_tiao'/>
+					<view class='search-del'>
+						<image id="search-img-del" src="../img/del.png" style="display:{{clear_type}}" bindtap="Cler_input" />
+					</view>
+			</view>
+		</view>
+		<!--搜索结束 -->
+		<view class='right_goods_menu'>
+			<view class='goods_menu_list'>
+				<!-- 分类菜单-->
+				<view class='menu_list {{index==group_index||itemName.id == group_id ? "current" : "" }}' wx:for="{{group_data}}" wx:for-item="itemName" wx:key="unique" wx:for-index="index" data-idx="{{itemName}}"  bindtap="caidan">
+					<view class='left_xian'></view>
+					<view class='classify_name'>{{itemName.name}}</view>
+				</view>
+				<!-- <view class='menu_list current'>
+					<view class='left_xian'></view>
+					<text>分类一</text>
+				</view>
+				<view class='menu_list'>
+					<view class='left_xian'></view>
+					<text>分类一</text>
+				</view> -->
+				<!-- 分类菜单结束-->
+			</view>
+		</view>
+
+		<view class='left_goods_list'>
+		<!--排序  -->
+		<view class='fixed'>
+			<view class='paixu'>
+				<view class='rel {{ sort_name=="buyNumSort"  ? "red" : "" }} ' bindtap='paixu' data-idx="buyNumSort">
+					销售排序
+				</view>
+				<view class='rel {{ sort_name=="pvSort"  ? "red" : "" }}' bindtap='paixu' data-idx="pvSort">
+					人气排序
+				</view>
+				<view  class='rel {{ sort_name=="priceSort"&&sort_type=="1"  ? "red red_top" : "" }} {{ sort_name=="priceSort"&&sort_type=="2"  ? "red red_bottom" : "" }}' bindtap='paixu' data-idx="priceSort">
+					价格排序
+					<view class='jiao'></view>
+				</view>
+			</view>
+		</view>
+			<!--商品列表=> 开始 -->
+			<view class='commodity_list'>
+			<view wx:for="{{data}}" wx:for-item="itemName" wx:key="unique" style="background: white;">
+				<view wx:if="{{index!=0}}">
+				</view>
+				<view class='commodity-view'>
+					<view data-idx="{{itemName}}" bindtap='into_commodity_details_onclick'>
+						<image id='commodity-img' src='{{itemName.img}}' />
+						<view class='commodity-text'>
+							<view class='commodity-name'>{{itemName.name}}</view>
+							<view id='coommodity-text-view-bottom'>
+								<view class='commodity-price'><text class='f_mo'>￥</text>{{itemName.price}}
+									<text wx:if="{{itemName.original_price>0}}" class='original_price_view'>￥{{itemName.original_price}}</text>
+								</view>
+							</view>
+						</view>
+					</view>
+					<image class='buy' src="../img/All_goods.png" bindtap="showModal" data-idx="{{itemName}}"></image>
+				</view>
+			</view>   
+			</view>
+			<!--商品列表=>结束  -->
+		</view>
+	</view>
+
+</view>
+
+
+<!--模板  -->
+<import src="../template/bottom_dialog.wxml" />
+<template is="diaView" data="{{showDialog:showDialog,property_data:property_data,num:num,propertyid:propertyid,price_text:price_text,totalNum:totalNum,integral_limit_num}}" />
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<import src="../template/login.wxml" />
+<template is="login_view" data="{{login_show:login_show,second:second,show_secound:show_secound}}" />
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" /> 
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize"></authorize>
+	</view>

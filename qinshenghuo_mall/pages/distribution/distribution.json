@@ -1,0 +1,9 @@
+{
+	"usingComponents": {
+		"authorize": "../custom_modular/authorize"
+	},
+"navigationBarTitleText": "我的分销",
+"navigationBarTextStyle": "black",
+"enablePullDownRefresh": true,
+"backgroundTextStyle": "dark"
+}

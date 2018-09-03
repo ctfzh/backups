@@ -1,0 +1,130 @@
+/* 我的佣金 */
+/*页面数据加载失败显示的模块  */
+@import '../template/loading_fall_ui.wxss';
+@import "../template/top_message.wxss";
+@import "../distribution/distribution_anomaly.wxss";
+.top {
+  height: 360rpx;
+  background: -webkit-linear-gradient(left top,#F04735,#FF5A47);
+}
+/*可提现佣金  */
+.top  .usable_comm {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 230rpx;
+  color: #fff;
+}
+
+.usable_comm .num {
+  font-size: 70rpx;
+  font-weight: bold;
+  line-height: 55rpx;
+}
+.usable_comm .money_wraper {
+  position: relative;
+}
+.usable_comm .unit {
+  position: absolute;
+  left: -40rpx;
+  bottom: 0;
+  line-height: 30rpx;
+  font-size: 38rpx;
+}
+
+.usable_comm .des {
+  font-size: 24rpx;
+  opacity: 0.8;
+  line-height: 22rpx;
+  margin-top: 20rpx;
+}
+
+/*累计佣金收益  */
+.accumulative {
+  display: flex;  
+  height: 129rpx;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1rpx solid rgba(255,255,255,0.3);
+}
+.accu_item {
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.accu_item .num {
+  font-size: 32rpx;
+  font-weight: bold;
+  line-height: 25rpx;
+}
+.accu_item .money_wraper {
+ position: relative;
+}
+.accu_item .unit {
+  position: absolute;
+  left: -25rpx;
+  bottom: 0;
+  line-height: 20rpx;
+  font-size: 24rpx;
+}
+
+.accu_item .des {
+  font-size: 24rpx;
+  opacity: 0.8;
+  line-height: 22rpx;
+  margin-top: 20rpx;
+}
+
+.accumulative .line {
+  width: 1rpx;
+  height: 50rpx;
+  background: #fff;
+  opacity: 0.3;
+}
+
+/*底部列表  */
+.bottom {
+  margin-top: 30rpx;
+  background: #fff;
+}
+.bottom  .bot_item {
+  display: flex;
+  height: 100rpx;
+  padding: 0 30rpx;
+  flex-flow: row nowrap;
+  align-items: center;
+  border-bottom: 1rpx solid #DEDFE0;
+}
+.bot_item:first-child {
+  border-top: 1rpx solid #DEDFE0;
+}
+
+.bot_item .icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.bot_item .des {
+  flex: 1;
+  margin-left: 25rpx;
+  color: #2C2F33;
+  font-size: 32rpx;
+}
+.bot_item .more {
+  width: 14rpx;
+  height: 25rpx;
+}
+.bot_item image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+
+

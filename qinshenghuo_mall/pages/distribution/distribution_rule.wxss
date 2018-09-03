@@ -1,0 +1,9 @@
+/* pages/distribution/distribution_rule.wxss */
+/* 引入样式 */
+@import "../template/top_message.wxss";
+@import "../template/loading_fall_ui.wxss";
+@import "../custom_modular/wxParse/wxParse.wxss";
+@import "../distribution/distribution_anomaly.wxss";
+.distribution_rule_q{
+  padding: 20rpx;
+}

@@ -1,0 +1,18 @@
+/* pages/home/home.wxss */
+ @import "../template/product_list.wxss"; 
+ @import "../template/display_advertising.wxss"; 
+ @import "../template/image_navigation.wxss"; 
+ @import "../template/search.wxss"; 
+ @import "../custom_modular/wxParse/wxParse.wxss";
+
+ @import "../template/bottom_dialog.wxss";
+@import "../template/top_message.wxss";
+@import "../template/loading_fall_ui.wxss";
+@import "../template/login.wxss"; 
+@import "../template/bottom_Logo.wxss"; 
+/*拼团商品列表CSS  */
+@import "../template/collage_goods.wxss"; 
+
+.max_mall{
+  overflow: hidden;
+}

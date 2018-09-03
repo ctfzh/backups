@@ -1,0 +1,6 @@
+{
+	"usingComponents": {
+		"authorize": "../custom_modular/authorize"
+	},
+  "navigationBarTitleText": "提现申请"
+}

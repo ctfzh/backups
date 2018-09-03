@@ -1,0 +1,32 @@
+/* 余额明细CSS */
+@import "../template/top_message.wxss";
+@import "../template/loading_fall_ui.wxss";
+page{
+  background-color: #fff;
+}
+.max_balance{
+  background-color: #fff;
+  /* padding-bottom: 15rpx; */
+}
+.balance_list{
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 25rpx 25rpx 15rpx 0rpx;
+  font-size: 30rpx;
+  margin-left: 25rpx;
+  border-width: 0rpx;
+  border-style: solid;
+  border-bottom-width: 1rpx;
+}
+.balance_detailed{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.balance_detailed_item{
+  font-size: 24rpx;
+  margin-top: 30rpx;
+}
+/* .balance_list:last-child{
+  border-bottom-width: 0rpx;
+} */

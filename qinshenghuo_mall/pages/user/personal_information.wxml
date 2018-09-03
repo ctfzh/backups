@@ -1,0 +1,111 @@
+<!-- 个人信息 -->
+<view style='padding-bottom: 40rpx;'>
+  <view class='top-view'>
+    <view class='left_right_vertical_center' bindtap='add_img_onclick'>
+      <view class='title-text-view'>头像</view>
+      <image class='user-avatar' src='{{upload+avatar}}'></image>
+    </view>
+    <view class='stytle-line-left' />
+    <view class='line-text-view'>
+      <view class='title-text-view'>手机号码</view>
+      <!-- value=''  bindinput="bindInputPhone" -->
+      <input class='content-text-view' value='{{phone==null?"":phone}}' bindinput="bindInputPhone"></input>
+    </view>
+		<view class='stytle-line-left' />
+    <view class='line-text-view' style='{{phone==account?"display:none":""}}' >
+      <view class='title-text-view'>验证码</view>
+      <!-- value=''  bindinput="bindInputPhone" -->
+      <input class='content-text-view'  bindinput="bindInputCode"></input>
+       <view class='obtain_code' style='display:{{show_secound!="none"?"none":""}}' bindtap='bindtapcode' value="{{code_null}}">获取验证码</view>
+      <view class='obtain_code recapture_obtain' style='display:{{show_secound}}'>{{second}}秒后重新获取</view> 
+    </view>
+		
+
+    <view class='stytle-line' />
+  </view>
+
+  <view class='top-view'>
+    <view class='stytle-line' />
+    <view class='line-text-view'>
+      <view class='title-text-view'>姓名</view>
+      <input class='content-text-view' value='{{user_name}}' bindinput="bindInputName"></input>
+    </view>
+    <view class='stytle-line-left' />
+    <view class='line-text-view'>
+      <view class='title-text-view'>性别</view>
+      <picker  class='content-text-view'  bindchange="bindSexChange" value="{{sex_index}}" range="{{sex_array}}" range-key="name">
+        <view>
+          {{sex_array[sex_index].name? sex_array[sex_index].name:'请选择'}}
+        </view>
+      </picker>
+    </view>
+    <view class='stytle-line-left' />
+    <view class='line-text-view'>
+      <view class='title-text-view'>生日</view>
+      <view class='content-text-view'>
+
+        <picker mode="date" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+          <view class="picker">
+            {{time? time:'请选择'}}
+          </view>
+        </picker>
+
+
+      </view>
+    </view>
+    <view class='stytle-line-left' />
+    <view class='line-text-view'>
+      <view class='title-text-view'>身份证</view>
+      <input class='content-text-view' type='idcard' value='{{ID_number}}' bindinput="bindInputID_number"></input>
+    </view>
+    <view class='stytle-line-left' />
+    <view class='line-text-view'>
+      <view class='title-text-view'>邮箱</view>
+      <input class='content-text-view' value='{{email}}' bindinput="bindInputEmail"></input>
+    </view>
+    <view class='stytle-line-left' />
+    <view class='line-text-view'>
+      <view class='title-text-view'>详细地址</view>
+      <input class='content-text-view' value='{{address}}' bindinput="bindInputAddress"></input>
+    </view>
+    <view class='stytle-line-left' />
+    <view class='line-text-view'>
+      <view class='title-text-view'>教育背景</view>
+      <input class='content-text-view' value='{{educational}}' bindinput="bindInputEducational"></input>
+    </view>
+    <view class='stytle-line-left' />
+    <view class='line-text-view'>
+      <view class='title-text-view'>职业</view>
+      <input class='content-text-view' value='{{occupation}}' bindinput="bindInputOccupation"></input>
+    </view>
+    <view class='stytle-line-left' />
+    <view class='line-text-view'>
+      <view class='title-text-view'>行业</view>
+      <input class='content-text-view' value='{{industry}}' bindinput="bindInputIndustry"></input>
+    </view>
+    <view class='stytle-line-left' />
+    <view class='line-text-view'>
+      <view class='title-text-view'>收入</view>
+      <input class='content-text-view' value='{{income}}' bindinput="bindInputIncome"></input>
+    </view>
+    <view class='stytle-line-left' />
+    <view class='line-text-view'>
+      <view class='title-text-view'>兴趣爱好</view>
+      <input class='content-text-view' value='{{interest}}' bindinput="bindInputInterest"></input>
+    </view>
+    <view class='stytle-line' />
+  </view>
+
+  <view class='button-background-view' bindtap='edit_user_information_onclick'>修改资料</view>
+</view>
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" />
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

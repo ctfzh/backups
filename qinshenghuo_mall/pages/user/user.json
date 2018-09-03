@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "notice": "../custom_modular/notice",
+	"authorize": "../custom_modular/authorize"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "会员中心"
+}

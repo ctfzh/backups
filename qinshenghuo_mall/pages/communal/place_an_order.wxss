@@ -1,0 +1,563 @@
+/* pages/communal/place_an_order.wxss */
+/* 下单界面 */
+@import "../template/address_list.wxss";
+@import "../template/addres_add_and_edit.wxss";
+@import "../template/top_message.wxss";
+@import "../template/loading_fall_ui.wxss";
+@import "../template/delivery_method.wxss";
+@import "../template/bottom_Logo.wxss"; 
+.content-view {
+}
+.vertical{
+	background-color: #fff;
+}
+.address-view {
+	position: relative;
+  display: -webkit-flex;
+  padding: 30rpx 20rpx 30rpx 25rpx;
+	background-color: #fff;
+}
+.bar_img{
+	width: 100%;
+	height: 9rpx;	
+	margin-bottom: 20rpx;
+	background-color: #fff;
+}
+.bar_img image{
+	width: 100%;
+	height: 100%;
+	display: flex;
+}
+
+.location-view {
+	position: absolute;
+	top: -2rpx;
+	left: -50rpx;
+  width: 40rpx;
+  height: 40rpx;
+  flex-shrink:0;
+}
+.address-img-view{
+ width: 60rpx;
+  height: 60rpx;
+  flex-shrink:0;
+}
+.addres-name {
+	flex: 1;
+   /*布局方式*/
+  display: flex;
+  /*垂直居中*/
+  align-items: center;
+  font-size: 30rpx;
+  color: #4d4d4d;
+}
+.addres_text {
+   /*布局方式*/
+  display: flex;
+  /*垂直居中*/
+  align-items: center;
+  font-size: 30rpx;
+  color: #4d4d4d;
+	margin-right: 40rpx;
+}
+.address-text{
+	flex: 1;
+  font-size: 28rpx;
+  color: #9f9fa3;
+	word-wrap:break-word;
+	max-width: 510rpx;
+	margin-bottom: 15rpx;
+}
+.max_address_text{
+	max-width: 590rpx;
+	font-size: 30rpx;
+	color: #4D4D4D;
+	margin-bottom: 0;
+	padding-right: 30rpx;
+}
+.addres_right{
+	position: relative;
+  margin-top: 15rpx;
+   /*布局方式*/
+  display: flex;
+  /*垂直居中*/
+  align-items: center;
+}
+.addres_right .arrows-right-img{
+	margin: 0;
+}
+.address-right-img{
+	float: right;
+   /*布局方式*/
+  display: flex;
+  /*垂直居中*/
+  align-items: center;
+}
+.address-right-img .arrows-right-img{
+	padding-left: 5rpx;
+}
+.address-right-img_k{
+	float: right;
+   /*布局方式*/
+  display: flex;
+  /*垂直居中*/
+  align-items: center;
+}
+#address-text-view{
+   margin-left: 50rpx; 
+}
+.add-address-view{
+  background: white;
+	padding: 44rpx 0;
+	margin-bottom: 20rpx;
+}
+
+ .add_address{
+	display: flex;
+	text-align: center;
+}
+ .add-addres-text{
+	 width: 362rpx;
+	 height: 72rpx;
+	border: 1rpx solid #D9D9D9;
+	margin: auto;
+	color: #1a1a1a;
+	font-size: 30rpx;
+	display: flex;
+	align-items: center;
+  justify-content:center;
+} 
+.left_right_commodity {
+  /*布局方式*/
+  display: flex;
+  /* justify-content: space-between; */
+  background: white;
+}
+.stytle-line-left{
+	margin: -1rpx 30rpx 0 30rpx;
+}
+.commodity-view {
+  /* display: flex; */
+	padding: 30rpx;
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.commodity-img {
+  width: 180rpx;
+  height: 180rpx;
+	flex-shrink:0
+}
+
+.commodity-right-view {
+  /* text-align: right; */
+	flex:1;
+	position: relative;
+  margin: 30rpx 30rpx 30rpx 0;
+}
+
+.commodity-left-view {
+}
+
+.commodity-name {
+	width: 450rpx;
+	font-size: 30rpx;
+	color:#1A1A1A;
+	display:-webkit-box;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:2;
+	overflow:hidden;
+	justify-content:flex-start;
+	text-overflow:ellipsis;
+	letter-spacing: 2rpx;
+
+}
+
+.commodity-classify {
+  font-size: 24rpx;
+  color: #8F8F8F;
+  margin-top: 10rpx;
+}
+.right-text-jian-view{
+  display:flex;
+  flex-shrink:0;
+}
+
+.commodity_bottom_p{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -8rpx;
+}
+.commodity-price{
+	float: left;
+	font-size: 30rpx;
+	color: #F03F2B;
+}
+.commodity-cart{
+	float: right;
+	font-size: 30rpx;
+	color: #4D4D4D;
+	margin: 0rpx 10rpx 0 0;
+}
+.f_mo{
+	font-size: 26rpx;
+}
+.f_x{
+	font-size: 22rpx;
+}
+
+.input-leavewords{
+  font-size: 30rpx;
+  color: #9f9fa3;
+  width: 100%;
+  margin-left: -20rpx;
+  margin-right: 30rpx;
+}
+#commodity-account-text{
+  font-size: 26rpx;
+  color: #1A1A1A;
+  padding: 25rpx 30rpx;
+  text-align: right;
+	background-color: #fff;
+	letter-spacing: 2rpx;
+}
+.commodity-discounts-list-view{
+  background: white;
+  margin-top: 30rpx;
+  /* margin-bottom: 230rpx; */
+}
+.commodity-discounts-list-view-view{
+  background: white;
+  margin-top: 30rpx;
+  /* border-top: 1rpx solid #e1e1e1;
+  border-bottom: 1rpx solid #e1e1e1;  */
+}
+#discounts-list-view{
+  width: 100%;
+  display: grid;
+}
+
+.bottom-view {
+  background: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+	z-index: 2;
+}
+.bottom-submit-view {
+  background: white;
+  border-top: 1rpx solid #e5e5e5;
+  height: 98rpx;
+   display: flex;
+  flex-direction: row-reverse;
+}
+#submit-view{
+  font-size: 30rpx;
+  color: white;
+  /* background: #d43c33; */
+  /* padding-left: 30rpx;
+  padding-right: 30rpx; */
+  line-height: 100rpx;
+  height: 100rpx;
+	width: 260rpx;
+	text-align: center;
+}
+#heji-view{
+    font-size: 30rpx;
+  color: black;
+  line-height: 98rpx;
+}
+#oeder-money{
+   font-size: 32rpx;
+  color: #F03F2B;
+  line-height: 98rpx;
+  margin-right: 20rpx;
+}
+.explain-text{
+  background: #FFF5EB;
+  font-size: 24rpx;
+  color: #1A1A1A;
+  padding: 24rpx  0;
+	text-align: center;
+}
+.q_f_mo{
+	font-size: 30rpx;
+}
+.bottom{
+	padding-bottom: 98rpx;
+}
+.input{
+	font-size: 30rpx;
+	width: 100%;
+	height: 50rpx;
+	padding: 10rpx 0;
+	margin-right: 30rpx;
+}
+.addressee{
+	width: 100%;
+}
+.heji .qian{
+	font-size: 30rpx;
+}
+.heji .qian .q_f_mo{
+	font-size: 24rpx;
+}
+
+.right-text-freight{
+	padding: 25rpx;
+	margin-right: 50rpx;
+}
+/* .addres_ni{
+	margin-left: 30rpx;
+} */
+
+
+
+/*活动=>开始  */
+
+/*活动通用CSS  */
+.activity{
+	padding: 25rpx;
+	font-size: 30rpx;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	border-top: 1rpx solid #e5e5e5;
+}
+.activity_h1{
+	color: #1A1A1A;
+}
+.activity_text{
+	margin: 0rpx 30rpx;
+}
+.activity_text{
+	flex: 1;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	color: #4D4D4D;
+	font-size: 24rpx;
+}
+.activity_money{
+	color: #F53A25;
+	margin: 0rpx 10rpx 0rpx 0rpx;
+}
+.activity_point{
+	height: 34rpx;
+	width: 40rpx;
+}
+.activity_point image{
+	height: 40rpx;
+	width: 40rpx;
+}
+/*优惠券CSS  */
+.coupon_h1{
+	padding-right: 30rpx;
+}
+.coupon_text{
+	display: flex;
+	align-items: center;
+}
+.coupon_use{
+	font-size: 24rpx;
+	border: 1rpx solid #F53A25;
+	color: #F53A25;
+	padding: 2rpx 9rpx;
+	margin-right: 25rpx;
+	border-radius: 4rpx;
+	
+}
+/*会员折扣CSS  */
+.discounts_text {
+	display: flex;
+	align-items: center;
+}
+.discounts{
+	padding: 0rpx 25rpx;
+}
+.discounts_point{
+	padding: 25rpx 18rpx 25rpx 4rpx;
+	margin-right: -20rpx;
+	margin-left: 0rpx;
+}
+.discounts_radio{
+	height: 0rpx;
+	width: 0rpx;
+  transform: scale(0.7);
+}
+/*弹出窗CSS  */
+.activity_eject{
+}
+.activity_mask{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 9;
+	background-color: #000;
+	opacity: 0.5;
+}
+.activity_layer{
+	position: fixed;
+	width: 100%;
+	min-height: 400rpx;
+	background-color: #fff;
+	bottom: 0;
+	z-index: 10;
+}
+.activity_layer_close{
+	width: 50rpx;
+	height: 50rpx;
+	position: absolute;
+	right: 10rpx;
+	padding: 20rpx;
+}
+.activity_layer_close image{
+	width: 40rpx;
+	height: 40rpx;
+	margin: 5rpx;
+}
+.activity_layer_h1{
+	width: 100%;
+	padding: 25rpx;
+	font-size: 32rpx;
+	border-bottom: 1rpx solid #e5e5e5;
+}
+.activity_layer{
+	transform:translateY(150%);
+	transition:all 0.3s ease;
+}
+.transform{
+	transform:translateY(0);
+}
+/*弹出窗促销活动CSS  */
+.promotions_activity_list{
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	padding: 25rpx;
+	border-top: 1rpx solid #e5e5e5;
+	margin-top: -1rpx;
+}
+.promotions_activity_list_option{
+	width: 40rpx;
+	height: 40rpx;
+	margin-top: 1rpx;
+}
+.promotions_activity_list_option image{
+	width: 40rpx;
+	height: 40rpx;
+}
+.promotions_activity_list_text{
+	flex: 1;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin: 0 0 0 25rpx;
+	font-size: 30rpx;
+}
+/*优惠券弹窗  */
+.coupon_list_use{
+	font-size: 26rpx;
+	background-color: #FFF5EB;
+	padding: 10rpx 25rpx;
+}
+.couon_list_money{
+	color: #F03F2B;
+}
+.whole_coupon{
+	padding: 25rpx;
+	background-color: #F7F7F7;
+	min-height: 10vh;
+	max-height: 60vh;
+	overflow: auto;
+}
+.coupon_layer_list{
+	background-color: #fff;
+	margin-bottom: 25rpx;
+}
+.coupon_layer_list_top{
+	display: flex;
+	flex-flow: row wrap;
+}
+.coupon_layer_list_left{
+	width: 200rpx;
+	height: 150rpx;
+	font-size: 24rpx;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #0099CC;
+	color: #fff;
+}
+.left_coupon_moeny{
+	font-size: 50rpx;
+}
+.left_moeny{
+	margin: 0rpx 0rpx 15rpx 0rpx;
+}
+.coupon_layer_list_in{
+	flex: 1;
+	margin: 0rpx 25rpx;
+	position: relative;
+}
+.coupon_layer_name{
+	width: 360rpx;
+	font-size: 30rpx;
+	margin-top: 20rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: normal;
+}
+.coupon_layer_itme{
+	position: absolute;
+	bottom: 20rpx;
+	font-size: 24rpx;
+	color: #8F8F8F;
+}
+.coupon_layer_list_right{
+	display: flex;
+	align-items: center;
+	margin-right: 25rpx;
+}
+.coupon_layer_list_use{
+  transform: scale(0.9);
+}
+.coupon_layer_list_bottom{
+	font-size: 24rpx;
+	padding: 15rpx;
+	background-color: #FAFAFA;
+	border-top: 1rpx solid #e5e5e5;
+	border-bottom: 1rpx solid #e5e5e5;
+}
+.coupon_layer_bottom_name{
+	color: #F03F2B;
+}
+.coupon_confirm{
+	margin: 10rpx;
+	background-color: #41B035;
+	font-size: 30rpx;
+	text-align: center;
+	padding: 20rpx 0rpx;
+	color: #fff;
+	border-radius: 10rpx;
+}
+.max_checked{
+	padding: 25rpx 0rpx;
+}
+/*不可用的优惠券CSS  */
+.coupon_unavailable .coupon_layer_list_left{
+ background-color: #CCCCCC;
+}
+/*活动=>结束  */
+
+/* 限时折扣CSS */
+.time_limit{
+  justify-content: space-between;
+}
+.time_limit_money{
+  margin-right: 46rpx;
+}

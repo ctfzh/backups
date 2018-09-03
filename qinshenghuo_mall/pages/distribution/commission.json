@@ -1,0 +1,9 @@
+{
+	"usingComponents": {
+		"authorize": "../custom_modular/authorize"
+	},
+"navigationBarTitleText": "我的佣金",
+  "navigationBarTextStyle": "black",
+"backgroundTextStyle": "dark",
+"enablePullDownRefresh": true
+}

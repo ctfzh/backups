@@ -1,0 +1,5 @@
+<!--转译富文本显示组件HTML-->
+<view class='richText_style' class='{{list.isFullScreen?"":"richText_padding"}}' style='background-color:{{list.defaultColor}}'>
+  <import src="../custom_modular/wxParse/wxParse.wxml" />
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+</view>

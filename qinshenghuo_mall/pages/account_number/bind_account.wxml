@@ -1,0 +1,36 @@
+<!--绑定手机号-->
+<view class='bind_account_max' hidden='{{!show_loading_faill}}'>
+  <view class='bind_account_top'>
+    <view class='top_an  font_color1 {{an_item==0?"top_an_sele":""}}' catchtap='top_an' data-an_item='0'>一键绑定</view>
+    <view class='top_an font_color1 {{an_item==1?"top_an_sele":""}}' catchtap='top_an' data-an_item='1'>手动绑定</view>
+  </view>
+  <view class='bind_account_bottom slide_switch_left {{an_item==0?"slide_switch":""}}'>
+    <!-- <view class='promptly_authorization'>立即授权</view>  -->
+    <view class='promptly'>
+      <text class='authorization_text'>立即授权</text>
+      <button class='promptly_authorization' plain="true" open-type="getPhoneNumber" bindgetphonenumber='authorize'></button>
+    </view>
+
+  </view>
+  <view class='bind_account_bottom slide_switch_right {{an_item==1?"slide_switch":""}}'>
+    <view class='bottom_obtain'>
+      <view class='bottom_item line_color'>
+        <input class='input' type="number" placeholder='请输入手机号' placeholder-class='font_color2' bindinput='code_phone'></input>
+      </view>
+      <view class='bottom_item line_color'>
+        <input class='input' type="number" placeholder='请输入验证码' placeholder-class='font_color2' bindinput='code'></input>
+        <view class='proving_an line_color' catchtap='get_code'><text class='retry_an' wx:if="{{second}}">{{second}}s后重试</text ><text wx:if="{{!second}}">验证</text></view>
+      </view>
+      <view class='confirm_an' catchtap='confirm'>确认</view>
+    </view>
+  </view>
+</view>
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" /> 
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+  <authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+</view>

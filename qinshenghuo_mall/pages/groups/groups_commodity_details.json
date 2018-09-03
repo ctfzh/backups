@@ -1,0 +1,8 @@
+{
+	"usingComponents": {
+		"authorize": "../custom_modular/authorize"
+	},
+	"navigationBarTitleText": "商品详情",
+	"enablePullDownRefresh": true,
+	"backgroundTextStyle": "dark"
+}

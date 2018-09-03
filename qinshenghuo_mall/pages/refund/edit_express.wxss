@@ -1,0 +1,7 @@
+/* pages/refund/edit_express.wxss */
+
+@import "get_refund.wxss";
+@import "../template/top_message.wxss";
+.content-view-express{
+  background: white;
+}

@@ -1,0 +1,80 @@
+.dialog_show_edit .dialog_container {
+  transform: translateY(0);
+}
+
+.dialog_show_edit .dialog_mask {
+  display: block;
+	z-index: 11;
+}
+
+.input-view-view {
+  /*布局方式*/
+  display: flex;
+  /*垂直居中*/
+  align-items: center;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+}
+
+.title-text-text {
+  font-size: 30rpx;
+  color: #4d4d4d;
+  flex-shrink: 0;
+  width: 150rpx;
+}
+
+.content-text-text {
+  font-size: 28rpx;
+  color: #808083;
+  margin-left: 20rpx;
+  width: 100%;
+}
+
+.button-background-view {
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 12rpx;
+  border-width: 1rpx;
+  font-size: 30rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-color: #dedcdc;
+  text-align: center;
+  border-style: solid;
+}
+
+#save-view {
+  background: #41b035;
+  color: white;
+}
+
+#set-default-view {
+  background: #d43c33;
+  color: white;
+}
+
+#cancel-view {
+  background: white;
+  color: #4d4d4d;
+}
+
+.picker-view {
+  /* display: -webkit-box; *//* display: flex;  */
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.picker-view-itm-text {
+  margin-right: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}

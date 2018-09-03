@@ -1,0 +1,47 @@
+/* pages/payment/paymentsuccess.wxss */
+
+/* 支付成功的界面 */
+@import "../template/top_message.wxss";
+
+.content-vew {
+  margin-top: 150rpx;
+  text-align: center;
+}
+
+.payment-img-view {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.text-view {
+  font-size: 38rpx;
+  margin-top: 10rpx;
+  color: #41b035;
+}
+
+.money-view {
+  font-size: 38rpx;
+  margin-top: 50rpx;
+  color: black;
+}
+
+.discount_onclick {
+  font-size: 32rpx;
+  color: white;
+  width: 180rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 5rpx;
+  border: lightgrey;
+  border-style: solid;
+  border-width: 1rpx;
+  border-color: #41b035;
+  background: #41b035;
+  margin-top: 50rpx;
+}
+
+.look-order-details-view {
+  font-size: 30rpx;
+  color: #1296db;
+  margin-top: 30rpx;
+}

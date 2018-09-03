@@ -1,0 +1,16 @@
+@import '../communal/commodity_details';
+.remain_time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60rpx;
+  background: #8F5EF9;
+  font-size: 30rpx;
+  color: #fff;
+  position: fixed;
+  bottom: 98rpx;
+}
+.add-shopping-view {
+  width: 100%;
+}

@@ -1,0 +1,5 @@
+{
+	"usingComponents": {
+		"authorize": "../custom_modular/authorize"
+	}	
+}

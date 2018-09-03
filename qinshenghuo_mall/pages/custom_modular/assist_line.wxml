@@ -1,0 +1,2 @@
+<!--辅助线组件HTML -->
+<view class='aibum_style {{list.margin==2?"aibum_style1":""}}' style=' border-style: {{border_style}}; border-color: {{list.borderColor}};'></view>

@@ -1,0 +1,56 @@
+/* 商品搜索模板样式 */
+.secah_view_wraper {
+  overflow: hidden;
+}
+
+
+image.search-img{
+  float: left;
+  width: 40rpx;
+  height: 40rpx;
+  margin: 15rpx;
+}
+
+#search-text {
+  float: left;
+  font-size: 28rpx;
+  color: #999996;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+
+.secah_view {
+  margin: 20rpx;
+	height: 70rpx;
+  background: white;
+  border-radius: 10rpx;
+  border: lightgrey;
+  border-style: solid;
+  border-width: 1rpx;
+  /*布局方式*/
+  display: flex;
+  /*垂直居中*/
+  align-items: center;
+	z-index: 2;
+	line-height: 70rpx;
+}
+
+#search-img {
+  width: 35rpx;
+  height: 35rpx;
+	margin: 24rpx 15rpx 0 30rpx;
+}
+
+#search-text {
+	width: 100%;
+  font-size: 28rpx;
+  color: #000;
+}
+.search-del{
+	width: 60rpx;
+  margin: 0 15rpx;
+}
+#search-img-del {
+  width: 35rpx;
+  height: 35rpx;
+}

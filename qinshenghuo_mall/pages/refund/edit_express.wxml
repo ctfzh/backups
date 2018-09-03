@@ -1,0 +1,49 @@
+<!--pages/refund/edit_express.wxml-->
+<!-- 填写物流信息 -->
+<view class='content-view-express'  hidden='{{!show_loading_faill}}'>
+  <view class='stytle-line' />
+  <picker bindchange="bindExpressChange" value="{{index}}" range="{{express_array}}" range-key="name">
+    <view class='vertical'>
+      <view class='left-text'>物流公司</view>
+      <view class='left_right_vertical_center' style='width:100%;'>
+        <view class='left-text-center'>
+          <view class="picker">
+            {{express_array[index].name}}
+          </view>
+        </view>
+        <image class='arrows-right-img' src='../img/arrows_right.png' />
+      </view>
+    </view>
+  </picker>
+  <view class='stytle-line' />
+  <view class='vertical'>
+    <view class='left-text'>物流单号</view>
+    <input class='left-text-center' type='number' style='flex: 1;' placeholder="请输入物流单号" value='{{input_express_numbers}}' bindinput="bindInputExpressNumbers"></input>
+  </view>
+  <view class='stytle-line' />
+  <input class='left-text-center' type='number' style='flex: 1;' placeholder="备注信息" value='{{input_remark}}' bindinput="bindInputRemark"></input>
+
+  <view class='stytle-line' />
+  <view class='left-text'>图片说明 可上传5张图片</view>
+  <view class='img-view-view' style='padding-left:30rpx;padding-right:30rpx;padding-top:-10rpx;padding-left:30rpx;;padding-bottom:30rpx;'>
+    <image class='upload-img-view' src="{{imgUrl +'mall_refund_express_img/source/'+ itemNameImg}}" wx:for="{{img}}" bindlongtap='delete_img_longOnclick' data-index="{{index}}" wx:for-item="itemNameImg" wx:key="unique" />
+
+    <view wx:if="{{img.length< 5||!img}}" class='upload-img-view' bindtap='add_img_onclick'>
+      <image class='add-img' src='../img/add_img.png' />
+    </view>
+
+  </view>
+</view>
+<view class='button-background-view' id='save-view' style='margin-top: 100rpx;' bindtap='sumbit_onclick'>提交</view>
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" />
+
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

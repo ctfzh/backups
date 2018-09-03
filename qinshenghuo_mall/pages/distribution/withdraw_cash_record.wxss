@@ -1,0 +1,60 @@
+/*提现记录  */
+/*页面数据加载失败显示的模块  */
+@import '../template/loading_fall_ui.wxss';
+@import "../template/top_message.wxss";
+@import "../distribution/distribution_anomaly.wxss";
+.record_list {
+  background: #fff;
+}
+
+.list_item {
+  display: flex;
+  height: 125rpx;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 30rpx;
+  border-bottom: 1rpx solid #dedfe0;
+}
+
+/*第一行  */
+
+.top_item {
+  display: flex;
+  width: 100%;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top_item .name {
+  color: #2c2f33;
+  font-size: 28rpx;
+}
+
+.top_item .time {
+  color: #757a80;
+  font-size: 24rpx;
+}
+
+/* 第二行 */
+
+.bot_item {
+  display: flex;
+  width: 100%;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.bot_item .money {
+  color: #42464c;
+  font-size: 24rpx;
+}
+
+.bot_item .status {
+  color: #2c2f33;
+  font-size: 28rpx;
+  font-weight: bold;
+}

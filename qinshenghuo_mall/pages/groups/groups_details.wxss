@@ -1,0 +1,229 @@
+/*拼团团详情 */
+/* 页面加载中模块CSS */
+@import "../template/loading_fall_ui.wxss";
+/* 页面顶部提示模块CSS */
+@import "../template/top_message.wxss";
+/* 页面顶部提示模块CSS */
+@import "../template/top_message.wxss";
+/* 页面底部logo模块CSS */
+@import "../template/bottom_Logo.wxss"; 
+
+/*商品详情CSS=>开始  */
+.goods_details{
+  display:flex;
+  flex-flow: row wrap;
+  background-color: #fff;
+}
+.details_left{
+  width:320rpx;
+  height:320rpx;
+  margin: 0rpx 20rpx 0rpx 10rpx;
+}
+.goods_img{
+  width:320rpx;
+  height:320rpx;
+}
+.details_right{
+  flex:1;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  margin: 10rpx 25rpx 20rpx 0rpx;
+}
+.goods_name{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  word-wrap:break-word;
+}
+.already_group{
+  margin-left: 20rpx;
+}
+.group_money{
+  font-size: 40rpx;
+  color: #F53A25;
+}
+.f_mo{
+  font-size: 24rpx;
+}
+.group_save_money{
+  margin-left: 20rpx;
+}
+/*商品详情CSS=>结束  */
+
+/*拼团人员CSS=>开始  */
+.group_personnel_details{
+  background-color: #fff;
+  padding: 60rpx 0rpx 0;
+}
+.group_personnel{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 0rpx 20rpx 50rpx 8rpx;
+}
+.group_personnel_list{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  margin: 10rpx 0rpx 0rpx 12rpx ;
+  position: relative;
+}
+.head_portrait_img{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+.group_personnel_null{
+  color:#4D4D4D;
+  font-size: 40rpx;
+  width: 60rpx;
+  height: 60rpx;
+  border: 1rpx dotted #BFBFBF;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.head{
+  position: absolute;
+  width: 64rpx;
+  font-size: 20rpx;
+  background-color: #FF9A36;
+  text-align: center;
+  color: #fff;
+  border-radius: 25rpx;
+  top: -12rpx;
+}
+.Lack_number{
+  text-align: center;
+}
+.number{
+  color: #F53A25;
+}
+.Invitation_group{
+  padding: 50rpx 0;
+}
+.Invitation_group_an{
+  color: #fff;
+  width: 670rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-size: 34rpx;
+  border-radius: 4rpx;
+}
+.itme{
+  /* margin-left: 30rpx; */
+}
+.group_notice{
+  background-color: #FFF;
+  margin-top: 20rpx;
+  padding: 40rpx;
+}
+.notice{
+  margin-top:32rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.group_success{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  border-bottom: 1rpx solid #F53A25;
+  margin: 0rpx 75rpx 48rpx 75rpx;
+  padding-bottom: 20rpx;
+}
+.group_success_img{
+  height: 30rpx;
+  width: 40rpx;
+  margin-right: 13rpx;
+}
+.group_success_img image{
+  height: 30rpx;
+  width: 40rpx;
+  margin: 5rpx;
+}
+.group_success_text{
+  font-size: 30rpx;
+  color: #F53A25;
+}
+
+/*拼团人员CSS=>结束  */
+
+/*弹出窗CSS  */
+.activity_eject{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  z-index: 98;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.activity_mask{
+	position: absolute;
+  width: 100%;
+  height: 100%;
+	background-color: #000;
+	opacity: 0.5;
+  z-index: 98;
+}
+.frame{
+	position: relative;
+  z-index: 99;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+.frame_img{
+  width: 630rpx;
+  height: 830rpx;
+}
+.frame_close_img{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 50rpx;
+}
+
+.forward_img{
+  position: absolute;
+  width:39rpx;
+  height: 32rpx;
+  top: 30rpx;
+  right:  175rpx;
+  z-index: 99;
+}
+.forward_text{
+  position: absolute;
+  top: 60rpx;
+  right:  175rpx;
+  z-index: 99;
+  color: #fff;
+  font-size: 26rpx;
+}
+.QR_code{
+  position: absolute;
+  top: 420rpx;
+}
+.QR_code_img{
+  width: 330rpx;
+  height: 300rpx;
+  overflow: hidden;
+}
+.canvas{
+  width: 330rpx;
+  height: 300rpx;
+}
+.QR_code_text{
+  text-align: center;
+  margin-top: 25rpx;
+}
+
+

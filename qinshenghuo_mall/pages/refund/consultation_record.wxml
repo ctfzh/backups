@@ -1,0 +1,190 @@
+<!--pages/refund/consultation_record.wxml-->
+<!-- 协商记录 -->
+<view hidden='{{!show_loading_faill}}'>
+  <view class='stytle-line' />
+  <view class='top-content'>
+    <view wx:if="{{refund_record_data.order.order_sku_refund_no}}" class='left_right_vertical_center'>
+      <view class='left-text-text'>退款编号</view>
+      <view class='right-text-text'>{{refund_record_data.order.order_sku_refund_no}}</view>
+    </view>
+    <view class='left_right_vertical_center'>
+      <view class='left-text-text'>订单编号</view>
+      <view class='right-text-text'>{{refund_record_data.order.order_no}}</view>
+    </view>
+     <view class='left_right_vertical_center'>
+      <view class='left-text-text'>  </view>
+      <view wx:if="{{refund_record_data.order.order_status==1}}" class='right-text-text'>待付款</view>
+      <view wx:if="{{refund_record_data.order.order_status==2}}" class='right-text-text'>待接单</view>
+      <view wx:if="{{refund_record_data.order.order_status==3}}" class='right-text-text'>待发货</view>
+      <view wx:if="{{refund_record_data.order.order_status==4}}" class='right-text-text'>待收货</view>
+      <view wx:if="{{refund_record_data.order.order_status==5}}" class='right-text-text'>已完成</view>
+      <view wx:if="{{refund_record_data.order.order_status==6}}" class='right-text-text'>已关闭</view>
+      <view wx:if="{{refund_record_data.order.order_status==7}}" class='right-text-text'>退款中</view>
+
+    </view> 
+  </view>
+
+  <view style='background: white;'>
+    <view class='stytle-line' />
+    <view class='left_right_commodity'>
+      <view class='commodity-view'>
+        <image class='commodity-img' src='{{refund_record_data.goods.img[0]}}' />
+        <view class='commodity-left-view'>
+          <view class='commodity-name'>{{refund_record_data.goods.name}}</view>
+          <view class='commodity-classify'>{{refund_record_data.goods.property}}</view>
+        </view>
+      </view>
+      <view class='commodity-right-view'>
+        <view class='commodity-name'>￥{{refund_record_data.goods.price}}</view>
+        <view class='commodity-classify'>X{{refund_record_data.goods.num}}</view>
+      </view>
+    </view>
+  </view>
+  <view wx:for="{{refund_record_data.list}}" wx:for-index="idx" wx:for-item="itemName" wx:key="unique" style='margin-top: 30rpx;'>
+    <view class='stytle-line' />
+    <view class='content-view-express'>
+      <view wx:if="{{itemName.record_type==1}}">
+        <!-- <view class='vertical'> -->
+        <view class='left-text-text-time'>{{itemName.create_time}}</view>
+        <view class='left-text-text'>买家</view>
+        <!-- </view> -->
+        <view class='stytle-line-left-right' />
+        <view class='left-text-text'>发起了退款申请,等待商家处理</view>
+         <view class='left-text-text'>处理方式：
+          <text class='commodity-classify'>{{itemName.type}}</text>
+        </view>
+        <view class='left-text-text'>退款原因：
+          <text class='commodity-classify'>{{itemName.reason}}</text>
+        </view>
+      
+        <view class='left-text-text'>退款金额：
+          <text class='commodity-classify'>{{itemName.money}}</text>
+        </view>
+         <view class='left-text-text'>联系电话：
+          <text class='commodity-classify'>{{itemName.phone}}</text>
+        </view>
+        <view wx:if="{{itemName.remark}}" class='left-text-text'>备注信息：
+          <text class='commodity-classify'>{{itemName.remark}}</text>
+        </view>
+       
+        <view wx:if="{{itemName.img&&itemName.img.length>0}}" class='img-view-view' style='padding-left:30rpx;padding-right:30rpx;padding-top:-10rpx;padding-left:30rpx;;padding-bottom:30rpx;'>
+          <image class='upload-img-view' src='{{itemNameImg}}' wx:for="{{itemName.img}}" wx:for-index="idx" wx:for-item="itemNameImg" wx:key="unique" />
+        </view>
+      </view>
+      <view wx:if="{{itemName.record_type==2}}">
+        <!-- <view class='vertical'> -->
+        <view class='left-text-text-time'>{{itemName.create_time}}</view>
+        <view class='left-text-text'>买家</view>
+        <!-- </view> -->
+        <view class='stytle-line-left-right' />
+        <view class='left-text-text'>取消了退款申请</view>
+      </view>
+      <view wx:if="{{itemName.record_type==3}}">
+        <!-- <view class='vertical'> -->
+        <view class='left-text-text-time'>{{itemName.create_time}}</view>
+        <view class='left-text-text'>卖家</view>
+        <!-- </view> -->
+        <view class='stytle-line-left-right' />
+        <view class='left-text-text'>已拒绝退款申请</view>
+        <view class='left-text-text'>退款金额:
+          <text class='commodity-classify'>{{itemName.money}}</text>
+        </view>
+        <view wx:if="{{itemName.reject_reason}}" class='left-text-text'>退款说明:
+          <text class='commodity-classify'>{{itemName.reject_reason}}</text>
+        </view>
+      </view>
+      <view wx:if="{{itemName.record_type==4}}">
+        <!-- <view class='vertical'> -->
+        <view class='left-text-text-time' style='margin-left: 30rpx;'>{{itemName.create_time}}</view>
+        <view class='left-text-text'>卖家</view>
+        <!-- </view> -->
+        <view class='stytle-line-left-right' />
+        <view class='left-text-text'>已同意退款申请,等待买家退货</view>
+        <view class='left-text-text'>退款金额:
+          <text class='commodity-classify'>{{itemName.money}}</text>
+        </view>
+        <view wx:if="{{itemName.merchant_address}}" class='left-text-text'>退货地址:
+          <text class='commodity-classify'>{{itemName.merchant_address}}</text>
+        </view>
+      </view>
+      <view wx:if="{{itemName.record_type==5}}">
+        <!-- <view class='vertical'> -->
+        <view class='left-text-text-time'>{{itemName.create_time}}</view>
+        <view class='left-text-text'>买家</view>
+        <!-- </view> -->
+        <view class='stytle-line-left-right' />
+        <view class='left-text-text'>已退货,等待商家确认收货</view>
+        <view class='left-text-text'>退款金额:
+          <text class='commodity-classify'>{{itemName.money}}</text>
+        </view>
+        <view wx:if="{{itemName.express}}" class='left-text-text'>物流公司:
+          <text class='commodity-classify'>{{itemName.express}}</text>
+        </view>
+        <view wx:if="{{itemName.express_no}}" class='left-text-text'>物流单号:
+          <text class='commodity-classify'>{{itemName.express_no}}</text>
+        </view>
+        <view class='left-text-text'>备注信息:
+          <text class='commodity-classify'>{{itemName.express_remark? itemName.express_remark:'无'}}</text>
+        </view>
+        <view wx:if="{{itemName.express_img&&itemName.express_img.length>0}}" class='img-view-view' style='padding-left:30rpx;padding-right:30rpx;padding-top:-10rpx;padding-left:30rpx;;padding-bottom:30rpx;'>
+          <image class='upload-img-view' src='{{itemNameImg}}' wx:for="{{itemName.express_img}}" wx:for-index="idx" wx:for-item="itemNameImg" wx:key="unique" />
+        </view>
+      </view>
+      <view wx:if="{{itemName.record_type==6}}">
+        <view class='vertical'>
+          <view class='left-text-text'>卖家</view>
+          <view class='left-text-text' style='margin-left: 30rpx;'>{{itemName.create_time}}</view>
+        </view>
+        <view class='stytle-line-left-right' />
+        <view class='left-text-text'>商家拒绝确认收货</view>
+        <view class='left-text-text'>退款金额:
+          <text class='commodity-classify'>{{itemName.money}}</text>
+        </view>
+        <view class='left-text-text'>退款说明:
+          <text class='commodity-classify'>{{itemName.reject_reason? itemName.reject_reason:''}}</text>
+        </view>
+      </view>
+      <view wx:if="{{itemName.record_type==7}}">
+        <view class='vertical'>
+          <view class='left-text-text'>卖家</view>
+          <view class='left-text-text' style='margin-left: 30rpx;'>{{itemName.create_time}}</view>
+        </view>
+        <view class='stytle-line-left-right' />
+        <view class='left-text-text'>同意退款给买家,退款结束</view>
+        <view class='left-text-text'>退款金额:
+          <text class='commodity-classify'>{{itemName.money}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='stytle-line' style='margin-bottom: 30rpx;' />
+  </view>
+  <!-- <view class='content-view' wx:for="{{array}}" wx:for-index="idx" wx:for-item="itemName" wx:key="unique" style='padding-bottom:20rpx;'>
+  <view class='stytle-line' />
+  <view class='vertical' style='padding-top:20rpx;'>
+    <view class='left-text-text'>买家</view>
+    <view class='left-text-text' style='margin-left: 30rpx;'>2017-7-31 19:17:22</view>
+  </view>
+  <view class='stytle-line-left-right' />
+  <view class='left-text-text'>发起了退款申请,等待商家处理</view>
+  <view class='left-text-text'>退款金额
+    <text>0.01</text>
+  </view>
+  <view class='left-text-text'>退款说明:
+    <text>备注的信息</text>
+  </view>
+</view> -->
+
+
+  <view class='button-background-view' id='set-default-view' bindtap='close_onclick'>关闭</view>
+</view>
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" />
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

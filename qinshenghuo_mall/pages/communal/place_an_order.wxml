@@ -1,0 +1,290 @@
+
+<!--pages/communal/place_an_order.wxml-->
+<import src="../template/address_list.wxml" />
+<import src="../template/addres_add_and_edit.wxml" />
+<import src="../template/delivery_method.wxml" />
+<view hidden='{{!show_loading_faill}}'>
+  <!-- 下单界面 -->
+<!-- 分割线 -->
+<view class='top_fixed_solid'></view>
+<!-- 分割线 -->
+  <view class='content-view'>
+    <!-- <view class='stytle-line' /> -->
+    <view wx:if="{{default_address}}">
+      <view class='address-view' bindtap="address_onclick">
+        <view class='left_right_vertical_center' id='address-text-view' style='width:100%'>
+
+          <view class='addressee'>
+            <view class='left_right_vertical_center'>
+              <view class='addres_text addres_ni'>收货人： {{default_address.name}}</view>
+              <view class='addres_text'> {{default_address.phone}}</view>
+            </view>
+						<view class='addres_right'>
+        			<image class='location-view' src='../img/location.png'></image>
+            	<view class='address-text max_address_text'>收货地址：{{default_address.address_full}}</view>
+							<view class='address-right-img'>
+           			<image class='arrows-right-img' src='../img/arrows_right.png'></image> 
+							</view>
+						</view>
+          </view>
+        </view>
+      </view>
+				<view class='bar_img'>
+					<image src='../img/Bar.png'></image>
+				</view>
+    </view>
+    <view wx:else>
+      <view class='add-address-view add_address'>
+        <view class='add-addres-text' bindtap="address_onclick_wx">
+          添加您的收货地址
+        </view>
+      </view>
+    </view>
+    <block wx:for="{{commodity_list}}" wx:for-index="idx" wx:for-item="itemName" wx:key="unique">
+
+      <view wx:if="{{idx!=0}}">
+        <view class='stytle-line-left' />
+      </view>
+      <view class='left_right_commodity'>
+        <view class='commodity-view'>
+          <image class='commodity-img' src='{{itemName.img}}' />
+        </view>
+        <view class='commodity-right-view'>
+          <view class='commodity-left-view'>
+            <view class='commodity-name'>{{itemName.goods_name}}</view>
+            <view class='commodity-classify'>{{itemName.property}}</view>
+          </view>
+					<view class='commodity_bottom_p'>
+						<text class='commodity-price'><text class='f_mo'>￥</text>{{itemName.price}}</text>
+						<text class='commodity-cart'><text class='f_x'>X</text>{{itemName.in_cart_num}}</text>
+					</view>
+        </view>
+      </view>
+    </block>
+    <view class='stytle-line-left-right' />
+    <view class='left_right_vertical_center' bindtap='select_express_onclick'>
+      <view class='left-text'>配送方式</view>
+      <view class='right-text-jian-view'>
+        <view class='right-text' style='margin-right: -15rpx;'>{{express_text? express_text:'请选择配送方式'}}</view>
+							<view class='address-right-img_k'>
+           			<image class='arrows-right-img' src='../img/arrows_right.png'></image> 
+							</view>
+      </view>
+    </view>
+    <view class='stytle-line-left-right ' />
+    <view class='vertical' bindtap="modalinput">
+      <view class='left-text'>买家留言：</view>
+  		 <input class='input' type='text' placeholder="请输入留言信息" bindinput="bindInputremark" bindblur="confirm" /> 
+    </view>
+
+    <view class='stytle-line-left-right ' />
+    <view>
+      <view id='commodity-account-text' class='heji'><text>共{{goods_count}}件商品  </text>   小计: <text class='qian'><text class='q_f_mo'>￥</text>{{cost_money}}</text></view>
+    </view>
+  </view>
+   <view class='commodity-discounts-list-view-view'>
+		<!--活动=>开始  -->
+			<!-- 促销活动=>开始  -->
+					<view class='promotions activity' data-select_id='{{active_list.select_data.id}}' bindtap='tap_promotions_layer' wx:if="{{active_list.all_data.length>0}}">
+						<view class='promotions_h1 activity_h1'>促销活动</view>
+						<view class='promotions_text activity_text'>{{active_list.select_data.rules}}<text wx:if="{{active_list.select_data.rules==''}}">不使用优惠</text>
+						</view>
+						<view class='promotions_money activity_money' wx:if="{{select_id!='null'}}">-￥{{active_list.select_data.discount}}</view>
+						<view class='promotions_point activity_point'><image src='../img/arrows_right.png'></image></view>
+					</view>
+			<!-- 促销活动=>结束  -->
+      
+      <!--限时折扣=>开始  -->
+				<view class='time_limit activity' wx:if="{{time_limit>0}}">
+						<view class='time_limit_h1 activity_h1'>限时折扣</view>
+						<view class='time_limit_money activity_money'>-￥{{time_limit}}</view>
+				</view>
+			<!--限时折扣=>结束  -->
+
+			<!-- 优惠券=>开始  -->
+				<view class='coupon activity'  bindtap='tap_coupon_layer'  wx:if="{{coupon_info.coupon_list}}">
+	        <view class='coupon_h1 activity_h1'>优惠券</view>
+						<view class='coupon_text activity_text'>
+							<text class='coupon_use' wx:if="{{coupon_sele>0}}">已选{{coupon_sele}}张</text>
+							<text class='coupon_use' wx:if="{{coupon_sele<=0}}">可选{{coupon_info.can_use_count}}张</text>
+						</view>
+						<view class='coupon_money activity_money' wx:if="{{coupon_info.total_discount|toFixed()>0.00}}">-￥{{coupon_info.total_discount}}</view>
+						<view class='coupon_point activity_point'><image src='../img/arrows_right.png'></image></view>
+				</view>
+			<!--优惠券=>结束  -->
+
+			<!--会员折扣=>开始  -->
+				<view class='discounts activity' wx:if="{{member_info.can_use_member}}">
+						<view class='discounts_h1 activity_h1'>会员折扣</view>
+						<view class='discounts_text activity_text'>{{member_info.level_name}}享{{member_info.discount}}折</view>
+						<view class='discounts_money activity_money' wx:if="{{checked}}">-￥{{member_info.discount_cost}}</view>
+						<label class='discounts_point activity_point' bindtap='discounts_radio'>
+								<checkbox class='discounts_radio'  checked="{{checked}}"></checkbox>
+						</label>
+				</view>
+			<!--会员折扣=>结束  -->
+			<!--弹出窗=>开始  -->
+				<view class='activity_eject'>
+					<view class='activity_mask'  bindtap='tap_activity_layer_close' style='{{activity_eject=="none"?"display: none":""}}'></view>
+					<!--促销活动选择窗口=>开始 -->
+					<view class='promotions_layer activity_layer {{activity=="promotions"?"transform":""}}' >
+						<view class='activity_layer_close' bindtap='tap_activity_layer_close'>
+							<image src='../img/dialog-del.png'></image>
+						</view>
+						<view class='activity_layer_h1'>促销活动</view>
+
+						<view class='promotions_activity_list' wx:for="{{active_list.all_data}}" wx:for-item="itemName" wx:key="key" wx:for-index="index" data-active_id='{{itemName.id}}' bindtap='promotions_activity_list'>
+							<view class='promotions_activity_list_option'>
+								<image src='../img/{{select_id==itemName.id?"delivery_method_select_true.png":"delivery_method_select_false.png"}}'></image>
+							</view>
+							<view class='promotions_activity_list_text'>{{itemName.rules}}</view>
+						</view>
+
+						<view class='promotions_activity_list' data-active_id='null' bindtap='promotions_activity_list'>
+							<view class='promotions_activity_list_option'>
+								<image src='../img/{{select_id=="null"?"delivery_method_select_true.png":"delivery_method_select_false.png"}}'></image>
+							</view>
+							<view class='promotions_activity_list_text'>不使用优惠</view>
+						</view>
+
+					</view>
+					<!--促销活动选择窗口=>开始  -->
+					<!--优惠券选择窗口=>开始  -->
+					<view class='coupon_layer activity_layer {{activity=="coupon"?"transform":""}}'>
+						<view class='activity_layer_close' bindtap='tap_activity_layer_close'>
+							<image src='../img/dialog-del.png'></image>
+						</view>
+						<view class='activity_layer_h1'>选择优惠券</view>
+						<view class='coupon_list_use'>
+							您已选中优惠券{{coupon_sele}}张，共优惠
+							<text class='couon_list_money'>￥{{coupon_info.total_discount}}</text>
+						</view>
+						<view class='whole_coupon'>
+							<!--可选优惠券  -->
+							<checkbox-group bindchange="checkboxChange">
+								<view class='coupon_layer_list' wx:for="{{coupon_info.coupon_list.can_use}}" wx:for-item="itemName" wx:key="key" wx:for-index="index">
+									<view class='coupon_layer_list_top'>
+										<view class='coupon_layer_list_left'>
+											<view class='left_moeny'>
+											<!--现金优惠  -->
+											<text wx:if="{{itemName.base_info.coupon_type=='CASH'}}">
+												<text>￥</text><text class='left_coupon_moeny'>{{itemName.base_info.reduce_cost|toFixed()}}</text>
+											</text>
+											<!--折扣率 -->
+											<text wx:if="{{itemName.base_info.coupon_type=='DISCOUNT'}}">
+												<text class='left_coupon_moeny'>{{itemName.base_info.discount}}</text>折
+											</text>
+											</view>
+											<view class='left_condition'>满{{itemName.base_info.least_cost|toFixes()}}元可使用</view>
+										</view>
+										<view class='coupon_layer_list_in'>
+											<view class='coupon_layer_name'>{{itemName.base_info.coupon_name}}</view>
+											<view class='coupon_layer_itme'>{{itemName.base_info.use_start_time}}-{{itemName.base_info.use_end_time}}</view>
+										</view>
+										<view class='coupon_layer_list_right'>
+										<label class='max_checked'>
+													<checkbox class='coupon_layer_list_use' value="{{itemName.base_info.id}}" checked='{{itemName.is_checked}}' />
+										</label>
+										</view>
+									</view>
+								</view>
+							</checkbox-group>
+
+							<!--不可选优惠券  -->
+							<view class='coupon_layer_list coupon_unavailable}}' wx:for="{{coupon_info.coupon_list.cant_use}}" wx:for-item="itemName" wx:key="key" wx:for-index="index">
+								<view class='coupon_layer_list_top'>
+									<view class='coupon_layer_list_left'>
+										<view class='left_moeny'>
+											<!--现金优惠  -->
+											<text wx:if="{{itemName.base_info.coupon_type=='CASH'}}">
+												<text>￥</text><text class='left_coupon_moeny'>{{itemName.base_info.reduce_cost|toFixed()}}</text>
+											</text>
+											<!--折扣率 -->
+											<text wx:if="{{itemName.base_info.coupon_type=='DISCOUNT'}}">
+												<text class='left_coupon_moeny'>{{itemName.base_info.discount}}</text>折
+											</text>
+
+										</view>
+										<view class='left_condition'>满{{itemName.base_info.least_cost|toFixes()}}元可使用</view>
+									</view>
+									<view class='coupon_layer_list_in'>
+										<view class='coupon_layer_name'>{{itemName.base_info.coupon_name}}</view>
+										<view class='coupon_layer_itme'>{{itemName.base_info.use_start_time}}-{{itemName.base_info.use_end_time}}</view>
+									</view>
+									<view class='coupon_layer_list_right'></view>
+								</view>
+								<view class='coupon_layer_list_bottom'>
+									<text class='coupon_layer_bottom_name'>不可用原因：</text>
+									{{itemName.reason}}
+								</view>
+							</view>
+
+						</view>
+						<view class='coupon_confirm' bindtap='coupon_confirm'>确认</view>
+					</view>
+					<!--优惠券选择窗口=>结束  -->
+				</view>
+			<!--弹出窗=>结束  -->
+		<!--活动=>结束  -->
+    <view class='stytle-line' />
+    <view class='left_right_vertical_center'>
+      <view class='left-text'>运费</view>
+       <view class='right-text right-text-freight' wx:if="{{express_text}}">+<text class='q_f_mo'>￥</text>{{active_list.select_data.is_postage==1 ?"0.00" : freight_money}}</view> 
+    </view>
+    <view class='stytle-line' />
+    <!-- <view class='commodity-view' style='margin-top: -30rpx;'>
+    <view class='left-text'>优惠券</view>
+    <view id='discounts-list-view' style='margin-top: 30rpx;'>
+      <view class='left_right_vertical_center' wx:for="{{array}}" wx:for-index="idx" wx:for-item="itemName" wx:key="unique" style='margin-top: -30rpx;'>
+        <view class='left-text-center'>15元代金券</view>
+        <view class='right-text'>-15</view>
+      </view>
+    </view>
+  </view> -->
+  </view>
+  <!-- <view class='commodity-discounts-list-view'>
+    <view class='stytle-line' />
+    <view class='left_right_vertical_center'>
+      <view class='left-text'>实付金额</view>
+      <view class='right-text'>￥{{cost_money}}</view>
+    </view>
+  </view> -->
+ 
+	<import src="../template/bottom_Logo.wxml" />
+	<template is="bottom_Logo" data="{{guanzhu:guanzhu,daohang:fales,qrcode_url:qrcode_url}}"/> 
+
+  <view class='bottom-view'>
+    <view wx:if="{{express_type==2&&up_to_send_goods_money}}">
+      <view class='explain-text'>商品未满同城起送金额{{up_to_send_goods_money}}元，请凑足金额再下单</view>
+    </view>
+		<view wx:if="{{express_text==''}}">
+      <view class='explain-text'>非常抱歉，您的收货地址不支持快递配送，请修改地址</view>
+    </view>
+    <view class='bottom-submit-view'>
+      <view id='submit-view' bindtap='submit_onclick' class='gradient_button'>提交订单</view>
+      <view id='oeder-money'><text class='f_mo'>￥</text>{{money}}</view>
+      <view id='heji-view'>合计金额：</view>
+    </view>
+
+    <template is="address-view" data="{{address_showDialog:address_showDialog,array:address_list,checked_id:checked_id}}" />
+    <template is="address-view-edit" data="{{address_edit_showDialog:address_edit_showDialog,province_array:province_array,city_array:city_array,region_array:region_array,province_index:province_index,city_index:city_index,region_index:region_index,address_name: address_name, address_phone: address_phone, address_information: address_information, address_postal_code: address_postal_code,addres_id:addres_id,delete_show:delete_show}}"
+    />
+    <template is="delivery_method_diaView" data="{{delivery_method_showDialog:delivery_method_showDialog,delivery_method_list:delivery_method_list}}" />
+  </view>
+</view>
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<!-- <modal hidden="{{hiddenmodalput}}" title="给商家留言" confirm-text="留言" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+  <input type='text' placeholder="请输入留言信息" bindinput="bindInputremark" />
+</modal> -->
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" /> 
+
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

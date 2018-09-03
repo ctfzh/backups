@@ -1,0 +1,6 @@
+@import "../communal/place_an_order.wxss";
+@import "../template/bottom_Logo.wxss"; 
+
+.bottom{
+	margin-bottom: 150rpx;
+}

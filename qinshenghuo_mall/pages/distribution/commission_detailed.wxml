@@ -1,0 +1,32 @@
+<!--佣金明细  -->
+<view class='comm_det_list  window_cover'  hidden='{{!show_loading_faill}}'>
+    <!-- 分销错误提示 -->
+    <import src="../distribution/distribution_anomaly.wxml" />
+    <template is="distribution_anomaly" data="{{ anomaly_code:anomaly_code}}" />
+
+  <!--佣金项  -->
+  <view class='list_item' wx:for="{{data}}" wx:for-item="data" wx:key='key'>
+    <view class='top_item'>
+      <text class='name'>{{data.source_txt}}</text>
+      <text class='time'>{{data.create_time}}</text>
+    </view>
+    <view class='bot_item'>
+      <view class='order_id'><text wx:if='{{!(data.source==3)}}'>订单号：{{data.order_no}}</text></view>
+      <view class='money'>{{data.type==1?'+' + data.money:'-' + data.money}}</view>
+    </view>
+  </view>
+</view>
+
+
+<!-- 顶部提示 -->
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<!-- 错误提示 -->
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" /> 
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+	</view>

@@ -1,0 +1,288 @@
+/* 储值CSS */
+@import "../template/top_message.wxss";
+@import "../template/loading_fall_ui.wxss";
+image{
+  width: 100%;
+  height: 100%;
+}
+.recharge_back{
+  position: relative;
+}
+.recharge_back_img{
+  position: absolute;
+  top: 0rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  overflow: hidden;
+}
+.recharge_title{
+  position: relative;
+  padding: 50rpx 0rpx 25rpx 0rpx;
+  text-align: center;
+  font-size: 42rpx;
+}
+.recharge_rule{
+  display: flex;
+  justify-content: center;
+}
+.rule_an{
+  font-size: 24rpx;
+  position: relative;
+  padding: 8rpx 28rpx;
+}
+.rule_back{
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  bottom: 0rpx;
+  background-color: #FFF;
+  opacity: 0.7;
+  border-radius: 25rpx;
+}
+.rule_text{
+  position: relative;
+}
+.balance_style{
+  height: 324rpx;
+  margin: 50rpx 50rpx 0rpx 50rpx;
+  position: relative;
+  border-radius: 28rpx 28rpx 0rpx 0rpx;
+  overflow: hidden;
+  color: #FFF;
+}
+.balance_back{
+  position: absolute;
+  top: 0rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+}
+.balance_user{
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 30rpx 30rpx 10rpx 30rpx;
+}
+.balance_portrait{
+  position: relative;
+  width: 58rpx;
+  height: 58rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10rpx;
+  padding: 1rpx;
+}
+.balance_portrait_border{
+ position: absolute;
+ top: 0rpx;
+ bottom: 0rpx;
+ left: 0rpx;
+ right: 0rpx;
+ background-color: #FFF;
+ opacity: 0.6;
+ border-radius: 50%;
+}
+.balance_portrait_img{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.balance_name{
+  font-size: 24rpx;
+}
+.balance_title{
+  position: relative;
+  opacity: 0.7;
+  text-align: center;
+  font-size: 24rpx;
+}
+.balance_money{
+  position: relative;
+  font-size: 68rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  line-height: 68rpx;
+}
+.mo_rmb{
+  font-size: 40rpx;
+}
+
+.recharge_money_style{
+  background-color: #FFF;
+  padding: 0rpx 50rpx;
+}
+.recharge_money_title{
+  font-size: 34rpx;
+  line-height: 34rpx;
+  padding: 50rpx 5rpx 30rpx 5rpx;
+}
+
+.recharge_activity{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.recharge_activity_list{
+  width: 250rpx;
+  height: 100rpx;
+  border-width: 1rpx;
+  border-style: solid;
+  margin-bottom: 30rpx;
+  border-radius: 14rpx;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  padding: 30rpx 30rpx 20rpx 30rpx;
+  position: relative;
+}
+.recharge_first{
+  width: 116rpx;
+  height: 28rpx;
+  font-size: 22rpx;
+  position: absolute;
+  top: 0rpx;
+  right: 0rpx;
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0rpx 13rpx;
+  background: linear-gradient(to right, #FF6040, #F74A4A);
+}
+.recharge_money{
+  font-size: 38rpx;
+}
+.recharge_money_activity{
+  font-size: 24rpx;
+}
+.recharge_protocol{
+  font-size: 22rpx;
+  padding: 0rpx 5rpx 30rpx 5rpx;
+  color: #888D94;
+}
+.protocol_an{
+  color: #47B3FF;
+}
+
+.relation_jump{
+  margin-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.relation_jump_list{
+  height: 70rpx;
+  padding: 0rpx 50rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx;
+  border-width: 0rpx;
+  border-style: solid;
+  border-bottom-width: 1rpx;
+  background-color: #FFF;
+}
+.relation_jump_list:last-child{
+  border-bottom-width: 0rpx;
+}
+
+.protocol_layer{
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  bottom: 0rpx;
+  background-color: #FFF;
+  transform:translateY(100%);
+  transition:all 0.2s ease;
+}
+.protocol_layer_title{
+  height: 140rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 46rpx;
+}
+.protocol_layer_content{
+  position: absolute;
+  top: 140rpx;
+  right: 30rpx;
+  left: 30rpx;
+  bottom: 80rpx;
+  overflow: auto;
+}
+.protocol_layer_close{
+  height: 100rpx;
+  position: absolute;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFF;
+}
+.close_an{
+  width: 100rpx;
+  height: 100rpx;
+   display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+.close_t{
+ width: 52rpx;
+ height: 6rpx;
+ background-color: #757A80;
+}
+
+.close_left{
+transform:rotate(45deg);
+}
+
+.close_right{
+  margin-left: -50rpx;
+transform:rotate(-45deg);
+}
+
+.protocol_content_title{
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.protocol_content_text{
+  font-size: 26rpx;
+  line-height: 50rpx;
+  padding: 10rpx 0rpx;
+}
+.protocol_content_h2{
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #757575;
+}
+.protocol_content_h3{
+  font-size: 28rpx;
+}
+.switch{
+  transform:translateY(0);
+}
+
+.dialog_text{
+  line-height: 55rpx;
+  /* text-align: left; */
+}
+
+.recharge_activity_box{
+  width: 50%;
+  margin: 0rpx auto 20rpx auto;
+  border-width: 0rpx;
+  border-style: solid;
+   border-bottom-width: 1rpx; 
+  border-radius: 4rpx;
+  font-size: 40rpx;
+  padding: 10rpx;
+  text-align: center;
+}
