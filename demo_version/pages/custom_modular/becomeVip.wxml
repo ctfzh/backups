@@ -1,0 +1,19 @@
+ <!-- 开卡start -->
+<view class='container'>
+  <view class='becomeVip-wraper'>
+    <view class='becomeVip'>
+      <view class='describe'>
+        <view class='img-wraper'>
+          <view class='img'>
+            <image src="/pages/img/income/VIp_2x.png"></image>
+          </view>
+        </view>
+        <view class='detail font_color2'>
+          <view class='title'>领取会员卡</view>
+        </view>
+      </view>
+    <view class='become become_y' wx:if='{{become}}'>已领</view>
+    <view class='become' bindtap='_open_member' wx:if='{{!become}}'>领取</view>
+    </view>
+  </view>
+</view>

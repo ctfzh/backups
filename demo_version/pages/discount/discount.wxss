@@ -1,0 +1,389 @@
+/* 引入底部logoCSS */
+@import "../custom_modular/bottom_Logo.wxss"; 
+/* 富文本转译CSS引入 */
+@import "../custom_modular/wxParse/wxParse.wxss";
+
+/* 优惠CSS */
+image{
+  height: 100%;
+  width: 100%;
+}
+button{
+  color: #DB3927 !important;
+  background-color: transparent;
+  border: 0rpx !important;
+}
+.drop_down{
+  font-size: 16rpx;
+  margin-left: 10rpx;
+  transition:all 0.1s ease;
+  transform:rotate(0deg)
+}
+.icon-see{
+  font-size: 24rpx;
+  margin-left: 10rpx;
+  line-height: 30rpx;
+}
+.drop_downs{
+  width: 24rpx;
+  height: 24rpx;
+  margin-left: 10rpx;
+}
+.discount_back{
+  position: relative;
+}
+.discount_back_img{
+  position: absolute;
+  top: 0rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  overflow: hidden;
+}
+.switch_store{
+  position: absolute;
+  left: 0rpx;
+  right: 0rpx;
+}
+.store_title{
+  font-size: 28rpx;
+  line-height: 28rpx;
+  padding: 20rpx 40rpx;
+  display: flex;
+  align-items: center;
+}
+
+.store_list{
+  position: absolute;
+  left: 0rpx;
+  right: 0rpx;
+  background-color: #fff;
+  padding: 0rpx 40rpx 40rpx 0rpx;
+  transform:scaleY(0);
+  transition:all 0.1s ease;
+  transform-origin: top;
+  margin-top: -1rpx;
+  z-index: 9;
+  max-height: 500rpx;
+  min-height: 100rpx;
+  overflow: auto;
+ }
+.store_list_title{
+  float: left;
+  background-color: #F2F3F5;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+  padding: 10rpx 30rpx;
+  border-radius: 4rpx;
+  margin-left: 40rpx;
+}
+.drop_down_store_back{
+  display: none;
+}
+.drop_down_store{
+  position:fixed;
+  top: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  bottom: 0rpx;
+  z-index: 9;
+  color: #000;
+}
+
+.drop_down_store .store_title{
+   background-color: #fff; 
+}
+.drop_down_store .store_title{
+  position: relative;
+}
+.drop_down_store .drop_down_store_back{
+  position: absolute;
+  top: 0rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  background-color: #000;
+  opacity: 0.2;
+  display: block;
+}
+.drop_down_store .store_list{
+  transform:scaleY(1);
+  transition:all 0.25s ease;
+}
+.drop_down_store .drop_down{
+  transform:rotate(180deg)
+}
+/* 会员卡CSS */
+.seize{
+  height: 68rpx;
+}
+.membership_card{
+  position: relative;
+  width: 550rpx;
+  height: 340rpx;
+  margin: auto;
+  background: linear-gradient(to right, #EBEBEB,#BBBBBD);
+  border-radius: 14rpx;
+  color: #fff;
+  overflow: hidden;
+  box-shadow: #8C8C8C 0rpx 5rpx 20rpx;
+}
+.membership_card_user{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 30rpx;
+}
+.membership_card_information{
+  display: flex;
+  align-items: center;
+}
+.user_portrait{
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  padding: 2rpx;
+}
+
+.portrait_img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.portrait_name{
+  font-size: 22rpx;
+  margin-left: 10rpx;
+}
+.jump_membership_card{
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  line-height: 30rpx;
+}
+.open_membership_card{
+  font-size: 24rpx;
+  color: #613108;
+  background: linear-gradient(to right, #F0DB9E, #E6BF73);
+  padding: 12rpx 25rpx;
+  line-height: 24rpx;
+  border-radius: 30rpx;
+  box-shadow: 2rpx 1rpx 8rpx #8C8C8C;
+}
+
+.function_menu{
+  display: flex;
+  justify-content: center;
+}
+.function_menu2{
+  height: 147rpx;
+  margin-top: -125rpx;
+  background-color: #fff;
+  box-shadow: 0rpx 0rpx 14rpx #E7E4E7;
+}
+.function_menu2 .menu_Icon{
+  background-color: #fff;
+}
+.function_menu2 .menu_Icon_list_text{
+  font-size: 26rpx;
+  margin: 5rpx 0rpx 30rpx 0rpx;
+}
+.function_menu2 .menu_Icon_back{
+  width: 134rpx;
+  height: 134rpx; 
+  border: 15rpx solid #fff;
+}
+.function_menu2 .menu_Icon_img{
+  width: 65rpx;
+  height: 65rpx; 
+}
+.function_menu1{
+  height: 210rpx;
+  margin-top: -188rpx;
+  position: relative;
+}
+.function_menu3{
+  margin-top: 100rpx;
+}
+.function_menu4{
+  margin-top: 0rpx;
+}
+
+.function_menu_img{
+  position: absolute;
+  width: 100%;
+  height: 210rpx;
+}
+.menu_Icon{
+  width: 100%;
+  height: 100%;
+  position: relative; 
+  padding: 0rpx 10% 0rpx 10%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+.menu_Icon_list{
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  font-size: 28rpx;
+}
+.menu_Icon_back{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu_Icon_back_middle{
+  width: 124rpx;
+  height: 124rpx;
+}
+.back_order{
+  background: linear-gradient(#F7C623,#FFAF38)
+}
+.back_check{
+  background: linear-gradient(#1FB4FF,#4096FF)
+}
+.back_stored{
+  background: linear-gradient(#FF8E1C,#FF6B2B)
+}
+.menu_Icon_img{
+  width: 45rpx;
+  height: 45rpx;
+}
+.menu_Icon_img_middle{
+  width: 65rpx;
+  height: 65rpx;
+}
+.menu_Icon_list_text{
+  margin: 15rpx 0rpx 20rpx 0rpx;
+  line-height: 28rpx;
+}
+
+.menu_Icon_back_middle+ .menu_Icon_list_text{
+  margin: 10rpx 0rpx 20rpx 0rpx;
+}
+
+/* 优惠券CSS */
+.discount_coupon{
+  padding-top: 20rpx;
+}
+.explain{
+  width: 550rpx;
+  margin: 40rpx auto 0rpx auto;
+  min-height: 500rpx;
+}
+.explain_h1{
+  font-size: 30rpx;
+}
+.explain_text{
+  font-size: 26rpx;
+  line-height: 46rpx;
+  word-break:break-all;
+}
+.coupon_list{
+  height: 122rpx;
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 0rpx 30rpx 20rpx 30rpx;
+}
+.coupon_back_img{
+  position: absolute;
+  top: -6rpx;
+  bottom: -6rpx;
+  left: 0rpx;
+  right: -6rpx;
+}
+
+.coupon_money{
+  position: relative;
+  width: 180rpx;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.coupon_money_text{
+  font-size: 60rpx;
+  line-height: 60rpx;
+}
+.mo_fu{
+  font-size: 26rpx;
+}
+.coupon_condition{
+  font-size: 18rpx;
+  line-height: 20rpx;
+  margin-top: -5rpx;
+}
+
+.coupon_details{
+  position: relative;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+.coupon_details_title{
+  padding: 20rpx 30rpx 0rpx 30rpx;
+  font-size: 26rpx;
+}
+.coupon_details_text{
+  padding: 0rpx 30rpx 25rpx 30rpx;
+  font-size: 22rpx;
+}
+
+.coupon_receive{
+  width: 100rpx;
+  height: 100%;
+  color: #DB3927;
+  font-size: 24rpx;
+  position: relative;
+  /* writing-mode: vertical-lr; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.coupon_receive_text{
+  width: 25rpx;
+  line-height: 24rpx;
+}
+
+.more_coupon{
+  line-height: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20rpx;
+  border-width: 0rpx;
+  border-style: solid;
+  border-bottom-width: 1rpx;
+}
+.bind_more_coupon{
+  display: flex;
+  align-items: center;
+}
+.more_coupon_text{
+  font-size: 24rpx;
+}
+.other_coupon_title{
+  font-size: 26rpx;
+  line-height: 26rpx;
+  padding: 0rpx 30rpx 20rpx 30rpx;
+}
+
+.font_overflow{
+  -webkit-line-clamp: 1; /** 显示的行数 **/
+}

@@ -1,0 +1,23 @@
+/* pages/xw_business/director_info.wxss */
+@import "../Internet_business/director_info.wxss";
+.switchBtn{
+  float: right;
+  margin-top: 8rpx;
+  margin-right: -20rpx;
+}
+
+
+.item_text{
+  line-height: 80rpx;
+}
+
+.right_arrow{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.select_item{
+  position: relative;
+  padding-right: 80rpx;
+}

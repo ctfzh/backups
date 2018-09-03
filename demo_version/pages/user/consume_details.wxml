@@ -1,0 +1,76 @@
+<!-- 消费记录详情HTML -->
+<view class='max_consume_details font_color1'  hidden='{{!show_loading_faill}}'>
+  <view class='details_type line_color'>
+    <text class='type_title'>小程序在线买单</text>
+    <text class='type_Success' wx:if="{{content.order_status==1}}">未付款</text>
+    <text class='type_Success' wx:if="{{content.order_status==2}}">已付款</text>
+    <text class='type_Success' wx:if="{{content.order_status==3}}">已退款</text>
+    <text class='type_Success' wx:if="{{content.order_status==4}}">部分退款</text>
+    <text class='type_Success' wx:if="{{content.order_status==5}}">退款处理中</text>
+    <text class='type_Success' wx:if="{{content.order_status==6}}">已取消</text>
+  </view>
+  <view class='details_content line_color'>
+    <view class='details_content_title line_color'>付款金额</view>
+    
+    <view class='details_content_text'>
+      <view class='text_title'>收款门店</view>
+      <view class='text_details'>{{content.store_name}}</view>
+    </view>
+
+    <view class='details_content_text'>
+      <view class='text_title'>订单金额</view>
+      <view class='text_details'>￥{{content.total_money}}</view>
+    </view>
+
+    <view class='details_content_text'>
+      <view class='text_title'>优惠金额</view>
+      <view class='text_details discount_list'>
+      {{content.coupon_money}}
+        <!-- <view class='discount_list'>100减10代金券优惠￥{{content.coupon_money}}</view>
+        <view class='discount_list'>会员折扣优惠￥{{content.member_discount_money}}</view> -->
+      </view>
+    </view>
+    <view class='details_content_text'>
+      <view class='text_title'>会员折扣</view>
+      <view class='text_details discount_list'>{{content.member_discount_money}}</view>
+    </view>
+
+    <view class='details_content_text'>
+      <view class='text_title'>订单编号</view>
+      <view class='text_details'>{{content.order_no}}</view>
+    </view>
+
+    <view class='details_content_text'>
+      <view class='text_title'>下单时间</view>
+      <view class='text_details'>{{content.create_time}}</view>
+    </view>
+<!--   -->
+    <view class='details_content_text' wx:if="{{content.pay_channel!=null}}">
+      <view class='text_title'>支付方式</view>
+      <view class='text_details' wx:if="{{content.pay_channel==1}}">支付宝</view>
+      <view class='text_details' wx:if="{{content.pay_channel==2}}">微信</view>
+      <view class='text_details' wx:if="{{content.pay_channel==3}}">银联</view>
+      <view class='text_details' wx:if="{{content.pay_channel==4}}">现金</view>
+      <view class='text_details' wx:if="{{content.pay_channel==5}}">储值支付</view>
+      <view class='text_details' wx:if="{{content.pay_channel==6}}">兑换码</view>
+    </view>
+<!-- 
+    <view class='details_content_text' wx:if="{{content.order_status==2||content.order_status==3||content.order_status==4||content.order_status==5}}">
+      <view class='text_title'>支付时间</view>
+      <view class='text_details'>{{content.pay_time}}</view>
+    </view> -->
+    
+  </view>
+</view>
+
+<!-- 顶部提示 -->
+<import src="../overall_situation_modular/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+<!--请求页面数据失败显示模块  -->
+ <import src="../overall_situation_modular/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{ show_loading_faill, show}}" /> 
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+  <authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+</view>

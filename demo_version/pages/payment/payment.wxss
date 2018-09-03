@@ -1,0 +1,65 @@
+/* 支付渠道选择界面 */
+.view-content {
+  background: white;
+}
+
+.title-view {
+  background: white;
+  color: #4d4d4d;
+  font-size: 30rpx;
+  padding: 30rpx;
+  border-width: 0rpx;
+  border-style: solid;
+  border-top-width: 1rpx;
+}
+
+.content-view {
+  /*布局方式*/
+  display: flex;
+  /*垂直居中*/
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border-width: 0rpx;
+  border-style: solid;
+  border-top-width: 1rpx;
+}
+
+.left-view {
+  display: flex;
+  align-items: center;
+  color: #4d4d4d;
+  font-size: 30rpx;
+}
+
+.payment-img {
+  width: 50rpx;
+  height: 50rpx;
+  padding: 30rpx;
+}
+
+.payment-img-select {
+  width: 40rpx;
+  height: 40rpx;
+  padding: 30rpx;
+}
+.bottom-view{
+position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.hint-view{
+ background: #f5d797;
+  color: #e13241;
+  font-size: 28rpx;
+  padding: 30rpx;
+}
+/* //41b035 */
+.subitm-view {
+  background: #41b035;
+  color: white;
+  font-size: 32rpx;
+  padding: 30rpx;
+  text-align: center;
+  
+}

@@ -1,0 +1,49 @@
+/* 预约详情 */
+page{
+   background-color: #fff;
+}
+.bespeak_info{
+   border-width: 0rpx;
+   border-style: solid;
+   border-top-width: 1rpx;
+   border-bottom-width: 1rpx;
+   padding-left: 30rpx;
+}
+.bespeak_item{
+   border-width: 0rpx;
+   border-style: solid;
+   border-bottom-width: 1rpx;
+   padding: 30rpx 0rpx;
+   display: flex;
+}
+.bespeak_item:last-child{
+   border-bottom-width: 0rpx;
+}
+.bespeak_item_th{
+   width: 142rpx;
+   font-size: 24rpx;
+   line-height: 38rpx;
+   margin-right: 30rpx;
+}
+.bespeak_item_tb{
+   flex: 1;
+   font-size: 26rpx;
+   word-break: break-all;/*字母，数字换行*/
+}
+.font_color{
+   color: #585E66;
+}
+.tb_item{
+   border-width: 0rpx;
+   border-style: solid;
+   border-bottom-width: 1rpx;
+   padding: 30rpx 30rpx 30rpx 10rpx;
+
+}
+.tb_item:first-child{
+   padding-top: 0rpx;
+}
+.tb_item:last-child{
+   padding-bottom: 0rpx;
+   border-bottom-width: 0rpx;
+}

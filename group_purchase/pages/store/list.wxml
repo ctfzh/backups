@@ -1,0 +1,208 @@
+<!-- 好店 -->
+<view class='store_max font_color1'>
+   <view class='scroll_mask'></view>
+   <scroll-view class='store' scroll-y catchscroll="scroll">
+      <view class='screen_top'>
+         <!-- 条件筛选=>开始 -->
+         <view class='screen_max'>
+            <!-- 搜索 -->
+            <import src="/pages/template/search.wxml" />
+            <view class='{{screen_type?"position":""}}'>
+               <template is="search" />
+               <view class='screen line_color'>
+                  <view class='screen_item {{screen_type==0?"font_color2":""}}' data-type='0' bindtap='screen_tap'>
+                     <view class='screen_item_max'>
+                        <text>排序</text>
+                        <view class='item_img'>
+                           <image src='../img/income/{{screen_type==0?"norm_top":"norm_bottom"}}.png'></image>
+                        </view>
+                     </view>
+                  </view>
+                  <view class='screen_item {{screen_type==1?"font_color2":""}}' data-type='1' bindtap='screen_tap'>
+                     <view class='screen_item_max'>
+                        <text>分类</text>
+                        <view class='item_img'>
+                           <image src='../img/income/{{screen_type==1?"norm_top":"norm_bottom"}}.png'></image>
+                        </view>
+                     </view>
+                  </view>
+                  <view class='screen_item {{screen_type==2?"font_color2":""}}' data-type='2' bindtap='screen_tap'>
+                     <view class='screen_item_max'>
+                        <text>附近</text>
+                        <view class='item_img'>
+                           <image src='../img/income/{{screen_type==2?"norm_top":"norm_bottom"}}.png'></image>
+                        </view>
+                     </view>
+                  </view>
+               </view>
+            </view>
+         </view>
+         <!-- 下拉菜单 -->
+         <view class='screen_menu {{screen_type?"position":""}}'>
+            <view class='mask_back' data-type='' catchtap='screen_tap' wx:if="{{screen_type}}"></view>
+            <!-- 排序 -->
+            <scroll-view class='menu {{screen_type==0?"menu_scale":""}}' scroll-y>
+               <view class='menu_item line_color {{sort_type==index?"font_color2":""}}' wx:for="{{sort}}" wx:for-item="item" wx:for-index="index" wx:key="key" data-value='{{index}}' catchtap='menu_tap'>
+                  <text class='menu_text'>{{item}}</text>
+                  <view class='menu_img' wx:if="{{sort_type==index}}">
+                     <image src='../img/income/check_out.png'></image>
+                  </view>
+               </view>
+            </scroll-view>
+            <!-- 分类 -->
+            <scroll-view class='menu {{screen_type==1?"menu_scale":""}}' scroll-y>
+               <view class='menu_item line_color {{classify_type==index?"font_color2":""}}' wx:for="{{classify}}" wx:for-item="item" wx:for-index="index" wx:key="key" data-value='{{index}}' catchtap='menu_tap'>
+                  <text class='menu_text'>{{item}}</text>
+                  <view class='menu_img' wx:if="{{classify_type==index}}">
+                     <image src='../img/income/check_out.png'></image>
+                  </view>
+               </view>
+            </scroll-view>
+            <!-- 附近 -->
+            <scroll-view class='menu {{screen_type==2?"menu_scale":""}}' scroll-y>
+               <view class='menu_item line_color {{nearby_type==index?"font_color2":""}}' wx:for="{{nearby}}" wx:for-item="item" wx:for-index="index" wx:key="key" data-value='{{index}}' catchtap='menu_tap'>
+                  <text class='menu_text'>{{item}}</text>
+                  <view class='menu_img' wx:if="{{nearby_type==index}}">
+                     <image src='../img/income/check_out.png'></image>
+                  </view>
+               </view>
+            </scroll-view>
+         </view>
+      </view>
+
+      <view class='store_bottom  {{screen_type?"bottom":""}}'>
+			<view class='store_item' catchtap='jump_details'>
+				<view class='goods_img'><image src='../img/banner/test.png' mode='aspectFill' ></image></view>
+				<view class='goods_info'>
+					<view class='info_h1'>
+						<view class='goods_title font_overflow'>龙庭琇厨</view>
+						<view class='distance font_color4'>松江 978.4km</view>
+					</view>
+					<view class='info_h2 font_color4'>
+						<view class='label'>火锅</view>
+						<view class='font_color4'>￥95/人</view>
+					</view>
+					<view class='info_h3 font_color4'>
+						<view class='info_h3_item'>团</view>
+						<view class='info_h3_text'>465元6人餐 188元双人餐 288元...</view>
+					</view>
+					<view class='info_h3 font_color4'>
+						<view class='info_h3_item back'>团</view>
+						<view class='info_h3_text'>465元6人餐 188元双人餐 288元...</view>
+					</view>
+				</view>
+			</view>
+			
+			<view class='store_item' catchtap='jump_details'>
+				<view class='goods_img'><image src='../img/banner/test.png' mode='aspectFill' ></image></view>
+				<view class='goods_info'>
+					<view class='info_h1'>
+						<view class='goods_title font_overflow'>龙庭琇厨</view>
+						<view class='distance font_color4'>松江 978.4km</view>
+					</view>
+					<view class='info_h2 font_color4'>
+						<view class='label'>火锅</view>
+						<view class='font_color4'>￥95/人</view>
+					</view>
+					<view class='info_h3 font_color4'>
+						<view class='info_h3_item'>团</view>
+						<view class='info_h3_text'>465元6人餐 188元双人餐 288元...</view>
+					</view>
+					<view class='info_h3 font_color4'>
+						<view class='info_h3_item back'>团</view>
+						<view class='info_h3_text'>465元6人餐 188元双人餐 288元...</view>
+					</view>
+				</view>
+			</view>
+			
+			<view class='store_item' catchtap='jump_details'>
+				<view class='goods_img'><image src='../img/banner/test.png' mode='aspectFill' ></image></view>
+				<view class='goods_info'>
+					<view class='info_h1'>
+						<view class='goods_title font_overflow'>龙庭琇厨</view>
+						<view class='distance font_color4'>松江 978.4km</view>
+					</view>
+					<view class='info_h2 font_color4'>
+						<view class='label'>火锅</view>
+						<view class='font_color4'>￥95/人</view>
+					</view>
+					<view class='info_h3 font_color4'>
+						<view class='info_h3_item'>团</view>
+						<view class='info_h3_text'>465元6人餐 188元双人餐 288元...</view>
+					</view>
+					<view class='info_h3 font_color4'>
+						<view class='info_h3_item back'>团</view>
+						<view class='info_h3_text'>465元6人餐 188元双人餐 288元...</view>
+					</view>
+				</view>
+			</view>
+			
+			<view class='store_item' catchtap='jump_details'>
+				<view class='goods_img'><image src='../img/banner/test.png' mode='aspectFill' ></image></view>
+				<view class='goods_info'>
+					<view class='info_h1'>
+						<view class='goods_title font_overflow'>龙庭琇厨</view>
+						<view class='distance font_color4'>松江 978.4km</view>
+					</view>
+					<view class='info_h2 font_color4'>
+						<view class='label'>火锅</view>
+						<view class='font_color4'>￥95/人</view>
+					</view>
+					<view class='info_h3 font_color4'>
+						<view class='info_h3_item'>团</view>
+						<view class='info_h3_text'>465元6人餐 188元双人餐 288元...</view>
+					</view>
+					<view class='info_h3 font_color4'>
+						<view class='info_h3_item back'>团</view>
+						<view class='info_h3_text'>465元6人餐 188元双人餐 288元...</view>
+					</view>
+				</view>
+			</view>
+			
+			<view class='store_item' catchtap='jump_details'>
+				<view class='goods_img'><image src='../img/banner/test.png' mode='aspectFill' ></image></view>
+				<view class='goods_info'>
+					<view class='info_h1'>
+						<view class='goods_title font_overflow'>龙庭琇厨</view>
+						<view class='distance font_color4'>松江 978.4km</view>
+					</view>
+					<view class='info_h2 font_color4'>
+						<view class='label'>火锅</view>
+						<view class='font_color4'>￥95/人</view>
+					</view>
+					<view class='info_h3 font_color4'>
+						<view class='info_h3_item'>团</view>
+						<view class='info_h3_text'>465元6人餐 188元双人餐 288元...</view>
+					</view>
+					<view class='info_h3 font_color4'>
+						<view class='info_h3_item back'>团</view>
+						<view class='info_h3_text'>465元6人餐 188元双人餐 288元...</view>
+					</view>
+				</view>
+			</view>
+			
+			<view class='store_item' catchtap='jump_details'>
+				<view class='goods_img'><image src='../img/banner/test.png' mode='aspectFill' ></image></view>
+				<view class='goods_info'>
+					<view class='info_h1'>
+						<view class='goods_title font_overflow'>龙庭琇厨</view>
+						<view class='distance font_color4'>松江 978.4km</view>
+					</view>
+					<view class='info_h2 font_color4'>
+						<view class='label'>火锅</view>
+						<view class='font_color4'>￥95/人</view>
+					</view>
+					<view class='info_h3 font_color4'>
+						<view class='info_h3_item'>团</view>
+						<view class='info_h3_text'>465元6人餐 188元双人餐 288元...</view>
+					</view>
+					<view class='info_h3 font_color4'>
+						<view class='info_h3_item back'>团</view>
+						<view class='info_h3_text'>465元6人餐 188元双人餐 288元...</view>
+					</view>
+				</view>
+			</view>
+      </view>
+
+   </scroll-view>
+</view>

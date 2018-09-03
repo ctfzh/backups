@@ -1,0 +1,6 @@
+{
+   "usingComponents": {
+      "authorize": "../overall_situation_modular/authorize"
+   },
+  "navigationBarTitleText": "门店列表"
+}

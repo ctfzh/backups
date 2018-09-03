@@ -1,0 +1,17 @@
+<!-- 登录 -->
+<view class='Login_max font_color1'>
+	<view class='title'>欢迎登录亲享服务商助手</view>
+	<view class='Login_info'>
+		<view class='info_item line_color'>
+			<view class='info_item_text'>服务商账号</view>
+			<input type='text' placeholder='请输入服务商账号' placeholder-class="font_color5" cursor-spacing="20" bindinput="account"></input>
+		</view>
+		<view class='info_item line_color'>
+			<view class='info_item_text'>密码</view>
+			<input type='text' password='true' placeholder='请输入登录密码' placeholder-class="font_color5" cursor-spacing="20" bindinput="password"></input>
+		</view>
+	</view>
+		<view class='Login_an'>
+			<button class='submit' form-type="submit" hover-class="hover" plain="true"  catchtap='Login'>登录</button>
+		</view>
+</view>

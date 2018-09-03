@@ -1,0 +1,2 @@
+/* pages/xw_business/account.wxss */
+@import "../Internet_business/account.wxss"

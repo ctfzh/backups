@@ -1,0 +1,52 @@
+<!-- 商户管理 -->
+<view class='list_max font_color1'>
+	<!-- 引入搜索模板 -->
+	<import src="../custom_modular/search.wxml" />
+	<template is="search"/>
+
+	<view class='add font_color3' catchtap='jump_add'>+添加商户</view>
+	<view class='merchant_list'>
+		<view class='list_sum font_color2'>全部商户<text class='sun_num font_color3'>384</text></view>
+		<view class='merchant_item' catchtap='jump'>
+			<view class='item_title font_overflow'>康盛堂诊所</view>
+			<view class='item_text font_color2 font_overflow'>乐清康盛堂国医馆中医门诊部有限公司</view>
+		</view>
+		<view class='merchant_item' catchtap='jump'>
+			<view class='item_title font_overflow'>瑞人堂诊所</view>
+			<view class='item_text font_color2 font_overflow'>台州瑞人堂诊所有限公司</view>
+		</view>
+		<view class='merchant_item' catchtap='jump'>
+			<view class='item_title font_overflow'>烫面包</view>
+			<view class='item_text font_color2 font_overflow'>景色花艺咖啡馆</view>
+		</view>
+		<view class='merchant_item' catchtap='jump'>
+			<view class='item_title font_overflow'>烫面包</view>
+			<view class='item_text font_color2 font_overflow'>景色花艺咖啡馆</view>
+		</view>
+		<view class='merchant_item' catchtap='jump'>
+			<view class='item_title font_overflow'>烫面包</view>
+			<view class='item_text font_color2 font_overflow'>景色花艺咖啡馆</view>
+		</view>
+		<view class='merchant_item' catchtap='jump'>
+			<view class='item_title font_overflow'>烫面包</view>
+			<view class='item_text font_color2 font_overflow'>景色花艺咖啡馆</view>
+		</view>
+		<view class='merchant_item' catchtap='jump'>
+			<view class='item_title font_overflow'>烫面包</view>
+			<view class='item_text font_color2 font_overflow'>景色花艺咖啡馆</view>
+		</view>
+		<view class='merchant_item' catchtap='jump'>
+			<view class='item_title font_overflow'>烫面包</view>
+			<view class='item_text font_color2 font_overflow'>景色花艺咖啡馆</view>
+		</view>
+		<view class='merchant_item' catchtap='jump'>
+			<view class='item_title font_overflow'>烫面包</view>
+			<view class='item_text font_color2 font_overflow'>景色花艺咖啡馆</view>
+		</view>
+		<view class='merchant_item' catchtap='jump'>
+			<view class='item_title font_overflow'>烫面包</view>
+			<view class='item_text font_color2 font_overflow'>景色花艺咖啡馆</view>
+		</view>
+	</view>
+	
+</view>

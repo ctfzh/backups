@@ -1,0 +1,93 @@
+<!--门店组件HTML-->
+<view class='store_info_style'>
+  <!--标题  -->
+  <view class='store_info_title'>
+    <view class='store_info_title_h1 font_color1 font_overflow'>{{list.store.name}}<text wx:if="{{list.store.branch_name}}">（{{list.store.branch_name}}）</text></view>
+    <view class='store_info_title_h2'  wx:if="{{list.store.tag||list.store.per_capita}}">
+      <view class='store_info_title_label' wx:if="{{list.store.tag}}">
+        <view class='store_info_title_label_bac'></view>
+        <text>{{list.store.tag}}</text>
+      </view>
+      <view class='store_info_title_price font_color3' wx:if="{{list.store.per_capita!=0.00}}">人均：{{list.store.per_capita}}元</view>
+    </view>
+  </view>
+  <!--地址  -->
+  <view class='store_info_address line_color'>
+    <view class='store_info_address_Icon'>
+      <image src='../img/income/address_Icon.png' lazy-load="true"></image>
+    </view>
+    <view class='store_info_address_text font_color1 font_overflow' bindtap='address' data-lng='{{list.store.lng}}' data-lat='{{list.store.lat}}'>
+      <text>{{list.store.address}}</text>
+    </view>
+    <view class='store_info_address_call line_color' bindtap='call' data-call='{{list.store.telephone}}'>
+      <view class='store_info_address_call_img'>
+        <image src='../img/income/address_call.png' lazy-load="true"></image>
+      </view>
+    </view>
+  </view>
+  <!--详情  -->
+  <view class='store_info_information'>
+  <!-- 营业时间 -->
+    <view class='information_business_time font_color1' wx:if="{{list.store.open_time.length>0}}">
+      <view class='business_time_h1'>营业时间：</view>
+      <view class='business_time_text'>
+        <view class='business_time ' wx:for="{{list.store.open_time}}" 
+        wx:for-item="data" wx:key="key">
+          <text class='week'>{{data.week}}</text>
+          <text class='time_area' wx:if="{{data.is_all_day==2}}">{{data.time_area_start_hour}} ~ {{data.time_area_end}}</text>
+          <text class='is_all_day' wx:if="{{data.is_all_day==1}}">24小时营业</text>
+        </view>
+      </view>
+    </view>
+    <!-- 服务 -->
+    <view class='information_service font_color2'>
+      <view class='information_service_list' wx:for="{{list.store.service}}" wx:for-item="data" wx:key="key">
+        <view class='service_list_img' wx:if="{{data==1}}">
+          <image src='../img/income/WIFI_lcon.png' lazy-load="true"></image>
+        </view>
+        <view class='service_list_text ' wx:if="{{data==1}}">WIFI</view>
+
+        <view class='service_list_img' wx:if="{{data==2}}">
+          <image src='../img/income/vehicle_Icon.png' lazy-load="true"></image>
+        </view>
+        <view class='service_list_text ' wx:if="{{data==2}}">停车</view>
+
+        <view class='service_list_img' wx:if="{{data==3}}">
+          <image src='../img/income/Box_lcon.png' lazy-load="true"></image>
+        </view>
+        <view class='service_list_text ' wx:if="{{data==3}}">包厢</view>
+
+        <view class='service_list_img' wx:if="{{data==4}}">
+          <image src='../img/income/smoke.png' lazy-load="true"></image>
+        </view>
+        <view class='service_list_text ' wx:if="{{data==4}}">吸烟区</view>
+
+        <view class='service_list_img' wx:if="{{data==5}}">
+          <image src='../img/income/baby_chair_lcon.png' lazy-load="true"></image>
+        </view>
+        <view class='service_list_text ' wx:if="{{data==5}}">宝宝椅</view>
+
+        <view class='service_list_img' wx:if="{{data==6}}">
+          <image src='../img/income/pet_lcon.png' lazy-load="true"></image>
+        </view>
+        <view class='service_list_text ' wx:if="{{data==6}}">宠物</view>
+
+        <view class='service_list_img' wx:if="{{data==7}}">
+          <image src='../img/income/move_lcon.png' lazy-load="true"></image>
+        </view>
+        <view class='service_list_text ' wx:if="{{data==7}}">移动支付</view>
+
+        <view class='service_list_img' wx:if="{{data==8}}">
+          <image src='../img/income/card_lcon.png' lazy-load="true"></image>
+        </view>
+        <view class='service_list_text ' wx:if="{{data==8}}">刷卡</view>
+      </view>
+      
+    </view>
+      <view class='more_service_text font_color2' wx:if="{{list.store.other_service}}">更多服务：{{list.store.other_service}}</view>
+  </view>
+  <!--查看更多  -->
+  <view class='store_info_more line_color' wx:if="{{list.store_count>1}}" bindtap='see_more'>
+    <view class='see_more font_color3'>查看全部{{list.store_count}}家门店</view>
+  </view>
+</view>

@@ -1,0 +1,13 @@
+/* 储值卡/码页CSS */
+.code{
+  height: 90rpx;
+  background-color: #fff;
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+}
+input{
+  flex: 1;
+  margin: 0rpx 30rpx;
+}

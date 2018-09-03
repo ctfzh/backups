@@ -1,0 +1,26 @@
+<!-- 员工管理 -->
+<view class='list_max font_color1'>
+      <view class='add font_color3' catchtap='jump_url'>+添加员工账号</view>
+
+		<view class='list font_color5'>
+
+			<view class='list_item line_color' catchtap='jump_url'>
+					<view class='item_h1'>
+						<view class='item_title font_color1'>员工名称</view>
+						<view class='item_subtitle'>店长</view>
+					</view>
+					<view class='h2'>门店   烫面包-古镇一店</view>
+					<view class='h3'>账号   001</view>
+			</view>
+			
+			<view class='list_item line_color' catchtap='jump_url'>
+					<view class='item_h1'>
+						<view class='item_title font_color1'>员工名称</view>
+						<view class='item_subtitle'>店长</view>
+					</view>
+					<view class='h2'>门店   烫面包-古镇一店</view>
+					<view class='h3'>账号   001</view>
+			</view>
+
+		</view>
+</view>

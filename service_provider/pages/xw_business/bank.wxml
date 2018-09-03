@@ -1,0 +1,10 @@
+<!--pages/xw_business/bank.wxml-->
+<!-- 引入搜索模板 -->
+<import src="../custom_modular/search.wxml" />
+<template is="search" />
+
+<view class='bank_wrap'>
+  <view class='bank' bindtap='handleSelect' wx:for="{{bankList}}" wx:for-item="item" wx:key="index" data-bank='{{item}}'>
+    <text class='item_text font_color4'>{{item.name}}</text>
+  </view>
+</view>

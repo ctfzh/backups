@@ -1,0 +1,2 @@
+<!-- 异业联盟券 -->
+<web-view src="{{url}}"></web-view>

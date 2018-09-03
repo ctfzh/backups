@@ -1,0 +1,99 @@
+/*引用裂变券样式  */
+@import "../fission/fission.wxss";
+
+/* 优惠券领取CSS */
+.fission_back_color{
+  background: #E63D1C;
+}
+.store_info{
+  position: relative;
+  margin: 20rpx;
+}
+.store_info_back{
+  position: absolute;
+  top: 0rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  background-color: #000;
+  opacity: 0.2;
+  border-radius: 4rpx;
+}
+.store_info_cont{
+  position: relative;
+  font-size: 28rpx;
+  color: #fff;
+}
+.store_info_titl{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.store_info_line{
+  height: 1rpx;
+  background-color: #fff;
+  opacity: 0.2;
+}
+.store{
+  padding: 30rpx 30rpx 20rpx 30rpx;
+}
+.store_title{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.store_title_h1{
+  display: flex;
+  align-items: center;
+}
+.store_img{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 15rpx;
+}
+.store_title_h2{
+  opacity: 0.8;
+  font-size: 24rpx;
+}
+.distance_text{
+  margin-right: 20rpx;
+}
+
+.store_text{
+  margin-top: 30rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.store_address{
+  flex: 1;
+  -webkit-line-clamp: 2; /** 显示的行数 **/
+}
+.phone{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin: 0rpx 5rpx 0rpx 45rpx;
+}
+.phone_line{
+  width: 1rpx;
+  height: 40rpx;
+  margin-right: 35rpx;
+  background-color: #E3E4E5;
+   opacity: 0.5; 
+}
+.store_info_an{
+  padding: 30rpx;
+  text-align: center;
+}
+.store_info_list{
+  transition: all 0.4s ease;
+   max-height: 0rpx;   
+  overflow: hidden;
+}
+.see_more_store{
+  transition: all 0.8s ease;
+  max-height: 210rpx; 
+}

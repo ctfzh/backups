@@ -1,0 +1,193 @@
+<!-- 网商间连入驻 -->
+<view>
+
+  <view class='feekback_info' wx:if="{{reject_msg}}">
+    <view class='feekback_text font_color8'>
+      驳回
+    </view>
+    <view class='feekback_detail font_color2'>
+      {{reject_msg||''}}
+    </view>
+  </view>
+
+  <form bindsubmit='handleSubmit'>
+    <!-- 商户信息 -->
+    <view class='item'>
+      <view class='font_color2 title'>商户信息</view>
+      <view class='add_item'>
+        <view class='item_cont line_color first_item'>
+          <text class='item_text'>商户名称</text>
+          <input type='text' class='item_input font_overflow' placeholder='商户名称' placeholder-class='font_color2' name="merchant_name" value='{{merchant_name}}' maxlength='50'></input>
+        </view>
+      </view>
+      <view class='add_item'>
+        <picker range='{{merchantTypeArray}}' value="{{index}}" bindchange='handleMerchantTypeChange'>
+          <view class='item_cont line_color'>
+            <text class='item_text'>商户类型</text>
+            <text class='item_input font_overflow'>{{merchantTypeArray[merchant_type-1]}}</text>
+            <view class='right_arrow'>
+              <image src="../img/income/right_arrow.png"></image>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class='add_item'>
+        <picker range='{{mybankCategoryNameList}}' bindchange='handleIndustryChange'  value='{{index}}'>
+          <view class='item_cont line_color'>
+            <text class='item_text'>行业类目</text>
+            <text class='item_input font_overflow'>{{mcc_str}}</text>
+            <view class='right_arrow'>
+              <image src="../img/income/right_arrow.png"></image>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class='add_item' wx:if="{{(merchant_type==2||merchant_type==3)&&mcc_str=='美食'}}">
+        <view class='item_cont line_color'>
+          <text class='item_text'>加入蓝海行动</text>
+          <switch class='switchBtn'  checked='{{isChecked}}' bindchange='handleSwitch'></switch>
+        </view>
+      </view>
+    </view>
+    <!-- 经营信息 -->
+    <view class='item'>
+      <view class='font_color2 title'>经营信息</view>
+      <view class='add_item'>
+        <view class='item_cont line_color first_item'>
+          <text class='item_text'>商户简称</text>
+          <input type='text' class='item_input' placeholder='商户简称' placeholder-class='font_color2' name="alias" maxlength='20' value='{{alias}}'></input>
+        </view>
+      </view>
+      <view class='add_item' bindtap='jump_url' data-url_type='yyzz' wx:if="{{merchant_type==2||merchant_type==3}}">
+        <view class='item_cont line_color'>
+          <text class='item_text'>营业执照</text>
+          <text class="{{buss_auth_num=='undefined'?'item_input font_overflow font_color2':'item_input font_overflow'}}">{{buss_auth_num=='undefined'?'未上传':buss_auth_num}}</text>
+          <view class='right_arrow'>
+            <image src="../img/income/right_arrow.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class='add_item'>
+        <picker 
+          mode="multiSelector" 
+          range="{{multiArray}}"
+          range-key='area_name'
+          bindchange="bindRegionChange" 
+          bindcolumnchange="bindRegionColumnChange"
+          value='{{multiIndex}}'
+        >
+          <view class='item_cont line_color'>
+            <text class='item_text'>经营地址</text>
+            <text class='item_input font_overflow' class="{{province_name?'item_input font_overflow':'item_input font_overflow font_color2'}}">{{province_name}}{{city_name}}{{district_name}}</text>
+            <view class='right_arrow'>
+              <image src="../img/income/right_arrow.png"></image>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class='add_item'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>详细地址</text>
+          <input type='text' class='item_input' placeholder='详细地址' placeholder-class='font_color2' name="address" maxlength='120' value='{{address}}'></input>
+        </view>
+      </view>
+      <view class='add_item'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>客服电话</text>
+          <input type='text' class='item_input' placeholder='固定电话或手机号' placeholder-class='font_color2' name="service_phone_no" value='{{service_phone_no}}'></input>
+        </view>
+      </view>
+    </view>
+    <!-- 联系人信息 -->
+    <view class='item'>
+      <view class='font_color2 title'>联系人信息</view>
+      <view class='add_item'>
+        <view class='item_cont line_color first_item'>
+          <text class='item_text'>联系人姓名</text>
+          <input type='text' class='item_input' placeholder='未设置' placeholder-class='font_color2' name="contact_name" value='{{contact_name}}'></input>
+        </view>
+      </view>
+      <view class='add_item'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>联系人手机号</text>
+          <input type='text' class='item_input' placeholder='未设置' placeholder-class='font_color2' name="contact_mobile" value='{{contact_mobile}}'></input>
+        </view>
+      </view>
+    </view>
+    <!-- 负责人信息 -->
+    <view class='item'>
+      <view class='font_color2 title'>负责人信息</view>
+      <view class='add_item' bindtap='jump_url' data-url_type='sfz'>
+        <view class='item_cont line_color first_item'>
+          <text class='item_text'>负责人身份证</text>
+          <text class="{{principal_cert_no?'item_input':'item_input font_color2'}}">{{principal_cert_no||'未设置'}}</text>
+          <view class='right_arrow'>
+            <image src="../img/income/right_arrow.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class='add_item'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>负责人手机号</text>
+          <input type='text' class='item_input' placeholder='未设置' placeholder-class='font_color2' name="principal_mobile"  bindinput='handlePrincipalMobileChange' value='{{principal_mobile}}'></input>
+        </view>
+      </view>
+      <view class='add_item'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>负责人邮箱</text>
+          <input type='text' class='item_input' placeholder='负责人邮箱' placeholder-class='font_color2' name="email" value='{{email}}' maxlength='30'></input>
+        </view>
+      </view>
+    </view>
+    <!-- 结算账户 -->
+    <view class='item'>
+      <view class='font_color2 title'>结算账户</view>
+      <view class='add_item'>
+        <view class='item_cont line_color first_item'>
+          <text class='item_text'>开户名称</text>
+          <input type='text' class='item_input' placeholder='负责人名称/企业名称' placeholder-class='font_color2' name="bank_cert_name" value='{{bank_cert_name}}' maxlength='64'></input>
+        </view>
+      </view>
+      <view class='add_item' bindtap='jump_url' data-url_type='jszh'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>结算账户</text>
+          <text class="{{bank_card_no?'item_input':'item_input font_color2'}}">{{bank_card_no||'未设置'}}</text>
+          <view class='right_arrow'>
+            <image src="../img/income/right_arrow.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class='add_item'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>支付宝费率(%)</text>
+          <input type='text' class='item_input' placeholder='0.25-0.65' placeholder-class='font_color2' name="alipay_rate" value='{{alipay_rate}}' disabled="{{isChecked}}"></input>
+        </view>
+      </view>
+      <view class='add_item'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>微信费率(%)</text>
+          <input type='text' class='item_input' placeholder='0.25-0.65' placeholder-class='font_color2' name="wechat_rate" value='{{wechat_rate}}'></input>
+        </view>
+      </view>
+      <view class='add_item'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>负责人手机号</text>
+          <text class='item_input'>{{principal_mobile||''}}</text>
+          <view class='right_arrow code'>
+            <text class='font_color3' bindtap='handleGetCode'>获取验证码</text>
+          </view>
+        </view>
+      </view>
+      <view class='add_item'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>手机验证码</text>
+          <input type='text' class='item_input' placeholder='验证码手机号' placeholder-class='font_color2' name="auth_code" value="{{auth_code}}"></input>
+        </view>
+      </view>
+    </view>
+    <button class='saveBtn' plain form-type='submit'>保存</button>
+
+
+  </form>
+
+</view>

@@ -1,0 +1,59 @@
+{
+   "pages": [
+      "pages/home/home",
+      "pages/store_info_list/store_info_list",
+      "pages/album_list/album_list",
+      "pages/home/home_micro",
+      "pages/user/user_center",
+      "pages/user/personal_info",
+      "pages/user/coupon_list",
+      "pages/recharge_code/recharge_code",
+      "pages/recharge_activity/recharge_activity",
+      "pages/recharge_activity/balance_detailed",
+      "pages/user/consume_record",
+      "pages/user/consume_details",
+      "pages/payment/check",
+      "pages/payment/payment_success",
+      "pages/discount/discount",
+      "pages/fission/fission",
+      "pages/payment/payment",
+      "pages/discount/other_coupon",
+      "pages/fission/coupon_receipt",
+      "pages/appointment/appointment",
+      "pages/user/service",
+      "pages/appointment/my_reservation",
+      "pages/appointment/reservation_details",
+      "pages/account_number/bind_account"
+   ],
+   "window": {
+      "backgroundTextStyle": "light",
+      "navigationBarBackgroundColor": "#fff",
+      "navigationBarTitleText": "",
+      "navigationBarTextStyle": "black"
+   },
+   "tabBar": {
+      "color": "#000",
+      "selectedColor": "#DB3927",
+      "borderStyle": "white",
+      "list": [
+         {
+            "pagePath": "pages/home/home",
+            "text": "首页",
+            "iconPath": "pages/img/tabBar/home_hide.png",
+            "selectedIconPath": "pages/img/tabBar/home_show.png"
+         },
+         {
+            "pagePath": "pages/discount/discount",
+            "text": "优惠",
+            "iconPath": "pages/img/tabBar/discount_hide.png",
+            "selectedIconPath": "pages/img/tabBar/discount_show.png"
+         },
+         {
+            "pagePath": "pages/user/user_center",
+            "text": "我的",
+            "iconPath": "pages/img/tabBar/user_hide.png",
+            "selectedIconPath": "pages/img/tabBar/user_show.png"
+         }
+      ]
+   }
+}

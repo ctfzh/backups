@@ -1,0 +1,20 @@
+/* 使用须知 */
+@import "../overall_situation_modular/wxParse/wxParse.wxss";
+.handbook_max{
+	position: relative;
+	height: 100vh;
+}
+.handbook_back{
+	position: absolute;
+	top: 0rpx;
+	bottom: 0rpx;
+	left: 0rpx;
+	right: 0rpx;
+	overflow: auto;
+}
+.handbook_back_is{
+	top: 30rpx;
+	bottom: 30rpx;
+	left: 30rpx;
+	right: 30rpx;
+}

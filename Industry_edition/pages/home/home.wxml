@@ -1,0 +1,55 @@
+<!-- 首页 -->
+<view class='home_max' hidden='{{!show}}' catchtouchmove='mov'>
+  <view class='swiper_home'>
+    <swiper autoplay="true" skip-hidden-item-layout="true"  bindchange="swiperChange">
+      <block wx:for="{{imgUrls}}" wx:key="key">
+        <swiper-item>
+          <image src="{{item}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class='display_quantity' wx:if="{{imgUrls.length>1}}">
+      <view class='display_quantity_text {{current==index?"display_quantity_max":""}}' wx:for="{{imgUrls}}" wx:for-index="index" wx:key="key" ></view>
+    </view>
+  </view>
+
+  <view class='home_bottom'>
+    <!-- <view class='top_img'>
+        <image src='../img/banner/home_banner02.png'  mode='widthFix'></image>
+        <view class='top_img'>
+          <image src='../img/banner/home_banner03.png'  mode='widthFix'></image>
+        </view>
+    </view>
+    <view class='home_bottom_img'>
+        <image src='../img/banner/home_banner01.png'  mode='widthFix'></image>
+        <view class='home_bottom_img'>
+          <image src='../img/banner/home_banner04.png'  mode='widthFix'></image>
+        </view>
+    </view> -->
+	 
+    <view class='home_an'>
+      <view class='an_item'>
+        <view class='an_item_top' catchtap='order' data-type='1'>点餐</view>
+        <view class='an_item_bottom'>
+          <view class='bottom_an'></view>
+        </view>
+      </view>
+      <view class='an_item'>
+        <view class='an_item_top' catchtap='order' data-type='2'>外卖</view>
+        <view class='an_item_bottom'>
+          <view class='bottom_an'></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+  <authorize bindlogin="login_success"></authorize>
+</view>
+
+<!-- 错误提示组件 -->
+<view class='error' hidden='{{show}}'>
+  <error bindretry="retry" error="{{error}}" error_text="{{error_text}}" retry_an="{{retry_an}}" log="{{log}}"></error>
+</view>

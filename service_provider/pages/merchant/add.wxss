@@ -1,0 +1,38 @@
+/* 添加商户 */
+.add_item{
+	background-color: #fff;
+	padding-left: 30rpx;
+}
+.item_cont{
+	height: 110rpx;
+	border-top-width: 1rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0rpx 40rpx 0rpx 10rpx;
+}
+.add_item:first-child .item_cont{
+	border: 0rpx;
+}
+.item_text{
+	font-size: 30rpx;
+}
+
+.item_input{
+	flex: 1;
+	font-size: 26rpx;
+	text-align: right;
+	margin-left: 30rpx;
+}
+
+.title{
+	padding: 29rpx 0rpx 10rpx 39rpx;
+	font-size: 26rpx;
+}
+.title + .add_item .item_cont{
+	border: 0rpx;
+}
+
+switch{
+	margin-right: -10rpx;
+}

@@ -1,0 +1,148 @@
+/* 预约 */
+.bespeak_max{
+   height: 100vh;
+   overflow: auto;
+}
+.bespeak_img{
+   position: fixed;
+   top: 0rpx;
+   bottom: 0rpx;
+   left: 0rpx;
+   right: 0rpx;
+   display: flex;
+}
+.bespeak_img image{
+   width: 100%;
+   height: 100%;
+}
+.bespeak_item{
+   position: relative;
+   padding: 30rpx 30rpx 0rpx 30rpx;
+}
+.item{
+     height: 100rpx;  
+   background-color: #fff;
+   border-radius: 4rpx;
+   padding: 0rpx 30rpx;
+   display: flex;
+   align-items: center; 
+   line-height: 34rpx;
+}
+.name{
+   font-size: 32rpx;
+   margin-right: 20rpx;
+}
+.text{
+   width: 100%;
+   flex: 1;
+   font-size: 28rpx;
+   display: flex;
+   align-items: center;
+}
+.picker{
+   justify-content: space-between;
+}
+.picker_right{
+   height: 100%;
+   flex: 1;
+   display: flex;
+    align-items: center; 
+}
+
+.picker_right .text{
+   margin-right: 15rpx;
+   justify-content: flex-end;
+}
+.button_max{
+   position: relative;
+}
+.font_overflow{
+  -webkit-line-clamp: 1; /** 显示的行数 **/
+}
+.check_select{
+   border-top-style: solid;
+   border-top-width:1rpx; 
+   background-color: #fff;
+   padding: 25rpx 30rpx 5rpx 30rpx;
+}
+.check_select_item{
+   padding-bottom: 20rpx;
+   font-size: 28rpx;
+   display: flex;
+   align-items: center;
+}
+.check_select_item radio,
+.check_select_item checkbox{
+   transform:scale(0.85);
+}
+.bespeak_list_max{
+   display: flex;
+   justify-content: flex-end;
+   margin: 80rpx 60rpx;
+}
+.bespeak_list_an{
+   width: 100rpx;
+   height: 100rpx;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   position: relative;
+}
+.bespeak_list_back{
+   position: absolute;
+   top: 0rpx;
+   bottom: 0rpx;
+   left: 0rpx;
+   right: 0rpx;
+   background-color: #fff;
+   opacity: 0.5;
+   border-radius: 50%;
+}
+.bespeak_list_text{
+   position: relative;
+   width: 86rpx;
+   height: 86rpx;
+   background-color: #fff;
+   border-radius: 50%;
+   font-size: 22rpx;
+   color: #007A7A;
+   display: flex;
+   flex-flow: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.swiper_home{
+  position: relative;
+  height: 610rpx;
+  z-index: 9;
+}
+.swiper_home swiper{
+  width: 100%;
+  height: 100%;
+}
+.swiper_home swiper image{
+  width: 100%;
+  height: 100%;
+}
+
+.display_quantity{
+  position: absolute;
+  left: 0rpx;
+  right: 0rpx;
+  bottom: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.display_quantity_text{
+   width: 12rpx;
+   height: 12rpx;
+   border-radius: 50%;
+   opacity: 0.4;
+   background-color: #fff;
+   margin-left: 10rpx;
+}
+.display_quantity_max{
+   opacity: 1;
+}

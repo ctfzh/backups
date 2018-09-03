@@ -1,0 +1,11 @@
+<!-- 支付成功 -->
+<view class='pay_suc_max'>
+	<view class='title'><view class='check_out_img'><image src='../img/income/check_out.png'></image></view>购买成功</view>
+	<view class='text font_color4'>请到店后出示消费</view>
+	<view class='code_text font_color2'>券码：2812 8138 1724</view>
+	<view class='code'>
+			<view class='un_code'><image src='../img/income/code.png'></image></view>
+			<view class='qr_code'><image src='../img/income/code.png'></image></view>
+	</view>
+	<view class='an'>完成</view>
+</view>

@@ -1,0 +1,16 @@
+<!-- 开卡start -->
+<view class='container'>
+  <view class='pay-wraper'>
+    <view class='pay'>
+      <view class='describe'>
+        <view class='img'>
+          <image src="/pages/img/income/pay_2x.png"></image>
+        </view>
+        <view class='detail font_color2'>
+          <view class='title font_color2'>自助买单</view>
+        </view>
+      </view>
+      <view class='toPay' catchtap='_payFor'>买单</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,99 @@
+/* 商户管理 */
+
+.merchant_list{
+	padding: 40rpx 20rpx;
+}
+.list_sum{
+	font-size: 26rpx;
+	line-height: 26rpx;
+	padding-left: 19rpx;
+}
+.sun_num{
+	margin-left: 10rpx;
+}
+.merchant_item{
+	height: 172rpx;
+	background-color: #fff;
+	margin-top: 20rpx;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	padding: 0rpx 20rpx;
+}
+.item_title{
+	font-size: 30rpx;
+	line-height: 32rpx;
+}
+.item_text_1{
+  width: 500rpx;
+	font-size: 26rpx;
+  line-height: 50rpx;
+}
+
+.item_text_2{
+	font-size: 26rpx;
+}
+
+.set_up_max{
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+}
+.set_up_top{
+	font-size: 32rpx;
+	height: 97rpx;
+	display: flex;
+	justify-content: space-around;
+}
+
+.top_item{
+	height: 100%;
+	width: 86rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	white-space:nowrap;
+}
+
+.sele_item{
+	color: #00AAEE;
+	border-bottom: 5rpx solid #00AAEE;
+}
+
+.set_up_bottom{
+	position: absolute;
+	top: 195rpx;
+	bottom: 0rpx;
+	left: 0rpx;
+	right: 0rpx;
+}
+.swiper{
+	width: 100%;
+	height: 100%;
+}
+.scroll{
+	height: 100%;
+}
+
+.item_text_r{
+  float: right;
+}
+
+.merchant_item_lanhai{
+  height: 262rpx;
+}
+
+.lanhai{
+  background: white;
+  font-size: 26rpx;
+  border-top: 1rpx solid #E9E9E9;
+  margin-top: 27rpx;
+  padding-top: 27rpx;
+}
+
+.alias{
+  width: 500rpx;
+}
+
+

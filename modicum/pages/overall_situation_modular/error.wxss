@@ -1,0 +1,39 @@
+.error_max{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.error_img{
+  display: flex;
+}
+.network_error{
+  width: 222rpx;
+  height: 222rpx;
+}
+.load_error{
+  width: 220rpx;
+  height: 220rpx;
+}
+.empty_error{
+  width: 140rpx;
+  height: 140rpx;
+}
+.error_text{
+  color: #787B80;
+  font-size: 30rpx;
+  margin-top: 80rpx;
+}
+
+.error_an{
+  width: 190rpx;
+  height: 60rpx;
+  background-color: #008866;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  border-radius: 4rpx;
+  margin-top: 70rpx;
+}

@@ -1,0 +1,60 @@
+/* pages/xw_business/sign.wxss */
+
+.head {
+  background: rgba(242, 239, 220, 1);
+  padding: 22rpx 30rpx 20rpx 30rpx;
+}
+
+.text{
+  font-size: 26rpx;
+  font-family: PingFang-SC-Medium;
+  line-height: 50rpx;
+}
+
+.color1{
+  color: #78623C;
+}
+
+.color2{
+  color: #2C2F33;
+}
+
+.pic-text-wrap{
+  padding-top: 30rpx;
+  text-align: center;
+}
+
+.pic-wrap{
+  display: flex;
+  justify-content: space-around;
+  padding-top: 30rpx;
+}
+
+.pic-border{
+  width: 400rpx;
+  height: 400rpx;
+  border: 1px solid #E9E9E9; 
+  background:rgba(255,255,255,1);
+}
+
+.pic-border image{
+  width: 100%;
+  height: 100%;
+}
+
+.detail-wrap{
+  padding: 40rpx 30rpx 0;
+}
+
+.detail{
+  padding: 30rpx;
+  background:rgba(242,242,242,1);
+}
+
+.detail-item text:first-child{
+  margin-right: 40rpx;
+}
+
+.btn-wrap{
+  padding: 70rpx 20rpx;
+}

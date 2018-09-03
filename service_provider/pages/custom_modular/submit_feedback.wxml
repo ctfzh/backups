@@ -1,0 +1,15 @@
+<!-- 提交反馈 -->
+<template name="feedback">
+<view class='feedback_max'>
+	<view class='feedback_img'>
+		<image src='../img/income/{{img==1?"complete":img==2?"fail":"await"}}.png'></image>
+	</view>
+	<view class='feedback_title font_color1'>{{title}}</view>
+	<view class='feedback_text' wx:for="{{text}}" wx:for-item="item" wx:key="key">
+		<view class='text_item font_color2'>{{item}}</view>
+	</view>
+	<view class='button'>
+		<button class='submit' form-type="submit" hover-class="hover" plain="true">{{buttom}}</button>
+	</view>
+</view>
+</template>

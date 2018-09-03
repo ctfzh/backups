@@ -1,0 +1,43 @@
+.feedback_max{
+	position: absolute;
+	top: 0rpx;
+	bottom: 0rpx;
+	left: 0rpx;
+	right: 0rpx;
+	background-color: #F8F8F8;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	padding-top: 89rpx;
+}
+
+.feedback_img{
+	width: 100rpx;
+	height: 100rpx;
+	display: flex;
+}
+.feedback_img image{
+	width: 100%;
+	height: 100%;
+}
+.feedback_title{
+	padding: 37rpx 0rpx 27rpx 0rpx;
+	font-size: 32rpx;
+	line-height: 32rpx;
+}
+.feedback_text{
+	font-size: 24rpx;
+	line-height: 44rpx;
+}
+
+.feedback_max .button{
+	width: 100%;
+	padding: 100rpx 0rpx;
+}
+.feedback_max button[plain]{
+	background-color: #fff;
+	border-radius: 0rpx;
+	border: 0rpx;
+	color: #00AAEE;
+	margin: 0rpx 20rpx;
+}

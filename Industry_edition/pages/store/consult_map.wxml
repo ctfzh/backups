@@ -1,0 +1,9 @@
+<!-- 门店地图 -->
+<view class='map_max'  hidden='{{!show}}'>
+  <map id="myMap"  scale="15"   show-location  include-points  bindupdated="updated" markers="{{markers}}" bindmarkertap="jump_details" ></map>
+</view>
+
+<!-- 错误提示组件 -->
+<view class='error' hidden='{{show}}'>
+  <error bindretry="retry" error="{{error}}" error_text="{{error_text}}" retry_an="{{retry_an}}" log="{{log}}"></error>
+</view>

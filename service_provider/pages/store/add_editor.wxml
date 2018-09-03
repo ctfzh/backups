@@ -1,0 +1,30 @@
+<!-- 门店信息编辑，添加 -->
+<view class='add_editor_max font_color1'>
+		<form bindsubmit="formSubmit">
+
+	<view class='add_item'>
+		<view class='item_cont line_color'>
+			<text class='item_text'>门店名称</text>
+			<input type='text' class='item_input' placeholder='烫面包' placeholder-class='font_color2' name=""></input>
+		</view>
+	</view>
+
+	<view class='add_item'>
+		<view class='item_cont line_color'>
+			<text class='item_text'>分门店名称</text>
+			<input type='text' class='item_input' placeholder='选填，未设置' placeholder-class='font_color2' name=""></input>
+		</view>
+	</view>
+
+	<view class='add_item'>
+		<view class='item_cont line_color'>
+			<text class='item_text'>门店编号</text>
+			<input type='text' class='item_input' placeholder='001' placeholder-class='font_color2' name=""></input>
+		</view>
+	</view>
+
+	<view class='button_t'>
+		<button class='submit' form-type="submit" hover-class="hover" plain="true">保存</button>
+	</view>
+	</form>
+</view>

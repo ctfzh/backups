@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "authorize": "../overall_situation_modular/authorize",
+    "error": "../overall_situation_modular/error"
+  },
+  "navigationBarTitleText": "1点点自助点餐"
+}

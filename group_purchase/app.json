@@ -1,0 +1,64 @@
+{
+   "pages": [
+      "pages/home/home",
+      "pages/restrictions/restrictions",
+      "pages/restrictions/details",
+      "pages/store/list",
+      "pages/search/search",
+      "pages/store/details",
+      "pages/group_buying/list",
+      "pages/group_buying/details",
+      "pages/user/user",
+      "pages/order/list",
+      "pages/order/details",
+      "pages/payment/place_order",
+      "pages/payment/payment_success",
+      "pages/order/refund",
+      "pages/collection/collection"
+   ],
+   "window": {
+      "backgroundTextStyle": "dark",
+      "navigationBarBackgroundColor": "#fff",
+      "navigationBarTitleText": "WeChat",
+      "navigationBarTextStyle": "black"
+   },
+   "tabBar": {
+      "list": [
+         {
+            "pagePath": "pages/home/home",
+            "text": "首页",
+            "iconPath": "pages/img/tabBar/home.png",
+            "selectedIconPath": "pages/img/tabBar/home_sele.png"
+         },
+         {
+            "pagePath": "pages/restrictions/restrictions",
+            "text": "抢购",
+            "iconPath": "pages/img/tabBar/restrictions.png",
+            "selectedIconPath": "pages/img/tabBar/restrictions_sele.png"
+         },
+         {
+            "pagePath": "pages/store/list",
+            "text": "好店",
+            "iconPath": "pages/img/tabBar/store.png",
+            "selectedIconPath": "pages/img/tabBar/store_sele.png"
+         },
+         {
+            "pagePath": "pages/group_buying/list",
+            "text": "团购",
+            "iconPath": "pages/img/tabBar/group_buying.png",
+            "selectedIconPath": "pages/img/tabBar/group_buying_sele.png"
+         },
+         {
+            "pagePath": "pages/user/user",
+            "text": "我的",
+            "iconPath": "pages/img/tabBar/user.png",
+            "selectedIconPath": "pages/img/tabBar/user_sele.png"
+         }
+      ],
+      "color": "#42464C",
+      "selectedColor": "#F24B4B",
+      "backgroundColor": "#FFF",
+      "borderStyle": "white"
+   },
+   "debug": false
+}

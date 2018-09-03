@@ -1,0 +1,40 @@
+<!--pages/xw_business/sign.wxml-->
+<view>
+  <view class='head text color1'>
+    请服务商务必通知商户{{short_name}}扫码完成签约并保证上述签约为{{principal}}本人完成，否则将由服务商承担一切责任
+  </view>
+  <view class='pic-text-wrap'>
+    <text class='text color2 pic-text'>
+      当前入住申请已经通过审核
+      请{{principal}}微信扫码完成签约
+    </text>
+  </view>
+  <view class='pic-wrap'>
+    <view class='pic-border'>
+      <image src='{{sign_url}}'></image>
+    </view>
+  </view>
+  <view class='detail-wrap'>
+    <view class='detail text'>
+      <view class='detail-item'>
+        <text>申请单号</text>
+        <text>{{business_code}}</text>
+      </view>
+      <view class='detail-item'>
+        <text>商户简称</text>
+        <text>{{short_name}}</text>
+      </view>
+      <view class='detail-item'>
+        <text>门店名称</text>
+        <text>{{store_name}}</text>
+      </view>
+      <view class='detail-item'>
+        <text>结算账户</text>
+        <text>{{bank_card_number}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='btn-wrap'>
+    <button plain bindtap='handleJump'>查看入驻申请</button>
+  </view>
+</view>

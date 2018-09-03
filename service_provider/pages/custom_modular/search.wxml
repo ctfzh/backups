@@ -1,0 +1,4 @@
+<!-- 搜索框模板 -->
+<template name="search">
+	<input type='text' class='search' placeholder='搜索' placeholder-class='font_color5' bindinput="search_input" bindconfirm="search"></input>
+</template>

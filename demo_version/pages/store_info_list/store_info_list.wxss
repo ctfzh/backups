@@ -1,0 +1,41 @@
+/* 门店CSS */
+.max_album_list{
+  background-color: #fff;
+  margin-top: 18rpx;
+  position: relative;
+}
+.album_list{
+  margin: 0rpx 30rpx;
+  padding: 30rpx 0rpx;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+}
+.border_top{
+  border-width: 0rpx;
+  border-style: solid;
+  border-top-width: 1rpx;
+}
+
+
+.album_list_right{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  font-size: 26rpx;
+}
+.lately_text{
+  margin-right: 20rpx;
+}
+.distance_text{
+  margin-right: 12rpx;
+}
+.album_list_left {
+  flex: 1;
+  margin-right: 30rpx;
+}
+.font_overflow{
+  -webkit-line-clamp: 1; /** 显示的行数 **/
+}

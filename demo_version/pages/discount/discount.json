@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "new_people_gift": "../custom_modular/new_people_gift",
+   "authorize": "../overall_situation_modular/authorize"
+  },
+  "navigationBarTitleText": "优惠",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#F2F3F5",
+  "navigationBarBackgroundColor": "#F2F3F5"
+}

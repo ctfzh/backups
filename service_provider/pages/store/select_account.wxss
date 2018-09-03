@@ -1,0 +1,13 @@
+/* 选择收款账号 */
+@import "/pages/merchant/account_setting.wxss";
+.set_jump{
+	padding: 40rpx 20rpx;
+}
+
+.add + .jump_item{
+	margin-top: 20rpx;
+}
+.jump_img{
+	width: 80rpx;
+	height: 80rpx;
+}

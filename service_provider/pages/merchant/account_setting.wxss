@@ -1,0 +1,15 @@
+/* 收款账号 */
+@import "/pages/merchant/set_up.wxss";
+.set_up_top{
+	font-size: 26rpx;
+}
+.add + .jump_item{
+	margin-top: 40rpx;
+}
+.reject{
+	color: #F56969;
+}
+
+.jump_item:first-child{
+	margin-bottom: 20rpx;
+}

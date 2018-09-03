@@ -1,0 +1,49 @@
+<!-- 选择收货地址 -->
+<view class='container' hidden='{{!show}}'>
+  <view class='address_wraper'>
+    <view class='address_box'>
+      <!--在范围内地址  -->
+      <view class='address_type top_text line_color'>当前地址</view>
+      <!-- 定位=>开始 -->
+      <view class='location line_color'>
+        <view class='location_text  font_color1 line_color' catchtap='switch_location'><text class='font_overflow'>{{address}}</text></view>
+         <view class='location_spot'>
+          <view class='location_spot_img'>
+            <image class='location_spot_img' src='../img/income/location.png'></image>
+          </view>
+           <view class='location_spot_text' catchtap='location'>重新定位</view> 
+        </view> 
+      </view>
+      <!-- 定位=>结束 -->
+      <view class='in_address'>
+         <view class='address_type text_item'>收货地址</view>
+        <view class='address_item' wx:for="{{infoList.valid}}" wx:for-item="item" wx:key="key" data-address_id='{{item.id}}' data-address='{{item.address}}' data-lng='{{item.lng}}' data-lat='{{item.lat}}' catchtap='switch_address'>
+          <view class='left'>
+            <view class='txt'>
+              <view class='top font_overflow'>{{item.address}} {{item.full_address}}</view>
+              <view class='bottom'>
+                <text class='name'>{{item.name}}（{{item.sex==1?"先生":"女士"}}）</text>
+                <text class='phone font_overflow'>{{item.telephone}}</text>
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </view>
+   
+    </view>
+  </view>
+
+  <!--新增地址  -->
+  <view class='add_adress line_color' catchtap='add_address'>
+    <view class='add_icon'>
+      <image src='/pages/img/income/add_sle.png'></image>
+    </view>
+    <view class='txt'>新增地址</view>
+  </view>
+</view>
+
+<!-- 错误提示组件 -->
+<view class='error' hidden='{{show}}'>
+  <error bindretry="retry" error="{{error}}" error_text="{{error_text}}" retry_an="{{retry_an}}" log="{{log}}"></error>
+</view>

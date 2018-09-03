@@ -1,0 +1,17 @@
+<!--pages/Internet_business/business_license.wxml-->
+<view>
+  <view class='select'>
+    <image 
+      src="{{license_photo_value||'../img/income/select_pic.png'}}"
+      class='icon' 
+      bindtap='handleUpload'
+     ></image>
+     <image src="../img/income/close-circle-fill.png" class='icon-close' catchtap='handleDeletePic' wx:if="{{license_photo_value}}"></image>
+    <view class='select_text font_color9'>营业执照照片</view>
+  </view>
+  <view class='item'>
+    <text class='item_1 font_color9'>营业执照号</text>
+    <input class="item_2" value="{{buss_auth_num=='undefined'?'':buss_auth_num}}" placeholder='未设置' placeholder-class='item_2 font_color2' bindinput='handleChange'></input>
+  </view>
+  <button plain  class='saveBtn' bindtap='handleSave'>保存</button>
+</view>

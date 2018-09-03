@@ -1,0 +1,34 @@
+.search_top{
+	position: relative;
+	padding: 30rpx;
+	background-color: #fff;
+	z-index:3;
+}
+.search_frame{
+	height: 66rpx;
+	background-color: #F0F1F2;
+	border-radius: 33rpx;
+	position: relative;
+}
+.placeholder{
+	position: absolute;
+	top: 0rpx;
+	bottom: 0rpx;
+	left: 0rpx;
+	right: 0rpx;
+	display: flex;
+	align-items: center;
+	padding: 0rpx 20rpx;
+}
+.placeholder_img{
+	width: 40rpx;
+	height: 40rpx;
+	display: flex;
+}
+.placeholder_img image{
+	width: 100%;
+	height: 100%;
+}
+.placeholder_text{
+	font-size: 24rpx;
+}

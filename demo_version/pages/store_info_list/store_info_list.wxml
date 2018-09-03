@@ -1,0 +1,26 @@
+<!-- 门店列表HTML -->
+<view class='max_album_list' hidden='{{!show_loading_faill}}'>
+  <!-- 分割线=>开始 -->
+    <view class='top_line'></view>
+  <!-- 分割线=>结束 -->
+  <view class='album_list {{index>0?"border_top": ""}} line_color' wx:for="{{content}}" wx:for-item="data" wx:key='key' wx:for-index="index"  bindtap='home_url' data-data="{{data}}">
+    <view class='album_list_left font_color1 font_overflow'>
+      <view>{{data.name}}<text wx:if="{{data.branch_name}}">（{{data.branch_name}}）</text></view>
+    </view>
+    <view class='album_list_right font_color3'>
+      <view class='lately_text' wx:if="{{lng&&lat&&index==0}}">离您最近</view>
+      <view class='distance_text' wx:if="{{lng&&lat}}">距离{{data.distance}}km</view>
+      <image class='right_arrow' src='../img/income/right_arrow.png'></image>
+    </view>
+  </view>
+</view>
+
+<!--请求页面数据失败显示模块  -->
+ <import src="../overall_situation_modular/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{ show_loading_faill, show}}" /> 
+
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+  <authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+</view>

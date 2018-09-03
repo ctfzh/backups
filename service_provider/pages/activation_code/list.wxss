@@ -1,0 +1,35 @@
+/* 激活码设置 */
+
+.list{
+	margin: 30rpx 20rpx;
+	padding: 0rpx 20rpx;
+	background-color: #fff;
+}
+
+.list_item{
+	height: 130rpx;
+	border-bottom-width: 1rpx;
+}
+.list_item:last-child{
+	border: 0rpx;
+}
+
+.list_item_text{
+	display: flex;
+	align-items: center;
+	padding-top: 31rpx;
+}
+
+.item_h1{
+	font-size: 30rpx;
+	line-height: 30rpx;
+	margin-right: 21rpx;
+}
+
+.item_h2{
+	font-size: 26rpx;
+	line-height: 26rpx;
+}
+.item_time{
+	padding-top: 20rpx;
+}

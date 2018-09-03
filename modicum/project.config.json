@@ -1,0 +1,83 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.1.1",
+	"appid": "wx65001181d6724bb1",
+	"projectname": "%E4%B8%80%E7%82%B9%E7%82%B9%20--%20%E4%BA%B2%E7%94%9F%E6%B4%BB%E5%BC%80%E5%8F%91%E8%80%85%E6%B5%8B%E8%AF%95",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "门店列表",
+					"pathName": "pages/store/store_selection",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "商品",
+					"pathName": "pages/commodity/goods",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "绑定手机号",
+					"pathName": "pages/account_number/bind_account",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "外卖提交订单",
+					"pathName": "pages/order/takeout_order",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "收货地址",
+					"pathName": "pages/address/receiving_address",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "选择收货地址",
+					"pathName": "pages/address/sele_receiving_address",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "web",
+					"pathName": "pages/web",
+					"query": ""
+				}
+			]
+		}
+	}
+}

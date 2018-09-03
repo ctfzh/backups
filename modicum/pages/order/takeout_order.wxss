@@ -1,0 +1,218 @@
+/* 外卖提交订单 */
+page{
+  background-color: #F0F1F2;
+}
+
+.order_top{
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  bottom: 100rpx;
+  overflow: auto;
+  border-top-width: 1rpx;
+}
+/* 选择地址 */
+.address{
+  height: 150rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0rpx 55rpx 0rpx 100rpx; 
+  margin-bottom: 12rpx;
+}
+.address_left{
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  margin-right: 20rpx;
+}
+.green_address{
+  position: absolute;
+  width: 34rpx;
+  height: 34rpx;  
+  display: flex;
+  top: 8rpx;
+  left: -60rpx;
+}
+.green_address image{
+  width: 34rpx;
+  height: 34rpx;  
+}
+.address_text{
+  width: 560rpx;
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+  font-weight: bold;
+}
+.address_h{
+  font-size: 32rpx;
+  text-align: center;
+  font-weight: bold;
+}
+.consignee{
+  font-size: 28rpx;
+}
+.consignee_name{
+  margin-right: 20rpx;
+}
+.address_right{
+  display: flex;
+}
+.address_right image{
+  width: 13rpx;
+  height: 24rpx;
+}
+/* 送达时间 */
+.delivery_time{
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 0rpx 55rpx 0rpx 40rpx;
+  margin-bottom: 12rpx;
+}
+.delivery_time_text{
+  flex: 1;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.delivery_time_inof{
+  height: 100%;
+  display: flex;
+  color: #239BFC;
+  font-size: 26rpx;
+  align-items: center;
+}
+.time_text{
+  display: flex;
+  align-items: center;
+  line-height: 26rpx;
+}
+.address_right{
+  margin-left: 20rpx;
+}
+.order_goods{
+  background-color: #fff;
+  margin-bottom: 12rpx;
+}
+.srore{
+  height: 85rpx;
+  padding-left: 40rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+}
+.goods_item{
+  height: 150rpx;
+  background-color: #F8F8F8;
+  margin-bottom: 12rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 0rpx 40rpx;
+}
+.goods_item:last-child{
+  margin: 0;
+}
+.goods_img{
+  width: 110rpx;
+  height: 110rpx;
+  /* background-color: #fff; */
+  /* border-width: 1rpx; */
+}
+.goods_img image{
+  width: 100%;
+  height: 100%;
+}
+.goods_inof{
+  flex: 1;
+  height: 110rpx;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  margin-left: 20rpx;
+}
+.goods_text{
+  display: flex;
+  font-size: 28rpx;
+}
+.goods_num{
+  font-size: 24rpx;
+}
+.goods_name{
+  flex: 1;
+}
+.goods_spec{
+  flex: 1;
+}
+.goods_number{
+   font-size: 26rpx;
+}
+.add_charge{
+  padding: 30rpx 40rpx 0rpx 40rpx;
+  border-bottom-width: 1rpx;
+}
+.add_charge_item{
+  display: flex;
+  padding-bottom: 30rpx;
+}
+.add_charge_item_text{
+  font-size: 28rpx;
+  flex: 1;
+}
+.add_charge_item_nomen{
+  font-size: 28rpx;
+}
+.subtotal{
+  height: 85rpx;
+  display: flex;
+  align-items: center;
+  padding-right: 40rpx;
+  font-size: 28rpx;
+  justify-content: flex-end;
+  margin-bottom: 12rpx;
+}
+
+.remarks{
+  height: 85rpx;
+  display: flex;
+  align-items: center;
+  padding: 0rpx 40rpx;
+  background-color: #fff;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+.remarks_input{
+  flex: 1;
+  height: 100%;
+  padding-left: 30rpx;
+}
+.order_bottom{
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  padding-left: 40rpx;
+  background-color: #fff;
+  z-index: 2;
+}
+.payment_money{
+  flex: 1;
+  margin-left: 10rpx;
+}
+.place_order_an{
+  width: 220rpx;
+  color: #fff;
+  background-color: #008866;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}

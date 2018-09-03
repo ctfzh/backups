@@ -1,0 +1,58 @@
+/**app.wxss**/
+page{
+	font-family: Helvetica, sans-serif;
+}
+
+/* 字体颜色一 */
+.font_color1{
+  color: #2C2F33;
+}
+
+/* 字体颜色二 */
+.font_color2{
+  color: #757A80;
+}
+
+/* 价格颜色 */
+.money_color{
+  color: #8B4513;
+}
+
+/* 线颜色 */
+.line_color{
+  border-width: 0rpx;
+  border-color: #E3E4E5;
+  border-style: solid;
+}
+
+/* 商品图片边框 */
+.goods_line{
+  border-width: 0rpx;
+  border-color: #F7F7F7;
+  border-style: solid;
+}
+
+/* input placeholder */
+.placeholder{
+  color: #757A80;
+}
+
+/*通用文字省略CSS  */
+.font_overflow{
+  word-break: break-all;/*字母，数字换行*/
+  text-overflow: ellipsis;
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+  -webkit-line-clamp: 1; /** 显示的行数 **/
+  overflow: hidden;  /** 隐藏超出的内容 **/
+}
+
+/* 错误文字 */
+.error{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  margin-top: -65rpx;
+}

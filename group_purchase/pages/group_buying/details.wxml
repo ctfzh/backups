@@ -1,0 +1,91 @@
+<!-- 团购详情 -->
+<view class='details_max font_color1'>
+	<view class='details_top'>
+		<view class='advertisement'><image src='../img/banner/test.png' mode='aspectFill' ></image></view>
+		
+		<view class='goods_title'>
+			<view class='title_text'>
+				<view class=' title font_overflow'>单人晚市自助餐</view>
+				<view class='collection'>
+						<image src='../img/income/collection.png'></image>
+				</view>
+			</view>
+			
+				<view class='goods_h2'>
+					<view class='goods_label'>
+						<view class='label_item'>
+							<view class='label_img'><image src='../img/income/label_time.png'></image></view>
+							<view class='label_text font_color4'>随时退</view>
+						</view>
+						<view class='label_item'>
+							<view class='label_img'><image src='../img/income/label_time.png'></image></view>
+							<view class='label_text font_color4'>过期退</view>
+						</view>
+					</view>
+					<view class='sales_volume font_color4'>销量 618</view>
+				</view>
+		</view>
+
+		<view class='text_item'>
+			<view class='text_item_top'>
+				<view class='textarea'></view>
+			</view>
+			<view class='text_item_bottom font_color2'>查看更多</view>
+		</view>
+
+			<view class='text_item'>
+			<view class='text_item_top'>
+				<view class='textarea'>
+					<view class='text_content'>
+						<view class='text_h1'>购买须知</view>
+						<view class='text_h2'>有效期</view>
+						<view class='text_h3 font_color3'>2018.6.28 至 2018.9.15（周末、法定节假日不可用）</view>
+						<view class='text_h2'>使用时间</view>
+						<view class='text_h3 font_color3'>11:00-22:00</view>
+						<view class='text_h2'>使用规则</view>
+					</view>
+				</view>
+			</view>
+			<view class='text_item_bottom font_color2'>查看更多</view>
+		</view>
+
+		<view class='store_info'>
+			<view class='store_title'>
+				<view class='title_h1'>3家适用门店</view>
+				<view class='title_h2'>
+					查看门店
+					<view class='arrow'><image src='../img/income/arrow.png'></image></view>
+				</view>
+			</view>
+			<view class='store_goods'>
+				<view class='goods_img'><image src='../img/banner/test.png' mode='aspectFill' ></image></view>
+				<view class='goods_right'>
+					<view class='right_title'>
+						<view class='right_title_text'>新石器烤肉</view>
+						<view class='distance font_color4'>松江 0.99km</view>
+					</view>
+					<view class='per_capita'>
+						<view class='label font_color4'>日本料理</view>
+						<view class='font_color4'>￥95/人</view>
+					</view>
+					<view class='location'>
+						<view class='position_img'><image src='../img/income/position.png'></image></view>
+						<view class='position_text'>国定东路88号凯悦酒店7楼</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+	</view>
+
+	<view class='details_bottom'>
+		<view class='buying'>
+			<view class='buying_left'>
+				<view class='price'>￥186.00<view class='discount'>5.4折</view></view>
+				<view class='original_price'>￥899</view>
+			</view>
+			<view class='buying_right'>立即抢购</view>
+		</view>
+	</view>
+
+</view>

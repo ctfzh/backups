@@ -1,0 +1,67 @@
+<!-- 首页 -->
+<view class='home_max font_color1'>
+	<view class='home_top'>
+		<view class='transaction'>
+			<text class='transaction_text'>交易金额</text>
+			<text class='number font_color2'>272827笔</text>
+		</view>
+		<view class='transaction_money font_color3'><text class="iconfont icon-sousuo"></text><text class='icon_text'></text>4596659.30</view>
+		<view class='transaction_info'>
+			<view class='info_item'>
+				<view class='info_item_text font_color2'>商户总数</view>
+				<view class='info_item_num'>384</view>
+			</view>
+			<view class='m_line'>
+				<view class='line line_color'></view>
+			</view>
+			<view class='info_item'>
+				<view class='info_item_text font_color2'>商户总数</view>
+				<view class='info_item_num'>384</view>
+			</view>
+		</view>
+	</view>
+
+	<view class='home_bottm'>
+		<view class='jump_item' catchtap='jump_url' data-url='/pages/merchant/list'>
+			<view class='jump_img'>
+				<image src='../img/income/home_jump01.png'></image>
+			</view>
+			<view class='jump_text'>商户管理</view>
+			<view class='right_arrow'>
+				<image src="../img/income/right_arrow.png"></image>
+			</view>
+		</view>
+
+		<view class='jump_item' catchtap='jump_url' data-url=''>
+			<view class='jump_img'>
+				<image src='../img/income/home_jump02.png'></image>
+			</view>
+			<view class='jump_text'>微信支付</view>
+			<view class='right_arrow'>
+				<image src="../img/income/right_arrow.png"></image>
+			</view>
+		</view>
+
+		<view class='jump_item' catchtap='jump_url' data-url=''>
+			<view class='jump_img'>
+				<image src='../img/income/home_jump03.png'></image>
+			</view>
+			<view class='jump_text'>网商间连</view>
+			<view class='right_arrow'>
+				<image src="../img/income/right_arrow.png"></image>
+			</view>
+		</view>
+
+		<view class='jump_item' catchtap='jump_url' data-url=''>
+			<view class='jump_img'>
+				<image src='../img/income/home_jump04.png'></image>
+			</view>
+			<view class='jump_text'>交易数据</view>
+			<view class='right_arrow'>
+				<image src="../img/income/right_arrow.png"></image>
+			</view>
+		</view>
+
+	</view>
+</view>
+ 

@@ -1,0 +1,5 @@
+/* 门店地图 */
+#myMap{
+  width: 100vw;
+  height: 100vh;
+}

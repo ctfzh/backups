@@ -1,0 +1,7 @@
+<!-- 视频组件HTML -->
+<view class='video_style'>
+  <view class='video_title font_color1 line_color' wx:if="{{list.title}}"><text class='font_overflow'>{{list.title}}</text></view>
+  <view class='video_bo'>
+    <video src='{{list.url}}' ></video>
+  </view>
+</view>

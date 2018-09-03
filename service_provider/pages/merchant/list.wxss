@@ -1,0 +1,31 @@
+/* 商户管理 */
+
+.merchant_list{
+	padding: 40rpx 20rpx;
+}
+.list_sum{
+	font-size: 26rpx;
+	line-height: 26rpx;
+	padding-left: 19rpx;
+}
+.sun_num{
+	margin-left: 10rpx;
+}
+.merchant_item{
+	height: 130rpx;
+	background-color: #fff;
+	margin-top: 20rpx;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	padding: 0rpx 20rpx;
+}
+.item_title{
+	font-size: 30rpx;
+	line-height: 32rpx;
+	margin-bottom: 20rpx;
+}
+.item_text{
+	font-size: 26rpx;
+	line-height: 28rpx;
+}

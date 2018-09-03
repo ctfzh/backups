@@ -1,0 +1,143 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.1.1",
+	"appid": "wxa55b92d2a08a16e6",
+	"projectname": "%E6%9C%8D%E5%8A%A1%E5%95%86%E5%B0%8F%E7%A8%8B%E5%BA%8F--%E4%BA%B2%E7%94%9F%E6%B4%BB%E5%BC%80%E5%8F%91%E8%80%85",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 11,
+			"list": [
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/home/home",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商户管理",
+					"pathName": "pages/merchant/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "添加商户",
+					"pathName": "pages/merchant/add",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商户设置",
+					"pathName": "pages/merchant/set_up",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商户信息",
+					"pathName": "pages/merchant/info_edit",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商户收款账号",
+					"pathName": "pages/merchant/account_setting",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "门店添加，编辑",
+					"pathName": "pages/store/add_editor",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "门店管理",
+					"pathName": "pages/store/manage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "门店选择收款账号",
+					"pathName": "pages/store/select_account",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "口碑门店关联",
+					"pathName": "pages/store/public_praise",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "直连、间连账号添加",
+					"pathName": "pages/account/add_list",
+					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "支付宝收款账号授权",
+					"pathName": "pages/account/scan_add",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "员工管理",
+					"pathName": "pages/staff/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "添加员工",
+					"pathName": "pages/staff/add",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "选择门店",
+					"pathName": "pages/staff/store",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "激活码设置",
+					"pathName": "pages/activation_code/list",
+					"query": ""
+				},
+				{
+					"id": 16,
+					"name": "我的",
+					"pathName": "pages/user/user",
+					"query": ""
+				}
+			]
+		}
+	}
+}

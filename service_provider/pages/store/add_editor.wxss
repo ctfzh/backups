@@ -1,0 +1,2 @@
+/* 门店信息编辑，添加 */
+@import "/pages/merchant/add.wxss";

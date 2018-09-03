@@ -1,0 +1,248 @@
+/* 门店列表 */
+/* 搜索 */
+.search{
+  position: relative;
+  height: 70rpx;
+  padding: 30rpx;
+  display: flex;
+  border-bottom-width: 1rpx;
+}
+/* 搜索图标 */
+.search_img{
+  position: absolute;
+  left: 48rpx;
+  top: 0rpx;
+  bottom: 0rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search_src{
+  width: 30rpx;
+  height: 30rpx;
+}
+/* 搜索框 */
+.search_input{
+   flex: 1;
+  height: 100%;
+  padding: 0rpx 60rpx;
+  font-size: 26rpx;
+  /* text-align: center; */
+  background-color: #F2F3F5;
+  border-radius: 6rpx;
+}
+.consult_map{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  font-size: 26rpx;
+}
+.consult_map image{
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+}
+
+/* 定位 */
+.location{
+  height: 90rpx;
+  border-top-width: 1rpx;
+  border-bottom-width: 1rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rpx 30rpx;
+  font-size: 32rpx;
+}
+.location_text{
+  flex:1;
+   margin-right: 40rpx;
+   height: 100%;
+   display: flex;
+   align-items: center;
+}
+.location_text image{
+   width: 22rpx;
+   height: 22rpx;
+   margin-left: 10rpx;
+}
+.location_drop{
+	flex: 1;
+}
+
+/* 重新定位 */
+.location_spot{
+  display: flex;
+   align-items: center; 
+  font-size: 26rpx;
+  color: #00661B;
+}
+.location_spot_img{
+  width: 30rpx;
+  height: 30rpx;
+}
+.location_spot_text{
+  line-height: 32rpx;
+  margin-left: 10rpx;
+}
+
+/* 门店列表 */
+.store_list{
+  position: absolute;
+  top: 225rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  overflow: auto;
+  padding-bottom: 20rpx;
+}
+.store_list .error{
+  height: 100%;
+}
+.nearby{
+  margin: 30rpx 35rpx 0rpx 35rpx;
+  display: flex;
+  align-items: center;
+}
+.nearby_img{
+  width: 30rpx;
+  height: 30rpx;
+  display: flex;
+}
+.nearby_text{
+  font-size: 26rpx;
+  margin-left: 30rpx;
+  line-height: 32rpx;
+}
+.store_item_line{
+  max-height: 160rpx;  
+  border-bottom-width: 1rpx;
+  margin-left: 30rpx;
+  padding-right: 30rpx;
+  overflow: hidden;
+  transition: all 0.2s linear;
+}
+
+.store_item_top{
+  display: flex;
+  align-items: center;
+  margin-top: 25rpx;
+}
+
+.store_item_h1{
+  flex: 1;
+  margin-right: 20rpx;
+  font-size: 32rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.store_item_text {
+  max-width: 380rpx;
+}
+.store_item_new{
+  color: #DB3927;
+  font-size: 24rpx;
+  margin-left: 10rpx;
+}
+.store_item_rest{
+   height: 36rpx;
+  font-size: 24rpx;
+  margin-left: 20rpx;
+  background-color: #C0C1C2;
+  color: #fff;
+  padding: 0rpx 10rpx;
+  border-radius: 6rpx;
+  display: flex;
+  align-items: center;
+}
+.at_rest{
+  color: #C0C1C2;
+}
+.store_item_h3{
+  font-size: 24rpx;
+}
+.lately{
+  margin-right: 15rpx;
+}
+.store_item_bottom{
+  width: 680rpx;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+}
+.take_meal{
+  margin-top: 55rpx;
+}
+.take_meal_text{
+  font-size: 26rpx;
+}
+
+.take_meal_choice{
+  margin: 30rpx 0rpx;
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+}
+.choice{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+.take_meal_an{
+  background-color: #F24B4B;
+  margin: 0rpx 10rpx 60rpx 10rpx;
+  height: 95rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  color: #fff;
+  border-radius: 6rpx;
+}
+.order{
+  max-height: 550rpx;
+}
+.order_box{
+  box-shadow: 0rpx 0rpx 40rpx #D9DADB;
+}
+.order .store_item_h1{
+  font-size: 36rpx;
+}
+.order .store_item_h1,
+.order .store_item_h3,
+.order .store_item_bottom,
+.text_c{
+ color: #F24B4B;
+}
+
+.review{
+  display: flex;
+  margin-top: 10rpx;
+}
+.star{
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 10rpx;
+  display: flex;
+  position: relative;
+}
+.star image{
+  width: 20rpx;
+  height: 20rpx;
+}
+.bottom_img{
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  bottom: 0rpx;
+  font-size: 0rpx;
+  overflow: hidden;
+}
+.sales_volume{
+  margin-left: 15rpx;
+  font-size: 24rpx;
+}
+.address_text{
+	/* flex: 1; */
+}

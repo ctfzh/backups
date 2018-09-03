@@ -1,0 +1,153 @@
+/*引用全局样式  */
+@import "../../app.wxss";
+
+/*通用CSS  */
+image{
+  /*使用image组件时请在外面嵌套一个view组件控制大小  */
+  width: 100%;
+  height: 100%;
+}
+
+/* 门店组件CSS */
+.store_info_style{
+  background-color: #fff;
+  margin-bottom: 10rpx;
+}
+
+.store_info_title{
+  margin: 0rpx 30rpx;
+  padding: 30rpx 0rpx 20rpx 0rpx;
+  border-bottom: 1rpx solid #E3E4E5;
+}
+.store_info_title_h1{
+  font-size: 34rpx;
+    -webkit-line-clamp: 1; /** 显示的行数 **/
+    font-weight: bold;
+}
+.store_info_title_h2{
+  margin-top: 15rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.store_info_title_label{
+  height: 34rpx;
+  line-height: 34rpx;
+  color: #FF9A36;
+  position: relative;
+  padding: 0rpx 15rpx;
+  font-size: 24rpx;
+  border-radius: 17rpx;
+  overflow: hidden;
+}
+.store_info_title_label_bac{
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  bottom: 0rpx;
+  background-color: #FF9A36;
+  opacity: 0.1;
+  margin-right: 24rpx;
+}
+.store_info_title_price{
+  font-size: 24rpx;
+}
+/*地址CSS  */
+.store_info_address{
+  margin: 0rpx 30rpx;
+  padding: 30rpx 0rpx;
+  border-width: 0rpx;
+  border-style: solid;
+  border-bottom-width: 1rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.store_info_address_Icon{
+  width: 30rpx;
+  height: 30rpx;
+  display: flex;
+}
+.store_info_address_text{
+  flex: 1;
+  font-size: 28rpx;
+  margin: 0rpx 10rpx 0rpx 9rpx;
+}
+.store_info_address_call{
+  height: 70rpx;
+  border-style: solid;
+  border-width: 0rpx;
+  border-left-width: 1rpx;
+  margin-right: 40rpx;
+  display: flex;
+  align-items: center;
+}
+.store_info_address_call_img{
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  margin-left: 45rpx;
+}
+
+/*详情CSS  */
+.store_info_information{
+  padding: 0rpx 30rpx;
+}
+.information_business_time{
+  font-size: 26rpx;
+  padding-top: 20rpx;
+  display: flex;
+}
+.business_time_h1{
+  padding-top: 10rpx;
+}
+.business_time{
+  padding-top: 10rpx;
+}
+.business_time text{
+  margin-right: 30rpx;
+}
+
+
+.information_service{
+  overflow: hidden;
+  margin-top: 35rpx;
+}
+
+.information_service_list{
+  width: 25%;
+  float: left;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  overflow: hidden;
+  margin: 0rpx 0rpx 20rpx 0rpx;
+}
+.service_list_img{
+  display: flex;
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+}
+.service_list_text{
+  font-size: 24rpx;
+  padding-left: 10rpx;
+}
+
+.more_service_text{
+  font-size: 24rpx;
+  margin-bottom: 30rpx;
+}
+
+/*查看全部门店CSS  */
+.store_info_more{
+  padding: 30rpx 0rpx;
+  border-width: 0rpx;
+  border-style: solid;
+  border-top-width: 1rpx;
+  display: flex;
+  justify-content: center;
+  font-size: 24rpx;
+}

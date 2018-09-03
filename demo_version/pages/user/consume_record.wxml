@@ -1,0 +1,54 @@
+<view class='top_line'></view>
+<!-- 消费记录HTML -->
+<view class='max_consume'  hidden='{{!show_loading_faill}}'>
+  <view class='consume_record_list' bindtap='jump_details' wx:for="{{content}}" wx:for-item="data" wx:key='key' data-list="{{data}}">
+    <view class='consume_record line_color'>
+      <view class='consume_record_title'>
+        <view class='record_title_name font_color1'>{{data.store_name}}
+          <text wx:if="{{data.store_branch_name}}">（{{data.store_branch_name}}）</text>
+        </view>
+        <view class='record_title_state'>
+          <text class='wait' wx:if="{{data.order_status==1}}">未付款</text>
+          <text class='wait' wx:if="{{data.order_status==2}}">已付款</text>
+          <text class='wait' wx:if="{{data.order_status==3}}">已退款</text>
+          <text class='wait' wx:if="{{data.order_status==4}}">部分退款</text>
+          <text class='wait' wx:if="{{data.order_status==5}}">退款处理中</text>
+          <text class='wait' wx:if="{{data.order_status==6}}">已取消</text>
+        </view>
+      </view>
+
+      <view class='consume_record_type'>
+        <view class='type_text font_color3'>
+          <text wx:if="{{data.pay_channel!=null}}">
+            <text>{{data.pay_channel==1? '支付宝':''}}{{data.pay_channel==2? '微信':''}}{{data.pay_channel==3? '银联':''}}{{data.pay_channel==4? '现金':''}}{{data.pay_channel==5? '储值支付':''}}{{data.pay_channel==6? '兑换码':''}}</text>
+          </text>
+        </view>
+        <view class='wait' wx:if="{{data.order_status==4}}">{{data.refund_money}}</view>
+      </view>
+
+      <view class='consume_record_item'>
+        <view class='item_text font_color3'>{{data.create_time}}</view>
+        <view class='consume_money font_color1'>￥{{data.receipt_money}}</view>
+      </view>
+    </view>
+
+    <view class='record_operation line_color' wx:if="{{data.order_status==1}}">
+      <text class='operation_an cancel' data-list="{{data}}" catchtap="cancelOrder">取消订单</text>
+      <text class='operation_an' catchtap="confirm_pay" data-list="{{data}}">确认支付</text>
+    </view>
+  </view>
+
+</view>
+
+<!-- 顶部提示 -->
+<import src="../overall_situation_modular/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+<!--请求页面数据失败显示模块  -->
+ <import src="../overall_situation_modular/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{ show_loading_faill, show}}" /> 
+
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+  <authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+</view>

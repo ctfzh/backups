@@ -1,0 +1,54 @@
+<!-- 相册列表 -->
+<view class='max_store_info_list'  hidden='{{!show_loading_faill}}'>
+  <view class='store_info_list'>
+    <!-- 顶部筛选=>开始 -->
+      <view class='top_screen line_color {{fixed?"fixed":""}}'>
+        <view class='screen_scroll'>
+        <!--门店分类  -->
+          <view class='screen_list screen_list{{album_type_c.length}} font_color1 {{index==album_type_sle?"selected":""}}' 
+          wx:for="{{album_type_c}}" 
+          wx:for-item="data" wx:key="key" wx:for-index="index" bindtap='album_type_bin' 
+          data-index='{{index}}' data-data='{{data}}'>
+
+            <view class='screen_list_text'>{{data.name}}</view>
+            <view class='screen_list_jiao_max'>
+              <view class='screen_list_jiao'></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    <!-- 顶部筛选=>结束 -->
+    <view class='bottom_screen'>
+      <view class='bottom_screen_max  bottom_screen{{album_list.type}}' wx:if="{{!length}}">
+        <view class='screen_img'  wx:for="{{album_list.list}}" wx:for-item="data" wx:key="key" wx:for-index="index" 
+        data-src='{{data.prototype_src}}' bindtap='{{album_list.type==1?"prototype_src_bin":""}}' wx:if="{{data.src}}">
+          <image src='{{data.src}}' lazy-load="true" wx:if="{{album_list.type==1}}" mode='aspectFill' ></image>
+          <view class='video_x' wx:if="{{album_list.type==2}}">
+            <view class='video_title font_color1'><text class='font_overflow'>{{data.name}}</text></view>
+            <view class='video_play' wx:if="{{album_list.type==2}}">
+              <video src='{{data.src}}'></video>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='empty' wx:else>
+        <image class='empty_img' src='../img/banner/empty.png'></image>
+        <text class='empty_text'>暂时没有图片</text>
+      </view>
+    </view>
+    
+  </view>
+</view>
+
+<!-- 顶部提示 -->
+<import src="../overall_situation_modular/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+<!--请求页面数据失败显示模块  -->
+ <import src="../overall_situation_modular/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{ show_loading_faill, show}}" /> 
+
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+  <authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+</view>

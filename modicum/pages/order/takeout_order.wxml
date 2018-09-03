@@ -1,0 +1,114 @@
+<!-- 外卖提交订单 -->
+<view class='order_max' hidden='{{!show}}'>
+  <!-- 地址选择=>开始 -->
+  <view class='order_top line_color'>
+    <view class='address' catchtap='jump_address'>
+      <view class='address_left'>
+        <view class='green_address'>
+          <image src='../img/income/green_address.png'></image>
+        </view>
+        <view class='address_h font_color1' wx:if="{{!address}}">请添加收货地址</view>
+        <view class='address_text font_color1 font_overflow' wx:if="{{address}}">{{address.address}} {{address.full_address}}</view>
+        <view class='consignee font_color2' wx:if="{{address}}">
+          <text class='consignee_name'>{{address.name}}（{{address.sex==1?"先生":"女士"}}）</text>
+          <text>{{address.telephone}}</text>
+        </view>
+      </view>
+      <view class='address_right'>
+        <image src='../img/income/right_arrow.png'></image>
+      </view>
+    </view>
+    <!-- 地址选择=>结束 -->
+    <!-- 取餐时间=>开始 -->
+    <view class='delivery_time' catchtap='{{time?"delivery_time":""}}'>
+      <view class='delivery_time_text font_color1'>送达时间</view>
+      <view class='delivery_time_inof'>
+         <view class='time_text' wx:if='{{time&&time!="立即送出"}}'>大约 {{time.text}} 送达</view> 
+         <view class='time_text' wx:if='{{!time||time=="立即送出"}}'>{{calculation.time}}</view> 
+        <view class='address_right' wx:if='{{time}}'>
+          <image src='../img/income/right_arrow.png'></image>
+        </view>
+      </view>
+    </view>
+    <!-- 送达时间=>开始 -->
+    <!-- 商品信息=>开始 -->
+    <view class='order_goods'>
+      <view class='srore font_color2'>{{store_name}}</view>
+      <view class='goods_list'>
+        <block wx:for="{{buy_goods_list.goods_list}}" wx:for-item="goods_list" wx:key="key">
+          <block wx:for="{{goods_list.sku_goods}}" wx:for-item="sku_goods" wx:key="key">
+            <block wx:for="{{sku_goods.practice}}" wx:for-item="practice" wx:key="key">
+              <view class='goods_item'>
+                <view class='goods_img goods_line'>
+                  <image src='{{sku_goods.sku.img?sku_goods.sku.img:goods_list.goods_img?goods_list.goods_img:"../img/banner/goods_null.png"}}' mode='aspectFill'></image>
+                </view>
+                <view class='goods_inof'>
+                  <view class='goods_text font_color1'>
+                    <view class='goods_name font_overflow'>{{sku_goods.sku.goods_name}}</view>
+                    <view class='goods_money'>
+                      <text class='mo_fu'>￥</text>{{practice.unit_price}}</view>
+                  </view>
+                  <view class='goods_text font_color2 goods_num'>
+                    <view class='goods_spec font_overflow'>{{practice.only_practice_name}}</view>
+                    <view class='goods_number'>x{{practice.num}}</view>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </block>
+        </block>
+      </view>
+
+      <view class='add_charge line_color' wx:if="{{calculation.packaging_money>0||calculation.deliver_money>0||calculation.activity_discount.length>0}}">
+        <view class='add_charge_item font_color1' wx:if="{{calculation.packaging_money>0}}">
+          <view class='add_charge_item_text'>包装费</view>
+          <view class='add_charge_item_nomen'>￥{{calculation.packaging_money}}</view>
+        </view>
+        <view class='add_charge_item font_color1' wx:if="{{calculation.deliver_money>0}}">
+          <view class='add_charge_item_text'>配送费</view>
+          <view class='add_charge_item_nomen'>￥{{calculation.deliver_money}}</view>
+        </view>
+        <view class='add_charge_item font_color1' wx:if="{{calculation.deliver_money_discount >0}}">
+          <view class='add_charge_item_text'>免配送费</view>
+          <view class='add_charge_item_nomen money_color'>-￥{{calculation.deliver_money_discount}}</view>
+        </view>
+        <view class='add_charge_item font_color1' wx:if="{{calculation.activity_discount.length>0}}">
+          <view class='add_charge_item_text'>{{calculation.activity_discount[0].name}}</view>
+          <view class='add_charge_item_nomen money_color'>-￥{{calculation.activity_discount[0].discount_money}}</view>
+        </view>
+      </view>
+
+      <view class='subtotal font_color1'>
+        小计
+        <text class='subtotal_money money_color'>￥{{total_money}}</text>
+      </view>
+    </view>
+    <!-- 商品信息=>结束 -->
+    <view class='remarks font_color1'>
+      备注
+      <input class='remarks_input font_color2' type='text' placeholder='备注说明' placeholder-style="text-align: right;" bindinput='remark'></input>
+    </view>
+  </view>
+
+  <!-- 底部=>开始 -->
+  <view class='order_bottom font_color1'>
+    待支付
+    <view class='payment_money money_color'>￥{{total_money}}</view>
+    <view class='place_order_an' catchtap='{{!order?"add_order":""}}'>提交订单</view>
+  </view>
+  <!-- 底部=>结束 -->
+
+</view>
+
+
+<!-- 时间选择器=>开始  -->
+<view class='time_selector'>
+  <!-- 时间选择器模块引入 -->
+  <time_selector mack="{{mack}}" date_itme="{{time}}" store_id="{{store_id}}"  function_type="{{function_type}}" ti_type="true"  bindtime_sele="time_sele"></time_selector>
+</view>
+<!-- 时间选择器=>结束   -->
+
+<!-- 错误提示组件 -->
+<view class='error' hidden='{{show}}'>
+  <error bindretry="retry" error="{{error}}" error_text="{{error_text}}" retry_an="{{retry_an}}" log="{{log}}"></error>
+</view>

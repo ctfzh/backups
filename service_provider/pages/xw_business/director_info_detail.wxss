@@ -1,0 +1,10 @@
+/* pages/xw_business/director_info_detail.wxss */
+@import "../Internet_business/director_info.wxss";
+.switchBtn{
+  float: right;
+  margin-top: 8rpx;
+  margin-right: -20rpx;
+}
+.item_2{
+  line-height: 80rpx;
+}

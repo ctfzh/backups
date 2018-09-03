@@ -1,0 +1,24 @@
+/* 选择门店 */
+.store_list{
+	margin: 40rpx 20rpx;
+	padding: 0rpx 20rpx;
+	background-color: #fff;
+}
+
+.list_item{
+	height: 130rpx;
+	border-bottom-width: 1rpx;
+}
+.list_item:last-child{
+	border: 0rpx;
+}
+.item_title{
+	font-size: 30rpx;
+	line-height: 30rpx;
+	padding-top: 29rpx;
+}
+.item_text{
+	font-size: 26rpx;
+	line-height: 26rpx;
+	padding-top: 21rpx;
+}

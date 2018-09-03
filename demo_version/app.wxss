@@ -1,0 +1,127 @@
+/**app.wxss**/
+/* 加载失败提示CSS */
+@import "/pages/overall_situation_modular/loading_fall_ui.wxss";
+/* 顶部提示 */
+@import "/pages/overall_situation_modular/top_message.wxss";
+page{
+  background-color: #F2F3F5;
+}
+/* 页面最大父容器  防止定位遮罩层出现后页面滚动*/
+
+/*通用字体颜色CSS  */
+.font_color1{
+  color: #2C2F33;
+}
+.font_color2{
+  color: #42464C;
+}
+.font_color3{
+  color: #757A80;
+}
+/*通用文字省略CSS  */
+.font_overflow{
+  word-break: break-all;/*字母，数字换行*/
+  text-overflow: ellipsis;
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+  -webkit-line-clamp: 2; /** 显示的行数 **/
+  overflow: hidden;  /** 隐藏超出的内容 **/
+}
+
+/*通用顶部分割线CSS  */
+.top_line{
+  position: fixed;
+  width: 100%;
+  border-top: 1rpx solid #E3E4E5;
+  border-bottom: 0rpx;
+  border-left: 0rpx;
+  border-right: 0rpx;
+}
+/*左边指标  */
+.right_arrow{
+  width: 30rpx;
+  height: 30rpx;
+}
+/*分割线颜色  */
+.line_color{
+  border-width: 0rpx;
+  border-color: #E3E4E5;
+  border-style: solid;
+}
+
+/*全局背景色*/
+.defaultColor{
+  position: fixed;
+  top: 1px;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  z-index: 0;
+}
+
+/* 按钮 */
+
+.button_an{
+  margin: 60rpx 30rpx 0rpx 30rpx;
+  height: 90rpx;
+  display: flex;
+  color: #fff;
+  background-color: #09BB07;
+  font-size: 32rpx;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7rpx;
+}
+
+/* 折扣金额字体颜色 */
+.discount_color{
+  color: #FF9A36;
+}
+
+/* 字体图标 */
+@font-face {
+  font-family: 'iconfont';  /* project id 583201 */
+  src: url('//at.alicdn.com/t/font_583201_c7tem8m0od2t9.eot');
+  src: url('//at.alicdn.com/t/font_583201_c7tem8m0od2t9.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_583201_c7tem8m0od2t9.woff') format('woff'),
+  url('//at.alicdn.com/t/font_583201_c7tem8m0od2t9.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_583201_c7tem8m0od2t9.svg#iconfont') format('svg');
+}
+ 
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* 通知 */
+.icon-sousuo:before { content: "\e601"; }
+/* 查看 */
+.icon-see:before { content: "\e603"; }
+/* 下拉 */
+.icon-drop:before { content: "\e604"; }
+ 
+
+
+.authorize_t{
+	margin-top: -125rpx  !important;
+}
+
+.miniProgram{
+	position: absolute;
+	top: 0rpx;
+	bottom: 0rpx;
+	left: 0rpx;
+	right: 0rpx;
+	z-index: 1;
+}
+
+.login{
+  position: fixed;
+  top: 0rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  z-index: 99;
+}

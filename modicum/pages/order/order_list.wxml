@@ -1,0 +1,63 @@
+<!-- 订单列表 -->
+<view class='container' hidden='{{!show}}'>
+  <view class='nav line_color font_color1'>
+    <view class="nav_item {{curNavIndex=='1'?'active':''}}" data-id='1' catchtap='tab'>点餐</view>
+    <view class="nav_item {{curNavIndex=='2'?'active':''}}" data-id='2' catchtap='tab'>外卖</view>
+  </view>
+  <view class='sroll_list_wraper'>
+    <view class='sroll_list'>
+      <view class='error font_color2' hidden="{{order_lits.data.length>0}}">暂无订单</view>
+      <!--一条数据项  -->
+      <block wx:for="{{order_lits.data}}" wx:for-item="item" wx:key="key">
+        <view class='store_wraper line_color' catchtap='to_detail' data-order_no="{{item.order_no}}">
+          <view class='spacing_block'></view>
+          <view class='store line_color font_color1'>
+            <view class='left'>
+              <text>{{item.store_name}}</text>
+              <view class='icon_wraper'>
+                <image src='/pages/img/income/right_user_center.png'></image>
+              </view>
+            </view>
+            <view class='right'>{{item.order_status_text}}</view>
+          </view>
+          <view class='list'>
+            <view class='goods_list'>
+              <block wx:for="{{item.sku}}" wx:for-item="Agood" wx:key="key" wx:for-index="index">
+                <view class='good font_color2' wx:if="{{index<=2}}">
+                  <view class='left'>{{Agood.name}}</view>
+                  <view class='right'>
+                    <text class='num'>x{{Agood.num}}</text>
+                    <text class='price'>¥{{Agood.money}}</text>
+                  </view>
+                </view>
+              </block>
+            </view>
+
+            <view class='total'>
+              <text class='dot font_color2'>{{item.sku.length>3?'...':''}}</text>
+              <view class='total_c'>
+                <text class='num font_color2'>共{{item.sku_num}}件商品</text>
+                <text class='label font_color1'>实付</text>
+                <text class='price font_color1'><text class='price_fu'>¥</text>{{item.pay_money}}</text>
+              </view>
+            </view>
+            <!--按钮  -->
+            <view class='btn_wraper'>
+
+              <view class='btn btn_order' catchtap='cancel_order' wx:if="{{item.order_status==1||item.order_status==2}}" data-telephone='{{item.store_telephone}}' data-order_no="{{item.order_no}}" data-pay_status="{{item.pay_status}}" data-order_status="{{item.order_status}}" data-is_refund="{{item.is_refund}}">取消订单</view>
+              <view class='btn btn_pay font_color1' wx:if="{{item.pay_status == 1&&item.order_status!=7}}" catchtap='payment' data-order_no="{{item.order_no}}">去支付</view>
+              <view class='btn btn_order' catchtap='to_discuss' wx:if="{{item.order_status==6&&item.comment_status==1}}" data-order_id="{{item.id}}" data-order_no="{{item.order_no}}">去评论</view>
+            </view>
+          </view>
+
+        </view>
+      </block>
+    </view>
+  </view>
+
+
+</view>
+<!-- 错误提示组件 -->
+<view class='error' hidden='{{show}}'>
+  <error bindretry="retry" error="{{error}}" error_text="{{error_text}}" retry_an="{{retry_an}}" log="{{log}}"></error>
+</view>

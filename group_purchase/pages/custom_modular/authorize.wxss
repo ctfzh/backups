@@ -1,0 +1,67 @@
+/* 登入授权*/
+.login{
+  position: fixed;
+  top: 0rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+.login_mask{
+  position: absolute;
+  top: 0rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  background-color: #000;
+  opacity: 0.5;
+}
+.authorize{
+  position: relative;
+  width: 620rpx;
+  height: 525rpx;
+  background-color: #f9f7fa;
+  border-radius: 10rpx;
+  z-index: 100;
+}
+.authorize_h1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  border-bottom: 1rpx solid #C7C5C8;
+  margin-bottom: 40rpx;
+}
+.logo{
+  width: 70rpx;
+  height: 70rpx;
+  margin: 0rpx auto 40rpx auto;
+  border-radius: 100%;
+}
+.logo image{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 100%;
+}
+
+.authorize_an{
+  width: 360rpx;
+  height: 76rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4CB050;
+  color: #F4F4F4;
+  font-size: 32rpx;
+}
+.authorize_text{
+  text-align: center;
+  font-size: 32rpx;
+  color: #040204   ;
+  margin-bottom: 50rpx;
+}

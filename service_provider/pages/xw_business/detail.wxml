@@ -1,0 +1,120 @@
+<!--pages/xw_business/register.wxml-->
+<view>
+  <view class='feekback_info' wx:if="{{reject_msg}}">
+    <view class='feekback_text font_color8'>
+      驳回
+    </view>
+    <view class='feekback_detail font_color2 font_overflow_2'>
+      {{reject_msg||''}}
+    </view>
+  </view>
+  <form bindsubmit='handleSubmit'>
+    <!-- 商户信息 -->
+    <view class='item'>
+      <view class='font_color2 title'>商户信息</view>
+      <view class='add_item'>
+        <view class='item_cont line_color first_item'>
+          <text class='item_text'>商户简称</text>
+          <text class='item_input font_overflow'>{{short_name}}</text>
+        </view>
+      </view>
+      <view class='add_item'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>行业类目</text>
+          <text class='item_input font_overflow'>{{p_category_name||''}}{{category_name?'-':''}}{{category_name||''}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 经营信息 -->
+    <view class='item'>
+      <view class='font_color2 title'>经营信息</view>
+      <view class='add_item'>
+        <view class='item_cont line_color first_item'>
+          <text class='item_text'>门店名称</text>
+          <text class='item_input font_overflow'>{{store_name}}</text>
+        </view>
+      </view>
+      <view class='add_item' bindtap='jump_store_pic'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>门店照片</text>
+          <text class="item_input font_overflow font_color2">{{(door_photo && environmental_photo)?'已上传':'未上传'}}</text>
+          <view class='right_arrow'>
+            <image src="../img/income/right_arrow.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class='add_item'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>经营地址</text>
+          <text class='item_input font_overflow' class="item_input font_overflow {{province_name?'':'font_color2'}}">{{province_name||''}}{{city_name||''}}{{area_name||''}}</text>
+        </view>
+      </view>
+      <view class='add_item'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>详细地址</text>
+          <text class='item_input font_overflow'>{{detail_address}}</text>
+        </view>
+      </view>
+      <view class='add_item'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>客服电话</text>
+          <text class='item_input font_overflow'>{{service_mobile}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 联系人信息 -->
+    <view class='item'>
+      <view class='font_color2 title'>联系人信息</view>
+      <view class='add_item'>
+        <view class='item_cont line_color first_item'>
+          <text class='item_text'>联系人姓名</text>
+          <text class='item_input font_overflow'>{{connect_name}}</text>
+        </view>
+      </view>
+      <view class='add_item'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>联系人手机号</text>
+          <text class='item_input font_overflow'>{{connect_mobile}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 负责人信息 -->
+    <view class='item'>
+      <view class='font_color2 title'>负责人信息</view>
+      <view class='add_item' bindtap='jump_director_info'>
+        <view class='item_cont line_color first_item'>
+          <text class='item_text'>负责人身份证</text>
+          <text class="item_input {{card_id?'':'font_color2'}}">{{card_id||'未设置'}}</text>
+          <view class='right_arrow'>
+            <image src="../img/income/right_arrow.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 结算账户 -->
+    <view class='item'>
+      <view class='font_color2 title'>结算账户</view>
+      <view class='add_item'>
+        <view class='item_cont line_color first_item'>
+          <text class='item_text'>开户名称</text>
+          <text class='item_input font_overflow'>{{principal}}</text>
+        </view>
+      </view>
+      <view class='add_item' bindtap='jump_account'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>结算账户</text>
+          <text class="item_input  {{bank_card_number?'':'font_color2'}}">{{bank_card_number||'未设置'}}</text>
+          <view class='right_arrow'>
+            <image src="../img/income/right_arrow.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class='add_item'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>签约费率(%)</text>
+          <text class='item_input font_overflow'>{{contract_rate}}</text>
+        </view>
+      </view>
+    </view>
+  </form>
+</view>

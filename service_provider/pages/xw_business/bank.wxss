@@ -1,0 +1,2 @@
+/* pages/xw_business/bank.wxss */
+@import "../Internet_business/bank.wxss"

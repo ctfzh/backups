@@ -1,0 +1,22 @@
+<!--pages/Internet_business/director_info.wxml-->
+<view>
+  <view class='select'>
+    <image src="{{cert_photo_a_value||'../img/income/select_pic.png'}}" class='icon' bindtap='handleUpload' data-photo_type='01'></image>
+    <image src="../img/income/close-circle-fill.png" class='icon-close' catchtap='handleDeletePic' data-photo_type='01' wx:if="{{cert_photo_a_value}}"></image>
+    <view class='select_text font_color4'>身份证正面</view>
+  </view>
+  <view class='select'>
+    <image src="{{cert_photo_b_value||'../img/income/select_pic.png'}}" class='icon' bindtap='handleUpload' data-photo_type='02'></image>
+    <image src="../img/income/close-circle-fill.png" class='icon-close' catchtap='handleDeletePic' data-photo_type='02' wx:if="{{cert_photo_b_value}}"></image>
+    <view class='select_text font_color4'>身份证反面</view>
+  </view>
+  <view class='item'>
+    <text class='item_1 font_color4'>负责人姓名</text>
+    <input class='item_2' placeholder='未设置' placeholder-class='item_2 font_color2' value='{{principal_person}}' bindinput='handleNameChange'></input>
+  </view>
+  <view class='item'>
+    <text class='item_1 font_color4'>身份证号码</text>
+    <input class='item_2' placeholder='未设置' placeholder-class='item_2 font_color2' value='{{principal_cert_no}}' bindinput='handleNoChange'></input>
+  </view>
+  <button plain  class='saveBtn' bindtap='handleSave'>保存</button>
+</view>

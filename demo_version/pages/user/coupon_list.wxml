@@ -1,0 +1,42 @@
+<!-- 优惠券列表HTML -->
+<view class='max_coupon'  hidden='{{!show_loading_faill}}'>
+  <!-- 代金券 -->
+  <view class='coupon_list' wx:for="{{content}}" wx:for-item="data" wx:key="key" bindtap='openCard' data-list="{{data}}">
+    <view class='coupon_left' style='background-color: {{data.color}};'>
+      <view class='coupon_left_info'>
+        <view class='coupon_money font_overflow' wx:if="{{data.type=='CASH'}}">
+          <text class='money'>{{data.reduce_cost|int}}</text>元
+        </view>
+        <view class='coupon_money' wx:if="{{data.type=='DISCOUNT'}}">
+          <text class='money'>{{data.discount}}</text>折
+        </view>
+        <view class='condition font_overflow'>满{{data.least_cost!=0.00 ? (data.least_cost|int)+'元可使':"任意金额可"}}用</view>
+      </view>
+      <view class='sawtooth_img'>
+        <image src='../img/banner/coupon_circle.png'></image>
+      </view>
+    </view>
+
+    <view class='coupon_right'>
+      <view class='coupon_title'>
+        <view class='title_text font_color1 font_overflow'>{{data.name}}</view>
+        <view class='notice_text font_color3 font_overflow' wx:if="{{data.type=='DISCOUNT' ||data.type=='CASH'}}">{{data.description}}</view>
+      </view>
+      <view class='term_validity font_color3'>{{data.time}}</view>
+    </view>
+  </view>
+
+</view>
+
+<!-- 顶部提示 -->
+<import src="../overall_situation_modular/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+<!--请求页面数据失败显示模块  -->
+ <import src="../overall_situation_modular/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{ show_loading_faill, show}}" /> 
+
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+  <authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+</view>

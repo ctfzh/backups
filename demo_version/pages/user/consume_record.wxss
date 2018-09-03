@@ -1,0 +1,71 @@
+/* 消费记录CSS */
+.consume_record_list{
+  background-color: #FFF;
+}
+.consume_record{
+  padding: 25rpx 25rpx 25rpx 0rpx;
+  margin-left: 25rpx;
+  border-width: 0rpx;
+  border-style: solid;
+  border-bottom-width: 1rpx;
+}
+.consume_record_list:last-child .consume_record{
+  border-bottom-width: 0rpx;
+}
+.consume_record_title{
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 30rpx;
+}
+.wait{
+  color: #ff0000;
+}
+.consume_record_type{
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20rpx;
+  line-height: 26rpx;
+}
+
+.consume_record_item{
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20rpx;
+  line-height: 24rpx;
+}
+.consume_money{
+  font-size: 34rpx;
+}
+
+.record_operation{
+  padding: 25rpx;
+  display: flex;
+  justify-content: flex-end;
+  border-width: 0rpx;
+  border-style: solid;
+  border-bottom-width: 1rpx;
+}
+.operation_an{
+  width: 150rpx;
+  height: 50rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1rpx solid #09BB07;
+  background-color: #09BB07;
+  color: #FFF;
+}
+.cancel{
+  justify-content: center;
+  border: 1rpx solid #8F8F8F;
+  background-color: #fff;
+  color: #4D4D4D;
+  margin-right: 30rpx;
+}

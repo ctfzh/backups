@@ -1,0 +1,68 @@
+/* pages/Internet_business/register.wxss */
+.feekback_info{
+  padding: 19rpx 30rpx 0 30rpx;
+}
+
+.feekback_text{
+  font-size: 40rpx;
+  line-height: 57rpx;
+}
+
+.feekback_detail{
+  font-size: 26rpx;
+}
+
+.add_item{
+	background-color: #fff;
+	padding-left: 30rpx;
+}
+
+
+.item_cont{
+	height: 110rpx;
+	border-top-width: 1rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	/* padding: 0rpx 40rpx 0rpx 10rpx; */
+}
+.first_item{
+	border: 0rpx;
+}
+.item_text{
+	font-size: 30rpx;
+  display: inline-block;
+  width: 217rpx;
+}
+
+.item_input{
+	flex: 1;
+	font-size: 26rpx;
+	text-align: left;
+	margin-left: 20rpx;
+}
+
+.title{
+  padding-left: 30rpx;
+  line-height: 50rpx;
+  font-size: 26rpx;
+}
+
+.item{
+  margin-top: 30rpx;
+}
+
+.saveBtn{
+  margin: 30rpx 0;
+}
+
+.code{
+  font-size: 26rpx;
+  width: 135rpx;
+  line-height: 72rpx;
+  padding-right: 24rpx;
+}
+
+.switchBtn{
+  margin-right: 24rpx;
+}

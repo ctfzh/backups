@@ -1,0 +1,89 @@
+/* pages/Internet_business/account.wxss */
+.feekback_info{
+  padding: 19rpx 30rpx 0 30rpx;
+}
+
+.feekback_text{
+  font-size: 40rpx;
+  line-height: 57rpx;
+}
+
+.feekback_detail{
+  font-size: 26rpx;
+}
+
+.add_item{
+	background-color: #fff;
+	padding-left: 30rpx;
+}
+
+
+.item_cont{
+	height: 110rpx;
+	border-top-width: 1rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.first_item{
+	border: 0rpx;
+}
+.item_text{
+	font-size: 30rpx;
+  display: inline-block;
+  width: 217rpx;
+}
+
+.item_input{
+	flex: 1;
+	font-size: 26rpx;
+	text-align: right;
+	margin: 0 40rpx 0 20rpx; 
+}
+
+.item{
+  margin-top: 30rpx;
+}
+
+.saveBtn{
+  margin: 30rpx 0;
+}
+
+.code{
+  font-size: 26rpx;
+  width: 135rpx;
+  line-height: 72rpx;
+}
+
+.select{
+  background: white;
+  position: relative;
+  width: 100%;
+  height: 212rpx;
+  border-top:1rpx solid #E9E9E9;
+}
+
+.select_text{
+  position: absolute;
+  top: 41rpx;
+  left: 31rpx;
+  font-size: 26rpx;
+}
+
+.icon{
+  width: 130rpx;
+  height: 130rpx;
+  position: absolute;
+  top:43rpx;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.icon-close{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top:17rpx;
+  right: 292rpx; 
+}

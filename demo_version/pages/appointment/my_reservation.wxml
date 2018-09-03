@@ -1,0 +1,30 @@
+<!-- 我的预约 -->
+<view class='bespeak_max'  hidden='{{!show_loading_faill}}'>
+   <view class='bespeak_list' >
+      <view class='bespeak_item' catchtap='jump' wx:for="{{res.td}}" wx:key="key" data-id='{{item.id}}' wx:for-index="index">
+         <view class='bespeak_top'>
+            <view class='bespeak_top_h1 font_color1'>{{item.store_name}}</view>
+            <view class='bespeak_top_h2 font_color'>{{time[index]}}</view>
+         </view>
+         <view class='bespeak_bottom'>
+            <view class='bespeak_bottom_item '>
+               <view class='bespeak_bottom_h1 font_color'>预约编号</view>
+               <view class='bespeak_bottom_h2 font_color1'>{{item.number}}</view>
+            </view>
+         </view>
+      </view>
+   </view>
+</view>
+
+<!-- 顶部提示 -->
+<import src="../overall_situation_modular/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+<!--请求页面数据失败显示模块  -->
+ <import src="../overall_situation_modular/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{ show_loading_faill, show}}" /> 
+
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+  <authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+</view>

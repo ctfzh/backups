@@ -1,0 +1,15 @@
+<!-- 提示弹窗组件HTML -->
+<view class='wx_dialog_container' hidden="{{!isShow}}" catchtouchmove="preventD">
+    <view class='wx-mask' bindtap='hideDialog'></view>
+    <view class='wx-dialog'>
+        <view class='wx-dialog-title'>{{ title }}</view>
+        <view class='wx-dialog-content' catchtouchmove="preventD">
+            {{ content }}
+            <slot></slot>
+        </view>
+        <view class='wx-dialog-footer'>
+          <view class='wx-dialog-btn cancel'wx:if="{{cancelText!=''}}" catchtap='_cancelEvent'>{{ cancelText }}</view>
+          <view class='wx-dialog-btn confirm'wx:if="{{confirmText!=''}}" catchtap='_confirmEvent'>{{ confirmText }}</view>
+        </view>
+    </view>
+</view>

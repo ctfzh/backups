@@ -1,0 +1,5 @@
+/* 我的 */
+@import "/pages/merchant/list.wxss";
+.merchant_item {
+	height: 150rpx;
+}

@@ -1,0 +1,252 @@
+<!--网商间连-->
+<view class='set_up_max font_color1'>
+  <view class='set_up_top font_color6'>
+    <view class='top_item {{current==0?"sele_item":""}}' data-current='0' bindtap='swiper_current'>全部</view>
+    <view class='top_item {{current==1?"sele_item":""}}' data-current='1' bindtap='swiper_current'>未提交</view>
+    <view class='top_item {{current==2?"sele_item":""}}' data-current='2' bindtap='swiper_current'>审核中</view>
+    <view class='top_item {{current==3?"sele_item":""}}' data-current='3' bindtap='swiper_current'>已通过</view>
+    <view class='top_item {{current==4?"sele_item":""}}' data-current='4' bindtap='swiper_current'>驳回</view>
+  </view>
+
+  <view class='add font_color3' catchtap='jump_add'>+添加商户</view>
+
+  <view class='set_up_bottom'>
+    <swiper class='swiper' current="{{current}}" duration="400"  bindchange="change" >
+      <!-- 全部 -->
+      <swiper-item>
+        <scroll-view class='scroll' scroll-y="true">
+          <view class='merchant_list'>
+
+            <view wx:for="{{mybankArray}}" wx:for-item="item" wx:key="id" bindtap='jump_detail' data-out_merchant_id='{{item.out_merchant_id}}' data-status_str='{{item.status_str}}'>
+              <view class='merchant_item' wx:if="{{item.blue_sea==1}}">
+                <view>
+                  <view class='item_title'>
+                    <text class='alias font_overflow'>{{item.alias}}</text>
+                    <text class="{{item.status_str=='驳回'?'item_text_r font_color8':'item_text_r font_color2'}}">{{item.status_str}}</text>
+                  </view>
+                  <view class='item_text_1 font_color2 font_overflow'>{{item.merchant_name}}
+                  </view>
+                  <view class='item_text_2 font_color2 font_overflow'>
+                    {{((item.blue_sea==2 && item.blue_sea_status==4) || (item.blue_sea == 1)) ? item.mchid:''}}
+                  </view>
+                </view>
+
+              </view>
+
+              <view class='merchant_item merchant_item_lanhai' wx:if="{{item.blue_sea==2}}">
+
+                <view>
+                  <view class='item_title'>
+                     <text class='alias font_overflow'>{{item.alias}}</text>
+                    <text class='item_text_r font_color2'>{{item.status_str}}</text>
+                  </view>
+                  <view class='item_text_1 font_color2 font_overflow'>{{item.merchant_name}}
+                  </view>
+                  <view class='item_text_2 font_color2 font_overflow'>
+                    {{((item.blue_sea==2 && item.blue_sea_status==4) || (item.blue_sea == 1)) ? item.mchid:''}}
+                  </view>
+                  <view class='lanhai font_color7' catchtap='jump_lanhai' data-merchant='{{item}}'>
+                    蓝海行动
+                    <text class='item_text_r font_color2'>{{item.blue_sea_status_str}}</text>
+                  </view>
+                </view>
+
+              </view>
+            </view>
+
+          </view>
+
+        </scroll-view>
+      </swiper-item>
+
+      <!-- 未提交 -->
+      <swiper-item>
+        <scroll-view class='scroll' scroll-y="true">
+          <view class='merchant_list'>
+
+            <view wx:for="{{mybankArray}}" wx:for-item="item" wx:key="id" bindtap='jump_detail' data-out_merchant_id='{{item.out_merchant_id}}' data-status_str='{{item.status_str}}'>
+              <view class='merchant_item' wx:if="{{item.blue_sea==1}}">
+                <view>
+                  <view class='item_title'>
+                    <text class='alias font_overflow'>{{item.alias}}</text>
+                    <text class="{{item.status_str=='驳回'?'item_text_r font_color8':'item_text_r font_color2'}}">{{item.status_str}}</text>
+                  </view>
+                  <view class='item_text_1 font_color2 font_overflow'>{{item.merchant_name}}
+                  </view>
+                  <view class='item_text_2 font_color2 font_overflow'>
+                    {{((item.blue_sea==2 && item.blue_sea_status==4) || (item.blue_sea == 1)) ? item.mchid:''}}
+                  </view>
+                </view>
+
+              </view>
+
+              <view class='merchant_item merchant_item_lanhai' wx:if="{{item.blue_sea==2}}">
+
+                <view>
+                  <view class='item_title'>
+                    <text class='alias font_overflow'>{{item.alias}}</text>
+                    <text class='item_text_r font_color2'>{{item.status_str}}</text>
+                  </view>
+                  <view class='item_text_1 font_color2 font_overflow'>{{item.merchant_name}}
+                  </view>
+                  <view class='item_text_2 font_color2 font_overflow'>
+                    {{((item.blue_sea==2 && item.blue_sea_status==4) || (item.blue_sea == 1)) ? item.mchid:''}}
+                  </view>
+                  <view class='lanhai font_color7' catchtap='jump_lanhai' data-merchant='{{item}}'>
+                    蓝海行动
+                    <text class='item_text_r font_color2'>{{item.blue_sea_status_str}}</text>
+                  </view>
+                </view>
+
+              </view>
+            </view>
+
+          </view>
+
+        </scroll-view>
+      </swiper-item>
+
+      <!-- 审核中 -->
+      <swiper-item>
+        <scroll-view class='scroll' scroll-y="true">
+          <view class='merchant_list'>
+
+            <view wx:for="{{mybankArray}}" wx:for-item="item" wx:key="id" bindtap='jump_detail' data-out_merchant_id='{{item.out_merchant_id}}' data-status_str='{{item.status_str}}'>
+              <view class='merchant_item' wx:if="{{item.blue_sea==1}}">
+                <view>
+                  <view class='item_title'>
+                    <text class='alias font_overflow'>{{item.alias}}</text>
+                    <text class="{{item.status_str=='驳回'?'item_text_r font_color8':'item_text_r font_color2'}}">{{item.status_str}}</text>
+                  </view>
+                  <view class='item_text_1 font_color2 font_overflow'>{{item.merchant_name}}
+                  </view>
+                  <view class='item_text_2 font_color2 font_overflow'>
+                    {{((item.blue_sea==2 && item.blue_sea_status==4) || (item.blue_sea == 1)) ? item.mchid:''}}
+                  </view>
+                </view>
+
+              </view>
+
+              <view class='merchant_item merchant_item_lanhai' wx:if="{{item.blue_sea==2}}">
+
+                <view>
+                  <view class='item_title'>
+                    <text class='alias font_overflow'>{{item.alias}}</text>
+                    <text class='item_text_r font_color2'>{{item.status_str}}</text>
+                  </view>
+                  <view class='item_text_1 font_color2 font_overflow'>{{item.merchant_name}}
+                  </view>
+                  <view class='item_text_2 font_color2 font_overflow'>
+                    {{((item.blue_sea==2 && item.blue_sea_status==4) || (item.blue_sea == 1)) ? item.mchid:''}}
+                  </view>
+                  <view class='lanhai font_color7' catchtap='jump_lanhai' data-merchant='{{item}}'>
+                    蓝海行动
+                    <text class='item_text_r font_color2'>{{item.blue_sea_status_str}}</text>
+                  </view>
+                </view>
+
+              </view>
+            </view>
+
+          </view>
+
+        </scroll-view>
+      </swiper-item>
+
+      <!-- 已通过 -->
+      <swiper-item>
+        <scroll-view class='scroll' scroll-y="true">
+          <view class='merchant_list'>
+
+            <view wx:for="{{mybankArray}}" wx:for-item="item" wx:key="id" bindtap='jump_detail' data-out_merchant_id='{{item.out_merchant_id}}' data-status_str='{{item.status_str}}'>
+              <view class='merchant_item' wx:if="{{item.blue_sea==1}}">
+                <view>
+                  <view class='item_title'>
+                    <text class='alias font_overflow'>{{item.alias}}</text>
+                    <text class="{{item.status_str=='驳回'?'item_text_r font_color8':'item_text_r font_color2'}}">{{item.status_str}}</text>
+                  </view>
+                  <view class='item_text_1 font_color2 font_overflow'>{{item.merchant_name}}
+                  </view>
+                  <view class='item_text_2 font_color2 font_overflow'>
+                    {{((item.blue_sea==2 && item.blue_sea_status==4) || (item.blue_sea == 1)) ? item.mchid:''}}
+                  </view>
+                </view>
+
+              </view>
+
+              <view class='merchant_item merchant_item_lanhai' wx:if="{{item.blue_sea==2}}">
+
+                <view>
+                  <view class='item_title'>
+                   <text class='alias font_overflow'>{{item.alias}}</text>
+                    <text class='item_text_r font_color2'>{{item.status_str}}</text>
+                  </view>
+                  <view class='item_text_1 font_color2 font_overflow'>{{item.merchant_name}}
+                  </view>
+                  <view class='item_text_2 font_color2 font_overflow'>
+                    {{((item.blue_sea==2 && item.blue_sea_status==4) || (item.blue_sea == 1)) ? item.mchid:''}}
+                  </view>
+                  <view class='lanhai font_color7' catchtap='jump_lanhai' data-merchant='{{item}}'>
+                    蓝海行动
+                    <text class='item_text_r font_color2'>{{item.blue_sea_status_str}}</text>
+                  </view>
+                </view>
+
+              </view>
+            </view>
+
+          </view>
+
+        </scroll-view>
+      </swiper-item>
+
+      <!-- 驳回 -->
+      <swiper-item>
+        <scroll-view class='scroll' scroll-y="true">
+          <view class='merchant_list'>
+
+            <view wx:for="{{mybankArray}}" wx:for-item="item" wx:key="id" bindtap='jump_detail' data-out_merchant_id='{{item.out_merchant_id}}' data-status_str='{{item.status_str}}'>
+              <view class='merchant_item' wx:if="{{item.blue_sea==1}}">
+                <view>
+                  <view class='item_title'>
+                    <text class='alias font_overflow'>{{item.alias}}</text>
+                    <text class="{{item.status_str=='驳回'?'item_text_r font_color8':'item_text_r font_color2'}}">{{item.status_str}}</text>
+                  </view>
+                  <view class='item_text_1 font_color2 font_overflow'>{{item.merchant_name}}
+                  </view>
+                  <view class='item_text_2 font_color2 font_overflow'>
+                    {{((item.blue_sea==2 && item.blue_sea_status==4) || (item.blue_sea == 1)) ? item.mchid:''}}
+                  </view>
+                </view>
+
+              </view>
+
+              <view class='merchant_item merchant_item_lanhai' wx:if="{{item.blue_sea==2}}">
+
+                <view>
+                  <view class='item_title'>
+                   <text class='alias font_overflow'>{{item.alias}}</text>
+                    <text class="{{item.status_str=='驳回'?'item_text_r font_color8':'item_text_r font_color2'}}">{{item.status_str}}</text>
+                  </view>
+                  <view class='item_text_1 font_color2 font_overflow'>{{item.merchant_name}}
+                  </view>
+                  <view class='item_text_2 font_color2 font_overflow'>
+                    {{((item.blue_sea==2 && item.blue_sea_status==4) || (item.blue_sea == 1)) ? item.mchid:''}}
+                  </view>
+                  <view class='lanhai font_color7' catchtap='jump_lanhai' data-merchant='{{item}}'>
+                    蓝海行动
+                    <text class='item_text_r font_color2'>{{item.blue_sea_status_str}}</text>
+                  </view>
+                </view>
+
+              </view>
+            </view>
+
+          </view>
+
+        </scroll-view>
+      </swiper-item>
+
+    </swiper>
+  </view>
+</view>

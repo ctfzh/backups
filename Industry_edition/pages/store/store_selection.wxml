@@ -1,0 +1,94 @@
+<!-- 门店列表 -->
+<view class='store_max' hidden='{{!show}}'>
+  <view class='fiex_top'>
+    <!-- 定位=>开始 -->
+      <view class='location line_color'>
+        <view class='location_text font_color1' catchtap='sele_address'>
+		  <text class='font_overflow address_text'>{{address}}</text>
+		  <view class='location_drop'>
+         	<image src='../img/income/drop_down.png'></image>
+		  </view>
+        </view>
+         <view class='consult_map' catchtap='consult_map'>
+         <image src='../img/income/map.png'></image>
+         <view class='consult_map_text font_color2'>地图</view>
+         </view>
+        <!-- <view class='location_spot'>
+          <view class='location_spot_img'>
+            <image class='location_spot_img' src='../img/income/location.png'></image>
+          </view>
+           <view class='location_spot_text' catchtap='location'>重新定位</view> 
+        </view> -->
+      </view>
+    <!-- 定位=>结束 -->
+    <!-- 搜索框=>开始 -->
+    <view class='search line_color'>
+      <view class='search_img'>
+        <image class='search_src' src='../img/income/search.png'></image>
+      </view>
+      <input class='search_input' placeholder='' placeholder-class="placeholder" bindinput="search" bindconfirm="complete"></input>
+    </view>
+    <!-- 搜索框=>结束 -->
+  </view>
+  <!-- 列表=>开始 -->
+    <view class='store_list'>
+      <view class='error' wx:if="{{!store.data.length}}">
+        <error bindretry="retry" error="1" error_text="附近没有门店" retry_an="0" log="0"></error>
+      </view>
+      <view class='store_item {{order==list.store_id?"order_box":""}}' wx:for="{{store.data}}" wx:for-item="list" wx:key="key" wx:for-index="index" data-store='{{list}}' catchtap='{{list.open_status==2?"":function_type==1?"order_store":"jump_store"}}' >
+        <view class='store_item_line line_color {{order==list.store_id?"order":""}}'>
+          <view class='store_item_top'>
+            <view class='store_item_h1 font_color1' >
+              <view class='store_item_text font_overflow {{list.open_status==2?"at_rest":""}}'>{{list.store_name}}{{list.branch_name?"("+list.branch_name+")":""}}</view>
+              <!-- <view class='store_item_new'>NEW</view> -->
+            <view class='store_item_rest font_color2' wx:if="{{list.open_status==2}}">休息中</view>
+            </view>
+            <view class='store_item_h3 font_color3 {{list.open_status==2?"at_rest":""}}'><text class='lately' wx:if="{{index==0}}">离我最近</text>{{list.distance}}km</view>
+          </view>
+
+          <view class='review' wx:if='{{order!=list.store_id}}'>
+            <view class='star' wx:for="{{[1,2,3,4,5]}}" wx:key="key" wx:for-index="inx">
+              <image src='../img/income/{{list.open_status==2?"ash_empty_star":"empty_star"}}.png'></image>
+              <view class='bottom_img' style='width:{{grade[index]==inx? decimal[index]:""}}%' wx:if="{{list.store_score>inx}}">
+                <image src='../img/income/{{list.open_status==2?"ash_full_star":"full_star"}}.png'></image>        
+              </view>
+            </view>
+          </view>
+
+          <view class='store_item_bottom font_color3 font_overflow {{list.open_status==2?"at_rest":""}}'>{{list.address}}</view>
+          <view class='take_meal font_color1'>
+            <view class='take_meal_text'>取餐时间：</view>
+            <view class='take_meal_choice' data-choice='0' catchtap='choice'>
+              <image class='choice' src='../img/income/{{choice==0?"select":"unchecked"}}.png'></image>
+              <view class='choice_text font_color1'>现在，支付成功后在<text class='text_c'> 店内 </text>取餐</view>
+            </view>
+             <view class='take_meal_choice' data-choice='1' data-store_id='{{list.store_id}}' catchtap='choice' wx:if="{{list.is_open_fix_order!=2}}">
+              <image class='choice' src='../img/income/{{choice==1?"select":"unchecked"}}.png'></image>
+              <view class='choice_text'>稍晚，预约稍晚时间<text class='text_c'> 到店 </text>取餐</view>
+            </view> 
+          </view>
+          <view class='take_meal_an' data-store='{{list}}' catchtap='jump_store'>选择饮品</view>
+        </view>
+      </view>
+    </view>
+  <!-- 列表=>结束 -->
+</view>
+
+
+
+<!-- 时间选择器=>开始  -->
+<view class='time_selector'>
+  <!-- 时间选择器模块引入 -->
+  <time_selector mack="{{mack}}"store_id="{{store_id}}"  function_type="{{function_type}}"></time_selector>
+</view>
+<!-- 时间选择器=>结束   -->
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+  <authorize bindlogin="login_success"></authorize>
+</view>
+
+<!-- 错误提示组件 -->
+<view class='error' hidden='{{show}}'>
+  <error bindretry="retry" error="{{error}}" error_text="{{error_text}}" retry_an="{{retry_an}}" log="{{log}}"></error>
+</view>

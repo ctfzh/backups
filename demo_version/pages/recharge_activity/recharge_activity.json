@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "储值",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#F2F3F5",
+  "usingComponents": {
+    "richText": "../custom_modular/richText",
+    "dialog": "../overall_situation_modular/prompt_box",
+      "authorize": "../overall_situation_modular/authorize"
+  }
+}

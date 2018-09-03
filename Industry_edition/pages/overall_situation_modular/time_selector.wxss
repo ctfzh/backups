@@ -1,0 +1,85 @@
+/* 时间选择器 */
+@import "../../app.wxss";
+.time_selector_mack{
+  position: fixed;
+  background-color: #000;
+  opacity: 0.5;
+  top: 0rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  z-index: 9;
+}
+.time_selector{
+  position: fixed;
+  height: 510rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  background-color: #FFF;
+  z-index: 10;
+  transform:translateY(100%);
+  transition:all 0.15s ease;
+}
+.mack{
+  transition:all 0.2s ease;
+  transform: translateY(0);
+}
+.time_selector_top{
+  position: absolute;
+  top: 0rpx;
+  bottom: 100rpx;
+  left: 0rpx;
+  right: 0rpx;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.time_selector_bottom{
+  position: absolute;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  height: 99rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1rpx solid #E3E4E5;
+}
+
+.seleclor_date_time{
+  height: 95rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.time_selector_right{
+  height: 100%;
+  flex: 1;
+  font-size: 28rpx;
+  /* margin-left: 60rpx; */
+}
+.time_selector_right_text{
+  width: 130rpx;
+  text-align: center;
+  position: relative;
+}
+.seleclor_date_time image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 40rpx;
+}
+.seleclor_date_time_sele{
+  color: #F24B4B;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+.check_out{
+  position: absolute;
+  right: -50rpx;
+  top: 0rpx;
+  bottom: 0rpx;
+  display: flex;
+  align-items: center;
+}

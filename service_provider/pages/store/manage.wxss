@@ -1,0 +1,87 @@
+/* 门店管理 */
+.manage_max{
+	padding: 40rpx 20rpx;
+}
+
+.jump_item{
+	height: 130rpx;
+	background-color: #fff;
+	padding-left: 25rpx;
+	display: flex;
+	align-items: center;
+	border-radius: 8rpx;
+}
+.jump_img{
+	width: 40rpx;
+	height: 40rpx;
+	display: flex;
+	margin-right: 28rpx;
+}
+.jump_img image{
+	width: 100%;
+	height: 100%;
+}
+
+.jump_text{
+	flex: 1;
+	font-size: 30rpx;
+}
+
+.jump_h1{
+	width: 100%;
+	/* line-height: 32rpx; */
+	display: flex;
+	align-items: center;
+}
+
+.jump_h2{
+	width: 100%;
+	font-size: 26rpx;
+	line-height: 28rpx;
+	margin-top: 19rpx;
+}
+
+.jump_right{
+	height: 100%;
+	display: flex;
+	align-items: center;
+	font-size: 26rpx;
+}
+
+.title{
+	font-size: 26rpx;
+	padding: 31rpx 0rpx 9rpx 19rpx;
+}
+.blue_friend,
+.green_friend{
+	width: 106rpx;
+	height: 36rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #00AAEE;
+	color: #fff;
+	margin-left: 20rpx;
+	font-size: 22rpx;
+	border-radius: 5rpx;
+}
+.green_friend{
+	background-color: #52C75A;
+}
+
+.public_praise{
+	margin-top: 20rpx;
+}
+
+.line_style{
+	margin: -1rpx 20rpx 0rpx 20rpx;
+	border-top-width: 1rpx;
+}
+
+.border_top{
+	border-radius: 0rpx 0rpx 8rpx 8rpx;
+}
+
+.border_bottom{
+	border-radius: 8rpx 8rpx 0rpx 0rpx;
+}

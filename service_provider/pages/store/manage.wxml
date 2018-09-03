@@ -1,0 +1,84 @@
+<!-- 门店管理 -->
+<view class='manage_max font_color4'>
+
+   <view class='jump_item'>
+      <view class='jump_text'>
+         <view class='jump_h1 font_overflow'>烫面包-金鼎三店</view>
+         <view class='jump_h2 font_color5 font_overflow'>门店编号-003</view>
+      </view>
+      <view class='jump_right' catchtap='jump_url' data-url='/pages/store/add_editor'>
+         <view class='right_text font_color3'>编辑</view>
+         <view class='right_arrow'>
+            <image src="../img/income/right_arrow.png"></image>
+         </view>
+      </view>
+   </view>
+	
+	<view class='title font_color2'>支付宝收款账号</view>
+
+   <view class='jump_item border_bottom' catchtap='jump_url' data-url='/pages/store/select_account?type=1'>
+      <view class='jump_text'>
+         <view class='jump_h1 font_overflow'>直连设置<text class='blue_friend'>启用中</text></view>
+      </view>
+      <view class='jump_right'>
+         <view class='right_arrow'>
+            <image src="../img/income/right_arrow.png"></image>
+         </view>
+      </view>
+   </view>
+
+	<!-- 分割线 -->
+	<view class='line_style line_color'></view>
+
+   <view class='jump_item border_top' catchtap='jump_url' data-url='/pages/store/select_account?type=2'>
+      <view class='jump_text'>
+         <view class='jump_h1 font_overflow'>间连设置</view>
+      </view>
+      <view class='jump_right'>
+         <view class='right_arrow'>
+            <image src="../img/income/right_arrow.png"></image>
+         </view>
+      </view>
+   </view>
+	
+	<view class='title font_color2'>微信收款账号</view>
+
+   <view class='jump_item border_bottom' catchtap='jump_url' data-url='/pages/store/select_account?type=3'>
+      <view class='jump_text'>
+         <view class='jump_h1 font_overflow'>直连设置</view>
+      </view>
+      <view class='jump_right'>
+         <view class='right_arrow'>
+            <image src="../img/income/right_arrow.png"></image>
+         </view>
+      </view>
+   </view>
+	<!-- 分割线 -->
+	<view class='line_style line_color'></view>
+
+   <view class='jump_item border_top' catchtap='jump_url' data-url='/pages/store/select_account?type=4'>
+      <view class='jump_text'>
+         <view class='jump_h1 font_overflow'>间连设置<text class='green_friend'>启用中</text></view>
+      </view>
+      <view class='jump_right'>
+         <view class='right_arrow'>
+            <image src="../img/income/right_arrow.png"></image>
+         </view>
+      </view>
+   </view>
+	
+   <view class='jump_item public_praise' catchtap='jump_url' data-url='/pages/store/public_praise'>
+      <view class='jump_text'>
+         <view class='jump_h1 font_overflow'>口碑门店关联</view>
+      </view>
+      <view class='jump_right'>
+         <view class='right_arrow'>
+            <image src="../img/income/right_arrow.png"></image>
+         </view>
+      </view>
+   </view>
+
+	<view class='button_t'>
+		<button class='submit' form-type="submit" hover-class="hover" plain="true">绑定收款空码</button>
+	</view>
+</view>

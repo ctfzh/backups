@@ -1,0 +1,65 @@
+<!--pages/Internet_business/account.wxml-->
+<view>
+  <form bindsubmit='handleSubmit'>
+    <view class='item'>
+      <view class='add_item'>
+          <view class='item_cont line_color first_item'>
+            <text class='item_text'>开户名称</text>
+            <input type='text' class='item_input font_overflow' placeholder='负责人名称/企业名称' placeholder-class='font_color2' name="bank_cert_name" value="{{bank_cert_name||''}}" maxlength='64'></input>
+          </view>
+        </view>
+      <view class='add_item'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>银行卡号</text>
+          <input type='text' class='item_input' name="bank_card_no" value='{{bank_card_no}}' maxlength='64'></input>
+        </view>
+      </view>
+      <view class='add_item' bindtap='jump_url' data-url='/pages/Internet_business/bank' data-type='1'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>开户银行</text>
+          <text class="{{bank?'item_input font_overflow':'item_input font_overflow font_color2'}}">{{bank||''}}</text>
+          <view class='right_arrow'>
+            <image src="../img/income/right_arrow.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class='add_item'>
+        <picker 
+          mode="multiSelector" 
+          range="{{multiArray}}"
+          range-key='area_name'
+          bindchange="bindRegionChange" 
+          bindcolumnchange="bindRegionColumnChange"
+          value='{{multiIndex}}'
+        >
+          <view class='item_cont line_color'>
+            <text class='item_text'>开户城市</text>
+            <text class="{{branch_province?'item_input font_overflow':'item_input font_overflow font_color2'}}">{{branch_province_value||''}}{{branch_city_value||''}}</text>
+            <view class='right_arrow'>
+              <image src="../img/income/right_arrow.png"></image>
+            </view>
+          </view>
+        </picker>  
+      </view>
+      <view class='add_item' bindtap='jump_url' data-url='/pages/Internet_business/branch' data-type='3'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>开户支行</text>
+          <text class="{{branch_name?'item_input font_overflow':'item_input font_overflow font_color2'}}">{{branch_name||''}}</text>
+          <view class='right_arrow'>
+            <image src="../img/income/right_arrow.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class='select'>
+        <image 
+          src="{{industry_license_photo_value||'../img/income/select_pic.png'}}"
+          class='icon'
+          bindtap='handleUpload'
+        ></image>
+        <image src="../img/income/close-circle-fill.png" class='icon-close' catchtap='handleDeletePic' wx:if="{{industry_license_photo_value}}"></image>
+        <view class='select_text font_color4'>开户许可证</view>
+      </view>
+      <button class='saveBtn' plain form-type='submit'>保存</button>
+    </view>
+  </form>
+</view>

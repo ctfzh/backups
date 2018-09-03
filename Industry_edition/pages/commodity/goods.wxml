@@ -1,0 +1,248 @@
+<!-- 商品 -->
+<view class='goods_max' hidden='{{!show}}' catchtouchmove='move'>
+  <view class='goods_mask' catchtouchmove='fixed' catchtap='goods_mask' hidden='{{!mask}}'  catchtouchmove='move'></view>
+  <!-- 头部=>开始 -->
+  <view class='goods_top' style='height:{{store.store.notice?"":"0"}}rpx;'>
+    <!-- 背景图片=>开始 -->
+    <view class='goods_top_img'>
+      <image src=''></image>
+    </view>
+    <!-- 背景图片=>结束 -->
+    <!-- 头部正文=>开始 -->
+    <view class='goods_top_content'>
+      <text>公告：</text>
+      <view class="scrolltxt">
+         <view class="marquee_box font_color1">
+         <view class="marquee_text" style="transform: translateX(-{{marqueeDistance}}px)">
+            <text>{{store.store.notice}}</text>
+            <text style="margin-right:{{marquee_margin}}px;"></text>
+            <text style="margin-right:{{marquee_margin}}px;">{{store.store.notice}}</text>        
+         </view>
+         </view>
+      </view>
+    </view>
+    <!-- 头部正文=>结束 -->
+  </view>
+  <!-- 头部=>结束 -->
+  <!-- 正文=>开始 -->
+  <view class='goods_middle' style='top:{{top_height}}px;'>
+    <!-- 左边菜单=>开始 -->
+    <view class='goods_middle_left'>
+      <scroll-view class='goods_middle_menu' scroll-y="true">
+        <view class='menu_item {{item_index=="menu_"+item.id?"menu_item_sele font_color1":"font_color2"}} ' wx:for="{{group_list}}" wx:for-item="item" wx:key="key" data-index="{{'menu_'+item.id}}" catchtap='menu_item' id="{{'menu_'+item.id}}">{{item.name}}</view>
+      </scroll-view>
+    </view>
+    <!-- 左边菜单=>结束 -->
+    <!-- 右边商品=>开始 -->
+    <view class='goods_middle_right'  catchtouchmove='move'>
+       <view class='goods_type top_goods_type'>
+         <block wx:for="{{group_list}}" wx:for-item="item_name" wx:key="key">
+         {{item_index=="menu_"+item_name.id?item_name.name:""}}
+         </block>
+       </view>
+      <scroll-view class='goods_list' scroll-y="true" scroll-into-view="{{menu_id}}" bindscroll="scroll" bindtouchstart='touchstart'  bindtouchend='touchend'>
+        <!-- 商品列表=>开始 -->
+        <view class='goods_list_item' wx:for="{{goods_list}}" wx:for-item="list" wx:key="key" id="{{'menu_'+list.group.id}}" wx:for-index="index">
+          <view class='goods_type font_overflow font_color1'>{{index>0?list.group.name:""}}</view>
+          <view class='goods_item' wx:for="{{list.list}}" wx:for-item="goods_item" wx:key="key" data-goods_info='{{goods_item}}' catchtap='goods_info'>
+            <view class='goods_img goods_line'>
+              <image src='{{goods_item.img?goods_item.img : "../img/banner/goods_null.png"}}' mode='aspectFill' lazy-load="true"></image>
+            </view>
+            <view class='goods_inof'>
+              <view class='goods_name font_color1 '>
+				  	<view class='goods_name_text font_overflow'>{{goods_item.name}}</view>
+					<view class='describe font_overflow'>{{goods_item.describe}}</view>
+				  </view>
+              <view class='goods_money money_color'>
+                <text class='mo_fu'>￥</text>{{goods_item.money}}</view>
+            </view>
+            <!-- 加减图标=>开始 -->
+            <view class='purchase'>
+               <view class='purchase_join'>
+                <block wx:for="{{buy_goods_list.goods_list}}" wx:for-item="goods_list" wx:key="key">
+                  <block wx:if="{{goods_list.goods_id==goods_item.id}}">
+                     <!-- 减号 -->
+                    <view class='join plus' data-goods='{{goods_item}}' data-add_delete='2' data-existing_num='{{goods_list.num}}' catchtap='sku'>
+                      <image src='../img/income/reduce.png'></image>
+                    </view>
+                    <view class='num font_color1'>{{goods_list.num}}</view>
+                  </block>
+                </block>
+                <!-- 加号 -->
+                <view class='join reduce' data-goods='{{goods_item}}' data-add_delete='1' catchtap='sku'>
+                  <image src='../img/income/plus.png'></image>
+                </view>
+              </view>
+            </view>
+            <!-- 加减图标=>结束 -->
+          </view>
+        </view>
+        <!-- 商品列表=>开始 -->
+      </scroll-view>
+    </view>
+    <!-- 右边商品=>结束 -->
+  </view>
+  <!-- 正文=>结束 -->
+  <!-- 底部=>开始 -->
+  <view class='goods_bottom'  catchtouchmove='move'>
+    <view class='goods_shopping_cart {{buy_goods_list.num>0?"sett_sele":""}}' catchtap='{{buy_goods_list.num>0?"shopping_cart_mask":""}}'>
+      <image src='../img/income/{{buy_goods_list.num>0?"shopping_cart":"shopping_cart_empty"}}.png'></image>
+      <view class='red_dot' wx:if="{{buy_goods_list.num>0}}">{{buy_goods_list.num}}</view>
+    </view>
+    <view class='settlement_inof'>
+      <view class='settlement_money'>
+        <text class='mo_fu'>￥</text>{{buy_goods_list.price}}</view>
+      <view class='distribution_money' wx:if="{{send_price>0&&function_type==2}}">
+			<block wx:if="{{store.merchant_set.postage_fee_activity_status==2}}">满{{store.merchant_set.postage_fee_activity_condition_money}}元免配送费</block>
+			<block wx:else>另需配送费{{send_price}}元</block>
+		</view>
+    </view>
+    <view class='settlement_an' wx:if="{{(buy_goods_list.price<min_price||buy_goods_list.price<=0)&&function_type==2}}">
+      <text class='mo_fu'>￥</text>{{min_price}}起送</view>
+    <view class='settlement_an {{buy_goods_list.goods_list.length>0?"settlement_sele":""}}' wx:if="{{(buy_goods_list.price>=min_price&&buy_goods_list.price>0)||function_type==1}}" catchtap='settlement'>去结算</view>
+  </view>
+  <!-- 底部=>结束 -->
+
+
+  <!-- 规格选择弹框=>开始 -->
+  <view class='sku_mask {{sku_mask&&mask?"mask":""}}'  catchtouchmove="move">
+      <view class='sku_goods'>
+        <view class='sku_goods_img goods_line'>
+          <image src='{{sku.sku.img?sku.sku.img:sku_goods.img?sku_goods.img : "../img/banner/goods_null.png"}}' mode='aspectFill'></image>
+        </view>
+        <view class='sku_goods_inof'>
+          <view class='sku_goods_name font_overflow font_color1'>
+          {{sku.sku.goods_name}}
+            <view class='select_spec'>{{only_practice_name}}</view>
+          </view>
+          <view class='sku_goods_money font_overflow'>
+            <text class='mo_fu'>￥</text>{{price}}</view>
+        </view>
+        <view class='close' catchtap='good_choice'>
+            <image src='../img/income/close.png'></image>
+        </view>
+      </view>
+      <view class='sku_scroll'  catchtouchmove='move'>
+        <scroll-view scroll-y="true" catchtouchmove='move'>
+
+          <view class='sku_list' wx:for="{{sku.category}}" wx:for-item="list" wx:key="key" wx:for-index="type_index">
+            <view class='sku_type'>{{list.name}}</view>
+            <view class='sku_item_list'>
+              <view class='sku_item {{item.can_select==1&&item.select==2?"sku_checkbox":""}} {{item.can_select==2?"can_select":""}}' wx:for="{{list.item_list}}" wx:for-item="item" wx:key="key" data-type='category' data-list='{{list}}' data-sku='{{item}}' catchtap='{{item.can_select==1&&item.select==1?"sku_item":""}}'>{{item.name}}</view>
+            </view>
+          </view>
+
+          <view class='sku_list' wx:for="{{sku.methods}}" wx:for-item="list" wx:key="key" wx:for-index="type_index">
+            <view class='sku_type'>{{list.name}}</view>
+            <view class='sku_item_list'>
+              <view class='sku_item {{item.can_select==1&&item.select==2?"sku_checkbox":""}} {{item.can_select==2?"can_select":""}}' wx:for="{{list.item_list}}" wx:for-item="item" wx:key="key" data-type='methods' data-list='{{list}}' data-sku='{{item}}' catchtap='{{item.can_select==1&&item.select==1?"sku_item":""}}'>{{item.name}}</view>
+            </view>
+          </view>
+
+          <view class='sku_list' wx:if="{{sku.batching.length>0}}">
+            <view class='sku_type'>配料</view>
+            <view class='sku_item_list'>
+              <view class='sku_item {{item.can_select==1&&item.select==2?"sku_checkbox":""}} {{item.can_select==2?"can_select":""}}' wx:for="{{sku.batching}}" wx:for-item="item" wx:key="key" data-type='batching' data-sku='{{item}}' catchtap='{{item.can_select==1?"sku_item":""}}'>{{item.name }}<text class='sku_money {{item.can_select==2?"can_select":""}}'>￥{{item.price}}</text></view>
+            </view>
+          </view>
+
+        </scroll-view>
+      </view>
+
+      <view class='good_choice_bottom line_color'>
+          <view class='good_choice_an' catchtap='{{sku.max_num>num?"add_sku_goods":"stock"}}'>选好了</view>
+      </view>
+  </view>
+  <!-- 规格选择弹框=>结束 -->
+
+
+  <!-- 购物车弹出层=>开始 -->
+  <view class='shopping_cart_mask {{shopping_cart_mask&&buy_goods_list.goods_list.length&&mask>0?"mask":""}}'>
+    <view class='shopping_mask_tilte font_color2'>
+      <view class='shopping_mask_text'>已选商品</view>
+      <view class='shopping_delete' catchtap='empty_shopping_cart'>
+        <image src='../img/income/delete.png'></image>删除</view>
+    </view>
+    <scroll-view class='shopping_goods_list' scroll-y="true">
+      <block wx:for="{{buy_goods_list.goods_list}}" wx:for-item="goods_list" wx:key="key">
+        <block wx:for="{{goods_list.sku_goods}}" wx:for-item="sku_goods" wx:key="key">
+          <block wx:for="{{sku_goods.practice}}" wx:for-item="practice" wx:key="key">
+            <view class='shopping_goods_item line_color'>
+              <view class='shopping_goods_left'>
+                <view class='shopping_goods_name font_color1 font_overflow'>{{sku_goods.sku.goods_name}}</view>
+
+                <view class='shopping_goods_sku font_color2 font_overflow' wx:if="{{practice.only_practice_name}}">已选：{{practice.only_practice_name}}</view>
+              </view>
+              <view class='shopping_goods_right'>
+                <view class='shopping_goods_money money_color'>
+                  <text class='mo_fu'>￥</text>{{practice.price}}</view>
+                <view class='join plus' data-sku='{{sku_goods}}' data-category='{{practice.category}}' data-methods='{{practice.methods}}' data-batching='{{practice.batching}}' data-only_practice='{{practice.only_practice}}' catchtap='empty_cart_goods'>
+                  <image src='../img/income/reduce.png'></image>
+                </view>
+                <view class='num font_color1'>{{practice.num}}</view>
+                <view class='join reduce' data-sku='{{sku_goods}}' data-category='{{practice.category}}' data-methods='{{practice.methods}}' data-batching='{{practice.batching}}' data-only_practice='{{practice.only_practice}}' catchtap='{{practice.max_num>practice.num?"add_cart_goods":"stock"}}'>
+                  <image src='../img/income/plus.png'></image>
+                </view>
+              </view>
+            </view>
+          </block>
+        </block>
+      </block>
+
+
+    </scroll-view>
+  </view>
+  <!-- 购物车弹出层=>结束 -->
+
+  <view class='goods_info_mask sku_mask  {{goods_info_mask&&mask>0?"mask":""}}' style="{{!goods_info.describe?'height:752rpx;':''}}" catchtouchmove='touchmove'>
+		<view class='close_info_img' catchtap='good_choice'>
+			<image src='../img/income/circular_close.png'></image>
+		</view>
+	<scroll-view class='goods_info'  scroll-y="true">
+	<view class='goods_info_img'>
+		<view class='info_img'>
+			<image src='{{goods_info.img_960_720}}'  mode='aspectFill'></image>
+		</view>
+	</view>
+	<view class='goods_info_bottom'>
+		<view class='goods_info_name font_color1 font_overflow'>{{goods_info.name}}</view>
+		<view class='goods_info_money'>
+			<view class='goods_info_money_text money_color'><text class='mo_fu'>￥</text>{{goods_info.money}}</view>
+            <!-- 加减图标=>开始 -->
+            <view class='purchase'>
+               <view class='purchase_join'>
+                <block wx:for="{{buy_goods_list.goods_list}}" wx:for-item="goods_list" wx:key="key">
+                  <block wx:if="{{goods_list.goods_id==goods_info.id}}">
+                     <!-- 减号 -->
+                    <view class='join plus' data-goods='{{goods_info}}' data-add_delete='2' data-existing_num='{{goods_list.num}}' catchtap='sku'>
+                      <image src='../img/income/reduce.png'></image>
+                    </view>
+                    <view class='num font_color1'>{{goods_list.num}}</view>
+                  </block>
+                </block>
+                <!-- 加号 -->
+                <view class='join reduce' data-goods='{{goods_info}}' data-add_delete='1' catchtap='sku'>
+                  <image src='../img/income/plus.png'></image>
+                </view>
+              </view>
+            </view>
+            <!-- 加减图标=>结束 -->
+		</view>
+		<view class='goods_info_text font_color2' wx:if="{{goods_info.describe}}">
+		{{goods_info.describe}}
+		</view>
+	</view>
+	</scroll-view>
+  </view>
+</view>
+
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+  <authorize bindlogin="login_success"></authorize>
+</view>
+
+<!-- 错误提示组件 -->
+<view class='error' hidden='{{show}}'>
+  <error bindretry="retry" error="{{error}}" error_text="{{error_text}}" retry_an="{{retry_an}}" log="{{log}}"></error>
+</view>

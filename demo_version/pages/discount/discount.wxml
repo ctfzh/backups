@@ -1,0 +1,166 @@
+<!-- 优惠THML -->
+<view class='max_discount font_color' hidden='{{!show_loading_faill}}'>
+  <view class='discount_back' style='{{data.member_info.length!=0?"background-color:"+data.background_color+";color:"+data.background_font_color:""}}'>
+    <view class='discount_back_img' wx:if="{{data.background_type==1&&data.member_info.length!=0}}">
+      <image mode="widthFix" src='{{data.background_img}}'></image>
+    </view>
+    <!-- 切换门店=>开始 -->
+    <view class='switch_store {{switch_store ? "drop_down_store" : ""}}' wx:if="{{store_name}}" catchtouchmove="preventD">
+      <view class='drop_down_store_back' catchtap='switch_store'></view>
+      <view class='store_title' catchtap='switch_store'>
+        <text class='store_text'>{{store_name}}</text>
+        <text class="iconfont icon-drop drop_down"></text>
+        <!-- <image class='drop_down' src='../img/income/{{switch_store ? "take_back_black" : "drop_down_black"}}.png'></image> -->
+      </view>
+      <view class='store_list font_color1'>
+        <view class='store_list_title' wx:for="{{store_data}}" wx:for-item="list" wx:key="key" data-store="{{list}}" bindtap='switch_store_id'>{{list.name}}</view>
+      </view>
+    </view>
+    <!-- 切换门店=>结束 -->
+    <!-- 会员卡=>开始 -->
+    <view class='seize'></view>
+    <view class='membership_card' style='background:{{data.card_background_color}};color:{{data.card_background_font_color}};' wx:if="{{data.member_info.length!=0}}">
+      <view class='discount_back_img' wx:if="{{data.card_background_type==1}}">
+        <image src='{{data.card_background_img}}'></image>
+      </view>
+      <view class='membership_card_user'>
+        <view class='membership_card_information'>
+          <view class='user_portrait'>
+            <view class='portrait_back'></view>
+    			<open-data  class='portrait_img' type="userAvatarUrl" wx:if="{{!user_portrait}}"></open-data>
+            <image class='portrait_img' src='{{user_portrait}}' wx:if="{{user_portrait}}"></image>
+          </view>
+    		<open-data class='portrait_name' type="userNickName" wx:if="{{!user_info.nickname}}"></open-data>
+          <view class='portrait_name' wx:if="{{user_info.nickname}}">{{user_info.nickname}}</view>
+        </view>
+        <view class='jump_membership_card' wx:if="{{!member_code}}" data-user='{{data}}' catchtap='{{data.is_open_card==1?"open_membership":""}}'>
+          领取会员卡
+          <text class="iconfont icon-see"></text>
+        </view>
+        <view class='jump_membership_card' data-user='{{user_info}}' wx:if="{{member_code}}"catchtap='{{data.is_open_card==1?"see_membership":""}}'>
+          会员卡
+          <text class="iconfont icon-see"></text>
+        </view>
+      </view>
+    </view>
+    <!-- 会员卡=>结束 -->
+  </view>
+
+  <!-- 功能菜单=>开始 -->
+  <view class='function_menu {{data.menu_count==1?"function_menu2":" function_menu1"}} {{data.member_info.length==0&&data.menu_count==1?"function_menu3":""}} {{data.member_info.length==0&&data.menu_count==2?"function_menu4":""}}' wx:if="{{data.menu_count>0}}">
+    <image class='function_menu_img' src='../img/banner/function_menu.png' wx:if="{{data.menu_count!=1}}"></image>
+    <view class='menu_Icon'>
+      <view class='menu_Icon_list' wx:if="{{Order}}">
+        <view class='menu_Icon_back back_order'>
+        <image class='menu_Icon_img' src='../img/income/order.png'></image>
+        </view>
+        <view class='menu_Icon_list_text'>点餐</view>
+      </view>
+
+      <view class='menu_Icon_list ' wx:if="{{data.is_open_pay==1}}" bindtap='open_pay'>
+        <view class='menu_Icon_back back_check {{data.menu_count==3?"menu_Icon_back_middle":""}}'>
+          <image class='menu_Icon_img {{data.menu_count==3?"menu_Icon_img_middle":""}}' src='../img/income/check.png'></image>
+        </view>
+        <view class='menu_Icon_list_text'>买单</view>
+      </view>
+
+      <view class='menu_Icon_list' wx:if="{{data.is_open_rechange==1}}" bindtap='jump_recharge_activity'> 
+        <view class='menu_Icon_back back_stored'>
+        <image class='menu_Icon_img' src='../img/income/stored.png'></image>
+        </view>
+        <view class='menu_Icon_list_text'>充值</view>
+      </view>
+    </view>
+  </view>
+  <!-- 功能菜单=>结束 -->
+
+  <!-- 优惠券=>开始 -->
+  <view class='discount_coupon'>
+    <view class='explain font_color1' wx:if="{{data.coupon_info.length==0&&!other_coupon&&data.menu_count==0&&data.member_info.discount_text}}">
+      <view class='explain_h1'>权益</view>
+       <view class='explain_text font_color3'>
+        <import src="../custom_modular/wxParse/wxParse.wxml" />
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+       </view> 
+    </view>
+
+    <view class='coupon_list' wx:for="{{data.coupon_info}}" wx:for-item="list" wx:key="key" wx:for-index="index" wx:if="{{index<x_coupon || more_coupon}}">
+      <view class='coupon_back_img'>
+        <image class='back_img' src='../img/banner/coupon_back{{list.is_fission==1?"_fiss":""}}.png'></image>
+      </view>
+      <view class='coupon_money'>
+        <view class='coupon_money_text font_overflow' wx:if="{{list.type!='DISCOUNT'}}"><text class='mo_fu'>￥</text>{{list.reduce_cost|toFixed}}</view>
+          <view class='coupon_money_text font_overflow' wx:if="{{list.type=='DISCOUNT'}}">{{list.discount}}<text class='mo_fu'>折</text></view>
+        <view class='coupon_condition font_overflow'>
+          <text wx:if="{{list.least_cost!='0.00'}}">满{{list.least_cost}}元可用</text>
+          <text wx:if="{{list.least_cost=='0.00'}}">满任意金额可用</text>
+        </view>
+      </view>
+      <view class='coupon_details'>
+        <view class='coupon_details_title font_overflow'>{{list.name}}</view>
+        <view class='coupon_details_text font_color3'>{{list.end_time_str}}</view>
+      </view>
+      <button class='coupon_receive' plain open-type="{{list.is_fission==1?'share':''}}" bindtap='{{list.is_fission==1?"coupon_share":"coupon_receive"}}' data-coupon='{{list}}'><text class='coupon_receive_text'>{{list.is_fission==1?"立即分享":"立即领取"}}</text></button>
+    </view>
+
+    <view class='more_coupon font_color3 line_color' wx:if="{{!more_coupon&&data.coupon_info.length>x_coupon}}">
+      <view class='bind_more_coupon' bindtap='more_coupon'>
+        <text class='more_coupon_text'>查看更多优惠券</text>
+        <image class='drop_downs' src='../img/income/drop_down_red.png'></image>
+      </view>
+    </view>
+  </view>
+  <!-- 优惠券=>结束 -->
+
+  <!-- 其它优惠券=>开始 -->
+   <view class='discount_coupon' wx:if="{{other_coupon}}">
+    <view class='other_coupon_title'>其它优惠券</view>
+    <view class='coupon_list' wx:for="{{other_coupon}}" wx:for-item="list" wx:key="key" wx:for-index="index" wx:if="{{index<2||other_more_coupon}}">
+      <view class='coupon_back_img'><image class='back_img' src='../img/banner/other_coupon_back.png'></image></view>
+      <view class='coupon_money'>
+        <view class='coupon_money_text font_overflow' wx:if="{{list.type!='DISCOUNT'}}"><text class='mo_fu'>￥</text>{{list.discount_money|toFixed}}</view>
+          <view class='coupon_money_text font_overflow' wx:if="{{list.type=='DISCOUNT'}}">{{list.discount_money}}<text class='mo_fu'>折</text></view>
+        <view class='coupon_condition font_overflow'>
+          <text wx:if="{{list.least_cost}}">满{{list.least_cost|int}}元可用</text>
+          <text wx:if="{{!list.least_cost}}">满任意金额可用</text>
+        </view>
+      </view>
+      <view class='coupon_details'>
+        <view class='coupon_details_title'>{{list.merchant_name}}</view>
+        <view class='coupon_details_text font_color3'>{{list.end_time}}</view>
+      </view>
+      <button class='coupon_receive' plain bindtap='bindother_url' data-coupon='{{list}}'><text class='coupon_receive_text'>立即领取</text></button>
+    </view>
+    <view class='more_coupon font_color3 line_color' wx:if="{{!other_more_coupon}}">
+      <view class='bind_more_coupon' bindtap='other_more_coupon'>
+        <text class='more_coupon_text'>查看更多优惠券</text>
+        <image class='drop_downs' src='../img/income/drop_down_red.png'></image>
+      </view>
+    </view>
+  </view> 
+  <!-- 其它优惠券=>结束 -->
+  <!-- 底部logo -->
+  <import src="../custom_modular/bottom_Logo.wxml" />
+  <template is="bottom_Logo" />
+
+  <!-- 新人礼包=>开始  -->
+  <view class='new_people_gift' wx:if="{{isShow}}">
+    <!-- 新人礼包模块引入 -->
+    <new_people_gift></new_people_gift>
+  </view>
+  <!--新人礼包=>结束   -->
+
+</view>
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+  <authorize bindlogin="login_success" class_aut="authorize"></authorize>
+</view>
+
+<!-- 顶部提示 -->
+<import src="../overall_situation_modular/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+<!--请求页面数据失败显示模块  -->
+ <import src="../overall_situation_modular/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{ show_loading_faill, show}}" /> 
+

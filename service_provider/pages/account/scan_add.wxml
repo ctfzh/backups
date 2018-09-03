@@ -1,0 +1,6 @@
+<!-- 添加支付宝收款账号 -->
+<view class='scan_add_max font_color1'>
+	<view class='scan_add_title'>添加支付宝收款账号</view>
+	<view class='scan_img'><image src="../img/banner/mobile_qrcode.png"></image></view>
+	<view class='scan_add_text'>使用签约的支付宝账号登录支付宝客户端扫描完成授权绑定</view>
+</view>

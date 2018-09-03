@@ -1,0 +1,113 @@
+/* app.wxss */
+/* 搜索框模块样式 */
+@import "pages/custom_modular/search.wxss";
+@import "pages/custom_modular/submit_feedback.wxss";
+
+page{
+	background-color: #F8F8F8;
+	font-family: Helvetica,sans-serif;
+}
+
+
+/* 通用字体CSS */
+.font_color1{
+	color: #1C1C1C;
+}
+.font_color2{
+	color: #999999;
+}
+.font_color3{
+	color: #00AAEE;
+}
+.font_color4{
+	color: #2C2F33;
+}
+.font_color5{
+	color: #B1B2B3;
+}
+.font_color6{
+	color: #43474D;
+}
+
+
+/*通用文字省略CSS  */
+.font_overflow{
+  word-break: break-all;/*字母，数字换行*/
+  text-overflow: ellipsis;
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+  -webkit-line-clamp: 1; /** 显示的行数 **/
+  overflow: hidden;  /** 隐藏超出的内容 **/
+}
+
+/* 通用边框线颜色 */
+.line_color{
+	border-width: 0rpx;
+	border-style: solid;
+	border-color: #E9E9E9;
+
+}
+
+/* 箭头样式 */
+.right_arrow{
+	width: 80rpx;
+	height: 80rpx;
+	display: flex;
+}
+.right_arrow image{
+	width: 100%;
+	height: 100%;
+}
+
+  /* 文本框通用样式 */
+input{
+	color: #1C1C1C;
+}
+
+/* 按钮样式 */
+.button_t{
+	padding: 32rpx 0rpx 50rpx 0rpx;
+}
+button[plain]{
+	height: 100rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 32rpx;
+	background-color: #fff;
+	border-radius: 0rpx;
+	border: 0rpx;
+	color: #00AAEE;
+}
+.hover{
+	color: #a2daf8 !important;
+	background-color: #fefefe !important;
+}
+
+/* 添加按钮 */
+.add{
+	height: 100rpx;
+	font-size: 26rpx;
+	line-height: 100rpx;
+	margin: 30rpx 20rpx 0rpx 20rpx;
+	background-color: #fff;
+	vertical-align: middle;
+	text-align: center;
+}
+
+
+/* 字体图标 */
+@font-face {
+  font-family: 'iconfont';  /* project id 583201 */
+  src: url('//at.alicdn.com/t/font_583201_or45wodwvve.eot');
+  src: url('//at.alicdn.com/t/font_583201_or45wodwvve.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_583201_or45wodwvve.woff') format('woff'),
+  url('//at.alicdn.com/t/font_583201_or45wodwvve.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_583201_or45wodwvve.svg#iconfont') format('svg');
+}
+
+.iconfont{
+    font-family:"iconfont" !important;
+}
+/*  */
+.icon-sousuo:before { content: "\e607";}

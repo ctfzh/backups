@@ -1,0 +1,103 @@
+<!-- 买单HTML -->
+<view class='max_check font_color1'  hidden='{{!show_loading_faill}}'>
+  <view class='check_money'>
+    <view class='check_money_title'>消费总金额 (元)</view>
+    <view class='check_money_input'>
+      <input type='digit' maxlength='10' placeholder='请询问收银员后输入' bindinput='bind_order_money'></input>
+    </view>
+  </view>
+  <view class='check_money'>
+    <view class='check_money_title'>不参与优惠金额 (元)</view>
+      <view class='check_money_input'>
+        <input type='digit'  maxlength='10' placeholder='请询问收银员后输入' bindinput='bind_undiscountable_money' value='{{undiscountable_money}}'></input>
+    </view>
+  </view>
+
+  <view class='discounts'>
+     <view class='discounts_list line_color' bindtap='{{coupon.length<=0?"":"tap_coupon_layer"}}'>
+      <view class='coupon_h1'>优惠券</view>
+      <view class='coupon_h2 font_color3'>
+        <view class='coupon_text' wx:if="{{coupon.length<=0}}">无优惠券可用</view>
+        <view class='coupon_money' wx:if="{{coupon.length>0}}">{{coupon_discount_money&&coupon_discount_money!=0?'-'+coupon_discount_money:"有可用优惠券"}}</view>
+        <image class='right_arrow' src='../img/income/right_arrow.png'></image>
+      </view>
+    </view> 
+
+    <view class='discounts_list line_color' bindtap='discounts_radio'>
+      <view class='coupon_h1'>会员折扣</view>
+      <view class='coupon_h2 font_color3'>
+        <view class='coupon_text member_discount' wx:if="{{!member_discount}}">不可用</view>
+        <view class='coupon_money member_money'  wx:if="{{member_discount}}">{{discount_money&&discount_money!=='0'?'-'+discount_money:''}}</view>
+        <image class='selected'  wx:if="{{member_discount}}" src='../img/income/{{if_member_discount=="1"?"selected":"unchecked"}}.png'></image>
+      </view>
+    </view>
+  </view>
+
+  <view class='button_an' bindtap='bind_addorder'>确认付款{{pay_money}}元</view>
+
+
+
+  <!--弹出窗=>开始  -->
+  <view class='activity_eject'>
+    <view class='activity_mask' bindtap='tap_activity_layer_close' style='{{activity_eject=="none"?"display: none":""}}'></view>
+    <!--优惠券选择窗口=>开始  -->
+    <view class='coupon_layer activity_layer {{activity=="coupon"?"transform":""}}'>
+      <view class='activity_layer_close' bindtap='tap_activity_layer_close'>
+        <image src='../img/income/dialog-del.png'></image>
+      </view>
+      <view class='activity_layer_h1'>选择优惠券</view>
+      <view class='coupon_list_use'>
+        您已选中优惠券{{coupon_sele}}张，共优惠
+        <text class='couon_list_money'>￥{{coupon_discount_money?coupon_discount_money:'0'}}</text>
+      </view>
+      <view class='whole_coupon'>
+        <!--可选优惠券  -->
+        <checkbox-group bindchange="checkboxChange">
+          <view class='coupon_layer_list' wx:for="{{coupon}}" wx:for-item="itemName" wx:key="key" wx:for-index="index">
+            <view class='coupon_layer_list_top'>
+              <view class='coupon_layer_list_left'>
+                <view class='left_moeny'>
+                  <!--现金优惠  -->
+                  <text wx:if="{{itemName.type=='CASH'}}">
+									  <text>￥</text>
+                    <text class='left_coupon_moeny'>{{itemName.reduce_cost}}</text>
+                  </text>
+                  <!--折扣率 -->
+                  <text wx:if="{{itemName.type!='CASH'}}">
+												<text class='left_coupon_moeny'>{{itemName.discount}}</text>折
+                  </text>
+                </view>
+                <view class='left_condition'>{{itemName.least_cost_title}}</view>
+              </view>
+              <view class='coupon_layer_list_in'>
+                <view class='coupon_layer_name'>{{itemName.title}}</view>
+                <view class='coupon_layer_itme'>{{itemName.start_time}}-{{itemName.end_time}}</view>
+              </view>
+              <view class='coupon_layer_list_right'>
+                <label class='max_checked' data-coupon='{{itemName}}' bindtap="{{itemName.least_cost>order_money-undiscountable_money||(itemName.id!=sele_id&&Unavailable)||(itemName.id!=sele_id&&coupon_sele>0&&itemName.can_use_with_other_discount==2)? '': 'see_check' }}">
+                  <checkbox class='coupon_layer_list_use' value="{{itemName.id}}" disabled="{{itemName.least_cost>order_money-undiscountable_money||(itemName.id!=sele_id&&Unavailable)||(itemName.id!=sele_id&&coupon_sele>0&&itemName.can_use_with_other_discount==2)? true: false }}" checked="{{coupon_checked}}"/>
+                </label>
+              </view>
+            </view>
+          </view>
+        </checkbox-group>
+      </view>
+      <view class='coupon_confirm' bindtap='coupon_confirm'>确认</view>
+    </view>
+    <!--优惠券选择窗口=>结束  -->
+  </view>
+  <!--弹出窗=>结束  -->
+</view>
+
+<!-- 顶部提示 -->
+<import src="../overall_situation_modular/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+<!--请求页面数据失败显示模块  -->
+ <import src="../overall_situation_modular/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{ show_loading_faill, show}}" /> 
+
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+  <authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+</view>

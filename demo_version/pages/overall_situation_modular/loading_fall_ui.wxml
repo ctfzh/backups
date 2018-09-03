@@ -1,0 +1,19 @@
+<!-- 加载失败显示页 -->
+<template name="looading_faill_view">
+  <view class='center_class' hidden='{{show_loading_faill}}'>
+	<view class='show_img1' wx:if="{{show[0]==1}}">
+		<image class='image' src='../img/banner/mesh_error.png'></image>
+	</view>
+	<view class='show_img2' wx:if="{{show[0]==2}}">
+		<image class='image' src='../img/banner/load_error.png'></image>
+	</view>
+	<view class='show_img3' wx:if="{{show[0]==3}}">
+		<image class='image' src='../img/banner/empty_error.png'></image>
+	</view>
+	<view class='show_text'>{{show[1]}}</view>
+	<view class='show_text show_text2' wx:if="{{show[2]}}">{{show[2]}}</view>
+	<view class='show_an an1' catchtap='retry_onclick' wx:if="{{show[3]==1}}">重新加载</view>
+	<view class='show_an an2' catchtap='retry_onclick' wx:if="{{show[3]==2}}">刷新</view>
+	<view class='show_an an3' catchtap='login_an' wx:if="{{show[3]==3}}">重新登录</view>
+  </view>
+</template>

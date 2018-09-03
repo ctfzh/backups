@@ -1,0 +1,65 @@
+<!--收货地址  -->
+<view class='container' hidden='{{!show}}'>
+  <view class='address_wraper'>
+    <view class='address_box'>
+      <!--在范围内地址  -->
+      <view class='error' wx:if="{{!infoList.valid}}">
+        <error bindretry="retry" error="1" error_text="请添加收货地址" retry_an="0" log="0"></error>
+      </view>
+      <view class='in_address line_color' wx:if="{{infoList.valid}}">
+        <view class='address_item' wx:for="{{infoList.valid}}" wx:for-item="item" wx:key="key" data-address_id='{{item.id}}' catchtap='{{store_id?"switch_address":""}}'>
+          <view class='left'>
+            <view class='txt'>
+              <view class='top font_overflow font_color1'>{{item.address}} {{item.full_address}}</view>
+              <view class='bottom'>
+                <text class='name'>{{item.name}}{{item.sex==1?'（先生）':'（女士）'}}</text>
+                <text class='phone font_overflow'>{{item.telephone}}</text>
+              </view>
+            </view>
+          </view>
+          <view class='right' catchtap='edit' data-id="{{item.id}}">
+            <view class='modify_wraper'>
+              <view class='modify'>
+                <image src='/pages/img/income/modify.png'></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!--间隔栏  -->
+       <view class='block' wx:if="{{infoList.invalid.length>0}}">以下地址超出配送范围</view> 
+      <!--超出范围地址  -->
+       <view class='over_address' wx:if="{{infoList.invalid.length>0}}">
+        <view class='over_address_item' wx:for="{{infoList.invalid}}" wx:for-item="item" wx:key="key">
+          <view class='left'>
+            <view class='address'>{{item.address}}</view>
+            <view class='person_info'>
+              <text>{{item.name}}{{item.sex==1?'（先生）':'（女士）'}}</text>
+              <text>{{item.telephone}}</text>
+            </view>
+          </view>
+          <view class='right'>
+            <view class='modify_wraper'>
+              <view class='modify'>
+                <image src='/pages/img/income/modify.png'></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view> 
+    </view>
+  </view>
+
+  <!--新增地址  -->
+  <view class='add_adress line_color' catchtap='add_address'>
+    <view class='add_icon'>
+      <image src='/pages/img/income/plus.png'></image>
+    </view>
+    <view class='txt'>新增地址</view>
+  </view>
+</view>
+
+<!-- 错误提示组件 -->
+<view class='error' hidden='{{show}}'>
+  <error bindretry="retry" error="{{error}}" error_text="{{error_text}}" retry_an="{{retry_an}}" log="{{log}}"></error>
+</view>

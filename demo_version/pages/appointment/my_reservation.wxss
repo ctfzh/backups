@@ -1,0 +1,37 @@
+/* 我的预约 */
+.bespeak_item{
+   padding: 40rpx 30rpx;
+   background-color: #fff;
+}
+.font_color{
+   color: #585E66;
+}
+.bespeak_item{
+   margin-top: 12rpx;
+}
+.bespeak_top{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.bespeak_top_h1{
+   font-size: 28rpx;
+}
+.bespeak_top_h2{
+   font-size: 22rpx;
+}
+.bespeak_bottom{
+   margin-top: 35rpx;
+}
+.bespeak_bottom_item{
+   display: flex;
+   align-items: center;
+   margin-top: 25rpx;
+   font-size: 24rpx;
+}
+.bespeak_bottom_item:last-child{
+   margin-top: 0rpx;
+}
+.bespeak_bottom_h2{
+   margin-left: 20rpx;
+}

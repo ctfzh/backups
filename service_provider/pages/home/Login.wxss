@@ -1,0 +1,41 @@
+/* 登录 */
+.title{
+	font-weight: bold;
+	font-size: 40rpx;
+	padding-top: 170rpx;
+	text-align: center;
+	letter-spacing: 2rpx;
+	line-height: 40rpx;
+}
+.Login_info{
+	margin: 89rpx 20rpx 20rpx 20rpx;
+	background-color: #fff;
+	padding: 0rpx 20rpx;
+}
+.info_item{
+	height: 130rpx;
+	border-bottom-width: 1rpx;
+	display: flex;
+	align-items: center;
+	font-size: 30rpx;
+}
+.info_item:last-child{
+	border-width: 0rpx;
+}
+.info_item_text{
+	width: 217rpx;
+}
+
+.info_item input{
+	flex: 1;
+	height: 100%;
+}
+
+.Login_an{
+	margin: 0rpx 20rpx;
+	height: 100rpx;
+	color: #00AAEE;
+	background-color: #fff;
+	line-height: 100rpx;
+	text-align: center;
+}

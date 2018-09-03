@@ -1,0 +1,125 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.0",
+	"appid": "wxe8744de179dd0eb1",
+	"projectname": "%E5%9B%A2%E8%B4%AD%E5%B0%8F%E7%A8%8B%E5%BA%8F",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 13,
+			"list": [
+				{
+					"id": -1,
+					"name": "限时抢购",
+					"pathName": "pages/restrictions/restrictions",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "限时抢购详情",
+					"pathName": "pages/restrictions/details",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "好店",
+					"pathName": "pages/store/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/search/search",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "门店详情",
+					"pathName": "pages/store/details",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "团购",
+					"pathName": "pages/group_buying/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "团购详情",
+					"pathName": "pages/group_buying/details",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/user/user",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的订单",
+					"pathName": "pages/order/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/order/details",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "提交订单",
+					"pathName": "pages/payment/place_order",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "支付完成",
+					"pathName": "pages/payment/payment_success",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "退款申请",
+					"pathName": "pages/order/refund",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的收藏",
+					"pathName": "pages/collection/collection",
+					"query": ""
+				}
+			]
+		}
+	}
+}

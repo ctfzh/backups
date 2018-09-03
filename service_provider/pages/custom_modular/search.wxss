@@ -1,0 +1,8 @@
+/* 搜索框样式 */
+.search{
+	height: 74rpx;
+	margin: 40rpx 20rpx 0rpx 20rpx;
+	text-align: center;
+	font-size: 26rpx;
+	background-color: #FFF;
+}

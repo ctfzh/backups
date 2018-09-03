@@ -1,0 +1,85 @@
+/* 个人信息CSS */
+image{
+  width: 100%;
+  height: 100%;
+}
+input{
+  flex: 1;
+  font-size: 30rpx;
+}
+picker{
+  flex: 1;
+}
+.picker{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+}
+
+.top_portrait_info{
+  margin-top: 20rpx;
+  background-color: #fff;
+  /* padding-bottom: 10rpx;  */
+}
+
+.info_list{
+  height: 90rpx;
+  font-size: 32rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  border-width: 0rpx;
+  border-style: solid;
+  border-bottom-width: 1rpx;
+  margin-left: 30rpx; 
+}
+.list_text{
+  width: 180rpx;
+}
+
+.portait_info{
+  height: 140rpx;
+  padding: 0rpx 30rpx;
+  margin: 0rpx;
+}
+.portait_img{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #ccc;
+}
+
+.other_info{
+  background-color: #fff;
+  margin-top: 20rpx;
+  /* padding-bottom: 10rpx;  */
+}
+
+.top_portrait_info .info_list:last-child{
+  border-bottom-width: 0rpx;
+}
+.info_list:last-child{
+  border-bottom-width: 0rpx;
+}
+
+/* 获取验证码 */
+.obtain_code{
+	font-size: 24rpx;
+	display: flex;
+	align-items: center;
+	margin: 0 30rpx;
+	color:#41B035;
+}
+.recapture_obtain{
+	color: #ccc;
+}
+
+.none_line{
+  border-bottom-width: 0rpx;
+}
+.modify_but{
+  padding-bottom: 60rpx;
+}

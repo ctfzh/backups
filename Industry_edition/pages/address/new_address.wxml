@@ -1,0 +1,57 @@
+<!--新增收货地址  -->
+<view class='container' hidden='{{!show}}'>
+  <form bindsubmit="formSubmit">
+    <view class='info_list'>
+      <view class='contect'>
+        <view class='info_item'>
+          <view class='label'>联系人</view>
+          <view class='input'>
+            <input type='text' placeholder='收货人姓名' placeholder-class='placeholder' name="name" value="{{addressDetail?addressDetail.name:''}}" bindinput="input_name"></input>
+          </view>
+        </view>
+        <view class='line_wraper'>
+          <view class='line'></view>
+        </view>
+        <view class='sex'>
+          <view class="item {{curSex=='1'?'active':''}}" data-id='1' catchtap='tab'>先生</view>
+          <view class="item {{curSex=='2'?'active':''}}" data-id='2' catchtap='tab'>女士</view>
+        </view>
+      </view>
+      <view class='info_item'>
+        <view class='label'>手机号</view>
+        <view class='input'>
+          <input type='number' placeholder='收货人手机号' placeholder-class='placeholder' name="telephone" value="{{addressDetail?addressDetail.telephone:''}}" bindinput="input_phone"></input>
+        </view>
+      </view>
+      <view class='info_item'>
+        <view class='label'>收货地址</view>
+        <view class="input {{address?'font_color':''}}" catchtap='openLocation'>
+          <view class='input_text font_overflow'>{{address?address:'请输入收货地址'}}</view>
+          <view class='icon'>
+            <image src='/pages/img/income/right_arrow.png'></image>
+          </view>
+        </view>
+      </view>
+      <view class='info_item'>
+        <view class='label'>详细地址</view>
+        <view class='input'>
+          <input type='text' placeholder='例：7号楼8层101室' placeholder-class='placeholder' name="full_address" value="{{addressDetail?addressDetail.full_address:''}}" bindinput="input_full_address"></input>
+        </view>
+      </view>
+    </view>
+
+    <!--按钮  -->
+    <view class='btn_wraper'>
+      <button class='btn active' formType="{{is_formSubmit!=1?'submit':''}}">保存地址</button>
+      <button class='btn' catchtap='deleteAddress' wx:if="{{addressId}}">删除 </button>
+    </view>
+  </form>
+</view>
+
+<import src="../overall_situation_modular/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<!-- 错误提示组件 -->
+<view class='error' hidden='{{show}}'>
+  <error bindretry="retry" error="{{error}}" error_text="{{error_text}}" retry_an="{{retry_an}}" log="{{log}}"></error>
+</view>

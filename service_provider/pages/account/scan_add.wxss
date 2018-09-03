@@ -1,0 +1,30 @@
+/* 添加支付宝收款账号 */
+.scan_add_max{
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+.scan_add_title{
+	font-size: 30rpx;
+	padding: 100rpx 0rpx 138rpx 0rpx;
+}
+
+.scan_img{
+	width: 270rpx;
+	height: 270rpx;
+	display: flex;
+}
+
+.scan_img image{
+	width: 100%;
+	height: 100%;
+}
+
+.scan_add_text{
+	width: 431rpx;
+	color: #4D4D4D;
+	padding-top: 51rpx;
+	font-size: 24rpx;
+	line-height: 44rpx;
+	text-align: center;
+}

@@ -1,0 +1,130 @@
+/* 相册CSS */
+.fixed{
+	position: fixed !important;
+}
+.top_screen{
+  background-color: #fff;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  z-index: 9;
+  border-width: 0rpx;
+  border-style: solid;
+  border-top-width: 1rpx;
+}
+.screen_scroll{
+  white-space: nowrap;
+  display: flex;
+  justify-content: space-around;
+}
+.screen_list{
+  padding: 20rpx 0rpx;
+  font-size: 30rpx;
+  /* margin-left: 60rpx; */
+  display: inline-table;
+  position: relative;
+  text-align: center;
+}
+.screen_list1{
+  width: 100%;
+}
+.screen_list2{
+  width: 50%;
+}
+.screen_list3{
+  width: 33%;
+}
+.screen_list4{
+  width: 25%;
+}
+.screen_list5{
+  width: 20%;
+}
+.selected{
+ color: #F03F2B;
+}
+.selected .screen_list_jiao_max{
+  position: absolute;
+  left: 0rpx;
+  right: 0rpx;
+  bottom: -9rpx;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+.selected .screen_list_jiao{
+	width: 20rpx;
+  height: 20rpx;
+  background: linear-gradient(-45deg,#F2F3F5, #F2F3F5 50%,transparent 50%);
+  transform: rotate(-135deg); 
+}
+.bottom_screen{
+	margin-top:  100rpx;
+}
+.bottom_screen1{
+  padding: 0rpx 30rpx 20rpx 30rpx;
+}
+.bottom_screen2{
+  padding: 0rpx 20rpx;
+}
+.bottom_screen_max{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.screen_img{
+  overflow: hidden;
+  display: flex;
+  border-radius: 4rpx;
+  margin: 0rpx 0rpx 20rpx 0rpx;
+}
+.bottom_screen1 .screen_img{
+  width: 335rpx;
+  height: 335rpx;
+}
+.bottom_screen2 .screen_img{
+  width: 100%;
+}
+.video_x{
+  width: 100%;
+}
+.bottom_screen2 .video_play{
+  height: 403rpx;
+  padding-bottom: 20rpx;
+}
+video,
+image{
+  width:100%;
+  height: 100%;
+  border-radius: 4rpx;
+}
+.video_title{
+  padding:20rpx 5rpx;
+  font-size: 32rpx;
+}
+.font_overflow{
+  -webkit-line-clamp: 1; /** 显示的行数 **/
+}
+
+/* 无图片时 */
+.empty{
+	position: absolute;
+	top: 100rpx;
+	bottom: 0rpx;
+	left: 0rpx;
+	right: 0rpx;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+   background-color: #fff; 
+}
+.empty_img{
+  margin-top: -100rpx;
+  width: 364rpx;
+  height: 364rpx;
+}
+.empty_text{
+  font-size: 30rpx;
+}

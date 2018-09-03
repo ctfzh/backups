@@ -1,0 +1,52 @@
+/* 引入全局样式 */
+@import '../../app.wxss';
+
+.container {
+  background: #fff;
+}
+
+.pay-wraper {
+  margin: 0 30rpx 0 61rpx;
+}
+
+.pay {
+  display: flex;
+  padding: 10rpx 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.describe {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.img {
+  width: 100rpx;
+  height: 100rpx;
+  padding: 13rpx;
+  box-sizing: border-box;
+}
+
+.img image {
+  width: 100%;
+  height: 100%;
+}
+
+.detail {
+  margin-left: 31rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.toPay {
+  width: 132rpx;
+  height: 54rpx;
+  border-radius: 4rpx;
+  text-align: center;
+  line-height: 54rpx;
+  background: #f24c22;
+  color: #fff;
+  font-size: 30rpx;
+}

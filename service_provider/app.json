@@ -1,0 +1,52 @@
+{
+   "pages": [
+      "pages/home/Login",
+      "pages/home/home",
+      "pages/merchant/list",
+      "pages/merchant/add",
+      "pages/merchant/set_up",
+      "pages/merchant/info_edit",
+      "pages/merchant/account_setting",
+      "pages/store/manage",
+      "pages/store/add_editor",
+      "pages/store/select_account",
+      "pages/store/public_praise",
+      "pages/account/add_list",
+      "pages/account/scan_add",
+      "pages/staff/list",
+      "pages/staff/add",
+      "pages/staff/store",
+      "pages/activation_code/list",
+      "pages/user/user"
+   ],
+   "window": {
+      "backgroundTextStyle": "light",
+      "navigationBarBackgroundColor": "#F8F8F8",
+      "navigationBarTitleText": "",
+      "navigationBarTextStyle": "black"
+   },
+   "networkTimeout": {
+      "request": 100000,
+      "connectSocket": 100000,
+      "uploadFile": 100000,
+      "downloadFile": 100000
+   },
+   "debug": false,
+   "tabBar": {
+      "position": "bottom",
+      "backgroundColor": "#F8F8F8",
+      "borderStyle": "white",
+      "list": [
+         {
+            "pagePath": "pages/home/home",
+            "iconPath": "pages/img/tabBar/hide_home.png",
+            "selectedIconPath": "pages/img/tabBar/show_home.png"
+         },
+         {
+            "pagePath": "pages/user/user",
+            "iconPath": "pages/img/tabBar/hide_user.png",
+            "selectedIconPath": "pages/img/tabBar/show_user.png"
+         }
+      ]
+   }
+}

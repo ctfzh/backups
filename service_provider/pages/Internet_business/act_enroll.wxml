@@ -1,0 +1,93 @@
+<!--pages/Internet_business/act_enroll.wxml-->
+<view wx:if="{{!feedback}}">
+
+  <view class='feekback_info' wx:if="{{blue_sea_status==5}}">
+    <view class='feekback_text font_color8'>
+      驳回
+    </view>
+    <view class='feekback_detail font_color2 font_overflow_2'>
+      驳回理由：{{blue_sea_reject_reason}}
+    </view>
+  </view>
+
+  <form bindsubmit='handleSubmit'>
+    <!-- 商户信息 -->
+    <view class='item'>
+      <view class='add_item'>
+        <view class='item_cont line_color first_item'>
+          <text class='item_text'>商户名称</text>
+          <text class='item_input font_overflow'>{{merchant_name}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='select'>
+      <image 
+        src="{{bs_door_pic_value||'../img/income/select_pic.png'}}"
+        class='icon' 
+        bindtap='handleUpload'
+        data-photo_type='06'
+      ></image>
+      <view class='select_text font_color4'>店铺门头照</view>
+      <view class='tip font_color2'>
+        门店门口照片招牌清晰可见
+      </view>
+    </view>
+    <view class='select desk'>
+      <image 
+        src="{{bs_syt_pic_value||'../img/income/select_pic.png'}}"
+        class='icon' 
+        bindtap='handleUpload'
+        data-photo_type='08'
+      ></image>
+      <view class='select_text font_color4'>收银台照片</view>
+      <view class='tip font_color2'>
+      <text>1. 主扫：扫码支付场景需要展示具有支付宝 logo 和“推荐使用支付宝或支付就用支付宝”露出的二维码物料或立牌\n2. 被扫：展示具有支付宝 logo 和“推荐使用支付宝或支付就用支付宝”的扫码机具(盒子)
+      </text>
+      </view>
+    </view>
+    <view class='select'>
+      <image 
+        src="{{bs_license_pic_value||'../img/income/select_pic.png'}}"
+        class='icon' 
+        bindtap='handleUpload'
+        data-photo_type='03'
+      ></image>
+      <view class='select_text font_color4'>营业执照</view>
+      <view class='tip font_color2'>
+        营业执照文本信息清晰可见
+      </view>
+    </view>
+    <view class='select'>
+      <image 
+        src="{{bs_shop_pic_value||'../img/income/select_pic.png'}}"
+        class='icon' 
+        bindtap='handleUpload'
+        data-photo_type='09'
+      ></image>
+      <view class='select_text font_color4'>店内环境照片</view>
+      <view class='tip font_color2'>
+        需可判断具有餐饮营业的环境基础，包括但不限于桌子，餐具
+      </view>
+    </view>
+    <view class='select materials'>
+      <image 
+        src="{{bs_supplement_pic_value||'../img/income/select_pic.png'}}"
+        class='icon' 
+        bindtap='handleUpload'
+        data-photo_type='10'
+      ></image>
+      <view class='select_text font_color4'>补充材料</view>
+      <view class='tip font_color2'>
+      <text>主流餐饮平台入驻商户展示页面照:大众点评，美团，口碑，百度外卖，饿了么任选一个
+      </text>
+      </view>
+    </view>
+    <view class='tip_bottom font_color2'>
+      提交的5张照片中，至少有一张图片中包含“红包码物料”
+      （可以在店铺内景照或者收银台照片中包含）
+    </view>
+    <button class='saveBtn' plain form-type='submit'>提交</button>
+  </form>
+
+</view>
+

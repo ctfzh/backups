@@ -1,0 +1,72 @@
+<!-- 添加商户 -->
+<view class='add_max font_color4' hidden='{{feedback}}'>
+	<form bindsubmit="formSubmit">
+
+	<view class='add_item'>
+		<view class='item_cont line_color'>
+			<text class='item_text'>商户手机号</text>
+			<input type='text' class='item_input' placeholder='作为商户后台登录账户' placeholder-class='font_color2' name="phone"></input>
+		</view>
+	</view>
+
+	<view class='add_item'>
+		<view class='item_cont line_color'>
+			<text class='item_text'>商户名称</text>
+			<input type='text' class='item_input' placeholder='营业执照名称' placeholder-class='font_color2' name=""></input>
+		</view>
+	</view>
+
+	<view class='add_item'>
+		<view class='item_cont line_color'>
+			<text class='item_text'>商户简称</text>
+			<input type='text' class='item_input' placeholder='' placeholder-class='font_color2' name=""></input>
+		</view>
+	</view>
+
+	<view class='title font_color2'>全部商户</view>
+
+	<view class='add_item'>
+		<view class='item_cont line_color'>
+			<text class='item_text'>门店名称</text>
+			<input type='text' class='item_input' placeholder='未设置' placeholder-class='font_color2' name=""></input>
+		</view>
+	</view>
+
+	<view class='add_item'>
+		<view class='item_cont line_color'>
+			<text class='item_text'>门店编号</text>
+			<input type='text' class='item_input' placeholder='未设置' placeholder-class='font_color2' name=""></input>
+		</view>
+	</view>
+
+	<view class='add_item'>
+		<view class='item_cont line_color'>
+			<text class='item_text'>支付宝外部门店编号</text>
+			<input type='text' class='item_input' placeholder='选填，关联口碑门店' placeholder-class='font_color2' name=""></input>
+		</view>
+	</view>
+
+	<view class='add_item'>
+		<view class='item_cont line_color'>
+			<text class='item_text'>收银员账号</text>
+			<input type='text' class='item_input' placeholder='用于登录收银台' placeholder-class='font_color2' name=""></input>
+		</view>
+	</view>
+
+	<view class='add_item'>
+		<view class='item_cont line_color'>
+			<text class='item_text'>登录密码</text>
+			<input type='text' class='item_input' placeholder='未设置' placeholder-class='font_color2' name=""></input>
+		</view>
+	</view>
+	<view class='button_t'>
+		<button class='submit' form-type="submit" hover-class="hover" plain="true">保存</button>
+	</view>
+	</form>
+</view>
+
+	<!-- 引入搜索模板 -->
+	<view hidden='{{!feedback}}'>
+		<import src="../custom_modular/submit_feedback.wxml" />
+		<template is="feedback" data="{{img:1,title:'申请成功',text:['商户名称 景色花艺咖啡馆','门店名称 烫面包-古镇一店'],buttom:'下一步'}}"/>
+	</view>

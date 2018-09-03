@@ -1,0 +1,34 @@
+/* 直连、间连账号添加 */
+.add_list{
+	padding: 40rpx 20rpx;
+}
+.list_item{
+	height: 172rpx;
+	background-color: #fff;
+	display: flex;
+	align-items: center;
+	margin-bottom: 20rpx;
+}
+.item_img{
+	width: 80rpx;
+	height: 80rpx;
+	display: flex;
+}
+.item_img image{
+	width: 100%;
+	height: 100%;
+}
+
+.item_cont{
+	padding-right: 20rpx;
+}
+
+.item_title{
+	font-size: 30rpx;
+}
+
+.item_text{
+	font-size: 26rpx;
+	line-height: 28rpx;
+	margin-top: 15rpx;
+}

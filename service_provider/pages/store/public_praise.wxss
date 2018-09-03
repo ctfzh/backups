@@ -1,0 +1,24 @@
+/* 口碑门店关联 */
+.store_item{
+	height: 110rpx;
+	background-color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0rpx 40rpx;
+}
+
+.item_title{
+	font-size: 30rpx;
+	margin-right: 30rpx;
+}
+.item_text{
+	flex: 1rpx;
+	height: 100%;
+	font-size: 26rpx;
+	text-align: right;
+}
+.prompt{
+	padding: 12rpx 40rpx 0rpx 40rpx;
+	font-size: 26rpx;
+}

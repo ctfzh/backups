@@ -1,0 +1,75 @@
+<!--新人礼包  -->
+<view class='gift_container' wx:if='{{isShow}}'>
+  <view class='shadow' disable-scroll="true" catchtap='close'catchtouchmove="preventD"></view>
+  <view class='gift_wraper' wx:if="{{gift}}" catchtouchmove="preventD">
+    <!--1张：ticket_1   2张:ticket_2 3张:ticket_3  抢光啦样式:all_null -->
+    <view class='gift {{"ticket_"+coupon_list.length}} {{isNull==true?"all_null":""}}'>
+      <!--礼包图  -->
+      <view class='img_wraper bag_img1' wx:if="{{isNull!=true}}">
+        <view class='img'>
+          <image src='/pages/img/banner/new_gift.png'></image>
+        </view>
+      </view>
+      <view class='img_wraper bag_img2' wx:if="{{isNull==true}}">
+        <view class='img'>
+          <image src='/pages/img/banner/all_null.png'></image>
+        </view>
+      </view>
+      <!--券列表  -->
+      <view class='list_ticket'>
+        <view class='ticket_wraper' wx:for="{{coupon_list}}" wx:for-item="item" wx:key='key' wx:for-index="index">
+          <view class='ticket {{item.quantity>0?"":"font_null"}}'>
+            <view class='price'>
+              <view class='unit' wx:if='{{item.card_type=="代金券"}}'>￥</view>
+              <view class='number font_overflow'>{{item.discount|int}}<text class='m_decimal'>{{discount[index]?"."+discount[index]:item.card_type=="代金券"?".00":""}}</text>
+              </view>
+              <view class='unit' wx:if='{{item.card_type=="折扣券"}}'>折</view>
+            </view>
+            <view class='des font_color1'>
+              <view class='title font_overflow'>拼手气红包</view>
+              <view class='condition font_color3 '>
+                <text class='font_overflow txt'>满{{item.least_cost>0?item.least_cost+'元':'任意金额'}}可用</text>
+              </view>
+              <view class='time font_color3 font_overflow' wx:if='{{item.end_time_str}}'>· {{item.end_time_str?item.end_time_str:''}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!--领取按钮  -->
+      <view class='btn_wraper' catchtap='receive_bag'>
+        <view class='btn get_img1'>
+          <image src='/pages/img/banner/get.png'></image>
+        </view>
+        <view class='btn get_img2'>
+          <image src='/pages/img/banner/no_get.png'></image>
+        </view>
+      </view>
+    </view>
+    <!--关闭  -->
+    <view class='close' catchtap='close'>
+      <image src='/pages/img/banner/close.png'></image>
+    </view>
+  </view>
+  <!--领取成功  -->
+   <view class='get_success_wraper' wx:if="{{get_success}}">
+    <view class='get_success'>
+      <view class='title font_color1'>领取成功</view>
+      <view class='img_wraper'>
+        <view class='img'>
+          <image src='/pages/img/banner/gold.png'></image>
+        </view>
+      </view>
+      <view class='des font_color3'>可进入“我的-优惠券"或 “微信卡包”中查看</view>
+      <view class='btn_wrape' catchtap='to_use'>
+        <view class='btn'>
+          <image src='/pages/img/banner/to_use.png'></image>
+        </view>
+        <text>去使用</text>
+      </view>
+    </view>
+<!--关闭  -->
+    <view class='close_success' catchtap='close'>
+      <image src='/pages/img/banner/close.png'></image>
+    </view>
+  </view> 
+</view>

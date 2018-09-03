@@ -1,0 +1,6 @@
+<!-- 顶部弹窗 -->
+<template name="toptips">
+  <view class="toptips {{ isTopTips ? 'toptips--show' : '' }}">
+    <view>{{ TopTipscontent }}</view>
+  </view>
+</template>

@@ -1,0 +1,9 @@
+{
+   "usingComponents": {
+      "authorize": "../overall_situation_modular/authorize"
+   },
+  "navigationBarTitleText": "优惠券",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#F2F3F5"
+}

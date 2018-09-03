@@ -1,0 +1,36 @@
+<!-- 支付成功HTML -->
+<view class='max_payment_success'   hidden='{{!show_loading_faill}}'>
+  <view class='payment_img'><image src='../img/banner/payment_success.png'></image></view>
+  <view class='payment_text'>支付成功</view>
+  <view class='payment_money font_color1'><text class='mo_fu'>￥</text>{{content.receipt_money}}</view>
+  <view class='payment_detailed line_color'>
+    <view class='detailed_list font_color3'>
+      <view class='detailed_list_title'>消费金额</view>
+      <view class='detailed_list_text'>￥{{content.total_money}}</view>
+    </view>
+
+    <view class='detailed_list font_color3'>
+      <view class='detailed_list_title'>优惠券</view>
+      <view class='detailed_list_text discount_color'>{{content.coupon_money}}</view>
+    </view>
+
+    <view class='detailed_list font_color3'>
+      <view class='detailed_list_title'>会员折扣</view>
+      <view class='detailed_list_text discount_color'>{{content.member_discount_money}}</view>
+    </view>
+  </view>
+  <view class='complete_an' bindtap='complete_an'>完成</view>
+</view>
+
+<!-- 顶部提示 -->
+<import src="../overall_situation_modular/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+<!--请求页面数据失败显示模块  -->
+ <import src="../overall_situation_modular/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{ show_loading_faill, show}}" /> 
+
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+  <authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+</view>

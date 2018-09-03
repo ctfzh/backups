@@ -1,0 +1,13 @@
+<!--pages/xw_business/store_pic_detail.wxml-->
+<view>
+  <view class='select'>
+    <image src="{{door_photo_url||'../img/income/select_pic.png'}}" class='icon' bindtap='handleUpload'></image>
+    <view class='select_text font_color4'>门店门头照</view>
+  </view>
+  <view class='select'>
+    <image src="{{environmental_photo_url||'../img/income/select_pic.png'}}" class='icon' bindtap='handleUpload'></image>
+    <view class='select_text font_color4'>门店环境照</view>
+  </view>
+</view>
+
+

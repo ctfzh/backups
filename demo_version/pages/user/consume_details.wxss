@@ -1,0 +1,55 @@
+/* 消费记录详情CSS */
+.details_type{
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0rpx 25rpx;
+  font-size: 28rpx;
+  border-width: 0rpx;
+  border-style: solid;
+  border-top-width: 1rpx;
+  border-bottom-width: 1rpx;
+  margin-bottom: 20rpx;
+}
+.type_title{
+  font-size: 32rpx;
+}
+.type_Success{
+  color: #ff0000;
+}
+
+.details_content{
+  font-size: 28rpx;
+  border-width: 0rpx;
+  border-style: solid;
+  border-top-width: 1rpx;
+  border-bottom-width: 1rpx;
+  background-color: #fff;
+}
+
+.details_content_title{
+  padding: 20rpx 30rpx 20rpx 10rpx;
+  margin: 0rpx 0rpx 20rpx 20rpx;
+  border-width: 0rpx;
+  border-style: solid;
+  border-bottom-width: 1rpx;
+}
+.details_content_text{
+  display: flex;
+  justify-content: space-between;
+  padding: 0rpx 30rpx 20rpx 30rpx;
+}
+.text_details{
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: right;
+}
+.discount_list{
+  color: #FF9933;
+  padding-bottom: 15rpx;
+}
+.discount_list:last-child{
+  padding-bottom: 0rpx;
+}

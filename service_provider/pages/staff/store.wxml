@@ -1,0 +1,14 @@
+<!-- 选择门店 -->
+<view class='store_max font_color1'>
+	<view class='store_list'>
+		<view class='list_item line_color'>
+			<view class='item_title'>烫面包-金鼎三店</view>
+			<view class='item_text font_color5'>003</view>
+		</view>
+		
+		<view class='list_item line_color'>
+			<view class='item_title'>烫面包-金鼎三店</view>
+			<view class='item_text font_color5'>003</view>
+		</view>
+	</view>
+</view>

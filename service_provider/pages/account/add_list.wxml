@@ -1,0 +1,32 @@
+<!-- 直连、间连账号添加 -->
+<view class='add_list_max font_color1'>
+	<!-- 引入搜索模板 -->
+	<import src="../custom_modular/search.wxml" />
+	<template is="search"/>
+	<!-- 账号列表 -->
+	<view class='add_list'>
+
+		<view class='list_item'>
+			<view class='item_img'>
+				<image src='../img/income/unchecked.png'></image>
+			</view>
+			<view class='item_cont'>
+				<view class='item_title font_overflow'>康盛堂诊所</view>
+				<view class='item_text font_color5 font_overflow'>乐清康盛堂国医馆中医门诊部有限公司</view>
+				<view class='item_text font_color5 font_overflow'>商户编号 226801000005041933459</view>
+			</view>
+		</view>
+
+		<view class='list_item'>
+			<view class='item_img'>
+				<image src='../img/income/select.png'></image>
+			</view>
+			<view class='item_cont'>
+				<view class='item_title font_overflow'>康盛堂诊所</view>
+				<view class='item_text font_color5 font_overflow'>乐清康盛堂国医馆中医门诊部有限公司</view>
+				<view class='item_text font_color5 font_overflow'>商户编号 226801000005041933459</view>
+			</view>
+		</view>
+
+	</view>
+</view>

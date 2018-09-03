@@ -1,0 +1,26 @@
+<!--点餐评分  -->
+<view class='container' hidden='{{!show}}'>
+  <view class='grade_box'>
+    <view class='store_name line_color'>{{order_detail.store_name}}</view>
+    <view class='to_grade'>
+      <text hidden='{{store_score!=0}}'>请为商家饮品打分</text>
+      <text hidden='{{store_score!=1}}'>非常差</text>
+      <text hidden='{{store_score!=2}}'>很差</text>
+      <text hidden='{{store_score!=3}}'>一般</text>
+      <text hidden='{{store_score!=4}}'>满意</text>
+      <text hidden='{{store_score!=5}}'>非常满意</text>
+    </view>
+    <view class='star_wraper'>
+      <view class='star' wx:for="{{[1,2,3,4,5]}}" wx:for-index="index" wx:key="key" wx:for-item="item" data-item='{{item}}' catchtap='{{btn!=1?"star":""}}' >
+        <image class='empty_star' src='/pages/img/income/no_light_star.png'></image>
+        <image class='full_star' src='/pages/img/income/light_star.png' wx:if="{{store_score>=item}}"></image>
+      </view>
+    </view>
+  </view>
+  <view class='btn {{store_score==0?"btn_back":""}}' catchtap='{{store_score==0?"":"comment"}}' wx:if="{{btn!=1}}">提交</view>
+</view>
+
+<!-- 错误提示组件 -->
+<view class='error' hidden='{{show}}'>
+  <error bindretry="retry" error="{{error}}" error_text="{{error_text}}" retry_an="{{retry_an}}" log="{{log}}"></error>
+</view>

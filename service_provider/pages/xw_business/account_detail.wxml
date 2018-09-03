@@ -1,0 +1,39 @@
+<!--pages/xw_business/account_detail.wxml-->
+<view>
+  <form bindsubmit='handleSubmit'>
+    <view class='item'>
+      <view class='add_item'>
+        <view class='item_cont line_color first_item'>
+          <text class='item_text'>开户名称</text>
+          <text class='item_input font_overflow'>{{principal}}</text>
+        </view>
+      </view>
+      <view class='add_item'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>银行卡号</text>
+         <text class='item_input font_overflow' >{{bank_card_number}}</text>
+        </view>
+      </view>
+      <view class='add_item' bindtap='jump_bank'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>开户银行</text>
+          <text class="item_input font_overflow">{{bank_name}}</text>
+        </view>
+      </view>
+      <view class='add_item'>
+        <picker mode="multiSelector" range="{{multiArray}}" range-key='area_name' bindchange="bindRegionChange" bindcolumnchange="bindRegionColumnChange" value='{{multiIndex}}'>
+          <view class='item_cont line_color'>
+            <text class='item_text'>开户城市</text>
+            <text class="item_input font_overflow">{{bank_province_name}}{{bank_city_name}}</text>
+          </view>
+        </picker>
+      </view>
+      <view class='add_item' bindtap='jump_branch'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>开户支行</text>
+          <text class="item_input font_overflow">{{branch_bank_name}}</text>
+        </view>
+      </view>
+    </view>
+  </form>
+</view>

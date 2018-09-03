@@ -1,0 +1,337 @@
+/*新人礼包  */
+@import "../../app.wxss";
+
+.gift_container {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.shadow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.gift_wraper {
+  position: relative;
+  z-index: 2;
+  margin: 100rpx auto 0rpx auto;
+}
+
+.gift {
+  width: 610rpx;
+  background: -webkit-linear-gradient(top, #ff662e, #ff2e35);
+  border-radius: 50rpx;
+  overflow: hidden;
+}
+
+.gift .img_wraper {
+  position: absolute;
+  width: 100%;
+  top: -152rpx;
+  height: 365rpx;
+}
+
+.gift .img {
+  position: absolute;
+  top: 0;
+  left: -30rpx;
+  right: -30rpx;
+  bottom: -128rpx;
+}
+
+image {
+  width: 100%;
+  height: 100%;
+}
+
+/*券 */
+
+.list_ticket {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.ticket_wraper {
+  margin-top: 20rpx;
+}
+
+.ticket {
+  display: flex;
+  width: 530rpx;
+  height: 140rpx;
+  align-items: center;
+  background: #fff;
+  border-radius: 20rpx;
+  position: relative;
+}
+
+.ticket_wraper:first-child {
+  margin-top: 0;
+}
+
+.ticket .price {
+  width: 230rpx;
+  padding: 0rpx 10rpx;
+  display: flex;
+  color: #f52727;
+  font-size: 60rpx;
+  line-height: 60rpx;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.ticket .number {
+  -webkit-line-clamp: 1;
+}
+
+.ticket .unit {
+  display: flex;
+  font-size: 24rpx;
+  align-items: flex-end;
+  line-height: 50rpx;
+}
+
+.ticket .des {
+  flex: 1;
+  margin-right: 20rpx;
+}
+
+.ticket .title {
+  font-size: 28rpx;
+  font-weight: bold;
+  -webkit-line-clamp: 1;
+}
+
+.ticket .condition, .ticket .time {
+  font-size: 22rpx;
+  -webkit-line-clamp: 1;
+}
+
+.ticket .condition {
+  -webkit-line-clamp: 1;
+  display: flex;
+  align-items: center;
+}
+.ticket .condition .txt {
+  flex: 1;
+    -webkit-line-clamp: 1;
+}
+
+/*券不能领取样式  */
+
+.font_null .font_color1 {
+  color: #757a80;
+}
+
+.font_null .price {
+  color: #757a80;
+}
+
+/*立刻领取按钮  */
+
+.btn_wraper {
+  position: relative;
+  width: 510rpx;
+  height: 90rpx;
+}
+
+.btn {
+  position: absolute;
+  top: -21rpx;
+  bottom: -39rpx;
+  left: -10rpx;
+  right: -10rpx;
+}
+
+.btn image {
+  width: 100%;
+  height: 100%;
+}
+
+/*一张券   280  250 240*/
+
+.ticket_1 {
+  padding-top: 280rpx;
+}
+
+.ticket_1 .btn_wraper {
+  margin: 70rpx auto;
+}
+
+/*二张券  */
+
+.ticket_2 {
+  padding-top: 250rpx;
+}
+
+.ticket_2 .btn_wraper {
+  margin: 40rpx auto;
+}
+
+/*三张券  */
+
+.ticket_3 {
+  padding-top: 240rpx;
+}
+
+.ticket_3 .btn_wraper {
+  margin: 30rpx auto;
+}
+
+/*关闭按钮  */
+
+.close {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  position: absolute;
+  top: -152rpx;
+  right: -26rpx;
+}
+
+/*抢光啦start  */
+
+.bag_img1 {
+  left: 0;
+}
+
+.all_null .bag_img1 {
+  left: 1000rpx;
+}
+
+.bag_img2 {
+  left: 1000rpx;
+}
+
+.all_null .bag_img2 {
+  left: 0;
+}
+
+.get_img1 {
+  left: -10rpx;
+}
+
+.all_null .get_img1 {
+  left: 1000rpx;
+}
+
+.get_img2 {
+  left: 1000rpx;
+}
+
+.all_null .get_img2 {
+  left: -10rpx;
+}
+
+.all_null .price {
+  color: #757a80;
+}
+
+.all_null .title {
+  color: #757a80;
+}
+
+/*抢光啦end  */
+
+/*领取成功  */
+
+.get_success_wraper {
+  z-index: 2;
+  margin: 0 auto;
+  margin-top: 225rpx;
+}
+
+.get_success {
+  width: 610rpx;
+  height: 580rpx;
+  border-radius: 50rpx;
+  background: #fff;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.get_success .title {
+  margin-top: 60rpx;
+  font-size: 50rpx;
+  font-weight: bold;
+  line-height: 48rpx;
+}
+
+.get_success .img_wraper {
+  position: relative;
+  width: 375rpx;
+  height: 170rpx;
+  margin-top: 60rpx;
+}
+
+.get_success .img {
+  position: absolute;
+  top: 0;
+  bottom: -40rpx;
+  left: -8rpx;
+  right: -8rpx;
+}
+
+.get_success image {
+  width: 100%;
+  height: 100%;
+}
+
+.get_success .des {
+  font-size: 24rpx;
+  margin-top: 60rpx;
+  line-height: 24rpx;
+}
+
+.get_success .btn_wrape {
+  position: relative;
+  width: 510rpx;
+  height: 90rpx;
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 40rpx;
+  font-weight: bold;
+  z-index: 0;
+}
+
+.get_success .btn {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -20rpx;
+  bottom: -38rpx;
+  z-index: -1;
+}
+.get_success_wraper .close_success {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+
+}
+
+.m_decimal {
+  font-size: 28rpx;
+}
+

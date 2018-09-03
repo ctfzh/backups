@@ -1,0 +1,119 @@
+<!-- 商户设置 -->
+<view class='set_up_max font_color1'>
+   <view class='set_up_top font_color6'>
+      <view class='top_item {{current==0?"sele_item":""}}' data-current='0' bindtap='swiper_current'>门店管理</view>
+      <view class='top_item {{current==1?"sele_item":""}}' data-current='1' bindtap='swiper_current'>商户设置</view>
+   </view>
+   <view class='set_up_bottom'>
+      <swiper class='swiper' current="{{current}}" bindchange="change" duration="400">
+         <!-- 门店管理 -->
+         <swiper-item>
+            <scroll-view class='scroll' scroll-y="true">
+               <view class='fill'>
+                  <view class='add font_color3' catchtap='jump_add'>+添加门店</view>
+                  <view class='merchant_list'>
+                     <view class='list_sum font_color2'>全部门店
+                        <text class='sun_num font_color3'>384</text>
+                     </view>
+                     <view class='merchant_item' catchtap='jump_store'>
+                        <view class='item_title font_overflow'>烫面包-金鼎三店</view>
+                        <view class='item_text font_color2 font_overflow'>003</view>
+                     </view>
+                     <view class='merchant_item' catchtap='jump_store'>
+                        <view class='item_title font_overflow'>烫面包-金鼎三店</view>
+                        <view class='item_text font_color2 font_overflow'>003</view>
+                     </view>
+                     <view class='merchant_item' catchtap='jump_store'>
+                        <view class='item_title font_overflow'>烫面包-金鼎三店</view>
+                        <view class='item_text font_color2 font_overflow'>003</view>
+                     </view>
+                     <view class='merchant_item' catchtap='jump_store'>
+                        <view class='item_title font_overflow'>烫面包-金鼎三店</view>
+                        <view class='item_text font_color2 font_overflow'>003</view>
+                     </view>
+                     <view class='merchant_item' catchtap='jump_store'>
+                        <view class='item_title font_overflow'>烫面包-金鼎三店</view>
+                        <view class='item_text font_color2 font_overflow'>003</view>
+                     </view>
+                     <view class='merchant_item' catchtap='jump_store'>
+                        <view class='item_title font_overflow'>烫面包-金鼎三店</view>
+                        <view class='item_text font_color2 font_overflow'>003</view>
+                     </view>
+                     <view class='merchant_item' catchtap='jump_store'>
+                        <view class='item_title font_overflow'>烫面包-金鼎三店</view>
+                        <view class='item_text font_color2 font_overflow'>003</view>
+                     </view>
+                     <view class='merchant_item' catchtap='jump_store'>
+                        <view class='item_title font_overflow'>烫面包-金鼎三店</view>
+                        <view class='item_text font_color2 font_overflow'>003</view>
+                     </view>
+                     <view class='merchant_item' catchtap='jump_store'>
+                        <view class='item_title font_overflow'>烫面包-金鼎二店</view>
+                        <view class='item_text font_color2 font_overflow'>003</view>
+                     </view>
+                     <view class='merchant_item' catchtap='jump_store'>
+                        <view class='item_title font_overflow'>烫面包-古镇一店</view>
+                        <view class='item_text font_color2 font_overflow'>003</view>
+                     </view>
+                  </view>
+               </view>
+            </scroll-view>
+         </swiper-item>
+
+         <!-- 商户设置 -->
+         <swiper-item>
+            <scroll-view class='scroll' scroll-y="true">
+               <view class='set_jump fill'>
+
+                  <view class='jump_item'>
+                     <view class='jump_text'>
+                        <view class='jump_h1 font_overflow'>景色花艺咖啡馆</view>
+                        <view class='jump_h2 font_color5 font_overflow'>烫面包 18707088888</view>
+                     </view>
+                     <view class='jump_right' catchtap='jump_url' data-url='/pages/merchant/info_edit'>
+                        <view class='right_text font_color3'>编辑</view>
+                        <view class='right_arrow'>
+                           <image src="../img/income/right_arrow.png"></image>
+                        </view>
+                     </view>
+                  </view>
+
+                  <view class='jump_item' catchtap='jump_url' data-url='/pages/staff/list'>
+                     <view class='jump_text'>
+                        <view class='jump_h1 font_overflow'>员工管理</view>
+                     </view>
+                     <view class='jump_right'>
+                        <view class='right_arrow'>
+                           <image src="../img/income/right_arrow.png"></image>
+                        </view>
+                     </view>
+                  </view>
+
+                  <view class='jump_item' catchtap='jump_url' data-url='/pages/activation_code/list'>
+                     <view class='jump_text'>
+                        <view class='jump_h1 font_overflow'>激活码设置</view>
+                     </view>
+                     <view class='jump_right'>
+                        <view class='right_arrow'>
+                           <image src="../img/income/right_arrow.png"></image>
+                        </view>
+                     </view>
+                  </view>
+
+                  <view class='jump_item' catchtap='jump_url' data-url='/pages/merchant/account_setting'>
+                     <view class='jump_text'>
+                        <view class='jump_h1 font_overflow'>收款账号管理</view>
+                     </view>
+                     <view class='jump_right'>
+                        <view class='right_arrow'>
+                           <image src="../img/income/right_arrow.png"></image>
+                        </view>
+                     </view>
+                  </view>
+
+               </view>
+            </scroll-view>
+         </swiper-item>
+      </swiper>
+   </view>
+</view>

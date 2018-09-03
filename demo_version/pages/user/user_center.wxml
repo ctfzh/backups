@@ -1,0 +1,135 @@
+<!-- 我的HTML -->
+<view class='max_center' hidden='{{!show_loading_faill}}' style="background:{{token?'':'#fff'}};">
+  <!-- 头像，储值信息=>开始 -->
+  <view class='center_top_info'>
+    <!-- 用户信息 -->
+    <view class='user_style' style="background:{{token?data.ucenter_set.background:'#fff'}};">
+      <view class='user_style_back' wx:if="{{token && data.ucenter_set.if_color==1}}"><image mode='widthFix'  src='{{data.ucenter_set.background}}'></image></view>
+      <!-- 头像 -->
+      <view class='user_portrait'>
+        <view class='portrait_img' wx:if="{{token}}"><image class='img_radius'src='{{avatar}}'></image></view>
+    		<open-data  class='portrait_img' type="userAvatarUrl" wx:if="{{!token}}"></open-data>
+      </view>
+      <!-- 名称 -->
+      <view class='user_name' wx:if="{{token}}">{{data.nickname? data.nickname:'会员昵称'}}</view>
+    	<open-data class='user_name' type="userNickName" wx:if="{{!token}}"></open-data>
+    </view>
+    <!-- 储值信息 -->
+    <view class='value_details'  wx:if="{{token}}">
+      <!-- 疾风 -->
+      <view class='value_list line_color font_color1'>
+        <view class='integral_value value_text'>{{data.bonus}}</view>
+        <view class='value_details_info'>
+          <view class='value_details_img'><image src='../img/income/icon-star.png'></image></view>
+          <text class='value_details_text'>积分</text>
+        </view>
+      </view>
+      <!-- 优惠券 -->
+      <view class='value_list line_color font_color1' bindtap='jump_coupon'>
+        <view class='coupon_value value_text'>{{data.coupon_num}}<text class='unit'>张</text></view>
+        <view class='value_details_info'>
+          <view class='value_details_img'><image src='../img/income/icon-coupon.png'></image></view>
+          <text class='value_details_text'>优惠券</text>
+        </view>
+      </view>
+      <!-- 储值 -->
+      <view class='value_list line_color font_color1' bindtap='jump_recharge_activity'>
+        <view class='balance_value value_text'>{{data.balance}}<text class='unit'>元</text></view>
+        <view class='value_details_info'>
+          <view class='value_details_img'><image src='../img/income/icon-balance.png'></image></view>
+          <text class='value_details_text'>余额</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 头像，储值信息=>结束 -->
+
+  <!-- 会员卡详情跳转=>开始 -->
+  <view class='center_member_jump'wx:if="{{data.ucenter_set.card_ent_status==1&&data.card_id}}" data-user='{{data}}' bindtap='see_membership'>
+    <view class='member_info'>
+      <view class='member_img'><image src='../img/income/member.png'></image></view>
+      <text class='member_text font_color1'>我的会员卡</text>
+    </view>
+    <view class='member_info_jump'>
+      <text class='member_info_jump_text font_color3'>{{data.level_name}}</text>
+      <image class='right_arrow' src='../img/income/right_arrow.png'></image>
+    </view>
+  </view>
+  <!-- 会员卡详情跳转=>结束 -->
+
+  <!-- 关联页详情跳转=>开始 -->
+  <view class='center_relevant_jump' wx:if="{{token}}">
+      <!-- 我的储值 -->
+    <view class='center_relevant_list line_color' bindtap='jump_appointmenl' wx:if="{{data.ucenter_set.reserve_ent_status==1}}">
+      <view class='center_relevant font-color1'>
+         <view class='center_relevant_img'><image src='../img/income/appointmenl.png'></image></view> 
+        <view class='center_relevant_text'>我的预约</view>
+      </view>
+      <image class='right_arrow' src='../img/income/right_arrow.png'></image>
+    </view>
+    <!-- 我的储值 -->
+    <view class='center_relevant_list line_color' bindtap='jump_recharge_activity' wx:if="{{data.ucenter_set.recharge_ent_status==1}}">
+      <view class='center_relevant font-color1'>
+         <view class='center_relevant_img'><image src='../img/income/my_recharge.png'></image></view> 
+        <view class='center_relevant_text'>我的储值</view>
+      </view>
+      <image class='right_arrow' src='../img/income/right_arrow.png'></image>
+    </view>
+    <!-- 消费记录 -->
+    <view class='center_relevant_list line_color' bindtap='jump_consume_record'>
+      <view class='center_relevant font-color1'>
+         <view class='center_relevant_img'><image src='../img/income/consume_record.png'></image></view> 
+        <view class='center_relevant_text'>消费记录</view>
+      </view>
+      <image class='right_arrow' src='../img/income/right_arrow.png'></image>
+    </view>
+    <!-- 个人信息 -->
+    <view class='center_relevant_list line_color' bindtap='jump_personal'>
+      <view class='center_relevant font-color1'>
+         <view class='center_relevant_img'><image src='../img/income/personal_info.png'></image></view> 
+        <view class='center_relevant_text'>个人信息</view>
+      </view>
+      <image class='right_arrow' src='../img/income/right_arrow.png'></image>
+    </view>
+    <!-- 充值卡/码 -->
+    <view class='center_relevant_list line_color'  bindtap='jump_code' wx:if="{{data.ucenter_set.recharge_code_ent_status==1}}">
+      <view class='center_relevant font-color1'>
+         <view class='center_relevant_img'><image src='../img/income/recharge_code.png'></image></view> 
+        <view class='center_relevant_text'>充值卡/码</view>
+      </view>
+      <image class='right_arrow' src='../img/income/right_arrow.png'></image>
+    </view>
+    <!-- 客服 -->
+    <view class='center_relevant_list line_color' bindtap='jump_service' wx:if="{{data.ucenter_set.store_service_ent_status==1}}">
+      <view class='center_relevant font-color1'>
+         <view class='center_relevant_img'><image src='../img/income/service.png'></image></view> 
+        <view class='center_relevant_text'>在线客服</view>
+      </view>
+      <image class='right_arrow' src='../img/income/right_arrow.png'></image>
+    </view>
+  </view>
+  <!-- 关联页详情跳转=>结束 -->
+
+  <view class='no_entry' wx:if="{{!token}}">
+    <view class='no_entry_an' catchtap='login_an'>
+    <view class='no_entry_boder'></view>
+    登录/注册
+    </view>
+  </view>
+
+  <!-- 底部logo -->
+  <import src="../custom_modular/bottom_Logo.wxml" />
+  <view class='{{token?"":"no_bottom"}}'>
+  	<template is="bottom_Logo" />
+  </view>
+</view>
+
+<!--请求页面数据失败显示模块  -->
+ <import src="../overall_situation_modular/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{ show_loading_faill, show}}" /> 
+
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+  <authorize bindlogin="login_success" class_aut="authorize"></authorize>
+</view>

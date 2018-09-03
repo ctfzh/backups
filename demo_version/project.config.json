@@ -1,0 +1,164 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.1.1",
+	"appid": "wxa55b92d2a08a16e6",
+	"projectname": "%E6%99%BA%E6%85%A7%E9%97%A8%E5%BA%97%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E4%BA%B2%E7%94%9F%E6%B4%BB%E5%BC%80%E5%8F%91%E8%80%85",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 13,
+			"list": [
+				{
+					"id": 0,
+					"name": "相册",
+					"pathName": "pages/album_list/album_list",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "门店",
+					"pathName": "pages/store_info_list/store_info_list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/user/user_center",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人信息",
+					"pathName": "pages/user/personal_info",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "优惠券列表",
+					"pathName": "pages/user/coupon_list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "储值卡兑换",
+					"pathName": "pages/recharge_code/recharge_code",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "储值",
+					"pathName": "pages/recharge_activity/recharge_activity",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "余额明细",
+					"pathName": "pages/recharge_activity/balance_detailed",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "消费记录",
+					"pathName": "pages/user/consume_record",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "消费记录详情",
+					"pathName": "pages/user/consume_details",
+					"query": ""
+				},
+				{
+					"id": 10,
+					"name": "买单",
+					"pathName": "pages/payment/check",
+					"query": "store_id=3"
+				},
+				{
+					"id": -1,
+					"name": "在线支付",
+					"pathName": "pages/payment/payment_success",
+					"query": ""
+				},
+				{
+					"id": 12,
+					"name": "优惠",
+					"pathName": "pages/discount/discount",
+					"query": "scene=1"
+				},
+				{
+					"id": 13,
+					"name": "裂变红包",
+					"pathName": "pages/fission/fission",
+					"query": "active_id=142"
+				},
+				{
+					"id": 14,
+					"name": "支付",
+					"pathName": "pages/payment/payment",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "异业联盟",
+					"pathName": "pages/discount/other_coupon",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "微页面",
+					"pathName": "pages/home/home_micro",
+					"query": "store_id=3"
+				},
+				{
+					"id": 17,
+					"name": "优惠券领取",
+					"pathName": "pages/fission/coupon_receipt",
+					"query": "coupon_id= 5"
+				},
+				{
+					"id": -1,
+					"name": "预约",
+					"pathName": "pages/appointment/appointment",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的预约",
+					"pathName": "pages/appointment/my_reservation",
+					"query": ""
+				},
+				{
+					"id": 20,
+					"name": "预约详情",
+					"pathName": "pages/appointment/reservation_details",
+					"query": "record_id=22"
+				}
+			]
+		}
+	}
+}

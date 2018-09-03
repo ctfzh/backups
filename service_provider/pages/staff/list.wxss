@@ -1,0 +1,38 @@
+/* 员工管理 */
+
+.list{
+	margin: 30rpx 20rpx;
+	background-color: #fff;
+	padding: 0rpx 20rpx;
+}
+.list_item{
+	height: 172rpx;
+	border-bottom-width: 1rpx;
+}
+
+.list_item:last-child{
+	border: 0rpx;
+}
+
+.item_h1{
+	line-height: 30rpx;
+	display: flex;
+	align-items: center;
+	padding-top: 30rpx;
+}
+.item_title{
+	font-size: 30rpx;
+	flex: 1;
+}
+.item_subtitle{
+	font-size: 26rpx;
+}
+.h2,
+.h3{
+	font-size: 26rpx;
+	line-height: 26rpx;
+	padding-top: 18rpx;
+}
+.h3{
+	padding-top: 20rpx;
+}

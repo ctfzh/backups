@@ -1,0 +1,19 @@
+<!--授权登入-->
+ <view class='login' catchtouchmove="preventD" hidden='{{!show_loading_faill}}'> 
+  <view class='login_mask'></view>
+  <view class='authorize class_aut'>
+    <view class='authorize_h1'>微信授权</view>
+    <view class='logo'>
+      <image src='{{logo}}'></image>
+    </view>
+    <view class='authorize_text'>{{xcx_name}}申请授权</view>
+    <button class='authorize_an' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo='authorize'>立即授权</button>
+  </view>
+ </view>
+
+ <!-- 顶部提示 -->
+<import src="../overall_situation_modular/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+<!--请求页面数据失败显示模块  -->
+ <import src="../overall_situation_modular/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{ show_loading_faill, show}}" /> 

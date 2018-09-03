@@ -1,0 +1,71 @@
+/* 优惠券列表CSS */
+image{
+  width: 100%;
+  height: 100%;
+}
+
+.max_coupon{
+  margin: 25rpx;
+}
+.coupon_list{
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+}
+.coupon_left{
+  width: 230rpx;
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+.coupon_left_info{
+  font-size: 24rpx;
+  color: #fff;
+  padding: 25rpx;
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+}
+.coupon_money{
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+.money{
+  font-size: 64rpx;
+  margin-right: 10rpx;
+}
+.condition{
+  margin-top: 25rpx;
+}
+
+.sawtooth_img{
+  width: 22rpx;
+  position: absolute;
+  top: 0rpx;
+  bottom: 0rpx;
+  right: -10rpx;
+}
+
+.coupon_right{
+  flex: 1;
+  padding: 25rpx;
+  font-size: 30rpx;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+.notice_text{
+  margin-top: 10rpx;
+}
+
+.term_validity{
+  font-size: 24rpx;
+}
+
+.font_overflow{
+  -webkit-line-clamp: 1; /** 显示的行数 **/
+}

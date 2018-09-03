@@ -1,0 +1,61 @@
+/* 选择收货地址 */
+@import "/pages/address/receiving_address.wxss";
+.address_type{
+   height: 63rpx;
+   background-color: #F0F1F2;
+   display: flex;
+   align-items: center;
+   padding-left: 40rpx;
+   color: #42464D;
+   font-size: 24rpx;
+}
+/* 定位 */
+.location{
+  height: 130rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rpx 30rpx 0rpx 40rpx;
+  font-size: 32rpx;
+}
+.location_text{
+  flex:1;
+   margin-right: 20rpx;
+   height: 70rpx;
+   display: flex;
+   align-items: center;
+  font-weight: bold;
+  background-color: #F2F3F5;
+  border-width: 1rpx;
+  border-radius: 4rpx;
+  padding-left: 20rpx;
+}
+.location_text image{
+   width: 22rpx;
+   height: 22rpx;
+   margin-left: 10rpx;
+}
+
+/* 重新定位 */
+.location_spot{
+  display: flex;
+   align-items: center; 
+  font-size: 26rpx;
+  color: #008866;
+}
+.location_spot_img{
+  width: 30rpx;
+  height: 30rpx;
+}
+.location_spot_text{
+  line-height: 32rpx;
+  margin-left: 10rpx;
+}
+
+.top_text{
+	background-color: #fff;
+	border-top-width: 1rpx;
+}
+.text_item{
+	padding-top: 20rpx;
+}

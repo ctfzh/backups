@@ -1,0 +1,206 @@
+/* 收货地址 */
+
+Page {
+  background: #fff;
+}
+
+/*通用  */
+
+image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  height: 100vh;
+}
+
+.address_wraper {
+  position: relative;
+  height: 100%;
+}
+
+.address_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 110rpx;
+  overflow: auto;
+}
+.in_address {
+  border-top-width: 1rpx;
+}
+/*在范围内收货地址start  */
+
+.address_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 20rpx 30rpx 40rpx;
+  border-bottom: 1rpx solid #e3e4e5;
+}
+
+.address_item .left {
+  flex: 1;
+  display: flex;
+  margin-right:30rpx;
+}
+
+.address_item .icon {
+  position: relative;
+  width: 30rpx;
+  height: 30rpx;
+  top: 10rpx;
+}
+
+.address_item .icon .img {
+  position: absolute;
+  top: -2rpx;
+  bottom: -2rpx;
+  left: -2rpx;
+  right: -2rpx;
+}
+
+.address_item .txt {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+}
+
+.address_item .txt .top {
+  line-height: 52rpx;
+  font-weight: bold;
+  font-size: 32rpx;
+  flex: 1;
+}
+
+.address_item .txt .bottom {
+  line-height: 42rpx;
+  font-size: 26rpx;
+  flex: 1;
+  display: flex;
+}
+
+.address_item .txt .bottom .phone {
+  margin-left: 20rpx;
+  flex: 1;
+}
+
+.address_item .right {
+  padding: 25rpx;
+  animation-direction: ;
+}
+
+.address_item .right .modify_wraper {
+  position: relative;
+  width: 20rpx;
+  height: 30rpx;
+}
+
+.address_item .modify {
+  position: absolute;
+  top: -1rpx;
+  bottom: 0;
+  left: -6rpx;
+  right: -5rpx;
+}
+
+/*在范围内收货地址end  */
+
+/*间隔蓝栏start  */
+
+.block {
+  padding-left: 40rpx;
+  line-height: 62rpx;
+  color: #42464d;
+  font-size: 24rpx;
+  background: #f0f1f2;
+}
+
+/*间隔蓝栏end  */
+
+/*超出范围地址start  */
+
+.over_address_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 52rpx;
+  padding: 25rpx 45rpx 20rpx 40rpx;
+  border-bottom: 1rpx solid #e3e4e5;
+  color: #C0C1C2;
+}
+
+.over_address_item .left {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.over_address_item .address {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.over_address_item .person_info {
+  font-size: 26rpx;
+}
+
+.over_address_item .person_info text:last-child {
+  margin-left: 20rpx;
+}
+
+.over_address_item .right {
+  position: relative;
+  width: 20rpx;
+  height: 30rpx;
+}
+
+.over_address_item .right .modify_wraper {
+  position: relative;
+  width: 20rpx;
+  height: 30rpx;
+}
+
+.over_address_item .right .modify {
+  position: absolute;
+  top: -1rpx;
+  bottom: 0;
+  left: -6rpx;
+  right: -5rpx;
+}
+
+/*超出范围地址end  */
+
+/*新增地址start  */
+
+.add_adress {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 109rpx;
+  background: #fff;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2c2f33;
+  font-size: 32rpx;
+  border-top-width: 1rpx;
+}
+
+.add_icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.add_adress .txt {
+  margin-left: 20rpx;
+}
+
+.address_box .error{
+  height: 100%;
+}

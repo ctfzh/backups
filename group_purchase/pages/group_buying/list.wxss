@@ -1,0 +1,37 @@
+/* 团购 */
+@import "/pages/store/list";
+@import "/pages/store/details";
+.store_goods{
+	height: 75rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 24rpx;
+	margin: 0rpx 30rpx;
+	border-top: 1rpx solid #E3E4E6;
+}
+.activity:first-child .store_goods{
+	border: 0rpx;
+}
+
+
+.store_title{
+	display: flex;
+	align-items: center;
+	line-height: 24rpx;
+}
+
+.store_img{
+	width: 30rpx;
+	height: 30rpx;
+	display: flex;
+	margin-right: 8rpx;
+}
+.store_img image{
+	width: 100%;
+	height: 100%;
+}
+
+.activity{
+	margin: 0rpx;
+}

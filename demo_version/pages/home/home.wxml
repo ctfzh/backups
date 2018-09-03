@@ -1,0 +1,124 @@
+<!--首页HTML-->
+<view class='max_home window_cover' hidden='{{!show_loading_faill}}'>
+  <view class='home' wx:for="{{content}}" wx:key="key" wx:for-item="data">
+    <!--图片广告模块=>开始  -->
+      <view class='home_picture_advert' wx:if='{{data.type=="banner"}}'>
+        <!--引入图片广告页面  -->
+        <picture_advert  store_id="{{store_id}}" list="{{data}}"></picture_advert>
+      </view>
+    <!--图片广告模块=>结束  -->
+
+    <!--图片导航=>开始  -->
+      <view class='home_picture_navigation' wx:if='{{data.type=="nav"}}'>
+        <!--引入图片导航模块  -->
+        <picture_navigation  store_id="{{store_id}}" list="{{data}}"></picture_navigation>
+      </view> 
+    <!--图片导航=>结束  -->
+
+    <!-- 门店=>开始  -->
+      <view class='home_store_info' wx:if='{{data.type=="store"&&data.store!=""}}'>
+        <!--引入门店模块  -->
+        <store_info list="{{data}}" lat="{{lat}}" lng="{{lng}}"></store_info>
+      </view>
+    <!--门店=>结束  -->
+    
+    <!--标题=>开始  -->
+      <view class='home_title' wx:if='{{data.type=="headline"}}'>
+        <!--引入标题模块  -->
+        <title  store_id="{{store_id}}" list="{{data}}"></title>
+      </view>
+    <!--标题=>结束  -->
+
+    <!--图文=>开始  -->
+      <view class='home_picture_text' wx:if='{{data.type=="imageText"}}'>
+        <!--引入图文模块  -->
+        <picture_text  store_id="{{store_id}}" list="{{data}}"></picture_text>
+      </view>
+    <!--图文=>结束  -->
+
+      <!--公告=>开始  -->
+      <view class='home_notice' wx:if='{{data.type=="post"}}'>
+        <!--引入公告模块  -->
+        <notice list="{{data}}"></notice>
+      </view>
+    <!--公告=>结束  -->
+
+  <!--辅助空白=>开始  -->
+      <view class='home_assist_blank' wx:if='{{data.type=="guidePadding"}}'>
+        <!--引入辅助空白模块  -->
+        <assist_blank list="{{data}}"></assist_blank>
+      </view>
+    <!--辅助空白=>结束  -->
+
+    <!--辅助线=>开始  -->
+      <view class='home_assist_line' wx:if='{{data.type=="guideLine"}}'>
+        <!--引入辅助线模块  -->
+        <assist_line list="{{data}}"></assist_line>
+      </view>
+    <!--辅助线=>结束  -->
+
+      <!--相册=>开始  -->
+      <view class='home_album' wx:if='{{data.type=="album"&&data.list!=""}}'>
+        <!--引入相册模块  -->
+        <album store_id="{{store_id}}" list="{{data}}"></album>
+      </view>
+    <!--相册=>结束  -->
+    
+    <!-- 富文本模板=>开始 -->
+    <view class='richText'  wx:if='{{data.type=="richText"}}'>
+      <!-- 富文本模块引入 -->
+        <richText list="{{data}}"></richText>
+    </view>
+    <!-- 富文本模板=>结束 -->
+
+    <!-- 视频组件 -->
+    <view class='video_mould'  wx:if='{{data.type=="video"&&data.url!=""}}'> 
+      <!-- 视屏模块引入 -->
+      <video_mould list="{{data}}"></video_mould>
+    </view> 
+    <!-- 视屏模板=>结束 -->
+    
+    <!-- 优惠券=>开始  -->
+    <view class='discounts'  wx:if='{{data.type=="coupon"}}'> 
+      <!-- 引入优惠券模块 -->
+      <discounts list="{{data}}" bind:receive="receive" bind:share="share" wx:if='{{data.type=="coupon"}}'></discounts>
+    </view> 
+    <!-- 优惠券=>结束 -->
+
+    <!-- 开卡=>开始 -->
+    <view class='becomeVip' wx:if='{{data.type=="card"}}'> 
+        <!-- 引入开卡模块 -->
+        <becomeVip list="{{data}}" become='{{vip}}' bindopen_member="open_member"></becomeVip>
+      </view> 
+    <!-- 开卡=>结束 -->
+
+    <!-- 支付=>开始 -->
+    <view class='pay'  wx:if='{{data.type=="payTheBill"}}'> 
+        <!-- 支付模块引入 -->
+        <pay list="{{data}}" store_id="{{store_id}}" wx:if='{{data.type=="payTheBill"}}' bind:payFor="payFor"></pay>
+      </view> 
+    <!-- 支付=>结束 -->
+  </view>
+    <!-- 新人礼包=>开始  -->
+  <view class='new_people_gift' wx:if="{{isShow&&!marketing_home}}">
+    <!-- 新人礼包模块引入 -->
+    <new_people_gift></new_people_gift>
+  </view>
+  <!--新人礼包=>结束   -->
+  
+  <!-- 底部logo -->
+  <import src="../custom_modular/bottom_Logo.wxml" />
+  <template is="bottom_Logo" wx:if="{{content}}" data="{{marketing_home:marketing_home}}" />
+</view>
+
+	<!-- 授权登录组件 -->
+	<view class='login' wx:if="{{login}}">
+	<authorize bindlogin="login_success" bindshow="show" class_aut="{{class_aut}}"></authorize>
+	</view>
+
+<!-- 顶部提示 -->
+<import src="../overall_situation_modular/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+<!--请求页面数据失败显示模块  -->
+ <import src="../overall_situation_modular/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill:show_loading_faill, show}}" /> 

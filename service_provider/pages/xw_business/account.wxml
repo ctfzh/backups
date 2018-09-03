@@ -1,0 +1,47 @@
+<!--pages/xw_business/account.wxml-->
+<view>
+  <view class='item'>
+    <view class='add_item'>
+      <view class='item_cont line_color first_item'>
+        <text class='item_text'>开户名称</text>
+        <text class="item_input font_overflow {{principal?'':'font_color2'}}">{{principal||'负责人名称'}}</text>
+      </view>
+    </view>
+    <view class='add_item'>
+      <view class='item_cont line_color'>
+        <text class='item_text'>银行卡号</text>
+        <input type='text' class='item_input' bindinput='handleCardChange' value="{{bank_card_number||''}}" maxlength='64'></input>
+      </view>
+    </view>
+    <view class='add_item' bindtap='jump_bank'>
+      <view class='item_cont line_color'>
+        <text class='item_text'>开户银行</text>
+        <text class="item_input font_overflow  {{bank_name?'':'font_color2'}}">{{bank_name||''}}</text>
+        <view class='right_arrow'>
+          <image src="../img/income/right_arrow.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class='add_item'>
+      <picker mode="multiSelector" range="{{multiArray}}" range-key='name' bindchange="bindRegionChange" bindcolumnchange="bindRegionColumnChange" value='{{multiIndex}}'>
+        <view class='item_cont line_color'>
+          <text class='item_text'>开户城市</text>
+          <text class="item_input font_overflow {{bank_province_name?'':'font_color2'}}">{{bank_province_name||''}}{{bank_city_name||''}}</text>
+          <view class='right_arrow'>
+            <image src="../img/income/right_arrow.png"></image>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class='add_item' bindtap='jump_branch'>
+      <view class='item_cont line_color'>
+        <text class='item_text'>开户支行</text>
+        <text class="item_input font_overflow {{branch_bank_name?'':'font_color2'}}">{{branch_bank_name||''}}</text>
+        <view class='right_arrow'>
+          <image src="../img/income/right_arrow.png"></image>
+        </view>
+      </view>
+    </view>
+    <button class='saveBtn' plain bindtap='handleSubmit'>保存</button>
+  </view>
+</view>

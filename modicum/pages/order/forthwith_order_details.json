@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "error": "../overall_situation_modular/error"
+  },
+  "navigationBarTitleText": "订单详情",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

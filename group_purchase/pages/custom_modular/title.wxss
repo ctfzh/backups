@@ -1,0 +1,105 @@
+/*引用全局样式  */
+@import "../../app.wxss";
+/* 标题组件CSS */
+.title_style{
+  /* margin-top: 20rpx; */
+  padding: 25rpx 25rpx;
+  background-color: #fff;
+  border-style: solid;
+  border-width: 0rpx;
+  border-bottom-width: 1rpx;
+  position: relative;
+}
+.title_left{
+  text-align: center;
+}
+.title_left_title{
+  font-size: 34rpx;
+  -webkit-line-clamp: 1; /** 显示的行数 **/
+}
+.title_right_text{
+  height: 100%;
+  width: 135rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  font-size: 28rpx;
+}
+.title_right_img{
+  width: 30rpx;
+  height: 30rpx;
+}
+.title_left_text{
+  font-size: 26rpx;
+  margin-top: 10rpx;
+  -webkit-line-clamp: 1; /** 显示的行数 **/
+}
+.title_right_url{
+  position: absolute;
+  top: 15rpx;
+  bottom: 15rpx;
+  right: 15rpx;
+  width: 150rpx;
+}
+/* 標題樣式一 */
+.title_style1{
+
+}
+.title_style1 .title_h1{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.title_style1 .title_right{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.title_style1 .title_left{
+  text-align: left;
+}
+
+/* 標題樣式二 */
+.title_style2{
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+.title_style2 .title_h1{
+  flex: 1;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.title_style2 .title_left{
+  /* margin: 0rpx 30rpx; */
+}
+.title_style2 .title_line{
+  width: auto;
+  height: 1rpx;
+  background-color: #888D94;
+}
+.title_style2 .title_line_right{
+  flex:1;
+  min-width: 60rpx;
+  padding-left: 30rpx;
+}
+.title_style2 .title_line_left{
+  flex:1;
+  min-width: 60rpx;
+  padding-right: 30rpx;
+}
+.title_style2 .title_right{
+  position: absolute;
+  top: 0rpx;
+  bottom: 0rpx;
+  right: 25rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}

@@ -1,0 +1,390 @@
+/*外卖订单详情  */
+@import '/app.wxss';
+
+/*通用样式  */
+
+map {
+  height: 200rpx;
+}
+
+image {
+  /*防止图片下移  */
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+Page {
+  background: #f0f1f2;
+}
+
+.container {
+  font-size: 28rpx;
+}
+/* 空白 */
+.space_block {
+  height: 12rpx;
+}
+/*状态栏start  */
+
+.status {
+  display: flex;
+  justify-content: space-between;
+  padding: 28rpx 40rpx;
+  background: #fff;
+  line-height: 50rpx;
+}
+
+/*配送员  */
+
+/* .status:nth-child(2) {
+  margin-top: 12rpx;
+} */
+
+.sta_left {
+  display: flex;
+  align-items: center;
+}
+
+.sta_left .txt {
+  font-size: 28rpx;
+  color: #2c2f33;
+  font-weight: bold;
+}
+
+.sta_left .icon {
+  width: 13rpx;
+  height: 24rpx;
+  margin-left: 20rpx;
+}
+
+.sta_right {
+  width: 168rpx;
+  height: 56rpx;
+  line-height: 54rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #2c2f33;
+  border: 1rpx solid #aeb7bf;
+  border-radius: 4rpx;
+  box-sizing: border-box;
+}
+
+/*配送员  */
+
+.man_name {
+  color: #757a80;
+  margin-left: 40rpx;
+}
+
+.sta_contact {
+  color: #F24B4B;
+  border-color: #F24B4B;
+}
+
+/*状态栏end  */
+
+/*商品列表start */
+
+.goods_list {
+  font-size: 28rpx;
+  background: #fff;
+  margin-top: 12rpx;
+}
+
+.store {
+  line-height: 38rpx;
+  padding: 25rpx 40rpx;
+  color: #757a80;
+  display: flex;
+  align-items: center;
+}
+
+.goods_list .list {
+  background: #fff;
+}
+
+.goods_list .list_item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 40rpx;
+  background: #f8f8f8;
+  margin-top: 12rpx;
+}
+
+.goods_list .list_item:first-child {
+  margin-top: 0;
+}
+
+.goods_list .list_item .preview {
+  width: 110rpx;
+  height: 110rpx;
+}
+
+.goods_list .list_item .detail {
+  display: flex;
+  flex: 1;
+  height: 110rpx;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  margin-left: 18rpx;
+  line-height: 40rpx;
+}
+
+.goods_list .list_item .detail .top, .list_item .detail .bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.goods_list .list_item .detail .top {
+  color: #2c2f33;
+}
+
+.goods_list .list_item .detail .bottom {
+  color: #757a80;
+  font-size: 24rpx;
+}
+
+.addtion text {
+  font-size: 26rpx;
+}
+
+/*商品列表end */
+
+/*包装,配送费start  */
+
+.addtion {
+  padding: 16rpx 40rpx;
+  line-height: 54rpx;
+  color: #2c2f33;
+  border-bottom: 1rpx solid #e3e4e5;
+}
+
+.addtion .pack, .addtion .distribution {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*包装,配送费end  */
+
+/*小计  */
+
+.total_wraper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40rpx;
+}
+
+.total_wraper .contact_store {
+  display: flex;
+}
+
+.total_wraper .contact_store .icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
+}
+
+.total_wraper .contact_store {
+  color: #508BEB;
+  font-size: 26rpx;
+}
+
+.total {
+  line-height: 86rpx;
+  text-align: right;
+  color: #2c2f33;
+  font-size: 26rpx;
+}
+
+.total text {
+  color: #2c2f33;
+  font-size: 32rpx;
+}
+
+/*期望时间start  */
+
+.time {
+  padding: 25rpx 40rpx;
+  font-size: 26rpx;
+  background: #fff;
+  margin-top: 12rpx;
+}
+
+.time .item {
+  display: flex;
+}
+
+.time .item:last-child {
+  margin-top: 15rpx;
+}
+
+.time .label {
+  margin-right: 30rpx;
+}
+
+.time .des {
+  color: #757a80;
+}
+
+.time .info {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+}
+
+/*期望时间end  */
+
+/*详细信息start  */
+
+.detail_info {
+  padding: 20rpx 40rpx;
+  line-height: 56rpx;
+  margin-top: 12rpx;
+  background: #fff;
+  font-size: 24rpx;
+}
+
+.detail_info text {
+  color: #2c2f33;
+}
+
+.detail_info text:last-child {
+  color: #757a80;
+  margin-left: 30rpx;
+}
+
+/*详细信息end  */
+
+/*订单追踪  */
+
+.trace_wraper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.trace_wraper .shadow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  background: #000;
+  opacity: 0.5;
+}
+
+.trace_wraper .trace {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: #fff;
+}
+
+.trace_wraper .title {
+  font-size: 32rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #e3e4e5;
+  font-weight: Bold;
+}
+
+.trace_wraper .list {
+  padding: 45rpx 40rpx 45rpx 45rpx;
+}
+
+.trace_wraper .list .list_item {
+}
+
+.trace_wraper .list_item .txt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 30rpx;
+  font-size: 26rpx;
+}
+
+.trace_wraper .list_item .txt .left {
+  display: flex;
+  align-items: center;
+}
+
+.trace_wraper .list_item .txt .dot {
+  width: 18rpx;
+  height: 18rpx;
+  border-radius: 50%;
+  background: #F24B4B;
+}
+
+.trace_wraper .list_item .txt .des {
+  margin-left: 35rpx;
+}
+
+.trace_wraper .list_item .line {
+  width: 3rpx;
+  height: 75rpx;
+  margin-left: 9rpx;
+  background: #F24B4B;
+}
+
+.trace_wraper .list_item:last-child .line {
+  height: 0;
+}
+
+.trace_wraper .list_item .txt .left .item_space_dot {
+  background: #fff;
+  border: 3rpx solid #F24B4B;
+}
+
+.trace_wraper .btn {
+  line-height: 95rpx;
+  margin: 0 40rpx;
+  background: #F24B4B;
+  border-radius: 6rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 35rpx;
+}
+
+/* 去支付按钮 */
+
+.btns_wraper {
+  display: flex;
+}
+
+.btn_pay {
+  line-height: 56rpx;
+  margin-left: 30rpx;
+  background: #F24B4B;
+  color: #fff;
+  border: 0;
+}
+
+/*数量  */
+.goods_list .list_item .detail .bottom .num {
+  font-size: 26rpx;
+}
+
+
+.store_title{
+	flex: 1;
+}
+
+.icon_wraper {
+  width: 13rpx;
+  height: 24rpx;
+  display: flex;
+}
+
+ .icon_wraper image {
+  width: 100%;
+  height: 100%;
+}

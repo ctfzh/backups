@@ -1,0 +1,119 @@
+<!-- 优惠券领取HTML -->
+<view class='fission_back_color' style='background:{{coupon.page_background_color}};' hidden='{{!show_loading_faill}}'></view>
+<view class='max_fission' hidden='{{!show_loading_faill}}'>
+  <view class='fission_back'><image src='{{coupon.page_img}}'></image></view>
+  <view class='receive_envelopes'>
+    <view class='envelopes_back'></view>
+    <!-- 红包=>开始 -->
+    <view class='envelopes'>
+      <view class='envelopes_yes' wx:if="{{true}}">
+        <view class='envelopes_money' >
+          <text class='mo_fu'wx:if="{{coupon.type=='CASH'}}">￥</text>
+          <text>{{discount}}</text>
+          <text class='mo_fu' wx:if="{{discount_spot}}">.{{discount_spot}}</text>
+        <text class='mo_fu' wx:if="{{coupon.type=='DISCOUNT'}}"> 折</text>
+        </view>
+        <view class='envelopes_details'>
+          <view class='envelopes_details_title font_color1 font_overflow'>{{coupon.name}}</view>
+          <view class='envelopes_details_text font_color3'>
+            <view class='envelopes_details_text_list '>
+              <view class='list_d'></view>
+              <text class='font_overflow'>满{{coupon.least_cost ? coupon.least_cost+"元":"任意金额"}}可用</text>
+            </view>
+            <view class='envelopes_details_text_list ' wx:if="{{coupon.end_time}}">
+              <view class='list_d'></view>
+              <text class='font_overflow'>有效期 {{coupon.end_time}}到期</text>
+            </view>
+          </view>
+        </view>
+        <view class='receive_an' data-coupon='{{coupon}}' bindtap='coupon_receive'>立即领取</view>
+      </view>
+      <view class='envelopes_no' wx:else>
+        <view class='envelopes_no_line'></view>
+        <view class='envelopes_no_title font_color3'>抢光了</view>
+        <view class='envelopes_no_line'></view>
+      </view>
+    </view>
+    <!-- 红包=>结束 -->
+    <view class='operation_an'>
+      <view class='more_favorable_an' bindtap='more_favorable'>
+        <image class='operation_img' src='../img/income/more_coupon.png'></image>
+        <view class='operation_text'>更多优惠</view>
+      </view>
+      <view class='more_favorable_an' bindtap='coupon_home'>
+        <image class='operation_img' src='../img/income/coupon_home.png'></image>
+        <view class='operation_text'>进入首页</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 门店信息=>开始 -->
+    <view class='store_info' wx:if="{{store_data.length>0}}">
+      <view class='store_info_back'></view>
+      <view class='store_info_cont'>
+        <!-- 初始显示门店 -->
+        <view class='store_info_top'>
+          <view class='store'>
+            <view class='store_title'>
+              <view class='store_title_h1 '>
+                <image class='store_img' src='../img/income/coupon_store.png'></image>
+                <text class='font_overflow'>{{store_data[0].name}}</text>
+              </view>
+              <view class='store_title_h2'><text class='distance_text'>离您最近</text>{{store_data[0].distance}}km</view>
+            </view>
+            <view class='store_text'>
+                <image class='store_img' src='../img/income/coupon_address.png'></image>
+                <view class='store_address font_overflow' bindtap='address' data-store='{{store_data[0]}}'>{{store_data[0].address}}</view>
+                <view class='phone' bindtap='call' data-call="{{store_data[0].tel}}">
+                  <view class='phone_line'></view>
+                  <image class='store_img' src='../img/income/coupon_phone.png'></image>
+                </view>
+            </view>
+          </view>
+        </view>
+        <!-- 所有门店 -->
+        <view class='store_info_list {{!see_more?"see_more_store":""}}' wx:for="{{store_data}}" wx:for-item="data" wx:key="key" wx:for-index="index" wx:if="{{index>0}}">
+          <view class='store_info_line'></view>
+          <view class='store'>
+            <view class='store_title'>
+              <view class='store_title_h1'>
+                <image class='store_img' src='../img/income/coupon_store.png'></image>
+                <text class='font_overflow'>{{data.name}}</text>
+              </view>
+              <view class='store_title_h2'>{{data.distance}}km</view>
+            </view>
+            <view class='store_text'>
+                <image class='store_img' src='../img/income/coupon_address.png'></image>
+                <view class='store_address font_overflow' bindtap='address' data-store='{{data}}'>{{data.address}}</view>
+                <view class='phone' bindtap='call' data-call="{{data.tel}}">
+                  <view class='phone_line'></view>
+                  <image class='store_img' src='../img/income/coupon_phone.png'></image>
+                </view>
+            </view>
+          </view>
+        </view>
+        <!-- 按钮 -->
+        <view class='store_info_line'></view>
+        <view class='store_info_an' bindtap='see_more'>{{see_more?"查看更多":"收起"}}</view>
+      </view>
+    </view>
+  <!-- 门店信息=>结束 -->
+
+  <!-- 底部logo -->
+  <import src="../custom_modular/bottom_Logo.wxml" />
+  <template is="bottom_Logo" />
+</view>
+
+
+<!-- 顶部提示 -->
+<import src="../overall_situation_modular/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+<!--请求页面数据失败显示模块  -->
+ <import src="../overall_situation_modular/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{ show_loading_faill, show}}" /> 
+
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+  <authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+</view>

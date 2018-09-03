@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "authorize": "../overall_situation_modular/authorize",
+    "time_selector": "../overall_situation_modular/time_selector",
+    "error": "../overall_situation_modular/error"
+  },
+  "navigationBarTitleText": "选择门店",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#008866",
+  "navigationBarTextStyle": "white"
+}

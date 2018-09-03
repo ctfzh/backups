@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "time_selector": "../overall_situation_modular/time_selector",
+    "error": "../overall_situation_modular/error"
+  },
+  "navigationBarTitleText": "提交订单"
+}

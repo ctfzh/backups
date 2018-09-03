@@ -1,0 +1,24 @@
+<!-- 时间选择器 -->
+<view class='time_selector_mack' hidden='{{!mack}}' catchtap='mack' catchtouchmove=''></view>
+<view class='time_selector {{mack?"mack":""}}'>
+  <view class='time_selector_top'>
+    <scroll-view class='time_selector_right font_color1' scroll-y='true'>
+      <view class='seleclor_date_time {{date_itme_index == (function_type==1?"立即取餐":"立即送出")?"seleclor_date_time_sele":""}}' data-time='{{function_type==1?"立即取餐":"立即送出"}}' catchtap='seleclor_date_time' wx:if="{{ti_type}}">
+        <view class='time_selector_right_text'>{{function_type==1?"立即取餐":"立即送出"}}
+          <view class='check_out' wx:if='{{date_itme_index == (function_type==1?"立即取餐":"立即送出")}}'>
+            <image src='../img/income/check_out.png'></image>
+          </view>
+        </view>
+      </view>
+	 
+      <view class='seleclor_date_time {{date_itme_index.text == item.text?"seleclor_date_time_sele":""}}' wx:for="{{time}}" wx:for-item="item" wx:for-index="index" wx:key="key" wx:fow-index="index" data-time='{{item}}' catchtap='seleclor_date_time'>
+        <view class='time_selector_right_text'>{{item.text}}
+          <view class='check_out' wx:if="{{date_itme_index.text == item.text}}">
+            <image src='../img/income/check_out.png'></image>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='time_selector_bottom' catchtap='mack'>取消</view>
+</view>

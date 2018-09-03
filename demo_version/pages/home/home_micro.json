@@ -1,0 +1,24 @@
+{
+   "usingComponents": {
+      "picture_advert": "../custom_modular/picture_advert",
+      "picture_navigation": "../custom_modular/picture_navigation",
+      "title": "../custom_modular/title",
+      "picture_text": "../custom_modular/picture_text",
+      "notice": "../custom_modular/notice",
+      "assist_blank": "../custom_modular/assist_blank",
+      "assist_line": "../custom_modular/assist_line",
+      "album": "../custom_modular/album",
+      "store_info": "../custom_modular/store_info",
+      "richText": "../custom_modular/richText",
+      "video_mould": "../custom_modular/video_mould",
+      "discounts": "../custom_modular/discounts",
+      "becomeVip": "../custom_modular/becomeVip",
+      "pay": "../custom_modular/pay",
+      "new_people_gift": "../custom_modular/new_people_gift",
+      "authorize": "../overall_situation_modular/authorize"
+   },
+   "backgroundTextStyle": "dark",
+   "enablePullDownRefresh": true,
+   "backgroundColor": "#F2F3F5",
+   "navigationBarTitleText": " "
+}

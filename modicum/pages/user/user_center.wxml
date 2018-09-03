@@ -1,0 +1,51 @@
+<!--我的  -->
+<view class='container' hidden='{{!show}}'>
+  <view class='panel line_color'>
+    <open-data  class='user_img' type="userAvatarUrl" wx:if="{{no_entry}}"></open-data>
+    <view class='user_img' wx:if="{{!no_entry}}">
+      <image src='{{avatar}}'></image>
+    </view>
+    <view class='name font_color1' wx:if="{{!no_entry}}">{{data.nickname? data.nickname:'会员昵称'}}</view>
+    <view class='phon font_color2' wx:if="{{!no_entry}}">{{data.account}}</view>
+    <open-data class='name font_color1' type="userNickName" wx:if="{{no_entry}}"></open-data>
+  </view>
+  <view class='list' wx:if="{{!no_entry}}">
+    <view class='list-itme line_color' catchtap='address_get'>
+      <view class='left font-color1'>
+        <view class='address'>
+          <view class='icon_wraper'>
+            <image src='/pages/img/income/address_my.png'></image>
+          </view>
+        </view>
+        <view class='txt'>收货地址</view>
+      </view>
+      <view class='right'>
+        <image src='/pages/img/income/right_user_center.png'></image>
+      </view>
+    </view>
+    <view class='list-itme line_color' catchtap='handbook'>
+      <view class='left font-color1'>
+        <view class='use_know'>
+          <view class='icon_wraper'>
+            <image src='/pages/img/income/use_know.png'></image>
+          </view>
+        </view>
+        <view class='txt'>使用须知</view>
+      </view>
+      <view class='right'>
+        <image src='/pages/img/income/right_user_center.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='no_entry' wx:if="{{no_entry}}">
+    <view class='no_entry_an' catchtap='no_entry_an'>
+    <view class='no_entry_boder'></view>
+    登录/注册
+    </view>
+  </view>
+</view>
+
+<!-- 错误提示组件 -->
+<view class='error' hidden='{{show}}'>
+  <error bindretry="retry" error="{{error}}" error_text="{{error_text}}" retry_an="{{retry_an}}" log="{{log}}"></error>
+</view>

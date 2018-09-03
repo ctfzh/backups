@@ -1,0 +1,11 @@
+<!-- 口碑门店关联 -->
+<view class='public_praise_max font_color4'>
+	<view class='store_item'>
+		<text class='item_title '>支付宝外部门店编号</text>
+		<input type='text' class='item_text' placeholder='未设置' placeholder-class='font_color2' name=""></input>
+	</view>
+	<view class='prompt font_color2'>请保持支付宝外部门店编号与口碑后台设置一致</view>
+	<view class='button_t'>
+		<button class='submit' form-type="submit" hover-class="hover" plain="true">保存</button>
+	</view>
+</view>

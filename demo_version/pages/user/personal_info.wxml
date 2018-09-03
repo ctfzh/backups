@@ -1,0 +1,102 @@
+<!-- 个人信息HTML -->
+<view class='max_personal' hidden='{{!show_loading_faill}}'>
+  <!-- 头像，手机号 -->
+  <view class='top_portrait_info'>
+    <view class='info_list portait_info line_color'>
+      <view class='list_text'>头像</view>
+      <view class='portait_img'>
+        <image class='img_radius' src='{{avatar}}'></image>
+      </view>
+    </view>
+    <!-- 输入手机号 -->
+    <view class='info_list  line_color {{phone==account||!phone?"none_line":""}}'>
+      <view class='list_text'>手机号</view>
+      <input type='number' cursor-spacing="15" maxlength='11' placeholder='请输入11位手机号' bindinput='bindphone' value='{{account}}'></input>
+    </view>
+    <!-- 输入验证码 -->
+    <view class='info_list  line_color' hidden='{{phone==account||!phone}}'>
+      <view class='list_text'>验证码</view>
+      <input type='number' cursor-spacing="15" maxlength='6' placeholder='请输入验证码' bindinput='bindcode'></input>
+       <view class='obtain_code' style='display:{{show_secound!="none"?"none":""}}' bindtap='bindtapcode' value="{{code_null}}">获取验证码</view>
+      <view class='obtain_code recapture_obtain' style='display:{{show_secound}}'>{{second}}秒后重新获取</view> 
+    </view>
+  </view>
+  <!-- 其它信息 -->
+  <view class='other_info'>
+    <!-- 姓名 -->
+    <view class='info_list  line_color'>
+      <view class='list_text'>姓名</view>
+      <input type='text' cursor-spacing="15" maxlength='6' bindinput='binduser_name' value='{{user_name}}'></input>
+    </view>
+    <!-- 性别 -->
+    <view class='info_list  line_color'>
+      <view class='list_text'>性别</view>
+      <picker bindchange="bindPickerChange" value="{{sex}}" range="{{array}}">
+        <view class="picker">{{array[sex]}}</view>
+      </picker>
+    </view>
+    <!-- 生日 -->
+    <view class='info_list  line_color'>
+      <view class='list_text'>生日</view>
+      <picker mode="date" value="{{birthday}}" bindchange="bindDateChange">
+        <view class="picker">{{birthday!='' ? birthday : "请选择"}}</view>
+      </picker>
+    </view>
+    <!-- 身份证 -->
+    <view class='info_list  line_color'>
+      <view class='list_text'>身份证</view>
+      <input type='idcard' cursor-spacing="15" maxlength='18' placeholder='' bindinput='bindID_number' value='{{ID_number}}'></input>
+    </view>
+    <!-- 邮箱 -->
+    <view class='info_list  line_color'>
+      <view class='list_text'>邮箱</view>
+      <input type='text' cursor-spacing="15" placeholder='' bindinput='bindemail' value='{{email}}'></input>
+    </view>
+    <!-- 详细地址 -->
+    <view class='info_list  line_color'>
+      <view class='list_text'>详细地址</view>
+      <input type='text' cursor-spacing="15" placeholder='' bindinput='bindaddress' value='{{address}}'></input>
+    </view>
+    <!-- 教育背景 -->
+    <view class='info_list  line_color'>
+      <view class='list_text'>教育背景</view>
+      <input type='text' cursor-spacing="15" placeholder='' bindinput='bindeducational' value='{{educational}}'></input>
+    </view>
+    <!-- 职业 -->
+    <view class='info_list  line_color'>
+      <view class='list_text'>职业</view>
+      <input type='text' cursor-spacing="15" placeholder='' bindinput='bindoccupation' value='{{occupation}}'></input>
+    </view>
+    <!-- 行业 -->
+    <view class='info_list  line_color'>
+      <view class='list_text'>行业</view>
+      <input type='text' cursor-spacing="15" placeholder='' bindinput='bindindustry' value='{{industry}}'></input>
+    </view>
+    <!-- 收入 -->
+    <view class='info_list  line_color'>
+      <view class='list_text'>收入</view>
+      <input type='text' cursor-spacing="15" placeholder='' bindinput='bindincome' value='{{income}}'></input>
+    </view>
+    <!-- 兴趣爱好 -->
+    <view class='info_list  line_color'>
+      <view class='list_text'>兴趣爱好</view>
+      <input type='text' cursor-spacing="15" placeholder='' bindinput='bindinterest' value='{{interest}}'></input>
+    </view>
+  </view>
+  <view class='modify_but'>
+    <view class='button_an'bindtap='edit_user_information'>修改资料</view>
+  </view>
+</view>
+
+<!-- 顶部提示 -->
+<import src="../overall_situation_modular/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+<!--请求页面数据失败显示模块  -->
+ <import src="../overall_situation_modular/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{ show_loading_faill, show}}" /> 
+
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+  <authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+</view>

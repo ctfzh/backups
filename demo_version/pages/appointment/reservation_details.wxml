@@ -1,0 +1,25 @@
+<!-- 预约详情 -->
+<view class='bespeak_max'  hidden='{{!show_loading_faill}}'>
+   <view class='bespeak_info line_color'>
+      <view class='bespeak_item line_color' wx:for="{{res}}" wx:key="key">
+         <view class='bespeak_item_th font_color'><text class='font_overflow'>{{item.name}}</text></view>
+         <view class='bespeak_item_tb font_color1'>
+            <view class='tb_item line_color' wx:if='{{item.value.nv_constructor =="Array"}}' wx:for="{{item.value}}" wx:for-item="item_va" wx:key="key">{{item_va}}</view>
+             <view class='tb_item line_color' wx:if='{{item.value.nv_constructor !="Array"}}'>{{item.value}}</view> 
+				</view>
+      </view>
+   </view>
+</view>
+
+<!-- 顶部提示 -->
+<import src="../overall_situation_modular/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+<!--请求页面数据失败显示模块  -->
+ <import src="../overall_situation_modular/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{ show_loading_faill, show}}" /> 
+
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+  <authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+</view>

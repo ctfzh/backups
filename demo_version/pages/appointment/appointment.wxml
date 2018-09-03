@@ -1,0 +1,132 @@
+<!--预约  -->
+<view class='bespeak_max'  hidden='{{!show_loading_faill}}' style=' background-color:{{res.background_type==2?res.background:""}};'>
+   <view class='bespeak_img' wx:if="{{res.background_type!=2}}">
+      <image src='{{res.background}}'></image>
+   </view>
+   <view class='bespeak'>
+   <!--门店列表  -->
+      <view class='bespeak_item'>
+         <view class='dropdown_box'>
+           <picker bindchange="store_picker" value="{{store_index}}" range="{{res.store_list}}" range-key="name">
+               <view class="picker item">
+                  <view class='name font_color1'>选择门店</view>
+                  <view class='picker_right'>
+                     <view class='text font_color3 font_overflow'>{{res.store_list[store_index].name}}</view>
+                     <image class='right_arrow' src='../img/income/right_arrow.png'></image>
+                  </view>
+               </view>
+            </picker>
+         </view>
+      </view>
+
+      <view class='bespeak_item' wx:for="{{res.content}}" wx:for-item="list" wx:for-index="ide" wx:key="key">
+         <!-- 文本框 -->
+         <view class='input_box' wx:if="{{list.type=='input'}}">
+            <label class='input_label item'>
+               <view class='name font_color1'>{{list.name}}</view>
+               <input class='text font_color3' cursor-spacing='30' type='{{list.option==2||list.option==3?"digit":"text"}}' data-id='{{list.id}}' bindinput="input"></input>
+            </label>
+         </view>
+
+         <!-- 下拉框 -->
+         <view class='dropdown_box' wx:if="{{list.type=='dropdown'}}">
+           <picker bindchange="bindPickerChange" value="{{activity_data[list.id].index?activity_data[list.id].index:'0'}}" range="{{list.list}}" data-id='{{list.id}}' data-list='{{list.list}}'>
+               <view class="picker item">
+                  <view class='name font_color1'>{{list.name}}</view>
+                  <view class='picker_right'>
+                     <view class='text font_color3 font_overflow'>{{list.list[activity_data[list.id].index?activity_data[list.id].index:"0"]}}</view>
+                     <image class='right_arrow' src='../img/income/right_arrow.png'></image>
+                  </view>
+               </view>
+            </picker>
+         </view>
+         
+         <!-- 时间选择器 -->
+         <view class='time_selector' wx:if="{{list.type=='time'}}">
+               <picker mode="multiSelector" 
+                  value="{{activity_data[list.id].dateTime?activity_data[list.id].dateTime:dateTime}}" 
+                  range="{{activity_data[list.id].dateTimeArray?activity_data[list.id].dateTimeArray:dateTimeArray}}" 
+                  data-id='{{list.id}}' 
+                  data-datetime='{{activity_data[list.id].dateTime?activity_data[list.id].dateTime:dateTime}}' 
+                  data-datetimearray='{{activity_data[list.id].dateTimeArray?activity_data[list.id].dateTimeArray:dateTimeArray}}' 
+                  bindcolumnchange="changeDateTimeColumn" 
+                  bindtap='time_tap'
+                  bindcancel='time_cancel'>
+               <view class="picker item">
+                  <view class='name font_color1'>{{list.name}}</view>
+                  <view class='picker_right'>
+                     <view class='text font_color3' wx:if="{{activity_data[list.id].value}}">{{activity_data[list.id].value}}</view>
+                     <view class='text font_color3' wx:if="{{!activity_data[list.id].value}}">{{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}} {{dateTimeArray[2][dateTime[2]]}}:{{dateTimeArray[3][dateTime[3]]}}</view>
+                     <image class='right_arrow' src='../img/income/right_arrow.png'></image>
+                  </view>
+               </view>
+               </picker>
+         </view>
+
+         <!-- 复选框 -->
+         <view class='check_box' wx:if="{{list.type=='checkBox'}}">
+            <view class='item'>
+               <view class='name font_color1'>{{list.name}}</view>
+            </view>
+            <!-- 多选 -->
+            <checkbox-group class="check_select line_color" bindchange="checkboxChange" wx:if="{{list.mode=='2'}}"  data-id='{{list.id}}' >
+               <label wx:for="{{list.list}}" wx:for-item="item" wx:for-index="ide" wx:key="key">
+                  <view class='check_select_item'>
+                  <checkbox value="{{item}}" checked="{{item.checked}}"/>
+                  {{item}}
+                  </view>
+               </label>
+            </checkbox-group>
+            <!-- 单选 -->
+            <radio-group class="check_select line_color" bindchange="radioChange" wx:if="{{list.mode=='1'}}" data-id='{{list.id}}' >
+               <label wx:for="{{list.list}}" wx:for-item="item" wx:for-index="ide" wx:key="key">
+                  <view class='check_select_item'>
+                     <radio value="{{item}}"/>
+                     {{item}}
+                  </view>
+               </label>
+            </radio-group>
+         </view>
+			<!-- 图片广告 -->
+			<view class='swiper_home' wx:if="{{list.type=='img'}}">
+				<swiper autoplay="true" skip-hidden-item-layout="true"  bindchange="swiperChange">
+					<block wx:for="{{list.list}}" wx:key="key">
+					<swiper-item>
+						<image src="{{item}}" />
+					</swiper-item>
+					</block>
+				</swiper>
+				<view class='display_quantity' wx:if="{{list.list.length>1}}">
+					<view class='display_quantity_text {{current==index?"display_quantity_max":""}}' wx:for="{{list.list}}" wx:for-index="index" wx:key="key" ></view>
+				</view>
+			</view>
+
+      </view>
+
+   </view>
+      <view class='button_max'>
+         <view class='button_an' catchtap='submission'>{{res.submit_title?res.submit_title:"提交"}}</view>
+      </view>
+      <view class='bespeak_list_max'>
+         <view class='bespeak_list_an' catchtap='jump'>
+            <view class='bespeak_list_back'></view>
+            <view class='bespeak_list_text'>
+               <view>我的</view>
+               <view>预约</view>
+            </view>
+         </view>
+      </view>
+</view>
+
+<!-- 顶部提示 -->
+<import src="../overall_situation_modular/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+<!--请求页面数据失败显示模块  -->
+ <import src="../overall_situation_modular/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{ show_loading_faill, show}}" /> 
+
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+  <authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+</view>

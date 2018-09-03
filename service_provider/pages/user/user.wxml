@@ -1,0 +1,12 @@
+<!-- 我的 -->
+<view class='user_max font_color1'>
+   <view class='merchant_list'>
+      <view class='merchant_item'>
+         <view class='item_title font_overflow'>宁波银窠网络科技有限公司</view>
+         <view class='item_text font_color2 font_overflow'><text space='ensp'>邵燕平 </text>15314561927</view>
+      </view>
+		<view class='button_t'>
+			<button class='submit' form-type="submit" hover-class="hover" plain="true">保存</button>
+		</view>
+   </view>
+</view>

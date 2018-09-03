@@ -1,0 +1,14 @@
+<!--pages/xw_business/feedback.wxml-->
+<view class='feedback_max'>
+	<view class='feedback_img'>
+		<image src='{{imgSrc}}'></image>
+	</view>
+	<view class='feedback_title font_color1'>{{title}}</view>
+	<view class='feedback_text'>
+		<view class='text_item font_color2'>{{content}}</view>
+	</view>
+	<view class='button'>
+		<button class='submit' form-type="submit" hover-class="hover" plain="true" bindtap='handleNext'>{{btn}}</button>
+	</view>
+</view>
+

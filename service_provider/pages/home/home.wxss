@@ -1,0 +1,83 @@
+/* 首页 */
+.home_top{
+	padding: 0rpx 39rpx;
+}
+
+.transaction{
+	padding-top: 44rpx;
+	font-size: 28rpx;
+	line-height: 25rpx;
+}
+.number{
+	font-size: 26rpx;
+	margin-left: 20rpx;
+}
+
+.transaction_money{
+	padding-top: 55rpx; 
+	font-size: 68rpx;
+	font-weight: bold;
+	 line-height: 58rpx; 
+}
+.icon_text{
+	margin-left: -6rpx;
+}
+.transaction_info{
+	padding-top: 55rpx;
+	display: flex;
+}
+.transaction_info .info_item{
+	flex: 1;
+}
+.transaction_info .info_item:last-child{
+	padding-left: 30rpx;
+}
+.transaction_info .info_item_text{
+	font-size: 26rpx;
+	line-height: 26rpx;
+}
+.transaction_info .info_item_num{
+	font-size: 28rpx;
+	padding-top: 15rpx;
+	line-height: 28rpx;
+}
+.m_line{
+	position: relative;
+}
+.line{
+	position: absolute;
+	top: 6rpx;
+	bottom: 2rpx;
+	border-left-width:1rpx; 
+}
+
+
+.home_bottm{
+	margin-top: 59rpx;
+	padding: 0rpx 20rpx 20rpx 20rpx;
+}
+
+.jump_item{
+	height: 130rpx;
+	margin-bottom: 20rpx;
+	background-color: #fff;
+	padding-left: 25rpx;
+	display: flex;
+	align-items: center;
+	border-radius: 8rpx;
+}
+.jump_img{
+	width: 40rpx;
+	height: 40rpx;
+	display: flex;
+	margin-right: 28rpx;
+}
+.jump_img image{
+	width: 100%;
+	height: 100%;
+}
+.jump_text{
+	flex: 1;
+	font-size: 30rpx;
+	line-height: 30rpx;
+}

@@ -1,0 +1,233 @@
+/* 客服 CSS*/
+.service_bottom{
+	width: 100%;
+	/* height: 50rpx; */
+	position: fixed;
+	bottom:0;
+	background-color: #fff;
+	padding: 25rpx;
+	display: flex;
+	align-items: center;
+}
+.imgUP{
+	width: 65rpx;
+	height: 65rpx;
+	 border-radius: 50%; 
+	margin: 3rpx 0 0 10rpx;
+}
+.imgUP image{
+	width: 65rpx;
+	height: 65rpx;
+	 border-radius: 50%; 
+}
+.chat_input{
+	width: 65%;
+	margin: 0 15rpx;
+}
+.Input_box{
+	width: 95%;
+	/* max-height: 250rpx; */
+	font-size: 1em;
+	border: 1rpx solid #e1e1e1;
+	border-radius: 8rpx;
+	height: 50rpx; 
+	padding: 10rpx;
+}
+.send_button{
+	height: 72rpx;
+	 line-height: 72rpx; 
+	text-align: center;
+	background-color: #11cc10;
+	border-radius: 8rpx;
+	color: #fff;
+	padding: 0 24rpx;
+	font-size: 28rpx;
+}
+.top_t{
+	text-align: center;
+	font-size: 28rpx;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	color: #fff;
+	z-index: 55;
+}
+.back_t{
+	position: absolute;
+	width: 100%;
+	height: 70rpx;
+	background-color: #000;
+	opacity: 0.6;
+}
+.text_t{
+	position: relative;
+	line-height: 70rpx;
+}
+.service_window{
+	position: absolute;
+	width: 100%;
+	top: 0;
+	bottom: 120rpx;
+	overflow:auto;
+}
+.time{
+	text-align: center;
+	font-size: 26rpx;
+	padding: 50rpx 0 30rpx 0;
+	color: #757575;
+}
+
+
+/*气泡  */
+.news{
+	padding: 30rpx;
+	overflow: hidden;
+}
+/*头像  */
+.portrait{
+	width: 90rpx;
+	height: 90rpx;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.portrait image{
+	border-radius: 50%;
+	width: 90rpx;
+	height: 90rpx;
+}
+/*昵称  */
+.user_name{
+	font-size:24rpx;
+	margin-bottom: 10rpx;
+}
+.user{
+	max-width: 540rpx;
+	overflow: hidden;
+}
+/*气泡显示内容  */
+.se_content{
+	position: relative;
+	background-color: #fff;
+	min-width: 32rpx;
+	min-height: 32rpx;
+	padding: 15rpx;
+	font-size: 30rpx;
+	border-radius: 8px;
+	text-overflow:ellipsis;
+	max-width: 500rpx;
+}
+.se_content_text{
+	word-wrap:break-word;
+}
+.se_content_img{
+	max-width: 400rpx;
+}
+.se_content_img image{
+	max-width: 400rpx;
+}
+.jiao{
+	position: absolute;
+	width: 20rpx;
+  height: 20rpx;
+	top: 15rpx;
+  background: linear-gradient(46deg,#fff, #fff 50%,transparent 50%);
+}
+/* 商品链接 */
+.goods{
+	position: relative;
+	background-color: #fff;
+	padding: 18rpx;
+	border-radius: 6rpx;
+	display: flex;
+	color: #000;
+	width: 440rpx;
+	overflow: hidden;
+}
+/*商品图片 */
+.goods_img{
+	width: 130rpx;
+	height: 130rpx;
+	margin-right: 15rpx;
+}
+.goods_img image{
+	width: 130rpx;
+	height: 130rpx;
+}
+.goods_text{
+	max-width: 270rpx;
+	font-size: 28rpx;
+	/*文字信息保持为两行  */
+	display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+	letter-spacing: 1rpx;
+}
+.goods_money{
+	position: absolute;
+	color: #F03F2B;
+	font-size: 28rpx;
+	bottom: 15rpx;
+}
+.goods_close{
+	position: absolute;
+	top: -9rpx;
+	right: -9rpx;
+	margin: 10rpx;
+}
+.goods_close image{
+	width: 30rpx;
+	height: 30rpx;
+}
+.goods_send{
+	position: absolute;
+	right: 5rpx;
+	bottom: 5rpx;
+	background-color: #11cc10;
+	padding: 8rpx 18rpx;
+	color: #FFF;
+	font-size: 28rpx;
+	border-radius: 6rpx;
+}
+
+/*左边气泡  */
+.news_left .portrait {
+	float: left;
+	margin-right: 10rpx;
+}
+.news_left .user {
+	float: left;
+}
+.news_left .se_content {
+	margin-left: 15rpx;
+}
+.news_left .jiao {
+	left: -18rpx;
+   transform: rotate(180deg); 
+}
+/* 右边气泡 */
+.news_right .portrait {
+	float: right;
+	margin-left: 10rpx;
+}
+.news_right .user {
+	float: right;
+}
+.news_right .se_content {
+	margin-right: 15rpx;
+}
+.news_right .user_name{
+	text-align: right;
+}
+.news_right .jiao {
+	right: -18rpx;
+   transform: rotate(90deg); 
+}
+#j_page{
+	position: relative;
+	bottom: 50rpx;
+	width: 10rpx;
+}/* pages/user/service.wxss */

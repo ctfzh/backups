@@ -1,0 +1,20 @@
+@import '../grade/forthwith_grade.wxss';
+/*配送员  */
+.delivery {
+  margin-bottom: 40rpx;
+}
+.delivery .store_name {
+  display: flex;
+  justify-content: space-between;
+}
+.delivery .store_name text:first-child {
+  color: #383A3E;
+  margin-right: 20rpx;
+}
+.delivery .store_name text:last-child {
+  color: #757A80;
+}
+.delivery .store_name .dlv_right {
+  font-size: 24rpx;
+}
+

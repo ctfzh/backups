@@ -1,0 +1,257 @@
+/* 门店详情 */
+.advertisement{
+	height: 320rpx;
+	display: flex;
+}
+.advertisement image{
+	width: 100%;
+	height: 100%;
+}
+
+.store_info{
+	padding: 0rpx 30rpx;
+	background-color: #fff;
+	margin-bottom: 20rpx;
+}
+.info_top{
+	display: flex;
+	justify-content: space-between;
+}
+.shop_hours{
+	margin: 30rpx 0rpx;
+}
+.shop_hours_title{
+	font-size: 32rpx;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+}
+.per_capita{
+	font-size: 26rpx;
+	font-weight: normal;
+	margin-left: 20rpx;
+}
+
+.shop_hours_text{
+	margin-top: 17rpx;
+	display: flex;
+	align-items: center;
+	font-size: 22rpx;
+	line-height: 22rpx;
+}
+.time_img{
+	width: 22rpx;
+	height: 22rpx;
+	display: flex;
+}
+.time_img image{
+	width: 100%;
+	height: 100%;
+}
+.time_title{
+	margin: 0rpx 10rpx;
+}
+
+.collection{
+	width: 60rpx;
+	height: 60rpx;
+	display: flex;
+	margin-top: 17rpx;
+}
+.collection image{
+	width: 100%;
+	height: 100%;
+}
+
+.info_bottom{
+	height: 85rpx;
+	display: flex;
+	align-items: center;
+	border-top: 1rpx solid #E3E4E5;
+	font-size: 26rpx;
+}
+
+.location{
+	width: 30rpx;
+	height: 30rpx;
+	display: flex;
+	margin: 0rpx 5rpx 0rpx -5rpx;
+}
+.location image{
+	width: 100%;
+	height: 100%;
+}
+.location_text{
+	max-width: 420rpx;
+	color: #4B5059;
+}
+.distance{
+	flex: 1;
+	color: #A8ACB3;
+	margin-left: 15rpx;
+	padding-left: 15rpx;
+	border-left: 2rpx solid #E3E4E5;
+	line-height: 26rpx;
+}
+
+.phone_img{
+	width: 80rpx;
+	height: 80rpx;
+	display: flex;
+}
+.phone_img image{
+	width: 100%;
+	height: 100%;
+}
+
+.activity{
+	background-color: #fff;
+	margin-bottom: 20rpx;
+}
+.activity_title{
+	display: flex;
+	align-items: center;
+	padding: 30rpx;
+}
+.sign{
+	width: 34rpx;
+	height: 34rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #F6535D;
+	color: #fff;
+	font-size: 24rpx;
+	border-radius: 3rpx;
+	line-height: 24rpx;
+}
+.activity_text{
+	font-size: 28rpx;
+	font-weight: bold;
+	margin-left: 12rpx;
+}
+
+.goods_item{
+	margin-left: 30rpx;
+	padding:  30rpx 30rpx 30rpx 0rpx;
+	border-top: 1rpx solid #E3E4E6;
+	display: flex;
+}
+.goods_img{
+	width: 160rpx;
+	height: 150rpx;
+	display: flex;
+	position: relative;
+	border-radius: 4rpx;
+	overflow: hidden;
+}
+.goods_img image{
+	width: 100%;
+	height: 100%;
+}
+.discount{
+	width: 84rpx;
+	height: 32rpx;
+	position: absolute;
+	top: 3rpx;
+	left: -2rpx;
+	background-color: #F24B4B;
+	border-radius: 2rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	font-size: 22rpx;
+	line-height: 22rpx;
+}
+.goods_info{
+	flex: 1;
+	margin-left: 30rpx;
+}
+
+.goods_h1{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.goods_title{
+	flex: 1;
+	font-size: 28rpx;
+	font-weight: bold;
+}
+.sales_volume{
+	font-size: 24rpx;
+}
+
+.goods_h2{
+	margin-top: 20rpx;
+	display: flex;
+	justify-content: space-between;
+}
+.goods_label{
+	height: 24rpx;
+	display: flex;
+	align-items: center;
+}
+.label_item{
+	margin-right: 20rpx;
+	display: flex;
+	align-items: center;
+}
+.label_img{
+	width: 22rpx;
+	height: 22rpx;
+	display: flex;
+	margin-right: 10rpx;
+}
+.label_img image{
+	width: 100%;
+	height: 100%;
+}
+.label_text{
+	font-size: 24rpx;
+}
+.arrow_img{
+	width: 40rpx;
+	height: 40rpx;
+	display: flex;
+	margin-top: 10rpx;
+}
+.arrow_img image{
+	width: 100%;
+	height: 100%;
+}
+
+.goods_h3{
+	margin-top: 9rpx;
+	display: flex;
+	align-items: center;
+}
+.goods_money{
+	display: flex;
+	align-items: center;
+	font-size: 32rpx;
+	font-weight: bold;
+}
+.fu{
+	font-size: 24rpx;
+	font-weight: normal;
+}
+.original_price{
+	margin-left: 17rpx;
+	text-decoration: line-through;
+	font-size: 24rpx;
+}
+.back{
+	background-color: #F79900;
+}
+
+.shop_details{
+	background-color: #fff;
+}
+.shop_title{
+	font-size: 28rpx;
+	padding: 30rpx;
+	margin-bottom: 30rpx;
+}

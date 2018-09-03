@@ -1,0 +1,73 @@
+/*点餐评分  */
+
+/*评分部分  */
+
+Page {
+  background: #f0f1f2;
+}
+
+.container {
+  padding: 40rpx 40rpx 0 40rpx;
+}
+
+.grade_box {
+  background: #fff;
+  padding: 0 40rpx;
+}
+
+.store_name {
+  height: 105rpx;
+  line-height: 105rpx;
+  border-bottom-width: 1rpx;
+  font-size: 28rpx;
+  color: #383A3E;
+}
+.to_grade {
+  font-size: 28rpx;
+  color: #383A3E;
+  text-align: center; 
+  margin: 35rpx 0 25rpx 0;
+}
+.star_wraper {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 45rpx 50rpx 45rpx;
+}
+.star_wraper .star{
+  width: 60rpx;
+  height: 60rpx;
+  position: relative;
+}
+.star_wraper .star image{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+.star_wraper .star .empty_star {
+  display: block;
+}
+/*满心星  */
+.star_wraper .star .full_star {
+  display: block;
+}
+/*半星  */
+.star_wraper .star .half_star {
+  display: block;
+}
+.btn {
+  height: 95rpx;
+  line-height: 95rpx;
+  margin-top: 40rpx;
+  background: #F24B4B;
+  color: #fff;
+  font-weight: bold;
+  font-size: 36rpx;
+  text-align: center;
+}
+.btn_back{
+  background-color: #E3E4E5;
+  color: #42464D;
+}

@@ -1,0 +1,29 @@
+<!-- 选择收款账号 -->
+<view class='select_acco_max'>
+   <view class='fill'>
+      <view class='add font_color3' catchtap='jump_account' data-type='{{account_type}}'>+添加{{account_type==1?"支付宝收款账号":account_type==3?"微信收款账号":"间连收款账号"}}</view>
+
+      <view class='merchant_list'>
+         <view class='jump_item' catchtap='jump_url' data-url=''>
+            <view class='jump_img'>
+               <image src='../img/income/unchecked.png'></image>
+            </view>
+            <view class='jump_text'>
+               <view class='jump_h1 font_overflow'>AppID：2017051607254898</view>
+               <view class='jump_h2 font_color5 font_overflow'>备注 门店一的收款账号</view>
+            </view>
+         </view>
+
+         <view class='jump_item' catchtap='jump_url' data-url=''>
+            <view class='jump_img'>
+               <image src='../img/income/select.png'></image>
+            </view>
+            <view class='jump_text'>
+               <view class='jump_h1 font_overflow'>AppID：2017051607254898</view>
+               <view class='jump_h2 font_color5 font_overflow'>备注 门店一的收款账号</view>
+            </view>
+         </view>
+      </view>
+		
+   </view>
+</view>

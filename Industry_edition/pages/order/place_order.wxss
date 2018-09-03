@@ -1,0 +1,2 @@
+/* 点餐提交订单 */
+@import "./takeout_order.wxss"

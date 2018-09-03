@@ -1,0 +1,12 @@
+<!--使用须知-->
+<view class='handbook_max' hidden='{{!show}}' style='background-color:{{res.colour}}'>
+	<view class='handbook_back {{res.if_full_screen==2?"handbook_back_is":""}} '>
+		<import src="../overall_situation_modular/wxParse/wxParse.wxml" />
+		<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+	</view>
+</view>
+
+<!-- 错误提示组件 -->
+<view class='error' hidden='{{show}}'>
+  <error bindretry="retry" error="{{error}}" error_text="{{error_text}}" retry_an="{{retry_an}}" log="{{log}}"></error>
+</view>

@@ -1,0 +1,9 @@
+/* 引入底部logoCSS */
+@import "../custom_modular/bottom_Logo.wxss"; 
+/* 首页CSS */
+.max_home{
+   max-width: 100%; 
+   overflow: hidden; 
+   position: relative; 
+   z-index: 1; 
+}

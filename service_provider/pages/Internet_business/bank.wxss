@@ -1,0 +1,26 @@
+/* pages/Internet_business/bank.wxss */
+.bank_wrap{
+  margin: 40rpx 20rpx 0 20rpx;
+  background: white;
+}
+
+.bank{
+  padding: 0 273rpx 0 20rpx;
+  line-height: 110rpx;
+
+}
+
+.item_text{
+  font-size:30rpx;
+  display:inline-block;
+  width: 673rpx;
+  border-top:1rpx solid #E9E9E9; 
+}
+
+.bank:nth-child(1) .item_text{
+  border: none;
+}
+
+.item_ipt{
+  width: 500rpx;
+}

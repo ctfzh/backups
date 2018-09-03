@@ -1,0 +1,127 @@
+<!-- 储值HTML -->
+<view class='max_recharge font_color1'  hidden='{{!show_loading_faill}}'>
+  <view class='recharge_back' style='background-color:{{data.recharge_activity_data.background_color}}'>
+    <view class='recharge_back_img' wx:if="{{data.recharge_activity_data.background_type==1}}">
+      <image src='{{data.recharge_activity_data.background_img}}' mode='widthFix'></image>
+    </view>
+    <view class='recharge_title'>{{data.recharge_activity_data.title}}</view>
+    <view class='recharge_rule'>
+      <view class='rule_an' bindtap="recharge_rule">
+        <view class='rule_back'></view>
+        <text class='rule_text'>充值规则</text>
+      </view>
+    </view>
+    <!-- 会员卡=>开始 -->
+    <view class='balance_style' style='background-color:{{data.recharge_activity_data.card_background_color}}'>
+      <view class='balance_back' wx:if="{{data.recharge_activity_data.card_background_type==1}}"><image src='{{data.recharge_activity_data.card_background_img}}'></image></view>
+      <view class='balance_user'>
+        <view class='balance_portrait'>
+          <view class='balance_portrait_border'></view>
+          <view class='balance_portrait_img'>
+            <image class='balance_portrait_img' src='{{data.member_data.head}}'></image>
+          </view>
+        </view>
+        <view class='balance_name'>{{data.member_data.nickname}}</view>
+      </view>
+      
+      <view class='balance_title'>我的余额</view>
+      
+      <view class='balance_money'><text class='mo_rmb'>￥</text>{{data.member_data.balance}}</view>
+    </view>
+    <!-- 会员卡=>结束 -->
+  </view>
+
+  <!-- 充值=>开始 -->
+  <view class='recharge_money_style'>
+    <view class='recharge_money_title'>充值金额</view>
+    <view class='recharge_activity'>
+    <!-- activity_recharge -->
+      <view class='recharge_activity_list line_color' wx:for="{{data.recharge_data}}" wx:for-item="list" wx:key="key" wx:for-index="index" data-activity='{{list}}' catchtap='activity_recharge'>
+        <view class='recharge_first' wx:if="{{index==0&&list.is_first==1}}">首充专享</view>
+        <view class='recharge_money'>{{list.recharge_money}}元</view>
+        <view class='recharge_money_activity'>送{{list.give_money}}元</view>
+      </view>
+      <!-- arbitrarily_recharge  -->
+      <view class='recharge_activity_list line_color' bindtap="arbitrarily_recharge" wx:if="{{data.recharge_activity_data.if_arbitrary_recharge==1}}">
+        <view class='recharge_money'>任意充值</view>
+        <view class='recharge_money_activity'>可充值任意金额</view>
+      </view>
+    </view>
+
+    <view class='recharge_protocol'>
+      点击充值，即表示您已同意
+      <text class='protocol_an' bindtap='switch_protocol'>《充值协议》</text>
+      <view class='protocol_layer font_color1 {{switch_protocol?"switch":""}}'>
+        <view class='protocol_layer_title'>充值协议</view>
+
+        <view class='protocol_layer_content'>
+          <view class='protocol_content_title'>尊敬的用户：</view>
+          <view class='protocol_content_text font_color3'>为保障您的合法权益，请您在参加充值赠送活动前仔细阅读本规则，以免造成误解。当你点击充值金额后，即视为您已阅读、理解本协议，并同意按照本协议的规定参与充值。</view>
+          <view class='protocol_content_h2'>活动内容</view>
+          <view class='protocol_content_text font_color3'>所有充值赠送活动均与充值页面上所呈现的保持一致。</view>
+          <view class='protocol_content_h2'>特别说明</view>
+          <view class='protocol_content_text font_color3'>
+            <view class='protocol_content_h3'>1. 余额使用规则：</view>
+            <view class='font_color3'>包含充值赠送金额在内的余额均可用于支付订单费用，但不能用于支付押金或转赠</view>
+          </view>
+          <view class='protocol_content_text font_color3'>
+            <view class='protocol_content_h3'>2. 余额花费及退款规则：</view>
+            <view class='font_color3'>充值成功后无法退款，不支持提现。</view>
+          </view>
+          <view class='protocol_content_h2'>正当性保证</view>
+          <view class='protocol_content_text font_color3'>我们包含充值赠送在内的所有优惠推广活动仅面向正当、合法消费的用户。一旦您存在利用我们的规则漏洞进行任何形式的作弊行为（包括但不限于通过我们的活动获得不正当的经济利益），我们有权取消与作弊行为相关账户赠送金额、追回您作弊所得的不正当经济利益、关闭作弊账户或与您相关的所有账户，并保留取消您后续使用我们服务的权利，及依据严重程度追究您的法律责任。
+          </view>
+        </view>
+        <view class='protocol_layer_close'>
+          <view class='close_an' bindtap='switch_protocol'>
+            <view class='close_left close_t'></view>
+            <view class='close_right close_t'></view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <!-- 充值=>结束 -->
+  
+  <view class='relation_jump'>
+    <view class='relation_jump_list line_color' bindtap='jump_balance'>
+      <view class='relation_jump_title'>余额明细</view>
+      <view class='right_arrow'><image src='../img/income/right_arrow.png'></image></view>
+    </view>
+    <view class='relation_jump_list line_color' bindtap='jump_code'>
+      <view class='relation_jump_title'>储值卡/码</view>
+      <view class='right_arrow'><image src='../img/income/right_arrow.png'></image></view>
+    </view>
+  </view>
+</view>
+
+<!-- 提示框 -->
+<view wx:if="{{!dialog}}">
+  <dialog id='dialog' 
+        title='{{dialog_title}}' 
+        confirmText='{{dialog_confirmText}}' 
+        bind:confirmEvent="{{confirmEvent}}">
+        <scroll-view scroll-y wx:if="{{dialog_content=='recharge_rule'}}">
+          <richText text="{{data.recharge_activity_data.rule}}"></richText>
+          <!-- <view class='dialog_text'>充值金额不可与其他优惠活动同享</view>
+          <view class='dialog_text'>例如：充值成功后无法退款，不支持提现。</view>
+          <view class='dialog_text'>例如：使用充值金额购买后，可根据每笔订单的实付金额申请开票。</view> -->
+        </scroll-view>
+        <view class='recharge_activity_box line_color' wx:if="{{dialog_content=='recharge_activity'}}">
+          <input type='digit' adjust-position='30' maxlength='10' placeholder='请输入金额' bindinput='input_recharge' value='{{money}}'></input>
+        </view>
+  </dialog>
+</view>
+<!-- 顶部提示 -->
+<import src="../overall_situation_modular/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+<!--请求页面数据失败显示模块  -->
+ <import src="../overall_situation_modular/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{ show_loading_faill, show}}" /> 
+
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+  <authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+</view>

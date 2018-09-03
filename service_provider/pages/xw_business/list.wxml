@@ -1,0 +1,43 @@
+<!--pages/xw_business/list.wxml-->
+<view class='set_up_max font_color1'>
+  <view class='set_up_top font_color6'>
+    <view class='top_item {{current==0?"sele_item":""}}' data-current='0' bindtap='swiper_current'>全部</view>
+    <view class='top_item {{current==1?"sele_item":""}}' data-current='1' bindtap='swiper_current'>未提交</view>
+    <view class='top_item {{current==2?"sele_item":""}}' data-current='2' bindtap='swiper_current'>审核中</view>
+    <view class='top_item {{current==3?"sele_item":""}}' data-current='3' bindtap='swiper_current'>待签约</view>
+    <view class='top_item {{current==4?"sele_item":""}}' data-current='4' bindtap='swiper_current'>已签约</view>
+    <view class='top_item {{current==5?"sele_item":""}}' data-current='5' bindtap='swiper_current'>驳回</view>
+  </view>
+
+  <view class='add font_color3' catchtap='jump_add'>+添加商户</view>
+
+  <view class='set_up_bottom'>
+    <swiper class='swiper' current="{{current}}" duration="400" bindchange="change">
+      <view class='swiper_item' wx:for="{{[0,1,2,3,4,5]}}" wx:key='index'>
+        <!-- 全部 -->
+        <swiper-item>
+          <!-- <scroll-view class='scroll' scroll-y="true"> -->
+            <view class='merchant_list'>
+              <view wx:for="{{xwMerchantArray}}" wx:key="id" wx:for-item="item" bindtap='handleDetail' data-merchant_id='{{item.id}}' data-state='{{item.state}}' data-business_code='{{item.business_code}}'>
+                <view class='merchant_item'>
+                  <view>
+                    <view class='item_title'>
+                      <text class='short_name font_overflow'>{{item.short_name||''}}</text>
+                      <text class="item_text_r {{item.state==5?'font_color8':'font_color2'}}">{{FWS_WECHAT_MERCHANT_STATE[item.state]}}</text>
+                    </view>
+                    <view class='item_text_1 font_color2 font_overflow'>{{item.principal||''}}
+                    </view>
+                    <view class='item_text_2 font_color2 font_overflow'>
+                      {{item.merchant_code||''}}
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          <!-- </scroll-view> -->
+        </swiper-item>
+      </view>
+
+    </swiper>
+  </view>
+</view>

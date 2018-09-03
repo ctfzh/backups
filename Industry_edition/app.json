@@ -1,0 +1,53 @@
+{
+   "pages": [
+      "pages/home/home",
+      "pages/store/store_selection",
+      "pages/commodity/goods",
+      "pages/account_number/bind_account",
+      "pages/order/takeout_order",
+      "pages/order/place_order",
+      "pages/order/order_list",
+      "pages/order/takeout_order_details",
+      "pages/address/receiving_address",
+      "pages/address/new_address",
+      "pages/order/forthwith_order_details",
+      "pages/user/user_center",
+      "pages/user/handbook",
+      "pages/grade/forthwith_grade",
+      "pages/grade/takeout_grade",
+      "pages/store/consult_map",
+      "pages/address/sele_receiving_address"
+   ],
+   "window": {
+      "backgroundTextStyle": "light",
+      "navigationBarBackgroundColor": "#fff",
+      "navigationBarTitleText": "WeChat",
+      "navigationBarTextStyle": "black"
+   },
+   "tabBar": {
+      "list": [
+         {
+            "pagePath": "pages/home/home",
+            "text": "首页",
+            "iconPath": "/pages/img/tabBar/hide_home.png",
+            "selectedIconPath": "/pages/img/tabBar/show_home.png"
+         },
+         {
+            "pagePath": "pages/order/order_list",
+            "text": "订单",
+            "iconPath": "/pages/img/tabBar/hide_order.png",
+            "selectedIconPath": "/pages/img/tabBar/show_order.png"
+         },
+         {
+            "pagePath": "pages/user/user_center",
+            "text": "我的",
+            "iconPath": "/pages/img/tabBar/hide_user.png",
+            "selectedIconPath": "/pages/img/tabBar/show_user.png"
+         }
+      ],
+      "color": "#42464C",
+      "selectedColor": "#F24B4B",
+      "backgroundColor": "#FFF"
+   },
+   "debug": false
+}

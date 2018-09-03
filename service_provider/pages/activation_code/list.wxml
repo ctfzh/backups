@@ -1,0 +1,32 @@
+<!-- 激活码设置 -->
+<view class='list_max'>
+      <view class='add font_color3'>+添加员工账号</view>
+
+		<view class='list font_color5'>
+
+			<view class='list_item line_color'>
+				<view class='list_item_text'>
+					<text class='item_h1 font_color1'>927309</text>
+					<text class='item_h2'>已用次数<text class='font_color3'>10/20</text></text>
+				</view>
+				<view class='item_time item_h2'><text space='ensp'>有效期 </text>2018.07.01 - 2018.07.07</view>
+			</view>
+
+			<view class='list_item line_color'>
+				<view class='list_item_text'>
+					<text class='item_h1 font_color1'>927309</text>
+					<text class='item_h2'>已用次数<text class='font_color3'>10/20</text></text>
+				</view>
+				<view class='item_time item_h2'><text space='ensp'>有效期 </text>2018.07.01 - 2018.07.07</view>
+			</view>
+
+			<view class='list_item line_color'>
+				<view class='list_item_text'>
+					<text class='item_h1 font_color1'>927309</text>
+					<text class='item_h2'>已用次数<text class='font_color3'>10/20</text></text>
+				</view>
+				<view class='item_time item_h2'><text space='ensp'>有效期 </text>2018.07.01 - 2018.07.07</view>
+			</view>
+		</view>
+
+</view>
