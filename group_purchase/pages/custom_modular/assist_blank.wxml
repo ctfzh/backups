@@ -1,3 +1,0 @@
-<!--輔助空白HTML-->
-<view class='assist_blank_style' style='height:{{list.height}}rpx;'>
-</view>

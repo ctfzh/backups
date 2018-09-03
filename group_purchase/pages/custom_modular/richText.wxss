@@ -1,7 +1,0 @@
-/* 转译富文本显示组件CSS */
-/* 富文本转译CSS引入 */
-@import "../custom_modular/wxParse/wxParse.wxss";
-
-.richText_padding{
-  padding: 0rpx 20rpx;
-}
