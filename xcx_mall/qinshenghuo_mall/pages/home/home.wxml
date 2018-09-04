@@ -117,7 +117,7 @@
 
 <!-- 添加购物车模板 -->
 <import src="../template/bottom_dialog.wxml" />
-<template is="diaView" data="{{showDialog:showDialog,property_data:property_data,num:num,propertyid:propertyid,price_text:price_text,totalNum:totalNum,add:add,integral_limit_num}}" />
+<template is="diaView" data="{{showDialog:showDialog,property_data:property_data,num:num,propertyid:propertyid,price_text:price_text,totalNum:totalNum,add:add,integral_limit_num,buy_onlick_show}}" />
 <!-- 顶部提示 -->
 <import src="../template/top_message.wxml" />
 <template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />

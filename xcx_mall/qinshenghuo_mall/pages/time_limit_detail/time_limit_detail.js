@@ -271,6 +271,9 @@ Page({
     wx.showLoading({
       title: '加载中...',
     })
+	  this.setData({
+		  add: 2,
+	  })
     get_request_getproperty(this, this.data.goods_id, 2)
   },
   //加入购物车
@@ -279,6 +282,9 @@ Page({
         title: '加载中...',
         mask: true,
       })
+		this.setData({
+			add:1,
+		})
       get_request_getproperty(this, this.data.goods_id, 1)
   },
   // 购买商品

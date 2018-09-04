@@ -124,7 +124,7 @@
 </view>
 <import src="../template/bottom_dialog.wxml" />
 <import src="../template/top_message.wxml" />
-<template is="diaView" data="{{showDialog:showDialog,property_data:property_data,num:num,propertyid:propertyid,price_text:price_text,totalNum:totalNum,add:add}}" />
+<template is="diaView" data="{{showDialog:showDialog,property_data:property_data,num:num,propertyid:propertyid,price_text:price_text,totalNum:totalNum,add:add,buy_onlick_show}}" />
 <template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
 
 <import src="../template/login.wxml" />

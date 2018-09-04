@@ -53,12 +53,12 @@
           </view>
           <view class='left_right_vertical_center' style="display:{{add?'none':'flex'}}">
             <view class='add-shopping duihuan' bindtap='add_shoppingtrolley_onlick' wx:if ="{{!anniu_duihuan}}">加入购物车</view>
-            <view class='buy-immediately duihuan' bindtap='buy_onlick' wx:if ="{{!anniu_duihuan}}">立即购买</view>
+            <view class='buy-immediately duihuan' bindtap='buy_onlick' wx:if ="{{!anniu_duihuan && !buy_onlick_show}}">立即购买</view>
             <view class='buy-immediately' bindtap='buy_onlick' wx:if ="{{anniu_duihuan==0}}">立即兑换</view>
             <view class='buy-immediately anniu_hui' wx:if ="{{anniu_duihuan==1}}">积分不足</view>
             <view class='buy-immediately anniu_hui' wx:if ="{{anniu_duihuan==2}}">暂未开放</view>
           </view>
-          <view wx:if="{{add==1}}" class='add-shopping' bindtap='add_shoppingtrolley_onlick'>确定</view>
+          <view wx:if="{{add==1}}" class='buy-immediately' bindtap='add_shoppingtrolley_onlick'>确定</view>
           <view wx:if="{{add==2}}" class='buy-immediately' bindtap='buy_onlick'>确定</view>
         </view>
 

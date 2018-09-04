@@ -10,6 +10,8 @@ var LoginRequest = require('../template/login.js');
 var Extension = require('../base/utils/Extension_tool.js');
 // 在需要使用的js文件中，导入js  
 var util = require('../../utils/util.js');
+var timer; // 计时器
+
 Page({
 
    /**
@@ -269,7 +271,10 @@ Page({
       wx.showLoading({
          title: '加载中...',
       })
-      get_request_getproperty(this, this.data.goods_id, 2)
+		this.setData({
+			add: 2,
+		})
+		get_request_getproperty(this, this.data.goods_id, 2)
    },
    //加入购物车
    add_shopping: function(e) {
@@ -277,15 +282,10 @@ Page({
          title: '加载中...',
          mask: true,
       })
-      //获取token
-      var token = MySign.getToken();
-      if (token) {
-         get_request_getproperty(this, this.data.goods_id, 1)
-      } else {
-         Extension.registerrule(this, function(that) {
-            that.add_shopping()
-         }, e);
-      }
+		this.setData({
+			add:1,
+		})
+		get_request_getproperty(this, this.data.goods_id, 1)
    },
    // 购买商品
    buy_onlick: function(e) {
@@ -433,6 +433,8 @@ function Refresh(that) {
    //获取商户号
    MySign.getExtMchid(
       function() {
+			// 关闭倒计时
+			clearTimeout(timer);
          //授权
          var openid = Extension.getOpenid();
          if (!openid) {
@@ -453,21 +455,8 @@ function Refresh(that) {
    )
 }
 
-
-//  获取当前时间
-function current(that) {
-   // 调用函数时，传入new Date()参数，返回值是日期和时间
-   var current_time = util.Time(new Date());
-   // 再通过setData更改Page()里面的data，动态更新页面的数据  
-   that.setData({
-      current_time: current_time
-   });
-}
 //获取开始时间
-function startTime(that) {
-   if (that.data.commodity_data.timelimimt_view) {
-      var start_time = that.data.commodity_data.timelimimt_view.start_time;
-   }
+function startTime(that, start_time) {
    if (start_time) {
       //月日
       var arr1 = start_time.split(" ");
@@ -481,6 +470,68 @@ function startTime(that) {
          start_time: start_time,
       })
    }
+}
+
+
+/* 毫秒级倒计时 */
+function count_down(that, expireTime) {
+	if (expireTime) {
+		//2016-12-27 12:47:08 转换日期格式  
+		var a = expireTime.split(/[^0-9]/);
+		//截止日期：日期转毫秒  
+		var expireMs = new Date(a[0], a[1] - 1, a[2], a[3], a[4], a[5]);
+		//倒计时毫秒  
+		var duringMs = expireMs.getTime() - (new Date()).getTime();
+		// 渲染倒计时时钟  
+		// that.setData({
+		//   clock: date_format(that,duringMs)
+		// });
+		date_format(that, duringMs);
+	}
+}
+
+/* 格式化倒计时 */
+function date_format(that, micro_second) {
+	if (micro_second <= 0) {
+		that.setData({
+			clock_hr: '00',
+			clock_min: '00',
+			clock_sec: '00',
+		});
+		// timeout则跳出递归  
+		return;
+	}
+	// 秒数  
+	var second = Math.floor(micro_second / 1000);
+	// 小时位  
+	var hr = fill_zero_prefix(Math.floor(second / 3600));
+	// 分钟位  
+	var min = fill_zero_prefix(Math.floor((second - hr * 3600) / 60));
+	// 秒位  
+	var sec = fill_zero_prefix(second % 60);// equal to => var sec = second % 60;  
+	// 计算天位
+	var day = 0;
+	if (hr>24){
+		day = parseInt(hr/24);
+		hr = fill_zero_prefix(hr - day * 24);
+	}
+	that.setData({
+		clock_day : day,
+		clock_hr: hr,
+		clock_min: min,
+		clock_sec: sec,
+	});
+	//延时调用
+	timer = setTimeout(function () {
+		// 放在最后--  
+		micro_second -= 1000;
+		date_format(that, micro_second);
+	}, 1000);
+}
+
+/* 分秒位数补0 */
+function fill_zero_prefix(num) {
+	return num < 10 ? "0" + num : num
 }
 
 //获取商品详情
@@ -530,18 +581,28 @@ function get_request_data(that, goods_id) {
                   freight_money: res.freight_money.delivery.freight_money,
                })
             }
-            if (res.sale_time) {
+				//定时开售 关闭立即购买按钮
+				var current_time = util.Time(new Date());
+				if (res.sale_time && res.sale_time >= current_time) {
+					var buy_onlick_show = true;
+					//倒计时
+					count_down(that, res.sale_time);
+				} else {
+					var buy_onlick_show = false;
+				}
 
-            }
-
+				//获取开始时间
+				if (res.timelimimt_view) {
+					var start_time = res.timelimimt_view.start_time;
+					startTime(that, start_time);
+				}
+				
             that.setData({
-               commodity_data: res,
-               show_loading_faill: true,
+					current_time,
+					buy_onlick_show,
+					commodity_data: res,
+					show_loading_faill: true,
             })
-            //获取当前时间
-            current(that)
-            //获取开始时间
-            startTime(that);
 
          } else {
             //自定义错误提示

@@ -41,7 +41,6 @@
       "pages/recharge_activity/recharge_activity",
       "pages/recharge_activity/balance_detailed",
       "pages/account_number/bind_account",
-      "pages/timing_details/timing_details",
       "pages/user/coupon_list"
    ],
    "window": {

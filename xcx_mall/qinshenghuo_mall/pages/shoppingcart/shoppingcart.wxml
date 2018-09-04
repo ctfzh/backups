@@ -7,142 +7,163 @@
 <import src="../template/login.wxml" />
 <view hidden='{{!show_loading_faill}}'>
    <view wx:if="{{token}}">
-      <view hidden='{{!is_shopping_null}}'>
-         <!-- <scroll-view scroll-y class='view-view'> -->
-         <view class='bottom_margin' wx:if="{{array}}">
-            <!-- <view class='stytle-line' /> -->
-            <view class='left_right_vertical_center yixi' style='padding:20rpx;background: white;'>
-               <view bindtap='all_checked_onclick'>
-                  <checkbox class='checkbox-view' checked="{{all_checked}}" />
-                  <text class='checkbox-text'>全选</text>
-               </view>
-               <view class='edit-view' bindtap="edit_onclick">{{edit_text}}</view>
-            </view>
-            <block wx:for="{{array }}" wx:for-item="itemName" wx:key="unique">
-
-               <view class='stytle-line' />
-
-               <view class='left_right_vertical_center' id='itm-view'>
-                  <view class='vertical-center '>
-                     <checkbox class='checkbox-view' data-idx="{{itemName}}" bindtap='commodity_checked_onclick' checked="{{!itemName.checked}}" />
-                     <image class='commodity-img' src='{{itemName.img}}' data-idx="{{itemName}}" bindtap="{{edit_text =='编辑'?'into_commodity_details_onclick':''}}" />
+	               <view class='left_right_vertical_center yixi' style='padding:20rpx;background: white;'>
+                  <view bindtap='all_checked_onclick' wx:if="{{array}}">
+                     <checkbox class='checkbox-view' checked="{{all_checked}}" />
+                     <text class='checkbox-text'>全选</text>
                   </view>
-                  <view class='right-view' data-idx="{{itemName}}" bindtap="{{edit_text =='编辑'?'into_commodity_details_onclick':''}}">
-
-                     <view wx:if="{{edit_text =='编辑'}}">
-
-                        <!-- 没有编辑 -->
-                        <view class='left_right_vertical'>
-                           <view>
-                              <view class='commodity-name'>
-                                 <text>{{itemName.goods_name}}</text>
-                              </view>
-                              <view class='commodity-classify'>{{itemName.property}}</view>
-                           </view>
-                           <view class='itm-right-view'>
-                              <text class='commodity-price'><text class='f_mo'>￥</text>{{itemName.price}}</text>
-                              <text class='original_price_view' wx:if="{{itemName.original_price>itemName.price}}"><text class='f_mo'>￥</text>{{itemName.original_price}}</text>
-                              <text class='commodity-number'><text class='f_x'>X</text>{{itemName.in_cart_num}}</text>
-                              <!-- <view class='commodity-classify'>{{itemName.simple_weight}}<text>{{itemName.simple_weight ? 'kg':''}}</text> </view> -->
-                           </view>
-                        </view>
-                     </view>
-                     <view wx:else>
-                        <!-- 正在编辑 -->
-                        <view class='edit-itm-view'>
-
-                           <view class='shul'>
-                              <view class="quantityViewStyle">
-                                 <view class="{{itemName.in_cart_num==1?'Size_Style':''}} minusStyle" data-idx="{{itemName}}" bindtap="onTapMinus">-</view>
-                                 <view class="inputViewStyle">
-                                    <input class="inputView1Style" data-idx="{{itemName}}" style="height:54rpx;" value="{{itemName.in_cart_num}}" type="number" bindinput="onInputNum" bindblur="lossFocus" />
-                                 </view>
-                                 <view class="{{(itemName.max_buyed_num>0 && itemName.buy_limit == 0)||itemName.in_cart_num==itemName.num?'Size_Style':''}} plusStyle" data-idx="{{itemName}}" bindtap="onTapPlus">+</view>
-                              </view>
-                           </view>
-                        </view>
-                     </view>
-                  </view>
-                  <view wx:if="{{edit_text !='编辑'}}" class='itm-del-view' bindtap='deleter_shoppingcart_Onclick' data-idx="{{itemName}}">删除</view>
+                  <view class='edit-view' bindtap="edit_onclick">{{edit_text}}</view>
                </view>
-            </block>
-         </view>
-
-
-         <view wx:if="{{not_enough}}">
-            <view>
-               <view class='stytle-line' />
-               <view class='left_right_vertical_center undercarriage'>
-                  <!-- bindtap='all_checked_onclick' -->
-                  <view style='margin: 0 auto;'>
-                     <text class='checkbox-text'>以下商品无法一起购买</text>
-                  </view>
-               </view>
-               <block wx:for="{{not_enough}}" wx:for-item="itemName" wx:key="unique">
+         <view  class='bottom_margin' hidden='{{!is_shopping_null}}'>
+            <!-- <scroll-view scroll-y class='view-view'> -->
+            <view wx:if="{{array}}">
+               <!-- <view class='stytle-line' /> -->
+               <block wx:for="{{array }}" wx:for-item="itemName" wx:key="unique">
 
                   <view class='stytle-line' />
 
                   <view class='left_right_vertical_center' id='itm-view'>
-                     <view class='vertical-center lose_center'>
-                        <view class='lose-efficacy'></view>
-                        <view class='lose_text'>失效</view>
-                        <view class='lose_img'></view>
-                        <image class='commodity-img' src='{{itemName.img}}' />
+                     <view class='vertical-center '>
+                        <checkbox class='checkbox-view' data-idx="{{itemName}}" bindtap='commodity_checked_onclick' checked="{{!itemName.checked}}" />
+                        <image class='commodity-img' src='{{itemName.img}}' data-idx="{{itemName}}" bindtap="{{edit_text =='编辑'?'into_commodity_details_onclick':''}}" />
                      </view>
-                     <view class='right-view'>
+                     <view class='right-view' data-idx="{{itemName}}" bindtap="{{edit_text =='编辑'?'into_commodity_details_onclick':''}}">
 
-
-                        <!-- 没有编辑 -->
-                        <view class='left_right_vertical' bindlongtap='deleter_shoppingcart_Onclick' data-idx="{{itemName}}">
-                           <view>
-                              <view class='commodity-name'>
-                                 <text style='color: #999999;'>{{itemName.goods_name}}</text>
+                        <view wx:if="{{edit_text =='编辑'}}">
+                           <!-- 没有编辑 -->
+                           <view class='left_right_vertical'>
+                              <view>
+                                 <view class='commodity-name'>
+                                    <text>{{itemName.goods_name}}</text>
+                                 </view>
+                                 <view class='commodity-classify'>{{itemName.property}}</view>
                               </view>
-                              <view class='commodity-classify'>{{itemName.property}}</view>
+                              <view class='itm-right-view'>
+                                 <text class='commodity-price'><text class='f_mo'>￥</text>{{itemName.price}}</text>
+                                 <text class='original_price_view' wx:if="{{itemName.original_price>itemName.price}}"><text class='f_mo'>￥</text>{{itemName.original_price}}</text>
+                                 <text class='commodity-number'><text class='f_x'>X</text>{{itemName.in_cart_num}}</text>
+                              </view>
                            </view>
-
-                           <view class='itm-right-view'>
-                              <text class='commodity-price' style='color: #999999;'><text class='f_mo'>￥</text>{{itemName.price}}</text>
-                              <text class='commodity-number' style='color: #999999;'><text class='f_x'>X</text>{{itemName.in_cart_num}}</text>
-                              <!-- <view class='commodity-classify' style='color: #4d4d4d;'>{{itemName.weight}}<text>{{itemName.weight ? 'kg':''}}</text> </view> -->
+                        </view>
+                        <view wx:else>
+                           <!-- 正在编辑 -->
+                           <view class='edit-itm-view'>
+                              <view class='shul'>
+                                 <view class="quantityViewStyle">
+                                    <view class="{{itemName.in_cart_num==1?'Size_Style':''}} minusStyle" data-idx="{{itemName}}" bindtap="onTapMinus">-</view>
+                                    <view class="inputViewStyle">
+                                       <input class="inputView1Style" data-idx="{{itemName}}" style="height:54rpx;" value="{{itemName.in_cart_num}}" type="number" bindinput="onInputNum" bindblur="lossFocus" />
+                                    </view>
+                                    <view class="{{(itemName.max_buyed_num>0 && itemName.buy_limit == 0)||itemName.in_cart_num==itemName.num?'Size_Style':''}} plusStyle" data-idx="{{itemName}}" bindtap="onTapPlus">+</view>
+                                 </view>
+                              </view>
                            </view>
 
 
                         </view>
                      </view>
+                     <view wx:if="{{edit_text !='编辑'}}" class='itm-del-view' bindtap='deleter_shoppingcart_Onclick' data-idx="{{itemName}}">删除</view>
                   </view>
                </block>
-               <view class='checkbox-text-loce' bindtap='all_deleter_lose_efficacy_Onclick'>清空失效商品</view>
             </view>
-         </view>
-         <!-- </scroll-view> -->
-         <view class='bottom-view'>
-            <view wx:if="{{edit_text =='编辑'}}">
-               <view class='jie-b-view'>
+
+            <view wx:if="{{not_enough||not_in_time}}">
+               <view>
+                  <view class='stytle-line' />
+                  <view class='left_right_vertical_center undercarriage'>
+                     <view style='margin: 0 auto;'>
+                        <text class='checkbox-text'>以下商品无法一起购买</text>
+                     </view>
+                  </view>
+
+                  <!-- 失效商品 -->
+                  <block wx:for="{{not_enough}}" wx:for-item="itemName" wx:key="unique">
+                     <view class='stytle-line' />
+                     <view class='left_right_vertical_center' id='itm-view'>
+                        <view class='vertical-center lose_center'>
+                           <view class='lose-efficacy'>
+                              <view class='lose_text'>失效</view>
+                           </view>
+                           <image class='commodity-img' src='{{itemName.img}}' />
+                        </view>
+                        <view class='right-view'>
+                           <!-- 没有编辑 -->
+                           <view class='left_right_vertical' bindlongtap='deleter_shoppingcart_Onclick' data-idx="{{itemName}}">
+                              <view>
+                                 <view class='commodity-name'>
+                                    <text style='color: #999999;'>{{itemName.goods_name}}</text>
+                                 </view>
+                                 <view class='commodity-classify'>{{itemName.property}}</view>
+                              </view>
+                              <view class='itm-right-view'>
+                                 <text class='commodity-price' style='color: #999999;'><text class='f_mo'>￥</text>{{itemName.price}}</text>
+                                 <text class='commodity-number' style='color: #999999;'><text class='f_x'>X</text>{{itemName.in_cart_num}}</text>
+                              </view>
+                           </view>
+                        </view>
+                        <view wx:if="{{edit_text !='编辑'}}" class='itm-del-view' bindtap='deleter_shoppingcart_Onclick' data-idx="{{itemName}}">删除</view>
+                     </view>
+                  </block>
+
+                  <!-- 定时开售商品 -->
+                  <block wx:for="{{not_in_time}}" wx:for-item="itemName" wx:key="unique">
+                     <view class='stytle-line' />
+                     <view class='left_right_vertical_center' id='itm-view'>
+                        <view class='vertical-center lose_center'>
+                           <image class='commodity-img' src='{{itemName.img}}' />
+                        </view>
+                        <view class='right-view'>
+                           <!-- 没有编辑 -->
+                           <view class='left_right_vertical' bindlongtap='deleter_shoppingcart_Onclick' data-idx="{{itemName}}">
+                              <view>
+                                 <view class='commodity-name'>
+                                    <text style='color: #999999;'>{{itemName.goods_name}}</text>
+                                 </view>
+                                 <view class='commodity-classify'>{{itemName.property}}</view>
+                              </view>
+                              <view class='itm-right-view'>
+                                 <text class='commodity-price' style='color: #999999;'><text class='f_mo'>￥</text>{{itemName.price}}</text>
+                                 <text class='commodity-number' style='color: #999999;'><text class='f_x'>X</text>{{itemName.in_cart_num}}</text>
+                              </view>
+                           </view>
+                        </view>
+                        <view wx:if="{{edit_text !='编辑'}}" class='itm-del-view' bindtap='deleter_shoppingcart_Onclick' data-idx="{{itemName}}">删除</view>
+                     </view>
+                  </block>
+
+                  <view class='checkbox-text-loce' bindtap='all_deleter_lose_efficacy_Onclick'>清空失效商品</view>
+               </view>
+            </view>
+
+
+            <!-- </scroll-view> -->
+            <view class='bottom-view'>
+               <view wx:if="{{edit_text =='完成' && array}}">
                   <view bindtap='all_checked_onclick' class='left_check'>
                      <checkbox class='checkbox-view' checked="{{all_checked}}" />
                      <text class='checkbox-text'>全选</text>
                   </view>
-                  <view class='sumbit-view gradient_button' bindtap='settle_accounts_onclick'>立即购买</view>
-                  <view class='count-money'>
-                     <text><text class='p_f_mo'>￥</text>{{money}}</text>
-                  </view>
-                  <view class='hj-view'>
-                     <text>合计：</text>
+                  <view class='sumbit-view gradient_button' bindtap='all_deleter_shoppingcart_Onclick'>
+                     <text>全部删除</text>
                   </view>
                </view>
-            </view>
-            <view wx:else>
-               <view bindtap='all_checked_onclick' class='left_check'>
-                  <checkbox class='checkbox-view' checked="{{all_checked}}" />
-                  <text class='checkbox-text'>全选</text>
-               </view>
-               <view class='sumbit-view gradient_button' bindtap='all_deleter_shoppingcart_Onclick'>
-                  <text>全部删除</text>
+               <view wx:else>
+                  <view class='jie-b-view'>
+                     <view bindtap='all_checked_onclick' class='left_check'>
+                        <checkbox class='checkbox-view' checked="{{all_checked}}" />
+                        <text class='checkbox-text'>全选</text>
+                     </view>
+                     <view class='sumbit-view gradient_button' bindtap='settle_accounts_onclick'>立即购买</view>
+                     <view class='count-money'>
+                        <text><text class='p_f_mo'>￥</text>{{money}}</text>
+                     </view>
+                     <view class='hj-view'>
+                        <text>合计：</text>
+                     </view>
+                  </view>
                </view>
             </view>
          </view>
-      </view>
       <view class='null-view' hidden='{{is_shopping_null}}'>
          <view class='conte_view'>
             <image class='Shopping_b' src='../img/Shopping_a.png'></image>

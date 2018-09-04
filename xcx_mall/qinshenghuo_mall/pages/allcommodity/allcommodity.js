@@ -6,6 +6,8 @@ var MyHttp = require('../base/utils/httpurl.js');
 var LoginRequest = require('../template/login.js');
 //扩展工具js
 var Extension = require('../base/utils/Extension_tool.js');
+// 在需要使用的js文件中，导入js  
+var util = require('../../utils/util.js');
 Page({
   /**
    * 页面的初始数据
@@ -549,7 +551,12 @@ function get_request_getproperty(that, goods_id) {
     data,
     function (res) {
       if(res){
-
+			var current_time = util.Time(new Date());
+			if (res.sale_time && res.sale_time >= current_time) {
+				var buy_onlick_show = true;
+			} else {
+				var buy_onlick_show = false;
+			}
         that.setData({
           goods_id: goods_id,
           property_data: res,
@@ -561,6 +568,7 @@ function get_request_getproperty(that, goods_id) {
           propertyid: [],
           integral_limit_num: res.max_buy_num,
           buy_limit: res.buy_limit,
+			  buy_onlick_show: buy_onlick_show,
         })
 
       }else{

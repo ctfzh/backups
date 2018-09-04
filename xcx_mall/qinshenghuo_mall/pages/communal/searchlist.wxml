@@ -11,7 +11,7 @@
     </view>
     <text id="cancle" bindtap="Cancle">取消</text>
   </view> -->
-  <template wx:if="{{array&&array.length>0}}" is="product-list" data="{{array:array,showPrice:true,showTitle:true,showBuy:true,btnStyle:2,btnText:'立即购买'}}" />
+  <template wx:if="{{array&&array.length>0}}" is="product-list" data="{{array,showPrice:true,showTitle:true,showBuy:true,btnStyle:2,btnText:'立即购买'}}" />
   <view wx:if="{{!array||array.length<=0}}" class='center_class'>
 
     <view class='looading_faill_view'>
@@ -23,10 +23,10 @@
   </view>
 </view>
 
-<template is="diaView" data="{{showDialog:showDialog,property_data:property_data,num:num,propertyid:propertyid,price_text:price_text,totalNum:totalNum}}" />
-<template is="login_view" data="{{login_show:login_show,second:second,show_secound:show_secound}}" />
+<template is="diaView" data="{{showDialog, property_data, num, propertyid, price_text, totalNum, buy_onlick_show}}" />
+<template is="login_view" data="{{login_show,second,show_secound}}" />
 <import src="../template/top_message.wxml" />
-<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+<template is="toptips" data="{{ isTopTips, TopTipscontent}}" />
 
 
 

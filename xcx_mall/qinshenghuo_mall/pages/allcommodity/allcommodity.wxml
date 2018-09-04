@@ -84,12 +84,12 @@
 
 <!--模板  -->
 <import src="../template/bottom_dialog.wxml" />
-<template is="diaView" data="{{showDialog:showDialog,property_data:property_data,num:num,propertyid:propertyid,price_text:price_text,totalNum:totalNum,integral_limit_num}}" />
+<template is="diaView" data="{{showDialog,property_data,num,propertyid,price_text,totalNum,integral_limit_num,buy_onlick_show}}" />
 <import src="../template/top_message.wxml" />
 <template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
 
 <import src="../template/login.wxml" />
-<template is="login_view" data="{{login_show:login_show,second:second,show_secound:show_secound}}" />
+<template is="login_view" data="{{login_show,second,show_secound}}" />
 
 <!-- 错误提示 -->
 <import src="../template/loading_fall_ui.wxml" />

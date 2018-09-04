@@ -122,7 +122,7 @@
 }
 
 .add-shopping-view {
-  width: 202rpx;
+	flex: 1;
   font-size: 30rpx;
   color: #FFFFFF;
   text-align: center;
@@ -132,7 +132,7 @@
 }
 
 .buy-immediately-view {
-  width: 202rpx;
+	flex: 1;
   font-size: 30rpx;
   color: white;
   text-align: center;
@@ -322,4 +322,5 @@
 	justify-content: center;
 	color: #fff;
 	font-size: 30rpx;
+	z-index: 2;
 }

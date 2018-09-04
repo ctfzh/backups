@@ -77,7 +77,7 @@
     <template is="wxParse" data="{{wxParseData:article.nodes}}" />
   </view>
   <!-- 定时开售 -->
-  <view class='regular_sale'>距开售  仅剩1天4小时33分22秒</view>
+  <view class='regular_sale'  wx:if="{{buy_onlick_show}}">距开售  仅剩<block wx:if="{{clock_day>0}}">{{clock_day}}天</block>{{clock_hr}}小时{{clock_min}}分{{clock_sec}}秒</view>
   
   <view class='bottom-view'>
     <view class='bottom-itm-view' bindtap='home_onclick'>
@@ -100,7 +100,7 @@
     </view>
     <view class='left_right_vertical_center_commodity'>
       <view class='add-shopping-view' bindtap="add_shopping">加入购物车</view>
-      <view class='buy-immediately-view' bindtap="buy_commodity">立即购买</view>
+      <view class='buy-immediately-view' bindtap="buy_commodity" wx:if="{{!buy_onlick_show}}">立即购买</view>
     </view>
   </view>
 	<import src="../template/bottom_Logo.wxml" />

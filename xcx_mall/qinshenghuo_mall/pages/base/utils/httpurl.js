@@ -158,7 +158,7 @@ function GOODS_LIST() {
 }
 //获取商品属性接口
 function GETPROPERTY() {
-	return umall / goods / getproperty() + 'umall/goods/getproperty';
+	return baseUrl() + 'umall/goods/getproperty';
 }
 
 //获取商品sku

@@ -30,11 +30,11 @@
 <import src="../template/top_message.wxml" />
 
 <view wx:if="{{is_integral_goods==2}}">
-	<template is="diaView" data="{{showDialog:showDialog,property_data:property_data,num:num,propertyid:propertyid,price_text:price_text,totalNum:totalNum,add:add,integral_limit_num:integral_limit_num}}" />
+	<template is="diaView" data="{{ showDialog, property_data, num, propertyid, price_text, totalNum, add, integral_limit_num, buy_onlick_show}}" />
 </view>
 
 <view  wx:if="{{is_integral_goods!=2}}"> 
-	<template is="diaView" data="{{showDialog:showDialog,anniu_duihuan:anniu_duihuan,property_data:property_data,num:num,propertyid:propertyid,price_text:price_text,goods_bonus:goods_bonus,goods_price:goods_price,totalNum:totalNum,add:add,integral_limit_num:integral_limit_num}}" />
+	<template is="diaView" data="{{ showDialog, anniu_duihuan, property_data, num, propertyid, price_text, goods_bonus, goods_price, totalNum, add, integral_limit_num}}" />
 </view>
 
 
