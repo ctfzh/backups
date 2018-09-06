@@ -495,9 +495,9 @@ function get_shopping_list(that) {
 
 				//开售时间
 				var not_in_time = res.not_in_time;
+				var start_time = [];
 				if (not_in_time && not_in_time.length > 0){
 					for (var i = 0; i < not_in_time.length; i++) {
-						var start_time = [];
 						start_time.push(startTime(that, not_in_time[i].sale_time));
 					}
 					that.setData({

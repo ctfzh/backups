@@ -36,7 +36,7 @@
                               <view class='commodity-name'>
                                  <text>{{itemName.goods_name}}</text>
                               </view>
-                              <view class='commodity-classify'>{{itemName.property}}</view>
+                              <view class='commodity-classify font_overflow'>{{itemName.property}}</view>
                            </view>
                            <view class='itm-right-view'>
                               <view class='commodity-price'>
@@ -95,7 +95,7 @@
                               <view class='commodity-name'>
                                  <text style='color: #999999;'>{{itemName.goods_name}}</text>
                               </view>
-                              <view class='commodity-classify'>{{itemName.property}}</view>
+                              <view class='commodity-classify font_overflow'>{{itemName.property}}</view>
                            </view>
                            <view class='itm-right-view'>
                               <view class='commodity-price' style='color: #999999;'>
@@ -113,7 +113,7 @@
                </block>
 
                <!-- 定时开售商品 -->
-               <block wx:for="{{not_in_time}}" wx:for-item="itemName" wx:key="unique">
+               <block wx:for="{{not_in_time}}" wx:for-item="itemName" wx:key="unique" wx:for-index="index">
                   <view class='stytle-line' />
                   <view class='left_right_vertical_center' id='itm-view' data-idx="{{itemName}}" catchtap="{{edit_text =='编辑'?'into_commodity_details_onclick':''}}">
                      <view class='vertical-center lose_center'>
@@ -126,7 +126,7 @@
                               <view class='commodity-name'>
                                  <text style='color: #1A1A1A;'>{{itemName.goods_name}}</text>
                               </view>
-                              <view class='commodity-classify'>{{itemName.property}}</view>
+                              <view class='commodity-classify font_overflow'>{{itemName.property}}</view>
                            </view>
                            <view class='itm-right-view'>
                               <view class='commodity-price not_price'>
@@ -138,7 +138,7 @@
                               <text class='commodity-number' style='color: #999999;'><text class='f_x'>X</text>{{itemName.in_cart_num}}</text>
                            </view>
                         </view>
-                        <view class='start_time'>{{start_time}}开售</view>
+                        <view class='start_time'>{{start_time[index]}}开售</view>
                      </view>
                      <view wx:if="{{edit_text !='编辑'}}" class='itm-del-view' bindtap='deleter_shoppingcart_Onclick' data-idx="{{itemName}}">删除</view>
                   </view>
