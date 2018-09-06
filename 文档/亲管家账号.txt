@@ -1,0 +1,237 @@
+                
+1、Git账号：
+
+    地址：http://114.55.226.93:9090/users/sign_in
+    账号：root
+    密码：T#$xRp&y0&tEk
+
+
+2、友盟账号：
+
+    账号：developer@qinguanjia.com
+    密码：Asd12261212
+  
+3、极光账号：
+
+    账号：developer_qinguanjia
+    密码：201703151427qinguanjia
+
+4、亲管家后台
+
+    正式：
+        地址：https://sh.qinguanjia.com/login/login
+        账号：13056953056
+        密码：c123456
+        
+    测试：  
+        地址：http://sh.zhongtec.com/login/login
+        账号：13056953056
+        密码： c123456
+        
+5、讯飞开发者平台账号：
+	地址：http://www.xfyun.cn/
+        账号：developer@qinguanjia.com
+        密码：Asd12261212
+        
+6、路由器
+
+        密码：www.qinguanjia.com
+
+
+7、民商通宝  
+	
+	账号：13262555051
+	密码：R5tJpI1UM2aTOvWD
+	支付密码:u7NqYrodoM1A6V8F
+  
+8、小程序平台
+
+        地址：https://mp.weixin.qq.com/
+        账号：774270378@qq.com
+        密码：我的密码
+
+9、微信公众平台
+
+	地址：https://mp.weixin.qq.com/
+
+	亲管家：
+        	账号：developer@qinguanjia.com
+        	密码：qingguanjia2017
+	众腾：
+		账号：15757477244@163.com
+        	密码：rentong2016
+10、微信开放平台
+	
+	地址：https://open.weixin.qq.com/
+
+	测试环境：
+		账号：holo1994@sina.cn
+		密码：rentong2016
+
+	正式环境：
+		账号：developer_wxopen@qinguanjia.com
+		密码：Asd20170210113857
+
+
+11、旺POS开发者平台
+
+	地址：http://bp.wangpos.com/app/loginIndex
+        账号：developer@qinguanjia.com
+        密码：qinguanjia2017
+
+12、旺POS 代理商分润平台的帐号
+
+	地址：http://posdl.wangpos.com/app/index
+        账号：18815287469
+        密码：RU!8MYOOq5mlbt&I
+
+13、腾讯企业邮箱
+	地址：https://exmail.qq.com/
+	账号：qinguanjia
+	密码：CW$wmVcTP2#EoGjH
+
+14、小程序账号;
+	
+	1、亲管家小助手
+		主体：亲快
+		管理员：王辉
+		账号：774270378@qq.com
+		密码：x&0#C8EdaMEU
+		AppID(小程序ID)：wxf3e8446706907c1a
+		AppSecret(小程序密钥)：62203dd2e79d6955c20322254cb4acba
+
+	2、亲生活开发者：
+		主体：众腾
+		管理员：王辉
+		账号：qinshenhuoxcx@qinguanjia.net
+		密码：qsh2017QSH
+		AppID(小程序ID)：wxa55b92d2a08a16e6
+		AppSecret(小程序密钥)：6d8dfc6e0373bb478a1f5f4500cbe4a4
+
+	3、亲生活开发者测试：（开通了微信支付）
+		主体：众腾
+		管理员：周汇力
+		账号：xiaochengxuzt@qinguanjia.net
+		密码：zt2017ZT
+		AppID(小程序ID)：wx65001181d6724bb1
+		AppSecret(小程序密钥)：5aa7e5e5fe82aec62f80a791ac622b5a
+
+	4、亲管家官网小助手
+		主体：众腾
+		管理员：王辉
+		账号：qinguanjiagw@qinguanjia.net
+		密码：qgj2017QGJ
+		AppID(小程序ID)：wx88b65d4f750dab28
+		AppSecret(小程序密钥)：e29ca8ed99be2bce337a8166c710a4d2
+	
+
+	5、同城号福利社  绑定在正式开发平台
+		账号：1002050382@qq.com	
+		密码：我的密码
+
+	6、阿斌天地  绑定在测试开发平台
+		账号：2907401364@qq.com
+		密码：yb123456
+		AppID(小程序ID)：wx8fe9bb5998bfda93
+		AppSecret(小程序密钥)：wx8fe9bb5998bfda93
+
+
+15、账号724470477的小程序中的openID为：oWw4c0aAMwEdH2Cb-ZMtJsiLOvs0
+16、阿里云：
+	账号：724470477@qq.com
+	密码：QU92qNLDjxNT2Ref
+
+	会员：tiansiqiang
+	密码：G3ydXsBw2fV%aqW3
+17、签名密码：qgj123321
+18、商米开发者平台
+	
+	地址：http://partner.sunmi.com//#/
+	账号：qinguanjia
+	密码：qinguanjia2017
+
+19、公司名：
+20、官网接收加盟信息的邮件
+	地址：
+	账号：qinjiameng@qinguanjia.net
+	密码：qjm2017QJM
+	
+
+21、App发布平台
+
+	平台名称：IOS
+
+	地址：https://developer.apple.com/
+	账号：developer@qinguanjia.com
+	密码：SnK129801..
+
+
+	平台名称：腾讯开放平台
+
+	地址：http://open.qq.com/
+	账号：developer@qinguanjia.com
+	密码：Qinguanjia0123..
+
+
+
+	平台名称：360手机助手
+
+	地址：http://dev.360.cn/
+	账号：developer@qinguanjia.com
+	密码：Qinguanjia0123..
+
+
+	平台名称：百度手机助手
+
+	地址：http://app.baidu.com/
+	账号：13585778572
+	密码：Qinguanjia0123
+
+
+	平台名称：小米商店
+
+	地址：http://dev.xiaomi.com/console/
+	账号：13585778572
+	密码：Qinguanjia0123..
+
+	
+	平台名称：华为应用市场
+
+	地址：http://developer.huawei.com/devunion/ui/index.html
+	账号：developer@qinguanjia.com
+	密码：Qinguanjia0123..
+
+		
+	
+	平台名称：阿里应用分发平台	
+
+	地址：http://open.uc.cn/
+	账号：developer@qinguanjia.com
+	密码：qingguanjia2017
+
+
+
+
+
+22、新大陆开发平台
+
+
+	地址：https://open.starpos.com.cn/
+	账号：huy
+	密码：123456789
+		
+	
+		
+
+
+
+		
+
+
+
+23、一点点小程序
+	账号：pd@alittle-tea.com
+	密码：1diandiantest#
+
+
+

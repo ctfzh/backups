@@ -36,9 +36,14 @@
 	letter-spacing: 3rpx;
 }
 
+.all_checked .checkbox-view{
+	display: inline-block;
+}
+
 .checkbox-view {
   transform: scale(0.7);
-  text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 .checkbox-text {
@@ -79,11 +84,10 @@
 
 .vertical-center {
 	position: relative;
-  text-align: center;
   /*布局方式*/
   display: flex;
   /*垂直居中*/
-  align-items: center;
+  /* align-items: center; */
 }
 
 .right-view {
@@ -95,14 +99,12 @@
 /*左右对齐垂直居中*/
 
 .left_right_vertical {
-  /*布局方式*/
-  /* display: flex; */
-  /*垂直居中*/
-  /* align-items: unset;
-  justify-content: space-between;
-  margin: 20rpx;
-	text-align: left; */
+	height: 186rpx;
+	display: flex;
+	flex-flow: column;
 	text-align: left;
+	justify-content: space-between;
+	vertical-align: text-top;
 }
 
 .commodity-name {
@@ -126,6 +128,7 @@
 }
 
 .commodity-price {
+	flex: 1;
   font-size: 30rpx;
   color: #F03F2B;
 }
@@ -136,9 +139,6 @@
   font-size: 26rpx;
 }
 .commodity-number {
-	position: absolute;
-	right: 0;
-	bottom: 0rpx;
   font-size: 30rpx;
   color: #999999;
 	margin-right: 30rpx;
@@ -152,10 +152,7 @@
 }
 
 .itm-right-view {
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	right: 0;
+display: flex;
 }
 .left_right_vertical_center{
 	align-items:unset;
@@ -356,4 +353,21 @@
 
 .bottom_margin{
 	padding-bottom: 120rpx;
+}
+
+.start_time{
+	font-size: 24rpx;
+	line-height: 24rpx;
+	color: #1A1A1A;
+	margin-top: 10rpx;
+	text-align: left;
+}
+.not_price{
+	color: #F03F2B;
+}
+
+.original_price{
+	color: #8F8F8F;
+	text-decoration:line-through;
+	margin-left: 15rpx;
 }

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <script src="../js/common/jquery-3.2.1.js"></script>
+    <script src="../js/common/flexible_css.debug.js"></script>
+    <script src="../js/common/flexible.debug.js"></script>
+    <script type="text/javascript" src="../js/common/Share.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/css.css">
+    <title>亲管家-合作申请</title>
+</head>
+<body>
+<header class="Cooperative_application">
+    <span class="ca_h1">合作申请</span>
+    <a href="../index.html"><i class="guan"></i></a>
+</header>
+<section class="tap">
+    <ul>
+        <li class="tap1 cli"><div>商家入驻</div><img src="../images/common/ca_zhan.png"></li>
+        <li class="tap2"><div>合作加盟</div><img src="../images/common/ca_zhan.png"></li>
+        <li class="tap3"><div>渠道合作</div><img src="../images/common/ca_zhan.png"></li>
+    </ul>
+</section>
+<section class="settled c_biaodan biaodan">
+    <div class="label"><input type="text" placeholder="商户名称" name="settled_CorporateName"></div>
+    <div class="label"><input type="text" placeholder="商户地址" name="settled_address"></div>
+    <div class="label"><input type="text" placeholder="联系人" name="settled_Contacts"></div>
+    <div class="label"><input type="text" placeholder="手机号" name="settled_phone"></div>
+    <div class="label"><textarea placeholder="所属行业" name="settled_industry" style="resize:none;height: 200px;" ></textarea></div>
+    <div class="label"><input type="text" placeholder="验证码" name="settled_code">
+    <div class="code"></div></div>
+    <input type="button" name="settled_Apply" value="立即申请">
+</section>
+<section class="Join c_biaodan">
+    <div class="label"><input type="text" placeholder="公司名称" name="Join_CorporateName"></div>
+    <div class="label"><input type="text" placeholder="公司地址" name="Join_address"></div>
+    <div class="label"><input type="text" placeholder="联系人" name="Join_Contacts"></div>
+    <div class="label"><input type="text" placeholder="手机号" name="Join_phone"></div>
+    <div class="label"><textarea name="Join_Resources" placeholder="资源及优势" style="resize:none;height: 200px;" ></textarea></div>
+    <div class="label"><input type="text" placeholder="验证码" name="Join_code">
+    <div class="code"></div></div>
+    <input type="button" name="Join_Apply" value="立即申请">
+</section>
+<section class="channel c_biaodan">
+
+    <div class="label"><input type="text" placeholder="公司名称" name="channel_CorporateName"></div>
+    <div class="label"><input type="text" placeholder="公司地址" name="channel_address"></div>
+    <div class="label"><input type="text" placeholder="联系人" name="channel_Contacts"></div>
+    <div class="label"><input type="text" placeholder="手机号" name="channel_phone"></div>
+    <div class="label"><textarea name="channel_Other" placeholder="其它说明" style="resize:none;height: 200px;" ></textarea></div>
+    <div class="label"><input type="text" placeholder="验证码" name="channel_code">
+                        <div class="code"></div></div>
+    <input type="button" name="channel_Apply" value="立即申请">
+</section>
+</body>
+</html>
+<script type="text/javascript">
+    $(".tap1").click(function(){
+        $(".cli").removeClass("cli");
+        $(".biaodan").removeClass("biaodan");
+        $(this).addClass("cli");
+        $(".settled").addClass("biaodan");
+    });
+    $(".tap2").click(function(){
+        $(".cli").removeClass("cli");
+        $(".biaodan").removeClass("biaodan");
+        $(this).addClass("cli");
+        $(".Join").addClass("biaodan");
+    });
+    $(".tap3").click(function(){
+        $(".cli").removeClass("cli");
+        $(".biaodan").removeClass("biaodan");
+        $(this).addClass("cli");
+        $(".channel").addClass("biaodan");
+    })
+</script>

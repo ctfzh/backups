@@ -316,7 +316,7 @@
 	left: 0rpx;
 	height: 73rpx;
 	bottom: 98rpx;
-	background-color: #7336F8;
+	background-color: #996bfa;
 	display: flex;
 	align-items: center;
 	justify-content: center;

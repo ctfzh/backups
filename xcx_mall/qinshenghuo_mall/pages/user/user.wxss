@@ -108,8 +108,14 @@
 	position: relative;
   color: white;
   font-size: 32rpx;
-	padding-top: 35rpx;
+ 	margin-top: 35rpx;
   text-shadow: 0rpx 0rpx 2px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+
+.open-data{
+	color: #2C2F33;
+  text-shadow: 0rpx 0rpx 0px rgba(0, 0, 0, 0);
 }
 
 .all-order-view {

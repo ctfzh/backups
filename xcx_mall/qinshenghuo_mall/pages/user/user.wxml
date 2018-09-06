@@ -18,8 +18,8 @@
       <image class='user-avatar' src='{{data.upload+data.avatar}}' style="background:{{data.avatar? '':'#ffffff'}}" wx:if="{{token}}" />
     	<open-data  class='user-avatar' type="userAvatarUrl" wx:if="{{!token}}"></open-data>
     </view>
-    <view class='user-name-view' style="color:{{data.ucenter_set.background=='#fff'? '#1a1a1a':'#fff'}}" wx:if="{{token}}" >{{data.nickname? data.nickname:'会员昵称'}}</view>
-    	<open-data class='user-name-view' type="userNickName" wx:if="{{!token}}"></open-data>
+    <view class='user-name-view {{data.ucenter_set.background=="#fff"?open-data:""}}'  wx:if="{{token}}" >{{data.nickname? data.nickname:'会员昵称'}}</view>
+	 <view class='user-name-view open-data'><open-data type="userNickName" wx:if="{{!token}}"></open-data></view>
   </view>
   <view class='stytle-line'  wx:if="{{token}}"/>
   <view class='tab-view' wx:if="{{token}}">

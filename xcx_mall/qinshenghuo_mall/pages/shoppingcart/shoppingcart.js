@@ -454,6 +454,20 @@ function Refresh(that) {
    )
 }
 
+//获取开始时间
+function startTime(that, start_time) {
+	if (start_time) {
+		//月日
+		var arr1 = start_time.split(" ");
+		var sdate = arr1[0].split('-');
+		var start_date = sdate[1] + "月" + sdate[2] + "日";
+		//时分
+		var sdate_time = arr1[1].split(':');
+		var start_time = sdate_time[0] + ":" + sdate_time[1];
+		return start_date + start_time
+	}
+}
+
 //获取购物车列表
 function get_shopping_list(that) {
    var token = MySign.getToken();
@@ -478,6 +492,18 @@ function get_shopping_list(that) {
                }
             }
             MyUtils.myconsole("合计 ：" + parseFloat(money.toFixed(2), ));
+
+				//开售时间
+				var not_in_time = res.not_in_time;
+				if (not_in_time && not_in_time.length > 0){
+					for (var i = 0; i < not_in_time.length; i++) {
+						var start_time = [];
+						start_time.push(startTime(that, not_in_time[i].sale_time));
+					}
+					that.setData({
+						start_time,
+					})
+				}
 
             that.setData({
                money: money.toFixed(2),
