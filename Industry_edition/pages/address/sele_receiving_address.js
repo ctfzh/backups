@@ -10,8 +10,6 @@ var Request = require("../JS/request/request.js")
 var Server = require('../JS/request/server_address.js');
 //全局通用js
 var Currency = require('../JS/tool/currency.js');
-// 引入SDK核心类
-var QQMapWX = require('../JS/tool/qqmap-wx-jssdk.min.js');
 
 Page({
 
@@ -52,8 +50,10 @@ Page({
     * 生命周期函数--监听页面显示
     */
 	onShow: function () {
-		//初始化页面
-		Refresh(this);
+		if (this.data.address) {
+			//初始化页面
+			Refresh(this);
+		}
 	},
 
    /**
@@ -120,7 +120,7 @@ Page({
 			delta: 1
 		})
 	},
-
+	//切换定位点
 	switch_location(e) {
 		wx.chooseLocation({
 			success: function (res) {
@@ -153,7 +153,15 @@ Page({
 	},
 	//定位
 	location: function () {
-		location(this);
+		// wx.showLoading({
+		//    title: '定位中，请稍等！',
+		// })
+		if (!this.data.no_loc) {
+			this.setData({
+				no_loc: true,
+			})
+			location(this);
+		}
 	},
 })
 
@@ -165,8 +173,6 @@ function Refresh(that) {
 	//获取商户号
 	Sign.getExtMchid(
 		function () {
-			// 定位当前位置
-			// location(that);
 			// 获取地址列表
 			getAddressList(that);
 		},
@@ -207,6 +213,7 @@ function location(that) {
 				retry_an: 2,
 				error: 0,
 				error_text: "请授权地理位置",
+				no_loc: false,
 			})
 		}
 	})
@@ -284,26 +291,26 @@ function address_details(that) {
 			that.setData({
 				address: res.address,
 			})
-				//清除存储
-				try {
-					wx.removeStorageSync('address_id');
-				} catch (e) {
-					// Do something when catch error
-				}
-				//储存收货地址id
-				try {
-					wx.setStorageSync('address', res.address);
-					wx.setStorageSync('lng', that.data.lng)
-					wx.setStorageSync('lat', that.data.lat)
-					wx.navigateBack({
-						delta: 1
-					})
-				} catch (e) {
-				}
+			//清除存储
+			try {
+				wx.removeStorageSync('address_id');
+			} catch (e) {
+				// Do something when catch error
+			}
+			//储存经纬度
+			try {
+				wx.setStorageSync('address', res.address);
+				wx.setStorageSync('lng', that.data.lng)
+				wx.setStorageSync('lat', that.data.lat)
+				wx.navigateBack({
+					delta: 1
+				})
+			} catch (e) {
+			}
 		},
 		function (res) {
 			that.setData({
-				address: "定位失败",
+				address: "无法获取当前定位",
 			})
 			wx.showToast({
 				title: res ? res : "失败！！！",
@@ -318,5 +325,8 @@ function address_details(that) {
 			}, 2000)
 			Journal.myconsole('地址详情接口返回数据');
 			Journal.myconsole(res);
+			that.setData({
+				no_loc: false,
+			})
 		});
 }

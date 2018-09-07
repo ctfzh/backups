@@ -26,11 +26,10 @@ Page({
       "price": 0,
       "num": 0,
       "goods_list":[],
-    },
-	  marqueePace: 3,//滚动速度
-    marqueeDistance: 0,//初始滚动距离
-    marquee_margin: 120,
-    size: 14,
+	  },
+	  marqueePace: 8,//滚动速度
+	  marqueeDistance: 0,//初始滚动距离
+	  marquee_margin: 120,
 
   },
 
@@ -220,13 +219,15 @@ Page({
     })
   },
 
-  //购物车弹出层
-  shopping_cart_mask: function(){
-    this.setData({
-      mask: true,
-      shopping_cart_mask: true,
-    })
-  },
+	//购物车弹出层
+	shopping_cart_mask: function () {
+		var mask = this.data.mask ? false : true;
+		var shopping_cart_mask = this.data.shopping_cart_mask ? false : true;
+		this.setData({
+			mask: mask,
+			shopping_cart_mask: shopping_cart_mask,
+		})
+	},
 
   //登入完成回调
   login_success: function () {
@@ -239,17 +240,24 @@ Page({
   
   //滚动商品菜单
   scroll: function (e) {
-    var that = this;
-    var top_height = that.data.top_height;
-    wx.createSelectorQuery().selectAll('.goods_list_item').boundingClientRect(function (rects) {
-      rects.forEach(function (rect) {
-        if (rect.top <= top_height && rect.top+rect.height > top_height){
-          that.setData({
-            item_index: rect.id,
-          })
-        }
-      })
-    }).exec()
+	  var that = this;
+	  var top_height = that.data.top_height;
+	  var advertising_height = that.data.advertising_height;
+	  if (e.detail.scrollTop < advertising_height) {
+		  that.setData({
+			  item_index: "00",
+		  })
+	  } else {
+		  wx.createSelectorQuery().selectAll('.goods_list_item').boundingClientRect(function (rects) {
+			  rects.forEach(function (rect) {
+				  if (rect.top <= top_height && rect.top + rect.height > top_height) {
+					  that.setData({
+						  item_index: rect.id,
+					  })
+				  }
+			  })
+		  }).exec()
+	  }
   },
 
   // 加入购物车(选规格)
@@ -336,16 +344,16 @@ Page({
   },
   //手指触摸动作
   touchstart: function(){
-     //停止计算器
-     clearTimeout(Timeout);
-     clearInterval(interval); 
+   //   //停止计算器
+   //   clearTimeout(Timeout);
+   //   clearInterval(interval); 
   },
   //手指触摸结束
   touchend: function(){
-     var that = this;
-   Timeout = setTimeout(function () {
-           scrolltxt(that);
-     }, 500)
+   //   var that = this;
+   // Timeout = setTimeout(function () {
+   //         scrolltxt(that);
+   //   }, 500)
   },
   //商品详情弹框
   goods_info: function(e){
@@ -755,7 +763,8 @@ function hold_cart_goods(that, buy_goods_list) {
   if (buy_goods_list.goods_list.length<=0){
     if (!that.data.sku_mask){
       that.setData({
-        mask: false,
+			mask: false,
+			shopping_cart_mask: false,
       })
     }
   }
@@ -778,30 +787,31 @@ Math.formatFloat = function (f, digit) {
 
 
 function scrolltxt(that) {
-   var length = that.data.length;//滚动文字的宽度
-   var marquee_box = that.data.marquee_box;//.marquee_box宽度
-   if (length > marquee_box) {
-      var maxscrollwidth = length + that.data.marquee_margin;//滚动的最大宽度，文字宽度+间距，如果需要一行文字滚完后再显示第二行可以修改marquee_margin值等于windowWidth即可
-      interval = setInterval(function () {
-         var crentleft = that.data.marqueeDistance;
-         if (crentleft < maxscrollwidth) {//判断是否滚动到最大宽度
-            that.setData({
-               marqueeDistance: crentleft + that.data.marqueePace
-            })
-         } else {
-            that.setData({
-               marqueeDistance: 0 // 直接重新滚动
-            });
-            //停止计算器
-            clearInterval(interval);
-            //重新滚动
-            scrolltxt(that);
-         }
-      }, 60);
-   }
-   else {
-      that.setData({ marquee_margin: "10000" });//只显示一条不滚动右边间距加大，防止重复显示
-   }
+	var notice_width = that.data.notice_width;//滚动文字的宽度
+	var marquee_box = that.data.marquee_box;//.marquee_box宽度
+	if (notice_width > marquee_box) {
+		var maxscrollwidth = notice_width + that.data.marquee_margin;//滚动的最大宽度，文字宽度+间距，如果需要一行文字滚完后再显示第二行可以修改marquee_margin值等于windowWidth即可
+		interval = setInterval(function () {
+			var crentleft = that.data.marqueeDistance;
+			if (crentleft <= maxscrollwidth) {//判断是否滚动到最大宽度
+				var marqueeDistance = crentleft + that.data.marqueePace;
+				that.setData({
+					marqueeDistance: marqueeDistance,
+				})
+			} else {
+				//停止计算器
+				clearInterval(interval);
+				that.setData({
+					marqueeDistance: 0 // 直接重新滚动
+				});
+				//重新滚动
+				scrolltxt(that);
+			}
+		}, 100);
+	}
+	else {
+		that.setData({ marquee_margin: "10000" });//只显示一条不滚动右边间距加大，防止重复显示
+	}
 }
 
 /******************************************接口数据调用方法******************************************/
@@ -818,18 +828,34 @@ function get_goods(that) {
     Server.GET_GOOODS(),
     data,
     function (res) {
-      if (res) {
+		 if (res) {
+			 var item_index = that.data.item_index ? that.data.item_index : "menu_" + res.group_list[0].id;
+			 if (that.data.store.adv_img){
+				 var buy_img = that.data.store.adv_img.buy_img;
+				 var takeaway_img = that.data.store.adv_img.takeaway_img;
+				 if ((that.data.function_type == 1 && buy_img) || (that.data.function_type == 2 && takeaway_img)) {
+					 item_index = "00";
+				 }
+			 }
         that.setData({
           show: true,
           goods_list: res.goods_list,
           group_list: res.group_list,
-          item_index: that.data.item_index ? that.data.item_index : "menu_" +res.group_list[0].id,
+          item_index,
         })
-        wx.createSelectorQuery().select('.goods_top').boundingClientRect(function (rect) {
-          that.setData({
-            top_height: rect.height  // 节点的高度
-          })
-        }).exec()
+			 //公告的高度
+			 wx.createSelectorQuery().select('.goods_top').boundingClientRect(function (rect) {
+				 that.setData({
+					 top_height: rect.height  // 节点的高度
+				 })
+			 }).exec()
+
+			 //广告图的高度
+			 wx.createSelectorQuery().select('.advertising').boundingClientRect(function (rect) {
+				 that.setData({
+					 advertising_height: rect.height  // 节点的高度
+				 })
+			 }).exec()
       } else {
         that.setData({
           show: false,
@@ -851,6 +877,29 @@ function get_goods(that) {
       wx.hideLoading();
       Journal.myconsole("商品列表请求信息：")
       Journal.myconsole(res);
+
+		 //公告
+		 if (that.data.store.store.notice) {
+			 //停止计时
+			 clearInterval(interval);
+			 //公告滚动的区域宽
+			 wx.createSelectorQuery().select('.scrolltxt').boundingClientRect(function (rect) {
+				 var marquee_box = rect.width;// .marquee_box宽度
+				 that.setData({
+					 marqueeDistance: 0,
+					 marquee_box,
+				 })
+				 //公告文字的长度
+				 wx.createSelectorQuery().select('.notice_text').boundingClientRect(function (rect) {
+					 var notice_width = rect.width;
+					 that.setData({
+						 notice_width,
+					 })
+					 //  滚动公告
+					 scrolltxt(that);
+				 }).exec()
+			 }).exec()
+		 }
     })
 }
 
@@ -1073,9 +1122,6 @@ function store_detail(that, settlement) {
               Currency.log_in();
             }
           }else{
-            //商品数据
-            get_goods(that);
-
             //获取购物车数据
             try {
               var buy_goods_list = wx.getStorageSync('buy_goods_list')
@@ -1091,25 +1137,18 @@ function store_detail(that, settlement) {
             } catch (e) {
             }
 
-            //页面数据
+				 //页面数据
+				 var send_price = parseFloat(res.takeaway_set.send_price);
+				 var min_price = parseFloat(res.takeaway_set.min_price);
+
             that.setData({
                store: res,
-               send_price: parseFloat(res.takeaway_set.send_price),
-               min_price: parseFloat(res.takeaway_set.min_price)
-            })
-            //停止计时
-            clearInterval(interval);
-            if (res.store.notice){
-               var length = res.store.notice.length * that.data.size;//文字长度
-               var marquee_box = wx.getSystemInfoSync().windowWidth-90;// .marquee_box宽度
-               that.setData({
-                  marqueeDistance: 0,
-                  length: length,
-                  marquee_box: marquee_box,
-               })
-               scrolltxt(that);// 第一个字消失后立即从右边出现
-            }
-            
+               send_price,
+               min_price
+				 })
+				 
+				 //商品数据
+				 get_goods(that);
           }
         }
       } else {

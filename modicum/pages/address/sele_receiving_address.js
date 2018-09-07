@@ -10,8 +10,6 @@ var Request = require("../JS/request/request.js")
 var Server = require('../JS/request/server_address.js');
 //全局通用js
 var Currency = require('../JS/tool/currency.js');
-// 引入SDK核心类
-var QQMapWX = require('../JS/tool/qqmap-wx-jssdk.min.js');
 
 Page({
 
@@ -158,7 +156,12 @@ Page({
       // wx.showLoading({
       //    title: '定位中，请稍等！',
       // })
-      location(this);
+		if(!this.data.no_loc){
+			this.setData({
+				no_loc:true,
+			})
+			location(this);
+		}
    },
 })
 
@@ -209,7 +212,8 @@ function location(that) {
             show: false,
             retry_an: 2,
             error: 0,
-            error_text: "请授权地理位置",
+				error_text: "请授权地理位置",
+				no_loc: false,
          })
       }
    })
@@ -321,5 +325,8 @@ function address_details(that) {
 			}, 2000)
 			Journal.myconsole('地址详情接口返回数据');
 			Journal.myconsole(res);
+			that.setData({
+				no_loc: false,
+			})
 		});
 }

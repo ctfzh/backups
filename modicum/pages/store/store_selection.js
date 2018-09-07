@@ -10,8 +10,6 @@ var Request = require("../JS/request/request.js")
 var Server = require('../JS/request/server_address.js');
 //全局通用js
 var Currency = require('../JS/tool/currency.js');
-// 引入SDK核心类
-var QQMapWX = require('../JS/tool/qqmap-wx-jssdk.min.js');
 
 Page({
 

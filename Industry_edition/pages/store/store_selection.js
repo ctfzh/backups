@@ -256,6 +256,7 @@ function location(that){
             lat: res.latitude,
             lng: res.longitude,
          })
+			address_details(that);
          //门店列表
          store_list(that);
       },

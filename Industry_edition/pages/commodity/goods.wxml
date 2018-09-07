@@ -1,6 +1,6 @@
 <!-- 商品 -->
 <view class='goods_max' hidden='{{!show}}' catchtouchmove='move'>
-  <view class='goods_mask' catchtouchmove='fixed' catchtap='goods_mask' hidden='{{!mask}}'  catchtouchmove='move'></view>
+  <view class='goods_mask' catchtouchmove='fixed' catchtap='goods_mask' hidden='{{!mask}}' ></view>
   <!-- 头部=>开始 -->
   <view class='goods_top' style='height:{{store.store.notice?"":"0"}}rpx;'>
     <!-- 背景图片=>开始 -->
@@ -13,8 +13,8 @@
       <text>公告：</text>
       <view class="scrolltxt">
          <view class="marquee_box font_color1">
-         <view class="marquee_text" style="transform: translateX(-{{marqueeDistance}}px)">
-            <text>{{store.store.notice}}</text>
+         <view class="marquee_text" style="{{marqueeDistance== 0?'':'transition:all 0.3s ease;'}} transform: translateX(-{{marqueeDistance}}px);">
+            <text class='notice_text'>{{store.store.notice}}</text>
             <text style="margin-right:{{marquee_margin}}px;"></text>
             <text style="margin-right:{{marquee_margin}}px;">{{store.store.notice}}</text>        
          </view>
@@ -34,13 +34,20 @@
     </view>
     <!-- 左边菜单=>结束 -->
     <!-- 右边商品=>开始 -->
-    <view class='goods_middle_right'  catchtouchmove='move'>
-       <view class='goods_type top_goods_type'>
+    <view class='goods_middle_right' >
+	 	<!-- 固定分类标题 -->
          <block wx:for="{{group_list}}" wx:for-item="item_name" wx:key="key">
-         {{item_index=="menu_"+item_name.id?item_name.name:""}}
+				<view class='goods_type top_goods_type' hidden='{{item_index!="menu_"+item_name.id}}'>
+					{{item_index=="menu_"+item_name.id?item_name.name:""}}
+				</view>
          </block>
-       </view>
       <scroll-view class='goods_list' scroll-y="true" scroll-into-view="{{menu_id}}" bindscroll="scroll" bindtouchstart='touchstart'  bindtouchend='touchend'>
+		<!-- 广告图 -->
+		 <view class='advertising'>
+		 	<view class='advertising_item' wx:if="{{(function_type==1&&store.adv_img.buy_img)||(function_type==2&&store.adv_img.takeaway_img)}}">
+			 	<image src='{{function_type==1?store.adv_img.buy_img:store.adv_img.takeaway_img}}' mode='widthFix'></image>
+			</view>
+		 </view>
         <!-- 商品列表=>开始 -->
         <view class='goods_list_item' wx:for="{{goods_list}}" wx:for-item="list" wx:key="key" id="{{'menu_'+list.group.id}}" wx:for-index="index">
           <view class='goods_type font_overflow font_color1'>{{index>0?list.group.name:""}}</view>
@@ -51,7 +58,7 @@
             <view class='goods_inof'>
               <view class='goods_name font_color1 '>
 				  	<view class='goods_name_text font_overflow'>{{goods_item.name}}</view>
-					<view class='describe font_overflow'>{{goods_item.describe}}</view>
+					<text class='describe font_overflow'>{{goods_item.describe}}</text>
 				  </view>
               <view class='goods_money money_color'>
                 <text class='mo_fu'>￥</text>{{goods_item.money}}</view>
@@ -84,7 +91,7 @@
   </view>
   <!-- 正文=>结束 -->
   <!-- 底部=>开始 -->
-  <view class='goods_bottom'  catchtouchmove='move'>
+  <view class='goods_bottom' >
     <view class='goods_shopping_cart {{buy_goods_list.num>0?"sett_sele":""}}' catchtap='{{buy_goods_list.num>0?"shopping_cart_mask":""}}'>
       <image src='../img/income/{{buy_goods_list.num>0?"shopping_cart":"shopping_cart_empty"}}.png'></image>
       <view class='red_dot' wx:if="{{buy_goods_list.num>0}}">{{buy_goods_list.num}}</view>
@@ -122,7 +129,7 @@
             <image src='../img/income/close.png'></image>
         </view>
       </view>
-      <view class='sku_scroll'  catchtouchmove='move'>
+      <view class='sku_scroll' >
         <scroll-view scroll-y="true" catchtouchmove='move'>
 
           <view class='sku_list' wx:for="{{sku.category}}" wx:for-item="list" wx:key="key" wx:for-index="type_index">
@@ -228,9 +235,7 @@
             </view>
             <!-- 加减图标=>结束 -->
 		</view>
-		<view class='goods_info_text font_color2' wx:if="{{goods_info.describe}}">
-		{{goods_info.describe}}
-		</view>
+		<view class='goods_info_text font_color2' wx:if="{{goods_info.describe}}"><text>{{goods_info.describe}}</text></view>
 	</view>
 	</scroll-view>
   </view>

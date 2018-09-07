@@ -6,7 +6,7 @@
       <image src='{{avatar}}'></image>
     </view>
     <view class='name font_color1' wx:if="{{!no_entry}}">{{data.nickname? data.nickname:'会员昵称'}}</view>
-    <view class='phon font_color2' wx:if="{{!no_entry}}">{{data.account}}</view>
+    <view class='phon font_color2' wx:if="{{!no_entry&&data.account}}">{{data.account}}</view>
     <open-data class='name font_color1' type="userNickName" wx:if="{{no_entry}}"></open-data>
   </view>
   <view class='list' wx:if="{{!no_entry}}">

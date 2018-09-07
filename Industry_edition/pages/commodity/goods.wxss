@@ -16,7 +16,7 @@ page{
 .goods_top{
   position: relative;
   height: 85rpx;
-  background-color: #F7590A;
+  background-color: #E54545;
   color: #fff;
   overflow: hidden;
 }
@@ -141,6 +141,7 @@ page{
 }
 .goods_list_item:last-child{
   min-height: 100%;
+  padding-bottom: 5rpx;
 }
 .top_goods_type{
   position: relative;
@@ -671,4 +672,15 @@ shopping_goods_name{
 	font-size: 20rpx;
 	font-weight: normal;
   -webkit-line-clamp: 2; /** 显示的行数 **/
+}
+
+.advertising{
+	width: 100%;
+}
+.advertising_item{
+	margin: 20rpx;
+	margin-bottom: 0rpx;
+}
+.advertising_item image{
+	width: 100%;
 }

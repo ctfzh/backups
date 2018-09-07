@@ -431,8 +431,10 @@ function place_order(that) {
 			 })
       },
       function (res) {
-        //关闭加载中动画
-        wx.hideLoading();
+			//关闭加载中动画
+			setTimeout(function () {
+				wx.hideLoading()
+			}, 2000)
         wx.stopPullDownRefresh();
         Journal.myconsole('请求提交订单的数据');
         Journal.myconsole(res);
