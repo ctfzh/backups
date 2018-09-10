@@ -1,10 +1,13 @@
  /* 绑定手机号  */
 page{
   border-top: 1rpx solid #E3E4E5;
-  background-color: #fff !important;
 }
-.bind_account_max{
-   width: 100%;
+.bottom_max{
+  position: absolute;
+  top: 170rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
    overflow: hidden;
 }
 .bind_account_top{
@@ -27,11 +30,7 @@ page{
   color: #fff;
 }
 .bind_account_bottom{
-  position: absolute;
-  top: 170rpx;
-  bottom: 0rpx;
-  left: 0rpx;
-  right: 0rpx;
+	height: 100%;
   display: flex;
   /* align-items: center; */
   justify-content: center;

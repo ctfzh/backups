@@ -7,7 +7,7 @@ var Sign = require('../JS/tool/sign.js')
 //网络请求
 var Request = require("../JS/request/request.js")
 //数据接口地址
-var Server = require('../JS/request/server_address.js');
+var Server = require('../JS/request/server_address.js'); 
 //全局通用js
 var Currency = require('../JS/tool/currency.js');
 // 引入SDK核心类
@@ -99,23 +99,31 @@ Page({
   choice: function(e){
     var choice = e.currentTarget.dataset.choice;
     var store_id = e.currentTarget.dataset.store_id;
-    this.setData({
-      store_id: store_id,
-      choice: choice,
-    })
+	  this.setData({
+		  store_id: store_id,
+	  })
+
     if (choice==1){
 		 get_time(this);
-    }else{
+	 } else {
+		 this.setData({
+			 choice: 0,
+		 })
       //移除时间
       try {
         wx.removeStorageSync('time')
       } catch (e) {
-      }
-    }
+		 }
+	}
 
   },
   //点餐门店选择
-  order_store: function(e){
+	order_store: function (e) {
+		//移除时间
+		try {
+			wx.removeStorageSync('time')
+		} catch (e) {
+		}
     var store_id = e.currentTarget.dataset.store.store_id;
     if (this.data.order == store_id){
       var order = null;
@@ -126,12 +134,8 @@ Page({
       choice: 0,
       order: order,
       })
-      //移除时间
-    try {
-      wx.removeStorageSync('time')
-    } catch (e) {
-    }
   },
+
   //跳转门店
   jump_store: function(e){
     //移除购物车
@@ -354,17 +358,25 @@ function get_time(that) {
 		data,
 		function (res) {
 			if (res&&res.length>0){
+				//获取选中时间
+				try {
+					var time = wx.getStorageSync('time')
+					if (time) {
+						that.setData({
+							time,
+						})
+					}
+				} catch (e) {
+				}
 				that.setData({
 					mack: true,
+					choice: 1,
 				})
 			}else{
 				wx.showToast({
 					title: "非常抱歉，当前无预约时间可选择",
 					icon: 'none',
 					duration: 2000
-				})
-				that.setData({
-					choice:0,
 				})
 			}
 		},

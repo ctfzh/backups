@@ -12,7 +12,7 @@
 }
 .time_selector{
   position: fixed;
-  height: 510rpx;
+  height: 480rpx;
   bottom: 0rpx;
   left: 0rpx;
   right: 0rpx;
@@ -59,9 +59,10 @@
   /* margin-left: 60rpx; */
 }
 .time_selector_right_text{
-  width: 130rpx;
-  text-align: center;
   position: relative;
+  display: flex;
+  align-items: center;
+  text-align: left;
 }
 .seleclor_date_time image{
   width: 30rpx;
@@ -82,4 +83,10 @@
   bottom: 0rpx;
   display: flex;
   align-items: center;
+}
+.item_text{
+	margin-left: 50rpx;
+}
+.can_click{
+	color: #B5B8BC;
 }

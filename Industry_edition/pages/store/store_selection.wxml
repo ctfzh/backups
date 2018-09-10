@@ -79,7 +79,7 @@
 <!-- 时间选择器=>开始  -->
 <view class='time_selector'>
   <!-- 时间选择器模块引入 -->
-  <time_selector mack="{{mack}}"store_id="{{store_id}}"  function_type="{{function_type}}"></time_selector>
+  <time_selector mack="{{mack}}"store_id="{{store_id}}"  function_type="{{function_type}}" date_itme="{{time}}"></time_selector>
 </view>
 <!-- 时间选择器=>结束   -->
 

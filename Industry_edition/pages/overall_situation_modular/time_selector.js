@@ -17,16 +17,18 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    mack: Number,
+	  mack: {
+		  type: Number,
+		  observer: function (newVal, oldVal) {
+			  if (newVal){
+				  get_time(this);
+			  }
+		  }
+	  },
 	 ti_type: Boolean,
 	 date_itme: null,
     function_type: Number,
-    store_id:{
-      type: Number,
-      observer: function (newVal, oldVal) {
-        get_time(this);
-      } 
-    }
+	  store_id: Number,
   },
 
   /**
@@ -78,19 +80,24 @@ function get_time(that) {
       that.setData({
         time: res,
       })
-      var date_itme_index = res[0];
-      if (that.data.date_itme){
-        date_itme_index = that.data.date_itme;
-      }
-      try {
-        wx.setStorageSync('time', date_itme_index)
-        that.setData({
-          date_itme_index: date_itme_index,
-        })
-        //修改时间
-        that.triggerEvent('time_sele');
-      } catch (e) {
-      }
+		 if (!res[0].can_click) {
+			 var date_itme_index = res[0];
+			 if (that.data.date_itme) {
+				 date_itme_index = that.data.date_itme;
+			 }
+			 try {
+				 wx.setStorageSync('time', date_itme_index);
+				 that.setData({
+					 date_itme_index: date_itme_index,
+				 })
+				 //修改时间
+				 that.triggerEvent('time_sele');
+			 } catch (e) {
+			 }
+		}else{
+			 //修改时间
+			 that.triggerEvent('time_sele');
+		}
     },
     function (res) {
       wx.showToast({

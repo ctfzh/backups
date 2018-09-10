@@ -32,15 +32,17 @@ function request_data(url, data, success, fail, complete) {
         fail('登录失效请重新登录');
       } else if (res.data.errCode == 606002) {
         fail(606002);
-      } else {
-        fail(res.data.errMsg ? res.data.errMsg : 1);
+		} else if (res.data.errCode == 803002){
+			fail(res.data);
+		}else {
+			fail(res.data.errMsg ? res.data.errMsg : "您的网络好像出现了问题，请重新加载");
       }
     },
     //请求失败
     fail: function (res) {
       Journal.myconsole("网络请求失败返回的数据：");
       Journal.myconsole(res);
-      fail(1);
+		 fail("您的网络好像出现了问题，请重新加载");
     },
     //请求结束
     complete: function (res) {

@@ -11,8 +11,10 @@
         </view>
       </view>
 	 
-      <view class='seleclor_date_time {{date_itme_index.text == item.text?"seleclor_date_time_sele":""}}' wx:for="{{time}}" wx:for-item="item" wx:for-index="index" wx:key="key" wx:fow-index="index" data-time='{{item}}' catchtap='seleclor_date_time'>
-        <view class='time_selector_right_text'>{{item.text}}
+      <view class='seleclor_date_time {{date_itme_index.text == item.text?"seleclor_date_time_sele":""}}' wx:for="{{time}}" wx:for-item="item" wx:for-index="index" wx:key="key" wx:fow-index="index" data-time='{{item}}' catchtap='{{!item.can_click?"seleclor_date_time":""}}'>
+        <view class='time_selector_right_text {{item.can_click?"can_click":""}}'>
+		  		<view>{{item.text}}</view>
+			  <view class='item_text' hidden='{{!item.buy_num_text}}'>{{item.buy_num_text}}</view>
           <view class='check_out' wx:if="{{date_itme_index.text == item.text}}">
             <image src='../img/income/check_out.png'></image>
           </view>

@@ -97,18 +97,22 @@ Page({
   choice: function(e){
     var choice = e.currentTarget.dataset.choice;
     var store_id = e.currentTarget.dataset.store_id;
-    this.setData({
-      store_id: store_id,
-      choice: choice,
-    })
+
+	  this.setData({
+		  store_id: store_id,
+	  })
+
     if (choice==1){
 		 get_time(this);
-    }else{
+	 } else {
+		 this.setData({
+			 choice: 0,
+		 })
       //移除时间
       try {
         wx.removeStorageSync('time')
       } catch (e) {
-      }
+		 }
     }
 
   },
@@ -350,18 +354,26 @@ function get_time(that) {
 		Server.TIME_SELECT(),
 		data,
 		function (res) {
-			if (res&&res.length>0){
+			if (res && res.length > 0) {
+				//获取选中时间
+				try {
+					var time = wx.getStorageSync('time')
+					if (time) {
+						that.setData({
+							time,
+						})
+					}
+				} catch (e) {
+				}
 				that.setData({
 					mack: true,
+					choice:1,
 				})
 			}else{
 				wx.showToast({
 					title: "非常抱歉，当前无预约时间可选择",
 					icon: 'none',
 					duration: 2000
-				})
-				that.setData({
-					choice:0,
 				})
 			}
 		},

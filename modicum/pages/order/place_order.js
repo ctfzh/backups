@@ -335,17 +335,30 @@ function place_order(that) {
 				  order: false,
 			  })
         }
-      },
-      function (res) {
-        wx.showToast({
-          title: res ? res : "提交订单失败",
-          icon: 'none',
-          duration: 2000
-			})
-			that.setData({
-				order: false,
-			})
-      },
+		 },
+		 function (res) {
+			 if (res.errCode == 803002) {
+				 wx.showModal({
+					 title: '提示',
+					 showCancel: false,
+					 content: res.errMsg,
+					 success: function (res) {
+						 if (res.confirm) {
+							 // console.log('用户点击确定')
+						 }
+					 }
+				 })
+			 } else {
+				 wx.showToast({
+					 title: res ? res : "提交订单失败",
+					 icon: 'none',
+					 duration: 2000
+				 })
+			 }
+			 that.setData({
+				 order: false,
+			 })
+		 },
       function (res) {
 			//关闭加载中动画
 			setTimeout(function () {

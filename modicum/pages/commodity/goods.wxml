@@ -2,7 +2,7 @@
 <view class='goods_max' hidden='{{!show}}'>
   <view class='goods_mask' catchtap='goods_mask' hidden='{{!mask}}'></view>
   <!-- 头部=>开始 -->
-  <view class='goods_top'  wx:if="{{store.store.notice}}">
+  <view class='goods_top' style='height:{{store.store.notice?"85":"0"}}rpx;'>
     <!-- 背景图片=>开始 -->
     <!-- <view class='goods_top_img'>
       <image src=''></image>
