@@ -78,7 +78,6 @@ Page({
 			Currency.get_memberinfo(this);
 		}
 
-
 		//获取缓存门店切换状态，切换门店时刷新
 		try {
 			var switch_store = wx.getStorageSync('switch_store');
@@ -272,6 +271,13 @@ function Refresh(that) {
 				var isShow = true;
 				//浏览记录
 				Currency.visit(that, 1);
+
+				//会员验证
+				var token = Sign.getToken();
+				if (token) {
+					//会员信息
+					Currency.get_memberinfo(that);
+				}
 			}
 			that.setData({
 				content: '',
@@ -280,8 +286,8 @@ function Refresh(that) {
 				isShow: isShow,
 			})
 
-			//没有经纬度的首页数据调取方法
-			get_home(that, '', '');
+			//首页数据调取方法
+			get_home(that, that.data.lat, that.data.lng);
 
 		},
 		function () {
@@ -430,7 +436,9 @@ function get_home(that, lat, lng) {
 			//关闭下拉动画
 			wx.stopPullDownRefresh();
 			//关闭加载中动画
-			wx.hideLoading();
+			setTimeout(function () {
+				wx.hideLoading()
+			}, 800)
 		});
 }
 

@@ -54,6 +54,19 @@
     </view>
   </view>
   
+  <!-- 会员卡详情跳转=>开始 -->
+  <view class='center_member_jump line_color'wx:if="{{data.ucenter_set.card_ent_status==1&&data.card_id}}" data-user='{{data}}' bindtap='see_membership'>
+    <view class='member_info'>
+      <view class='member_img'><image src='../img/member.png'></image></view>
+      <text class='member_text font_color1'>我的会员卡</text>
+    </view>
+    <view class='member_info_jump'>
+      <text class='member_info_jump_text font_color3'>{{data.level_name}}</text>
+      <image class='right_arrow' src='../img/arrows_right.png'></image>
+    </view>
+  </view>
+  <!-- 会员卡详情跳转=>结束 -->
+
   <view class='stytle-line' wx:if="{{data.ucenter_set.order_ent_status==1&&token}}" />
   <view class='all-order-view' bindtap="all_order_onclick" wx:if="{{data.ucenter_set.order_ent_status==1&&token}}">
     <text class='all-order-text'>全部订单</text>
@@ -108,6 +121,7 @@
       </view>
     </view>
   </view>
+
 
   <view class='stytle-line' wx:if="{{data.ucenter_set.mall_ent_status==1}}" />
   <view class='list-view' wx:if="{{data.ucenter_set.mall_ent_status==1&&token}}">

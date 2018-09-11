@@ -60,17 +60,18 @@ Component({
 
 //第一张图片宽度/图片最大宽度
 function get_img_width(that) {
-   var list = that.data.list;
+	var list = that.data.list;
+	var max_img_width = 0;
    //判断样式
    if (list.style == 1 || list.style == 4) {
       //获取屏幕宽度
       wx.getSystemInfo({
          success: function(res) {
-            var max_img_width = res.windowWidth;
+            max_img_width = res.windowWidth;
          }
       });
    } else if (list.style == 2) {
-      var max_img_width = "300";
+      max_img_width = "300";
    } else if (list.style == 3) {
       var max_img_width = "260";
       if (list.lineDisplay == 1) {
@@ -81,7 +82,7 @@ function get_img_width(that) {
          max_img_width = "130";
       }
    } else if (list.style == 5) {
-      var max_img_width = "630";
+      max_img_width = "630";
    }
    that.setData({
       max_img_width: max_img_width,

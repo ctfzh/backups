@@ -55,7 +55,17 @@ module.exports = Behavior({
 			wx.makePhoneCall({
 				phoneNumber: data.inputValue,
 			})
-		} 
+		 } else if (data.linkIndex == 15) {
+			 //储值
+			 wx.navigateTo({
+				 url: '/pages/recharge_activity/recharge_activity'
+			 })
+		 } else if (data.linkIndex == 17) {
+			 //储值
+			wx.navigateTo({
+				url: '/pages/distribution/distribution',
+			 })
+		 } 
     },
     // 自定义商品点击事件
     goods_discount_jump: function (e) {

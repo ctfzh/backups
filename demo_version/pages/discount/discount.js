@@ -48,8 +48,6 @@ Page({
         store_id: scene,
       })
     }
-     // 页面初始化加载
-     Refresh(this);
   },
 
   /**

@@ -44,7 +44,17 @@ module.exports = Behavior({
 			wx.makePhoneCall({
 				phoneNumber: data.inputValue,
 			})
-		} 
+		} else if (data.linkIndex == 15) {
+			//储值
+			wx.navigateTo({
+				url: '/pages/recharge_activity/recharge_activity'
+			})
+		} else if (data.linkIndex == 16) {
+			//买单
+			wx.navigateTo({
+				url: '/pages/payment/check?store_id=' + this.data.store_id,
+			})
+		 } 
     },
   }
 })

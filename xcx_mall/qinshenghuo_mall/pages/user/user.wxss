@@ -173,8 +173,7 @@
 
 .list-view {
   background: white;
-  margin-top: 20rpx;
-  margin-bottom: 20rpx;
+  margin: 30rpx 0rpx;
 }
 
 .list-itm-view {
@@ -280,4 +279,44 @@ flex-shrink:0;
 	left: 0rpx;
 	right: 0rpx;
 	bottom: 0rpx;
+}
+/* 会员卡CSS */
+.center_member_jump{
+  height: 90rpx;
+  background-color: #FFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rpx 30rpx;
+  margin: 30rpx 0rpx;
+  border-top-width: 1rpx;
+  border-bottom-width: 1rpx;
+}
+.member_info{
+  display: flex;
+  align-items: center;
+}
+.member_img{
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+}
+.member_img image{
+	width: 100%;
+	height: 100%;
+}
+.member_text{
+  font-size: 32rpx;
+  margin-left: 20rpx;
+}
+.member_info_jump_text{
+  font-size: 24rpx;
+}
+ .member_info_jump{
+  height: 30rpx;
+   display: flex;
+   line-height: 30rpx;
+} 
+.right_arrow{
+  margin-left: 20rpx;
 }

@@ -76,8 +76,7 @@ Page({
 	  if (token) {
 		  //会员信息
 		  Currency.get_memberinfo(this);
-     }
-
+	  }
 	  
     //获取缓存门店切换状态，切换门店时刷新
     try {
@@ -266,6 +265,13 @@ function Refresh(that) {
 			 var login = true;
 			 var go_ref = false;
 		 } else {
+			 //会员验证
+			 var token = Sign.getToken();
+			 if (token) {
+				 //会员信息
+				 Currency.get_memberinfo(that);
+			 }
+
 			 var login = false;
 			 var go_ref = true;
 			 //新人礼包
@@ -280,8 +286,8 @@ function Refresh(that) {
 			 isShow: isShow,
 		 })
 
-		 //没有经纬度的首页数据调取方法
-		 get_home(that, '', '');
+		 //首页数据调取方法
+		 get_home(that, that.data.lat, that.data.lng);
 
     },
 	  function () {
@@ -371,7 +377,7 @@ function get_home(that, lat, lng) {
 				for (let i = 0; i < res.content.length; i++) {
 					var content = res.content;
 					if (content[i].store_count >1) {
-						if (!lat){
+						if (!lat) {
 							//获取经纬度
 							wx.getLocation({
 								type: 'gcj02',
@@ -430,7 +436,9 @@ function get_home(that, lat, lng) {
       //关闭下拉动画
       wx.stopPullDownRefresh();
       //关闭加载中动画
-      wx.hideLoading();
+		  setTimeout(function () {
+			  wx.hideLoading()
+		  }, 800)
     });
 }
 

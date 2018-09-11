@@ -20,7 +20,7 @@ page{
    border-bottom-width: 0rpx;
 }
 .bespeak_item_th{
-   width: 142rpx;
+   width: 150rpx;
    font-size: 24rpx;
    line-height: 38rpx;
    margin-right: 30rpx;

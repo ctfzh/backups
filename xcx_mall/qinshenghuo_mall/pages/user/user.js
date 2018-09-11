@@ -19,7 +19,9 @@ Page({
     hide_delete: true,
     guanzhu: false,
     login_show: false,
-    qrcode_url: "",
+	  qrcode_url: "",
+	  //防止按钮多次触发
+	  disabled: true,
   },
 
   /**
@@ -151,7 +153,39 @@ Page({
     wx.navigateTo({
       url: '/pages/distribution/distribution',
     })
-  },
+	},
+	//查看会员卡
+	see_membership: function (e) {
+		var that = this;
+		if (that.data.disabled) {
+			//关闭点击事件
+			that.setData({
+				disabled: false,
+			})
+			var card_id = e.currentTarget.dataset.user.card_id;
+			var code = e.currentTarget.dataset.user.member_code;
+			wx.openCard({
+				cardList: [
+					{
+						cardId: card_id,
+						code: code,
+					}
+				],
+				success: function (res) {
+					console.log(res)
+				},
+				fail: function (res) {
+					console.log(res)
+				},
+				complete: function () {
+					//激活点击事件
+					that.setData({
+						disabled: true,
+					})
+				}
+			})
+		}
+	},
 
   //重试事件
 	retry_onclick: function () {

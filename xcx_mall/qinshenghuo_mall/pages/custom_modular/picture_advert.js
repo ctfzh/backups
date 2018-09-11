@@ -60,49 +60,37 @@ Component({
 })
 
 //第一张图片宽度/图片最大宽度
-function get_img_width(that){
-  var list = that.data.list;
-  //判断样式
-  if (list.style == 1 || list.style == 4){
-    //获取屏幕宽度
-    wx.getSystemInfo({
-      success: function (res) {
-        that.setData({
-          max_img_width: res.windowWidth,
-        })
-        get_images_height(that, res.windowWidth);
-      }
-    });
-  } else if (list.style == 2) {
-    var max_img_width = "300";
-    that.setData({
-      max_img_width: max_img_width,
-    })
-    get_images_height(that, max_img_width);
-  } else if (list.style == 3) {
-    var max_img_width = "260";
-    if (list.lineDisplay == 1) {
-      max_img_width = "210";
-    } else if (list.lineDisplay == 2) {
-      max_img_width = "160";
-    } else if (list.lineDisplay == 3) {
-      max_img_width = "130";
-    }
-    that.setData({
-      max_img_width: max_img_width,
-    })
-    get_images_height(that, max_img_width);
-
-  } else if (list.style == 4) {
-
-  } else if (list.style == 5) {
-    var max_img_width = "630";
-    that.setData({
-      max_img_width: max_img_width,
-    })
-    get_images_height(that, max_img_width);
-  }
+function get_img_width(that) {
+	var list = that.data.list;
+	var max_img_width = 0;
+	//判断样式
+	if (list.style == 1 || list.style == 4) {
+		//获取屏幕宽度
+		wx.getSystemInfo({
+			success: function (res) {
+				max_img_width = res.windowWidth;
+			}
+		});
+	} else if (list.style == 2) {
+		max_img_width = "300";
+	} else if (list.style == 3) {
+		var max_img_width = "260";
+		if (list.lineDisplay == 1) {
+			max_img_width = "210";
+		} else if (list.lineDisplay == 2) {
+			max_img_width = "160";
+		} else if (list.lineDisplay == 3) {
+			max_img_width = "130";
+		}
+	} else if (list.style == 5) {
+		max_img_width = "630";
+	}
+	that.setData({
+		max_img_width: max_img_width,
+	})
+	get_images_height(that, max_img_width);
 }
+
 
 // 图片高度
 function get_images_height(that, max_img_width) {
