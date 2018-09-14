@@ -129,7 +129,7 @@ function Refresh(that) {
     },
     function () {
       //关闭加载中动画
-      wx.hideLoading();
+		 wx.hideLoading();
       wx.stopPullDownRefresh();
       that.setData({
         show: false,
@@ -181,7 +181,7 @@ function getAddressList(that) {
       },
       function (res) {
         //关闭加载中动画
-        wx.hideLoading();
+		   wx.hideLoading();
         wx.stopPullDownRefresh();
         Journal.myconsole("地址列表请求信息")
         Journal.myconsole(res);

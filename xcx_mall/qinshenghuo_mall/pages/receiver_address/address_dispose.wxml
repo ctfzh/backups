@@ -1,0 +1,58 @@
+<!-- 添加，编辑，删除收货地址 -->
+<view class='dispose_max' hidden='{{!show_loading_faill}}'>
+   <form bindsubmit="formSubmit">
+      <view class='dispose'>
+
+         <view class='dispose_item line_color'>
+            <view class='item_left font_color1'>收货人</view>
+            <view class='item_rigth font_color1'>
+               <input type="text" placeholder="收货人姓名" placeholder-class="placeholder" maxlength="8" name="name" focus="{{focus_name}}"></input>
+            </view>
+         </view>
+
+         <view class='dispose_item line_color'>
+            <view class='item_left font_color1'>手机号</view>
+            <view class='item_rigth font_color1'>
+               <input type="number" placeholder="收货人手机号" placeholder-class="placeholder" maxlength="13" name="phone"  focus="{{focus_phone}}"></input>
+            </view>
+         </view>
+
+         <view class='dispose_item line_color'>
+            <view class='item_left font_color1'>所在地区</view>
+            <view class='item_rigth font_color1'>
+					<picker mode="multiSelector"value="{{area}}" range="{{range}}" range-key="name"  name="area" bindchange="change" bindcolumnchange="columnchange" bindcancel="cancel" >
+						<view class="picker">
+							<view class='placeholder' wx:if="{{area.length<3}}">选择收货地区</view>
+							<view wx:if="{{area.length>3}}">{{area[3][0].name}}<text hidden='{{!area[3][1]}}'>, {{area[3][1].name}}</text><text hidden='{{!area[3][2]}}'>, {{area[3][2].name}}</text></view>
+						</view>
+					</picker>
+				</view>
+         </view>
+
+         <view class='dispose_item line_color'>
+            <view class='item_left font_color1'>详细地址</view>
+            <view class='item_rigth font_color1'>
+               <input type="text" placeholder="请输入详细地址信息，如道路、小区、楼层、门牌号等" placeholder-class="placeholder" name="details" focus="{{focus_details}}"></input>
+            </view>
+         </view>
+      </view>
+
+      <view class="btn">
+         <button formType="submit" hover-class="none">保存地址</button>
+         <button class='delete' formType="submit" hover-class="none" wx:if="{{id}}">删除</button>
+      </view>
+
+   </form>
+</view>
+
+<!-- 错误提示 -->
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" />
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+   <authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+</view>

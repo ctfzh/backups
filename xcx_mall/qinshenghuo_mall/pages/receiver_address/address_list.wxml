@@ -1,0 +1,61 @@
+<!-- 收货地址 -->
+<view class='address_list_max' hidden='{{!show_loading_faill}}'>
+   <!-- 收货地址列表 -->
+   <view class='list'>
+
+		<view class='error' wx:if="{{ (usable.length<0 || !usable) && (not_usable.length<0 || !not_usable) }}"> 
+			<template is="looading_faill_view" data="{{show_loading_faill: flase, show: ['3', '无可用地址', '', '0'] }}" />
+		</view>
+      <!-- 可选收货地址 -->
+      <view class='usable' wx:if="{{usable.length>0}}">
+         <view class='list_item line_color' wx:for="{{usable}}" wx:for-item="item" wx:key="key">
+            <view class='item_left'>
+               <view class='address_h1 font_overflow'>{{item.address_full}}</view>
+               <view class='address_h2'>
+                  <text class='address_name'>{{item.name}}</text>{{item.phone}}</view>
+            </view>
+            <view class='item_rigth'>
+               <view class='img_tap' data-id='{{item.id}}' catchtap='alter_tap'></view>
+               <image class='img' src='../img/income/modify.png'></image>
+            </view>
+         </view>
+      </view>
+      <!-- 不可选收货地址 -->
+      <view class='not_usable' wx:if="{{not_usable.length>0}}">
+         <view class='not_title'>以下地址超出配送范围</view>
+         <view class='list_item line_color'>
+            <view class='item_left'>
+               <view class='address_h1 font_overflow'>新虹桥企业天地 1528</view>
+               <view class='address_h2'>
+                  <text class='address_name'>杨浩然</text>18982200670
+               </view>
+            </view>
+            <view class='item_rigth'>
+               <view class='img_tap' data-id='{{item.id}}' catchtap='alter_tap'></view>
+               <image class='img' src='../img/income/modify.png'></image>
+            </view>
+         </view>
+      </view>
+
+   </view>
+   <!-- 添加收货地址 -->
+   <view class='add_address line_color' catchtap='add_tap'>
+      <view class='add_img'>
+         <image class='img' src='../img/income/add_sle.png'></image>
+      </view>
+      <view>新增地址</view>
+   </view>
+
+</view>
+
+<!-- 错误提示 -->
+<import src="../template/top_message.wxml" />
+<template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />
+
+<import src="../template/loading_fall_ui.wxml" />
+<template is="looading_faill_view" data="{{show_loading_faill, show}}" />
+
+<!-- 授权登录组件 -->
+<view class='login' wx:if="{{login}}">
+   <authorize bindlogin="login_success" class_aut="authorize_t"></authorize>
+</view>

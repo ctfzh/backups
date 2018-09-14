@@ -94,21 +94,27 @@ Page({
     })
   },
 
-  //授权信息
-  authorize: function (e) {
-     wx.showLoading({
-        title: '授权中...',
-     })
-    if (e.detail.encryptedData) {
-       Obtain_openid(this, this.data.code, e.detail.encryptedData, e.detail.iv);
-    } else {
-       wx.showToast({
-			 title: e.detail.errMsg == "getPhoneNumber:fail user deny" || e.detail.errMsg == "getPhoneNumber:fail:cancel to confirm login" ? "拒绝授权" : '授权失败，请稍后重试！！！',
-          icon: 'none',
-          duration: 4000
-       })
-    }
-  },
+	//授权信息
+	authorize: function (e) {
+		wx.showLoading({
+			title: '授权中...',
+		})
+		if (e.detail.encryptedData) {
+			Obtain_openid(this, this.data.code, e.detail.encryptedData, e.detail.iv);
+		} else {
+			var title = e.detail.errMsg;
+			if (e.detail.errMsg == "getPhoneNumber:fail user deny" || e.detail.errMsg == "getPhoneNumber:fail:cancel to confirm login") {
+				title = "已拒绝授权"
+			} else if (e.detail.errMsg == "getPhoneNumber:fail 该 appid 没有权限" || e.detail.errMsg == "getPhoneNumber:fail:access denied") {
+				title = "小程序没有获取手机号的权限"
+			}
+			wx.showToast({
+				title: title ? title : '授权失败，请稍后重试！！！',
+				icon: 'none',
+				duration: 4000
+			})
+		}
+	},
   
   //登入完成回调
   login_success: function () {
@@ -193,7 +199,7 @@ function Retry(that) {
     },
     function () {
       //关闭加载中动画
-      wx.hideLoading();
+		wx.hideLoading();
       that.setData({
         show: false,
         retry_an: 1,
@@ -256,11 +262,13 @@ function Obtain_openid(that, code, encrypted_data, iv) {
     },
     function (res) {
       //关闭加载中动画
-      wx.hideLoading();
+      setTimeout(function () { 			 wx.hideLoading() 		 }, 2000)
       Journal.myconsole("验证码请求数据：")
       Journal.myconsole(res);
     })
 }
+
+
 
 //微信手机号授权
 function phone_register(that, phone_num) {
@@ -305,7 +313,7 @@ function phone_register(that, phone_num) {
         // })
       } else {
         //关闭加载中动画
-        wx.hideLoading();
+		  wx.hideLoading();
         wx.showToast({
           title: res ? res : '授权失败，请稍后重试！！！',
           icon: 'none',
@@ -314,8 +322,8 @@ function phone_register(that, phone_num) {
       }
     },
     function (res) {
-      //关闭加载中动画
-      wx.hideLoading();
+		 //关闭加载中动画
+		 wx.hideLoading();
       wx.showToast({
         title: res ? res : '授权失败，请稍后重试！！！',
         icon: 'none',
@@ -356,8 +364,8 @@ function code(that, phone) {
         })
     },
     function (res) {
-      //关闭加载中动画
-      wx.hideLoading();
+		 //关闭加载中动画
+		 wx.hideLoading();
       wx.showToast({
         title: res ? res : '发送失败，请重试！！！',
         icon: 'none',
@@ -409,7 +417,7 @@ function phone_code(that, phone) {
         })
       } else {
         //关闭加载中动画
-        wx.hideLoading();
+		  wx.hideLoading();
         wx.showToast({
           title: res ? res : '授权失败，请稍后重试！！！',
           icon: 'none',
@@ -418,8 +426,8 @@ function phone_code(that, phone) {
       }
     },
     function (res) {
-      //关闭加载中动画
-      wx.hideLoading();
+		 //关闭加载中动画
+		 wx.hideLoading();
       wx.showToast({
         title: res ? res : '授权失败，请稍后重试！！！',
         icon: 'none',

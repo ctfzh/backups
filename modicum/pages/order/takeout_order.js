@@ -251,7 +251,7 @@ function Retry(that) {
         error_text: "商户不存在",
       })
       //关闭加载中动画
-      wx.hideLoading();
+		wx.hideLoading();
     },
   )
 }
@@ -312,7 +312,7 @@ function get_money(that, sku_info) {
       Journal.myconsole("获取到的金额数据：")
       Journal.myconsole(res);
       //关闭加载中动画
-      wx.hideLoading();
+		wx.hideLoading();
     })
 }
 

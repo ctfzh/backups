@@ -106,7 +106,9 @@ function Refresh(that) {
 		},
 		function () {
 			//关闭加载中动画
-			wx.hideLoading();
+			setTimeout(function () {
+				wx.hideLoading()
+			}, 2000)
 			that.setData({
 				show: false,
 				retry_an: 1,

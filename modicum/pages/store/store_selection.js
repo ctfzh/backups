@@ -223,7 +223,7 @@ function Retry(that) {
          }
       } else {
         //关闭加载中动画
-        wx.hideLoading();
+		  wx.hideLoading();
         wx.stopPullDownRefresh();
         that.setData({
           login: true,
@@ -232,7 +232,7 @@ function Retry(that) {
     },
     function () {
       //关闭加载中动画
-      wx.hideLoading();
+		wx.hideLoading();
       wx.stopPullDownRefresh();
       that.setData({
         show: false,
@@ -263,7 +263,7 @@ function location(that){
       },
       fail: function (res) {
          //关闭加载中动画
-         wx.hideLoading();
+			wx.hideLoading();
          wx.stopPullDownRefresh();
          that.setData({
             show: false,
@@ -336,7 +336,7 @@ function store_list(that) {
     },
     function (res) {
       //关闭加载中动画
-      wx.hideLoading();
+		wx.hideLoading();
       wx.stopPullDownRefresh();
       Journal.myconsole("门店列表请求数据：")
       Journal.myconsole(res);

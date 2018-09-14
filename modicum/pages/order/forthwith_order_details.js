@@ -176,7 +176,9 @@ function Refresh(that) {
     },
     function () {
       //关闭加载中动画
-      wx.hideLoading();
+		 setTimeout(function () {
+			 wx.hideLoading()
+		 }, 2000)
       wx.stopPullDownRefresh();
       that.setData({
         show: false,

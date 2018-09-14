@@ -50,6 +50,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  border-bottom-width: 1rpx;
 }
 
 .itm-view {
@@ -126,6 +127,8 @@
   /*垂直居中*/
   align-items: center;
   justify-content: space-between;
+  border-top-width: 1rpx;
+  border-bottom-width: 1rpx;
 }
 
 .all-order-text {
@@ -173,7 +176,8 @@
 
 .list-view {
   background: white;
-  margin: 30rpx 0rpx;
+  margin-bottom: 30rpx;
+  border-bottom-width: 1rpx;
 }
 
 .list-itm-view {
@@ -183,6 +187,7 @@
   align-items: center;
   padding: 0 25rpx;
   /* padding-right: 30rpx;  */
+  border-top-width: 1rpx;
 }
 
 .list-itm-img{

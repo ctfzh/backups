@@ -115,7 +115,7 @@ function Refresh(that) {
     },
     function () {
       //关闭加载中动画
-      wx.hideLoading();
+		wx.hideLoading();
       wx.stopPullDownRefresh();
       that.setData({
         show: false,
@@ -177,7 +177,7 @@ function getMemberInformation(that) {
         //关闭下拉动画
         wx.stopPullDownRefresh();
         //关闭加载中动画
-        wx.hideLoading();
+		  wx.hideLoading();
         Journal.myconsole("会员中心请求数据");
         Journal.myconsole(res);
       })

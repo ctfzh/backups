@@ -162,7 +162,9 @@ function Obtain_openid(that, code, encrypted_data, iv) {
     },
     function (res) {
        //关闭加载中动画
-       wx.hideLoading();
+		 setTimeout(function () {
+			 wx.hideLoading()
+		 }, 2000)
        Journal.myconsole("请求openid的返回数据：")
        Journal.myconsole(res);
     })

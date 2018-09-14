@@ -1,0 +1,104 @@
+/* 收货地址 */
+@import "../template/top_message.wxss";
+@import "../template/loading_fall_ui.wxss";
+
+page{
+	background-color: #fff !important;
+	min-height: 100vh;
+}
+
+.list{
+	padding-bottom: 110rpx;
+}
+.list_item{
+	height: 155rpx;
+	display: flex;
+	align-items: center;
+	border-top-width: 1rpx;
+	padding: 0rpx 40rpx; 
+}
+
+.item_left{
+	flex: 1;
+  margin-right: 30rpx;
+}
+.address_h1{
+	font-size: 32rpx;
+	color: #2C2F33;
+	font-weight: bold;
+  -webkit-line-clamp: 1; /** 显示的行数 **/
+  height: 32rpx;
+  line-height: 32rpx;
+}
+.address_h2{
+	font-size: 26rpx;
+	color: #757A80;
+	line-height: 26rpx;
+	margin-top: 20rpx;
+}
+.address_name{
+	margin-right: 20rpx;
+}
+
+.item_rigth{
+	position: relative;
+	width: 30rpx;
+	height: 30rpx;
+	display: flex;
+}
+
+.img_tap{
+	position: absolute;
+	top: -30rpx;
+	left: -30rpx;
+	right: -30rpx;
+	bottom: -30rpx;
+}
+
+.not_title{
+	height: 63rpx;
+	background-color: #F0F1F2;
+	display: flex;
+	align-items: center;
+	padding-left: 40rpx;
+	font-size: 24rpx;
+	color: #42464D;
+}
+.not_usable  .list_item{
+	border-width: 0rpx;
+	border-bottom-width: 1rpx;
+}
+.not_usable  .address_h1,
+.not_usable  .address_h2{
+	color: #C0C1C2;
+}
+
+.add_address{
+	height: 110rpx;
+	position: absolute;
+	bottom: 0rpx;
+	left: 0rpx;
+	right: 0rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-top-width: 1rpx;
+	font-size: 32rpx;
+	color: #2C2F33;
+}
+
+.add_img{
+	width: 40rpx;
+	height: 40rpx;
+	display: flex;
+	margin-right: 20rpx;
+}
+
+.error{
+	position: absolute;
+	top: 0rpx;
+	bottom: 110rpx;
+	left: 0rpx;
+	right: 0rpx;
+	z-index: 2;
+}

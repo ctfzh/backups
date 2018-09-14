@@ -49,7 +49,7 @@ Page({
       })
 	 } else {
 		 //关闭加载中动画
-		 wx.hideLoading();
+		  wx.hideLoading();
       this.setData({
         show: false,
         retry_an: 0,
@@ -398,7 +398,7 @@ function Retry(that) {
     },
     function () {
       //关闭加载中动画
-      wx.hideLoading();
+		wx.hideLoading();
       that.setData({
         show: false,
         retry_an: 1,
@@ -918,7 +918,7 @@ function get_goods(that) {
     },
     function (res) {
       //关闭加载中动画
-      wx.hideLoading();
+		wx.hideLoading();
       Journal.myconsole("商品列表请求信息：")
       Journal.myconsole(res);
 
@@ -1212,7 +1212,7 @@ function store_detail(that, settlement) {
       Journal.myconsole("门店请求数据：")
       Journal.myconsole(res);
       //关闭加载中动画
-      wx.hideLoading();
+		wx.hideLoading();
 
     })
 }

@@ -322,6 +322,10 @@ function CRECEIPTORDER() {
 function ADDRESSLIST() {
   return baseUrl() + 'uset/address/list';
 }
+//获取收货地址列表（新）
+function ORDERADDRESSLIST() {
+	return baseUrl() + 'uset/address/orderaddresslist';
+}
 //编辑收货地址
 function ADDRESSEDIT() {
   return baseUrl() + 'uset/address/edit';
@@ -342,7 +346,7 @@ function ADDRESSDELETE() {
 }
 //获取省市区
 function GET_ADDRESS_CODE() {
-  return cityBaseUrl() + 'base/util/get-address';
+  return cityBaseUrl() + 'base/util/get-address'; 
 }
 //============================================= 退款相关接口 =================================
 
@@ -524,6 +528,8 @@ function GETCOUPONLIST() {
 
 //建立调用
 module.exports = {
+//获取收货地址列表（新）
+	ORDERADDRESSLIST: ORDERADDRESSLIST,
 	//小程序优惠券列表
 	GETCOUPONLIST: GETCOUPONLIST,
 //微信手机号授权

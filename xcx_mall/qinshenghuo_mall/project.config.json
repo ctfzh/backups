@@ -9,8 +9,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.2.5",
-	"appid": "wx62dde569cd37ea93",
-	"projectname": "%E5%88%86%E9%94%80%E9%97%AE%E9%A2%98",
+	"appid": "wx231b9fb8f89fabc2",
+	"projectname": "%E7%99%BB%E5%85%A5%E9%97%AE%E9%A2%98",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -72,6 +72,17 @@
 					"name": "积分商城提交订单",
 					"pathName": "pages/point/order_submit",
 					"query": "goods_id=141&sku_id=99&is_cart=2&num=1"
+				},
+				{
+					"id": -1,
+					"name": "收货地址",
+					"pathName": "pages/receiver_address/address_list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "编辑收货地址",
+					"pathName": "pages/receiver_address/address_dispose"
 				}
 			]
 		}

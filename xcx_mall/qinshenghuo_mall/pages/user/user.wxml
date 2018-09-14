@@ -21,8 +21,7 @@
     <view class='user-name-view {{data.ucenter_set.background=="#fff"?open-data:""}}'  wx:if="{{token}}" >{{data.nickname? data.nickname:'会员昵称'}}</view>
 	 <view class='user-name-view open-data'><open-data type="userNickName" wx:if="{{!token}}"></open-data></view>
   </view>
-  <view class='stytle-line'  wx:if="{{token}}"/>
-  <view class='tab-view' wx:if="{{token}}">
+  <view class='tab-view line_color' wx:if="{{token}}">
     <view class='itm-view'>
       <view id='jifen-number' class='number-text-view'>{{data.bonus}}
       </view>
@@ -67,12 +66,10 @@
   </view>
   <!-- 会员卡详情跳转=>结束 -->
 
-  <view class='stytle-line' wx:if="{{data.ucenter_set.order_ent_status==1&&token}}" />
-  <view class='all-order-view' bindtap="all_order_onclick" wx:if="{{data.ucenter_set.order_ent_status==1&&token}}">
+  <view class='all-order-view line_color' bindtap="all_order_onclick" wx:if="{{data.ucenter_set.order_ent_status==1&&token}}">
     <text class='all-order-text'>全部订单</text>
     <image class='arrows-right-img' src='../img/arrows_right.png' />
   </view>
-  <view class='stytle-line' wx:if="{{token}}" />
   <view class='tab-view'  wx:if="{{data.ucenter_set.order_ent_status==1&&token}}">
     <view class='itm-view' bindtap="unpaid_order_onclick">
       <view>
@@ -123,27 +120,31 @@
   </view>
 
 
-  <view class='stytle-line' wx:if="{{data.ucenter_set.mall_ent_status==1}}" />
-  <view class='list-view' wx:if="{{data.ucenter_set.mall_ent_status==1&&token}}">
-    <view class='stytle-line' />
-    <view class='list-itm-view' bindtap='home_onclick'>
+  <view class='list-view line_color' wx:if="{{token}}">
+
+    <view class='list-itm-view line_color' bindtap='home_onclick' wx:if="{{data.ucenter_set.group_ent_status==1}}">
+      <image class='list-itm-img' src='../img/store.png' />
+      <view class='list-itm-text'>我的拼团</view>
+      <image class='arrows-right-img' src='../img/arrows_right.png' />
+    </view>
+
+    <view class='list-itm-view line_color' bindtap='home_onclick' wx:if="{{data.ucenter_set.mall_ent_status==1}}">
       <image class='list-itm-img' src='../img/store.png' />
       <view class='list-itm-text'>商城</view>
       <image class='arrows-right-img' src='../img/arrows_right.png' />
     </view>
 
-    <view class='stytle-line'  wx:if="{{data.ucenter_set.cart_ent_status==1}}"/>
-    <view class='list-itm-view' bindtap='shopping_trolley_onclick' wx:if="{{data.ucenter_set.cart_ent_status==1}}">
+    <view class='list-itm-view line_color' bindtap='shopping_trolley_onclick' wx:if="{{data.ucenter_set.cart_ent_status==1}}">
       <image class='list-itm-img' src='../img/shopCart.png' />
       <view class='list-itm-text'>购物车</view>
       <image class='arrows-right-img' src='../img/arrows_right.png' />
     </view>
-    <view class='stytle-line' />
+
   </view>
-  <view class='list-view'  wx:if="{{token}}">
+
+  <view class='list-view line_color'  wx:if="{{token}}">
     <!-- 
-    <view class='stytle-line' />
-    <view class='list-itm-view' bindtap="my_wallet_onclick">
+    <view class='list-itm-view line_color' bindtap="my_wallet_onclick">
       <view>
         <image class='list-itm-img' src='../img/icon-wallet.png' />
         <view class='list-itm-text'>我的钱包</view>
@@ -151,46 +152,44 @@
       <image class='arrows-right-img' src='../img/arrows_right.png' />
     </view>
 
-    <view class='stytle-line' />
-    <view class='list-itm-view' bindtap="expense_calendar_onclick">
+    <view class='list-itm-view line_color' bindtap="expense_calendar_onclick">
       <view>
         <image class='list-itm-img' src='../img/icon_ecord.png' />
         <view class='list-itm-text'>消费记录</view>
       </view>
       <image class='arrows-right-img' src='../img/arrows_right.png' />
     </view> -->
-    <view class='stytle-line' />
-    <view class='list-itm-view' bindtap="jump_recharge_activity" wx:if="{{data.ucenter_set.recharge_ent_status==1}}">
+    <view class='list-itm-view line_color' bindtap="jump_recharge_activity" wx:if="{{data.ucenter_set.recharge_ent_status==1}}">
       <image class='list-itm-img left_img' src='../img/my_recharge.png' />
       <view class='list-itm-text'>我的储值</view>
       <image class='arrows-right-img' src='../img/arrows_right.png' />
     </view>
-    <view class='stytle-line' />
-    <view class='list-itm-view' bindtap="personal_informationt_onclick">
+    <view class='list-itm-view line_color' bindtap="jump_recharge_activity">
+      <image class='list-itm-img left_img' src='../img/income/address.png' />
+      <view class='list-itm-text'>收货地址</view>
+      <image class='arrows-right-img' src='../img/arrows_right.png' />
+    </view>
+    <view class='list-itm-view line_color' bindtap="personal_informationt_onclick">
       <image class='list-itm-img left_img' src='../img/myInfo.png' />
       <view class='list-itm-text'>个人信息</view>
       <image class='arrows-right-img' src='../img/arrows_right.png' />
     </view>
-    <view class='stytle-line' wx:if="{{distribution_user}}" />
-    <view class='list-itm-view' bindtap="myDistribution_onclick" wx:if="{{distribution_user}}">
+    <view class='list-itm-view line_color' bindtap="myDistribution_onclick" wx:if="{{distribution_user}}">
         <image class='list-itm-img left_img' src='../img/distribution.png' />
       <view class='list-itm-text'>我的分销</view>
       <view class='new' wx:if="{{distribution_set.distr_tag_show==1}}">NEW</view>
       <image class='arrows-right-img' src='../img/arrows_right.png' />
     </view>
-	<view class='stytle-line' />
-    <view class='list-itm-view' bindtap="jump_code" wx:if="{{data.ucenter_set.recharge_code_ent_status==1}}">
+    <view class='list-itm-view line_color' bindtap="jump_code" wx:if="{{data.ucenter_set.recharge_code_ent_status==1}}">
       <image class='list-itm-img left_img' src='../img/recharge_code.png' />
       <view class='list-itm-text'>充值卡/码</view>
       <image class='arrows-right-img' src='../img/arrows_right.png' />
     </view>
-   <view class='stytle-line' wx:if="{{data.ucenter_set.mall_service_ent_status==1}}" />
-    <view class='list-itm-view' bindtap="msg_onclick" wx:if="{{data.ucenter_set.mall_service_ent_status==1}}">
+    <view class='list-itm-view line_color' bindtap="msg_onclick" wx:if="{{data.ucenter_set.mall_service_ent_status==1}}">
       <image class='list-itm-img left_img' src='../img/is_service.png' />
       <view class='list-itm-text'>在线客服</view>
       <image class='arrows-right-img' src='../img/arrows_right.png' />
     </view>
-    <view class='stytle-line' />
   </view>
 
   <view class='no_entry' wx:if="{{!token}}">

@@ -104,7 +104,9 @@ function chatPaymen(that, order_no, function_type, nav, info) {
 		data,
 		function (res) {
 			//关闭加载中动画
-			wx.hideLoading()
+			setTimeout(function () {
+				wx.hideLoading()
+			}, 2000)
 			//微信支付api
 			wx.requestPayment({
 				'appId': res.appId,

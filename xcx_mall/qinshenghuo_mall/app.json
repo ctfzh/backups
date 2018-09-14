@@ -41,7 +41,9 @@
       "pages/recharge_activity/recharge_activity",
       "pages/recharge_activity/balance_detailed",
       "pages/account_number/bind_account",
-      "pages/user/coupon_list"
+      "pages/user/coupon_list",
+      "pages/receiver_address/address_list",
+      "pages/receiver_address/address_dispose"
    ],
    "window": {
       "navigationBarBackgroundColor": "#fff",

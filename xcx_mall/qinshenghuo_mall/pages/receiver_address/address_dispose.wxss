@@ -1,0 +1,67 @@
+/* 添加，编辑，删除收货地址 */
+@import "../template/top_message.wxss";
+@import "../template/loading_fall_ui.wxss";
+
+.dispose{
+	margin-top: 12rpx;
+	background-color: #fff;
+	padding-left: 40rpx;
+}
+
+.dispose_item{
+	border-bottom-width: 1rpx;
+	display: flex;
+}
+.dispose_item:last-child{
+	border-width: 0rpx;
+}
+.item_left{
+	width: 145rpx;
+	font-size: 28rpx;
+	font-weight: bold;
+	padding: 40rpx 0rpx;
+}
+.item_rigth{
+	flex: 1;
+	font-size: 28rpx;
+	margin-right: 40rpx;
+}
+input{
+	height: 100%;
+}
+.placeholder{
+	font-size: 24rpx;
+	color: #B4B6B8;
+}
+
+.btn{
+	padding: 80rpx 40rpx;
+}
+
+button{
+	height: 90rpx;
+	margin-bottom: 40rpx;
+	background-color: #DB3927;
+	border-radius: 6rpx;
+	color: #fff;
+	font-size: 36rpx;
+	border: none;
+}
+button.delete{
+	background-color: #fff;
+	color: #DB3927;
+}
+
+picker{
+	height: 100%;
+	position: relative;
+}
+.picker{
+	position: absolute;
+	top: 0rpx;
+	bottom: 0rpx;
+	right: 0rpx;
+	left: 0rpx;
+	display: flex;
+	align-items: center;
+}

@@ -573,7 +573,6 @@ shopping_goods_name{
   overflow:hidden;
   } 
 .marquee_text {
-  white-space: nowrap;
   position:absolute;
   top:0;
   height:60rpx;

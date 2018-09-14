@@ -178,7 +178,7 @@ function Refresh(that) {
       },
       function () {
          //关闭加载中动画
-         wx.hideLoading();
+			wx.hideLoading();
          wx.stopPullDownRefresh();
          that.setData({
             show: false,
@@ -206,7 +206,7 @@ function location(that) {
       },
       fail: function (res) {
          //关闭加载中动画
-         wx.hideLoading();
+			wx.hideLoading();
          wx.stopPullDownRefresh();
          that.setData({
             show: false,
@@ -259,7 +259,7 @@ function getAddressList(that) {
          },
          function (res) {
             //关闭加载中动画
-            wx.hideLoading();
+				wx.hideLoading();
             wx.stopPullDownRefresh();
             Journal.myconsole("地址列表请求信息")
             Journal.myconsole(res);
@@ -321,7 +321,7 @@ function address_details(that) {
 		function (res) {
 			//关闭加载中动画
 			setTimeout(function () {
-				wx.hideLoading();
+				 wx.hideLoading();
 			}, 2000)
 			Journal.myconsole('地址详情接口返回数据');
 			Journal.myconsole(res);

@@ -77,8 +77,6 @@ function request_data_new(url, data, success, message, fail, complete) {
       } else {
         message(res.data.errCode, res.data.errMsg);
       }
-
-
     },
     //请求失败
 	  fail: function (res) {
