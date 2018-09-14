@@ -259,7 +259,7 @@ Page({
     }
   },
   bind_addorder: function () {
-    if (this.data.order_money) {
+    if (this.data.order_money>0) {
       get_addorder(this, this.data.coupon_sele_id, this.data.if_member_discount);
     }else{
       Currency.show_top_msg(this, "请输入消费金额");

@@ -505,60 +505,14 @@ function get_othercoupon(that) {
       Server.GETOTHERCOUPON(),
       data,
       function (res) {
-        if (res && res.length > 0) {
           that.setData({
             other_coupon: res
           })
-          if (that.data.data && that.data.data.coupon_info.length <= 2) {
-            that.setData({
-              more_coupon: true,
-            })
-          } else {
-            that.setData({
-              more_coupon: false,
-            })
-          }
-          if (res.length <= 2) {
-            that.setData({
-              other_more_coupon: true,
-            })
-          } else {
-            that.setData({
-              other_more_coupon: false,
-            })
-          }
-        } else {
-          //没有异业联盟券时显示四张优惠券
-          that.setData({
-            x_coupon: '4',
-            other_coupon: false
-          })
-          if (that.data.data && that.data.data.coupon_info.length <= 4) {
-            that.setData({
-              more_coupon: true,
-            })
-          } else {
-            that.setData({
-              more_coupon: false,
-            })
-          }
-        }
       },
-      function (res) {
-        //没有异业联盟券时显示四张优惠券
-        that.setData({
-          x_coupon: '4',
-          other_coupon: false
-        })
-        if (that.data.data && that.data.data.coupon_info.length <= 4) {
-          that.setData({
-            more_coupon: true,
-          })
-        } else {
-          that.setData({
-            more_coupon: false,
-          })
-        }
+		 function (res) {
+			 that.setData({
+				 other_coupon: []
+			 })
       },
 		 function (res) {
 			 Journal.myconsole("请求异业联盟券的数据：");

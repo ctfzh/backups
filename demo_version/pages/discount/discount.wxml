@@ -76,7 +76,7 @@
 
   <!-- 优惠券=>开始 -->
   <view class='discount_coupon'>
-    <view class='explain font_color1' wx:if="{{data.coupon_info.length==0&&!other_coupon&&data.menu_count==0&&data.member_info.discount_text}}">
+    <view class='explain font_color1' wx:if="{{data.coupon_info.length<=0&&other_coupon.length<=0&&data.menu_count==0&&data.member_info.discount_text}}">
       <view class='explain_h1'>权益</view>
        <view class='explain_text font_color3'>
         <import src="../custom_modular/wxParse/wxParse.wxml" />
@@ -84,7 +84,8 @@
        </view> 
     </view>
 
-    <view class='coupon_list' wx:for="{{data.coupon_info}}" wx:for-item="list" wx:key="key" wx:for-index="index" wx:if="{{index<x_coupon || more_coupon}}">
+    <view class='coupon_list' wx:for="{{data.coupon_info}}" wx:for-item="list" wx:key="key" wx:for-index="index" wx:if="{{index<2 || (other_coupon.length>0&&index<2) || (other_coupon.length<=0&&index<4) || more_coupon}}">
+    <!-- <view class='coupon_list' wx:for="{{data.coupon_info}}" wx:for-item="list" wx:key="key" wx:for-index="index" wx:if="{{index<x_coupon || more_coupon}}"> -->
       <view class='coupon_back_img'>
         <image class='back_img' src='../img/banner/coupon_back{{list.is_fission==1?"_fiss":""}}.png'></image>
       </view>
@@ -103,7 +104,7 @@
       <button class='coupon_receive' plain open-type="{{list.is_fission==1?'share':''}}" bindtap='{{list.is_fission==1?"coupon_share":"coupon_receive"}}' data-coupon='{{list}}'><text class='coupon_receive_text'>{{list.is_fission==1?"立即分享":"立即领取"}}</text></button>
     </view>
 
-    <view class='more_coupon font_color3 line_color' wx:if="{{!more_coupon&&data.coupon_info.length>x_coupon}}">
+    <view class='more_coupon font_color3 line_color' wx:if="{{(other_coupon.length>0&&data.coupon_info.length>2 && !more_coupon)|| (other_coupon.length==0&&data.coupon_info.length>4 && !more_coupon)}}">
       <view class='bind_more_coupon' bindtap='more_coupon'>
         <text class='more_coupon_text'>查看更多优惠券</text>
         <image class='drop_downs' src='../img/income/drop_down_red.png'></image>
@@ -113,7 +114,7 @@
   <!-- 优惠券=>结束 -->
 
   <!-- 其它优惠券=>开始 -->
-   <view class='discount_coupon' wx:if="{{other_coupon}}">
+   <view class='discount_coupon' wx:if="{{other_coupon.length>0}}">
     <view class='other_coupon_title'>其它优惠券</view>
     <view class='coupon_list' wx:for="{{other_coupon}}" wx:for-item="list" wx:key="key" wx:for-index="index" wx:if="{{index<2||other_more_coupon}}">
       <view class='coupon_back_img'><image class='back_img' src='../img/banner/other_coupon_back.png'></image></view>
@@ -131,7 +132,7 @@
       </view>
       <button class='coupon_receive' plain bindtap='bindother_url' data-coupon='{{list}}'><text class='coupon_receive_text'>立即领取</text></button>
     </view>
-    <view class='more_coupon font_color3 line_color' wx:if="{{!other_more_coupon}}">
+    <view class='more_coupon font_color3 line_color' wx:if="{{other_coupon.length > 2 && !other_more_coupon}}">
       <view class='bind_more_coupon' bindtap='other_more_coupon'>
         <text class='more_coupon_text'>查看更多优惠券</text>
         <image class='drop_downs' src='../img/income/drop_down_red.png'></image>

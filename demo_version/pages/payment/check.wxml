@@ -74,8 +74,8 @@
                 <view class='coupon_layer_itme'>{{itemName.start_time}}-{{itemName.end_time}}</view>
               </view>
               <view class='coupon_layer_list_right'>
-                <label class='max_checked' data-coupon='{{itemName}}' bindtap="{{itemName.least_cost>order_money-undiscountable_money||(itemName.id!=sele_id&&Unavailable)||(itemName.id!=sele_id&&coupon_sele>0&&itemName.can_use_with_other_discount==2)? '': 'see_check' }}">
-                  <checkbox class='coupon_layer_list_use' value="{{itemName.id}}" disabled="{{itemName.least_cost>order_money-undiscountable_money||(itemName.id!=sele_id&&Unavailable)||(itemName.id!=sele_id&&coupon_sele>0&&itemName.can_use_with_other_discount==2)? true: false }}" checked="{{coupon_checked}}"/>
+                <label class='max_checked' data-coupon='{{itemName}}' bindtap="{{itemName.least_cost>(order_money-undiscountable_money>0?order_money-undiscountable_money:-1)||(itemName.id!=sele_id&&Unavailable)||(itemName.id!=sele_id&&coupon_sele>0&&itemName.can_use_with_other_discount==2)? '': 'see_check' }}">
+                  <checkbox class='coupon_layer_list_use' value="{{itemName.id}}" disabled="{{itemName.least_cost>(order_money-undiscountable_money>0?order_money-undiscountable_money:-1)||(itemName.id!=sele_id&&Unavailable)||(itemName.id!=sele_id&&coupon_sele>0&&itemName.can_use_with_other_discount==2)? true: false }}" checked="{{coupon_checked}}"/>
                 </label>
               </view>
             </view>
