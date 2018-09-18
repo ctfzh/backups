@@ -67,7 +67,7 @@
               <view class='choice_text'>稍晚，预约稍晚时间<text class='text_c'> 到店 </text>取餐</view>
             </view> 
           </view>
-          <view class='take_meal_an' data-store='{{list}}' catchtap='jump_store'>选择饮品</view>
+          <view class='take_meal_an' data-store='{{list}}' catchtap='jump_store'>选择商品</view>
         </view>
       </view>
     </view>

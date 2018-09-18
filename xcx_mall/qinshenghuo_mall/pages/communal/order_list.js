@@ -216,11 +216,11 @@ function Refresh(that) {
 		 } else {
 			 var login = false;
 			 var order_list = that.data.order_list;
-			 if (order_list && order_list.length > 0) {
-				 getOrder_List_Request(that, 0);
-			 } else {
-				 getOrder_List_Request(that, 1);
-			 }
+				 if (order_list && order_list.length > 0) {
+					 getOrder_List_Request(that, 0);
+				 } else {
+					 getOrder_List_Request(that, 1);
+				 }
 		 }
 		 that.setData({
 			 login: login,
@@ -234,7 +234,7 @@ function Refresh(that) {
 }
 
 
-//获取订单列表 inTo  1、页面第一次加载
+//获取订单列表 inTo  1、页面第一次加载  //order_status == 'group'为拼团订单数据
 function getOrder_List_Request(that, inTo) {
 	var token = MySign.getToken();
 	if (!token) {
@@ -242,7 +242,7 @@ function getOrder_List_Request(that, inTo) {
 	} else {
 		var order_status = that.data.order_status;
 		var data = {};
-		if (order_status) {
+		if (order_status && order_status !='group') {
 			data['order_status'] = order_status;
 		}
 		data['token'] = token;
@@ -250,7 +250,7 @@ function getOrder_List_Request(that, inTo) {
 		data['sign'] = MySign.sign(data);
 
 		MyRequest.request_data_new(
-			MyHttp.ORDERLIST(),
+			order_status == 'group' ? MyHttp.GROUPBUY() : MyHttp.ORDERLIST(),
 			data,
 			function (res) {
 				if (res && res.list && res.list.length > 0) {
@@ -371,3 +371,7 @@ function receipt_order(that, id) {
 			})
 	}
 }
+
+
+
+

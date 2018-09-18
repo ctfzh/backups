@@ -122,8 +122,8 @@
 
   <view class='list-view line_color' wx:if="{{token}}">
 
-    <view class='list-itm-view line_color' bindtap='home_onclick' wx:if="{{data.ucenter_set.group_ent_status==1}}">
-      <image class='list-itm-img' src='../img/store.png' />
+    <view class='list-itm-view line_color' bindtap='jump_group' wx:if="{{data.ucenter_set.group_ent_status==1}}">
+      <image class='list-itm-img' src='../img/income/group.png' />
       <view class='list-itm-text'>我的拼团</view>
       <image class='arrows-right-img' src='../img/arrows_right.png' />
     </view>
@@ -164,7 +164,7 @@
       <view class='list-itm-text'>我的储值</view>
       <image class='arrows-right-img' src='../img/arrows_right.png' />
     </view>
-    <view class='list-itm-view line_color' bindtap="jump_recharge_activity">
+    <view class='list-itm-view line_color' bindtap="jump_address">
       <image class='list-itm-img left_img' src='../img/income/address.png' />
       <view class='list-itm-text'>收货地址</view>
       <image class='arrows-right-img' src='../img/arrows_right.png' />

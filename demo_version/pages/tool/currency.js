@@ -373,7 +373,7 @@ function registerrule(that, syntony, e) {
 				} else if (res.rule_type == 2) {
 					//手机号
 					wx.navigateTo({
-						url: '../account_number/bind_account',
+						url: '/pages/account_number/bind_account',
 					})
 				} else {
 					show_top_msg(that, '商户设置错误');

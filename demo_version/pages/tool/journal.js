@@ -1,5 +1,5 @@
 // 控制台日志输出JS
-var printType = true;//true  false 打印输出日志
+var printType = false;//true  false 打印输出日志
 function myconsole(string) {
   if (printType) {
     console.log(string);

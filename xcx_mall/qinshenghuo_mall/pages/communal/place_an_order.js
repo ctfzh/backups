@@ -30,10 +30,6 @@ Page({
         'checked': false,
       }
     ],
-    address_name: '',
-    address_phone: '',
-    address_information: '',
-    address_postal_code: '',
     province_array: [],
     city_array: [],
     region_array: [],
@@ -98,8 +94,6 @@ Page({
       group_id: group_id,
       group_active_id: group_active_id,
     })
-    //初始化页面加载
-    Refresh(this);
   },
 
   /**
@@ -113,6 +107,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+	  //初始化页面加载
+	  Refresh(this);
   },
 
   /**
@@ -149,163 +145,25 @@ Page({
   onShareAppMessage: function () {
 
   },
+
+//   选择收货地址
 	address_onclick:function(){
-		this.setData({
-			addres_id: '',
-			address_name: '',
-			address_phone: '',
-			address_information: '',
-			address_postal_code: '',
-			address_showDialog: !this.data.address_showDialog
-		});
+		var goods_info = this.data.goods_info;
+		wx.navigateTo({
+			url: '/pages/receiver_address/address_list?goods_info=' + goods_info,
+		})
 	},
 
-  // 添加地址
-	address_onclick_wx: function (list) {
-		var that =this;
-		//获取微信收货地址
-		wx.chooseAddress({
-			success: function (res) {
-				that.setData({
-					addres_id: '',
-					//收件人姓名
-					address_name: res.userName,
-					//收件人手机号
-					address_phone: res.telNumber,
-					//收件人详细地址
-					address_information: res.detailInfo,
-					//收件人邮编
-					address_postal_code: res.postalCode,
-					address_showDialog: !that.data.address_showDialog,
-					address_edit_showDialog: !that.data.address_edit_showDialog
-				})
-				get_address_code(that, '1', 0, '')
-			},
-			fail:function(){
-				that.setData({
-					addres_id: '',
-					address_name: '',
-					address_phone: '',
-					address_information: '',
-					address_postal_code: '',
-					address_showDialog: !that.data.address_showDialog
-				});
-			}
-		})
-  },
-  // 关闭收货地址列表
-  onClickdiaView: function () {
-    this.setData({
-      addres_id: '',
-      address_name: '',
-      address_phone: '',
-      address_information: '',
-      address_postal_code: '',
-      address_showDialog: !this.data.address_showDialog
-    });
-  },
-  //列表选中事件
-  checked_onclick: function (list) {
-    MyUtils.myconsole('选中地址：');
-    MyUtils.myconsole(list.target.dataset.idx);
-    this.setData({
-      checked_id: list.target.dataset.idx.id,
-      default_address: list.target.dataset.idx,
-      address_showDialog: !this.data.address_showDialog
-    });
-    getmerchantexpress(this, list.target.dataset.idx.id);
-  },
-
-  //去修改收货地址
-  edit_onclick: function (list) {
-    var list = list.target.dataset.idx;
-    MyUtils.myconsole('去修改的地址：');
-    MyUtils.myconsole(list);
-    this.setData({
-      addres_id: list.id,
-      address_name: list.name,
-      address_phone: list.phone,
-      address_information: list.address,
-      address_postal_code: list.code,
-      delete_show: list && list.is_default == 1 ? false : true,
-      address_edit_showDialog: !this.data.address_edit_showDialog
-    });
-    get_address_code(this, '1', 0, list.province_code)
-    get_address_code(this, list.province_code, 1, list.city_code)
-    get_address_code(this, list.city_code, 2, list.county_code)
-  },
-  //去新增收货地址
-  add_onclick: function (list) {
-    this.setData({
-      addres_id: '',
-      address_name: '',
-      address_phone: '',
-      address_information: '',
-      address_postal_code: '',
-      address_edit_showDialog: !this.data.address_edit_showDialog
-    });
-    get_address_code(this, '1', 0, '')
-  },
-  //删除收货地址
-  onClickdiaView_edit_delete: function () {
-    var that = this;
-    wx.showModal({
-      title: '提示',
-      content: '确定要删除此收货地址？',
-      success: function (res) {
-        if (res.confirm) {
-          get_address_delete(that);
-        } else if (res.cancel) {
-          MyUtils.myconsole('用户点击取消')
-        }
-      }
-    })
 
 
-  },
-  // 关闭收货地址列表
-  onClickdiaView_edit: function () {
-    this.setData({
-      addres_id: '',
-      address_name: '',
-      address_phone: '',
-      address_information: '',
-      address_postal_code: '',
-      address_edit_showDialog: !this.data.address_edit_showDialog,
-      // address_showDialog: !this.data.address_showDialog
-    });
-  },
-  //选择的省
-  bindProvinceChange: function (e) {
-    MyUtils.myconsole('省：' + e.detail.value)
-    this.setData({
-      province_index: e.detail.value
-    })
-    var province_array = this.data.province_array;
-    get_address_code(this, province_array[e.detail.value].id, 1, '')
-  },
-  //选择的市
-  bindCityChange: function (e) {
-    MyUtils.myconsole('市：' + e.detail.value)
-    this.setData({
-      city_index: e.detail.value
-    })
-    var city_array = this.data.city_array;
-    get_address_code(this, city_array[e.detail.value].id, 2, '')
-  },
-  //选择的区
-  bindRegionChange: function (e) {
-    MyUtils.myconsole('区：' + e.detail.value)
-    this.setData({
-      region_index: e.detail.value
-    })
-  },
+
   //关闭选择配送方式的列表
   delivery_method_onClickdiaView: function () {
     this.setData({
       delivery_method_showDialog: !this.data.delivery_method_showDialog
     });
   },
+
   //选择配送方式
   select_express_onclick: function () {
     if (!this.data.localdelivery && !this.data.delivery) {
@@ -370,60 +228,6 @@ Page({
 		getdiscount(that, that.data.select_id, '');
   },
 
-
-
-  //获取输入的收货人
-  bindInputName: function (e) {
-    this.setData({
-      address_name: e.detail.value,
-    })
-
-  },
-  //获取输入的手机号码
-  bindInputPhone: function (e) {
-    this.setData({
-      address_phone: e.detail.value,
-    })
-  },
-  //获取输入的详细地址
-  bindInputAddressInformation: function (e) {
-    this.setData({
-      address_information: e.detail.value,
-    })
-  },
-  //获取输入的留言信息
-  bindInputremark: function (e) {
-    this.setData({
-      remark_input: e.detail.value,
-    })
-  },
-  //获取输入的邮编
-  bindInputPostalCode: function (e) {
-    this.setData({
-      address_postal_code: e.detail.value,
-    })
-  },
-
-
-  //保存收货地址
-  onClickdiaView_edit_save: function () {
-    var id = this.data.addres_id;
-		var phone = this.data.address_phone;
-    MyUtils.myconsole("地址id:" + id)
-		if (!(/^1[34578]\d{9}$/.test(phone))) {
-			this.setData({
-				ajxtrue: false
-			})
-			if (phone.length >= 11) {
-				Extension.show_top_msg(this, '手机号格式有误')
-			}
-		} else {
-			this.setData({
-				ajxtrue: true
-			})
-			get_address_add(this, !id ? 1 : 2);
-		}
-  },
   onClickdiaView_edit_default: function () {
     get_address_add(this, 3);
   },
@@ -582,7 +386,7 @@ function Refresh(that) {
 			 var login = true;
 		 } else {
 			 var login = false;
-			 //进行网络请求
+			 //获取下单信息
 			 getplaceOrderDetail(that, that.data.is_cart, that.data.cart_id, that.data.goods_id, that.data.num, that.data.sku_id, that.data.group_id, that.data.group_active_id);
 		 }
 		 that.setData({
@@ -715,7 +519,7 @@ function getplaceOrderDetail(that, is_cart, cart_id, goods_id, num, sku_id, grou
 
 						var money = parseFloat(res.cost_money) + parseFloat(res.express.delivery.freight_money ? res.express.delivery.freight_money : '0.00');
 						that.setData({
-							goods_info: res.goods_info,
+							goods_info: JSON.stringify(res.goods_info),
 							commodity_list: res.list,
 							cost_money: res.cost_money,
 							cost_weight: res.cost_weight,
@@ -794,6 +598,8 @@ function get_address_list(that, inTo) {
 						checked: false,
 					})
 				}
+				//配送方式
+				getmerchantexpress(that, res.default.id);
 				//获取优惠活动数据
 				getdiscount(that, that.data.select_id, '');
 			},
@@ -840,271 +646,6 @@ function get_address_list(that, inTo) {
 	}
 }
 
-//新增、改收货地址 type:1、新增  2、修改 3、设为默认地址
-function get_address_add(that, inToType) {
-  //获取token
-	var token = MySign.getToken();
-	if (!token) {
-		Extension.custom_error(that, '3', '登录失效', '', '3');
-	} else {
-		var address_name = that.data.address_name;
-		var address_phone = that.data.address_phone;
-		var address_information = that.data.address_information;
-		var address_postal_code = that.data.address_postal_code;
-
-
-		var province_array = that.data.province_array;
-		var province_index = that.data.province_index;
-
-		var city_array = that.data.city_array;
-		var city_index = that.data.city_index;
-
-		var region_array = that.data.region_array;
-		var region_index = that.data.region_index;
-		var data = {};
-		if (inToType == 2 || inToType == 3) {
-			var id = that.data.addres_id;
-			MyUtils.myconsole("地址--id:" + id)
-			if (id) {
-				data['id'] = id;
-			} else {
-				Extension.show_top_msg(that, '收货地址保存失败！')
-				return;
-			}
-		}
-		if (inToType == 3) {
-			data['is_default_address'] = 1;
-		}
-
-
-		if (address_name) {
-			data['name'] = address_name;
-		} else {
-			Extension.show_top_msg(that, '收货人不能为空！')
-			return;
-		}
-		if (address_phone) {
-			data['telephone'] = address_phone;
-		} else {
-			Extension.show_top_msg(that, '收货人联系电话不能为空！')
-			return;
-		}
-		if (province_array && province_index && province_index != 0) {
-			data['province'] = province_array[province_index].id;
-		} else {
-			Extension.show_top_msg(that, '请选择收货地区！')
-			return;
-		}
-
-		if (city_array && city_index && city_index != 0) {
-			data['city'] = city_array[city_index].id;
-		} else {
-			Extension.show_top_msg(that, '请选择收货地区！')
-			return;
-		}
-		if (region_array && region_index && region_index != 0) {
-			data['region'] = region_array[region_index].id;
-		} else {
-			Extension.show_top_msg(that, '请选择收货地区！')
-			return;
-		}
-
-
-
-		if (address_information) {
-			data['address'] = address_information;
-		} else {
-			Extension.show_top_msg(that, '详细地址不能为空！')
-			return;
-		}
-		if (address_postal_code) {
-			data['code'] = address_postal_code;
-		}
-		data['token'] = token;
-		data['mchid'] = MySign.getMchid();
-		data['sign'] = MySign.sign(data);
-		MyRequest.request_data_new(
-			inToType == 1 ? MyHttp.ADDRESSADD() : MyHttp.ADDRESSEDIT(),
-			data,
-			function (res) {
-				if (res) {
-					if (inToType == 1) {
-						Extension.show_top_msg(that, '收货地址新增成功');
-					} else if (inToType == 2) {
-						Extension.show_top_msg(that, '收货地址修改成功');
-					} else if (inToType == 3) {
-						Extension.show_top_msg(that, '默认地址设置成功');
-					}
-					get_address_list(that, 2);
-					that.setData({
-						addres_id: '',
-						address_name: '',
-						address_phone: '',
-						address_information: '',
-						address_postal_code: '',
-						address_edit_showDialog: !that.data.address_edit_showDialog
-					})
-				}
-			},
-			function (code, msg) {
-				MyUtils.myconsole("请求失败的数据：------------------------------3-----------")
-				if (inToType == 1) {
-					Extension.show_top_msg(that, '收货地址新增失败');
-				} else if (inToType == 2) {
-					Extension.show_top_msg(that, '收货地址修改失败');
-				} else if (inToType == 3) {
-					Extension.show_top_msg(that, '默认地址设置失败');
-				}
-
-			},
-			function (res) {
-				if (inTo == 1) {
-					//自定义错误提示
-					Extension.custom_error(that, '2', '页面加载失败', '（获取订单信息失败）', '2');
-				} else {
-					if (inToType == 1) {
-						Extension.show_top_msg(that, '收货地址新增失败');
-					} else if (inToType == 2) {
-						Extension.show_top_msg(that, '收货地址修改失败');
-					} else if (inToType == 3) {
-						Extension.show_top_msg(that, '默认地址设置失败');
-					}
-				}
-			},
-			function (res) {
-				MyUtils.myconsole("请求新增、改收货地址的数据：")
-				MyUtils.myconsole(res);
-				//关闭下拉动画
-				wx.stopPullDownRefresh();
-				//关闭加载中动画
-				wx.hideLoading();
-			})
-	}
-}
-
-
-//删除收货地址
-function get_address_delete(that) {
-
-
-  var data = {};
-
-  var id = that.data.addres_id;
-  MyUtils.myconsole("地址--id:" + id)
-  if (id) {
-    data['id'] = id;
-  } else {
-    Extension.show_top_msg(that, '收货地址删除失败！')
-    return;
-  }
-
-  //获取token
-	var token = MySign.getToken();
-	if (!token) {
-		Extension.custom_error(that, '3', '登录失效', '', '3');
-	} else {
-		data['token'] = token;
-		data['mchid'] = MySign.getMchid();
-		data['sign'] = MySign.sign(data);
-		MyRequest.request_data_new(
-			MyHttp.ADDRESSDELETE(),
-			data,
-			function (res) {
-				get_address_list(that, 2);
-				that.setData({
-					addres_id: '',
-					address_name: '',
-					address_phone: '',
-					address_information: '',
-					address_postal_code: '',
-					default_address: id == that.data.checked_id ? '' : that.data.default_address,
-					address_edit_showDialog: !that.data.address_edit_showDialog
-				})
-				Extension.show_top_msg(that, '收货地址删除成功');
-			},
-			function (code, msg) {
-				Extension.show_top_msg(that, msg ? msg : '默认地址设置失败');
-			},
-			function (res) {
-				Extension.show_top_msg(that, res ? res : '默认地址设置失败');
-			},
-			function (res) {
-
-			})
-	}
-}
-
-
-//获取城市的code
-function get_address_code(that, pid, getType, code) {
-
-  var data = {};
-  data['pid'] = pid;
-  data['sign'] = MySign.sign(data);
-
-  MyRequest.request_data_new(
-    MyHttp.GET_ADDRESS_CODE(),
-    data,
-    function (res) {
-      var index = 0;
-      var array = [];
-      if (res) {
-        for (var a in res) {
-          MyUtils.myconsole("key:" + a);
-          MyUtils.myconsole("value:" + res[a]);
-          if (a) {
-            array.push({
-              id: a,
-              name: res[a],
-            })
-          } else {
-            array.unshift({
-              id: a ? a : 0,
-              name: res[a],
-            })
-          }
-        }
-
-        if (code) {
-          for (var i = 0; i < array.length; i++) {
-            if (array[i].id == code) {
-              index = i;
-            }
-          }
-        }
-        if (getType == 0) {
-          that.setData({
-            province_array: array,
-            province_index: index,
-          })
-        } else if (getType == 1) {
-          that.setData({
-            city_array: array,
-            city_index: index,
-          })
-        } else if (getType == 2) {
-          that.setData({
-            region_array: array,
-            region_index: index,
-          })
-        }
-		} else {
-			//自定义错误提示
-			Extension.custom_error(that, '2', '页面加载失败', '', '2');
-      }
-    },
-    function (code, msg) {
-      Extension.show_top_msg(that, '获取城市code失败')
-    },
-    function (res) {
-      Extension.show_top_msg(that, '获取城市code失败')
-	  },
-	  function (res) {
-		  MyUtils.myconsole("请求城市的code的数据：")
-		  MyUtils.myconsole(res);
-	  })
-
-}
 
 
 // 获取配送方式
@@ -1355,7 +896,7 @@ function setAddOrder(that){
 			for (var i = 0; i < commodity_list.length; i++) {
 				commodity_list[i].num = commodity_list[i].in_cart_num;
 			}
-			data['goods_info'] = JSON.stringify(goods_info);
+			data['goods_info'] = goods_info;
 		} else {
 			Extension.show_top_msg(that, '获取商品信息失败');
 			return;
@@ -1504,7 +1045,7 @@ function getdiscount(that, active_id, coupon_ids){
 			  data['address_id'] = address_id;
 		  }
 		  //商品信息数据包
-		  data['goods_info'] = JSON.stringify(that.data.goods_info);
+		  data['goods_info'] = that.data.goods_info;
 
 		  //商户号
 		  data['mchid'] = MySign.getMchid();

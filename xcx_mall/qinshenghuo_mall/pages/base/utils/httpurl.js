@@ -322,10 +322,17 @@ function CRECEIPTORDER() {
 function ADDRESSLIST() {
   return baseUrl() + 'uset/address/list';
 }
-//获取收货地址列表（新）
+
+//获取收货地址列表（选择）
 function ORDERADDRESSLIST() {
 	return baseUrl() + 'uset/address/orderaddresslist';
 }
+
+//设置默认地址
+function SETDEFAULT() {
+	return baseUrl() + 'uset/address/setdefault';
+}
+
 //编辑收货地址
 function ADDRESSEDIT() {
   return baseUrl() + 'uset/address/edit';
@@ -526,9 +533,19 @@ function GETCOUPONLIST() {
 	return serviceUrl() + 'yx/ucoupon/coupon/list';
 }
 
+
+//我的拼团
+function GROUPBUY() {
+	return serviceUrl() + 'mall/uorder/order/groupbuy-order-list';
+}
+
 //建立调用
 module.exports = {
-//获取收货地址列表（新）
+	// 我的拼团
+	GROUPBUY: GROUPBUY,
+	//设置默认地址
+	SETDEFAULT: SETDEFAULT,
+//获取收货地址列表（选择）
 	ORDERADDRESSLIST: ORDERADDRESSLIST,
 	//小程序优惠券列表
 	GETCOUPONLIST: GETCOUPONLIST,

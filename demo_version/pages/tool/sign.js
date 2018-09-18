@@ -48,60 +48,60 @@ function objKeySort(obj) {
 // 获取商户id  17163168 测试商户奥斯卡   12196236  测试菠萝家 12196236 正式菠萝家   a0000001  门店正式 16932721
 function getMchid() {
   // 先获取商户id                                
-//   try {
-//     var merchant_no = wx.getStorageSync('merchant_no')
-//     if (merchant_no) {
-//       return merchant_no;
-//     } else {
-//       return '';
-//     }
-//   } catch (e) {
-//     return '';
-//   }
-	return '17163168';
+  try {
+    var merchant_no = wx.getStorageSync('merchant_no')
+    if (merchant_no) {
+      return merchant_no;
+    } else {
+      return '';
+    }
+  } catch (e) {
+    return '';
+  }
+	// return '17163168';
 }
 
 //从自定义文件中获取商户号
 function getExtMchid(success, fail) {
-  success();
-//   try {
-//     var merchant_no = wx.getStorageSync('merchant_no')
-//     if (merchant_no) {
-//       success();
-//     } else {
-//       if (wx.getExtConfig) {
-//         wx.getExtConfig({
-//           success: function (res) {
-//             journal.myconsole('获取自定义信息：')
-//             journal.myconsole(res)
-//             //获取商户id
-//             journal.myconsole('获取商户id：')
-//             journal.myconsole(res.extConfig.merchant_no);  
+//   success();
+  try {
+    var merchant_no = wx.getStorageSync('merchant_no')
+    if (merchant_no) {
+      success();
+    } else {
+      if (wx.getExtConfig) {
+        wx.getExtConfig({
+          success: function (res) {
+            journal.myconsole('获取自定义信息：')
+            journal.myconsole(res)
+            //获取商户id
+            journal.myconsole('获取商户id：')
+            journal.myconsole(res.extConfig.merchant_no);  
 
-//             if (res.extConfig.merchant_no){
-//               //储存商户id
-//               try {
-//                 wx.setStorageSync('merchant_no', res.extConfig.merchant_no)  
-//               } catch (e) {
-//               }
-//               success();
-//             }else{
-//               fail();
-//             }
+            if (res.extConfig.merchant_no){
+              //储存商户id
+              try {
+                wx.setStorageSync('merchant_no', res.extConfig.merchant_no)  
+              } catch (e) {
+              }
+              success();
+            }else{
+              fail();
+            }
             
-//           }
-//         })
-//       } else {
-//         wx.showModal({
-//           title: '提示',
-//           content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
-//         })
-//         fail();
-//       }
-//     }
-//   } catch (e) {
-//     fail();
-//   }
+          }
+        })
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+        })
+        fail();
+      }
+    }
+  } catch (e) {
+    fail();
+  }
 }
 
 // 获取token

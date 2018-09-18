@@ -8,7 +8,7 @@
             <text>订单编号：{{itemNameList.order_no}}</text>
           </view>
           <view class='order-state-text' wx:if="{{itemNameList.order_status.status==1}}">待支付</view>
-          <view class='order-state-text' wx:if="{{itemNameList.order_status.status==2}}">待接单</view>
+          <view class='order-state-text' wx:if="{{itemNameList.order_type==1&&itemNameList.order_status.status==2}}">待接单</view>
           <view class='order-state-text' wx:if="{{itemNameList.order_type==1&&itemNameList.order_status.status==3}}">待发货</view>
           <view class='order-state-text' wx:if="{{itemNameList.order_type==1&&itemNameList.order_status.status==4}}">待收货</view>
           <view class='order-state-text' wx:if="{{itemNameList.order_status.status==5}}">已完成</view>

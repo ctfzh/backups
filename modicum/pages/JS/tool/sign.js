@@ -58,7 +58,7 @@ function getMchid() {
 //   } catch (e) {
 //     return '';
 //   }
-	return '17163168';
+	return '10000001';
 }
 
 //从自定义文件中获取商户号

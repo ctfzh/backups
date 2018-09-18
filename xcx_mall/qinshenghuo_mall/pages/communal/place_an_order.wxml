@@ -35,7 +35,7 @@
     </view>
     <view wx:else>
       <view class='add-address-view add_address'>
-        <view class='add-addres-text' bindtap="address_onclick_wx">
+        <view class='add-addres-text' bindtap="address_onclick">
           添加您的收货地址
         </view>
       </view>
@@ -65,7 +65,7 @@
     <view class='left_right_vertical_center' bindtap='select_express_onclick'>
       <view class='left-text'>配送方式</view>
       <view class='right-text-jian-view'>
-        <view class='right-text' style='margin-right: -15rpx;'>{{express_text? express_text:'请选择配送方式'}}</view>
+        <view class='right-text'>{{express_text? express_text:'请选择配送方式'}}</view>
 							<view class='address-right-img_k'>
            			<image class='arrows-right-img' src='../img/arrows_right.png'></image> 
 							</view>
@@ -85,7 +85,7 @@
    <view class='commodity-discounts-list-view-view'>
 		<!--活动=>开始  -->
 			<!-- 促销活动=>开始  -->
-					<view class='promotions activity' data-select_id='{{active_list.select_data.id}}' bindtap='tap_promotions_layer' wx:if="{{active_list.all_data.length>0}}">
+					<view class='promotions activity line_color' data-select_id='{{active_list.select_data.id}}' bindtap='tap_promotions_layer' wx:if="{{active_list.all_data.length>0}}">
 						<view class='promotions_h1 activity_h1'>促销活动</view>
 						<view class='promotions_text activity_text'>{{active_list.select_data.rules}}<text wx:if="{{active_list.select_data.rules==''}}">不使用优惠</text>
 						</view>
@@ -95,14 +95,14 @@
 			<!-- 促销活动=>结束  -->
       
       <!--限时折扣=>开始  -->
-				<view class='time_limit activity' wx:if="{{time_limit>0}}">
+				<view class='time_limit activity line_color' wx:if="{{time_limit>0}}">
 						<view class='time_limit_h1 activity_h1'>限时折扣</view>
 						<view class='time_limit_money activity_money'>-￥{{time_limit}}</view>
 				</view>
 			<!--限时折扣=>结束  -->
 
-			<!-- 优惠券=>开始  -->
-				<view class='coupon activity'  bindtap='tap_coupon_layer'  wx:if="{{coupon_info.coupon_list}}">
+			<!-- 优惠券=>开始 -->
+				<view class='coupon activity line_color'  bindtap='tap_coupon_layer' wx:if="{{coupon_info.coupon_list}}" >
 	        <view class='coupon_h1 activity_h1'>优惠券</view>
 						<view class='coupon_text activity_text'>
 							<text class='coupon_use' wx:if="{{coupon_sele>0}}">已选{{coupon_sele}}张</text>
@@ -114,7 +114,7 @@
 			<!--优惠券=>结束  -->
 
 			<!--会员折扣=>开始  -->
-				<view class='discounts activity' wx:if="{{member_info.can_use_member}}">
+				<view class='discounts activity line_color' wx:if="{{member_info.can_use_member}}">
 						<view class='discounts_h1 activity_h1'>会员折扣</view>
 						<view class='discounts_text activity_text'>{{member_info.level_name}}享{{member_info.discount}}折</view>
 						<view class='discounts_money activity_money' wx:if="{{checked}}">-￥{{member_info.discount_cost}}</view>
@@ -226,12 +226,10 @@
 				</view>
 			<!--弹出窗=>结束  -->
 		<!--活动=>结束  -->
-    <view class='stytle-line' />
-    <view class='left_right_vertical_center'>
-      <view class='left-text'>运费</view>
+    <view class='time_limit activity line_color'>
+      <view class='time_limit_h1 activity_h1'>运费</view>
        <view class='right-text right-text-freight' wx:if="{{express_text}}">+<text class='q_f_mo'>￥</text>{{active_list.select_data.is_postage==1 ?"0.00" : freight_money}}</view> 
     </view>
-    <view class='stytle-line' />
     <!-- <view class='commodity-view' style='margin-top: -30rpx;'>
     <view class='left-text'>优惠券</view>
     <view id='discounts-list-view' style='margin-top: 30rpx;'>

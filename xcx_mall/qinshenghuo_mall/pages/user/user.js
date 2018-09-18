@@ -154,6 +154,21 @@ Page({
       url: '/pages/distribution/distribution',
     })
 	},
+
+	//收货地址
+	jump_address (e){
+		wx.navigateTo({
+			url: '/pages/receiver_address/address_list',
+		})
+	},
+
+	//我的拼团
+	jump_group(e) {
+		wx.navigateTo({
+			url: '/pages/communal/order_list?title=我的拼团&order_status=group'
+		})
+	},
+	
 	//查看会员卡
 	see_membership: function (e) {
 		var that = this;

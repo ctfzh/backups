@@ -28,8 +28,12 @@ Page({
    onLoad: function(options) {
       //获取区域
       get_address_code(this, 1, 0);
-		var id = options.id ? options.id : null;
-		if(id){
+		
+		//编辑的地址数据
+		var address = options.address ? options.address : null;
+		if (address) {
+			var is_address = true;
+			address = JSON.parse(address);
 			var title = '编辑地址';
 		}else {
 			var title = '添加地址';
@@ -39,7 +43,8 @@ Page({
 			title
 		})
 		this.setData({
-			id,
+			address,
+			is_address,
 		})
    },
 
@@ -121,6 +126,9 @@ Page({
 
    //表单的值
    formSubmit: function(e) {
+		this.setData({
+			an_submit : true,
+		})
       var formData = e.detail.value;
       var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
       if (!formData.name) {
@@ -201,7 +209,17 @@ Page({
       this.setData({
          area,
       })
-   }
+   },
+
+	//删除地址
+	delete (e){
+		var id = this.data.address.id;
+		if(id){
+			get_address_delete(this, id);
+		}else{
+			Extension.show_top_msg(that, res ? res : '无法删除');
+		}
+	}
 })
 
 
@@ -238,6 +256,7 @@ function Refresh(that) {
 //获取城市的code
 function get_address_code(that, pid, getType) {
 
+
    var data = {};
    data['pid'] = pid;
    data['sign'] = MySign.sign(data);
@@ -246,23 +265,39 @@ function get_address_code(that, pid, getType) {
    MyRequest.request_data(
       MyHttp.GET_ADDRESS_CODE(),
       data,
-      function(res) {
-         var range = that.data.range;
+		function (res) {
+			var address = that.data.address;
+			var is_address = that.data.is_address;
+			var range = that.data.range;
+			var area = that.data.area;
          var province = [];
          var town = [];
          var district = [];
-         if (getType == 0) {
-            //省
+
+			if (getType == 0) {
+				//省
             for (var a in res) {
-               if (a) {
-                  province.push({
-                     id: a,
-                     name: res[a],
-                  })
+					if (a) {
+						province.push({
+							id: a,
+							name: res[a],
+						})
+						//初始化为已有的地址
+						if (address && is_address){
+							if (address.province_code == a) {
+								var pid = a;
+								area[0] = province.length - 1;
+								area[3] = [];
+								area[3].push({
+									id: a,
+									name: res[a],
+									});
+							}
+						}
                }
             }
             range[0] = province;
-            get_address_code(that, province[0].id, 1)
+				get_address_code(that, pid ? pid : province[0].id, 1)
          } else if (getType == 1) {
             //市
             for (var a in res) {
@@ -271,10 +306,21 @@ function get_address_code(that, pid, getType) {
                      id: a,
                      name: res[a],
                   })
+						//初始化为已有的地址
+						if (address && is_address) {
+							if (address.city_code == a) {
+								var pid = a;
+								area[1] = town.length - 1;
+								area[3].push({
+									id: a,
+									name: res[a],
+								});
+							}
+						}
                }
             }
             range[1] = town;
-            get_address_code(that, town[0].id, 2)
+				get_address_code(that, pid ? pid : town[0].id, 2)
          } else if (getType == 2) {
             //区
             for (var a in res) {
@@ -283,9 +329,24 @@ function get_address_code(that, pid, getType) {
                      id: a,
                      name: res[a],
                   })
+						//初始化为已有的地址
+						if (address && is_address) {
+							if (address.county_code == a) {
+								var pid = a;
+								area[2] = district.length - 1;
+								area[3].push({
+									id: a,
+									name: res[a],
+								});
+							}
+							that.setData({
+								area,
+							})
+						}
                }
             }
             range[2] = district;
+				is_address = false;
          } else {
             //市
             for (var a in res) {
@@ -302,10 +363,11 @@ function get_address_code(that, pid, getType) {
 
          that.setData({
             range,
+				is_address,
          })
       },
       function(res) {
-         Extension.show_top_msg(that, '数据查询失败')
+         Extension.show_top_msg(that, res ? res : '数据查询失败')
       },
       function(res) {
          MyUtils.myconsole("请求城市的code的数据：")
@@ -321,13 +383,13 @@ function get_address_add(that, formData) {
    if (!token) {
       Extension.custom_error(that, '3', '登录失效', '', '3');
    } else {
-		var id = that.data.id;
+		var address = that.data.address;
       var data = {};
       data['token'] = token;
       data['mchid'] = MySign.getMchid();
       data['sign'] = MySign.sign(data);
-		if (id){
-			data['id'] = id;
+		if (address){
+			data['id'] = address.id;
 		}
 		data['province'] = formData.area[3][0].id;
 		data['city'] = formData.area[3][1].id;
@@ -337,7 +399,7 @@ function get_address_add(that, formData) {
 		data['telephone'] = formData.phone;
 
       MyRequest.request_data(
-			id ? MyHttp.ADDRESSEDIT() : MyHttp.ADDRESSADD(),
+			address ? MyHttp.ADDRESSEDIT() : MyHttp.ADDRESSADD(),
          data,
          function(res) {
 				wx.navigateBack({
@@ -345,11 +407,46 @@ function get_address_add(that, formData) {
 				})
 			},
          function(res) {
-            Extension.show_top_msg(that, res ? res : id ? '修改失败':'保存失败')
+				Extension.show_top_msg(that, res ? res : address ? '修改失败':'保存失败')
          },
          function(res) {
+				that.setData({
+					an_submit: false,
+				})
             MyUtils.myconsole("请求新增、改收货地址的数据：")
             MyUtils.myconsole(res);
          })
    }
+}
+
+
+//删除收货地址
+function get_address_delete(that, id) {
+
+	//获取token
+	var token = MySign.getToken();
+	if (!token) {
+		Extension.custom_error(that, '3', '登录失效', '', '3');
+	} else {
+		var data = {};
+		data['token'] = token;
+		data['mchid'] = MySign.getMchid();
+		data['sign'] = MySign.sign(data);
+		data['id'] = id;
+		MyRequest.request_data(
+			MyHttp.ADDRESSDELETE(),
+			data,
+			function (res) {
+				wx.navigateBack({
+					delta: 1
+				})
+			},
+			function (res) {
+				Extension.show_top_msg(that, res ? res : '删除失败');
+			},
+			function (res) {
+				MyUtils.myconsole("请求删除收货地址");
+				MyUtils.myconsole(res);
+			})
+	}
 }

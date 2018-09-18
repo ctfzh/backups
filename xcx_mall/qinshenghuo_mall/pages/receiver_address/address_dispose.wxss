@@ -46,6 +46,7 @@ button{
 	color: #fff;
 	font-size: 36rpx;
 	border: none;
+	font-weight: bold;
 }
 button.delete{
 	background-color: #fff;

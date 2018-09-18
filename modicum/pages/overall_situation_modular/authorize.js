@@ -123,9 +123,9 @@ function Obtain_openid(that, code, encrypted_data, iv) {
     data,
     function (res) {
       var res = JSON.parse(res);
-      if (res) {
         //判断openid是否为空
-        if (res.openId) {
+		 if (res.openId) {
+			 wx.hideLoading()
           Journal.myconsole(res)
           //储存openid，unionid
           try {
@@ -145,13 +145,6 @@ function Obtain_openid(that, code, encrypted_data, iv) {
             duration: 2000
           })
         }
-      } else {
-        wx.showToast({
-          title: res ? res : '授权失败，请稍后重试！！！',
-          icon: 'none',
-          duration: 2000
-        })
-      }
     },
     function (res) {
       wx.showToast({
@@ -160,11 +153,11 @@ function Obtain_openid(that, code, encrypted_data, iv) {
         duration: 2000
       })
     },
-    function (res) {
-       //关闭加载中动画
-		 setTimeout(function () {
-			 wx.hideLoading()
-		 }, 2000)
+	  function (res) {
+		  //关闭加载中动画
+		  setTimeout(function () {
+			  wx.hideLoading()
+		  }, 1000)
        Journal.myconsole("请求openid的返回数据：")
        Journal.myconsole(res);
     })

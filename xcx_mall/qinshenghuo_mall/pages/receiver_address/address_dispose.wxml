@@ -6,14 +6,14 @@
          <view class='dispose_item line_color'>
             <view class='item_left font_color1'>收货人</view>
             <view class='item_rigth font_color1'>
-               <input type="text" placeholder="收货人姓名" placeholder-class="placeholder" maxlength="8" name="name" focus="{{focus_name}}"></input>
+               <input type="text" placeholder="收货人姓名" placeholder-class="placeholder" maxlength="8" name="name" focus="{{focus_name}}" value='{{address.name}}'></input>
             </view>
          </view>
 
          <view class='dispose_item line_color'>
             <view class='item_left font_color1'>手机号</view>
             <view class='item_rigth font_color1'>
-               <input type="number" placeholder="收货人手机号" placeholder-class="placeholder" maxlength="13" name="phone"  focus="{{focus_phone}}"></input>
+               <input type="number" placeholder="收货人手机号" placeholder-class="placeholder" maxlength="13" name="phone"  focus="{{focus_phone}}" value='{{address.phone}}'></input>
             </view>
          </view>
 
@@ -32,14 +32,14 @@
          <view class='dispose_item line_color'>
             <view class='item_left font_color1'>详细地址</view>
             <view class='item_rigth font_color1'>
-               <input type="text" placeholder="请输入详细地址信息，如道路、小区、楼层、门牌号等" placeholder-class="placeholder" name="details" focus="{{focus_details}}"></input>
+               <input type="text" placeholder="请输入详细地址信息，如道路、小区、楼层、门牌号等" placeholder-class="placeholder" name="details" focus="{{focus_details}}"  value='{{address.address}}'></input>
             </view>
          </view>
       </view>
 
       <view class="btn">
-         <button formType="submit" hover-class="none">保存地址</button>
-         <button class='delete' formType="submit" hover-class="none" wx:if="{{id}}">删除</button>
+         <button formType="{{an_submit?'':'submit'}}" hover-class="none">保存地址</button>
+         <button class='delete' catchtap='delete'  hover-class="none" wx:if="{{address}}">删除</button>
       </view>
 
    </form>

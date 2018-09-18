@@ -230,8 +230,7 @@
 .commodity-discounts-list-view-view{
   background: white;
   margin-top: 30rpx;
-  /* border-top: 1rpx solid #e1e1e1;
-  border-bottom: 1rpx solid #e1e1e1;  */
+  padding: 0rpx 25rpx 0rpx 30rpx;
 }
 #discounts-list-view{
   width: 100%;
@@ -299,14 +298,15 @@
 }
 .heji .qian{
 	font-size: 30rpx;
+	margin-right: 55rpx;
 }
 .heji .qian .q_f_mo{
 	font-size: 24rpx;
 }
 
 .right-text-freight{
-	padding: 25rpx;
-	margin-right: 50rpx;
+	padding: 0rpx;
+	margin-right: 65rpx;
 }
 /* .addres_ni{
 	margin-left: 30rpx;
@@ -318,12 +318,14 @@
 
 /*活动通用CSS  */
 .activity{
-	padding: 25rpx;
+	height: 90rpx;
 	font-size: 30rpx;
 	display: flex;
-	flex-flow: row wrap;
 	align-items: center;
-	border-top: 1rpx solid #e5e5e5;
+	border-top-width: 1rpx;
+}
+.activity:first-child{
+	border-width: 0rpx;
 }
 .activity_h1{
 	color: #1A1A1A;
@@ -341,7 +343,7 @@
 }
 .activity_money{
 	color: #F53A25;
-	margin: 0rpx 10rpx 0rpx 0rpx;
+	margin: 0rpx 25rpx 0rpx 0rpx;
 }
 .activity_point{
 	height: 34rpx;
@@ -374,7 +376,7 @@
 	align-items: center;
 }
 .discounts{
-	padding: 0rpx 25rpx;
+	/* padding: 0rpx 25rpx; */
 }
 .discounts_point{
 	padding: 25rpx 18rpx 25rpx 4rpx;
@@ -401,7 +403,8 @@
 }
 .activity_layer{
 	position: fixed;
-	width: 100%;
+	left: 0rpx;
+	right: 0rpx;
 	min-height: 400rpx;
 	background-color: #fff;
 	bottom: 0;
