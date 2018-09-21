@@ -672,6 +672,8 @@ shopping_goods_name{
 	font-size: 20rpx;
 	font-weight: normal;
   -webkit-line-clamp: 2; /** 显示的行数 **/
+	word-wrap: break-word;
+  word-break: normal;
 }
 
 .advertising{

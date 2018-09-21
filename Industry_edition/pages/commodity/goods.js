@@ -878,28 +878,32 @@ function get_goods(that) {
       Journal.myconsole("商品列表请求信息：")
       Journal.myconsole(res);
 
-		 //公告
-		 if (that.data.store.store.notice) {
-			 //停止计时
-			 clearInterval(interval);
-			 //公告滚动的区域宽
-			 wx.createSelectorQuery().select('.scrolltxt').boundingClientRect(function (rect) {
-				 var marquee_box = rect.width;// .marquee_box宽度
-				 that.setData({
-					 marqueeDistance: 0,
-					 marquee_box,
-				 })
-				 //公告文字的长度
-				 wx.createSelectorQuery().select('.notice_text').boundingClientRect(function (rect) {
-					 var notice_width = rect.width;
+
+
+		 setTimeout(function () {
+			 //公告
+			 if (that.data.store.store.notice) {
+				 //停止计时
+				 clearInterval(interval);
+				 //公告滚动的区域宽
+				 wx.createSelectorQuery().select('.scrolltxt').boundingClientRect(function (rect) {
+					 var marquee_box = rect.width;// .marquee_box宽度
 					 that.setData({
-						 notice_width,
+						 marqueeDistance: 0,
+						 marquee_box,
 					 })
-					 //  滚动公告
-					 scrolltxt(that);
+					 //公告文字的长度
+					 wx.createSelectorQuery().select('.notice_text').boundingClientRect(function (rect) {
+						 var notice_width = rect.width;
+						 that.setData({
+							 notice_width,
+						 })
+						 //  滚动公告
+						 scrolltxt(that);
+					 }).exec()
 				 }).exec()
-			 }).exec()
-		 }
+			 }
+		 }, 1000);
     })
 }
 

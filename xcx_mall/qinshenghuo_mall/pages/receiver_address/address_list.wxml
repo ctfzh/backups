@@ -1,14 +1,14 @@
 <!-- 收货地址 -->
 <view class='address_list_max' hidden='{{!show_loading_faill}}'>
    <!-- 收货地址列表 -->
-   <view class='list'>
+   <view class='list line_color'>
 
 		<view class='error' wx:if="{{ (usable.length<=0 || !usable) && (not_usable.length<=0 || !not_usable) }}"> 
 			<template is="looading_faill_view" data="{{show_loading_faill: flase, show: ['3', '无可用地址', '', '0'] }}" />
 		</view>
       <!-- 可选收货地址 -->
       <view class='usable' wx:if="{{usable.length>0}}">
-         <view class='list_item line_color' wx:for="{{usable}}" wx:for-item="item" wx:key="key" data-id='{{item.id}}' catchtap='set_default'>
+         <view class='list_item line_color' wx:for="{{usable}}" wx:for-item="item" wx:key="key" data-id='{{item.id}}' catchtap='{{goods_info ? "set_default" : ""}}'>
             <view class='item_left'>
                <view class='address_h1 font_overflow'>{{item.address_full}}</view>
                <view class='address_h2'>

@@ -177,6 +177,12 @@ Page({
 	retry: function () {
 		//初始化页面
 		Refresh(this);
+	},
+	//门店详情
+	stroe_info: function (e) {
+		var store_id = e.currentTarget.dataset.id;
+		//门店详情
+		store_detail(this, store_id);
 	}
 })
 
@@ -567,4 +573,35 @@ function orderLog(that) {
 		})
 	}
 
+}
+//门店详情
+function store_detail(that, store_id) {
+	var data = {};
+	data['mchid'] = Sign.getMchid();
+	data['sign'] = Sign.sign();
+	data['store_id'] = store_id;
+	data['type'] = that.data.order_type;
+
+	Request.request_data(
+		Server.GOODS_STORE_DEAIL(),
+		data,
+		function (res) {
+			var id = res.store.id;
+			if (id) {
+				wx.navigateTo({
+					url: '/pages/commodity/goods?function_type=' + that.data.order_type + "&store_id=" + store_id,
+				})
+			} else {
+				show();
+			}
+		},
+		function (res) {
+			show();
+		},
+		function (res) {
+			Journal.myconsole("门店请求数据：")
+			Journal.myconsole(res);
+			//关闭加载中动画
+			wx.hideLoading();
+		})
 }

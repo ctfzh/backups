@@ -20,12 +20,20 @@ Page({
          [],
          [],
       ],
+		focus_details: false,
    },
 
    /**
     * 生命周期函数--监听页面加载
     */
-   onLoad: function(options) {
+	onLoad: function (options) {
+		//优化ios下textarea的内边距
+		let system = wx.getSystemInfoSync();
+		if (system.platform == 'ios') {
+			var address = {};
+			address.address = "1";
+			this.setData({ hackIos: '-12rpx', address });
+		}
       //获取区域
       get_address_code(this, 1, 0);
 		
@@ -126,9 +134,6 @@ Page({
 
    //表单的值
    formSubmit: function(e) {
-		this.setData({
-			an_submit : true,
-		})
       var formData = e.detail.value;
       var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
       if (!formData.name) {
@@ -153,7 +158,10 @@ Page({
          this.setData({
             focus_details: true
          });
-      } else {
+		} else {
+			this.setData({
+				an_submit: true,
+			})
 			get_address_add(this, formData);
       }
    },

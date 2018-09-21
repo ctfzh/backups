@@ -58,7 +58,7 @@
             <view class='goods_inof'>
               <view class='goods_name font_color1 '>
 				  	<view class='goods_name_text font_overflow'>{{goods_item.name}}</view>
-					<text class='describe font_overflow'>{{goods_item.describe}}啊较快拉升阶段立开了奥克兰时。</text>
+					<text class='describe font_overflow'>{{goods_item.describe}}</text>
 				  </view>
               <view class='goods_money money_color'>
                 <text class='mo_fu'>￥</text>{{goods_item.money}}</view>

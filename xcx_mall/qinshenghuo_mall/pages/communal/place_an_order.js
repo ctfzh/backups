@@ -582,10 +582,9 @@ function get_address_list(that, inTo) {
 			function (res) {
 				if (res) {
 					that.setData({
-						default_address: inTo == 1 || that.data.default_address ? res.default : that.data.default_address,
-						address_list: res.normal,
+						default_address: res.default,
 						addtype: true,
-						checked_id: res.default && inTo == 1 ? res.default.id : that.data.checked_id,
+						checked_id:  res.default.id,
 						show_loading_faill: true,
 						coupon_ids: '',
 						checked: false,
@@ -598,8 +597,10 @@ function get_address_list(that, inTo) {
 						checked: false,
 					})
 				}
-				//配送方式
-				getmerchantexpress(that, res.default.id);
+				if (res.default.id){
+					//配送方式
+					getmerchantexpress(that, res.default.id);
+				}
 				//获取优惠活动数据
 				getdiscount(that, that.data.select_id, '');
 			},

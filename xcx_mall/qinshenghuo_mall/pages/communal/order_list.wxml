@@ -1,7 +1,19 @@
 <!-- 订单列表界面 -->
 <view hidden='{{!show_loading_faill}}'>
-  <block wx:for="{{order_list}}" wx:for-item="itemNameList" wx:key="unique">
-    <view class='content-view-itm'>
+<view class='order_type' wx:if="{{order_status=='group'}}">
+	<view class='order_type_item' data-type='0' catchtap='order_type_switch'><view class='order_type_item_text {{order_type==0?"sele_order_type":""}}'>全部</view></view>
+	<view class='order_type_item' data-type='1' catchtap='order_type_switch'><view class='order_type_item_text {{order_type==1?"sele_order_type":""}}'>待付款</view></view>
+	<view class='order_type_item' data-type='2' catchtap='order_type_switch'><view class='order_type_item_text {{order_type==2?"sele_order_type":""}}'>拼团中</view></view>
+	<view class='order_type_item' data-type='3' catchtap='order_type_switch'><view class='order_type_item_text {{order_type==3?"sele_order_type":""}}'>已成团</view></view>
+	<view class='order_type_item' data-type='4' catchtap='order_type_switch'><view class='order_type_item_text {{order_type==4?"sele_order_type":""}}'>已取消</view></view>
+</view>
+<view class='order_error' hidden="{{order_list}}">
+	<view class='order_img'><image class='img' src='../img/income/order.png'></image></view>
+	<view class='order_text'>您还没有相关订单哦~</view>
+	<view class='order_an' catchtap='order_an'>去逛逛</view>
+</view>
+  <view class='order_list'  hidden="{{!order_list}}" style='{{order_status=="group"?"":"top:0rpx;"}}' >
+    <view class='content-view-itm' wx:for="{{order_list}}"wx:for-item="itemNameList" wx:key="unique" >
       <view bindtap='look_order_onclick' data-index="{{index}}" data-list="{{itemNameList}}">
         <view class='left_right_vertical_center'>
           <view class='orderno-text'>
@@ -16,8 +28,8 @@
           <view class='order-state-text' wx:if="{{itemNameList.order_status.status==7}}">退款/售后</view>
           <!--拼团  -->
             <view class='order-state-text' wx:if="{{itemNameList.order_type==2&&itemNameList.group_info.group_status==1}}">拼团中，还差{{itemNameList.group_info.surplus_member}}人</view>
-            <view class='order-state-text' wx:if="{{itemNameList.order_type==2&&itemNameList.group_info.group_status==2&&itemNameList.order_status.status==3}}">已成团，待发货</view>
-            <view class='order-state-text' wx:if="{{itemNameList.order_type==2&&itemNameList.group_info.group_status==2&&itemNameList.order_status.status==4}}">已成团，待收货</view>
+            <view class='order-state-text' wx:if="{{itemNameList.order_type==2&&itemNameList.group_info.group_status==2&&(itemNameList.order_status.status1?itemNameList.order_status.status1==3:itemNameList.order_status.status==3)}}">已成团，待发货</view>
+            <view class='order-state-text' wx:if="{{itemNameList.order_type==2&&itemNameList.group_info.group_status==2&&(itemNameList.order_status.status1?itemNameList.order_status.status1==4:itemNameList.order_status.status==4)}}">已成团，待收货</view>
           <!-- <view class='order-state-text' wx:if="{{itemNameList.order_status.status==8}}">待付款</view>
           <view class='order-state-text' wx:if="{{itemNameList.order_status.status==9}}">待付款</view>
           <view class='order-state-text' wx:if="{{itemNameList.order_status.status==10}}">待付款</view> -->
@@ -70,7 +82,7 @@
         <view class='operation-itm-view' id='receive-view' bindtap='confirm_receipt_onclick' data-idx="{{itemNameList}}">确认收货</view>
       </view>
     </view>
-  </block>
+  </view>
 </view>
 <import src="../template/top_message.wxml" />
 <template is="toptips" data="{{ isTopTips:isTopTips, TopTipscontent:TopTipscontent}}" />

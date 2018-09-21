@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 9,
 			"list": [
 				{
 					"id": -1,
@@ -82,7 +82,13 @@
 				{
 					"id": -1,
 					"name": "编辑收货地址",
-					"pathName": "pages/receiver_address/address_dispose"
+					"pathName": "pages/receiver_address/address_dispose",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单",
+					"pathName": "pages/communal/order_list"
 				}
 			]
 		}

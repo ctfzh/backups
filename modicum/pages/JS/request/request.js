@@ -33,7 +33,7 @@ function request_data(url, data, success, fail, complete) {
 			} else if (res.data.errCode == 606002) {
 				fail(606002);
 			} else if (res.data.errCode == 803002) {
-				fail(res.data);
+				fail(res.data.errMsg ? res.data.errMsg : "已超出退款时间，请联系商家！");
 			} else {
 				fail(res.data.errMsg ? res.data.errMsg : "您的网络好像出现了问题，请重新加载");
 			}

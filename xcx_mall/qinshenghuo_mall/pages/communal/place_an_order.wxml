@@ -1,7 +1,5 @@
 
 <!--pages/communal/place_an_order.wxml-->
-<import src="../template/address_list.wxml" />
-<import src="../template/addres_add_and_edit.wxml" />
 <import src="../template/delivery_method.wxml" />
 <view hidden='{{!show_loading_faill}}'>
   <!-- 下单界面 -->
@@ -10,7 +8,7 @@
 <!-- 分割线 -->
   <view class='content-view'>
     <!-- <view class='stytle-line' /> -->
-    <view wx:if="{{default_address}}">
+    <view wx:if="{{default_address.id}}">
       <view class='address-view' bindtap="address_onclick">
         <view class='left_right_vertical_center' id='address-text-view' style='width:100%'>
 
@@ -264,10 +262,7 @@
       <view id='heji-view'>合计金额：</view>
     </view>
 
-    <template is="address-view" data="{{address_showDialog:address_showDialog,array:address_list,checked_id:checked_id}}" />
-    <template is="address-view-edit" data="{{address_edit_showDialog:address_edit_showDialog,province_array:province_array,city_array:city_array,region_array:region_array,province_index:province_index,city_index:city_index,region_index:region_index,address_name: address_name, address_phone: address_phone, address_information: address_information, address_postal_code: address_postal_code,addres_id:addres_id,delete_show:delete_show}}"
-    />
-    <template is="delivery_method_diaView" data="{{delivery_method_showDialog:delivery_method_showDialog,delivery_method_list:delivery_method_list}}" />
+
   </view>
 </view>
 <import src="../template/top_message.wxml" />

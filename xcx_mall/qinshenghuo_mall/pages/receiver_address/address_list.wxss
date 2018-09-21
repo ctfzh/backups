@@ -9,12 +9,13 @@ page{
 
 .list{
 	padding-bottom: 110rpx;
+	border-top-width: 1rpx;
 }
 .list_item{
 	height: 155rpx;
 	display: flex;
 	align-items: center;
-	border-top-width: 1rpx;
+	border-bottom-width: 1rpx;
 	padding: 0rpx 40rpx; 
 }
 
@@ -63,6 +64,7 @@ page{
 	padding-left: 40rpx;
 	font-size: 24rpx;
 	color: #42464D;
+	margin-top: -1rpx;
 }
 .not_usable  .list_item{
 	border-width: 0rpx;

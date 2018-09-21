@@ -151,3 +151,74 @@
   color: #fff;
   border-radius: 4rpx;
 }
+
+.order_type{
+	background-color: #fff;
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 20rpx;
+	padding: 0rpx 20rpx;
+}
+
+.order_type_item{
+	width: 20%;
+	display: flex;
+	justify-content: center;
+	color: #43474C;
+	font-size: 28rpx;
+}
+.order_type_item_text{
+	height: 80rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 4rpx solid #fff;
+}
+
+.sele_order_type{
+	border-bottom: 4rpx solid #F03F2B;
+	color: #F03F2B;
+}
+
+.order_list{
+	position: absolute;
+	top: 100rpx;
+	bottom: 0rpx;
+	left: 0rpx;
+	right: 0rpx;
+	overflow: auto;
+}
+
+.order_error{
+	position: absolute;
+	top: 100rpx;
+	bottom: 0rpx;
+	left: 0rpx;
+	right: 0rpx;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+
+.order_img{
+	margin-top: 250rpx;
+	width: 160rpx;
+	height: 160rpx;
+	display: flex;
+}
+
+.order_text{
+	font-size: 28rpx;
+	color: #747980;
+	margin: 38rpx 0rpx 68rpx 0rpx;
+}
+.order_an{
+	width: 200rpx;
+	height: 60rpx;
+	background-color: #DB3927;
+	border-radius: 4rpx;
+	color: #fff;
+	font-size: 28rpx;
+	text-align: center;
+	line-height: 60rpx;
+}

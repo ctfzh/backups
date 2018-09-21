@@ -12,6 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+	  order_type: 0,
   },
 
   /**
@@ -194,6 +195,19 @@ Page({
 	//登入
 	login_an(e) {
 		Extension.registerrule(this, function (that) { Refresh(that) }, e);
+	},
+
+	// 切换订单状态
+	order_type_switch (e){
+		var order_type = e.currentTarget.dataset.type;
+		getOrder_List_Request(this, 0, order_type);
+	},
+
+	//去逛逛
+	order_an(e) {
+		wx.switchTab({
+			url: '/pages/home/home',
+		})
 	}
 
 })
@@ -217,9 +231,9 @@ function Refresh(that) {
 			 var login = false;
 			 var order_list = that.data.order_list;
 				 if (order_list && order_list.length > 0) {
-					 getOrder_List_Request(that, 0);
+					 getOrder_List_Request(that, 0,that.data.order_type);
 				 } else {
-					 getOrder_List_Request(that, 1);
+					 getOrder_List_Request(that, 1, that.data.order_type);
 				 }
 		 }
 		 that.setData({
@@ -235,7 +249,7 @@ function Refresh(that) {
 
 
 //获取订单列表 inTo  1、页面第一次加载  //order_status == 'group'为拼团订单数据
-function getOrder_List_Request(that, inTo) {
+function getOrder_List_Request(that, inTo, order_type) {
 	var token = MySign.getToken();
 	if (!token) {
 		Extension.custom_error(that, '3', '登录失效', '', '3');
@@ -244,6 +258,8 @@ function getOrder_List_Request(that, inTo) {
 		var data = {};
 		if (order_status && order_status !='group') {
 			data['order_status'] = order_status;
+		}else{
+			data['order_status'] = order_type;
 		}
 		data['token'] = token;
 		data['mchid'] = MySign.getMchid();
@@ -256,11 +272,21 @@ function getOrder_List_Request(that, inTo) {
 				if (res && res.list && res.list.length > 0) {
 					that.setData({
 						order_list: res.list,
+						order_type: order_type,
 						show_loading_faill: true,
 					})
 				} else {
-					//自定义错误提示
-					Extension.custom_error(that, '3', '暂无订单', '', '');
+					if (order_status == 'group'){
+						that.setData({
+							show_loading_faill: true,
+							order_list: '',
+							order_type: order_type,
+							order_error: true,
+						})
+					}else{
+						//自定义错误提示
+						Extension.custom_error(that, '3', '暂无订单', '', '');
+					}
 				}
 			},
 			function (code, msg) {
