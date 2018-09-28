@@ -90,9 +90,10 @@
         <image class='back_img' src='../img/banner/coupon_back{{list.is_fission==1?"_fiss":""}}.png'></image>
       </view>
       <view class='coupon_money'>
-        <view class='coupon_money_text font_overflow' wx:if="{{list.type!='DISCOUNT'}}"><text class='mo_fu'>￥</text>{{list.reduce_cost|toFixed}}</view>
-          <view class='coupon_money_text font_overflow' wx:if="{{list.type=='DISCOUNT'}}">{{list.discount}}<text class='mo_fu'>折</text></view>
-        <view class='coupon_condition font_overflow'>
+        <view class='coupon_money_text font_overflow' wx:if="{{list.type=='CASH'}}"><text class='mo_fu'>￥</text>{{list.reduce_cost|toFixed}}</view>
+        <view class='coupon_money_text font_overflow' wx:if="{{list.type=='DISCOUNT'}}">{{list.discount}}<text class='mo_fu'>折</text></view>
+        <view class='coupon_money_text font_overflow' wx:if="{{list.type=='GIFT'}}"><text class='gift'>兑换券</text></view>
+        <view class='coupon_condition font_overflow {{list.type=="GIFT"? "gift_x":""}}'>
           <text wx:if="{{list.least_cost!='0.00'}}">满{{list.least_cost}}元可用</text>
           <text wx:if="{{list.least_cost=='0.00'}}">满任意金额可用</text>
         </view>

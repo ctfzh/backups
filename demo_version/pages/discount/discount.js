@@ -64,19 +64,6 @@ Page({
 
 	  //初始化页面加载
 	  Refresh(this);
-	  
-	  var openid = Currency.getOpenid();
-	  if (openid) {
-		  this.setData({
-			  login: false,
-		  })
-		  //会员验证
-		  var token = Sign.getToken();
-		  if (token) {
-			  //会员信息
-			  Currency.get_memberinfo(this);
-		  }
-	  }
      
    //激活会员卡
     try {

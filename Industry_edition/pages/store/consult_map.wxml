@@ -1,6 +1,6 @@
 <!-- 门店地图 -->
 <view class='map_max'  hidden='{{!show}}'>
-  <map id="myMap"  scale="15"   show-location  include-points  bindupdated="updated" markers="{{markers}}" bindmarkertap="jump_details" ></map>
+  <map id="myMap"  scale="15"   show-location  include-points  longitude="{{lng}}" latitude="{{lat}}" bindupdated="updated" markers="{{markers}}" bindmarkertap="jump_details" ></map>
 </view>
 
 <!-- 错误提示组件 -->

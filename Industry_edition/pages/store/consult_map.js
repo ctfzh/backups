@@ -110,6 +110,7 @@ Page({
   updated: function(){
     this.mapCtx.moveToLocation();
   },
+
   //跳转详情
   jump_details: function(e){
      if (!this.data.jump) {

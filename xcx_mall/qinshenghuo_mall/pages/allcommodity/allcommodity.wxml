@@ -55,7 +55,7 @@
 			</view>
 		</view>
 			<!--商品列表=> 开始 -->
-			<view class='commodity_list'>
+			<scroll-view class='commodity_list' scroll-y="true">
 			<view wx:for="{{data}}" wx:for-item="itemName" wx:key="unique" style="background: white;">
 				<view wx:if="{{index!=0}}">
 				</view>
@@ -63,7 +63,7 @@
 					<view data-idx="{{itemName}}" bindtap='into_commodity_details_onclick'>
 						<image id='commodity-img' src='{{itemName.img}}' />
 						<view class='commodity-text'>
-							<view class='commodity-name'>{{itemName.name}}</view>
+							<view class='commodity-name font_overflow'>{{itemName.name}}</view>
 							<view id='coommodity-text-view-bottom'>
 								<view class='commodity-price'><text class='f_mo'>￥</text>{{itemName.price}}
 									<text wx:if="{{itemName.original_price>0}}" class='original_price_view'>￥{{itemName.original_price}}</text>
@@ -74,7 +74,7 @@
 					<image class='buy' src="../img/All_goods.png" bindtap="showModal" data-idx="{{itemName}}"></image>
 				</view>
 			</view>   
-			</view>
+			</scroll-view>
 			<!--商品列表=>结束  -->
 		</view>
 	</view>

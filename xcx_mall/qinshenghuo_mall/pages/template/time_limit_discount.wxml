@@ -41,7 +41,7 @@
   </view>
 
   <view class='groups_goods_right'>
-    <view class='groups_goods_title font1'>{{data.title}}</view>
+    <view class='groups_goods_title font1 font_overflow'>{{data.title}}</view>
     <view class='label_wraper'>
       <view class='activity_label'>{{data.tag}}</view>
     </view>

@@ -30,12 +30,9 @@ Page({
 		//优化ios下textarea的内边距
 		let system = wx.getSystemInfoSync();
 		if (system.platform == 'ios') {
-			var address = {};
-			address.address = "1";
-			this.setData({ hackIos: '-12rpx', address });
+			var details_text = " ";
+            this.setData({ hackIos: '-12rpx', details_text });
 		}
-      //获取区域
-      get_address_code(this, 1, 0);
 		
 		//编辑的地址数据
 		var address = options.address ? options.address : null;
@@ -54,13 +51,22 @@ Page({
 			address,
 			is_address,
 		})
+
+        //获取区域
+        get_address_code(this, 1, 0);
    },
 
    /**
     * 生命周期函数--监听页面初次渲染完成
     */
    onReady: function() {
+       if (this.data.address){
+           var details_text = address.address;
+       }else{
 
+           var details_text = '';
+       }
+           this.setData({ details_text })
    },
 
    /**

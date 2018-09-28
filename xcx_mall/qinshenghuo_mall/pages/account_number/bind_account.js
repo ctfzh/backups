@@ -105,10 +105,10 @@ Page({
     } else {
 		 var title = e.detail.errMsg;
 		 if (e.detail.errMsg == "getPhoneNumber:fail user deny" || e.detail.errMsg == "getPhoneNumber:fail:cancel to confirm login"){
-			 title = "已拒绝授权"
-		 } else if (e.detail.errMsg == "getPhoneNumber:fail 该 appid 没有权限" || e.detail.errMsg == "getPhoneNumber:fail:access denied"){
-			 title = "小程序没有获取手机号的权限"
-		 }
+             title = "已拒绝授权"
+         } else if (e.detail.errMsg == "getPhoneNumber:fail 该 appid 没有权限" || e.detail.errMsg == "getPhoneNumber:fail jsapi has no permission,event=getPhoneNumber") {
+             title = "授权失败，小程序未认证"
+         }
        wx.showToast({
 			 title: title ? title : '授权失败，请稍后重试！！！',
           icon: 'none',

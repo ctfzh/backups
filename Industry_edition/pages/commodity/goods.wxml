@@ -13,7 +13,7 @@
       <text>公告：</text>
       <view class="scrolltxt">
          <view class="marquee_box font_color1">
-         <view class="marquee_text" style="{{marqueeDistance== 0?'':'transition:all 0.3s ease;'}} transform: translateX(-{{marqueeDistance}}px);">
+         <view class="marquee_text" style="{{marqueeDistance== 0?'':'transition:all 1.1s linear;'}} transform: translateX(-{{marqueeDistance}}px);">
             <text class='notice_text'>{{store.store.notice}}</text>
             <text style="margin-right:{{marquee_margin}}px;"></text>
             <text style="margin-right:{{marquee_margin}}px;">{{store.store.notice}}</text>        

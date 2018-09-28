@@ -8,7 +8,6 @@ var ceshi_service = 1;
 function serviceUrl() {
   if (ceshi_service == 1) {
     //测试地址
-     // return 'https://hdapitest.alittle-tea.com/';
     return 'https://apitest.qinguanjia.com/';  
   } else if (ceshi_service == 2) {
     //验收地址

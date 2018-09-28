@@ -30,7 +30,7 @@
       <view class='commodity-view'>
         <image class='commodity-img' src='{{refund_record_data.goods.img[0]}}' />
         <view class='commodity-left-view'>
-          <view class='commodity-name'>{{refund_record_data.goods.name}}</view>
+          <view class='commodity-name font_overflow'>{{refund_record_data.goods.name}}</view>
           <view class='commodity-classify'>{{refund_record_data.goods.property}}</view>
         </view>
       </view>

@@ -1,8 +1,10 @@
 <!-- 订单列表 -->
 <view class='container' hidden='{{!show}}'>
-  <view class='nav line_color font_color1'>
-    <view class="nav_item {{curNavIndex=='1'?'active':''}}" data-id='1' catchtap='tab'>点餐</view>
-    <view class="nav_item {{curNavIndex=='2'?'active':''}}" data-id='2' catchtap='tab'>外卖</view>
+  <view class='nav_max'>
+    <view class='nav line_color font_color1' style='{{top=="fixed"?"position:fixed;":""}}'>
+        <view class="nav_item {{curNavIndex=='1'?'active':''}}" data-id='1' catchtap='tab'>点餐</view>
+        <view class="nav_item {{curNavIndex=='2'?'active':''}}" data-id='2' catchtap='tab'>外卖</view>
+    </view>
   </view>
   <view class='sroll_list_wraper'>
     <view class='sroll_list'>

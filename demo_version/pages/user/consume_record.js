@@ -161,7 +161,7 @@ function get_order_list(that) {
 			Server.ORDERLIST(),
 			data,
 			function (res) {
-				if (res) {
+                if (res && res.length > 0) {
 					that.setData({
 						show_loading_faill: true,
 						content: res,

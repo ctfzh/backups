@@ -35,7 +35,7 @@
          <view class='dispose_item line_color'>
             <view class='item_left font_color1'>详细地址</view>
             <view class='item_rigth font_color1'>
-               <textarea type="text" placeholder="请输入详细地址信息，如道路、小区、楼层、门牌号等" placeholder-class="placeholder" name="details" focus="{{focus_details}}"  value='{{address.address}}' maxlength="-1" auto-height="true" style='margin-top: {{hackIos}}; {{hackIos=="-12rpx"?"min-height: 82rpx;":"min-height: 60rpx;"}}' fixed></textarea>
+               <textarea type="text" placeholder="请输入详细地址信息，如道路、小区、楼层、门牌号等" placeholder-class="placeholder" name="details" focus="{{focus_details}}"  value='{{details_text}}' maxlength="-1" auto-height="true" style='margin-top: {{hackIos}}; {{hackIos=="-12rpx"?"min-height: 82rpx;":"min-height: 60rpx;"}}'></textarea>
             </view>
          </view>
       </view>

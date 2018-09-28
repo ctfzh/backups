@@ -317,7 +317,9 @@ button{
 }
 .coupon_money_text{
   font-size: 60rpx;
+    font-weight: bold;
   line-height: 60rpx;
+  margin-left: 5rpx;
 }
 .mo_fu{
   font-size: 26rpx;
@@ -386,4 +388,14 @@ button{
 
 .font_overflow{
   -webkit-line-clamp: 1; /** 显示的行数 **/
+}
+
+.gift{
+    font-size: 36rpx;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.gift_x {
+    margin: 0rpx;
 }

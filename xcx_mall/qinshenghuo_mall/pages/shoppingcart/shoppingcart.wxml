@@ -33,7 +33,7 @@
                         <!-- 没有编辑 -->
                         <view class='left_right_vertical'>
                            <view>
-                              <view class='commodity-name'>
+                              <view class='commodity-name font_overflow'>
                                  <text>{{itemName.goods_name}}</text>
                               </view>
                               <view class='commodity-classify font_overflow'>{{itemName.property}}</view>
@@ -92,7 +92,7 @@
                         <!-- 没有编辑 -->
                         <view class='left_right_vertical' bindlongtap='deleter_shoppingcart_Onclick' data-idx="{{itemName}}">
                            <view>
-                              <view class='commodity-name'>
+                              <view class='commodity-name font_overflow'>
                                  <text style='color: #999999;'>{{itemName.goods_name}}</text>
                               </view>
                               <view class='commodity-classify font_overflow'>{{itemName.property}}</view>
@@ -123,7 +123,7 @@
                         <!-- 没有编辑 -->
                         <view class='left_right_vertical' bindlongtap='deleter_shoppingcart_Onclick' data-idx="{{itemName}}">
                            <view>
-                              <view class='commodity-name'>
+                              <view class='commodity-name font_overflow'>
                                  <text style='color: #1A1A1A;'>{{itemName.goods_name}}</text>
                               </view>
                               <view class='commodity-classify font_overflow'>{{itemName.property}}</view>

@@ -60,25 +60,25 @@ button.name{
   text-align: center;
   line-height: 76rpx;
   color: #fff;
+  font-weight: bold;
 }
 .discounts-first .dis-item .img-wraper .unit {
   font-size: 20rpx;
-  font-family: blod;
+  font-weight: blod;
 }
 .discounts-first .dis-item .img-wraper .number {
   margin: 0rpx 10rpx;
   font-size: 34rpx;
-  font-family: blod;
   -webkit-line-clamp: 1; /** 显示的行数 **/
 }
   /*折扣券图片中内容  */
   .discounts-first .dis-item .img-wraper .z-left {
     font-size: 34rpx;
-    font-family: blod;
+    font-weight: blod;
   }
     .discounts-first .dis-item .img-wraper .z-right {
     font-size: 24rpx;
-    font-family: blod;
+    font-weight: blod;
   }
 
 .discounts-first .dis-item .describe {
@@ -107,7 +107,6 @@ button.name{
 .discounts-first .dis-item .des-unfission {
   display: inline-block;
   font-size: 28rpx;
-  font-family: PingFang-SC-Bold;
   font-weight: bold;
 }
 
@@ -123,6 +122,7 @@ button.name{
   color: #f03f2b;
   border: 1px solid #f0afa8;
 }
+
 
 /* 优惠券列表end */
 
@@ -171,17 +171,17 @@ button.name{
    width: 100%; 
   top: 30rpx;
   text-align: center;
-  /* line-height: 32rpx; */
+  line-height: 48rpx;
 }
 
 .discounts-second .discounts-item  .unit {
   font-size: 24rpx;
-  font-family: bold;
+  font-weight: bold;
 }
 
 .discounts-second .discounts-item  .number {
   font-size: 48rpx;
-  font-family: bold;
+  font-weight: bold;
   -webkit-line-clamp: 1; /** 显示的行数 **/
     overflow: visible;
 }
@@ -262,15 +262,14 @@ button.name{
 }
 
 .discounts-third .discounts-item .money {
+  position: absolute;
+  top: 25rpx;
   width: 129rpx;
-  height: 100%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  position: relative;
-  /* line-height: 28rpx; */
-  text-align: center;
+  line-height: 48rpx;
 }
 
 /*8.5折start  */
@@ -296,7 +295,6 @@ button.name{
   font-size: 48rpx;
   font-weight: bold;
   -webkit-line-clamp: 1; /** 显示的行数 **/
-  margin-top: -5rpx;
 }
 
 .discounts-third .discounts-item .descibe {
@@ -308,15 +306,14 @@ button.name{
 }
 
 .discounts-third .discounts-item .name {
-  /* padding: 0rpx; */
-  margin: 0rpx;
+    position: absolute;
+    right: 0rpx;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
    width: 77rpx; 
   line-height: 32rpx;
-  position: relative;
   font-size: 26rpx;
 }
 .button_an{

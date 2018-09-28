@@ -14,7 +14,7 @@
       <text class='Is_group'>{{commodity_data.group_num}}人团</text>
       </text>
     </view>
-    <view class='commodity-name'>{{commodity_data.name}}</view>
+    <view class='commodity-name font_overflow'>{{commodity_data.name}}</view>
 
   </view>
 

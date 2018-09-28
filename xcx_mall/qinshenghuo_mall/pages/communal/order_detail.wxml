@@ -89,7 +89,7 @@
           <view class='commodity-view'>
             <image class='commodity-img' src='{{itemName.img[0]}}' />
             <view class='commodity-left-view'>
-              <view class='commodity-name'>{{itemName.name}}</view>
+              <view class='commodity-name font_overflow'>{{itemName.name}}</view>
               <view class='commodity-classify'>{{itemName.property[1]}}</view>
             </view>
           </view>

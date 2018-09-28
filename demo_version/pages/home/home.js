@@ -69,14 +69,15 @@ Page({
 	  if (!this.data.go_ref) {
 		  //初始化页面加载
 		  Refresh(this);
-	  }
+	  }else{
+          //会员验证
+          var token = Sign.getToken();
+          if (token) {
+              //会员信息
+              Currency.get_memberinfo(this);
+          }
+      }
 
-	  //会员验证
-	  var token = Sign.getToken();
-	  if (token) {
-		  //会员信息
-		  Currency.get_memberinfo(this);
-	  }
 	  
     //获取缓存门店切换状态，切换门店时刷新
     try {

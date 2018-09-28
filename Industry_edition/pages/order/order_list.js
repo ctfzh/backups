@@ -78,7 +78,25 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
+    },
+
+    //页面滚动位置监听
+    onPageScroll: function (e) {
+        if (e.scrollTop > 0) {
+            if (this.data.top != "fixed") {
+                this.setData({
+                    top: "fixed",
+                })
+            }
+        } else {
+            if (this.data.top == "fixed") {
+                this.setData({
+                    top: "",
+                })
+            }
+        }
+    },
+    
   tab: function (e) {
     var dataId = e.currentTarget.dataset.id;
     this.setData({

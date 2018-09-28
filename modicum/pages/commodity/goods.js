@@ -27,7 +27,7 @@ Page({
       "num": 0,
       "goods_list":[],
     },
-    marqueePace: 8,//滚动速度
+    marqueePace: 80,//滚动速度
     marqueeDistance: 0,//初始滚动距离
     marquee_margin: 120,
 
@@ -72,6 +72,9 @@ Page({
    */
   onShow: function () {
     if (this.data.store_id){
+        this.setData({
+            load_cart:true,
+        })
       //初始化页面
        Retry(this);
     }
@@ -83,6 +86,12 @@ Page({
   onHide: function () {
 	  //停止计时
 	  clearInterval(interval);
+      this.setData({
+          mask: false,
+          sku_mask: false,
+          shopping_cart_mask: false,
+          goods_info_mask: false,
+      })
   },
 
   /**
@@ -718,7 +727,7 @@ function empty_goods(that, buy_goods_list, sku, category, methods, batching, onl
 						if (g == 0) {
 							goods_list.shift()
 						} else {
-							goods_list.splice(1, g);
+							goods_list.splice(g, 1);
 						}
 						return buy_goods_list;
 					} else {
@@ -733,7 +742,7 @@ function empty_goods(that, buy_goods_list, sku, category, methods, batching, onl
 									if (s == 0) {
 										sku_goods.shift()
 									} else {
-										sku_goods.splice(1, s);
+                                        sku_goods.splice(s, 1);
 									}
 									return buy_goods_list;
 								} else {
@@ -746,7 +755,7 @@ function empty_goods(that, buy_goods_list, sku, category, methods, batching, onl
 												if(p==0){
 													practice.shift()
 												}else{
-													practice.splice(1, p);
+													practice.splice(p,1);
 												}
 												return buy_goods_list;
 											} else {
@@ -812,6 +821,7 @@ function hold_cart_goods(that, buy_goods_list) {
   try {
     wx.setStorageSync('buy_goods_list', buy_goods_list);
     that.setData({
+        load_cart: false,
 		 buy_goods_list: buy_goods_list,
     })
   } catch (e) {
@@ -832,21 +842,25 @@ function scrolltxt(that) {
 		var maxscrollwidth = notice_width + that.data.marquee_margin;//滚动的最大宽度，文字宽度+间距，如果需要一行文字滚完后再显示第二行可以修改marquee_margin值等于windowWidth即可
       interval = setInterval(function () {
          var crentleft = that.data.marqueeDistance;
-         if (crentleft <= maxscrollwidth) {//判断是否滚动到最大宽度
+         if (crentleft < maxscrollwidth) {//判断是否滚动到最大宽度
 				var marqueeDistance = crentleft + that.data.marqueePace;
-            that.setData({
+             if (marqueeDistance >= maxscrollwidth){
+                    marqueeDistance = maxscrollwidth;
+                }
+             that.setData({
 					marqueeDistance: marqueeDistance,
             })
-			} else {
-				//停止计算器
-				clearInterval(interval);
+         } else {
+             //停止计算器
+             clearInterval(interval);
+
             that.setData({
-               marqueeDistance: 0 // 直接重新滚动
+               marqueeDistance : 0 // 直接重新滚动
             });
             //重新滚动
             scrolltxt(that);
          }
-      }, 100);
+      }, 1000);
    }
    else {
       that.setData({ marquee_margin: "10000" });//只显示一条不滚动右边间距加大，防止重复显示

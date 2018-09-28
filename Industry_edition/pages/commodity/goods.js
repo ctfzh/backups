@@ -26,10 +26,10 @@ Page({
       "price": 0,
       "num": 0,
       "goods_list":[],
-	  },
-	  marqueePace: 8,//滚动速度
-	  marqueeDistance: 0,//初始滚动距离
-	  marquee_margin: 120,
+      },
+      marqueePace: 80,//滚动速度
+      marqueeDistance: 0,//初始滚动距离
+      marquee_margin: 120,
 
   },
 
@@ -687,54 +687,66 @@ function query_goods(that) {
 
 //删除商品
 function empty_goods(that, buy_goods_list, sku, category, methods, batching, only_practice) {
-	var price = Math.formatFloat(parseFloat(sku.sku.price) + parseFloat(sku.sku.batching_price) + parseFloat(sku.sku.methods_price), 2).toFixed(2);
-			var goods_list = buy_goods_list.goods_list;
-			for (var g = 0; g < goods_list.length; g++) {
-				if (goods_list[g].goods_id == sku.sku.goods_id) {
-					if (buy_goods_list.num == 1){
-						buy_goods_list.goods_list = [];
-						buy_goods_list.price = 0;
-						buy_goods_list.num = 0;
-						return buy_goods_list;
-					}else
-					if (goods_list[g].num == 1) {
-						buy_goods_list.price = Math.formatFloat(parseFloat(buy_goods_list.price) - parseFloat(price), 2).toFixed(2);
-						buy_goods_list.num = buy_goods_list.num - 1;
-						goods_list[g] = '';
-						return buy_goods_list;
-					} else {
-						buy_goods_list.price = Math.formatFloat(parseFloat(buy_goods_list.price) - parseFloat(price), 2).toFixed(2);
-						buy_goods_list.num = buy_goods_list.num - 1;
-						goods_list[g].price = Math.formatFloat(parseFloat(goods_list[g].price) - parseFloat(price), 2).toFixed(2);
-						goods_list[g].num = goods_list[g].num - 1;
-						var sku_goods = goods_list[g].sku_goods;
-						for (var s = 0; s < sku_goods.length; s++) {
-							if (sku_goods[s].sku.goods_sku_id == sku.sku.goods_sku_id && sku_goods[s].sku.batching_price == sku.sku.batching_price) {
-								if (sku_goods[s].num == 1) {
-									sku_goods[s] = '';
-									return buy_goods_list;
-								} else {
-									sku_goods[s].price = Math.formatFloat(parseFloat(sku_goods[s].price) - parseFloat(price), 2).toFixed(2);
-									sku_goods[s].num = sku_goods[s].num - 1;
-									var practice = sku_goods[s].practice;
-									for (var p = 0; p < practice.length; p++) {
-										if (practice[p].only_practice == only_practice) {
-											if (practice[p].num == 1) {
-												practice[p] = '';
-												return buy_goods_list;
-											} else {
-												practice[p].price = Math.formatFloat(parseFloat(practice[p].price) - parseFloat(price), 2).toFixed(2);
-												practice[p].num = practice[p].num - 1;
-												return buy_goods_list;
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-		}
+    var price = Math.formatFloat(parseFloat(sku.sku.price) + parseFloat(sku.sku.batching_price) + parseFloat(sku.sku.methods_price), 2).toFixed(2);
+    var goods_list = buy_goods_list.goods_list;
+    for (var g = 0; g < goods_list.length; g++) {
+        if (goods_list[g].goods_id == sku.sku.goods_id) {
+            if (buy_goods_list.num == 1) {
+                buy_goods_list.goods_list = [];
+                buy_goods_list.price = 0;
+                buy_goods_list.num = 0;
+                return buy_goods_list;
+            } else
+                if (goods_list[g].num == 1) {
+                    buy_goods_list.price = Math.formatFloat(parseFloat(buy_goods_list.price) - parseFloat(price), 2).toFixed(2);
+                    buy_goods_list.num = buy_goods_list.num - 1;
+                    if (g == 0) {
+                        goods_list.shift()
+                    } else {
+                        goods_list.splice(g, 1);
+                    }
+                    return buy_goods_list;
+                } else {
+                    buy_goods_list.price = Math.formatFloat(parseFloat(buy_goods_list.price) - parseFloat(price), 2).toFixed(2);
+                    buy_goods_list.num = buy_goods_list.num - 1;
+                    goods_list[g].price = Math.formatFloat(parseFloat(goods_list[g].price) - parseFloat(price), 2).toFixed(2);
+                    goods_list[g].num = goods_list[g].num - 1;
+                    var sku_goods = goods_list[g].sku_goods;
+                    for (var s = 0; s < sku_goods.length; s++) {
+                        if (sku_goods[s].sku.goods_sku_id == sku.sku.goods_sku_id && sku_goods[s].sku.batching_price == sku.sku.batching_price) {
+                            if (sku_goods[s].num == 1) {
+                                if (s == 0) {
+                                    sku_goods.shift()
+                                } else {
+                                    sku_goods.splice(s, 1);
+                                }
+                                return buy_goods_list;
+                            } else {
+                                sku_goods[s].price = Math.formatFloat(parseFloat(sku_goods[s].price) - parseFloat(price), 2).toFixed(2);
+                                sku_goods[s].num = sku_goods[s].num - 1;
+                                var practice = sku_goods[s].practice;
+                                for (var p = 0; p < practice.length; p++) {
+                                    if (practice[p].only_practice == only_practice) {
+                                        if (practice[p].num == 1) {
+                                            if (p == 0) {
+                                                practice.shift()
+                                            } else {
+                                                practice.splice(p, 1);
+                                            }
+                                            return buy_goods_list;
+                                        } else {
+                                            practice[p].price = Math.formatFloat(parseFloat(practice[p].price) - parseFloat(price), 2).toFixed(2);
+                                            practice[p].num = practice[p].num - 1;
+                                            return buy_goods_list;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+        }
+    }
 
 }
 //多规格删除
@@ -787,31 +799,35 @@ Math.formatFloat = function (f, digit) {
 
 
 function scrolltxt(that) {
-	var notice_width = that.data.notice_width;//滚动文字的宽度
-	var marquee_box = that.data.marquee_box;//.marquee_box宽度
-	if (notice_width > marquee_box) {
-		var maxscrollwidth = notice_width + that.data.marquee_margin;//滚动的最大宽度，文字宽度+间距，如果需要一行文字滚完后再显示第二行可以修改marquee_margin值等于windowWidth即可
-		interval = setInterval(function () {
-			var crentleft = that.data.marqueeDistance;
-			if (crentleft <= maxscrollwidth) {//判断是否滚动到最大宽度
-				var marqueeDistance = crentleft + that.data.marqueePace;
-				that.setData({
-					marqueeDistance: marqueeDistance,
-				})
-			} else {
-				//停止计算器
-				clearInterval(interval);
-				that.setData({
-					marqueeDistance: 0 // 直接重新滚动
-				});
-				//重新滚动
-				scrolltxt(that);
-			}
-		}, 100);
-	}
-	else {
-		that.setData({ marquee_margin: "10000" });//只显示一条不滚动右边间距加大，防止重复显示
-	}
+    var notice_width = that.data.notice_width;//滚动文字的宽度
+    var marquee_box = that.data.marquee_box;//.marquee_box宽度
+    if (notice_width > marquee_box) {
+        var maxscrollwidth = notice_width + that.data.marquee_margin;//滚动的最大宽度，文字宽度+间距，如果需要一行文字滚完后再显示第二行可以修改marquee_margin值等于windowWidth即可
+        interval = setInterval(function () {
+            var crentleft = that.data.marqueeDistance;
+            if (crentleft < maxscrollwidth) {//判断是否滚动到最大宽度
+                var marqueeDistance = crentleft + that.data.marqueePace;
+                if (marqueeDistance >= maxscrollwidth) {
+                    marqueeDistance = maxscrollwidth;
+                }
+                that.setData({
+                    marqueeDistance: marqueeDistance,
+                })
+            } else {
+                //停止计算器
+                clearInterval(interval);
+
+                that.setData({
+                    marqueeDistance: 0 // 直接重新滚动
+                });
+                //重新滚动
+                scrolltxt(that);
+            }
+        }, 1000);
+    }
+    else {
+        that.setData({ marquee_margin: "10000" });//只显示一条不滚动右边间距加大，防止重复显示
+    }
 }
 
 /******************************************接口数据调用方法******************************************/

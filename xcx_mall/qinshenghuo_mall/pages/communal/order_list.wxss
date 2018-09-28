@@ -135,22 +135,6 @@
   color: #FF5500;
   border-color: #FF5500;
 }
-.Invitation_operation{
-  width: 237rpx;
-  height: 54rpx;
-  background: #F53A25;
-  display: inline-flex;
-  font-size: 30rpx;
-  margin-left: 30rpx;
-  text-align: center;
-  /*布局方式*/
-  /*垂直居中*/
-  align-items: center;
-  /*水平居中*/
-  justify-content: center;
-  color: #fff;
-  border-radius: 4rpx;
-}
 
 .order_type{
 	background-color: #fff;
@@ -221,4 +205,22 @@
 	font-size: 28rpx;
 	text-align: center;
 	line-height: 60rpx;
+}
+
+button[plain]{
+  width: 237rpx;
+  height: 54rpx;
+  background: #F53A25;
+  display: inline-flex;
+  font-size: 30rpx;
+  margin-left: 30rpx;
+  text-align: center;
+  /*布局方式*/
+  /*垂直居中*/
+  align-items: center;
+  /*水平居中*/
+  justify-content: center;
+  color: #fff;
+  border-radius: 4rpx;
+	border: none;
 }

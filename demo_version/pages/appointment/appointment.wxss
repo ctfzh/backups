@@ -38,6 +38,7 @@
    font-size: 28rpx;
    display: flex;
    align-items: center;
+   text-align: right;
 }
 .picker{
    justify-content: space-between;

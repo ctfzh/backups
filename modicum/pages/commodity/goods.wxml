@@ -13,7 +13,7 @@
       <text>公告：</text>
       <view class="scrolltxt">
          <view class="marquee_box font_color1">
-         <view class="marquee_text" style="{{marqueeDistance== 0?'':'transition:all 0.3s ease;'}} transform: translateX(-{{marqueeDistance}}px);">
+         <view class="marquee_text" style="{{marqueeDistance== 0?'':'transition:all 1.1s linear;'}} transform: translateX(-{{marqueeDistance}}px);">
             <text class='notice_text'>{{store.store.notice}}</text>
             <text style="margin-right:{{marquee_margin}}px;"></text>
             <text style="margin-right:{{marquee_margin}}px;">{{store.store.notice}}</text>        
@@ -92,7 +92,7 @@
   <!-- 正文=>结束 -->
   <!-- 底部=>开始 -->
   <view class='goods_bottom' >
-    <view class='goods_shopping_cart {{buy_goods_list.num>0?"settlement_sele":""}}' catchtap='{{buy_goods_list.num>0?"shopping_cart_mask":""}}'>
+    <view class='goods_shopping_cart {{buy_goods_list.num>0?"settlement_sele":""}}' catchtap='{{buy_goods_list.num>0 && !load_cart?"shopping_cart_mask":""}}'>
       <image src='../img/income/{{buy_goods_list.num>0?"shopping_cart":"shopping_cart_empty"}}.png'></image>
       <view class='red_dot' wx:if="{{buy_goods_list.num>0}}">{{buy_goods_list.num}}</view>
     </view>

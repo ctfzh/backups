@@ -49,7 +49,7 @@
         </view>
         <view class='commodity-right-view'>
           <view class='commodity-left-view'>
-            <view class='commodity-name'>{{itemName.goods_name}}</view>
+            <view class='commodity-name font_overflow'>{{itemName.goods_name}}</view>
             <view class='commodity-classify'>{{itemName.property}}</view>
           </view>
 					<view class='commodity_bottom_p'>

@@ -4,7 +4,7 @@
 <view hidden='{{!show_loading_faill}}'>
   <template is="display-advertising" data="{{slider:commodity_data.img,swiperCurrent:swiperCurrent,display_height:display_height}}" />
   <view class='white-padding20rpx'>
-    <view class='commodity-name'>{{commodity_data.name}}</view>
+    <view class='commodity-name font_overflow'>{{commodity_data.name}}</view>
     <view class='price-view'>
       <!-- <text id='price-money-text'><text class='f_mo'>￥</text>{{commodity_data.price}}</text> -->
       <text id='price-money-text'>{{commodity_data.integral_goods_bonus}}积分</text>

@@ -68,7 +68,7 @@
 			</view>
       <view wx:if="{{itemNameList.order_type==2&&itemNameList.group_info.group_status==1}}">
 				<view class='operation-view'>
-					<button open-type="share" bindtap='Invitation' class='Invitation_operation' data-idx="{{itemNameList}}">邀请好友拼团</button>
+					<button open-type="share" bindtap='Invitation' class='Invitation_operation' data-idx="{{itemNameList}}" plain>邀请好友拼团</button>
 				</view>
 			</view>
 			<view wx:if="{{itemNameList.order_status.status==1}}">

@@ -115,11 +115,6 @@
 }
 
 .groups_goods_title {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  word-wrap: break-word;
   line-height: 40rpx;
 }
 

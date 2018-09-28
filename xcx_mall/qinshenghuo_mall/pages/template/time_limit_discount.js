@@ -81,6 +81,7 @@ function endTime(that) {
 function count_down(that) {
 	// 当前时间
 	var current_time = util.Time(new Date());
+    that.setData({ current_time });
   if (that.data.list.date.startTime > current_time){
     var expireTime = that.data.list.date.startTime;
   }else{

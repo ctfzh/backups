@@ -2,7 +2,6 @@
 @import '../../app.wxss';
 
 Page {
-  height: 100%;
   background: #F0F1F2;
 }
 
@@ -10,16 +9,22 @@ Page {
 
 .container {
   display: flex;
-  height: 100%;
+    min-height: 100vh;
   flex-flow: column nowrap;
+}
+.nav_max {
+    height: 190rpx;
 }
 
 .nav {
-  display: flex;
-  justify-content: center;
-  border-top-width: 1rpx;
-  padding: 50rpx 0;
-  background: #fff;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-top-width: 1rpx;
+    padding: 50rpx 0;
+    background: #fff;
+    z-index: 1;
 }
 
 .nav .nav_item {
@@ -62,7 +67,6 @@ Page {
   left: 0;
   right: 0;
   bottom: 0;
-  overflow: auto;
 }
 
 .container .store_wraper .spacing_block{

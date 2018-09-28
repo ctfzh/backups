@@ -78,9 +78,6 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    this.setData({
-      album_type_sle: '0',
-    })
     // 初始化页面
     Refresh(this);
 
@@ -136,7 +133,7 @@ Page({
   //分类点击事件
   album_type_bin: function (e) {
     this.setData({
-      album_type_sle: e.currentTarget.dataset.index
+      type_sle: e.currentTarget.dataset.index
     })
 
     //加载中动画
@@ -147,6 +144,7 @@ Page({
     //传入分类id获取对应图片数据
     get_album_list(this, e.currentTarget.dataset.data.album_id, e.currentTarget.dataset.data.type)
   },
+
   //查看原图
   prototype_src_bin: function (e) {
     var current = e.currentTarget.dataset.src;
@@ -155,6 +153,7 @@ Page({
       urls: this.data.imgalist // 需要预览的图片http链接列表  
     })
   },
+
   //登入完成回调
   login_success: function () {
      //加载中动画
@@ -218,8 +217,10 @@ function get_album_type(that) {
 				 show_loading_faill: true,
 				 album_type_c: res,
 			 })
+             var album_id = that.data.album_id ? that.data.album_id : res[0].album_id;
+             var album_type = that.data.album_type ? that.data.album_type : res[0].type;
 			 //获取第一个分类的图片数据
-			 get_album_list(that, res[0].album_id, res[0].type)
+             get_album_list(that, album_id, album_type)
 		 } else {
 			 Currency.custom_error(that, '2', '页面加载失败' ,'（商户暂无上传）', '2');
 		 }
@@ -258,6 +259,9 @@ function get_album_list(that, album_id, album_type) {
         that.setData({
           album_list: res,
 			  list_len: res.list,
+            album_id,
+            album_type,
+            album_type_sle: that.data.type_sle
         })
         //原图链接数组
         var imgalist = [];

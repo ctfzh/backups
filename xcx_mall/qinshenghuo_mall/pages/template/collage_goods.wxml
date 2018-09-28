@@ -15,7 +15,7 @@
     </view>
 
     <view class='groups_goods_right'>
-      <view class='groups_goods_title font1'>{{itemName.title}}</view>
+      <view class='groups_goods_title font1 font_overflow'>{{itemName.title}}</view>
       <!--团价  -->
       <view class='goods_money'>
         <text class='group_money'><text class='f_mo'>￥</text>{{itemName.group_price}}</text>
