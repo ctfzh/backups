@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>客服会话</title>
+
+    <link rel="icon" href="../../../img/favicon.ico">
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/echarts.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+    <script  src="../../../js/lib/qqFace/js/jquery-browser.js"></script>
+    <script type="text/javascript" src="../../../js/lib/emoji-lib/emoji-list-with-image.js"></script>
+    <script type="text/javascript" src="../../../js/lib/emoji-lib/punycode.js"></script>
+    <script type="text/javascript" src="../../../js/lib/emoji-lib/emoji.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--页面开始{-->
+<div class="min">
+    <!--窗口导航选项开始{-->
+    <div class="siderbar" id="siderbar">
+        <div class="service_portrait"><img src="../../../img/logo.png">
+            <div class="zhuangtai">在线</div>
+            <ul class="qie">
+                <li><i class="zai"></i>在线</li>
+                <li><i class="magn"></i>忙碌</li>
+                <li><i class="lixian"></i>离线</li>
+            </ul>
+        </div>
+        <div class="daohang_list d_service daohan_di"><a href="#"><i class="icon-service"></i></a></div>
+        <div class="daohang_list d_session_history"><a href="#"><i class="icon-user-border"></i></a></div>
+        <!--<div class="daohang_list shezhi"><a href="#"><i class="icon-system"></i></a></div>-->
+        <ul class="list-group list-group-black">
+            <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+        </ul>
+    </div>
+    <!--}窗口导航选项结束-->
+
+    <!--会话内容开始{-->
+    <div class="main-con q_service"><!--main-siderbar-hide隐藏二级加这个样式-->
+        <!--联系人导航页开始{-->
+        <div class="main-siderbar " id="mSiderbar">
+            <div class="sousuo">
+                <img src="../../../img/icon/icon-search.png">
+                <input type="text" placeholder="请输入客户名称"/>
+            </div>
+            <!--<div class="paidui jiedai"><span>0</span>人正在排队<i class="right">> </i></div>-->
+            <div class="users_list">
+                <!--订单消息-->
+                <div class="dindan service_list">
+                    <div class="wei_c">
+                        <div class="port"><img src="../../../img/logo.png"></div>
+                        <div class="xiaoxi">
+                            <div class="xx_h1">订单消息</div>
+                            <div class="xx_text">你有新的订单</div>
+                        </div>
+                        <div class="st_right">
+                            <div class="slist_time st_time">17:00</div>
+                            <div class="dian_t"></div>
+                        </div>
+                    </div>
+                    <div class="st_click"></div>
+                </div>
+                <!--已选中的用户消息-->
+                <div class="user_list service_list list_click">
+                    <div class="wei_c">
+                        <div class="port"><img src="../../../img/logo.png"></div>
+                        <div class="xiaoxi">
+                            <div class="xx_h1">张三</div>
+                            <div class="xx_text">你好</div>
+                        </div>
+                        <div class="st_right">
+                            <div class="slist_time st_time">12:30</div>
+                            <div class="dian_t"></div>
+                            <!--<div class="slist_time">12:30</div>-->
+                            <!--<div class="st_state">手机</div>-->
+                        </div>
+                    </div>
+                    <div class="st_click"></div>
+                </div>
+                <!--未选中的聊天用户-->
+                <div class="user_list service_list">
+                    <div class="wei_c">
+                        <div class="port"><img src="../../../img/logo.png"></div>
+                        <div class="xiaoxi">
+                            <div class="xx_h1">里斯</div>
+                            <div class="xx_text">我要买这个这个这个这个这个这个</div>
+                        </div>
+                        <div class="st_right">
+                            <div class="slist_time st_time">12/25</div>
+                            <div class="dian_t"></div>
+                            <!--<div class="slist_time">12/25</div>-->
+                            <!--<div class="st_state">微信</div>-->
+                        </div>
+                    </div>
+                    <div class="st_click"></div>
+                </div>
+            </div>
+            <!--<div class="service_Load">加载更多</div>-->
+            <div class="service_jie">
+                <div class="sj_x">当前接待中<span class="reception">2</span>人</div>
+            </div>
+        </div>
+        <!--排队菜单-->
+        <div class="main-siderbar san_ji_list">
+            <div class="paidui"><span class="fanhui">&larrhk;返回</span>待接待</div>
+            <!--已选中的用户消息-->
+            <div class="user_list service_list list_click">
+                <div class="wei_c">
+                    <div class="port"><img src="../../../img/logo.png"></div>
+                    <div class="xiaoxi">
+                        <div class="xx_h1">张三</div>
+                        <div class="xx_text">你好</div>
+                    </div>
+                </div>
+                <div class="st_click"></div>
+            </div>
+            <!--未选中的聊天用户-->
+            <div class="user_list service_list">
+                <div class="wei_c">
+                    <div class="port"><img src="../../../img/logo.png"></div>
+                    <div class="xiaoxi">
+                        <div class="xx_h1">里斯</div>
+                        <div class="xx_text">我要买这个这个这个这个这个这个</div>
+                    </div>
+                </div>
+                <div class="st_click"></div>
+            </div>
+            <div class="service_Load_null">没有更多客户了</div>
+        </div>
+        <!--}联系人导航页结束-->
+
+        <div class="main-content" id="mainContent">
+            <div class="null_service">
+                <i class="icon-chat"></i>
+                <div class="null_text">没有选中的会话</div>
+            </div>
+            <div class="service_window">
+                <div class="service_top_dao">
+                    <span class="user_name">客户名</span>
+                    <span class="service_window_Close">X 结束对话</span>
+                    <span class="user_zhuanjie">转接</span>
+                </div>
+                <div class="duihua">
+                    <div class="news_win" id="debug">
+                        <div class="more_news">查看更多消息</div>
+                        <div class="max_duihua">
+                            <div class="dialogue_list_time">2017/12/25/20:06</div>
+                            <div class="dialogue_list dialogue_left">
+                                <div class="dialogue_img">
+                                    <img src="../../../img/logo.png">
+                                </div>
+                                <div class="dialogue_list_cont">
+                                    <div class="jiao"></div>
+                                    <div class="dialogue_cont_text">
+                                        sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="dialogue_list dialogue_left">
+                                <div class="dialogue_img">
+                                    <img src="../../../img/logo.png">
+                                </div>
+                                <div class="dialogue_list_cont">
+                                    <div class="jiao"></div>
+                                    <div class="lianjie">
+                                        <div class="lianjie_h1">商品一</div>
+                                        <img src="../../../img/logo.png">
+                                        <div class="lianjie_text">￥1220</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dialogue_list dialogue_right">
+                                <div class="dialogue_img">
+                                    <img src="../../../img/logo.png">
+                                </div>
+                                <div class="dialogue_list_cont">
+                                    <div class="jiao"></div>
+                                    <div class="dianlogue_fa_img"><img src="../../../img/logo.png"></div>
+                                </div>
+                            </div>
+                            <div class="dialogue_list dialogue_left"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="edit">
+                    <div class="fujian">
+                        <i class="icon-Expression">
+                            <div class="emoji"></div>
+                        </i>
+                        <i class="icon-pic imgUp"></i>
+                    </div>
+                    <textarea class="edit_text" id="saytext"></textarea>
+                    <input class="sub_btn" type="button" name="fasong" value="发送" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--}会话内容结束-->
+
+    <!--历史会话内容开始{-->
+    <div class="main-con q_session_history"><!--main-siderbar-hide隐藏二级加这个样式-->
+        <!--联系人导航页开始{-->
+        <div class="main-siderbar " id="mSiderbar">
+            <div class="sousuo">
+                <img src="../../../img/icon/icon-search.png">
+                <input type="text" placeholder="请输入客户名称"/>
+            </div>
+            <!--<div class="paidui jiedai"><span>0</span>人正在排队<i class="right">> </i></div>-->
+            <div class="user-history-title">历史客户</div>
+            <div class="users_list">
+                <!--订单消息-->
+                <div class="dindan service_list">
+                    <div class="wei_c">
+                        <div class="port"><img src="../../../img/logo.png"></div>
+                        <div class="xiaoxi">
+                            <div class="xx_h1">订单消息</div>
+                            <div class="xx_text">你有新的订单</div>
+                        </div>
+                        <div class="st_right"><div class="slist_time st_time">17:00</div></div>
+                    </div>
+                    <div class="st_click"></div>
+                </div>
+                <!--已选中的用户消息-->
+                <div class="user_list service_list list_click">
+                    <div class="wei_c">
+                        <div class="port"><img src="../../../img/logo.png"></div>
+                        <div class="xiaoxi">
+                            <div class="xx_h1">张三</div>
+                            <div class="xx_text">你好</div>
+                        </div>
+                        <div class="st_right">
+                            <div class="slist_time st_time">12:30</div>
+                            <!--<div class="slist_time">12:30</div>-->
+                            <!--<div class="st_state">手机</div>-->
+                        </div>
+                    </div>
+                    <div class="st_click"></div>
+                </div>
+                <!--未选中的聊天用户-->
+                <div class="user_list service_list">
+                    <div class="wei_c">
+                        <div class="port"><img src="../../../img/logo.png"></div>
+                        <div class="xiaoxi">
+                            <div class="xx_h1">里斯</div>
+                            <div class="xx_text">我要买这个这个这个这个这个这个</div>
+                        </div>
+                        <div class="st_right">
+                            <div class="slist_time st_time">12/25</div>
+                            <!--<div class="slist_time">12/25</div>-->
+                            <!--<div class="st_state">微信</div>-->
+                        </div>
+                    </div>
+                    <div class="st_click"></div>
+                </div>
+            </div>
+
+            <!--<div class="service_Load">加载更多</div>-->
+        </div>
+        <!--排队菜单-->
+        <div class="main-siderbar san_ji_list">
+            <div class="paidui"><span class="fanhui">&larrhk;返回</span>待接待</div>
+            <!--已选中的用户消息-->
+            <div class="user_list service_list list_click">
+                <div class="wei_c">
+                    <div class="port"><img src="../../../img/logo.png"></div>
+                    <div class="xiaoxi">
+                        <div class="xx_h1">张三</div>
+                        <div class="xx_text">你好</div>
+                    </div>
+                </div>
+                <div class="st_click"></div>
+            </div>
+            <!--未选中的聊天用户-->
+            <div class="user_list service_list">
+                <div class="wei_c">
+                    <div class="port"><img src="../../../img/logo.png"></div>
+                    <div class="xiaoxi">
+                        <div class="xx_h1">里斯</div>
+                        <div class="xx_text">我要买这个这个这个这个这个这个</div>
+                    </div>
+                </div>
+                <div class="st_click"></div>
+            </div>
+            <div class="service_Load_null">没有更多客户了</div>
+        </div>
+
+        <!--}联系人导航页结束-->
+        <div class="main-content" id="mainContent">
+            <div class="null_service">
+                <i class="icon-chat"></i>
+                <div class="null_text">没有选中的会话</div>
+            </div>
+            <div class="service_window">
+                <div class="service_top_dao">
+                    <span class="user_name">客户名</span>
+                    <span class="service_window_Close">X 结束对话</span>
+                    <span class="user_zhuanjie">转接</span>
+                </div>
+                <div class="duihua history">
+                    <div class="news_win" id="debug">
+                        <div class="max_duihua">
+                            <div class="dialogue_list_time">2017/12/25/20:06</div>
+                            <div class="dialogue_list dialogue_left">
+                                <div class="dialogue_img">
+                                    <img src="../../../img/logo.png">
+                                </div>
+                                <div class="dialogue_list_cont">
+                                    <div class="jiao"></div>
+                                    <div class="dialogue_cont_text">sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="dialogue_list dialogue_left">
+                                <div class="dialogue_img">
+                                    <img src="../../../img/logo.png">
+                                </div>
+                                <div class="dialogue_list_cont">
+                                    <div class="jiao"></div>
+                                    <div class="lianjie">
+                                        <div class="lianjie_h1">商品一</div>
+                                        <img src="../../../img/logo.png">
+                                        <div class="lianjie_text">￥1220</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dialogue_list dialogue_right">
+                                <div class="dialogue_img">
+                                    <img src="../../../img/logo.png">
+                                </div>
+                                <div class="dialogue_list_cont">
+                                    <div class="jiao"></div>
+                                    <div class="dianlogue_fa_img"><img src="../../../img/logo.png"></div>
+                                </div>
+                            </div>
+                            <div class="dialogue_list dialogue_left"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--}历史会话内容结束-->
+</div>
+<!--}页面结束-->
+
+</body>
+</html>
+<script type="text/javascript" src="../../../js/function/statistics/service_chat.js"></script>
+
+<script type="text/javascript">
+    window.onbeforeunload = function() {
+        return "确定离开页面吗？";
+    }
+</script>
+
+
+
+
+
+
+
+

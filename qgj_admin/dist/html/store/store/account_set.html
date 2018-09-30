@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>收款账号设置</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="/qgj_admin/dist/img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="/qgj_admin/dist/html/index/index.html" class="list-group-item "><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="/qgj_admin/dist/html/store/store/store_list.html" class="list-group-item active"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="/qgj_admin/dist/html/finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="/qgj_admin/dist/html/crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="/qgj_admin/dist/html/marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <!--<li><a href="#" class="list-group-item"><i class="icon-apply"></i> 应用</a></li>-->
+        <!--<li><a href="#" class="list-group-item"><i class="icon-service"></i> 客户</a></li>-->
+        <li><a href="/qgj_admin/dist/html/channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="/qgj_admin/dist/html/food/goods/good_list.html" class="list-group-item"><i class="icon-catering"></i> 餐饮</a></li>
+        <li><a href="/qgj_admin/dist/html/mall/goods/good_list.html" class="list-group-item"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="/qgj_admin/dist/html/distribution/outline/outline.html" class="list-group-item"><i class="icon-distribution"></i> 分销商</a></li>
+        <li><a href="/qgj_admin/dist/html/wx_applet/manager/list.html" class="list-group-item "><i class="icon-wechatapp"></i> 小程序</a></li>
+        <li><a href="/qgj_admin/dist/html/service/service_set/service_set.html" class="list-group-item"><i class="icon-service"></i> 客服</a></li>
+        <li><a href="/qgj_admin/dist/html/statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="/qgj_admin/dist/html/system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <!--<li class="affix"><a href="/qgj_admin/dist/html/login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>-->
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">门店收银管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="javascript:;" class="list-group-item active">门店管理</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="list-group-item">收银员管理</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="list-group-item">收银设置</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="list-group-item">收银台管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="#">收款账号设置</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">收款账号</div>
+                <div class="panel-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label">收款账号<em class="text-danger">*</em></label>
+                            <div class="control-input">
+
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <th>通道</th>
+                                            <th>收款账号</th>
+                                            <th>备注</th>
+                                            <th>操作</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <i class="icon-alipay mr10"></i>支付宝
+                                                </td>
+                                                <td>Appid：2018286493264986238</td>
+                                                <td>备注内容</td>
+                                                <td>
+                                                    <a href="#myModal1" data-toggle="modal" class="text-primary" data-index="1">选择</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <i class="icon-wx mr10"></i>微信
+                                                </td>
+                                                <td>Appid：2018286493264986238</td>
+                                                <td>--</td>
+                                                <td>
+                                                    <a href="#myModal1" data-toggle="modal" class="text-primary" data-index="2">选择</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="btn-wrap text-center">
+                <button type="button" class="btn btn-primary">提交保存</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- 收款账号选择弹出框 -->
+<div class="modal fade" id="myModal1">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h5 class="modal-title">支付宝收款账号</h5>
+            </div>
+            <div class="modal-body">
+                <div class="btn-group mb10">
+                    <a href="javascript:;" class="btn btn-primary">直连通道</a>
+                    <a href="javascript:;" class="btn btn-default">间连通道</a>
+                </div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="active">
+                            <th width="5%"></th>
+                            <th>PID</th>
+                            <th>AppID</th>
+                            <th>备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="radio" class="qkj-radio" name=""></td>
+                            <td>20888811978614197</td>
+                            <td>2015050800062536</td>
+                            <td>niunkj@nnkou.com</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" class="qkj-radio" name=""></td>
+                            <td>20888811978614197</td>
+                            <td>2015050800062536</td>
+                            <td>niunkj@nnkou.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="mt10">
+                    <a href="#">添加新账号</a>
+                    <a href="#" class="ml5">刷新</a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnSure" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 微信收款账号选择 -->
+<!--<div class="modal fade" id="myModal2">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h5 class="modal-title">微信收款账号</h5>
+            </div>
+            <div class="modal-body">
+                <div class="btn-group mb10">
+                    <a href="javascript:;" class="btn btn-primary">直连通道</a>
+                    <a href="javascript:;" class="btn btn-default">间连通道</a>
+                </div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="active">
+                            <th width="5%"><input type="checkbox" class="qkj-checkbox"></th>
+                            <th>微信商户号</th>
+                            <th>AppID</th>
+                            <th>备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" class="qkj-checkbox"></td>
+                            <td>1377272402</td>
+                            <td>wx3507a77dc7e763f5</td>
+                            <td>ffffff</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="qkj-checkbox"></td>
+                            <td>1377272402</td>
+                            <td>wx3507a77dc7e763f5</td>
+                            <td>ffffff</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="mt10">
+                    <a href="#">添加新账号</a>
+                    <a href="#" class="ml5">刷新</a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnSure" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<!-- 银行间连账号选择 -->
+<!--<div class="modal fade" id="myModal3">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h5 class="modal-title">微信收款账号</h5>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="active">
+                            <th width="5%"><input type="checkbox"></th>
+                            <th>银行商户编号</th>
+                            <th>结算账户</th>
+                            <th>备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>2017020714562358974</td>
+                            <td>62008698699986871752616</td>
+                            <td>ffffff</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>2017020714562358974</td>
+                            <td>62008698699986871752616</td>
+                            <td>ffffffffffffffffffffffffffffffffffffffffff</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="mt10">
+                    <a href="#">添加新账号</a>
+                    <a href="#" class="ml5">刷新</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<script src="../../../js/function/store/account_set.js"></script>
+
+</body>
+</html>

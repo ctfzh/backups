@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>管理快递单模板</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.css">
+    <script src="../../../../js/lib/lib.min.js"></script>
+    <script src="../../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../../js/common/util.js"></script>
+    <script src="../../../../js/lib/select2.min.js"></script>
+    <script src="../../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../goods/good_list.html" class="list-group-item active"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="../../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">商城管理</div>
+
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../../page_set/banner_list.html" class="list-group-item">页面管理</a>
+            </li>
+            <li>
+                <a href="../../goods/good_list.html" class="list-group-item">商品管理</a>
+            </li>
+            <li>
+                <a href="../../group/group_list.html" class="list-group-item">商品分组</a>
+            </li>
+            <li class="sub-item">
+                <a href="../../order/order_list.html" class="list-group-item">订单管理</a>
+                <ul>
+                    <li><a href="../../order/order_list.html" class="list-group-item">订单概况</a></li>
+                    <li><a href="../../order/order_list.html" class="list-group-item">订单管理</a></li>
+                    <li><a href="../../refund/refund_list.html" class="list-group-item">退款订单</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../../marketing/promotion_list.html" class="list-group-item">营销活动</a>
+            </li>
+            <li class="sub-item">
+                <a href="../../set/deliveries/delivery_list.html" class="list-group-item">商城设置</a>
+                <ul>
+                    <li><a href="../../set/deliveries/delivery_add.html" class="list-group-item">配送设置</a></li>
+                    <li><a href="../../set/print/print_list.html" class="list-group-item active">打印设置</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="../print/print_list.html">快递打印设置</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="experss-add">
+                <div class="express-add-hd">
+                    <div class="express-add-hd-sider">选择打印内容</div>
+                    <div class="express-add-hd-main">
+                        <form id="expressForm" action="consinger_list.html">
+                            <div class="pull-right">
+                                <input type="submit" class="btn btn-primary" id="js-print-save" value="保存">
+                                <a href="javascript:;" class="btn btn-default">取消</a>
+                                <input type="hidden" value="" id="jsInputPrintData">
+                            </div>
+                            <div class="pull-left">
+                                <div class="form-group">
+                                    <label class="control-label">模板名称</label>
+                                    <div class="control-input">
+                                        <input type="text" class="form-control" name="name" id="name" value="" required title="请输入模板名称">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">所属物流公司</label>
+                                    <div class="control-input">
+                                        <select class="form-control" id="Delitemp_type" name="DelitempType" required title="请选择所属物流公司">
+                                            <option value="">请选择所属物流公司</option>
+                                            <option value="0">顺丰速运</option>
+                                            <option value="1">圆通速递</option>
+                                            <option value="2">申通速递</option>
+                                            <option value="3">韵达快运</option>
+                                            <option value="4">EMS</option>
+                                            <option value="5">汇通快运</option>
+                                            <option value="6">龙邦速递</option>
+                                            <option value="7">全峰快递</option>
+                                            <option value="8">天天快递</option>
+                                            <option value="9">宅急送</option>
+                                            <option value="10">中通速递</option>
+                                            <option value="11">优速物运</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-error"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="express-add-bd">
+                    <div class="express-add-bd-sider">
+                        <ul class="printLabelSel">
+                            <li><input type="checkbox" class="qkj-checkbox" id="d_dragDiv12" checked=""> 发件人姓名</li>
+                            <li><input type="checkbox" class="qkj-checkbox" id="d_dragDiv11" checked=""> 发件人单位名称</li>
+                            <li><input type="checkbox" class="qkj-checkbox" id="d_dragDiv1" checked=""> 发件人地址</li>
+                            <li><input type="checkbox" class="qkj-checkbox" id="d_dragDiv2" checked=""> 发件人邮编</li>
+                            <li><input type="checkbox" class="qkj-checkbox" id="d_dragDiv13" checked=""> 发件人电话</li>
+                            <li><input type="checkbox" class="qkj-checkbox" id="d_senderPhone" checked=""> 发件人手机</li>
+                            <li><input type="checkbox" class="qkj-checkbox" id="d_dragDiv8" checked=""> 发-年</li>
+                            <li><input type="checkbox" class="qkj-checkbox" id="d_dragDiv9" checked=""> 发-月</li>
+                            <li><input type="checkbox" class="qkj-checkbox" id="d_dragDiv10" checked=""> 发-日</li>
+
+                            <li><input type="checkbox" class="qkj-checkbox" id="d_dragDiv3" checked=""> 收件人姓名</li>
+                            <li><input type="checkbox" class="qkj-checkbox" id="d_dragDiv5" checked=""> 收件人地址</li>
+                            <li><input type="checkbox" class="qkj-checkbox" id="d_dragDiv6" checked=""> 收件人手机</li>
+                            <li><input type="checkbox" class="qkj-checkbox" id="d_dragDiv7" checked=""> 收件人邮编</li>
+
+                            <li><input type="checkbox" class="qkj-checkbox" id="d_dragDiv15" checked=""> 买家昵称</li>
+                            <li><input type="checkbox" class="qkj-checkbox" id="d_dragDiv16" checked=""> 买家留言</li>
+                        </ul>
+                    </div>
+                    <div class="express-add-bd-main">
+                        <div class="tmp_com tmp_yt" id="bgDiv">
+                            <!--发件信息-->
+                            <div id="dragDiv12" data-index="1" class="tempLable" style="top: 50px; left: 100px; width: 88px; height: 23px; position: absolute;">
+                                发件人姓名
+                                <div id="rRightDown12" class="styleRD"> </div>
+                                <div id="rLeftDown12" class="styleLD"> </div>
+                                <div id="rRightUp12" class="styleRU"> </div>
+                                <div id="rLeftUp12" class="styleLU"> </div>
+                                <div id="rRight12" class="styleR"> </div>
+                                <div id="rLeft12" class="styleL"> </div>
+                                <div id="rUp12" class="styleU"> </div>
+                                <div id="rDown12" class="styleD"></div>
+                            </div>
+                            <div id="dragDiv11" data-index="2" class="tempLable" style="top: 80px; left: 100px; width: 120px; height: 23px; position: absolute;">
+                                发件人单位名称
+                                <div id="rRightDown11" class="styleRD"> </div>
+                                <div id="rLeftDown11" class="styleLD"> </div>
+                                <div id="rRightUp11" class="styleRU"> </div>
+                                <div id="rLeftUp11" class="styleLU"> </div>
+                                <div id="rRight11" class="styleR"> </div>
+                                <div id="rLeft11" class="styleL"> </div>
+                                <div id="rUp11" class="styleU"> </div>
+                                <div id="rDown11" class="styleD"></div>
+                            </div>
+                            <div id="dragDiv1" data-index="3" class="tempLable" style="top: 110px; left: 100px; width: 200px; height: 23px; position: absolute;">
+                                发件人地址
+                                <div id="rRightDown1" class="styleRD" style="display: none;"> </div>
+                                <div id="rLeftDown1" class="styleLD" style="display: none;"> </div>
+                                <div id="rRightUp1" class="styleRU" style="display: none;"> </div>
+                                <div id="rLeftUp1" class="styleLU" style="display: none;"> </div>
+                                <div id="rRight1" class="styleR" style="display: none;"> </div>
+                                <div id="rLeft1" class="styleL" style="display: none;"> </div>
+                                <div id="rUp1" class="styleU" style="display: none;"> </div>
+                                <div id="rDown1" class="styleD" style="display: none;"></div>
+                            </div>
+                            <div id="dragDiv2" data-index="4" class="tempLable" style="top: 140px; left: 100px; width: 88px; height: 23px; position: absolute;">
+                                发件人邮编
+                                <div id="rRightDown2" class="styleRD" style="display: none;"> </div>
+                                <div id="rLeftDown2" class="styleLD" style="display: none;"> </div>
+                                <div id="rRightUp2" class="styleRU" style="display: none;"> </div>
+                                <div id="rLeftUp2" class="styleLU" style="display: none;"> </div>
+                                <div id="rRight2" class="styleR" style="display: none;"> </div>
+                                <div id="rLeft2" class="styleL" style="display: none;"> </div>
+                                <div id="rUp2" class="styleU" style="display: none;"> </div>
+                                <div id="rDown2" class="styleD" style="display: none;"></div>
+                            </div>
+                            <div id="dragDiv13" data-index="5" class="tempLable" style="top: 170px; left: 100px; width: 100px; height: 23px; position: absolute">
+                                发件人电话
+                                <div id="rRightDown13" class="styleRD"></div>
+                                <div id="rLeftDown13" class="styleLD"></div>
+                                <div id="rRightUp13" class="styleRU"></div>
+                                <div id="rLeftUp13" class="styleLU"></div>
+                                <div id="rRight13" class="styleR"></div>
+                                <div id="rLeft13" class="styleL"></div>
+                                <div id="rUp13" class="styleU"></div>
+                                <div id="rDown13" class="styleD"></div>
+                            </div>
+                            <div id="senderPhone" data-index="6" class="tempLable" style="top: 200px; left: 100px; width: 100px; height: 23px; position: absolute">
+                                发件人手机
+                                <div id="rRightDownSP" class="styleRD"></div>
+                                <div id="rLeftDownSP" class="styleLD"></div>
+                                <div id="rRightUpSP" class="styleRU"></div>
+                                <div id="rLeftUpSP" class="styleLU"></div>
+                                <div id="rRightSP" class="styleR"></div>
+                                <div id="rLeftSP" class="styleL"></div>
+                                <div id="rUpSP" class="styleU"></div>
+                                <div id="rDownSP" class="styleD"></div>
+                            </div>
+
+                            <!--收件信息-->
+                            <div id="dragDiv3" data-index="7" class="tempLable" style="top: 50px; left: 564px; width: 88px; height: 23px; position: absolute;">
+                                收件人姓名
+                                <div id="rRightDown3" class="styleRD"> </div>
+                                <div id="rLeftDown3" class="styleLD"> </div>
+                                <div id="rRightUp3" class="styleRU"> </div>
+                                <div id="rLeftUp3" class="styleLU"> </div>
+                                <div id="rRight3" class="styleR"> </div>
+                                <div id="rLeft3" class="styleL"> </div>
+                                <div id="rUp3" class="styleU"> </div>
+                                <div id="rDown3" class="styleD"></div>
+                            </div>
+                            <div id="dragDiv5" data-index="8" class="tempLable" style="top: 80px; left: 564px; width: 200px; height: 23px; position: absolute;">
+                                收件人地址
+                                <div id="rRightDown5" class="styleRD" style="display: none;"> </div>
+                                <div id="rLeftDown5" class="styleLD" style="display: none;"> </div>
+                                <div id="rRightUp5" class="styleRU" style="display: none;"> </div>
+                                <div id="rLeftUp5" class="styleLU" style="display: none;"> </div>
+                                <div id="rRight5" class="styleR" style="display: none;"> </div>
+                                <div id="rLeft5" class="styleL" style="display: none;"> </div>
+                                <div id="rUp5" class="styleU" style="display: none;"> </div>
+                                <div id="rDown5" class="styleD" style="display: none;"></div>
+                            </div>
+                            <div id="dragDiv6" data-index="9" class="tempLable" style="top: 110px; left: 564px; width: 88px; height: 23px; position: absolute;">
+                                收件人手机
+                                <div id="rRightDown6" class="styleRD"> </div>
+                                <div id="rLeftDown6" class="styleLD"> </div>
+                                <div id="rRightUp6" class="styleRU"> </div>
+                                <div id="rLeftUp6" class="styleLU"> </div>
+                                <div id="rRight6" class="styleR"> </div>
+                                <div id="rLeft6" class="styleL"> </div>
+                                <div id="rUp6" class="styleU"> </div>
+                                <div id="rDown6" class="styleD"></div>
+                            </div>
+                            <div id="dragDiv7" data-index="10" class="tempLable" style="top: 140px; left: 564px; width: 88px; height: 23px; position: absolute;">
+                                收件人邮编
+                                <div id="rRightDown7" class="styleRD"> </div>
+                                <div id="rLeftDown7" class="styleLD"> </div>
+                                <div id="rRightUp7" class="styleRU"> </div>
+                                <div id="rLeftUp7" class="styleLU"> </div>
+                                <div id="rRight7" class="styleR"> </div>
+                                <div id="rLeft7" class="styleL"> </div>
+                                <div id="rUp7" class="styleU"> </div>
+                                <div id="rDown7" class="styleD"></div>
+                            </div>
+
+                            <!--日期-->
+                            <div id="dragDiv8" data-index="11" class="tempLable" style="top: 320px; left: 100px; width: 60px; height: 23px; position: absolute;">
+                                发-年
+                                <div id="rRightDown8" class="styleRD"> </div>
+                                <div id="rLeftDown8" class="styleLD"> </div>
+                                <div id="rRightUp8" class="styleRU"> </div>
+                                <div id="rLeftUp8" class="styleLU"> </div>
+                                <div id="rRight8" class="styleR"> </div>
+                                <div id="rLeft8" class="styleL"> </div>
+                                <div id="rUp8" class="styleU"> </div>
+                                <div id="rDown8" class="styleD"></div>
+                            </div>
+                            <div id="dragDiv9" data-index="12" class="tempLable" style="top: 350px; left: 100px; width: 60px; height: 23px; position: absolute">
+                                发-月
+                                <div id="rRightDown9" class="styleRD" style="right:-2px; bottom:-2px;"> </div>
+                                <div id="rLeftDown9" class="styleLD" style="left:-2px; bottom:-2px;"> </div>
+                                <div id="rRightUp9" class="styleRU" style="right:-2px; top:-2px;"> </div>
+                                <div id="rLeftUp9" class="styleLU" style="left:-2px; top:-2px;"> </div>
+                                <div id="rRight9" class="styleR" style="right:-2px; top:50% ; margin-top:-5px; background:#000;"> </div>
+                                <div id="rLeft9" class="styleL" style="left:-2px; top:50%;margin-top:-5px;"> </div>
+                                <div id="rUp9" class="styleU" style="top:-3px; left:50%;margin-left:-5px;"> </div>
+                                <div id="rDown9" class="styleD" style="bottom:-2px;left:50%;margin-left:-5px;"></div>
+                            </div>
+                            <div id="dragDiv10" data-index="13" class="tempLable" style="top: 380px; left: 100px; width: 60px; height: 23px; position: absolute;">
+                                发-日
+                                <div id="rRightDown10" class="styleRD"></div>
+                                <div id="rLeftDown10" class="styleLD"></div>
+                                <div id="rRightUp10" class="styleRU"></div>
+                                <div id="rLeftUp10" class="styleLU"></div>
+                                <div id="rRight10" class="styleR"></div>
+                                <div id="rLeft10" class="styleL"></div>
+                                <div id="rUp10" class="styleU"></div>
+                                <div id="rDown10" class="styleD"></div>
+                            </div>
+
+                            <!--备注-->
+                            <div id="dragDiv15" data-index="14" class="tempLable" style="top: 320px; left: 250px; width: 100px; height: 23px; position: absolute">
+                                买家昵称
+                                <div id="rRightDown15" class="styleRD"></div>
+                                <div id="rLeftDown15" class="styleLD"></div>
+                                <div id="rRightUp15" class="styleRU"></div>
+                                <div id="rLeftUp15" class="styleLU"></div>
+                                <div id="rRight15" class="styleR"></div>
+                                <div id="rLeft15" class="styleL"></div>
+                                <div id="rUp15" class="styleU"></div>
+                                <div id="rDown15" class="styleD"></div>
+                            </div>
+                            <div id="dragDiv16" data-index="15" class="tempLable" style="top: 350px; left: 250px; width: 100px; height: 23px; position: absolute">
+                                买家留言
+                                <div id="rRightDown16" class="styleRD"></div>
+                                <div id="rLeftDown16" class="styleLD"></div>
+                                <div id="rRightUp16" class="styleRU"></div>
+                                <div id="rLeftUp16" class="styleLU"></div>
+                                <div id="rRight16" class="styleR"></div>
+                                <div id="rLeft16" class="styleL"></div>
+                                <div id="rUp16" class="styleU"></div>
+                                <div id="rDown16" class="styleD"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--快递引用-->
+<script src="../../../../js/function/mall/set/deliTemp.js"></script>
+<script src="../../../../js/function/mall/set/express_add.js"></script>
+
+<script>
+
+</script>
+
+
+<script>
+    $(function () {
+
+        // 提交时验证表单
+        var validator = $("#expressForm").validate({
+            errorLabelContainer: $(".form-error")
+        });
+
+    });
+</script>
+
+<script>
+    var aa1 = new aa('bgDiv', 'dragDiv1', 'rRightDown1', 'rLeftDown1', 'rRightUp1', 'rLeftUp1', 'rRight1', 'rLeft1', 'rUp1', 'rDown1');
+    var aa2 = new aa('bgDiv', 'dragDiv2', 'rRightDown2', 'rLeftDown2', 'rRightUp2', 'rLeftUp2', 'rRight2', 'rLeft2', 'rUp2', 'rDown2');
+    var aa12 = new aa('bgDiv', 'dragDiv12', 'rRightDown12', 'rLeftDown12', 'rRightUp12', 'rLeftUp12', 'rRight12', 'rLeft12', 'rUp12', 'rDown12');
+    var aa11 = new aa('bgDiv', 'dragDiv11', 'rRightDown11', 'rLeftDown11', 'rRightUp11', 'rLeftUp11', 'rRight11', 'rLeft11', 'rUp11', 'rDown11');
+    var aa13 = new aa('bgDiv', 'dragDiv13', 'rRightDown13', 'rLeftDown13', 'rRightUp13', 'rLeftUp13', 'rRight13', 'rLeft13', 'rUp13', 'rDown13');
+    var senderPhone = new aa('bgDiv', 'senderPhone', 'rRightDownSP', 'rLeftDownSP', 'rRightUpSP', 'rLeftUpSP', 'rRightSP', 'rLeftSP', 'rUpSP', 'rDownSP');
+
+
+    var aa3 = new aa('bgDiv', 'dragDiv3', 'rRightDown3', 'rLeftDown3', 'rRightUp3', 'rLeftUp3', 'rRight3', 'rLeft3', 'rUp3', 'rDown3');
+    var aa5 = new aa('bgDiv', 'dragDiv5', 'rRightDown5', 'rLeftDown5', 'rRightUp5', 'rLeftUp5', 'rRight5', 'rLeft5', 'rUp5', 'rDown5');
+    var aa6 = new aa('bgDiv', 'dragDiv6', 'rRightDown6', 'rLeftDown6', 'rRightUp6', 'rLeftUp6', 'rRight6', 'rLeft6', 'rUp6', 'rDown6');
+    var aa7 = new aa('bgDiv', 'dragDiv7', 'rRightDown7', 'rLeftDown7', 'rRightUp7', 'rLeftUp7', 'rRight7', 'rLeft7', 'rUp7', 'rDown7');
+
+    var aa8 = new aa('bgDiv', 'dragDiv8', 'rRightDown8', 'rLeftDown8', 'rRightUp8', 'rLeftUp8', 'rRight8', 'rLeft8', 'rUp8', 'rDown8');
+    var aa9 = new aa('bgDiv', 'dragDiv9', 'rRightDown9', 'rLeftDown9', 'rRightUp9', 'rLeftUp9', 'rRight9', 'rLeft9', 'rUp9', 'rDown9');
+    var aa10 = new aa('bgDiv', 'dragDiv10', 'rRightDown10', 'rLeftDown10', 'rRightUp10', 'rLeftUp10', 'rRight10', 'rLeft10', 'rUp10', 'rDown10');
+
+    var aa15 = new aa('bgDiv', 'dragDiv15', 'rRightDown15', 'rLeftDown15', 'rRightUp15', 'rLeftUp15', 'rRight15', 'rLeft15', 'rUp15', 'rDown15');
+    var aa16 = new aa('bgDiv', 'dragDiv16', 'rRightDown16', 'rLeftDown16', 'rRightUp16', 'rLeftUp16', 'rRight16', 'rLeft16', 'rUp16', 'rDown16');
+</script>
+
+
+
+</body>
+</html>

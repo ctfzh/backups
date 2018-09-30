@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>用户增长</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/webuploader/webuploader.min.js"></script>
+    <script src="../../../js/lib/echarts.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item active"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">CRM概要</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../outline/user_increase.html" class="list-group-item">CRM概要</a>
+            </li>
+            <li>
+                <a href="../user/user_list.html" class="list-group-item">用户管理</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="list-group-item">用户分组</a>
+            </li>
+            <li>
+                <a href="../member_grade/member_grade_list.html" class="list-group-item active">会员等级</a>
+            </li>
+            <li>
+                <a href="../card/member_card_list.html" class="list-group-item">微信会员卡</a>
+            </li>
+            <li>
+                <a href="../set/member_set.html" class="list-group-item">会员中心设置</a>
+            </li>
+            <li>
+                <a href="../point/point_exchange_list.html" class="list-group-item">积分管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="user_increase.html">用户增长</a></li>
+                <li><a href="user_attr.html">用户属性</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="container-fluid mb20 border-b">
+                <ul class="row qgj-menu">
+                    <li class="col-xs-3 text-center">
+                        <div class="money"><span class="h2 text-primary">230</span></div>
+                        <h5>今日新增粉丝数</h5>
+                    </li>
+                    <li class="col-xs-3 text-center">
+                        <div class="money"><span class="h2">14533</span></div>
+                        <h5>累计粉丝数</h5>
+                    </li>
+                    <li class="col-xs-3 text-center">
+                        <div class="money"><span class="h2 text-primary">3</span></div>
+                        <h5>今日新增会员数</h5>
+                    </li>
+                    <li class="col-xs-3 text-center">
+                        <div class="money"><span class="h2">3</span></div>
+                        <h5>累计会员数</h5>
+                    </li>
+                </ul>
+            </div>
+
+            <h5 class="fw-bold">新增用户统计</h5>
+            <form class="form-search mb10">
+                <input type="text" name="time" id="time1" class="form-control form-control-inline w200 mr5" value="2017/02/26 - 2017/03/05">
+                <a href="javascript:;" class="btn btn-default btn-primary mr5" id="sevenMoment1">最近7天</a>
+                <a href="javascript:;" class="btn btn-default mr5" id="fifthMoment1">最近15天</a>
+                <a href="javascript:;" class="btn btn-default mr5" id="thirtyMoment1">最近30天</a>
+                <button type="submit" class="btn btn-blue">搜索</button>
+            </form>
+            <div class="container-fluid">
+                <ul class="row qgj-menu">
+                    <li class="col-xs-3 text-center">
+                        <h5>新增总粉丝</h5>
+                        <div class="money"><span class="h2 text-primary">230</span></div>
+                    </li>
+                    <li class="col-xs-3 text-center">
+                        <h5>取消关注总粉丝</h5>
+                        <div class="money"><span class="h2">14533</span></div>
+                    </li>
+                    <li class="col-xs-3 text-center">
+                        <h5>新增会员总数</h5>
+                        <div class="money"><span class="h2 text-primary">3</span></div>
+                    </li>
+                    <li class="col-xs-3 text-center">
+                        <h5>领取会员卡总数</h5>
+                        <div class="money"><span class="h2">3</span></div>
+                    </li>
+                </ul>
+            </div>
+            <div id="echart1" class="height-lg wper100 mb20 border pt10"></div>
+
+            <h5 class="fw-bold">累计用户统计</h5>
+            <form class="form-search mb10">
+                <input type="text" name="time" id="time2" class="form-control form-control-inline w200 mr5" value="2017/02/26 - 2017/03/05">
+                <a href="javascript:;" class="btn btn-default btn-primary mr5" id="sevenMoment2">最近7天</a>
+                <a href="javascript:;" class="btn btn-default mr5" id="fifthMoment2">最近15天</a>
+                <a href="javascript:;" class="btn btn-default mr5" id="thirtyMoment2">最近30天</a>
+                <button type="submit" class="btn btn-blue">搜索</button>
+            </form>
+            <div id="echart2" class="height-lg wper100 mb20 border pt10"></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../../js/function/crm/outline/user_outline.js"></script>
+<script>
+    // 粉丝增长趋势
+    charts.line(
+        'echart1', ['数量'], '时间',['16-08-04', '16-08-05', '16-08-06', '16-08-07', '16-08-08', '16-08-09', '16-08-10', '16-08-11', '16-08-12', '16-08-13', '16-08-14'], '数量', [{name: '数量',type: 'line',data: [2000, 50, 90, 20, 281, 247, 741, 2223, 2000, 1200, 2021]}],["#469DF7"]
+    );
+    // 会员增长趋势
+    charts.line(
+        'echart2', ['数量'], '时间',['16-08-04', '16-08-05', '16-08-06', '16-08-07', '16-08-08', '16-08-09', '16-08-10', '16-08-11', '16-08-12', '16-08-13', '16-08-14'], '数量', [{name: '数量',type: 'line',data: [2000, 50, 90, 20, 281, 247, 741, 2223, 1500, 648, 120]}],["#469DF7"]
+    );
+
+</script>
+
+</body>
+</html>

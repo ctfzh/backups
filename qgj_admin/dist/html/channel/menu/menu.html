@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>群发-已发送</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/masonry-docs.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+    <script src="../../../js/common/rightCommon.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item active"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">门店收银管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="menu.html" class="list-group-item active">自定义菜单</a>
+            </li>
+            <li>
+                <a href="../auto_reply/auto_reply.html" class="list-group-item">自动回复</a>
+            </li>
+            <li>
+                <a href="../broadcast/group_list.html" class="list-group-item">群发广播</a>
+            </li>
+            <li>
+                <a href="../material/material_list.html" class="list-group-item">素材管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="#">菜单管理</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="qgj-nav">
+                <div class="pull-right">
+                    <input class="btn btn-primary" type="button" value="同步数据">
+                </div>
+            </div>
+            <form action="" id="formMenuR">
+            <div class="menu-manage-wrapper" id="menu-manage">
+                <div class="menu-manage-l">
+                    <div class="menu-manage-l-inner">
+                        <div class="title">未绑定公众号</div>
+                        <i class="icon-service"></i>
+                        <input value="" name="sortId" id="sortId" type="hidden">
+                        <ul class="menu-parent menu-list sortable">
+                            <li class="menu-parent-item js-parent-menu">
+                                <div class="menu-parent-name-wrap">
+                                    <i class="icon-plus hidden"></i>
+                                    <span class="menu-parent-name">菜单名称</span>
+                                </div>
+                                <div class="menu-child-box" style="display: none">
+                                    <ul class="menu-child sortable js-child-menu">
+                                        <li class="menu-child-item active">
+                                            <div class="menu-child-name-wrap">
+                                                <i class="fa fa-bars hidden"></i>
+                                                <span class="menu-child-name">菜单名称</span>
+                                            </div>
+                                            <input type="hidden" name="menu[0][]" class="hidden-left">
+                                        </li>
+                                        <li class="add-menu-box unsortable js-add-menu"><i class="icon-plus"></i></li>
+                                    </ul>
+                                    <i class="arrow arrow_out"></i>
+                                    <i class="arrow arrow_in"></i>
+                                </div>
+                                <input type="hidden" name="menu[0]" value="" class="hidden-left">
+                            </li>
+                            <li class="add-parent-menu-box unsortable js-add-parent-menu" style="width: 66.666%;"><i class="icon-plus"></i></li>
+                        </ul>
+                    </div>
+                    <div class="m-form-group mt20 text-center">
+                        <input value="0" id="flag" type="hidden">
+                        <button type="button" class="btn btn-default m-btn js-menu-sort-btn">菜单排序</button>
+                    </div>
+                </div>
+                <div class="menu-manage-r form-horizontal">
+                    <div class="menu-content" data-index="0">
+                        <div class="menu-parent-content" style="display: block;">
+                            <div class="menu-title">
+                                <h5 class="js-menu-name menu-name">菜单一</h5>
+                                <a href="javascript:;" class="pull-right del-menu js-del-menu">删除菜单</a>
+                            </div>
+                            <div class="form-group">
+                                <div class="control-label">
+                                    <span>菜单名称</span>
+                                </div>
+                                <div class="control-input">
+                                    <input name="name" class="form-control fc-sm js-title-input" autocomplete="off" type="text" value="" maxlength="5">
+                                    <span class="text-gray-light mt5 inline-block js-menu-name-tip">字数不超过5个汉字或10个字母</span>
+                                    <div class="text-danger js-menu-name-error" id="nameError" style="display: none;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-common-content" style="display: block;">
+                            <div class="form-group">
+                                <div class="control-label">
+                                    <span>优惠券</span>
+                                </div>
+                                <div class="control-input">
+                                    <div class="card-iframe">
+                                        <div class="bd">
+                                            <img class="media-object" src="../../../img/qrcode.png">
+                                            <h4>1元代金券</h4>
+                                        </div>
+                                        <div class="ft">亲管家</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="control-label">
+                                    <span>菜单内容</span>
+                                </div>
+                                <div class="control-input">
+                                    <div class="inline-block w150">
+                                        <label><input name="menu_content" n="1" class="js-menu-con-switch qkj-radio" type="radio" value="1"> 发送信息</label>
+                                    </div>
+                                    <div class="inline-block w150">
+                                        <label><input name="menu_content" n="2" class="js-menu-con-switch qkj-radio" type="radio" value="2"> 跳转网页</label>
+                                    </div>
+                                    <div class="inline-block w150">
+                                        <label><input name="menu_content" n="3" class="js-menu-con-switch qkj-radio" type="radio" value="3" checked> 跳转小程序</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--发送信息内容设置-->
+                            <div class="panel panel-default reply-block js-menu-con mb0" style="display: none">
+                                <input type="hidden" name="image_text_input" value="1" id="imageTextInput" class="hidden_img">
+                                <div class="panel-heading">
+                                    <ul class="list-inline mb0 js-send-type" id="replayMenu">
+                                        <li data-index="1"><a href="javascript:;" class="text-black"><i class="icon-imgtext"></i> 图文消息</a></li>
+                                        <li data-index="2"><a href="javascript:;"><i class="icon-text"></i> 文字</a></li>
+                                        <li data-index="3"><a href="javascript:;"><i class="icon-pic"></i> 图片</a></li>
+                                        <li data-index="4"><a href="javascript:;"><i class="icon-coupon"></i> 卡券</a></li>
+                                        <!--<li data-index="5"><a href="javascript:;"><i class="icon-voice"></i> 语音</a></li>-->
+                                        <!--<li data-index="6"><a href="javascript:;"><i class="icon-video"></i> 视频</a></li>-->
+                                    </ul>
+                                </div>
+                                <div class="panel-body" id="replayBD">
+                                    <div class="image-text hide show">
+                                        <div class="row" style="display:none">
+                                            <div class="col-xs-6">
+                                                <div class="btn-upload-lg" data-target="#modalImgtext" data-toggle="modal">从图文素材中选择</div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <a class="btn-upload-lg">新建图文信息</a>
+                                            </div>
+                                        </div>
+                                        <div class="imgt-wrap">
+                                            <div class="text-center"><a href="#">删除</a> </div>
+                                        </div>
+                                        <input type="hidden" name="media_id" value="1" id="media_id" class="hidden_img">
+                                    </div>
+                                    <textarea name="content" id="replayText" class="wper100 noborder hide" cols="30" rows="10" placeholder="请输入文字" maxlength="600"></textarea>
+                                    <div class="uploader uploader-lg hide">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div class="btn-upload-lg" data-target="#modalImgLib" data-toggle="modal">从图文库中选择</div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <a class="btn-upload-lg">上传新图</a>
+                                            </div>
+                                        </div>
+                                        <div style="display: none">
+                                            <input type="hidden" name="wechat_img" id="wechat_img" class="hidden_img">
+                                            <div class="img">
+                                                <img src="../../../img/pic/abstract.jpg" alt="" class="uploaded-img">
+                                                <a href="javascript:;" class="uploader-del hide">删除</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer text-right hide" id="replayFT">
+                                    还可以输入<strong id="maxlimit">600</strong>字
+                                </div>
+                            </div>
+                            <!--跳转网页内容设置-->
+                            <div class="js-menu-con menu-link-box" style="display: none">
+                                <input class="form-control inline-block wper30 js-url-input" name="url" id="materialLink" type="text">
+                                <button type="button" class="btn btn-default" id="select-common-link" data-toggle="modal" data-target="#modalLinkSel">选择链接</button>
+                            </div>
+                            <!--跳转小程序内容设置-->
+                            <div class="js-menu-con menu-link-box">
+                                <div class="form-group">
+                                    <div class="control-label"></div>
+                                    <div class="control-input">
+                                        <div class="border p15 wper60">
+                                            <h5>用户点击该菜单会跳转到以下小程序</h5>
+                                            <div class="form-group">
+                                                <div class="control-label"><span>小程序</span><em class="text-danger">*</em></div>
+                                                <div class="control-input">
+                                                    <div class="link-select" style="display: none">
+                                                        <div class="link-select-inner">
+                                                            <a href="javascript:;" class="link"><span>小程序</span> | <span>小程序名称A小程序名称A</span></a>
+                                                            <a href="javascript:;" class="close close-bg js-del_wxapplet">×</a>
+                                                            <input type="hidden" value="" name="wx_name" class="hidden_img">
+                                                        </div>
+                                                    </div>
+                                                    <a href="#modalWx_applet" data-toggle="modal" class="btn btn-default">选择小程序</a>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="control-label"><span>备用网址</span> <em class="text-danger">*</em></div>
+                                                <div class="control-input">
+                                                    <input type="text" class="form-control wper60" name="wx_url">
+                                                    <div class="text-gray-light">旧版微信客户端无法支持小程序，用户点击菜单时将会打开备用网页。</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-danger js-image_text_input_error mt10" style="display: none;"></div>
+                        </div>
+                        <div class="menu-empty-tip" style="display: none">
+                            <p>请点击左侧菜单进行编辑操作</p>
+                        </div>
+                    </div>
+                    <div class="m-form-group mt20 text-center">
+                        <button type="button" class="btn btn-primary m-btn" id="menu-save-btn">保存并发布</button>
+                    </div>
+                </div>
+            </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--选择素材-->
+<div class="modal fade" id="modalImgtext">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">选择图文</h4>
+            </div>
+            <div class="modal-body">
+                <div class="imgt-wrap imgt-wrap-modal">
+                    <div class="list active" data-index="20">
+                        <i class="icon-tick-noborder"></i>
+                        <div class="title">素材标题</div>
+                        <div class="item item-first">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text text-ellipsis">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                    </div>
+                    <div class="list" data-index="24">
+                        <i class="icon-tick-noborder"></i>
+                        <div class="title">素材标题</div>
+                        <div class="item item-first">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text text-ellipsis">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                    </div>
+                    <div class="list" data-index="26">
+                        <i class="icon-tick-noborder"></i>
+                        <div class="title">素材标题</div>
+                        <div class="item item-first">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text text-ellipsis">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                    </div>
+                    <div class="list" data-index="29">
+                        <i class="icon-tick-noborder"></i>
+                        <div class="title">素材标题</div>
+                        <div class="item item-first">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text text-ellipsis">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                    </div>
+                    <div class="list" data-index="365">
+                        <i class="icon-tick-noborder"></i>
+                        <div class="title">素材标题</div>
+                        <div class="item item-first">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text text-ellipsis">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                    </div>
+                    <div class="list" data-index="652">
+                        <i class="icon-tick-noborder"></i>
+                        <div class="title">素材标题</div>
+                        <div class="item item-first">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text text-ellipsis">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnSure" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getImgtextHtml(index){
+        var html = '';
+        $("#modalImgtext .list").each(function () {
+            if($(this).attr("data-index") == index){
+                html = $(this).clone();
+            }
+        });
+
+        return html;
+    }
+    $("#replayBD .imgt-wrap").prepend(getImgtextHtml("652"))
+</script>
+
+<!--选择图片库-->
+<div class="modal fade" id="modalImgLib">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">选择图片</h4>
+            </div>
+            <div class="modal-body">
+                <div class="select-lib-pic">
+                    <div class="SLP-sider">
+                        <ul>
+                            <li><a href="javascript:;">全部图片 <span class="text-gray-light">(2)</span></a></li>
+                            <li><a href="javascript:;">未分组 <span class="text-gray-light">(0)</span></a></li>
+                        </ul>
+                        <a href="javascript:;" class="add jsSLPAdd"><i class="icon-plus"></i> 添加分组</a>
+                    </div>
+                    <div class="SLP-con">
+                        <div class="btn-upload">
+                            <a href="#" class="btn btn-primary">本地上传</a>
+                        </div>
+                        <div class="list jsSelLibPic">
+                            <ul>
+                                <li class="active">
+                                    <div class="img">
+                                        <img src="../../../img/pic/abstract.jpg">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0dafdfasdfadsfsadfadfsdfsa.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/pic/abstract.jpg">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/pic/abstract.jpg">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/pic/abstract.jpg">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/pic/abstract.jpg">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--选择链接-->
+<div class="modal fade" id="modalLinkSel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">选择常用链接</h4>
+            </div>
+            <div class="modal-body tab-wrap jsModalLinkSel">
+                <ul class="tab-title">
+                    <li class="active"><a href="javascript:;">常用链接</a></li>
+                    <li><a href="javascript:;">营销活动</a></li>
+                    <li><a href="javascript:;">在线商城</a></li>
+                    <li><a href="javascript:;">会员中心</a></li>
+                    <li><a href="javascript:;">应用市场</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-item" style="display: block">
+                        <ul>
+                            <li class="active">商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                        </ul>
+                    </div>
+                    <div class="tab-item">
+                        <ul>
+                            <li class="active">商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                        </ul>
+                    </div>
+                    <div class="tab-item">
+                        <ul>
+                            <li class="active">商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                        </ul>
+                    </div>
+                    <div class="tab-item">
+                        <ul>
+                            <li class="active">商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                        </ul>
+                    </div>
+                    <div class="tab-item">
+                        <ul>
+                            <li class="active">商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                            <li>商家首页</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnLinkSelSure" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--小程序-->
+<div class="modal fade" id="modalWx_applet">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">选择小程序</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr class="active">
+                                <th width="20"></th>
+                                <th>小程序名称</th>
+                                <th>版本名称</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="radio" class="qkj-radio js-radio_wxapplet" name="0" value="21"></td>
+                                <td>
+                                    <div class="media">
+                                        <div class="media-left w48"><img src="../../../img/pic/abstract.jpg" class="img-responsive"></div>
+                                        <div class="media-body" id="name_21">名称1</div>
+                                    </div>
+                                </td>
+                                <td>智慧门店版</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" class="qkj-radio js-radio_wxapplet" name="0" value="502"></td>
+                                <td>
+                                    <div class="media">
+                                        <div class="media-left w48"><img src="../../../img/pic/abstract.jpg" class="img-responsive"></div>
+                                        <div class="media-body" id="name_502">名称2</div>
+                                    </div>
+                                </td>
+                                <td>智慧门店版</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnWx_applet">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/lib/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../../../js/function/channel/channel.js"></script>
+<script type="text/javascript" src="../../../js/function/channel/menu.js"></script>
+
+</body>
+</html>

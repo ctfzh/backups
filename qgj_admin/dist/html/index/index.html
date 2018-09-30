@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>首页</title>
+
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link rel="icon" href="../../img/favicon.ico">
+    <script src="../../js/lib/lib.min.js"></script>
+    <script src="../../js/lib/dateranger.min.js"></script>
+    <script src="../../js/common/util.js"></script>
+    <script src="../../js/lib/select2.min.js"></script>
+    <script src="../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="/qgj_admin/dist/img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="/qgj_admin/dist/html/index/index.html" class="list-group-item active"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="/qgj_admin/dist/html/store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="/qgj_admin/dist/html/finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="/qgj_admin/dist/html/crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="/qgj_admin/dist/html/marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <!--<li><a href="#" class="list-group-item"><i class="icon-apply"></i> 应用</a></li>-->
+        <!--<li><a href="#" class="list-group-item"><i class="icon-service"></i> 客户</a></li>-->
+        <li><a href="/qgj_admin/dist/html/channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="/qgj_admin/dist/html/food/goods/good_list.html" class="list-group-item"><i class="icon-catering"></i> 餐饮</a></li>
+        <li><a href="/qgj_admin/dist/html/mall/goods/good_list.html" class="list-group-item"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="/qgj_admin/dist/html/distribution/outline/outline.html" class="list-group-item"><i class="icon-distribution"></i> 分销商</a></li>
+        <li><a href="/qgj_admin/dist/html/wx_applet/manager/list.html" class="list-group-item "><i class="icon-wechatapp"></i> 小程序</a></li>
+        <li><a href="/qgj_admin/dist/html/service/service_set/service_set.html" class="list-group-item"><i class="icon-service"></i> 客服</a></li>
+        <li><a href="/qgj_admin/dist/html/statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="/qgj_admin/dist/html/system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <!--<li class="affix"><a href="/qgj_admin/dist/html/login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>-->
+    </ul>
+</div>
+
+<div class="main-con main-siderbar-hide"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">门店收银管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="javascript:;" class="list-group-item active">门店管理</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="list-group-item">收银员管理</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="list-group-item">收银设置</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="list-group-item">收银台管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <nav class="navbar" role="navigation" id="header">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="#" class="navbar-brand h4"><img src="../../img/logo_text.png" alt=""></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href=""><i class="icon-help h4"></i> 帮助中心</a>
+                            <div class="dropdown-con p15 w300">
+                                <h5><strong>帮助中心</strong></h5>
+                                <ul class="list-text">
+                                    <li><a href="javascript:;">门店收款账号如何设置？</a></li>
+                                    <li><a href="javascript:;">各门店如何设置不同的收款账号？</a></li>
+                                </ul>
+                                <a href="javascript:;" class="show text-center text-primary">进入帮助中心</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href=""><i class="icon-phone h4"></i> 手机版</a>
+                            <div class="dropdown-con p15 w200">
+                                <img src="../../img/qrcode.png" alt="" class="img-responsive">
+                                <p class="mt10 text-center">扫描二维码进入app下载页</p>
+                            </div>
+                        </li>
+                        <li><a href=""><i class="icon-msg h4"></i> 消息</a></li>
+                        <li><a href="../login/login.html"><i class="icon-loginout h4"></i>退出</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="m-content m-content-home">
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="media bg-white pspace mbspace">
+                        <div class="media-left">
+                            <a href="#">
+                                <img class="media-object img-bg head80" src="../../img/qrcode.png">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading mt10">上海亲快信息科技有限公司
+                                <span class="h5 ml10">
+                                    <span class="text-primary">187358363280</span>
+                                    <a href="#" class="text-gray">设置</a>
+                                </span>
+                            </h3>
+                            <p class="text-gray mt15">
+                                当前版本：
+                                <span class="mr20">收银版 | <a href="#" class="text-primary">10</a> 家门店</span>
+                                <span>营销版 | <a href="#" class="text-primary">3</a> 家门店 (2017/03/06 - 2018/03/06)</span>
+                                <span class="badge bg-danger">续费升级</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-white pspace mbspace">
+                        <!--今日概要-->
+                        <div class="today-summary">
+                            <div class="h6 mb10"><strong>今日概要</strong> <a href="#" class="text-primary ml10">更多</a> </div>
+                            <div class="qgj-datatotal mbspace bg-gray-lighter1 noborder">
+                                <ul>
+                                    <li>
+                                        <p class="text-danger h3"><em class="h5">￥</em>100000.00</p>
+                                        <p class="h5"><span class="h4">100</span> 笔</p>
+                                        <p class="h6">今日交易额</p>
+                                    </li>
+                                    <li>
+                                        <p class="text-primary h3"><em class="h5">￥</em>100000.00</p>
+                                        <p class="h5"><span class="h4">100</span> 笔</p>
+                                        <p class="h6">昨日交易额</p>
+                                    </li>
+                                    <li>
+                                        <p class="text-primary h3"><em class="h5">￥</em>100000.00</p>
+                                        <p class="h5"><span class="h4">100</span> 笔</p>
+                                        <p class="h6">本月交易额</p>
+                                    </li>
+                                    <li>
+                                        <p class="text-primary h3"><em class="h5">￥</em>100000.00</p>
+                                        <p class="h5"><span class="h4">100</span> 笔</p>
+                                        <p class="h6">上月交易额</p>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <p class="text-danger h3">27</p>
+                                        <p class="h6">今日新增粉丝数</p>
+                                    </li>
+                                    <li>
+                                        <p class="text-primary h3">201352</p>
+                                        <p class="h6">累计粉丝数</p>
+                                    </li>
+                                    <li>
+                                        <p class="text-primary h3">13</p>
+                                        <p class="h6">今日新增会员数</p>
+                                    </li>
+                                    <li>
+                                        <p class="text-primary h3">13</p>
+                                        <p class="h6">累计会员数</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!--常用功能-->
+                        <div class="utility-fun mb10">
+                            <h6><strong>常用功能</strong><span class="text-gray-light"> - 收银</span></h6>
+                            <div class="con">
+                                <div class="media">
+                                    <a href="#" class="text-gray">
+                                        <div class="media-left">
+                                            <i class="icon-sprites-fun icon-s-weixinset"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="h5">微信支付设置</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="media">
+                                    <a href="#" class="text-gray">
+                                        <div class="media-left">
+                                            <i class="icon-sprites-fun icon-s-alipayset"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="h5">支付宝设置</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="media">
+                                    <a href="#" class="text-gray">
+                                        <div class="media-left">
+                                            <i class="icon-sprites-fun icon-s-store"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="h5">门店管理</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="media">
+                                    <a href="#" class="text-gray">
+                                        <div class="media-left">
+                                            <i class="icon-sprites-fun icon-s-finace"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="h5">财务管理</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="media">
+                                    <a href="#" class="text-gray">
+                                        <div class="media-left">
+                                            <i class="icon-sprites-fun icon-s-download"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="h5">下载收银台</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="utility-fun mb10">
+                            <h6><strong>常用功能</strong><span class="text-gray-light"> - 营销</span></h6>
+                            <div class="con">
+                                <div class="media">
+                                    <a href="#" class="text-gray">
+                                        <div class="media-left">
+                                            <i class="icon-sprites-fun icon-s-gray-weixin"></i><!--在s后面加”-gray“就变灰-->
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="h5">公众号设置</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="media">
+                                    <a href="#" class="text-gray">
+                                        <div class="media-left">
+                                            <i class="icon-sprites-fun icon-s-crm"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="h5">客户CRM</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="media">
+                                    <a href="#" class="text-gray">
+                                        <div class="media-left">
+                                            <i class="icon-sprites-fun icon-s-coupon"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="h5">优惠券</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="media">
+                                    <a href="#" class="text-gray">
+                                        <div class="media-left">
+                                            <i class="icon-sprites-fun icon-s-user"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="h5">会员卡</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="media">
+                                    <a href="#" class="text-gray">
+                                        <div class="media-left">
+                                            <i class="icon-sprites-fun icon-s-market"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="h5">营销活动</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="media">
+                                    <a href="#" class="text-gray">
+                                        <div class="media-left">
+                                            <i class="icon-sprites-fun icon-s-group"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="h5">群发消息</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="media">
+                                    <a href="#" class="text-gray">
+                                        <div class="media-left">
+                                            <i class="icon-sprites-fun icon-s-shopping"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="h5">在线商城</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="media">
+                                    <a href="#" class="text-gray">
+                                        <div class="media-left">
+                                            <i class="icon-sprites-fun icon-s-service"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="h5">在线客服</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="media">
+                                    <a href="#" class="text-gray">
+                                        <div class="media-left">
+                                            <i class="icon-sprites-fun icon-s-channel"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="h5">渠道管理</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="media">
+                                    <a href="#" class="text-gray">
+                                        <div class="media-left">
+                                            <i class="icon-sprites-fun icon-s-gray-statistics"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="h5">数据统计</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="utility-fun">
+                            <h6><strong>更多应用</strong></h6>
+                            <div class="con">
+                                <div class="media">
+                                    <a href="#" class="text-gray">
+                                        <div class="media-left">
+                                            <i class="icon-sprites-fun icon-s-yqxiu"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="h5">易企秀</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <ul class="c-service">
+                        <li>
+                            <a href="">
+                                <i class="icon-qq mr5"></i>
+                                在线客服
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="icon-telphone mr5"></i>
+                                400-886-1331
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="c-notice">
+                        <h6><a class="pull-right" href="notice_list.html">更多<i class="icon-arrow-right h6"></i></a><strong>通知公告</strong></h6>
+                        <div style="display: none" class="mt15 text-center h6">暂无公告</div>
+                        <ul>
+                            <li>
+                                <a href="notice_detail.html">
+                                    <span class="pull-left mr5 text-gray-light">03/03</span>
+                                    <div class="text-ellipsis">收银版新手指南</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="notice_detail.html">
+                                    <span class="pull-left mr5 text-gray-light">03/03</span>
+                                    <div class="text-ellipsis">收银版新手指南</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="notice_detail.html">
+                                    <span class="pull-left mr5 text-gray-light">03/03</span>
+                                    <div class="text-ellipsis">收银版新手指南收银版新手指南收银版新手指南</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="notice_detail.html">
+                                    <span class="pull-left mr5 text-gray-light">03/03</span>
+                                    <div class="text-ellipsis">收银版新手指南收银版新手指南收银版新手指南</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="notice_detail.html">
+                                    <span class="pull-left mr5 text-gray-light">03/03</span>
+                                    <div class="text-ellipsis">收银版新手指南收银版新手指南收银版新手指南</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="notice_detail.html">
+                                    <span class="pull-left mr5 text-gray-light">03/03</span>
+                                    <div class="text-ellipsis">收银版新手指南收银版新手指南收银版新手指南</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="notice_detail.html">
+                                    <span class="pull-left mr5 text-gray-light">03/03</span>
+                                    <div class="text-ellipsis">收银版新手指南收银版新手指南收银版新手指南</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="c-ad bg-white">
+                        <h6><strong>广告信息</strong></h6>
+                        <div class="ptb5">
+                            <img src="../../img/logo.png" alt="" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

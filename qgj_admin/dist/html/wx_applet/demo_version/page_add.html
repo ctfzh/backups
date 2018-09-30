@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>展示版</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/lib/template-web.js"></script>
+    <script src="../../../js/lib/jquery-ui.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <link rel="stylesheet" href="../../../js/lib/uploadify/uploadify.css">
+    <script src="../../../js/lib/uploadify/jquery.uploadify.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!--文本编辑器-->
+    <script src="../../../umeditor/ueditor.config.js"></script>
+    <script src="../../../umeditor/ueditor.all.js"></script>
+    <script src="../../../umeditor/ueditor.parse.js"></script>
+    <link rel="stylesheet" href="../../../umeditor/themes/default/css/ueditor.min.css">
+
+    <!--颜色选择-->
+    <script src="../../../js/lib/ColorPicker/js/colpick.js"></script>
+    <link rel="stylesheet" href="../../../js/lib/ColorPicker/css/colpick.css">
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-service"></i> 客服</a></li>
+        <li><a href="../../mall/goods/good_list.html" class="list-group-item active"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">小程序</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li class="sub-item"><!--这个只有在开通后才显示-->
+                <a href="javascript:;" class="list-group-item">智慧门店</a>
+                <ul>
+                    <li><a href="../demo_version/page_add.html" class="list-group-item">展示</a></li>
+                    <li><a href="../demo_version/template_selection.html" class="list-group-item">模板选择</a></li>
+                    <li><a href="../statistics/statistics.html" class="list-group-item ">统计</a></li>
+                    <li><a href="../set/wx_authorization.html" class="list-group-item ">设置</a></li>
+                </ul>
+            </li>
+            <li class="sub-item"><!--这个只有在开通后才显示-->
+                <a href="javascript:;" class="list-group-item">商城版</a>
+                <ul>
+                    <li><a href="../manager/list.html" class="list-group-item active">页面管理</a></li>
+                    <li><a href="../set/wx_authorization.html" class="list-group-item ">设置</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../manager/list.html" class="list-group-item">版本管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="page_add.html">页面管理</a></li>
+                <li><a href="../../store/store/store_add.html">门店管理</a></li>
+                <li><a href="../../store/ablum/storeAblum_list.html">商家相册</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <form id="mallSetForm">
+                <div class="mall-set">
+                    <!--左边部分-->
+                    <div class="ms-prview">
+                        <div class="ms-title ms-wxapplet-title js-ms-title">
+                            <span>页面名称</span>
+                            <input type="hidden" class="hiddenData">
+                        </div>
+                        <div class="ms-bd ui-sortable js-regions"></div>
+                    </div>
+                    <!--右边部分-->
+                    <div class="ms-form js-ms-form">
+                        <div class="region-form js-regions-form">
+                            <div id='container'></div>
+                            <!--<div class="form-horizontal region-discount-r">
+                                <div class="form-group">
+                                    <label class="control-label">限时折扣</label>
+                                    <div class="control-input">
+                                        <a href="#modalActivity" data-toggle="modal"><i class="icon-plus"></i> 选择活动</a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">已选活动</label>
+                                    <div class="control-input">
+                                        <div class="link-select">
+                                            <a href="#modalActivity" data-toggle="modal" class="link">
+                                                <span class="span_{{value.checkedId}}">fadsfasdf</span>
+                                            </a>
+                                            <a href="javascript:;" class="close close-bg js-del">×</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">已选商品</label>
+                                    <div class="control-input">
+                                        <ul class="image-list js-pic-list">
+                                            <li class="sort">
+                                                <img src="../../../img/pic/abstract.jpg" alt="">
+                                                <a href="javascript:;" class="js-delete-pic close close-bg">×</a>
+                                            </li>
+                                            <li>
+                                                <a href="#modalActivityGoods" data-toggle="modal" class="add-pic js-add-pic">加图</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>-->
+                        </div>
+                        <div class="arrow-l"></div>
+                    </div>
+                    <!--添加模块-->
+                    <div class="panel panel-default region-add js-region-add">
+                        <div class="panel-heading">添加模块</div>
+                        <div class="panel-body">
+                            <div class="btn-group btn-lg btn-group-margin mb10">
+                                <button type="button" class="btn btn-default" id="ms_banner">图片广告</button>
+                                <button type="button" class="btn btn-default" id="ms_nav">图标导航</button>
+                                <button type="button" class="btn btn-default" id="ms_post">公告</button>
+                                <button type="button" class="btn btn-default" id="ms_guideLine">辅助线</button>
+                                <button type="button" class="btn btn-default" id="ms_guidePadding">辅助空白</button>
+                                <button type="button" class="btn btn-default" id="ms_imageText">图文</button>
+                                <button type="button" class="btn btn-default" id="ms_headline">标题</button>
+                                <button type="button" class="btn btn-default" id="ms_album">相册</button>
+                                <button type="button" class="btn btn-default" id="ms_store">门店</button>
+                                <button type="button" class="btn btn-default" id="ms_richText">富文本</button>
+                                <button type="button" class="btn btn-default" id="ms_video">视频</button>
+                                <button type="button" class="btn btn-default" id="ms_coupon">优惠券</button>
+                                <button type="button" class="btn btn-default" id="ms_card">开卡</button>
+                                <button type="button" class="btn btn-default" id="ms_payTheBill">买单</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" value="" id="mallData">
+                <input type="hidden" value="" id="mallDataId">
+                <div class="text-center mt20">
+                    <button type="button" class="btn btn-primary" id="mallSetBtn">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    $(function () {
+        //模板
+        new tpl_index({
+            tpl_preview:'.js-regions',  //左边模板位置
+            tpl_form: '.js-regions-form', //右边模板位置
+            data:
+                [
+                    {"type":"title","name":"1111111111","src":"","defaultColor":"#304FFE"},
+                    {"type":"banner","style":5,"margin":0,"options":[],"lineDisplay":"1","defaultImg":"../../../img/mall/page_set/banner_default.jpg",
+                        "list":[
+                            {"url":"","imgSrc":"https://img.yzcdn.cn/upload_files/2017/08/06/FpAow-HvGBI-xkjSjF2_t1ZkRcUG.png","title":"test预约","linkIndex":"","inputValue":""}
+                        ],
+                        "hot":[
+                            {
+                                "imgSrc":"https://img.yzcdn.cn/upload_files/2017/08/06/FpAow-HvGBI-xkjSjF2_t1ZkRcUG.png",
+                                "linkIndex":"6",  //id
+                                "inputValue":"http://www.baidu.com",
+                                "left":0,
+                                "top":0,
+                                "hotWidth":"32",
+                                "hotHeight":"20",
+                                "picWidth": "",
+                                "picHeight": ""
+                            },
+                            {
+                                "imgSrc":"https://img.yzcdn.cn/upload_files/2017/08/06/FpAow-HvGBI-xkjSjF2_t1ZkRcUG.png",
+                                "linkIndex":"7",  //id
+                                "inputValue":"http://www.baidu.com",
+                                "left":0,
+                                "top":0,
+                                "hotWidth":"32",
+                                "hotHeight":"20",
+                                "picWidth": "",
+                                "picHeight": ""
+                            }
+                        ]
+                    }
+                ],
+            "thumb" : '750_0@750*0,375_375@375*375',  //上传图片尺寸
+            "folder": 'mall_page_item', //文件夹名字
+            "title_name": '分组页面1',
+            "activity_type":"2",   //限时折扣活动类型
+            "fightG_type":"3",   //拼团活动类型
+            "upload_url": 'http://upload.qinguanjia.com',
+            "merchantId": "1212",
+            "wisdom_version":'5',
+            "mall_version":'4'
+        });
+
+        //按钮提交
+        $("#mallSetBtn").click(function () {
+            var data = [];
+            $(".hiddenData").each(function (i,o) {
+                data.push(JSON.parse($(o).val()))
+            });
+            //如果验证通过，则赋值
+            if(isValidate(data)){
+                $("#mallData").val(JSON.stringify(data));
+            }
+        });
+
+    });
+
+</script>
+
+
+<script src="../../../js/function/mall/common/main.js"></script>
+<script src="../../../js/function/wx_applet/demo_version/page_add.js"></script>
+
+<!--商城页面选择-->
+<div class="modal fade" id="modalHomePage">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">
+                    选择商城页面
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive overflow-y">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th width="20"></th>
+                            <th>页面名称</th>
+                            <th>创建时间</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><input type="radio" name="ckMall" class="qkj-radio" value="2"></td>
+                            <td><div id="input_2">商品名称1商品名称1商品名称1</div></td>
+                            <td>2017-08-07<br>22:47:22</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="ckMall" class="qkj-radio" value="3"></td>
+                            <td><div id="input_3">商品名称2</div></td>
+                            <td>2017-08-07<br>22:47:22</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnHomePage"  data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--商品选择-->
+<div class="modal fade" id="modalGoodsSale">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">
+                    选择商品
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal form-search">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label class="control-label">选择分组</label>
+                            <div class="control-input">
+                                <select class="form-control">
+                                    <option value="1">分组1</option>
+                                    <option value="2">分组2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label">商品名称</label>
+                            <div class="control-input">
+                                <input type="text" class="form-control"  placeholder="">
+                            </div>
+                        </div>
+                        <div class="btn-wrap-pos">
+                            <button type="submit" class="btn btn-blue">搜索</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="table-responsive overflow-y">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th width="20"></th>
+                            <th width="35%">商品</th>
+                            <th>库存</th>
+                            <th>创建时间</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><input type="radio" name="ckShop" class="qkj-radio" value="10"></td>
+                            <td>
+                                <div class="col-xs-3 p0">
+                                    <img src="../../../img/qrcode_default.jpg" class="w48">
+                                </div>
+                                <div class="col-xs-9 p0">
+                                    <p id="shopInput_10">商品名称1</p>
+                                    <div class="text-danger">￥9.99</div>
+                                </div>
+                            </td>
+                            <td>10</td>
+                            <td>2017-08-07<br>22:47:22</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="ckShop" class="qkj-radio" value="1"></td>
+                            <td>
+                                <div class="col-xs-3 p0">
+                                    <img src="../../../img/qrcode_default.jpg" class="w48">
+                                </div>
+                                <div class="col-xs-9 p0">
+                                    <p id="shopInput_1">商品名称2</p>
+                                    <div class="text-danger">￥9.99</div>
+                                </div>
+                            </td>
+                            <td>10</td>
+                            <td>2017-08-07<br>22:47:22</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="ckShop" class="qkj-radio" value="20"></td>
+                            <td>
+                                <div class="col-xs-3 p0">
+                                    <img src="../../../img/qrcode_default.jpg" class="w48">
+                                </div>
+                                <div class="col-xs-9 p0">
+                                    <p id="shopInput_20">商品名称3</p>
+                                    <div class="text-danger">￥9.99</div>
+                                </div>
+                            </td>
+                            <td>10</td>
+                            <td>2017-08-07<br>22:47:22</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="ckShop" class="qkj-radio" value="afadsfas"></td>
+                            <td>
+                                <div class="col-xs-3 p0">
+                                    <img src="../../../img/qrcode_default.jpg" class="w48">
+                                </div>
+                                <div class="col-xs-9 p0">
+                                    <p id="shopInput_afadsfas">商品名称4</p>
+                                    <div class="text-danger">￥9.99</div>
+                                </div>
+                            </td>
+                            <td>10</td>
+                            <td>2017-08-07<br>22:47:22</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnGoodsSale"  data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--商品分组选择-->
+<div class="modal fade" id="modalGroupPage">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">
+                    选择分组页面
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th width="20"></th>
+                            <th>分组名称</th>
+                            <th>创建时间</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><input type="radio" name="ckGroup" class="qkj-radio" value="1010"></td>
+                            <td><div id="group_1010">分组名称1</div></td>
+                            <td>2017-08-07<br>22:47:22</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="ckGroup" class="qkj-radio" value="10"></td>
+                            <td><div id="group_10">分组名称2</div></td>
+                            <td>2017-08-07<br>22:47:22</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="ckGroup" class="qkj-radio" value="65"></td>
+                            <td><div id="group_65">分组名称3</div></td>
+                            <td>2017-08-07<br>22:47:22</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnGroupPage"  data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--活动选择-->
+<div class="modal fade" id="modalActivity">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">
+                    限时折扣
+                </h4>
+            </div>
+            <div class="modal-body">
+                <!--<form class="form-horizontal form-search">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label class="control-label">活动名称</label>
+                            <div class="control-input">
+                                <input type="text" class="form-control"  placeholder="">
+                            </div>
+                        </div>
+                        <div class="btn-wrap-pos">
+                            <button type="submit" class="btn btn-blue">搜索</button>
+                        </div>
+                    </div>
+                </form>-->
+                <div class="table-responsive overflow-y">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th width="20"></th>
+                            <th width="35%">标题</th>
+                            <th>活动时间</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="radio" name="ckActivity" class="qkj-radio" id="activityId_10" value="10" data-time="2017-08-07 22:47:22"></td>
+                                <td><span class="title">标题10</span></td>
+                                <td><span>2017-08-07 22:47:22 至 2017-08-07 22:47:22</span></td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="ckActivity" class="qkj-radio" id="activityId_252" value="252" data-time="2017-08-09 12:20:52"></td>
+                                <td><span class="title">标题252</span></td>
+                                <td>2017-08-07 22:47:22 至 2017-08-09 22:47:22</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="ckActivity" class="qkj-radio" id="activityId_101" value="101" data-time="2017-08-12 05:33:02"></td>
+                                <td><span class="title">标题101</span></td>
+                                <td>2017-08-07 22:47:22 至 2017-08-07 22:47:22</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnActivity"  data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--活动商品选择-->
+<div class="modal fade" id="modalActivityGoods">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">
+                    选择商品
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th width="20"></th>
+                                <th width="35%">标题</th>
+                                <th>优惠情况</th>
+                                <th>库存</th>
+                            </tr>
+                        </thead>
+                        <tbody class="activity_goods_list">
+                            <tr>
+                                <td><input type="checkbox" name="ckActivityShop" class="qkj-checkbox" value="10" data-src="../../../img/qrcode_default.jpg"></td>
+                                <td><span id="activityShopId_10">限时折扣10</span></td>
+                                <td>
+                                    <div class="col-xs-9 p0">
+                                        <div>原价：￥<span class="price_cost">3.00</span></div>
+                                        <div>折后：￥<span class="price_discount">2.21</span></div>
+                                    </div>
+                                </td>
+                                <td><span class="stock" data-value="10">20</span></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="ckActivityShop" class="qkj-checkbox" value="562" data-src="../../../img/qrcode_default.jpg"></td>
+                                <td><span id="activityShopId_562">限时折扣10</span></td>
+                                <td>
+                                    <div class="col-xs-9 p0">
+                                        <div>原价：￥<span class="price_cost">30.00</span></div>
+                                        <div>折后：￥<span class="price_discount">23.21</span></div>
+                                    </div>
+                                </td>
+                                <td><span class="stock" data-value="10">20</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnActivityGoods"  data-dismiss="modal">确定使用</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--选择门店-->
+<div class="modal fade store-pop" id="storeAll">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">选择门店</h4>
+            </div>
+            <div class="modal-body">
+                <div class="v-select-store">
+                    <div class="form-horizontal mb10">
+                        <input type="text" class="form-control form-control-inline w300" placeholder="门店编号/门店名称">
+                        <input type="submit" class="btn btn-default" value="搜索">
+                    </div>
+
+                    <div class="tree1 treeAll" data-value="12">
+                        <i class="rbArrow"></i>
+                        <input class="parentsBox" type="checkbox"><i class="iconFolder"></i>全部(14)
+                        <div class="comList">
+                            <ul>
+                                <li class="child3">
+                                    <input class="storeBox" value="10" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">3</span>
+                                    <span class="store-name" title="牛牛餐饮海曙店">牛牛餐饮海曙店</span>
+                                    <span class="meta" title="浙江省杭州市桐庐县XX路">浙江省杭州市桐庐县XX路</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="11" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">40000000000</span>
+                                    <span class="store-name" title="牛牛餐饮江北店">牛牛餐饮江北店</span>
+                                    <span class="meta" title="浙江省杭州市桐庐县XX路">浙江省杭州市桐庐县XX路</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="17" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">5</span>
+                                    <span class="store-name" title="牛牛餐饮鄞州店">牛牛餐饮鄞州店</span>
+                                    <span class="meta" title="浙江省杭州市桐庐县XX路">浙江省杭州市桐庐县XX路</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="414" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">6</span>
+                                    <span class="store-name" title="测试大门店(ddd)-ddd">测试大门店(ddd)-ddd</span>
+                                    <span class="meta" title="福建省福州市台江区GV发生的vfs">福建省福州市台江区GV发生的vfs</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="519" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">7</span>
+                                    <span class="store-name" title="测试门店一号-测试">测试门店一号-测试</span>
+                                    <span class="meta" title="">浙江省宁波市江东区高新区华商大厦19楼</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="1512" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">8</span>
+                                    <span class="store-name" title="牛牛科技九亭店">牛牛科技九亭店</span>
+                                    <span class="meta" title="上海市市辖区松江区九亭地铁站">上海市市辖区松江区九亭地铁站</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="1961" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">9</span>
+                                    <span class="store-name" title="牛牛-泗泾3店">牛牛-泗泾3店</span>
+                                    <span class="meta" title="上海市市辖区松江区泗泾镇对的">上海市市辖区松江区泗泾镇对的</span>
+                                </li>
+                            </ul>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    1513                    	( 2 )</div>
+                                <div class="childWrap" style="display: block;">
+                                    <div class="child3">
+                                        <i class="rbArrow"></i>
+                                        <input class="childBox" type="checkbox">
+                                        <i class="iconFolder"></i>
+                                        1514   ( 2 )
+                                    </div>
+                                    <ul>
+                                        <li class="child3">
+                                            <input class="storeBox" value="2040" type="checkbox">
+                                            <i class="iconFile"></i>
+                                            <span class="store-no">1</span>
+                                            <span class="store-name" title="大口烧 -顾村店">大口烧 -顾村店</span>
+                                            <span class="meta" title="上海市市辖区宝山区顾村公园">上海市市辖区宝山区顾村公园</span>
+                                        </li>
+                                        <li class="child3">
+                                            <input class="storeBox" value="2448" type="checkbox">
+                                            <i class="iconFile"></i>
+                                            <span class="store-no">2</span>
+                                            <span class="store-name" title="SumPAGE -肇嘉浜路店">SumPAGE -肇嘉浜路店</span>
+                                            <span class="meta" title="上海市市辖区徐汇区肇嘉浜路">上海市市辖区徐汇区肇嘉浜路</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    上海 ( 0 )
+                                </div>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap closeFolder">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    餐饮 ( 1 )
+                                </div>
+                                <ul style="display: none;">
+                                    <li class="child3">
+                                        <input class="storeBox" value="2035" type="checkbox">
+                                        <i class="iconFile"></i>
+                                        <span class="store-name" title="麻辣香锅 -杨浦店">麻辣香锅 -杨浦店</span>
+                                        <span class="meta" title="上海市市辖区杨浦区上海市杨浦区">上海市市辖区杨浦区上海市杨浦区</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    宁波                    	( 1 )</div>
+                                <ul>
+                                    <li class="child3">
+                                        <input class="storeBox" value="41" type="checkbox">
+                                        <i class="iconFile"></i>
+                                        <span class="store-name" title="牛牛餐饮高新店">牛牛餐饮高新店</span>
+                                        <span class="meta" title="浙江省宁波市鄞州区万达广场">浙江省宁波市鄞州区万达广场</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>牛牛( 1 )
+                                </div>
+                                <ul style="display: block;">
+                                    <li class="child3">
+                                        <input class="storeBox" value="618" type="checkbox">
+                                        <i class="iconFile"></i>
+                                        <span class="store-name" title="海底捞 -上海闵行店">海底捞 -上海闵行店</span>
+                                        <span class="meta" title="上海市市辖区闵行区上海市闵行区吴中路1488号">上海市市辖区闵行区上海市闵行区吴中路1488号</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span class="mr5">已选 <em class="text-danger js-store-selected-num">0</em> 家，共 <em class="js-store-total-num">0</em> 家</span>
+                <button type="button" class="btn btn-default" id="btnStoreCancel" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="btnStoreSure">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--优惠券选择-->
+<div class="modal fade" id="modalCoupon">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">选择优惠券</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal form-search">
+                    <div class="row">
+                        <div class="form-group col-md-4 wauto">
+                            <label class="control-label">优惠券名称</label>
+                            <div class="control-input">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="btn-wrap-pos">
+                            <button type="submit" class="btn btn-blue">搜索</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="table-responsive overflow-y">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="active">
+                                <th width="20"></th>
+                                <th>券名称</th>
+                                <th>券类型</th>
+                                <th>优惠内容</th>
+                                <th>使用条件</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="checkboxCoupon" value="1" class="qkj-checkbox">
+                                    <input type="hidden" value='{"type":"代金券","name":"5元代金券","number": 5,"condition":"满100可用","stock":"10","valid":"2018/03/05 - 2018/03/30"}'>
+                                </td>
+                                <td>名称1</td>
+                                <td>代金券</td>
+                                <td>减10元</td>
+                                <td>满100可用</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="checkboxCoupon" value="15" class="qkj-checkbox">
+                                    <input type="hidden" value='{"type":"折扣券","name":"20元代金券","number": 20,"condition":"满50可用","stock":"10","valid":"领取后当天生效,3天有效"}'>
+                                </td>
+                                <td>名称2</td>
+                                <td>折扣券</td>
+                                <td>打8折</td>
+                                <td>满100可用</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="checkboxCoupon" value="352" class="qkj-checkbox">
+                                    <input type="hidden" value='{"type":"裂变券","name":"10元代金券","number": 10,"condition":"满500可用","stock":"10","valid":"领取后当天生效,3天有效"}'>
+                                </td>
+                                <td>名称2</td>
+                                <td>裂变券</td>
+                                <td>打8折</td>
+                                <td>满100可用</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="checkboxCoupon" value="52" class="qkj-checkbox">
+                                    <input type="hidden" value='{"type":"裂变券","name":"80元代金券","number": 80,"condition":"满500可用","stock":"10","valid":"领取后当天生效,3天有效"}'>
+                                </td>
+                                <td>名称2</td>
+                                <td>裂变券</td>
+                                <td>打8折</td>
+                                <td>满100可用</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnCouponSure" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--图标库选择弹出框-->
+<div class="modal fade" id="modalNav">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header modal-header-nav">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <ul class="js-ul-switch">
+                    <li class="active">图标库</li>
+                    <li>自行上传</li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="ui-switch0 ptb50">
+                    <ul class="image-list image-list-sm image-list-bg js-pic-list">
+                        <li>
+                            <img src="../../../img/icon/nav/1.png" data-value="1.png" title="领券">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/2.png" data-value="2.png" title="门店">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/3.png" data-value="3.png" title="点餐">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/4.png" data-value="4.png" title="个人">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/5.png" data-value="5.png" title="相册">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/6.png" data-value="6.png" title="买单">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/7.png" data-value="7.png" title="会员卡">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/8.png" data-value="8.png" title="列表">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/9.png" data-value="9.png" title="预约">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/10.png" data-value="10.png" title="推荐好友">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/11.png" data-value="11.png" title="酒吧">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/12.png" data-value="12.png" title="菜谱">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/13.png" data-value="13.png" title="礼品">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/14.png" data-value="14.png" title="购物">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/15.png" data-value="15.png" title="购物车">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/16.png" data-value="16.png" title="设置">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/17.png" data-value="17.png" title="推荐">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/18.png" data-value="18.png" title="地址">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/19.png" data-value="19.png" title="信息">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/20.png" data-value="20.png" title="泳圈">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/21.png" data-value="21.png" title="公文包">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/22.png" data-value="22.png" title="健康">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/23.png" data-value="23.png" title="面包">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/24.png" data-value="24.png" title="医药">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/25.png" data-value="25.png" title="香蕉">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/26.png" data-value="26.png" title="糖果">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/27.png" data-value="27.png" title="高压锅">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/28.png" data-value="28.png" title="记事本">
+                        </li>
+                        <li>
+                            <img src="../../../img/icon/nav/29.png" data-value="29.png" title="折扣">
+                        </li>
+                    </ul>
+                </div>
+                <div class="ui-switch1" style="display: none">
+                    <div class="text-center ptbper3">
+                        <div style="width: 120px;" class="m-auto"><input type="button" value="图片上传" class="btn btn-primary"></div>
+                        <div class="mt15">
+                            <div class="inline-block img-close">
+                                <img src="../../../img/qrcode_default.jpg" alt="" class="w100">
+                                <a href="javascript:;" class="close close-bg">×</a>
+                            </div>
+                        </div>
+                        <div class="text-gray-light mt15">建议尺寸 100x100 像素，可上传png、jpg格式</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer text-center">
+                <button type="button" class="btn btn-primary" id="btnNavSure">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--预约弹出框-->
+<div class="modal fade" id="modalReserve">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">
+                    预约
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive overflow-y">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th width="20"></th>
+                                <th width="35%">预约活动名称</th>
+                                <th>创建时间</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="radio" name="ckReserve" class="qkj-radio" value="1215" data-time="2017-08-07 22:47:22"></td>
+                                <td><span class="title" id="reserve_1215">标题1215</span></td>
+                                <td><span>2017-08-07 22:47:22 至 2017-08-07 22:47:22</span></td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="ckReserve" class="qkj-radio" value="2352" data-time="2017-08-09 12:20:52"></td>
+                                <td><span class="title" id="reserve_2352">标题2352</span></td>
+                                <td>2017-08-07 22:47:22 至 2017-08-09 22:47:22</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="ckReserve" class="qkj-radio" value="1012" data-time="2017-08-12 05:33:02"></td>
+                                <td><span class="title" id="reserve_1012">标题1012</span></td>
+                                <td>2017-08-07 22:47:22 至 2017-08-07 22:47:22</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnReservePage"  data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--热区编辑器弹出框-->
+<div class="modal fade" id="modalhot" style="z-index: 999">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">热区编辑器</h4>
+            </div>
+            <div class="modal-body">
+                <ul class="banner-hot_step">
+                    <li>
+                        <span class="num">1</span>
+                        <span>添加热区</span>
+                        <span>-</span>
+                    </li>
+                    <li>
+                        <span class="num">2</span>
+                        <span>调整热区大小和位置</span>
+                        <span>-</span>
+                    </li>
+                    <li>
+                        <span class="num">3</span>
+                        <span>设置关联链接</span>
+                        <span>-</span>
+                    </li>
+                    <li>
+                        <span class="num">4</span>
+                        <span>保存生效</span>
+                    </li>
+                </ul>
+                <div class="banner-hot_pic" id="bannerHotPic">
+                    <img src="https://img.yzcdn.cn/upload_files/2017/08/06/FpAow-HvGBI-xkjSjF2_t1ZkRcUG.png" id="bannerHotImg">
+                    <div class="banner-hot_area banner-hot_area--drag">
+                        <div class="banner-hot_area--text">
+                            <div class="banner-hot_area--text--null">双击设置<br>关联链接</div>
+                            <div class="banner-hot_area--text--val hide"><span>微页面</span> | <span class="span--text">fff</span></div>
+                        </div>
+                        <input type="hidden" class="banner-hot_area--hidden">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnHotAdd">添加热区</button>
+                <button type="button" class="btn btn-default" id="btnHotSure">确定</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--小程序-->
+<div class="modal fade" id="modalWx_applet">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">选择小程序</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr class="active">
+                            <th width="20"></th>
+                            <th>小程序名称</th>
+                            <th>版本名称</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><input type="radio" class="qkj-radio" name="wxappletInput" value="21"></td>
+                            <td>
+                                <div class="media">
+                                    <div class="media-left w48"><img src="../../../img/pic/abstract.jpg" class="img-responsive"></div>
+                                    <div class="media-body" id="wxappletName_21">名称1</div>
+                                </div>
+                            </td>
+                            <td>智慧门店版</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" class="qkj-radio" name="wxappletInput" value="502"></td>
+                            <td>
+                                <div class="media">
+                                    <div class="media-left w48"><img src="../../../img/pic/abstract.jpg" class="img-responsive"></div>
+                                    <div class="media-body" id="wxappletName_502">名称2</div>
+                                </div>
+                            </td>
+                            <td>智慧门店版</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnWx_applet">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<select class="banner-hot_link" style="display: none;" multiple>
+    <option value="1">首页</option>
+    <option value="7" data-toggle="modal" data-target="#modalHomePage">微页面</option>
+    <option value="11">相册</option>
+    <option value="12" data-toggle="modal" data-target="#modalReserve">预约</option>
+</select>
+
+</body>
+</html>

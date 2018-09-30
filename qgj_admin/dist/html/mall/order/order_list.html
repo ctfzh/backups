@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>订单列表</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item active"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">商城管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../outline/outline.html" class="list-group-item">商城概要</a>
+            </li>
+            <li class="sub-item">
+                <a href="javascript:;" class="list-group-item">商品管理</a>
+                <ul>
+                    <li><a href="../goods/good_list.html" class="list-group-item">商品列表</a></li>
+                    <li><a href="../group/group_list.html" class="list-group-item">商品分组</a></li>
+                </ul>
+            </li>
+            <li class="sub-item">
+                <a href="javascript:;" class="list-group-item">订单管理</a>
+                <ul>
+                    <li><a href="../order/order_list.html" class="list-group-item">订单概况</a></li>
+                    <li><a href="../order/order_list.html" class="list-group-item active">订单列表</a></li>
+                    <li><a href="../refund/refund_list.html" class="list-group-item">退款管理</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../page_set/banner_list.html" class="list-group-item">页面管理</a>
+            </li>
+            <li>
+                <a href="../marketing/promotion_list.html" class="list-group-item">营销管理</a>
+            </li>
+            <li class="sub-item">
+                <a href="javascript:;" class="list-group-item">商城设置</a>
+                <ul>
+                    <li><a href="../set/deliveries/delivery_list.html" class="list-group-item">配送设置</a></li>
+                    <li><a href="../order/order_list.html" class="list-group-item">收款账号</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="#">订单管理</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <form class="form-horizontal form-search">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <select class="form-control form-control-inline">
+                            <option value="0">订单号</option>
+                        </select>
+                        <input type="text" class="form-control form-control-inline"  placeholder="">
+                    </div>
+                    <div class="form-group col-md-8">
+                        <label class="control-label">下单时间</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control widthauto form-control-inline" id="time" placeholder="下单时间" readonly="readonly">
+                            <div class="btn-group inline-block">
+                                <a href="#" class="btn btn-default" id="sevenMoment">7日</a>
+                                <a href="#" class="btn btn-default" id="thirtyMoment">30日</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-sm col-md-4">
+                        <label class="control-label">订单类型</label>
+                        <div class="control-input">
+                            <select class="form-control inline-block">
+                                <option value="0">全部</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-sm col-md-4">
+                        <label class="control-label">订单状态</label>
+                        <div class="control-input">
+                            <select class="form-control inline-block">
+                                <option value="0">全部</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-sm col-md-4">
+                        <label class="control-label">物流方式</label>
+                        <div class="control-input">
+                            <select class="form-control inline-block">
+                                <option value="0">全部</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-sm col-md-4">
+                        <label class="control-label">退款状态</label>
+                        <div class="control-input">
+                            <select class="form-control inline-block">
+                                <option value="0">全部</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-sm col-md-4">
+                        <label class="control-label">付款方式</label>
+                        <div class="control-input">
+                            <select class="form-control inline-block">
+                                <option value="0">全部</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label"></label>
+                        <div class="control-input btn-wrap">
+                            <button type="submit" class="btn btn-blue">搜索</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="clearfix mt20">
+                <div class="pull-right page">
+                    <p class="noborder mb0">每页显示数量：</p>
+                    <a href="javascript:;">10</a>
+                    <a href="javascript:;">30</a>
+                    <a href="javascript:;">50</a>
+                </div>
+                <div class="operate">
+                    <a href="#print_express" class="btn btn-default" data-toggle="modal">打印快递单</a>
+                    <a href="#print_send_out_allGoods" class="btn btn-default" data-toggle="modal">打印发货单</a>
+                    <a href="javascript:;" class="btn btn-default">套打</a>
+                    <a href="#send_out_allGoods" class="btn btn-default" data-toggle="modal">批量发货</a>
+                    <a href="javascript:;" class="btn btn-default">导出订单</a>
+                </div>
+            </div>
+            <hr>
+
+            <div class="qgj-nav clearfix">
+                <div class="btn-group" role="group" aria-label="group">
+                    <a class="btn btn-default active">全部</a>
+                    <a class="btn btn-default">待付款</a>
+                    <a class="btn btn-default">待接单</a>
+                    <a class="btn btn-default">待发货</a>
+                    <a class="btn btn-default">已发货</a>
+                    <a class="btn btn-default">已完成</a>
+                    <a class="btn btn-default">已关闭</a>
+                    <a class="btn btn-default">退款中</a>
+                </div>
+            </div>
+
+            <div class="alert alert-default mb10">
+                <div class="pull-right">
+                    <a href="javascript:;">返回全部订单</a>
+                </div>
+                <strong class="mr20">同团订单列表</strong>
+                <strong>团编号：122551451211151212</strong>
+            </div>
+
+            <div class="table-wrap">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th width="30%">
+                                <span class="w80 inline-block"><input type="checkbox" class="qkj-checkbox mr5 js-all-ck"> 全选</span>
+                                商品
+                            </th>
+                            <th>单价/数量</th>
+                            <th>售后</th>
+                            <th>买家</th>
+                            <th>下单时间</th>
+                            <th>订单状态</th>
+                            <th>金额</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tr-space">
+                            <td colspan="7">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="20%">
+                                <input type="checkbox" class="qkj-checkbox js-single-ck mr5">
+                                <div class="inline-block">
+                                    订单号：12351215121651215512<br>
+                                    团编号：12351215
+                                </div>
+                            </td>
+                            <td colspan="2">微信支付-同城配送 / 拼团订单(团长)</td>
+                            <td colspan="3">快递单号：123456789102</td>
+                            <td><a href="order_detail.html">查看详情</a><a href="javascript:;" class="ml10 js-remark" data-id="1">备注</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a class="inline-block w150"><img src="../../../img/qrcode.png" alt="" class="w48 pull-left mr5"></a>
+                                <div class="inline-block">
+                                    <p class="text-ellipsis"><strong>商品名称商品名称商品名称商品名称</strong></p>
+                                    <p class="m0">型号</p>
+                                </div>
+                            </td>
+                            <td>
+                                <p>￥100.00</p>
+                                <p class="m0">x1件</p>
+                            </td>
+                            <td></td>
+                            <td>
+                                <p>昵称</p>
+                                <p>姓名</p>
+                                <p class="m0">18945216067</p>
+                            </td>
+                            <td>
+                                2017.7.15<br>
+                                18：40：15
+                            </td>
+                            <td>
+                                <p class="text-danger">等待商家接单</p>
+                                <p>
+                                    <a href="#send_out_goods" data-toggle="modal" class="btn btn-primary btn-sm">发货</a>
+                                </p>
+                                <p class="mb0">
+                                    <a href="#send_out_goods" data-toggle="modal">查看同团订单</a>
+                                </p>
+                            </td>
+                            <td>
+                                <p>共1件商品</p>
+                                <p class="m0">合计:￥100.00</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="7">
+                                <span class="time text-gray-light">买家备注：xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="7">
+                                <span class="time text-gray-light">卖家备注：<span id="remark1">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></span>
+                            </td>
+                        </tr>
+                        <!--一组结束-->
+
+                        <tr class="tr-space">
+                            <td colspan="7">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="20%"><input type="checkbox" class="qkj-checkbox js-single-ck mr5"> 订单号：12351215121651215512</td>
+                            <td colspan="2">微信支付-同城配送</td>
+                            <td colspan="3">快递单号：123456789102</td>
+                            <td><a href="order_detail.html">查看详情</a><a href="javascript:;" class="ml10 js-remark" data-id="2">备注</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="inline-block w150"><img src="../../../img/qrcode.png" alt="" class="w48 pull-left mr5"></a>
+                                <div>
+                                    <p class="text-ellipsis"><strong>商品名称商品名称商品名称商品名称品名称商品名称</strong></p>
+                                    <p class="m0">型号</p>
+                                </div>
+                            </td>
+                            <td>
+                                <p>￥100.00</p>
+                                <p class="m0">x1件</p>
+                            </td>
+                            <td></td>
+                            <td rowspan="2" class="border-l">
+                                <p>昵称</p>
+                                <p>姓名</p>
+                                <p class="m0">18945216067</p>
+                            </td>
+                            <td rowspan="2">
+                                2017.7.15<br>
+                                18：40：15
+                            </td>
+                            <td rowspan="2">
+                                <p class="text-danger">等待商家接单</p>
+                                <p>
+                                    <a href="#send_out_goods" data-toggle="modal" class="btn btn-primary btn-sm">发货</a>
+                                </p>
+                                <p class="mb0 text-center w80">
+                                    <a href="#send_out_goods" data-toggle="modal">修改物流</a>
+                                </p>
+                            </td>
+                            <td rowspan="2">
+                                <p>共1件商品</p>
+                                <p class="m0">合计:￥100.00</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="inline-block w150"><img src="../../../img/qrcode.png" alt="" class="w48 pull-left mr5"></a>
+                                <div>
+                                    <p class="text-ellipsis"><strong>商品名称商品名称商品名称商品名称</strong></p>
+                                    <p class="m0">型号</p>
+                                </div>
+                            </td>
+                            <td>
+                                <p>￥100.00</p>
+                                <p class="m0">x1件</p>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="7">
+                                <span class="time text-gray-light">买家备注：xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="7">
+                                <span class="time text-gray-light">卖家备注：<span id="remark2">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--<div class="text-center h5 mt10">暂时无数据</div>-->
+            </div>
+            <div id="page" class="ptb15">
+                <p>首页</p>
+                <p>上一页</p>
+                <a href="/merchant/store/list.html?page=1" title="第1页" class="cur">1</a>
+                <a href="/merchant/store/list.html?page=2" title="第2页">2</a>
+                <a href="/merchant/store/list.html?page=3" title="第3页">3</a>
+                <a href="/merchant/store/list.html?page=4" title="第4页">4</a>
+                <a href="/merchant/store/list.html?page=5" title="第5页">5</a>
+                <p class="pageEllipsis">...</p>
+                <a href="/merchant/store/list.html?page=2" title="下一页">下一页</a>
+                <a href="/merchant/store/list.html?page=7" title="尾页">尾页</a>
+                <p class="pageRemark">共<strong>7</strong>页<strong>7</strong>条数据</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- 物流发货弹出框 -->
+<div class="modal fade" id="send_out_goods">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form action="" id="form_goods">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title">商品发货</h5>
+                </div>
+                <div class="modal-body">
+                    <p>待发货 <em class="js-wait-good text-danger">1</em>，已选 <em class="js-selected">0</em></p>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th width="10"><input type="checkbox" class="all-check"></th>
+                                <th width="30%">
+                                    商品
+                                </th>
+                                <th>数量</th>
+                                <th>物流|单号</th>
+                                <th>状态</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" name="single_ck" class="single-check"></td>
+                                <td>
+                                    <p>商品名称</p>
+                                    <p class="m0">型号（黄色，M）</p>
+                                </td>
+                                <td>x1</td>
+                                <td></td>
+                                <td>待发货</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="single_ck" class="single-check"></td>
+                                <td>
+                                    <p>商品名称</p>
+                                </td>
+                                <td>x1</td>
+                                <td></td>
+                                <td>待发货</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="table-error mt10"></div>
+
+                    <div class="form-horizontal express mt20">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span class="mr5">物流公司</span>
+                                <select class="form-control form-control-inline w200" name="wuliu">
+                                    <option value="0">申通e速递</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="mr5">快递单号</span>
+                                <input type="text" class="form-control form-control-inline"  placeholder="" name="dkdkdk">
+                            </div>
+                        </div>
+                        <div class="text-gray-light mt5">*请仔细填写物流公司及快递单号，发货后24小时仅支持做一次更正，逾期不可修改</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="button">确认</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 批量发货弹出框 -->
+<div class="modal fade" id="send_out_allGoods">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title">批量发货</h5>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>订单号</th>
+                            <th width="15%">物流公司</th>
+                            <th>快递单号</th>
+                            <th>发货状态</th>
+                            <th>快递单打印状态</th>
+                            <th>发货单打印状态</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>201710211634098730</td>
+                            <td>运通速递</td>
+                            <td>20171021163409</td>
+                            <td>待发货</td>
+                            <td>已打印</td>
+                            <td>未打印</td>
+                        </tr>
+                        <tr>
+                            <td>201710211634098730</td>
+                            <td>
+                                <select class="form-control">
+                                    <option value="0">运通速递</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control">
+                            </td>
+                            <td>待发货</td>
+                            <td>已打印</td>
+                            <td>未打印</td>
+                        </tr>
+                        <tr>
+                            <td>201710211634098730</td>
+                            <td>无需物流</td>
+                            <td>-</td>
+                            <td>待发货</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btn_send_out_allGoods">发货</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 打印快递单弹出框 -->
+<div class="modal fade" id="print_express">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form action="">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title">打印快递单</h5>
+                </div>
+                <div class="modal-body form-horizontal">
+                    <div class="text-center ptb15">已选择 <span class="text-danger order-num">25</span> 个订单</div>
+                    <div class="form-group">
+                        <label class="control-label">发货人选择 <em class="text-danger">*</em></label>
+                        <div class="control-input">
+                            <select class="form-control wper60">
+                                <option value="0">浙江省，宁波市，北仑区，手机</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">打印机 <em class="text-danger">*</em></label>
+                        <div class="control-input">
+                            <select class="form-control wper60">
+                                <option value="0">hp  lp100000</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">快递单模板 <em class="text-danger">*</em></label>
+                        <div class="control-input">
+                            <select class="form-control form-control-inline wper60">
+                                <option value="">申通速递快递模板</option>
+                            </select>
+                            <a href="" class="btn btn-default ml10">管理快递单模板</a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">起始快递单号 <em class="text-danger">*</em></label>
+                        <div class="control-input">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                        <div class="control-input">
+                            <input type="checkbox" class="qkj-checkbox"> 打印后同步发货
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                        <div class="control-input">
+                            <input type="checkbox" class="qkj-checkbox"> 合并打印（合并后共 <em class="text-danger">23</em> 单）
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                        <div class="control-input">
+                            <div class="text-gray-light">当收货人、收货人地址、收货人手机完全一致时，可以合并打印。合并后两个订单使用一张快递单</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btn_print_express_preview">打印预览</button>
+                    <button type="button" class="btn btn-primary" id="btn_print_express">立即打印</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 打印发货单弹出框 -->
+<div class="modal fade" id="print_send_out_allGoods">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form action="">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title">打印发货单</h5>
+                </div>
+                <div class="modal-body form-horizontal">
+                    <div class="text-center ptb15">已选择 <span class="text-danger order-num">25</span> 个订单</div>
+                    <div class="form-group">
+                        <label class="control-label">打印机</label>
+                        <div class="control-input">
+                            <select class="form-control wper60">
+                                <option value="0">hp  lp100000</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">打印数量</label>
+                        <div class="control-input">
+                            <label><input type="radio" class="qkj-radio" name="printNum"> 1页打印1个</label>
+                            <label class="ml20"><input type="radio" class="qkj-radio" name="printNum"> 1页打印多个</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">多联控制</label>
+                        <div class="control-input">
+                            <select class="form-control form-control-inline wper30">
+                                <option value="">打印1联</option>
+                            </select>
+                            <label class="ml20"><input type="checkbox" class="qkj-checkbox"> 打印时不显示联名称</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">联名称</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control form-control-inline w200" placeholder="第1联">
+                            <input type="text" class="form-control form-control-inline w200" placeholder="第2联">
+                            <input type="text" class="form-control form-control-inline w200" placeholder="第3联">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                        <div class="control-input">
+                            <input type="checkbox" class="qkj-checkbox"> 合并打印（合并后共 <em class="text-danger">23</em> 单）
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                        <div class="control-input">
+                            <div class="text-gray-light">当收货人、收货人地址、收货人手机完全一致时，可以合并打印。合并后两个订单使用一张快递单</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btn_print_send_out_allGoods_preview">打印预览</button>
+                    <button type="button" class="btn btn-primary" id="btn_print_send_out_allGoods">立即打印</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/function/mall/order/order_list.js"></script>
+
+</body>
+</html>

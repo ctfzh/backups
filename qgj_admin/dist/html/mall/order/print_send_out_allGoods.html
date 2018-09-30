@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>打印预览发货单</title>
+</head>
+<body>
+
+<div >
+    <div class="print_send_out_allGoods">
+        <style type="text/css">
+            dl,dt,dd{margin: 0;padding: 0;}
+            .print_send_out_allGoods{padding: 10px 43px 10px 28px}
+            .print_send_out_allGoods h4{text-align: center; border-bottom: 1px dashed #ccc; padding-bottom: 10px}
+            .print_send_out_allGoods .content{padding: 10px 0;}
+            .print_send_out_allGoods dl{display: inline-block; vertical-align: top; width: 30%; margin-bottom: 10px; margin-right: 10px}
+            .print_send_out_allGoods dt{display: inline-block; vertical-align: top}
+            .print_send_out_allGoods dd{display: inline-block; vertical-align: top}
+            .print_send_out_allGoods .block{display: block; width: 100%}
+            .print_send_out_allGoods .sum{text-align: right; padding: 10px}
+            .print_send_out_allGoods .sum span{padding: 0 10px}
+            .print_send_out_allGoods .ft{text-align: right; padding: 10px; border-top:1px dashed #aaa; margin-top: 20px}
+            .table th,.table td{text-align: center; font-weight: 100; padding: 6px 0}
+            .table thead th{border-bottom: 1px solid #aaa; border-top: 1px solid #aaa; color: #000}
+            .table tbody td{color: #666}
+            .table tfoot td{color: #666; border-bottom: 1px solid #aaa; border-top: 1px solid #aaa}
+
+        </style>
+        <h4>发货单</h4>
+        <div class="content">
+            <dl>
+                <dt>买家昵称</dt>
+                <dd>掌声</dd>
+            </dl>
+            <dl>
+                <dt>收件人：</dt>
+                <dd>张四</dd>
+            </dl>
+            <dl>
+                <dt>收件人手机：</dt>
+                <dd>15221251252</dd>
+            </dl>
+            <dl class="block">
+                <dt>发货时间：</dt>
+                <dd id="time"></dd>
+            </dl>
+            <dl class="block">
+                <dt>收货人地址：</dt>
+                <dd>广东省中山市天河区</dd>
+            </dl>
+            <dl class="block">
+                <dt>订单编号：</dt>
+                <dd>11111111111111111</dd>
+            </dl>
+        </div>
+
+        <table cellpadding="0" cellspacing="0" width="100%" class="table">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th width="25%">商品名称</th>
+                    <th width="15%">商家编码</th>
+                    <th width="15%">规格</th>
+                    <th>数量</th>
+                    <th>金额（元）</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>商品名称</td>
+                    <td>商家编码</td>
+                    <td>规格</td>
+                    <td>数量</td>
+                    <td>金额（元）</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>商品名称</td>
+                    <td>商家编码</td>
+                    <td>规格</td>
+                    <td>数量</td>
+                    <td>金额（元）</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>合计：</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>3</td>
+                    <td>300.99</td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="sum">
+            <span>运费（元）：5.00</span>
+            <span>实付金额（元）：100</span>
+        </div>
+        <dl class="block">
+            <dt><strong>买家留言：</strong></dt>
+            <dd></dd>
+        </dl>
+        <dl class="block">
+            <dt><strong>卖家备注：</strong></dt>
+            <dd></dd>
+        </dl>
+
+        <div class="ft">
+            第1联
+        </div>
+    </div>
+</div>
+
+<script>
+    var date = new Date(),
+        year = date.getFullYear() + '年',
+        month = date.getMonth() + '月',
+        day = date.getDate()+ '日',
+        hour = date.getHours() + ":",
+        minute = date.getMinutes() + ":",
+        second = date.getSeconds();
+    document.getElementById("time").innerHTML = year+month+day+hour+minute+second;
+</script>
+
+</body>
+</html>

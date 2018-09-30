@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>公众号授权</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item active"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">系统设置</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../account/account_list.html" class="list-group-item">账号设置</a>
+            </li>
+            <li>
+                <a href="../alipay/alipay_set_list.html" class="list-group-item">支付宝设置</a>
+            </li>
+            <li>
+                <a href="../wx/wxpay_set_list.html" class="list-group-item active">微信设置</a>
+            </li>
+            <li>
+                <a href="../bank/bankacount_set.html" class="list-group-item">银行间联设置</a>
+            </li>
+            <li>
+                <a href="../system/modify_password.html" class="list-group-item">修改密码</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="wxpay_set_list.html">收款账号</a></li>
+                <li><a href="wx_authorizationed.html">公众号授权</a></li>
+                <li><a href="wx_interflow1.html">会员互通</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="container-fluid">
+                <div class="panel panel-default">
+                    <div class="panel-heading">商户类型</div>
+                    <div class="panel-body">
+                        <div class="mb20">
+                            <label class="radio-inline">
+                                <input type="radio" name="merchantType" id="inlineRadio2" value="0" checked> 特约商户
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="merchantType" id="inlineRadio1" value="1"> 普通商户
+                            </label>
+                        </div>
+                        <p>商户类型可在 <a href="pay.weixin.qq.com">微信支付商户平台</a>-账号中心-商户信息中 查看。注：通过玩券签约的均为特约商户。</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-default ordinaryMerchant" style="display: none">
+                    <div class="panel-heading">证书上传</div>
+                    <div class="panel-body">
+                        <form action="" class="form-horizontal">
+                            <div class="form-group">
+                                <label for="inputFileCert" class="col-sm-2">cert上传</label>
+                                <div class="col-sm-10">
+                                    <a href="javascript:;" class="file-style"><input type="file" id="inputFileCert">选择文件</a>
+                                    <span class="mr20">apiclient_cert.pem</span>
+                                    <span class="text-success"><i class="icon-tick"></i> 上传成功</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputFileKey" class="col-sm-2">key上传</label>
+                                <div class="col-sm-10">
+                                    <a href="javascript:;" class="file-style"><input type="file" id="inputFileKey">选择文件</a>
+                                    <span class="mr20">apiclient_key.pem</span>
+                                    <span class="text-danger"><i class="icon-fork"></i> 上传失败</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="mb20">
+                    <h5>微信支付信息</h5>
+                    <div class="border p15">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label class="control-label "><em class="text-danger">*</em> 微信支付商户号</label>
+                                <div class="control-input">
+                                    <input type="text" class="form-control wper80">
+                                    <p class="mt5">可在 <a href="pay.weixin.qq.com">微信支付商户平台</a>-账号中心-商户信息 中查看。</p>
+                                </div>
+                            </div>
+                            <div class="form-group ordinaryMerchant" style="display: none">
+                                <label class="control-label "><em class="text-danger">*</em> API密钥</label>
+                                <div class="control-input">
+                                    <input type="text" class="form-control wper80">
+                                    <p class="mt5">可在 <a href="pay.weixin.qq.com">微信支付商户平台</a>-账号中心-API安全 中 “设置密钥”</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label "><em class="text-danger">*</em> AppID（应用ID）</label>
+                                <div class="control-input">
+                                    <input type="text" class="form-control wper80" id="inputWxpay">
+                                    <p class="mt5">可在 <a href="#">微信公众平台</a>-开发-基本配置 中查看。</p>
+                                </div>
+                            </div>
+                            <div class="form-group ordinaryMerchant" style="display: none">
+                                <label class="control-label"><em class="text-danger">*</em> AppSecret(应用密钥)</label>
+                                <div class="control-input">
+                                    <input type="text" class="form-control wper80" placeholder="用于公众号支付">
+                                    <p class="mt5">可在 <a href="#">微信公众平台</a>-开发-基本配置 中点击“显示密钥”查看。</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">备注</label>
+                                <div class="control-input">
+                                    <input type="text" class="form-control wper80" placeholder="">
+                                    <p>建议填写账号信息</p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="btn-wrap text-center">
+                    <button type="button" class="btn btn-primary">提交保存</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/function/system/system.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>预约活动/数据列表</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <ul class="list-group list-group-black">
+            <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+            <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+            <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+            <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+            <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+            <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+            <li><a href="../../wx_applet/manager/list.html" class="list-group-item active"><i class="icon-wechatapp"></i> 小程序</a></li>
+            <li><a href="../../mall/goods/good_list.html" class="list-group-item"><i class="icon-shop"></i> 商城</a></li>
+            <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+            <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+            <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+        </ul>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">小程序</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li class="sub-item">
+                <a href="javascript:;" class="list-group-item">智慧门店版</a>
+                <ul>
+                    <li><a href="../manager/wxapplet_outline.html" class="list-group-item">概况</a></li>
+                    <li><a href="../page_manager/mall_list.html" class="list-group-item">页面</a></li>
+                    <li><a href="../manager/tips.html" class="list-group-item">展示</a></li>
+                    <li><a href="../demo_version/page_add.html" class="list-group-item">营销</a></li>
+                    <li><a href="../set/wx_authorization.html" class="list-group-item ">设置</a></li>
+                </ul>
+            </li>
+            <li class="sub-item"><!--这个只有在开通后才显示-->
+                <a href="javascript:;" class="list-group-item">商城版</a>
+                <ul>
+                    <li><a href="../page_manager/mall_list.html" class="list-group-item">页面</a></li>
+                    <li><a href="../set/wx_authorization.html" class="list-group-item ">设置</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../manager/list.html" class="list-group-item">版本管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li><a href="../marketing_version/preferential_set.html">优惠页设置</a></li>
+                <li><a href="../page_manager/mall_list.html">商城页面</a></li>
+                <li><a href="../../store/store/store_add.html">门店管理</a></li>
+                <li><a href="../../store/ablum/storeAblum_list.html">商家相册</a></li>
+                <li><a href="../set/wx_authorization.html">小程序设置</a></li>
+                <li><a href="../marketing_version/yiyanlianmeng_list.html">异业联盟</a></li>
+                <li><a href="../appointment/list.html">预约</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <form class="form-horizontal form-search form-search-auto">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label class="control-label">数据生成时间</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control widthauto inline-block" id="time" placeholder="" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">所属门店</label>
+                        <div class="control-input">
+                            <select class="form-control w200">
+                                <option>全部门店</option>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="qgj-nav">
+                <div class="pull-right"><a href="javascript:;" class="btn btn-default">导出数据</a></div>
+                <dl class="dl-horizontal ml10">
+                    <dt>数据项</dt>
+                    <dd>
+                        <label class="w150 mb5"><input type="checkbox" class="qkj-checkbox"> 预约项目</label>
+                        <label class="w150 mb5"><input type="checkbox" class="qkj-checkbox"> 预约人</label>
+                        <label class="w150 mb5"><input type="checkbox" class="qkj-checkbox"> 手机号</label>
+                        <label class="w150 mb5"><input type="checkbox" class="qkj-checkbox"> 手机号</label>
+                        <label class="w150 mb5"><input type="checkbox" class="qkj-checkbox"> 手机号</label>
+                        <label class="w150 mb5"><input type="checkbox" class="qkj-checkbox"> 手机号手机号</label>
+                        <label class="w150 mb5"><input type="checkbox" class="qkj-checkbox"> 手机号</label>
+                        <label class="w150 mb5"><input type="checkbox" class="qkj-checkbox"> 手机号</label>
+                        <label class="w150 mb5"><input type="checkbox" class="qkj-checkbox"> 手机号</label>
+                        <label class="w150 mb5"><input type="checkbox" class="qkj-checkbox"> 手机号</label>
+                        <label class="w150 mb5"><input type="checkbox" class="qkj-checkbox"> 手机号</label>
+                        <label class="w150 mb5"><input type="checkbox" class="qkj-checkbox"> 手机号</label>
+                    </dd>
+                </dl>
+            </div>
+
+            <div class="table-responsive table-auto">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>所属门店</th>
+                        <th>预约编号</th>
+                        <th>111111111111111111</th>
+                        <th>2222222222222</th>
+                        <th>333333333333</th>
+                        <th>44444444444444</th>
+                        <th>55555555555555</th>
+                        <th>性别</th>
+                        <th>喜欢颜色</th>
+                        <th>兴趣爱好</th>
+                        <th>活动时间</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>海底捞 - 泗泾店</td>
+                        <td>0619310241</td>
+                        <td>张三</td>
+                        <td>13095920688</td>
+                        <td>123</td>
+                        <td>295419227@qq.com</td>
+                        <td>123456</td>
+                        <td>男</td>
+                        <td>红</td>
+                        <td>读书,美食</td>
+                        <td nowrap="">2018-06-19 19:32</td>
+                    </tr>
+                    <tr>
+                        <td>海底捞 - 泗泾店</td>
+                        <td>0619540314</td>
+                        <td>赵四</td>
+                        <td>13095920688</td>
+                        <td>123</td>
+                        <td>295419227@qq.com</td>
+                        <td>123456</td>
+                        <td>男</td>
+                        <td>橙</td>
+                        <td>读书</td>
+                        <td>2018-06-19 19:35</td>
+                    </tr>
+                    <tr>
+                        <td>test - 11</td>
+                        <td>0619884594</td>
+                        <td>的风格的是</td>
+                        <td>15121164595</td>
+                        <td>1555</td>
+                        <td>15121164595@163.com</td>
+                        <td> sdf as f</td>
+                        <td>男</td>
+                        <td>红</td>
+                        <td>读书</td>
+                        <td>2018-06-19 19:54</td>
+                    </tr>
+                    <tr>
+                        <td>test - 11</td>
+                        <td>0619534288</td>
+                        <td>李健康</td>
+                        <td>15121164595</td>
+                        <td>155</td>
+                        <td>15121164595@163.com</td>
+                        <td>1585</td>
+                        <td></td>
+                        <td>红</td>
+                        <td>读书</td>
+                        <td>2018-06-19 20:02</td>
+                    </tr>
+                    <tr>
+                        <td>test - 11</td>
+                        <td>0619220619</td>
+                        <td>李健康</td>
+                        <td>15121164595</td>
+                        <td>155</td>
+                        <td>15121164595@163.com</td>
+                        <td>1585</td>
+                        <td></td>
+                        <td>红</td>
+                        <td>读书</td>
+                        <td>2018-06-19 20:02</td>
+                    </tr>
+                    <tr>
+                        <td>test - 11</td>
+                        <td>0619431634</td>
+                        <td>李健康</td>
+                        <td>15121164595</td>
+                        <td>155</td>
+                        <td>15121164595@163.com</td>
+                        <td>1585</td>
+                        <td></td>
+                        <td>红</td>
+                        <td>读书</td>
+                        <td>2018-06-19 20:02</td>
+                    </tr>
+                    <tr>
+                        <td>test - 11</td>
+                        <td>0619639501</td>
+                        <td>李健康</td>
+                        <td>15121164595</td>
+                        <td>155</td>
+                        <td>15121164595@163.com</td>
+                        <td>1585</td>
+                        <td></td>
+                        <td>红</td>
+                        <td>读书</td>
+                        <td>2018-06-19 20:02</td>
+                    </tr>
+                    <tr>
+                        <td>test - 11</td>
+                        <td>0619448119</td>
+                        <td>李健康</td>
+                        <td>15121164595</td>
+                        <td>155</td>
+                        <td>15121164595@163.com</td>
+                        <td>1585</td>
+                        <td></td>
+                        <td>红</td>
+                        <td>读书</td>
+                        <td>2018-06-19 20:02</td>
+                    </tr>
+                    <tr>
+                        <td>海底捞 - 泗泾店</td>
+                        <td>0619271634</td>
+                        <td>李建康</td>
+                        <td>15121164595</td>
+                        <td>12133</td>
+                        <td>15121164595@163.com</td>
+                        <td>都不记得了</td>
+                        <td></td>
+                        <td>红</td>
+                        <td>读书</td>
+                        <td>2018-06-19 20:11</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="page" class="ptb15">
+                <p>首页</p>
+                <p>上一页</p>
+                <a href="/merchant/store/list.html?page=1" title="第1页" class="cur">1</a>
+                <a href="/merchant/store/list.html?page=2" title="第2页">2</a>
+                <a href="/merchant/store/list.html?page=3" title="第3页">3</a>
+                <a href="/merchant/store/list.html?page=4" title="第4页">4</a>
+                <a href="/merchant/store/list.html?page=5" title="第5页">5</a>
+                <p class="pageEllipsis">...</p>
+                <a href="/merchant/store/list.html?page=2" title="下一页">下一页</a>
+                <a href="/merchant/store/list.html?page=7" title="尾页">尾页</a>
+                <p class="pageRemark">共<strong>7</strong>页<strong>7</strong>条数据</p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/function/wx_applet/appointment/data_list.js"></script>
+
+
+</body>
+</html>

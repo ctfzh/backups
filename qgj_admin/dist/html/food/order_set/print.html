@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>打印设置</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item active"><i class="icon-store"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="#" class="list-group-item"><i class="icon-apply"></i> 应用</a></li>
+        <li><a href="#" class="list-group-item"><i class="icon-service"></i> 客户</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="#" class="list-group-item"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-set"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">餐饮管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../goods/good_list.html" class="list-group-item">商品管理</a>
+            </li>
+            <li>
+                <a href="../order/order_list.html" class="list-group-item">订单管理</a>
+            </li>
+            <li class="active">
+                <a href="" class="list-group-item">设置</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li><a href="ordering.html">点餐设置</a></li>
+                <li><a href="takeout_food.html">外卖设置</a></li>
+                <li><a href="#">桌台管理</a></li>
+                <li class="active"><a href="print.html">打印设置</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="widget-tip">打印控件还未安装，请下载并完成安装 <a href="javascript:;" class="btn btn-default ml10">下载打印控件</a></div>
+            <form action="">
+                <div class="form-horizontal">
+                    <div class="form-group form-group-200">
+                        <label class="control-label">打印机设置：</label>
+                        <div class="control-input">
+                            <select class="form-control form-control-inline wper60">
+                                <option value="">请选择您使用的打印机</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group form-group-200">
+                        <label class="control-label">打印联数：</label>
+                        <div class="control-input">
+                            <select class="form-control form-control-inline wper60">
+                                <option value="">打印1联</option>
+                                <option value="">打印2联</option>
+                                <option value="">打印3联</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="btn-wrap text-center ptb50">
+                        <button type="button" class="btn btn-primary" id="button">保存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

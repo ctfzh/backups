@@ -1,0 +1,247 @@
+//评论
+//-----------------------------
+
+/**星星**/
+.comp-rate{
+  .inline-block;
+  text-align: center;
+  dt{
+    .inline-block;
+    font-size: 24px;
+  }
+  dd{
+    span{
+      position: relative;
+      .inline-block;
+      vertical-align: middle;
+      width: 16px;
+      height: 16px;
+      background: url("../img/icon/star.png") no-repeat 0 -32px;
+      background-size:100% auto;
+      &.cur{
+        background-position: 0 0;
+      }
+    }
+  }
+  &.comp-rate1{
+    dd{
+      span{
+        &:nth-of-type(1){
+          background-position: 0 -67px;
+        }
+      }
+    }
+  }
+  &.comp-rate2{
+    dd{
+      span{
+        &:nth-of-type(1){
+          background-position: 0 0;
+        }
+      }
+    }
+  }
+  &.comp-rate3{
+    dd{
+      span{
+        &:nth-of-type(1){
+          background-position: 0 0;
+        }
+        &:nth-of-type(2){
+          background-position: 0 -67px;
+        }
+      }
+    }
+  }
+  &.comp-rate4{
+    dd{
+      span{
+        &:nth-of-type(1){
+          background-position: 0 0;
+        }
+        &:nth-of-type(2){
+          background-position: 0 0;
+        }
+      }
+    }
+  }
+  &.comp-rate5{
+    dd{
+      span{
+        &:nth-of-type(1){
+          background-position: 0 0;
+        }
+        &:nth-of-type(2){
+          background-position: 0 0;
+        }
+        &:nth-of-type(3){
+          background-position: 0 -67px;
+        }
+      }
+    }
+  }
+  &.comp-rate6{
+    dd{
+      span{
+        &:nth-of-type(1){
+          background-position: 0 0;
+        }
+        &:nth-of-type(2){
+          background-position: 0 0;
+        }
+        &:nth-of-type(3){
+          background-position: 0 0;
+        }
+      }
+    }
+  }
+  &.comp-rate7{
+    dd{
+      span{
+        &:nth-of-type(1){
+            background-position: 0 0;
+          }
+        &:nth-of-type(2){
+          background-position: 0 0;
+        }
+        &:nth-of-type(3){
+          background-position: 0 0;
+        }
+        &:nth-of-type(4){
+          background-position: 0 -67px;
+        }
+      }
+    }
+  }
+  &.comp-rate8{
+    dd{
+      span{
+        &:nth-of-type(1){
+          background-position: 0 0;
+        }
+        &:nth-of-type(2){
+          background-position: 0 0;
+        }
+        &:nth-of-type(3){
+          background-position: 0 0;
+        }
+        &:nth-of-type(4){
+          background-position: 0 0;
+        }
+      }
+    }
+  }
+  &.comp-rate9{
+    dd{
+      span{
+        &:nth-of-type(1){
+          background-position: 0 0;
+        }
+        &:nth-of-type(2){
+          background-position: 0 0;
+        }
+        &:nth-of-type(3){
+          background-position: 0 0;
+        }
+        &:nth-of-type(4){
+          background-position: 0 0;
+        }
+        &:nth-of-type(5){
+          background-position: 0 -67px;
+        }
+      }
+    }
+  }
+  &.comp-rate10{
+    dd{
+      span{
+        &:nth-of-type(1){
+          background-position: 0 0;
+        }
+        &:nth-of-type(2){
+          background-position: 0 0;
+        }
+        &:nth-of-type(3){
+          background-position: 0 0;
+        }
+        &:nth-of-type(4){
+          background-position: 0 0;
+        }
+        &:nth-of-type(5){
+          background-position: 0 0;
+        }
+      }
+    }
+  }
+}
+
+/**进度条**/
+
+.r-progress-item{
+  margin-bottom: 8px;
+  .clearfix;
+  &:last-child{
+    margin-bottom: 0;
+  }
+  &.r-progress-item5{
+    .line span{background-color: #ff6e38;}
+  }
+  &.r-progress-item4{
+    .line span{background-color: #ff8b60;}
+  }
+  &.r-progress-item3{
+    .line span{background-color: #fea583;}
+  }
+  &.r-progress-item2{
+    .line span{background-color: #ffc5af;}
+  }
+  &.r-progress-item1{
+    .line span{background-color: #ffe2d7;}
+  }
+  span{
+    float: left;
+    height: 14px;
+    margin-right: 5px;
+    font-size: 11px;
+    &.line{
+      position: relative;
+      width: 60%;
+      margin-right: 0;
+      max-width: 300px;
+      span{
+        position: relative;
+      }
+      .per{
+        position: absolute;
+        right: -60px;
+        width: 55px;
+        padding-left: 5px;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.rate-wrap{
+  .clearfix;
+  padding: 20px;
+  border: 1px solid @border-color;
+  .item{
+    float: left;
+    width: 50%;
+    display: table;
+  }
+  .hd{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+    margin-right: 20px;
+    width: 20%;
+    font-size: @font-size-h4;
+  }
+  dl{
+    display: table-cell;
+    vertical-align: middle;
+    width: 30%;
+  }
+}

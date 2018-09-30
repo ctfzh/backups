@@ -1,0 +1,122 @@
+// 打印
+//________________________________
+
+// 控件提示
+.widget-tip{
+  text-align: left;
+  padding-left: 210px;
+  color: @brand-primary;
+  margin-bottom: 30px;
+}
+
+////添加快递模板
+.experss-add{
+  border: 1px solid @border-color;
+  min-width: 1000px;
+  overflow-x: auto;
+  .express-add-hd{
+    position: relative;
+    .clearfix;
+    border-bottom:1px solid @border-color;
+  }
+  .express-add-hd-sider{
+    position: absolute;
+    top: 0;
+    width: 186px;
+    height: 50px;
+    line-height: 50px;
+    padding-left: @space-padding;
+    border-right: 1px solid @border-color;
+    font-size: @font-size-h4;
+  }
+  .express-add-hd-main{
+    margin-left: 186px;
+    height: 50px;
+    padding-top: 8px;
+    .form-group{
+      .inline-block;
+      margin-right: 20px;
+      margin-bottom: 0;
+      padding-left: 10px;
+    }
+    .control-label{
+      margin-right: 10px;
+    }
+    .control-input{
+      .inline-block;
+    }
+    .form-control{
+      width: 200px;
+    }
+    .form-error{
+      .inline-block;
+      vertical-align: top;
+      label{
+        display: block;
+        font-size: 12px;
+      }
+      .error{
+        color: @brand-danger;
+      }
+    }
+    .btn{
+      min-width: auto;
+      margin-right: 10px;
+    }
+  }
+
+  .express-add-bd{
+    position: relative;
+    .clearfix
+  }
+  .express-add-bd-sider{
+    position: absolute;
+    top: 0;
+    width: 186px;
+    height: 500px;
+    padding: @space-padding-sm @space-padding;
+    border-right: 1px solid @border-color;
+    input{
+      margin-right: 5px;
+    }
+    li{
+      padding: @space-padding-sm/4 0;
+    }
+  }
+  .express-add-bd-main{
+    margin-left: 186px;
+    height: 500px;
+    border-left: 1px solid @border-color;
+  }
+}
+
+/*快递单*/
+.tmp_com{position:relative; width:874px; background-size:auto 100%; background-repeat: no-repeat; height:483px}
+.tmp_sf{background-image:url(../img/mall/print/sf.jpg)}
+.tmp_st{background-image:url(../img/mall/print/st.jpg)}
+.tmp_yt{background-image:url(../img/mall/print/yt.jpg)}
+.tmp_yd{background-image:url(../img/mall/print/yd.jpg)}
+.tmp_ems{background-image:url(../img/mall/print/ems.jpg)}
+.tmp_lb{background-image:url(../img/mall/print/lb.jpg)}
+.tmp_ht{background-image:url(../img/mall/print/ht.jpg)}
+.tmp_tt{background-image:url(../img/mall/print/tt.jpg)}
+.tmp_qf{background-image:url(../img/mall/print/qf.jpg)}
+.tmp_zjs{background-image:url(../img/mall/print/zjs.jpg)}
+.tmp_zt{background-image:url(../img/mall/print/zt.jpg)}
+.tmp_ys{background-image:url(../img/mall/print/ys.jpg)}
+.styleRD,.styleLD,.styleRU,.styleLU,.styleR,.styleL,.styleU,.styleD{position:absolute;background:#ff7a73;width:5px; height:5px; z-index:500; font-size:0;}
+.styleLD{cursor:ne-resize; left:-2px; bottom:-2px}
+.styleRD{cursor:nw-resize; right:-2px; bottom:-2px}
+.styleRU{cursor:ne-resize; right:-2px; top:-2px}
+.styleLU{cursor:nw-resize; left:-2px; top:-2px;}
+.styleR{cursor:e-resize; right:-2px; top:50% ; margin-top:-3px}
+.styleL{cursor:e-resize; left:-2px; top:50%;margin-top:-3px}
+.styleU{cursor:n-resize; top:-3px; left:50%;margin-left:-5px}
+.styleD{cursor:n-resize; bottom:-2px;left:50%;margin-left:-5px}
+.tempLable{border:1px dashed #FF8C3F; width:150px; height:21px; line-height:22px; background:rgba(254,245,230,0.5); z-index:55565; color: #000; cursor:move; position:absolute; padding-left:6px}
+.tempLable div{display:none}
+.tempLable .closebtn{position:absolute; right:9px;top:5px; background:#f00; color:#fff; width:10px; height:10px; font:9px/10px "微软雅黑"; text-align:center}
+.pop_con_bd{ margin:15px 0 }
+.pop_con .filed{ padding:5px 0;}
+.pop_con .filed .label{ width:100px;display:inline-block; vertical-align:top; text-align:right;}
+.pop_con .filed .text{width:300px; display:inline-block; vertical-align:top;}

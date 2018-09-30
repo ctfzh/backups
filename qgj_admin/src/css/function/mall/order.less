@@ -1,0 +1,216 @@
+// 商城管理---订单管理
+//________________________________
+
+//-----同城配送-----//
+.delivery-area{
+  .clearfix;
+  border: 1px solid @border-color;
+  width: 100%;
+}
+.delivery-area-l{
+  float: left;
+  width: 25%;
+  > div{
+    padding: @space-padding-sm;
+  }
+  .form-group{
+    .control-label{
+      width: 80px;
+    }
+    .control-input{
+      padding-left:80px;
+    }
+  }
+}
+.delivery-area-r{
+  float: left;
+  padding: 0;
+  width: 75%;
+  border-left: 1px solid @border-color;
+  .hd{
+    padding: @space-padding-sm/2;
+    border-bottom: 1px solid @border-color;
+  }
+  .bd{
+    min-height: 400px;
+  }
+}
+
+//配送时段
+.time-area{
+  .time, .btn-wrap{
+    .inline-block;
+    vertical-align: top;
+    margin-right: @space-padding-sm/2;
+  }
+  .week{
+    .inline-block;
+    vertical-align: top;
+    margin-right: @space-padding-sm/2;
+    margin-bottom: 0;
+    .week-item{
+      position: relative;
+      .inline-block;
+      margin-right: 5px;
+      .border;
+      cursor: pointer;
+      width: 43px;
+      line-height:28px;
+      input{
+        .absolutetb0;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 1;
+      }
+      span{
+        padding: 0 @space-padding-sm/4;
+        display: block;
+        cursor: pointer;
+      }
+      &.active{
+        border-color:@brand-success;
+        &:before{
+          content: '';
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 0;
+          height:0;
+          border-width: 6px;
+          border-color: @brand-success @brand-success transparent transparent;
+          border-style: solid;
+        }
+      }
+      &.disabled{
+        span{
+          background-color: lighten(@gray-base, 90%);
+          color: @gray;
+        }
+      }
+    }
+    li{
+      position: relative;
+      .inline-block;
+      .border;
+      padding: 0 @space-padding-sm/4;
+      cursor: pointer;
+      &.active,&:hover{
+        border-color:@brand-success;
+        &:before{
+          content: '';
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 0;
+          height:0;
+          border-width: 6px;
+          border-color: @brand-success @brand-success transparent transparent;
+          border-style: solid;
+        }
+      }
+    }
+
+  }
+  .time-picker-item{
+    margin-bottom: 10px;
+    > .inline-block {
+      margin-right: 20px;
+    }
+  }
+}
+
+//订单管理
+.order-d-info{
+  position: relative;
+  margin-bottom:@space-padding-sm;
+  border: 1px solid @border-color;
+  &:before{
+    content: '';
+    position: absolute;
+    left: 25%;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    border-left: 1px solid @border-color;
+  }
+  .order-sider{
+    .inline-block;
+    width: 25%;
+    padding: @space-padding-sm;
+    h5{
+      font-weight: 600;
+    }
+  }
+  .order-con{
+    .inline-block;
+    vertical-align: top;
+    width: 74.5%;
+    padding: @space-padding-sm * 2;
+    border-left: none;
+    .icon-excalmation{
+      margin-right: 5px;
+      font-size: 45px;
+    }
+    .icon-tick{
+      margin-right: 7px;
+      font-size: 42px;
+    }
+    dt{
+      color: @gray-base;
+      font-size: @font-size-h4;
+    }
+    dd{
+      padding-top: 10px;
+      margin-left: 55px;
+      line-height: 1.8;
+    }
+  }
+}
+
+//退款
+.refund-addr-list{
+  margin-left: @space-padding-sm/2;
+  line-height: 2;
+  .set-addr{
+    display: none;
+  }
+  .default-addr{
+    display: none;
+    color: @brand-danger;
+  }
+  li{
+    label{
+      margin-right: @space-padding/2;
+    }
+    a,span{
+      margin-right: @space-padding-sm/4;
+    }
+    &:hover{
+      .set-addr,.del-addr{
+        display: inline-block;
+      }
+    }
+    &.active{
+      .default-addr{
+        display: inline-block;
+      }
+      .set-addr,.del-addr{
+        display: none;
+      }
+    }
+  }
+}
+
+.operate{
+  .btn{
+    margin-right: 5px;
+  }
+}
+
+//打印
+#print_express {
+  .form-control{
+    width: 75% !important;
+    max-width: 75% !important;
+  }
+}

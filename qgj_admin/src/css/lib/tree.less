@@ -1,0 +1,120 @@
+.store-pop{
+  ul{
+    margin-bottom: 0;
+  }
+  .v-select-store .comList .child3 {
+    display:block;
+    padding-left:60px
+  }
+}
+.v-select-store {
+  .tree1{
+    padding-top: @space-padding-sm/2;
+    overflow-y:auto;
+    max-height: 300px;
+    border: 1px solid @border-color;
+    > .rbArrow{
+      margin-left: @space-padding-sm/2;
+    }
+  }
+  ul{
+    margin-bottom: 0;
+  }
+  .no-bg{
+    background-color: transparent !important;
+  }
+  .meta {
+    float:right
+  }
+  .parentWrap {
+    padding-left:30px;
+    background-color:#f4f4f4;
+  }
+  .comList {
+    border-top:1px solid #dedede;
+    margin-top:10px;
+  }
+  .child2 {
+    .parentWrap{
+      padding-left:60px;
+      background-color: transparent;
+    }
+  }
+  .child3{
+    padding-left: 90px;
+  }
+  .child4 {
+    padding:8px 0;
+    padding-left:90px;
+    border-bottom:1px solid #ddd;
+    background-color:#fff;
+    .store-name {
+      .inline-block;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width:40%
+    }
+  }
+  .iconFolder {
+    background:url(../img/icon/icon003.png) no-repeat;
+    width:17px;
+    height:13px;
+    display:inline-block;
+    margin:0 5px
+  }
+  .rbArrow {
+    background:url(../img/icon/icon001.png) no-repeat;
+    display:inline-block;
+    width:8px;
+    height:8px;
+    vertical-align:3px;
+    cursor:pointer
+  }
+  .iconFile {
+    background:url(../img/icon/icon005.png) no-repeat;
+    width:10px;
+    height:14px;
+    display:inline-block;
+    margin:0 5px
+  }
+  .closeFolder{
+    .rbArrow {
+      background-image:url(../img/icon/icon002.png)
+    }
+    .iconFolder {
+      background-image:url(../img/icon/icon004.png)
+    }
+  }
+  .store-name {
+    .inline-block;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:40%
+  }
+  .store-no{
+    .inline-block;
+    width: 100px;
+  }
+  .tree1 .meta {
+    display:inline-block;
+    width:300px;
+    max-width:100%;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis
+  }
+}
+.v-selected-num {
+  text-align:right;
+  margin-top:12px;
+  em {
+    padding:0 3px
+  }
+}
+.v-select-store .comList .child3,.v-select-store .comList .parentWrap {
+  padding-top:8px;
+  padding-bottom:8px;
+  border-bottom:1px solid #dedede
+}

@@ -1,0 +1,136 @@
+// 优惠页设置
+//________________________________
+
+.preferential-set{
+  .coupon{
+    padding: 10px;
+    .item{
+      position: relative;
+      margin-bottom: 10px;
+      padding-right: 30px;
+      border: 1px solid @border-color;
+      background-color: @color-white;
+      .clearfix;
+      .item-l{
+        float: left;
+        text-align: center;
+        padding: 15px 15px;
+        color: @color-white;
+        background-color: @brand-primary;
+        p{
+          margin-bottom: 0;
+        }
+        .price{
+          em{
+            font-size: @font-size-h3;
+          }
+        }
+      }
+      .item-m{
+        float: left;
+        padding: 10px 15px;
+        width: 156px;
+        color: @gray;
+      }
+      .item-r{
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        padding: 0 5px;
+        width: 30px;
+        text-align: center;
+        border-left: 1px solid @border-color;
+        font-size: 12px;
+        a{
+          display: block;
+          margin-top:8px;
+        }
+      }
+      &.item-default{
+        .item-l{
+          background-color: @gray-light;
+        }
+      }
+      &.item-orange{
+        .item-l{
+          #gradient > .horizontal(#FF6B2B;#F03F2B);
+        }
+      }
+      &.item-yellow{
+        .item-l{
+          #gradient > .horizontal(#FAD689;#E3B658);
+        }
+      }
+    }
+    .more{
+      display: block;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  }
+  .link{
+    margin-bottom: 10px;
+    a{
+      position: relative;
+      padding-right: 15px;
+      color: #2C2F33;
+    }
+  }
+  .ml-hd{
+    text-align: center;
+  }
+  .ml-bd{
+    height: auto;
+  }
+  .menu-list{
+    width: 320px;
+    .card-panel{
+      padding: 10px 10px 0;
+    }
+    .card-pic{
+      margin: 0 7%;
+      padding: @space-padding-sm;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      .name{
+        margin-top: 10px;
+        color: @color-white
+      }
+    }
+    .pull-right{
+      margin-top: 8px;
+      line-height: 26px;
+      color: @color-white;
+    }
+  }
+  .rule{
+    padding:5px 10px;
+    .inline-block;
+    font-size: @font-size-h6;
+    background-color: @color-white;
+    color: @gray;
+    border-radius: 3px;
+    border: 1px solid @border-color;
+  }
+  tbody{
+    tr{
+      .js-down{
+        display: none;
+      }
+      &:first-child{
+        .js-up{
+          display: none;
+        }
+        .js-down{
+          display: inline-block;
+        }
+      }
+      &:last-child{
+        .js-down{
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>商家设置</title>
+
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <script src="../../js/lib/lib.min.js"></script>
+    <script src="../../js/lib/dateranger.min.js"></script>
+    <script src="../../js/common/util.js"></script>
+    <script src="../../js/lib/select2.min.js"></script>
+    <script src="../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../wx_applet/manager/list.html" class="list-group-item"><i class="icon-wechatapp"></i> 小程序</a></li>
+        <li><a href="../mall/goods/good_list.html" class="list-group-item"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="system/modify_password.html" class="list-group-item active"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">商城管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="account/account_list.html" class="list-group-item">账号设置</a>
+            </li>
+            <li>
+                <a href="alipay/alipay_set_list.html" class="list-group-item">支付宝设置</a>
+            </li>
+            <li>
+                <a href="wx/wxpay_set_list.html" class="list-group-item">微信设置</a>
+            </li>
+            <li>
+                <a href="bank/bankacount_set.html" class="list-group-item">银行间联设置</a>
+            </li>
+            <li>
+                <a href="system/modify_password.html" class="list-group-item">修改密码</a>
+            </li>
+            <li>
+                <a href="bussiness_set.html" class="list-group-item active">商家设置</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="bussiness_set.html">商家设置</a></li>
+            </ul>
+        </div>
+        <div class="m-content form-horizontal wx_applet-storeEdit">
+            <form role="form" action="/">
+                <div class="form-group">
+                    <label class="control-label">所属行业</label>
+                    <div class="control-input">
+                        <select class="form-control">
+                            <option value="1">餐饮美食</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">相关分类</label>
+                    <div class="control-input">
+                        <div class="row">
+                            <div class="col-xs-2"><label><input type="checkbox" class="qkj-checkbox"> 中式正餐</label></div>
+                            <div class="col-xs-2"><label><input type="checkbox" class="qkj-checkbox"> 西餐</label></div>
+                            <div class="col-xs-2"><label><input type="checkbox" class="qkj-checkbox"> 西餐</label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt30">
+                    <button type="button" class="btn btn-primary">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--添加分类-->
+<div class="modal fade" id="modalClassify">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加分类</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label">添加分类</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control"  placeholder="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnActivityGoods"  data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--添加视频-->
+<div class="modal fade" id="modalVideo">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加视频</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label">添加标题</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control"  placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">添加网址</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control"  placeholder="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnActivityGoods"  data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

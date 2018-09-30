@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>会员中心设置</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item active"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">CRM管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../outline/user_increase.html" class="list-group-item">CRM概要</a>
+            </li>
+            <li>
+                <a href="../user/user_list.html" class="list-group-item active">用户管理</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="list-group-item">用户分组</a>
+            </li>
+            <li>
+                <a href="../member_grade/member_grade_list.html" class="list-group-item">会员等级</a>
+            </li>
+            <li>
+                <a href="../card/member_card_list.html" class="list-group-item">微信会员卡</a>
+            </li>
+            <li>
+                <a href="../set/member_set.html" class="list-group-item">会员中心设置</a>
+            </li>
+            <li>
+                <a href="../point/point_exchange_list.html" class="list-group-item">积分管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="javascript:;">会员中心</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="menu-manage member-set">
+                <div class="menu-list jsMenuList">
+                    <div class="ml-hd">公众号名称</div>
+                    <div class="ml-bd">
+                        <div class="card-panel">
+                            <div class="card-pic" id="jsCardPic" style="background-color: #509fc9">
+                                <div class="logo-area">
+                                    <span class="logo"><img src="../../../img/logo.png" alt="" class="img-circle"></span>
+                                    <span class="text">
+                                        <span>微信昵称</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-data">
+                            <dl>
+                                <dt>131423</dt>
+                                <dd><i class="icon-star"></i> 积分</dd>
+                            </dl>
+                            <dl>
+                                <dt>131423</dt>
+                                <dd><i class="icon-coupon-d"></i> 优惠券</dd>
+                            </dl>
+                            <dl>
+                                <dt>131423</dt>
+                                <dd><i class="icon-balance"></i> 余额</dd>
+                            </dl>
+                        </div>
+                        <ul class="list-group order">
+                            <li class="list-group-item">
+                                <div class="pull-right tips-pre"><span></span> <i class="icon-arrow-right font-bold"></i></div>
+                                <a href="#" class="text-gray">全部订单</a>
+                            </li>
+                            <li>
+                                <div class="card-data">
+                                    <dl>
+                                        <dt>
+                                            <i class="icon-paying"></i>
+                                        </dt>
+                                        <dd>待支付</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><i class="icon-ordering"></i></dt>
+                                        <dd>待接单</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><i class="icon-delivering"></i></dt>
+                                        <dd>待发货</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><i class="icon-delivered"></i></dt>
+                                        <dd>已发货</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt><i class="icon-completed"></i></dt>
+                                        <dd>已完成</dd>
+                                    </dl>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="list-group list-group-phone">
+                            <li class="list-group-item">
+                                <div class="pull-right tips-pre"><span></span> <i class="icon-arrow-right font-bold"></i></div>
+                                <a href="#" class="text-gray">商城</a>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="pull-right tips-pre"><span></span> <i class="icon-arrow-right font-bold"></i></div>
+                                <a href="#" class="text-gray">购物车</a>
+                            </li>
+                        </ul>
+                        <ul class="list-group list-group-phone">
+                            <li class="list-group-item">
+                                <div class="pull-right tips-pre"><span>至尊会员</span> <i class="icon-arrow-right font-bold"></i></div>
+                                <a href="#" class="text-gray">我的会员卡</a>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="pull-right tips-pre"><span></span> <i class="icon-arrow-right font-bold"></i></div>
+                                <a href="#" class="text-gray">我的钱包</a>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="pull-right tips-pre"><span>一笔待确认</span> <i class="icon-arrow-right font-bold"></i></div>
+                                <a href="#" class="text-gray">消费记录</a>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="pull-right tips-pre"><span>完善资料有礼</span> <i class="icon-arrow-right font-bold"></i></div>
+                                <a href="#" class="text-gray">个人信息</a>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="pull-right tips-pre"><span></span> <i class="icon-arrow-right font-bold"></i></div>
+                                <a href="#" class="text-gray">储值卡/码兑换</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-form">
+                    <form action="" class="form-horizontal">
+                        <div class="mf-body">
+                            <div class="mebcard-box">
+                                <div class="title"><span class="name">基本信息</span></div>
+                                <div class="form-group">
+                                    <label class="control-label">封面背景</label>
+                                    <div class="control-input line-height30">
+                                        <label class="mr10"><input type="radio" name="coverRadio" data-index="0"> 图片</label>
+                                        <label><input type="radio" name="coverRadio" data-index="1" checked> 颜色</label>
+
+                                        <div class="card-cover" id="js-card-cover-type1" style="display: none">
+                                            <!--<div class="text-gray-light">请参照 <a href="">图片规范</a> 上传</div>-->
+                                            <div id="fileQueue0"></div>
+                                        </div>
+                                        <div class="card-cover" id="js-card-cover-type2">
+                                            <div id="js-colorpicker" class="dropdown-m">
+                                                <a href="javascript:;" class="dropdown-switch js-DropdownBt">
+                                                    <span class="js-bt-label" style="background-color: #fff">#fff</span>
+                                                </a>
+                                                <ul class="dropdown-data js-dropdownList">
+                                                    <li class="bg-colorWhite"><a href="javascript:;" class="js-dropdownItem" data-value="#fff" data-index="0">#fff</a></li>
+                                                    <li class="bg-color2"><a href="javascript:;" class="js-dropdownItem" data-value="#63b359" data-index="1">#63b359</a></li>
+                                                    <li class="bg-color3"><a href="javascript:;" class="js-dropdownItem" data-value="#2c9f67" data-index="2">#2c9f67</a></li>
+                                                    <li class="bg-color4"><a href="javascript:;" class="js-dropdownItem" data-value="#509fc9" data-index="3">#509fc9</a></li>
+                                                    <li class="bg-color5"><a href="javascript:;" class="js-dropdownItem" data-value="#5885cf" data-index="4">#5885cf</a></li>
+
+                                                    <li class="bg-color6"><a href="javascript:;" class="js-dropdownItem" data-value="#9062c0" data-index="5">#9062c0</a></li>
+                                                    <li class="bg-color7"><a href="javascript:;" class="js-dropdownItem" data-value="#5e6671" data-index="6">#5e6671</a></li>
+                                                    <li class="bg-color8"><a href="javascript:;" class="js-dropdownItem" data-value="#d09a45" data-index="7">#d09a45</a></li>
+                                                    <li class="bg-color9"><a href="javascript:;" class="js-dropdownItem" data-value="#e4b138" data-index="8">#e4b138</a></li>
+                                                    <li class="bg-color10"><a href="javascript:;" class="js-dropdownItem" data-value="#ee903c" data-index="9">#ee903c</a></li>
+
+                                                    <li class="bg-color11"><a href="javascript:;" class="js-dropdownItem" data-value="#f08500" data-index="10">#f08500</a></li>
+                                                    <li class="bg-color12"><a href="javascript:;" class="js-dropdownItem" data-value="#dd6549" data-index="11">#dd6549</a></li>
+                                                    <li class="bg-color13"><a href="javascript:;" class="js-dropdownItem" data-value="#cc463d" data-index="11">#cc463d</a></li>
+                                                    <li class="bg-colorBlack"><a href="javascript:;" class="js-dropdownItem" data-value="#000" data-index="11">#000</a></li>
+                                                </ul>
+                                            </div>
+                                            <input type="hidden" value="#2c9f67" name="color">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">商城订单</label>
+                                    <div class="control-input">
+                                        <label><input type="checkbox"> 显示商城订单</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">商城入口</label>
+                                    <div class="control-input">
+                                        <label><input type="checkbox"> 显示商城入口</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">购物车</label>
+                                    <div class="control-input">
+                                        <label><input type="checkbox"> 显示购物车</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mf-body">
+                            <div class="mebcard-box">
+                                <div class="title"><span class="name">设置信息</span></div>
+                                <div class="form-group">
+                                    <label class="control-label">个人信息修改</label>
+                                    <div class="control-input">
+                                        <label class="show"><input type="checkbox"> 允许修改生日</label>
+                                        <label class="show"><input type="checkbox"> 允许修改身份证号</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt20">
+                            <button type="submit" class="btn btn-primary">保存并发布</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../../js/function/crm/member_set.js"></script>
+
+</body>
+</html>

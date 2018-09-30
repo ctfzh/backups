@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>裂变券添加</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/masonry-docs.min.js"></script>
+    <script src="../../../js/lib/echarts.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item active"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">营销管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../recharge/recharge_list.html" class="list-group-item">储值活动</a>
+            </li>
+            <li>
+                <a href="coupon_list.html" class="list-group-item active">优惠券</a>
+            </li>
+            <li>
+                <a href="../market/market_list.html" class="list-group-item">营销活动</a>
+            </li>
+            <li>
+                <a href="../wx_applet/wx_applet_list.html" class="list-group-item">微信小程序</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="">优惠券管理</a></li>
+                <li><a href="coupon_verification.html">优惠券核销</a></li>
+                <li><a href="coupon_statistics.html">优惠券统计</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <!--步骤-->
+            <div class="container-fluid border-b mbspace wper60">
+                <ul class="row qgj-menu">
+                    <li class="col-xs-6 text-center">
+                        <h5><a href="javascript:;" class="text-gray">1. 创建裂变券</a></h5>
+                    </li>
+                    <li class="col-xs-6 text-center active">
+                        <h5><a href="javascript:;" class="text-gray">2. 设置领券页</a></h5>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="menu-manage member-card coupon-add">
+                <div class="menu-list jsMenuList">
+                    <div class="ml-hd">创建优惠券</div>
+                    <div class="ml-bd">
+                        <div class="card-panel">
+                            <div class="card-pic">
+                                <div class="mask" style="display: none"></div>
+                                <div class="logo-area">
+                                    <span class="logo"><img src="../../../img/pic/abstract.jpg" alt="" class="img-circle"></span>
+                                    <span class="text">亲管家</span>
+                                </div>
+                                <div class="msg-area">
+                                    <div class="coupon-title" id="couponTiltleText">aaaaaaaaaa</div>
+                                    <div class="coupon-subtitle" id="couponSubtiltleText">aaaaa</div>
+                                    <a href="javascript:;" class="btn btn-primary">使用</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-usage">
+                            <dl class="dl-horizontal">
+                                <dt>可用时间：</dt>
+                                <dd>
+                                    <span id="cValiddataText">领取后当天生效30天有效</span>
+                                    <span id="cValidtimeText"></span>
+                                    <span id="cValidweekText"></span>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="cover-preview jsCoverPreview">
+                            <img src="../../../img/pic/abstract.jpg" alt="">
+                            <div class="text">
+                                <div class="pull-right"><i class="icon-arrow-right"></i></div>
+                                <span class="title">fffffffffffffffffffffffffffffffffffffff</span>
+                            </div>
+                        </div>
+                        <ul class="list-group list-group-phone list-group-phone-first">
+                            <li class="list-group-item">
+                                <div class="pull-right tips-pre"><span></span> <i class="icon-arrow-right font-bold"></i> </div>
+                                <a href="#" class="text-gray">优惠券详情</a>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="pull-right tips-pre"><span></span> <i class="icon-arrow-right font-bold"></i> </div>
+                                <a href="#" class="text-gray">公众号</a>
+                            </li>
+                        </ul>
+                        <ul class="list-group list-group-phone" id="jsEditUrlLeft">
+                            <li class="list-group-item">
+                                <div class="pull-right tips-pre"><span></span> <i class="icon-arrow-right font-bold"></i> </div>
+                                <span class="js_url_name">自定义入口(选填)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-form">
+                    <form action="http://www.qinguanjia.com" id="couponForm" class="form-horizontal">
+                        <div class="mf-body">
+                            <div class="mf-bd">
+                                <div class="mebcard-box">
+                                    <div class="title"><span class="name">基本信息</span></div>
+                                    <div class="form-group">
+                                        <label class="control-label"><em class="text-danger">*</em> 优惠券标题</label>
+                                        <div class="control-input">
+                                            <input type="text" name="couponTitleInput" class="form-control wper30 inline-block" maxlength="9" placeholder="最多可输入9个字"  id="couponTitleInput">
+                                            <div class="text-gray-light mt5">建议填写代金券“减免金额”及自定义内容，描述卡券提供的具体优惠。例如：蓝月咖啡5元代金券</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">优惠券副标题</label>
+                                        <div class="control-input">
+                                            <input type="text" class="form-control wper60 inline-block" id="couponSubtitleInput" maxlength="18" placeholder="最多可输入18个字">
+                                            <div class="text-gray-light mt5"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><em class="text-danger">*</em> 优惠券颜色</label>
+                                        <div class="control-input line-height30">
+                                            <div class="card-cover" id="js-card-cover-type2">
+                                                <div id="js-colorpicker" class="dropdown-m">
+                                                    <a href="javascript:;" class="dropdown-switch js-DropdownBt">
+                                                        <span class="js-bt-label" style="background-color: #2c9f67">#10ad61</span>
+                                                    </a>
+                                                    <ul class="dropdown-data js-dropdownList">
+                                                        <li class="bg-color1"><a href="javascript:;" class="js-dropdownItem" data-value="#a9d92d" data-index="0">#a9d92d</a></li>
+                                                        <li class="bg-color2"><a href="javascript:;" class="js-dropdownItem" data-value="#63b359" data-index="1">#63b359</a></li>
+                                                        <li class="bg-color3"><a href="javascript:;" class="js-dropdownItem" data-value="#2c9f67" data-index="2">#2c9f67</a></li>
+                                                        <li class="bg-color4"><a href="javascript:;" class="js-dropdownItem" data-value="#509fc9" data-index="3">#509fc9</a></li>
+                                                        <li class="bg-color5"><a href="javascript:;" class="js-dropdownItem" data-value="#5885cf" data-index="4">#5885cf</a></li>
+
+                                                        <li class="bg-color6"><a href="javascript:;" class="js-dropdownItem" data-value="#9062c0" data-index="5">#9062c0</a></li>
+                                                        <li class="bg-color7"><a href="javascript:;" class="js-dropdownItem" data-value="#5e6671" data-index="6">#5e6671</a></li>
+                                                        <li class="bg-color8"><a href="javascript:;" class="js-dropdownItem" data-value="#d09a45" data-index="7">#d09a45</a></li>
+                                                        <li class="bg-color9"><a href="javascript:;" class="js-dropdownItem" data-value="#e4b138" data-index="8">#e4b138</a></li>
+                                                        <li class="bg-color10"><a href="javascript:;" class="js-dropdownItem" data-value="#ee903c" data-index="9">#ee903c</a></li>
+
+                                                        <li class="bg-color11"><a href="javascript:;" class="js-dropdownItem" data-value="#f08500" data-index="10">#f08500</a></li>
+                                                        <li class="bg-color12"><a href="javascript:;" class="js-dropdownItem" data-value="#dd6549" data-index="11">#dd6549</a></li>
+                                                        <li class="bg-color13"><a href="javascript:;" class="js-dropdownItem" data-value="#cc463d" data-index="11">#cc463d</a></li>
+                                                        <li class="bg-color14"><a href="javascript:;" class="js-dropdownItem" data-value="#cf3e36" data-index="11">#cf3e36</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><em class="text-danger">*</em> 发放数量</label>
+                                        <div class="control-input">
+                                            <input type="text" name="number" class="form-control wper30 inline-block">
+                                            <span class="text-gray-light">张</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><em class="text-danger">*</em> 减免金额</label>
+                                        <div class="control-input">
+                                            <input type="text" name="derateMoney" class="form-control wper30 inline-block">
+                                            <span class="text-gray-light">元</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><em class="text-danger">*</em> 裂变次数</label>
+                                        <div class="control-input">
+                                            <input type="text" name="fessionTime" class="form-control wper30 inline-block" placeholder="可设置2-10">
+                                            <span class="text-gray-light">次</span>
+                                            <label class="ml30"><input type="checkbox" class="qkj-checkbox"> 无限次</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><em class="text-danger">*</em> 使用门槛</label>
+                                        <div class="control-input">
+                                            <label>
+                                                <input type="radio"  class="qkj-radio"> 满
+                                                <input type="text"  class="form-control w100 inline-block">
+                                                <span>元可用</span>
+                                            </label>
+                                            <label class="ml30"><input type="checkbox" class="qkj-checkbox"> 不限制</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><em class="text-danger">*</em> 有效期</label>
+                                        <div class="control-input">
+                                            <div class="validtime">
+                                                <div class="radio-control mb10">
+                                                    <label class="mr10 w100"><input type="radio" name="time_type" checked data-index="0"> 固定时间</label>
+                                                    <input type="text" class="form-control wper30 inline-block" id="cStaticTimeInput">
+                                                </div>
+                                                <div class="radio-control">
+                                                    <label class="mr10 w100"><input type="radio" name="time_type" data-index="1"> 领取后, </label>
+                                                    <select class="form-control wauto inline-block couponvalidtimeSel" disabled>
+                                                        <option value="0">当天</option>
+                                                        <option value="1">1天</option>
+                                                        <option value="2">2天</option>
+                                                        <option value="3">3天</option>
+                                                        <option value="4">4天</option>
+                                                        <option value="5">5天</option>
+                                                        <option value="6">6天</option>
+                                                        <option value="7">7天</option>
+                                                        <option value="8">8天</option>
+                                                        <option value="9">9天</option>
+                                                        <option value="10">10天</option>
+                                                        <option value="11">11天</option>
+                                                        <option value="12">12天</option>
+                                                        <option value="13">13天</option>
+                                                        <option value="14">14天</option>
+                                                        <option value="15">15天</option>
+                                                        <option value="16">16天</option>
+                                                        <option value="17">17天</option>
+                                                        <option value="18">18天</option>
+                                                        <option value="19">19天</option>
+                                                        <option value="20">20天</option>
+                                                        <option value="21">21天</option>
+                                                        <option value="22">22天</option>
+                                                        <option value="90">90天</option>
+                                                    </select>
+                                                    生效，有效天数
+                                                    <select class="form-control wauto inline-block couponvalidtimeSel" disabled>
+                                                        <option value="1">1天</option>
+                                                        <option value="2">2天</option>
+                                                        <option value="3">3天</option>
+                                                        <option value="4">4天</option>
+                                                        <option value="5">5天</option>
+                                                        <option value="6">6天</option>
+                                                        <option value="7">7天</option>
+                                                        <option value="8">8天</option>
+                                                        <option value="9">9天</option>
+                                                        <option value="10">10天</option>
+                                                        <option value="11">11天</option>
+                                                        <option value="12">12天</option>
+                                                        <option value="13">13天</option>
+                                                        <option value="14">14天</option>
+                                                        <option value="15">15天</option>
+                                                        <option value="16">16天</option>
+                                                        <option value="17">17天</option>
+                                                        <option value="18">18天</option>
+                                                        <option value="19">19天</option>
+                                                        <option value="20">20天</option>
+                                                        <option value="21">21天</option>
+                                                        <option value="22">22天</option>
+                                                        <option value="90">90天</option>
+                                                    </select>
+                                                </div>
+                                                <input type="hidden" id="jsHiddenBegintime" value="">
+                                                <input type="hidden" id="jsHiddenEndtime" value="">
+                                                <input type="hidden" id="fromDay" value="">
+                                                <input type="hidden" id="fixedDay" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mf-body">
+                            <div class="mf-bd">
+                                <div class="mebcard-box">
+                                    <div class="title"><span class="name">基本规则</span></div>
+
+                                    <div class="form-group">
+                                        <label class="control-label">领券限制</label>
+                                        <div class="control-input">
+                                            <input type="text" class="form-control wper60 inline-block"> 张
+                                            <div class="text-gray-light mt5">每个用户领券上限，如不填，则默认为1</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">使用条件</label>
+                                        <div class="control-input">
+                                            <label class="mr20"><input type="checkbox" class="qkj-checkbox"> 不可与其他优惠券同时使用</label>
+                                            <label><input type="checkbox" class="qkj-checkbox"> 不可与会员折扣同时使用</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><em class="text-danger">*</em> 可用设置</label>
+                                        <div class="control-input line-height">
+                                            <div class="form-group">
+                                                <label class="control-label"><input type="checkbox" class="qkj-checkbox"> 适用门店</label>
+                                                <div class="control-input line-height30">
+                                                    <div class="radio-control apply-store">
+                                                        <label for="check05" class="mr10">
+                                                            <input type="radio" class="qkj-radio" id="check05" name="storeType" data-index="0" checked> 全部门店
+                                                        </label>
+                                                        <label for="check06" class="mr10">
+                                                            <input type="radio" class="qkj-radio" id="check06" name="storeType" data-index="1"> 指定门店
+                                                            <a href="javascript:;" onclick="setStoreValue('#inputStoreSel')" data-toggle="modal" data-target="#storeAll" style="display: none">添加指定门店</a>
+                                                        </label>
+                                                        <input type="hidden" value="" id="inputStoreSel">
+                                                    </div>
+                                                    <div class="table-responsive" id="storeTable" style="display: none">
+                                                        <table class="table table-bordered">
+                                                            <thead>
+                                                            <tr class="active">
+                                                                <th width="40%">门店名称</th>
+                                                                <th width="35%">门店地址</th>
+                                                                <th>操作</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody id="storeTbody"></tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><input type="checkbox" class="qkj-checkbox"> 商城可用</label>
+                                                <div class="control-input line-height30">
+                                                    <div class="radio-control">
+                                                        <label for="check07" class="mr10">
+                                                            <input type="radio" class="qkj-radio" id="check07" name="goodType" data-index="0" checked> 全部商品参与
+                                                        </label>
+                                                        <label for="check08" class="mr10">
+                                                            <label><input type="radio" class="qkj-radio" id="check08" name="goodType" data-index="1" > 指定商品参与（已选 <em id="shopNum" class="text-danger">0</em> 件商品）</label>
+                                                            <a href="#modalGoodsSale" data-toggle="modal" style="display: none">选取</a>
+                                                            <input type="hidden" id="goodsSale_id" value="1,">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><em class="text-danger">*</em> 使用须知</label>
+                                        <div class="control-input">
+                                            <textarea class="form-control wper60" rows="4" name="notice" placeholder="请填写使用本优惠券的注意事项"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><em class="text-danger">*</em> 核销提示</label>
+                                        <div class="control-input">
+                                            <input type="text" class="form-control wper30 inline-block" maxlength="16" placeholder="最多16个汉字">
+                                            <div class="text-gray-light mt5">建议引导用户到店出示卡券。例如：到店出示当前页面扫码核销</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mf-body">
+                            <div class="mf-bd">
+                                <a href="javascript:;" class="pull-right" id="jsCardMInfo" data-index="0">收缩</a>
+                                <div class="mebcard-box">
+                                    <div class="title">
+                                        <span class="name">其他设置</span><span class="text-gray-light">（设置优惠券详情及更多功能）</span>
+                                    </div>
+                                    <div class="form-group js-flexible">
+                                        <label class="control-label">分享及转赠</label>
+                                        <div class="control-input">
+                                            <label class="mr20"><input type="checkbox" class="qkj-checkbox"> 用户可以分享领券链接</label>
+                                            <label><input type="checkbox" class="qkj-checkbox"> 用户领券后可转增其他好友</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group js-flexible">
+                                        <label class="control-label">可用时段</label>
+                                        <div class="control-input">
+                                            <label class="mr10"><input type="radio" name="time_limit_type" class="qkj-radio" checked data-index="0"> 全部时段</label>
+                                            <label><input type="radio" name="time_limit_type" class="qkj-radio" data-index="1"> 部分时段</label>
+                                            <div class="js-times" style="display: none">
+                                                <div class="date mt5 line-height30">
+                                                    <label>日期：</label>
+                                                    <label for="checkbox1" class="checkbox-label mr5">
+                                                        <input type="checkbox" id="checkbox1" class="qkj-checkbox" value="0" data-value="周一"> 周一
+                                                    </label>
+                                                    <label for="checkbox2" class="checkbox-label mr5">
+                                                        <input type="checkbox" id="checkbox2" class="qkj-checkbox" value="1" data-value="周二"> 周二
+                                                    </label>
+                                                    <label for="checkbox3" class="checkbox-label mr5">
+                                                        <input type="checkbox" id="checkbox3" class="qkj-checkbox" value="2" data-value="周三"> 周三
+                                                    </label>
+                                                    <label for="checkbox4" class="checkbox-label mr5">
+                                                        <input type="checkbox" id="checkbox4" class="qkj-checkbox" value="3" data-value="周四"> 周四
+                                                    </label>
+                                                    <label for="checkbox5" class="checkbox-label mr5">
+                                                        <input type="checkbox" id="checkbox5" class="qkj-checkbox" value="4" data-value="周五"> 周五
+                                                    </label>
+                                                    <label for="checkbox6" class="checkbox-label mr5">
+                                                        <input type="checkbox" id="checkbox6" class="qkj-checkbox" value="5" data-value="周六"> 周六
+                                                    </label>
+                                                    <label for="checkbox7" class="checkbox-label mr5">
+                                                        <input type="checkbox" id="checkbox7" class="qkj-checkbox" value="6" data-value="周日"> 周日
+                                                    </label>
+                                                </div>
+                                                <div class="time-range-list mt5">
+                                                    <label class="jsTimeLabel">时间：</label>
+                                                    <span class="time-range">
+                                                        <span class="mr10">
+                                                            <input type="text" class="form-control w100 inline-block">
+                                                            至
+                                                            <input type="text" class="form-control w100 inline-block">
+                                                        </span>
+                                                    </span>
+                                                    <!--<a href="javascript:;" class="js-add-time-period">添加时段</a>
+                                                    <a href="javascript:;" class="js-del-time-period">删除时段</a>-->
+                                                    <div class="text-gray-light mt5">请使用24小时制输入时间，格式如11:00至14:30</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mebcard-box js-flexible">
+                                    <div class="title"><span class="name">优惠券详情</span></div>
+
+                                    <div class="form-group">
+                                        <label class="control-label">封面图片</label>
+                                        <div class="control-input line-height30">
+                                            <div class="text-gray-light">图片建议尺寸：850像素*350像素，大小不超过2M。</div>
+                                            <div id="fileQueue1"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">封面介绍</label>
+                                        <div class="control-input">
+                                            <input type="text" class="form-control wper30 inline-block js-textlimit" maxlength="12" placeholder="最多12个汉字">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">图文介绍 <span class="text-gray-light">(选填)</span></label>
+                                        <div class="control-input">
+                                            <div class="card-ariticle-desc">
+                                                <p>示例<br>
+                                                    图文内容建议上传商品、服务、环境等优<br>
+                                                    质图片，并辅之以简单描述。
+                                                </p>
+                                                <img src="../../../img/pic/card_thumb.jpg">
+                                            </div>
+                                            <div class="card-ariticle">
+                                                <div class="text-gray-light mb5">
+                                                    图片建议尺寸：900像素 * 500像素，大小不超过2M。<br>
+                                                    至少上传1组图文，最多输入5000字
+                                                </div>
+                                                <div class="card-ariticle-box">
+                                                    <div class="card-ariticle-preview">
+                                                        <div class="ca-p-list">
+                                                            <img src="../../../img/pic/abstract.jpg" class="img-responsive jsCardArticlePicImg">
+                                                            <div class="text">简介</div>
+                                                            <div class="article-toolbar">
+                                                                <a href="javascript:;"><i class="icon-sortup"></i></a>
+                                                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                                                <a href="javascript:;" id="jsCardArticleEdit"><i class="icon-edit"></i></a>
+                                                                <a href="javascript:;"><i class="icon-del"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="js-card-article-editor" style="display: none">
+                                                        <div class="card-article-img cd-article-has-img">
+                                                            <a href="javascript:;" data-toggle="modal" data-target="#modalImgLib"><i class="icon-pic"></i></a>
+                                                            <img src="../../../img/pic/abstract.jpg" class="img-responsive">
+                                                            <input type="hidden" class="js_img_hidden" value="">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                        <div class="card-article-desc">
+                                                            <textarea class="form-control jsCdATextarea" rows="4" placeholder="图文内容建议上传商品、服务、环境等优质图片，并辅之以简单描述" maxlength="5000"></textarea>
+                                                            <div class="textarea_append"><em id="jsImageTextHint">0</em>/5000</div>
+                                                        </div>
+                                                        <div class="card-article-btn">
+                                                            <a href="#" class="btn btn-primary btn-sm jsCdATSure">确定</a>
+                                                            <a href="javascript:;" class="btn btn-default btn-sm jsCdATCancel">取消</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-article-add">
+                                                        <i class="icon-plus"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mebcard-box js-flexible">
+                                    <div class="title">商户介绍(选填)</div>
+                                    <div class="form-group">
+                                        <label class="control-label">电话</label>
+                                        <div class="control-input">
+                                            <input type="text" class="form-control wper30" placeholder="18815265851">
+                                            <div class="text-gray-light mt5">手机或固话</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">商户服务</label>
+                                        <div class="control-input line-height30">
+                                            <label for="jsCardervice1" class="mr10">
+                                                <input type="checkbox" id="jsCardervice1" class="qkj-checkbox">
+                                                免费WIFI
+                                            </label>
+                                            <label for="jsCardervice2" class="mr10">
+                                                <input type="checkbox" id="jsCardervice2" class="qkj-checkbox">
+                                                可带宠物
+                                            </label>
+                                            <label for="jsCardervice3" class="mr10">
+                                                <input type="checkbox" id="jsCardervice3" class="qkj-checkbox">
+                                                免费停车
+                                            </label>
+                                            <label for="jsCardervice4" class="mr10">
+                                                <input type="checkbox" id="jsCardervice4" class="qkj-checkbox">
+                                                可外卖
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mebcard-box js-flexible">
+                                    <div class="edit-url-item">
+                                        <div class="title">
+                                            <span class="name">入口一</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">入口名称</label>
+                                            <div class="control-input">
+                                                <input type="text" class="form-control wper30 inline-block js-textlimit0" value="" maxlength="5">
+                                                <span><em>0</em>/5</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">引导语<span class="text-gray-light">(选填)</span></label>
+                                            <div class="control-input">
+                                                <input type="text" class="form-control wper30 inline-block js-textlimit1" maxlength="6">
+                                                <span><em>0</em>/6</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">点击跳转</label>
+                                            <div class="control-input line-height30 jsJumpTypeRange">
+                                                <label for="js-jump1" class="mr10">
+                                                    <input type="radio" id="js-jump1" name="jumpType0" class="qkj-radio"> 图文消息
+                                                </label>
+                                                <label for="js-jump2" class="mr10">
+                                                    <input type="radio" id="js-jump2" name="jumpType0" class="qkj-radio"> 卡券货架
+                                                </label>
+                                                <label for="js-jump3" class="mr10">
+                                                    <input type="radio" id="js-jump3" name="jumpType0" class="qkj-radio" checked> 网页链接
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group js-edit-jump">
+                                            <label class="control-label">网页链接</label>
+                                            <div class="control-input line-height">
+                                                http://
+                                                <input type="text" class="form-control inline-block wper30" placeholder="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="edit-url-add">
+                                        <a href="javascript:;" class="btn btn-default" id="jsEdidUrlAdd">添加自定义入口</a>
+                                        <div class="text-gray-light mt5">可配置图文消息、货架、网页链接,用户可查看详情或领取更多卡券。</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt20">
+                            <button type="submit" class="btn btn-primary">下一步</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--选择门店-->
+<div class="modal fade" id="storeAll">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">选择门店</h4>
+            </div>
+            <div class="modal-body">
+                <div class="v-select-store v-select-store-300">
+                    <div class="tree1 treeAll">
+                        <i class="rbArrow"></i>
+                        <input class="parentsBox" type="checkbox"><i class="iconFolder"></i>全部(14)
+                        <div class="comList">
+                            <ul>
+                                <li class="child3">
+                                    <input class="storeBox" value="2" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-name" title="牛牛餐饮-江东店">牛牛餐饮-江东店</span>
+                                    <span class="meta" title="浙江省宁波市江东区高新区华商大厦19楼">浙江省宁波市江东区高新区华商大厦19楼</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="3" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-name" title="牛牛餐饮天一店">牛牛餐饮天一店</span>
+                                    <span class="meta" title="浙江省宁波市江东区高新区华商大厦19楼">浙江省宁波市江东区高新区华商大厦19楼</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="10" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-name" title="牛牛餐饮海曙店">牛牛餐饮海曙店</span>
+                                    <span class="meta" title="浙江省宁波市江东区高新区华商大厦19楼">浙江省宁波市江东区高新区华商大厦19楼</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="11" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-name" title="牛牛餐饮江北店">牛牛餐饮江北店</span>
+                                    <span class="meta" title="浙江省宁波市江北区风华路100号">浙江省宁波市江北区风华路100号</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="17" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-name" title="牛牛餐饮鄞州店">牛牛餐饮鄞州店</span>
+                                    <span class="meta" title="浙江省杭州市桐庐县XX路">浙江省杭州市桐庐县XX路</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="414" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-name" title="测试大门店(ddd)-ddd">测试大门店(ddd)-ddd</span>
+                                    <span class="meta" title="福建省福州市台江区GV发生的vfs">福建省福州市台江区GV发生的vfs</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="519" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-name" title="测试门店一号-测试">测试门店一号-测试</span>
+                                    <span class="meta" title="浙江省宁波市江东区高新区华商大厦19楼">浙江省宁波市江东区高新区华商大厦19楼</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="1512" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-name" title="牛牛科技九亭店">牛牛科技九亭店</span>
+                                    <span class="meta" title="上海市市辖区松江区九亭地铁站">上海市市辖区松江区九亭地铁站</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="1961" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-name" title="牛牛-泗泾3店">牛牛-泗泾3店</span>
+                                    <span class="meta" title="上海市市辖区松江区泗泾镇对的">上海市市辖区松江区泗泾镇对的</span>
+                                </li>
+                            </ul>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    1513                    	( 2 )</div>
+                                <div class="childWrap" style="display: block;">
+                                    <div class="child3">
+                                        <i class="rbArrow"></i>
+                                        <input class="childBox" type="checkbox">
+                                        <i class="iconFolder"></i>
+                                        1514   ( 2 )
+                                    </div>
+                                    <ul>
+                                        <li class="child4">
+                                            <input class="storeBox" value="2040" type="checkbox">
+                                            <i class="iconFile"></i>
+                                            <span class="store-name" title="大口烧 -顾村店">大口烧 -顾村店</span>
+                                            <span class="meta" title="上海市市辖区宝山区顾村公园">上海市市辖区宝山区顾村公园</span>
+                                        </li>
+                                        <li class="child4">
+                                            <input class="storeBox" value="2448" type="checkbox">
+                                            <i class="iconFile"></i>
+                                            <span class="store-name" title="SumPAGE -肇嘉浜路店">SumPAGE -肇嘉浜路店</span>
+                                            <span class="meta" title="上海市市辖区徐汇区肇嘉浜路">上海市市辖区徐汇区肇嘉浜路</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    8520                    	( 0 )</div>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    123                    	( 0 )</div>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    上海                    	( 0 )</div>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    132                    	( 0 )</div>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    1                    	( 0 )</div>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap closeFolder">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    餐饮                    	( 1 )</div>
+                                <ul style="display: none;">
+                                    <li class="child3">
+                                        <input class="storeBox" value="2035" type="checkbox">
+                                        <i class="iconFile"></i>
+                                        <span class="store-name" title="麻辣香锅 -杨浦店">麻辣香锅 -杨浦店</span>
+                                        <span class="meta" title="上海市市辖区杨浦区上海市杨浦区">上海市市辖区杨浦区上海市杨浦区</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    宁波                    	( 1 )</div>
+                                <ul>
+                                    <li class="child3">
+                                        <input class="storeBox" value="41" type="checkbox">
+                                        <i class="iconFile"></i>
+                                        <span class="store-name" title="牛牛餐饮高新店">牛牛餐饮高新店</span>
+                                        <span class="meta" title="浙江省宁波市鄞州区万达广场">浙江省宁波市鄞州区万达广场</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>牛牛( 1 )
+                                </div>
+                                <ul style="display: block;">
+                                    <li class="child3">
+                                        <input class="storeBox" value="618" type="checkbox">
+                                        <i class="iconFile"></i>
+                                        <span class="store-name" title="海底捞 -上海闵行店">海底捞 -上海闵行店</span>
+                                        <span class="meta" title="上海市市辖区闵行区上海市闵行区吴中路1488号">上海市市辖区闵行区上海市闵行区吴中路1488号</span>
+                                    </li>
+                                </ul>
+                                <div class="childWrap" style="display: block;">
+                                    <div class="child3">
+                                        <i class="rbArrow"></i>
+                                        <input class="childBox" type="checkbox">
+                                        <i class="iconFolder"></i>
+                                        牛牛下一级 ( 0 )
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnCStoreSure" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--商城 商品选择-->
+<div class="modal fade" id="modalGoodsSale">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">
+                    在售商品 | <a href="../goods/good_add_first.html" class="h5 text-primary">新建商品</a>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal form-search">
+                    <div class="row">
+                        <div class="form-group col-md-4 wauto">
+                            <label class="control-label">商品分组</label>
+                            <div class="control-input">
+                                <select class="form-control">
+                                    <option value="0">全部分组</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 wauto">
+                            <label class="control-label">商品名称</label>
+                            <div class="control-input">
+                                <input type="text" class="form-control"  placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 wauto">
+                            <label class="control-label"></label>
+                            <div class="control-input btn-wrap">
+                                <button type="submit" class="btn btn-blue">搜索</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th width="20"><input type="checkbox" name="ckShop" class="qkj-checkbox"> 全选</th>
+                            <th width="35%">商品</th>
+                            <th>库存</th>
+                            <th>创建时间</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><input type="checkbox" name="ckShop" class="qkj-checkbox" value="10"></td>
+                            <td>
+                                <div class="col-xs-3 p0">
+                                    <img src="../../../img/qrcode_default.jpg" class="w48">
+                                </div>
+                                <div class="col-xs-9 p0">
+                                    <p>商品名称1</p>
+                                    <div class="text-danger">￥9.99</div>
+                                </div>
+                            </td>
+                            <td>10</td>
+                            <td>2017-08-07<br>22:47:22</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="ckShop" class="qkj-checkbox" value="1"></td>
+                            <td>
+                                <div class="col-xs-3 p0">
+                                    <img src="../../../img/qrcode_default.jpg" class="w48">
+                                </div>
+                                <div class="col-xs-9 p0">
+                                    <p>商品名称1</p>
+                                    <div class="text-danger">￥9.99</div>
+                                </div>
+                            </td>
+                            <td>10</td>
+                            <td>2017-08-07<br>22:47:22</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="ckShop" class="qkj-checkbox" value="20"></td>
+                            <td>
+                                <div class="col-xs-3 p0">
+                                    <img src="../../../img/qrcode_default.jpg" class="w48">
+                                </div>
+                                <div class="col-xs-9 p0">
+                                    <p>商品名称1</p>
+                                    <div class="text-danger">￥9.99</div>
+                                </div>
+                            </td>
+                            <td>10</td>
+                            <td>2017-08-07<br>22:47:22</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="ckShop" class="qkj-checkbox" value="100"></td>
+                            <td>
+                                <div class="col-xs-3 p0">
+                                    <img src="../../../img/qrcode_default.jpg" class="w48">
+                                </div>
+                                <div class="col-xs-9 p0">
+                                    <p>商品名称1</p>
+                                    <div class="text-danger">￥9.99</div>
+                                </div>
+                            </td>
+                            <td>10</td>
+                            <td>2017-08-07<br>22:47:22</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="text-center h5 mt10">没有相关数据</div>
+                    <div id="page" class="ptb15">
+                        <p class="pageRemark">共<strong>7</strong>条</p>
+                        <p>首页</p>
+                        <p>上一页</p>
+                        <input type="text" size="1" class="form-control inline-block wauto" value="1">
+                        <a href="#">跳转</a>
+                        <p class="pageRemark">1/13</p>
+                        <a href="#" title="下一页">下一页</a>
+                        <a href="#" title="尾页">尾页</a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnGoodsSale"  data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/function/marketing/coupon/coupon_fission_add.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>财务-交易汇总</title>
+
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <script src="../../js/lib/lib.min.js"></script>
+    <script src="../../js/lib/dateranger.min.js"></script>
+    <script src="../../js/common/util.js"></script>
+    <script src="../../js/lib/select2.min.js"></script>
+    <script src="../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../finance/finance_flow.html" class="list-group-item active"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">财务管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="finance_outline.html" class="list-group-item">财务概要</a>
+            </li>
+            <li class="sub-item">
+                <a href="javascript:;" class="list-group-item">财务管理</a>
+                <ul>
+                    <li><a href="finance_flow.html" class="list-group-item">财务流水</a></li>
+                    <li><a href="finance_total_day.html" class="list-group-item">财务汇总</a></li>
+                    <li><a href="store_total.html" class="list-group-item">门店汇总</a></li>
+                </ul>
+            </li>
+            <li class="sub-item">
+                <a href="javascript:;" class="list-group-item">门店交易</a>
+                <ul>
+                    <li><a href="transaction_list.html" class="list-group-item">交易订单</a></li>
+                    <li><a href="transaction_total_day.html" class="list-group-item active">交易汇总</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="#">交易汇总</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <form class="form-horizontal form-search">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="time" class="control-label">交易时间</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control widthauto" id="time" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">门店</label>
+                        <div class="control-input">
+                            <button type="button" class="form-control text-left" placeholder="请选择门店"  data-toggle="modal" data-target="#storeAll">全部门店</button>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">支付渠道</label>
+                        <div class="control-input">
+                            <select tabindex="-1" aria-hidden="true"  class="js-example-basic-multiple form-control" multiple="multiple">
+                                <option>支付宝条码</option>
+                                <option>微信条码</option>
+                                <option>微信扫码</option>
+                                <option>银联支付</option>
+                                <option>现金支付</option>
+                                <option>储值支付</option>
+                                <option>无需付款</option>
+                                <option>集中收银</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label"></label>
+                        <div class="control-input btn-wrap">
+                            <button type="submit" class="btn btn-blue">搜索</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="qgj-nav clearfix">
+                <div class="pull-right">
+                    <a href="#" class="text-blue line-height30">下载EXECL</a>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr class="active">
+                        <th width="15%">日期</th>
+                        <th width="17%" class="text-right">订单金额</th>
+                        <th width="18%" class="text-right">优惠金额</th>
+                        <th width="17%" class="text-right">退款金额</th>
+                        <th width="15%" class="text-right">实收金额</th>
+                        <th width="17%">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>2017年2月6日</td>
+                        <td class="text-right">￥150.00<br>1 笔</td>
+                        <td class="text-right">-0.00</td>
+                        <td class="text-right">-0.00<br>1 笔</td>
+                        <td class="text-right"><span class="text-danger">￥135.00</span></td>
+                        <td>
+                            <a href="#" class="text-gray line-height30 mr10">下载月账单</a>
+                            <a href="javascript:;" class="text-blue toggleTdStretch">展开 <i class="icon-pull-down"></i></a>
+                        </td>
+                    </tr>
+                    <tr class="data-detail">
+                        <td colspan="6">
+                            <table class="table">
+                                <tr>
+                                    <td width="15%">支付宝：</td>
+                                    <td width="17%" class="text-right">￥150.00<br>1 笔</td>
+                                    <td width="18%" class="text-right">-0.00</td>
+                                    <td width="17%" class="text-right">-0.00<br>1 笔</td>
+                                    <td width="15%" class="text-right"><span class="text-danger">￥135.00</span></td>
+                                    <td width="17%"></td>
+                                </tr>
+                                <tr>
+                                    <td>微信：</td>
+                                    <td class="text-right">￥150.00<br>1 笔</td>
+                                    <td class="text-right">-0.00</td>
+                                    <td class="text-right">-0.00<br>1 笔</td>
+                                    <td class="text-right"><span class="text-danger">￥135.00</span></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>银联：</td>
+                                    <td class="text-right">￥150.00<br>1 笔</td>
+                                    <td class="text-right">-0.00</td>
+                                    <td class="text-right">-0.00<br>1 笔</td>
+                                    <td class="text-right"><span class="text-danger">￥135.00</span></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>现金：</td>
+                                    <td class="text-right">￥150.00<br>1 笔</td>
+                                    <td class="text-right">-0.00</td>
+                                    <td class="text-right">-0.00<br>1 笔</td>
+                                    <td class="text-right"><span class="text-danger">￥135.00</span></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="text-center h5 mt10">暂时无数据</div>
+            </div>
+            <div id="page" class="ptb15">
+                <p>首页</p>
+                <p>上一页</p>
+                <a href="/merchant/store/list.html?page=1" title="第1页" class="cur">1</a>
+                <a href="/merchant/store/list.html?page=2" title="第2页">2</a>
+                <a href="/merchant/store/list.html?page=3" title="第3页">3</a>
+                <a href="/merchant/store/list.html?page=4" title="第4页">4</a>
+                <a href="/merchant/store/list.html?page=5" title="第5页">5</a>
+                <p class="pageEllipsis">...</p>
+                <a href="/merchant/store/list.html?page=2" title="下一页">下一页</a>
+                <a href="/merchant/store/list.html?page=7" title="尾页">尾页</a>
+                <p class="pageRemark">共<strong>7</strong>页<strong>7</strong>条数据</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--选择门店-->
+<div class="modal fade store-pop" id="storeAll" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">选择门店</h4>
+            </div>
+            <div class="modal-body">
+                <div class="v-select-store mt20">
+                    <div class="tree1">
+                        <i class="rbArrow"></i>
+                        <input class="parentsBox" type="checkbox"><i class="iconFolder"></i>全部(14)
+                        <div class="comList">
+                            <ul>
+                                <li class="child3">
+                                    <input class="storeBox" value="2" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-name" title="牛牛餐饮-江东店">牛牛餐饮-江东店</span>
+                                    <span class="meta" title="浙江省宁波市江东区高新区华商大厦19楼">浙江省宁波市江东区高新区华商大厦19楼</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="3" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-name" title="牛牛餐饮天一店">牛牛餐饮天一店</span>
+                                    <span class="meta" title="浙江省宁波市江东区高新区华商大厦19楼">浙江省宁波市江东区高新区华商大厦19楼</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="10" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-name" title="牛牛餐饮海曙店">牛牛餐饮海曙店</span>
+                                    <span class="meta" title="浙江省宁波市江东区高新区华商大厦19楼">浙江省宁波市江东区高新区华商大厦19楼</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="11" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-name" title="牛牛餐饮江北店">牛牛餐饮江北店</span>
+                                    <span class="meta" title="浙江省宁波市江北区风华路100号">浙江省宁波市江北区风华路100号</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="17" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-name" title="牛牛餐饮鄞州店">牛牛餐饮鄞州店</span>
+                                    <span class="meta" title="浙江省杭州市桐庐县XX路">浙江省杭州市桐庐县XX路</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="414" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-name" title="测试大门店(ddd)-ddd">测试大门店(ddd)-ddd</span>
+                                    <span class="meta" title="福建省福州市台江区GV发生的vfs">福建省福州市台江区GV发生的vfs</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="519" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-name" title="测试门店一号-测试">测试门店一号-测试</span>
+                                    <span class="meta" title="浙江省宁波市江东区高新区华商大厦19楼">浙江省宁波市江东区高新区华商大厦19楼</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="1512" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-name" title="牛牛科技九亭店">牛牛科技九亭店</span>
+                                    <span class="meta" title="上海市市辖区松江区九亭地铁站">上海市市辖区松江区九亭地铁站</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="1961" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-name" title="牛牛-泗泾3店">牛牛-泗泾3店</span>
+                                    <span class="meta" title="上海市市辖区松江区泗泾镇对的">上海市市辖区松江区泗泾镇对的</span>
+                                </li>
+                            </ul>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    1513                    	( 2 )</div>
+                                <ul style="display: block;"></ul>
+                                <div class="childWrap" style="display: block;">
+                                    <div class="child3">
+                                        <i class="rbArrow"></i>
+                                        <input class="childBox" type="checkbox">
+                                        <i class="iconFolder"></i>
+                                        1514   ( 2 )
+                                    </div>
+                                    <ul>
+                                        <li class="child4">
+                                            <input class="storeBox" value="2040" type="checkbox">
+                                            <i class="iconFile"></i>
+                                            <span class="store-name" title="大口烧 -顾村店">大口烧 -顾村店</span>
+                                            <span class="meta" title="上海市市辖区宝山区顾村公园">上海市市辖区宝山区顾村公园</span>
+                                        </li>
+                                        <li class="child4">
+                                            <input class="storeBox" value="2448" type="checkbox">
+                                            <i class="iconFile"></i>
+                                            <span class="store-name" title="SumPAGE -肇嘉浜路店">SumPAGE -肇嘉浜路店</span>
+                                            <span class="meta" title="上海市市辖区徐汇区肇嘉浜路">上海市市辖区徐汇区肇嘉浜路</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    8520                    	( 0 )</div>
+                                <ul style="display: block;"></ul>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    123                    	( 0 )</div>
+                                <ul style="display: block;"></ul>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    上海                    	( 0 )</div>
+                                <ul></ul>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    132                    	( 0 )</div>
+                                <ul style="display: block;"></ul>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    1                    	( 0 )</div>
+                                <ul></ul>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap closeFolder">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    餐饮                    	( 1 )</div>
+                                <ul style="display: none;">
+                                    <li class="child3">
+                                        <input class="storeBox" value="2035" type="checkbox">
+                                        <i class="iconFile"></i>
+                                        <span class="store-name" title="麻辣香锅 -杨浦店">麻辣香锅 -杨浦店</span>
+                                        <span class="meta" title="上海市市辖区杨浦区上海市杨浦区">上海市市辖区杨浦区上海市杨浦区</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    宁波                    	( 1 )</div>
+                                <ul>
+                                    <li class="child3">
+                                        <input class="storeBox" value="41" type="checkbox">
+                                        <i class="iconFile"></i>
+                                        <span class="store-name" title="牛牛餐饮高新店">牛牛餐饮高新店</span>
+                                        <span class="meta" title="浙江省宁波市鄞州区万达广场">浙江省宁波市鄞州区万达广场</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    牛牛                    	( 1 )</div>
+                                <ul style="display: block;">
+                                    <li class="child3">
+                                        <input class="storeBox" value="618" type="checkbox">
+                                        <i class="iconFile"></i>
+                                        <span class="store-name" title="海底捞 -上海闵行店">海底捞 -上海闵行店</span>
+                                        <span class="meta" title="上海市市辖区闵行区上海市闵行区吴中路1488号">上海市市辖区闵行区上海市闵行区吴中路1488号</span>
+                                    </li>
+                                </ul>
+                                <div class="childWrap" style="display: block;">
+                                    <div class="child3">
+                                        <i class="rbArrow"></i>
+                                        <input class="childBox" type="checkbox">
+                                        <i class="iconFolder"></i>
+                                        牛牛下一级 ( 0 )
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="../../js/function/finance/finance.js"></script>
+
+</body>
+</html>

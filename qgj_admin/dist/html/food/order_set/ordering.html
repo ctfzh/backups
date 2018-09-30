@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>点餐设置</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item active"><i class="icon-store"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="#" class="list-group-item"><i class="icon-apply"></i> 应用</a></li>
+        <li><a href="#" class="list-group-item"><i class="icon-service"></i> 客户</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="#" class="list-group-item"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-set"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">餐饮管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../goods/good_list.html" class="list-group-item">商品管理</a>
+            </li>
+            <li>
+                <a href="../order/order_list.html" class="list-group-item">订单管理</a>
+            </li>
+            <li class="active">
+                <a href="../set/set.html" class="list-group-item">设置</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="ordering.html">点餐设置</a></li>
+                <li><a href="takeout_food.html">外卖设置</a></li>
+                <li><a href="table_manage.html">桌台管理</a></li>
+                <li><a href="print.html">打印设置</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="alert alert-default">
+                <div class="pull-right">
+                    <a href="javascript:;" class="btn btn-default">停止营业</a>
+                </div>
+                <dl class="dl-horizontal">
+                    <dt class="w150 p0 line-height30 text-dark h4Half">点餐营业状态</dt>
+                    <dd class="p0 line-height30">手动歇业中</dd>
+                </dl>
+            </div>
+            <form role="form" id="formStore" action="?">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label">点餐模式</label>
+                        <div class="control-input">
+                            <label class="w150"><input type="radio" name="mode" class="qkj-radio js-mode-radio" checked data-index="0"> 快餐模式</label>
+                            <label class="w150"><input type="radio" name="mode" class="qkj-radio js-mode-radio" data-index="1"> 正餐模式</label>
+                            <span class="qgj-help" data-value="快餐：顾客点餐支付后，商家收到订单备餐，顾客凭取餐号取餐或桌号送餐<br>正餐：有桌台，顾客先点餐下单，商家收到订单备餐，顾客离开时进行支付"></span>
+                            <div class="js-mode mt10">
+                                <label class="w150"><input type="radio" class="qkj-radio" checked> 自取点餐</label>
+                                <label class="w150"><input type="radio" class="qkj-radio"> 桌码点餐</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">点餐营业时间</label>
+                        <div class="control-input" id="timeArea">
+                            <div class="time-area">
+                                <div class="time-picker-item js-time-area-editing">
+                                    <div class="inline-block">
+                                        <div class="time">
+                                            <select class="form-control form-control-inline w48 js-hour"><option>00</option><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option></select>
+                                            时
+                                            <select class="form-control form-control-inline w48 js-minute"><option>00</option><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option><option>32</option><option>33</option><option>34</option><option>35</option><option>36</option><option>37</option><option>38</option><option>39</option><option>40</option><option>41</option><option>42</option><option>43</option><option>44</option><option>45</option><option>46</option><option>47</option><option>48</option><option>49</option><option>50</option><option>51</option><option>52</option><option>53</option><option>54</option><option>55</option><option>56</option><option>57</option><option>58</option><option>59</option></select>
+                                            分 ~
+                                            <select class="form-control form-control-inline w48 js-hour"><option>00</option><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option></select>
+                                            时
+                                            <select class="form-control form-control-inline w48 js-minute"><option>00</option><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option><option>32</option><option>33</option><option>34</option><option>35</option><option>36</option><option>37</option><option>38</option><option>39</option><option>40</option><option>41</option><option>42</option><option>43</option><option>44</option><option>45</option><option>46</option><option>47</option><option>48</option><option>49</option><option>50</option><option>51</option><option>52</option><option>53</option><option>54</option><option>55</option><option>56</option><option>57</option><option>58</option><option>59</option></select>
+                                            分</div>
+                                        <div class="week">
+                                            <div class="cur-week js-cur-week" style="display: none"></div>
+                                            <div class="inline-block js-select-week">
+                                                <label class="week-item js-week-item">
+                                                    <input type="checkbox" name="week_day" value="1">
+                                                    <span>周一</span>
+                                                </label>
+                                                <label class="week-item js-week-item">
+                                                    <input type="checkbox" name="week_day" value="2">
+                                                    <span>周二</span>
+                                                </label>
+                                                <label class="week-item js-week-item">
+                                                    <input type="checkbox" name="week_day" value="3">
+                                                    <span>周三</span>
+                                                </label>
+                                                <label class="week-item js-week-item">
+                                                    <input type="checkbox" name="week_day" value="4">
+                                                    <span>周四</span>
+                                                </label>
+                                                <label class="week-item js-week-item">
+                                                    <input type="checkbox" name="week_day" value="5">
+                                                    <span>周五</span>
+                                                </label>
+                                                <label class="week-item js-week-item">
+                                                    <input type="checkbox" name="week_day" value="6">
+                                                    <span>周六</span>
+                                                </label>
+                                                <label class="week-item js-week-item">
+                                                    <input type="checkbox" name="week_day" value="7">
+                                                    <span>周日</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="btn-wrap"><a href="javascript:;" class="js-sure">确认</a> | <a href="javascript:;" class="js-cancel">取消</a></div>
+                                    <div class="btn-wrap" style="display:none"><a href="javascript:;" class="js-edit">编辑</a> | <a href="javascript:;" class="js-del">删除</a></div>
+                                </div>
+                            </div>
+                            <input type="hidden" value='[{"week":["1","2","3"],"time_area_start_hour":"09:00","time_area_end":"18:00","is_all_day":"1"},{"week":["4","5","6"],"time_area_start_hour":"00:00","time_area_end":"23:59","is_all_day":"2"}]' id="timeAreaHidden">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">预约点餐设置</label>
+                        <div class="control-input">
+                            <label><input type="checkbox" class="qkj-checkbox js-openOrder" checked> 开启预约点餐</label>
+                            <div class="mtb10 js-openOrderSelect">
+                                <div class="form-group">
+                                    <label class="control-label p0">最大可预约天数</label>
+                                    <div class="control-input">
+                                        <label class="w200"><input type="radio" class="qkj-radio" checked> 仅当天</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label p0">间隔时段细分</label>
+                                    <div class="control-input">
+                                        <label class="w200"><input type="radio" class="qkj-radio" checked> 15分钟</label>
+                                        <label class="w200"><input type="radio" class="qkj-radio"> 20分钟</label>
+                                        <label class="w200"><input type="radio" class="qkj-radio"> 30分钟</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label p0">出餐数量控制</label>
+                                    <div class="control-input">
+                                        <label class="w200"><input type="radio" class="qkj-radio" checked> 限制数量</label>
+                                        <label class="w200"><input type="radio" class="qkj-radio"> 不限制</label>
+                                        <div class="mt10">
+                                            <label class="w300">间隔时间段内限制<input type="text" class="form-control form-control-inline w80 mr5 ml5">件</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label p0">预订单提醒时间</label>
+                                    <div class="control-input">
+                                        <label>预约取餐时间前60分钟</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">支持点餐区域</label>
+                        <div class="control-input">
+                            <div class="w443">
+                                <!--地图范围设置-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">取消订单设置</label>
+                        <div class="control-input">
+                            预约订单支付后 <input type="text" class="form-control form-control-inline w80 text-center" value="3"> 分钟内用户可取消订单
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-wrap text-center mt30">
+                    <button type="button" class="btn btn-primary" id="button">保存</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/common/timePicker.js"></script>
+<script src="../../../js/function/food/order_set/ordering.js"></script>
+
+</body>
+</html>

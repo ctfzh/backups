@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>异业联盟报表</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/echarts.min.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <ul class="list-group list-group-black">
+            <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+            <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+            <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+            <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+            <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+            <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+            <li><a href="../../mall/goods/good_list.html" class="list-group-item"><i class="icon-service"></i> 客服</a></li>
+            <li><a href="../../wx_applet/manager/list.html" class="list-group-item active"><i class="icon-wechatapp"></i> 小程序</a></li>
+            <li><a href="../../mall/goods/good_list.html" class="list-group-item"><i class="icon-shop"></i> 商城</a></li>
+            <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+            <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+            <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+        </ul>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">小程序</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../manager/wxapplet_outline.html" class="list-group-item">智慧门店版</a>
+            </li>
+            <li class="sub-item"><!--这个只有在开通后才显示-->
+                <a href="javascript:;" class="list-group-item">智慧门店</a>
+                <ul>
+                    <li><a href="../demo_version/page_add.html" class="list-group-item active">展示</a></li>
+                    <li><a href="#" class="list-group-item ">营销</a></li>
+                    <li><a href="#" class="list-group-item ">行业</a></li>
+                    <li><a href="../statistics/statistics.html" class="list-group-item ">统计</a></li>
+                    <li><a href="../set/wx_authorization.html" class="list-group-item ">设置</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../manager/add_second.html" class="list-group-item">商城版</a>
+            </li>
+            <li>
+                <a href="../manager/list.html" class="list-group-item">版本管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li><a href="../marketing_version/preferential_set.html" class="text-primary">联盟发券</a> / 联盟数据统计</li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="panel panel-default">
+                <div class="panel-heading">联盟数据概要</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <dl class="col-xs-4 dl-horizontal dl-auto">
+                            <dt>加入联盟天数</dt>
+                            <dd>100天</dd>
+                        </dl>
+                        <dl class="col-xs-4 dl-horizontal dl-auto">
+                            <dt>展示合计</dt>
+                            <dd>1000次</dd>
+                        </dl>
+                        <dl class="col-xs-4 dl-horizontal dl-auto">
+                            <dt>获得亲享分总计</dt>
+                            <dd>1000</dd>
+                        </dl>
+                        <dl class="col-xs-4 dl-horizontal dl-auto">
+                            <dt>发券总计</dt>
+                            <dd>100天</dd>
+                        </dl>
+                        <dl class="col-xs-4 dl-horizontal dl-auto">
+                            <dt>被展示合计</dt>
+                            <dd>1000次</dd>
+                        </dl>
+                        <dl class="col-xs-4 dl-horizontal dl-auto">
+                            <dt>使用亲享分总计</dt>
+                            <dd>1000</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <h5 class="fw-bold">展示数据统计</h5>
+            <form class="form-search mb10 time-area">
+                <select class="form-control form-control-inline">
+                    <option value="">全部</option>
+                    <option value="1">展示数</option>
+                    <option value="2">获得亲享分</option>
+                    <option value="3">被展示数</option>
+                    <option value="4">使用亲享分</option>
+                </select>
+                <input type="text" name="time" id="time" class="form-control form-control-inline w200 mr5" value="2017/02/26-2017/03/05">
+                <a href="javascript:;" class="btn btn-default btn-primary mr5 sevenMoment">最近7天</a>
+                <a href="javascript:;" class="btn btn-default mr5 fifthMoment">最近15天</a>
+                <a href="javascript:;" class="btn btn-default mr5 thirtyMoment">最近30天</a>
+                <div class="inline-block"><input type="submit" value="搜索" class="btn btn-primary"></div>
+            </form>
+            <div class="mb20 p15 border">
+                <div id="echart1" class="height-lg wper100 mb10"></div>
+            </div>
+
+            <h5 class="fw-bold">展示数据明细</h5>
+            <div class="table-responsive mb15">
+                <table class="table">
+                    <thead>
+                        <tr class="active">
+                            <th width="30%">时间</th>
+                            <th width="30%">展示数</th>
+                            <th>获得亲享分</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2018-02-06</td>
+                            <td>100</td>
+                            <td>100</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5 class="fw-bold">被展示数据明细</h5>
+            <div class="table-responsive">
+                <table class="table mt10">
+                    <thead>
+                    <tr class="active">
+                        <th width="30%">时间</th>
+                        <th width="30%">被展示数</th>
+                        <th>使用亲享分</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>2018-02-06</td>
+                        <td>100</td>
+                        <td>100</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/function/wx_applet/marketing_version/yiyelianmeng_statistics.js"></script>
+
+<script>
+    // 图表
+    $(function () {
+        //累计用户统计
+        charts.line(
+            'echart1', ['展示数1','展示数2'], '时间',['16-08-04', '16-08-05', '16-08-06', '16-08-07', '16-08-08', '16-08-09', '16-08-10', '16-08-11', '16-08-12', '16-08-13', '16-08-14'], '数量', [{name: '展示数1',type: 'line',data: [2000, 50, 90, 20, 281, 247, 741, 2223, 2000, 1200, 2021]},{name: '展示数2',type: 'line',data: [1000, 500, 100, 200, 2811, 247, 70, 125, 552, 999, 1200]}],["#469DF7", "#3cb035"]
+        );
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>用户管理</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/webuploader/webuploader.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item active"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">用户管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../outline/user_increase.html" class="list-group-item">CRM概要</a>
+            </li>
+            <li>
+                <a href="../user/user_list.html" class="list-group-item active">用户管理</a>
+            </li>
+            <li>
+                <a href="../group_list.html" class="list-group-item">用户分组</a>
+            </li>
+            <li>
+                <a href="../member_grade/member_grade_list.html" class="list-group-item">会员等级</a>
+            </li>
+            <li>
+                <a href="../card/member_card_list.html" class="list-group-item">微信会员卡</a>
+            </li>
+            <li>
+                <a href="../set/member_set.html" class="list-group-item">会员中心设置</a>
+            </li>
+            <li>
+                <a href="../point/point_exchange_list.html" class="list-group-item">积分管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="user_list.html">粉丝管理</a></li>
+                <li><a href="member_list.html">用户管理</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <h5 class="text-dark">用户详情</h5>
+            <div class="media bg-white mb30">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object head80 img-thumbnail" src="../../../img/qrcode.png">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h5 class="media-heading text-dark"> 微信昵称
+                        <div class="ml10 inline-block">
+                            <a href="javascript:;" class="addRemark text-gray-light"><span>备注</span> <i class="icon-edit"></i></a>
+                        </div>
+                    </h5>
+                    <p class="text-gray-light">
+                        粉丝<span class="ml10">已关注</span>
+                    </p>
+                    <p class="text-gray-light">
+                        会员<span class="ml10">已注册</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="btn-group mb20" role="group" aria-label="group">
+                <a href="user_detail.html" class="btn btn-primary storeSort">基本信息</a>
+                <a href="consume_record.html" class="btn btn-default storeSort">消费记录</a>
+                <a href="recharge_record.html" class="btn btn-default storeSort">储值记录</a>
+                <a href="point_record.html" class="btn btn-default storeSort">积分记录</a>
+                <a href="javascript:;" class="btn btn-default storeSort">客服</a>
+            </div>
+
+            <div class="mb20">
+                <h5 class="border-b pb10 text-dark">粉丝信息</h5>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <dl class="dl-horizontal">
+                            <dt>性别</dt>
+                            <dd>男</dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-4">
+                        <dl class="dl-horizontal">
+                            <dt>生日</dt>
+                            <dd>1991.03.19</dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-4">
+                        <dl class="dl-horizontal">
+                            <dt>地址</dt>
+                            <dd>中国 湖北 潜江</dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-4">
+                        <dl class="dl-horizontal">
+                            <dt>关注时间</dt>
+                            <dd>2017.03.19  12:35:35</dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-12">
+                        <dl class="dl-horizontal">
+                            <dt>分组</dt>
+                            <dd>全部分组，重要用户</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb20">
+                <h5 class="border-b pb10 text-dark">会员信息</h5>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <dl class="dl-horizontal">
+                            <dt>姓名</dt>
+                            <dd>草率</dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-4">
+                        <dl class="dl-horizontal">
+                            <dt>手机号</dt>
+                            <dd>18815287469</dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-4">
+                        <dl class="dl-horizontal">
+                            <dt>余额</dt>
+                            <dd>1345.00</dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-4">
+                        <dl class="dl-horizontal">
+                            <dt>生日</dt>
+                            <dd>2017.03.19</dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-4">
+                        <dl class="dl-horizontal">
+                            <dt>会员等级</dt>
+                            <dd>普通会员</dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-4">
+                        <dl class="dl-horizontal">
+                            <dt>积分</dt>
+                            <dd>12411</dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-4">
+                        <dl class="dl-horizontal">
+                            <dt>身份证</dt>
+                            <dd>3301232165225111</dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-4">
+                        <dl class="dl-horizontal">
+                            <dt>会员卡号</dt>
+                            <dd>12411415155</dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-12">
+                        <dl class="dl-horizontal">
+                            <dt>邮箱</dt>
+                            <dd>cao@email.com</dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-12">
+                        <dl class="dl-horizontal">
+                            <dt>详细地址</dt>
+                            <dd>详细地址详细地址详细地址详细地址详细地址</dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-12">
+                        <dl class="dl-horizontal">
+                            <dt>教育背景</dt>
+                            <dd></dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-12">
+                        <dl class="dl-horizontal">
+                            <dt>职业</dt>
+                            <dd></dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-12">
+                        <dl class="dl-horizontal">
+                            <dt>行业</dt>
+                            <dd></dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-12">
+                        <dl class="dl-horizontal">
+                            <dt>收入</dt>
+                            <dd></dd>
+                        </dl>
+                    </div>
+                    <div class="col-xs-12">
+                        <dl class="dl-horizontal">
+                            <dt>兴趣爱好</dt>
+                            <dd></dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../../js/function/crm/crmCard.js"></script>
+
+</body>
+</html>

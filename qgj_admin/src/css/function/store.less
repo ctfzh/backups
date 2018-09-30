@@ -1,0 +1,89 @@
+// 门店设置
+// ---------------------
+
+#addNotice{
+  .form-horizontal .form-group {
+    margin-bottom: 20px;
+    .control-label{
+      width: 162px;
+      text-align: right;
+    }
+    .control-input{
+      padding-left: 184px;
+    }
+  }
+  img{
+    border: 1px solid @border-color;
+    padding: 5px;
+  }
+}
+
+// 操作员设置
+.inputNumber-relative {
+  position: relative;
+}
+.inputNumber-absolute {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 15px;
+  height: 17px;
+  margin-top: -8px;
+}
+.inputNumber-up {
+  width: 15px;
+  height: 8px;
+  background: url("../img/inputNumber.jpg") center center no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+}
+.inputNumber-down {
+  margin-top: 1px;
+  width: 15px;
+  height: 8px;
+  background: url("../img/inputNumber.jpg") center center no-repeat;
+  background-position: 0 -9px;
+  cursor: pointer;
+}
+
+//商家相册
+.store-ablum-edit{
+  .form-group{
+    padding:0 15px 15px;
+    border-bottom:1px solid @border-color;
+    .control-label{
+      left: 15px;
+    }
+  }
+  .pic-list li{
+    cursor: move;
+  }
+}
+//添加分类
+.store-ablum-classify, .store-ablum-video{
+  padding: 15px 0;
+  .btn-wrap{
+    padding-left: 25px;
+  }
+  .form-group{
+    margin-bottom: 15px;
+  }
+}
+.store-ablum-classify{
+  padding-top: 0;
+  padding-bottom: 15px;
+}
+.store-ablum-video{
+  margin-top: @space-padding;
+  border-top:1px solid @border-color;
+  .wx-ablum-video-item{
+    margin-bottom: 15px;
+    border-bottom:1px solid @border-color;
+    background-color: @color-white;
+    cursor: move;
+  }
+  .form-group{
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+}

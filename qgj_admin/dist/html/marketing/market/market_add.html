@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>活动管理</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/masonry-docs.min.js"></script>
+    <script src="../../../js/lib/echarts.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item active"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">营销管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../recharge/recharge_list.html" class="list-group-item">储值活动</a>
+            </li>
+            <li>
+                <a href="../coupon/coupon_list.html" class="list-group-item">优惠券</a>
+            </li>
+            <li>
+                <a href="../market/market_list.html" class="list-group-item active">营销活动</a>
+            </li>
+            <li>
+                <a href="../wx_applet/wx_applet_list.html" class="list-group-item">微信小程序</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li><a href="market_list.html">活动管理</a></li>
+                <li class="active"><a href="market_list.html">营销活动</a></li>
+                <li><a href="javascript:;">营销活动统计</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="marketadd">
+                <h5 class="mb20">会员成长</h5>
+                <div class="item">
+                    <h5 class="text-primary">路人</h5>
+                    <div class="row">
+                        <div class="leaderline"></div>
+                        <div class="col-xs-4">
+                            <div class="media media-h mb0">
+                                <a href="first_concern.html">
+                                    <div class="media-left">
+                                        <div class="bg"><i class="icon-concern h2"></i></div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">首次关注赠券</h5>
+                                        <p>向首次关注微信公众号的用户赠券</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="media media-h mb0">
+                                <a href="share_coupon_add.html">
+                                    <div class="media-left">
+                                        <div class="bg"><i class="icon-share h2"></i></div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">分享赠券</h5>
+                                        <p>向分享活动的用户赠券</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <h5 class="text-primary">粉丝</h5>
+                    <div class="row">
+                        <div class="leaderline"></div>
+                        <div class="col-xs-4">
+                            <div class="media media-h mb0">
+                                <a href="pay_member.html">
+                                    <div class="media-left">
+                                        <div class="bg"><i class="icon-diamond h2"></i></div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">支付即会员</h5>
+                                        <p>用户使用微信支付后推送会员卡领取</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="media media-h mb0">
+                                <a href="join_member.html">
+                                    <div class="media-left">
+                                        <div class="bg"><i class="icon-crown h2"></i></div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">加入会员赠券</h5>
+                                        <p>向激活会员卡或注册会员的用户赠券</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <h5 class="text-primary">会员</h5>
+                    <div class="row">
+                        <div class="leaderline"></div>
+                        <div class="col-xs-4">
+                            <div class="media media-h mb0">
+                                <a href="perfect_data.html">
+                                    <div class="media-left">
+                                        <div class="bg"><i class="icon-edit h3"></i></div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">完善资料赠券</h5>
+                                        <p>完善资料后给用户赠券</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="media media-h mb0">
+                                <a href="member_grade.html">
+                                    <div class="media-left">
+                                        <div class="bg"><i class="icon-upgrade h2"></i></div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">会员升级赠券</h5>
+                                        <p>会员升级后赠券</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="media media-h mb0">
+                                <a href="member_coupon.html">
+                                    <div class="media-left">
+                                        <div class="bg"><i class="icon-member h2"></i></div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">会员赠券</h5>
+                                        <p>向所有或部分等级会员赠券</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <h5 class="text-primary">高级会员</h5>
+                </div>
+            </div>
+
+            <div class="marketadd">
+                <h5 class="mb20">促进消费</h5>
+                <div class="item">
+                    <h5 class="text-primary">潜客</h5>
+                    <div class="row">
+                        <div class="leaderline"></div>
+                        <div class="col-xs-4">
+                            <div class="media media-h mb0">
+                                <a href="single_consumption.html">
+                                    <div class="media-left">
+                                        <div class="bg bg-yellow"><i class="icon-finance h2"></i></div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">消费满赠</h5>
+                                        <p>单次消费满X元赠券</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="media media-h mb0">
+                                <a href="non_consumption.html">
+                                    <div class="media-left">
+                                        <div class="bg bg-yellow"><i class="icon-noCosume h2"></i></div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">未消费赠券</h5>
+                                        <p>加入会员后未消费赠券</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="media media-h mb0">
+                                <a href="../recharge/recharge_list.html">
+                                    <div class="media-left">
+                                        <div class="bg bg-yellow"><i class="icon-wallet h2"></i></div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">储值活动</h5>
+                                        <p>创建储值活动，增加客户粘性</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <h5 class="text-primary">新客</h5>
+                    <div class="row">
+                        <div class="leaderline"></div>
+                        <div class="col-xs-4">
+                            <div class="media media-h">
+                                <a href="cumulative_consumption.html">
+                                    <div class="media-left">
+                                        <div class="bg bg-yellow"><i class="icon-cumulativeC h2"></i></div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">累计消费满赠券</h5>
+                                        <p>累计消费满X元赠券</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="media media-h">
+                                <a href="old_member.html">
+                                    <div class="media-left">
+                                        <div class="bg bg-yellow"><i class="icon-member h2"></i></div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">老会员赠券</h5>
+                                        <p>已经注册一个月，且两个月内消费过</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="media media-h">
+                                <a href="buy_coupon_add.html">
+                                    <div class="media-left">
+                                        <div class="bg bg-yellow"><i class="icon-coupon1 h2"></i></div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">付费购券</h5>
+                                        <p>用户付费购买优惠券包</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="media media-h mb0">
+                                <a href="cumulative_consumption_times.html">
+                                    <div class="media-left">
+                                        <div class="bg bg-yellow"><i class="icon-cumulative h2"></i></div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">累计消费次数满赠券</h5>
+                                        <p>累计消费满Y元赠券</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="media media-h mb0">
+                                <a href="loss_member.html">
+                                    <div class="media-left">
+                                        <div class="bg bg-yellow"><i class="icon-lostm h2"></i></div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">流失顾客赠券</h5>
+                                        <p>有消费，且两个月内未消费的会员赠券</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <h5 class="text-primary">常客</h5>
+                </div>
+            </div>
+
+            <div class="marketadd">
+                <h5 class="mb20">客户关怀</h5>
+                <div class="item">
+                    <div class="row">
+                        <div class="col-xs-4 mb0">
+                            <div class="media media-h">
+                                <a href="birthday_care.html">
+                                    <div class="media-left">
+                                        <div class="bg bg-orange"><i class="icon-birthday h2"></i></div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">生日关怀</h5>
+                                        <p>给即将过生日的会员赠券</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 mb0">
+                            <div class="media media-h">
+                                <a href="festival_care.html">
+                                    <div class="media-left">
+                                        <div class="bg bg-orange"><i class="icon-balloon h2"></i></div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">节日关怀</h5>
+                                        <p>节日前提前赠券</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>银行收款账号设置</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item active"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">系统设置</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../account/account_list.html" class="list-group-item">账号设置</a>
+            </li>
+            <li>
+                <a href="../alipay/alipay_set_list.html" class="list-group-item">支付宝设置</a>
+            </li>
+            <li>
+                <a href="../wx/wxpay_set_list.html" class="list-group-item">微信设置</a>
+            </li>
+            <li>
+                <a href="../bank/bankacount_set.html" class="list-group-item active">银行间联设置</a>
+            </li>
+            <li>
+                <a href="../system/modify_password.html" class="list-group-item">修改密码</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <div class="pull-right mt10">
+                <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#acountModal">添加收款账号</a>
+            </div>
+            <ul>
+                <li class="active"><a href="#">银行收款账号设置</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="table-wrap">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr class="active">
+                        <th>商户编号</th>
+                        <th>结算账户</th>
+                        <th>配置门店</th>
+                        <th width="20%">备注</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>2088811978614197</td>
+                        <td>62008698699986871752616</td>
+                        <td>10家</td>
+                        <td>
+                            <div class="hide">
+                                <input type="text" value="" class="border w150 inline-block input-sm">
+                                <input type="button" value="确定" class="btn btn-primary btnRemark">
+                            </div>
+                            <a href="javascript:;" class="addRemark">添加备注</a>
+                            <input type="hidden" value="10">
+                        </td>
+                        <td>
+                            <a href="#" class="text-primary">编辑</a>
+                            <a href="#" class="text-primary">门店</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2088811978614197</td>
+                        <td>62873648636486384686486</td>
+                        <td>10家</td>
+                        <td>
+                            <div class="hide">
+                                <input type="text" value="" class="border w150 inline-block input-sm">
+                                <input type="button" value="确定" class="btn btn-primary btnRemark">
+                            </div>
+                            <a href="javascript:;" class="addRemark">添加备注</a>
+                            <input type="hidden" value="11">
+                        </td>
+                        <td>
+                            <a href="#" class="text-primary">删除</a>
+                            <a href="#" class="text-primary">编辑</a>
+                            <a href="#" class="text-primary">门店</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="text-center h5 mt10">暂时无数据</div>
+            </div>
+            <div id="page" class="ptb15">
+                <p>首页</p>
+                <p>上一页</p>
+                <a href="/merchant/store/list.html?page=1" title="第1页" class="cur">1</a>
+                <a href="/merchant/store/list.html?page=2" title="第2页">2</a>
+                <a href="/merchant/store/list.html?page=3" title="第3页">3</a>
+                <a href="/merchant/store/list.html?page=4" title="第4页">4</a>
+                <a href="/merchant/store/list.html?page=5" title="第5页">5</a>
+                <p class="pageEllipsis">...</p>
+                <a href="/merchant/store/list.html?page=2" title="下一页">下一页</a>
+                <a href="/merchant/store/list.html?page=7" title="尾页">尾页</a>
+                <p class="pageRemark">共<strong>7</strong>页<strong>7</strong>条数据</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--添加收款账号弹出框-->
+<div class="modal fade" id="acountModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <form action="/" id="acountForm" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">添加银行收款账号</h4>
+                </div>
+                <div class="modal-body form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label"><em class="text-danger">*</em> 商户编号</label>
+                        <div class="control-input">
+                            <!--添加的时候验证编号是否存在-->
+                            <input type="text" name="shId" maxlength="20" class="form-control wper60" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">备注</label>
+                        <div class="control-input">
+                            <textarea name="" class="wper60 form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="btnAcountSure">确定</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="../../../js/function/system/system.js"></script>
+<script>
+    $(function () {
+        $("#btnAcountSure").click(function () {
+            if(validate.valid()){
+                $(this).submit();
+            }
+        });
+    });
+
+    var validate = $("#acountForm").validate({
+        debug: false, //调试模式取消submit的默认提交功能
+        rules:{
+            shId:{
+                required: true
+            }
+        },
+        messages:{
+            shId:{
+                required:"请填写商户编号"
+            }
+        },
+        errorPlacement: function(error, element) {
+            error.appendTo(element.parent());
+        },
+        errorClass: "text-danger mt5"
+    });
+</script>
+
+</body>
+</html>

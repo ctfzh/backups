@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>评价门店详情</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item active"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">餐饮管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../goods/good_list.html" class="list-group-item">商品库</a>
+            </li>
+            <li>
+                <a href="../set/attribute/specifications.html" class="list-group-item">商品设置</a>
+            </li>
+            <li>
+                <a href="../order_set/ordering.html" class="list-group-item">订单管理</a>
+            </li>
+            <li>
+                <a href="../rate/list.html" class="list-group-item">评价管理</a>
+            </li>
+            <li>
+                <a href="../homeSet.html" class="list-group-item">首页设置</a>
+            </li>
+            <li>
+                <a href="../set/template/add1.html" class="list-group-item">配送管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="#" class="text-primary">评价管理</a> <span>/ 门店详情</span></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <h5>
+                综合评价
+                <span class="qgj-help" data-value="综合评价计算方式：近30天评价数/总评价数"></span>
+            </h5>
+
+            <div class="rate-wrap mb20">
+                <div class="item">
+                    <div class="hd">商家评分</div>
+                    <dl class="comp-rate comp-rate6">
+                        <dt>3.5</dt>
+                        <dd>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </dd>
+                    </dl>
+                    <div class="rate-progress">
+                        <div class="r-progress-item r-progress-item5">
+                            <span class="text">5星</span>
+                            <span class="line">
+                                <span style="width: 100%"><span class="per">100%</span></span>
+                            </span>
+                        </div>
+                        <div class="r-progress-item r-progress-item4">
+                            <span class="text">4星</span>
+                            <span class="line">
+                                <span style="width: 40%"><span class="per">40%</span></span>
+                            </span>
+                        </div>
+                        <div class="r-progress-item r-progress-item3">
+                            <span class="text">3星</span>
+                            <span class="line">
+                                <span style="width: 33.33%"><span class="per">33.33%</span></span>
+                            </span>
+                        </div>
+                        <div class="r-progress-item r-progress-item2">
+                            <span class="text">2星</span>
+                            <span class="line">
+                                <span style="width: 20.22%"><span class="per">20.22%</span></span>
+                            </span>
+                        </div>
+                        <div class="r-progress-item r-progress-item1">
+                            <span class="text">1星</span>
+                            <span class="line">
+                                <span style="width: 5.23%"><span class="per">5.23%</span></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="hd">配送评分</div>
+                    <input type="radio" class="qkj-radio">
+                    <dl class="comp-rate comp-rate9">
+                        <dt>4.6</dt>
+                        <dd>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </dd>
+                    </dl>
+                    <div class="rate-progress">
+                        <div class="r-progress-item r-progress-item5">
+                            <span class="text">5星</span>
+                            <span class="line">
+                                <span style="width: 100%"><span class="per">100%</span></span>
+                            </span>
+                        </div>
+                        <div class="r-progress-item r-progress-item4">
+                            <span class="text">4星</span>
+                            <span class="line">
+                                <span style="width: 40%"><span class="per">40%</span></span>
+                            </span>
+                        </div>
+                        <div class="r-progress-item r-progress-item3">
+                            <span class="text">3星</span>
+                            <span class="line">
+                                <span style="width: 33.33%"><span class="per">33.33%</span></span>
+                            </span>
+                        </div>
+                        <div class="r-progress-item r-progress-item2">
+                            <span class="text">2星</span>
+                            <span class="line">
+                                <span style="width: 20.22%"><span class="per">20.22%</span></span>
+                            </span>
+                        </div>
+                        <div class="r-progress-item r-progress-item1">
+                            <span class="text">1星</span>
+                            <span class="line">
+                                <span style="width: 5.23%"><span class="per">5.23%</span></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form class="form-horizontal form-search">
+                <div class="form-group col-xs-6">
+                    <label class="control-label">评价时间：</label>
+                    <div class="control-input">
+                        <input type="text" class="form-control widthauto form-control-inline" id="time" readonly="readonly">
+                        <div class="btn-group inline-block">
+                            <a href="#" class="btn btn-default" id="sevenMoment">7日</a>
+                            <a href="#" class="btn btn-default" id="thirtyMoment">30日</a>
+                            <a href="#" class="btn btn-default" id="ninetyMoment">90日</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-xs-6">
+                    <label class="control-label">评价类型：</label>
+                    <div class="control-input">
+                        <div class="line-height30">
+                            <label class="mr10"><input type="radio" class="qkj-radio"> 全部</label>
+                            <label class="mr10"><input type="radio" class="qkj-radio"> 好评（4-5星）</label>
+                            <label class="mr10"><input type="radio" class="qkj-radio"> 中评（3星）</label>
+                            <label class="mr10"><input type="radio" class="qkj-radio"> 差评（1-2星）</label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="qgj-nav clearfix">
+                <div class="btn-group">
+                    <a class="btn btn-default active">全部</a>
+                    <a class="btn btn-default">点餐</a>
+                    <a class="btn btn-default">外卖</a>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="active">
+                            <th width="30%">用户信息</th>
+                            <th width="15%">商家评分</th>
+                            <th width="15%">配送评分</th>
+                            <th>订单号</th>
+                            <th>商品信息</th>
+                            <th>评价时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="javascript:;"><img src="../../../img/qrcode.png" alt="" class="w48"></a>
+                                <div class="inline-block w200">
+                                    <p class="text-ellipsis"><strong>宁波雅戈尔服饰有限公司无锡人民路专卖店</strong></p>
+                                    <p class="m0">nb0001</p>
+                                </div>
+                            </td>
+                            <td>
+                                <dl class="comp-rate comp-rate6 mb0">
+                                    <dd>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </dd>
+                                </dl>
+                                <div class="text">4星，满意</div>
+                            </td>
+                            <td>
+                                <dl class="comp-rate comp-rate6 mb0">
+                                    <dd>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </dd>
+                                </dl>
+                                <div class="text">4星，满意</div>
+                            </td>
+                            <td>E20170721155624</td>
+                            <td>
+                                <div class="dropdown inline-block">
+                                    <a href="javascript:;">详情</a>
+                                    <div class="dropdown-con w300">
+                                        <div class="mb10">
+                                            <div class="pull-right ml20">×2</div>
+                                            <span>A级-泰国鲜龙眼约500g泰国鲜龙眼约500g泰国鲜龙眼约500g</span>
+                                        </div>
+                                        <div class="mb10">
+                                            <div class="pull-right ml20">×3</div>
+                                            A级-泰国鲜龙眼约500g
+                                        </div>
+                                        <div class="mb10">
+                                            <div class="pull-right ml20">×2</div>
+                                            A级-泰国鲜龙眼约500g
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>2017-07-22 14:55:06</td>
+                            <td>
+                                <a href="#" class="text-blue mr10">隐藏评论</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--<div class="text-center h5 mt10">暂时无数据</div>-->
+                <div id="page"  class="mt20">
+                    <p>首页</p>
+                    <p>上一页</p>
+                    <a href="#" title="第1页" class="cur">1</a>
+                    <a href="#" title="第2页">2</a>
+                    <a href="#" title="第3页">3</a>
+                    <a href="#" title="第4页">4</a>
+                    <a href="#" title="第5页">5</a>
+                    <p class="pageEllipsis">...</p>
+                    <a href="#" title="下一页">下一页</a>
+                    <a href="#" title="尾页">尾页</a>
+                    <p class="pageRemark">共<strong>7</strong>页<strong>7</strong>条数据</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../../js/function/food/rate/detail.js"></script>
+
+</body>
+</html>

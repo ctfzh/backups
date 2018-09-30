@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>首页设置</title>
+
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <script src="../../js/lib/lib.min.js"></script>
+    <script src="../../js/lib/dateranger.min.js"></script>
+    <script src="../../js/lib/layer/layer.js"></script>
+    <script src="../../js/common/util.js"></script>
+    <script src="../../js/lib/select2.min.js"></script>
+    <script src="../../js/lib/jquery-ui.min.js"></script>
+    <script src="../../js/common/common.js"></script>
+
+    <link rel="stylesheet" href="../../js/lib/uploadify/uploadify.css">
+    <script src="../../js/lib/uploadify/jquery.uploadify.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../store/store/store_list.html" class="list-group-item active"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">餐饮管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="goods/good_list.html" class="list-group-item">商品库</a>
+            </li>
+            <li>
+                <a href="set/attribute/specifications.html" class="list-group-item">商品设置</a>
+            </li>
+            <li>
+                <a href="order_set/ordering.html" class="list-group-item">订单管理</a>
+            </li>
+            <li>
+                <a href="rate/list.html" class="list-group-item">评价管理</a>
+            </li>
+            <li>
+                <a href="homeSet.html" class="list-group-item">首页设置</a>
+            </li>
+            <li>
+                <a href="notes_add.html" class="list-group-item">使用须知</a>
+            </li>
+            <li>
+                <a href="set/template/add1.html" class="list-group-item">配送管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="m-title-list active" data-page="1"><a href="#">首页设置</a></li>
+                <li class="m-title-list" data-page="2"><a href="#">广告图</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <form id="mallSetForm" class="food-homeSet">
+                <div class="mall-set">
+                    <!--左边部分-->
+                    <div class="ms-prview">
+                        <div class="ms-title js-ms-title">
+                            <span>页面名称</span>
+                            <input type="hidden" class="hiddenData">
+                        </div>
+                        <div class="ms-bd js-regions">
+                            <div class="region-banner js-region-banner">
+                                <ul class="slide-wrap">
+                                    <li><a href="javascript:;"><img src="../../img/zTreeStandard.png"></a></li>
+                                    <li><a href="javascript:;"><img src="../../img/zTreeStandard.png"></a></li>
+                                    <li><a href="javascript:;"><img src="../../img/zTreeStandard.png"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ms-ft"></div>
+                    </div>
+                    <!--右边部分-->
+                    <div class="ms-form js-ms-form" style="margin-top: 47px">
+                        <div class="region-form js-regions-form">
+                            <div class="pic-list ui-sortable">
+                                <ul class="image-list js-pic-list ui-sortable">
+                                    <li class="sort li-bgimg">
+                                        <img src="../../img/pic/abstract.jpg" alt="">
+                                        <a href="javascript:;" class="js-delete-pic close close-bg">×</a>
+                                    </li>
+                                    <li class="sort li-bgimg">
+                                        <img src="../../img/pic/abstract.jpg" alt="">
+                                        <a href="javascript:;" class="js-delete-pic close close-bg">×</a>
+                                    </li>
+                                    <li class="sort li-bgimg">
+                                        <img src="../../img/pic/abstract.jpg" alt="">
+                                        <a href="javascript:;" class="js-delete-pic close close-bg">×</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" class="add-pic js-add-pic" id="aaa">加图</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-gray-light mt5">最多添加5个广告，建议尺寸 750x610 像素，拖动选中的图片广告可对其排序</div>
+                        </div>
+                        <div class="arrow-l"></div>
+                    </div>
+                </div>
+                <input type="hidden" value="" id="mallData">
+                <input type="hidden" value="" id="mallDataId">
+                <div class="text-center mt20">
+                    <button type="button" class="btn btn-primary" id="mallSetBtn">保存</button>
+                </div>
+
+            </form>
+            <!-- 广告图 -->
+            <div class="ad-wraper" style="display:none">
+                <div class="ad-item">
+                    <span>点餐广告图：</span>
+                    <div class="form-group">
+                        <div class="control-input">
+                            <div class="pic-list ui-sortable">
+                                <ul class="image-list js-pic-list">
+                                    <li class="sort">
+                                        <img src="../../img/funnel.png" alt="">
+                                        <a href="javascript:;" class="js-delete-pic close close-bg">×</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" class="add-pic js-add-pic">加图</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="error hide">上传图片最多15张图片</div>
+                            <div class="text-gray-light mt5">建议上传宽度600像素的图片</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ad-item">
+                    <span>外卖广告图：</span>
+                    <div class="form-group">
+                        <div class="control-input">
+                            <div class="pic-list ui-sortable">
+                                <ul class="image-list js-pic-list">
+                                    <li class="sort">
+                                        <img src="../../img/funnel.png" alt="">
+                                        <a href="javascript:;" class="js-delete-pic close close-bg">×</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" class="add-pic js-add-pic">加图</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="error hide">上传图片最多15张图片</div>
+                            <div class="text-gray-light mt5">建议上传宽度600像素的图片</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../js/function/food/homeSet.js"></script>
+
+<script>
+    $('#aaa').uploadify({
+        uploader: 'http://upload.qinguanjia.com/upload.php',// 服务器处理地址
+        swf: 'http://upload.qinguanjia.com/js/lib/uploadify/uploadify.swf',
+        buttonText: "选择图片",//按钮文字
+        height: 34,  //按钮高度
+        width: 82, //按钮宽度
+        fileSizeLimit: 2048,
+        fileTypeExts: '*.jpg;*.png;*.jpeg;',//允许的文件类型
+        fileTypeDesc: "请选择图片文件", //文件说明
+        formData: { 'folder' : 'mall_page_item', 'thumb': '750_0@750*0,375_375@375*375'}, //提交给服务器端的参数
+        onUploadSuccess: function (file, data, response) { //一个文件上传成功后的响应事件处理\
+
+        }
+    });
+    $('.m-title-list').click(function(){
+        $(this).addClass('active');
+        $(this).siblings().removeClass('active');
+        const page = $(this).attr('data-page');
+        if(page == 1){
+            $('#mallSetForm').attr('style','display:block');
+            $('.ad-wraper').attr('style','display:none');
+        }else if(page == 2){
+            $('#mallSetForm').attr('style','display:none');
+            $('.ad-wraper').attr('style','display:block');
+        }
+    })
+</script>
+
+</body>
+</html>

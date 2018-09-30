@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>版本信息</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item active"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">系统设置</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../account/account_list.html" class="list-group-item">账号设置</a>
+            </li>
+            <li>
+                <a href="../alipay/alipay_set_list.html" class="list-group-item">支付宝设置</a>
+            </li>
+            <li>
+                <a href="../wx/wxpay_set_list.html" class="list-group-item">微信设置</a>
+            </li>
+            <li>
+                <a href="../bank/bankacount_set.html" class="list-group-item">银行间联设置</a>
+            </li>
+            <li>
+                <a href="../system/modify_password.html" class="list-group-item">修改密码</a>
+            </li>
+            <li>
+                <a href="../bussiness_set.html" class="list-group-item">商家设置</a>
+            </li>
+            <li>
+                <a href="../system/version.html" class="list-group-item active">系统设置</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="#">版本信息</a></li>
+                <li><a href="#">订购记录</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+
+            <h5 class="mb15">亲享版本</h5>
+            <div class="table-wrap mb15">
+                <table class="table">
+                    <thead>
+                        <tr class="active">
+                            <th>亲享版本</th>
+                            <th>价格</th>
+                            <th>门店数量</th>
+                            <th>到期时间</th>
+                            <th class="text-center">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                收银版<br>
+                                <span class="text-gray-light">开通时间：2018.1.16</span>
+                            </td>
+                            <td>免费</td>
+                            <td>134家</td>
+                            <td>长期有效</td>
+                            <td class="text-right"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--<div class="text-center h5 mt10">暂时无数据</div>-->
+            </div>
+
+            <h5 class="mb15">付费版本</h5>
+            <div class="table-wrap table-wrap-indent">
+                <table class="table">
+                    <thead>
+                        <tr class="active">
+                            <th width="15%">亲享版本</th>
+                            <th width="45%">版本说明</th>
+                            <th width="15%">到期时间</th>
+                            <th class="text-center">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>智慧门店</strong></td>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr class="tr-indent">
+                            <td colspan="4" class="noborder">
+                                <table class="table noborder">
+                                    <tr>
+                                        <td width="15%">展示版</td>
+                                        <td width="45%"><div class="h6">功能说明：门店展示小程序</div></td>
+                                        <td width="15%"></td>
+                                        <td class="text-right">
+                                            <a href="#modalTip" data-toggle="modal" class="btn btn-default">立即开通</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            营销版 <div class="label label-danger">当前版本</div>
+                                            <p>支持30门店</p>
+                                        </td>
+                                        <td>
+                                            <div class="h6">
+                                                <p>开通营销版将同步开通小程序营销版，营销版包含展示版</p>
+                                                <p>营销版功能：CRM管理维护微信粉丝转化会员、微信公众号渠道管理触达用户、微信卡券营销、储值活动</p>
+                                                <p class="mb0">资金沉淀、热门营销活动</p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p>30门店 <a href="#modalStore" data-toggle="modal" class="h6 text-primary">门店管理</a></p>
+                                            <p class="mb0">2018.01.16</p>
+                                        </td>
+                                        <td class="text-right">
+                                            <a href="javascript:;" class="btn text-primary noborder"><span class="label label-md label-danger">已开通</span></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>行业版</td>
+                                        <td>
+                                            <div class="h6">
+                                                <p>开通行业版将同步开通小程序行业版，行业版包含营销版及展示版</p>
+                                                <p class="mb0">行业版功能：更多行业应用。</p>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                        <td class="text-right">
+                                            <a href="javascript:;" class="btn btn-default">立即开通</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>商城</strong></td>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr class="tr-indent">
+                            <td colspan="4" class="noborder">
+                                <table class="table noborder">
+                                    <tr>
+                                        <td>商城标准版</td>
+                                        <td><div class="h6">功能说明：快速搭建在线商城，包含基础商城功能及包邮、砍价、拼团等超值商城营销插件</div></td>
+                                        <td></td>
+                                        <td class="text-right">
+                                            <a href="../../wx_applet/manager/open.html" class="btn btn-default">立即开通</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="15%">商城分销版</td>
+                                        <td><div class="h6">功能说明：分销商城</div></td>
+                                        <td></td>
+                                        <td class="text-right">
+                                            <a href="../../wx_applet/manager/open.html" class="btn btn-default">立即开通</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--提示弹出框-->
+<div class="modal fade" id="modalTip">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">提示</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal modal-refund-form">
+                    <div class="form-group">
+                        <div class="pl-10">请联系您的服务商进行开通、升级、续费操作</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">服务商</label>
+                        <div class="control-input">服务商名称</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label ">联系方式</label>
+                        <div class="control-input">18815287469</div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--门店管理弹出框-->
+<div class="modal fade" id="modalStore">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">门店管理</h4>
+            </div>
+            <div class="modal-body">
+                <div class="select-bar">
+                    <div class="select-bar-l js-selectBarL">
+                        <div class="title">全部门店<span>5</span>家</div>
+                        <div class="search">
+                            <i class="icon-search"></i> <input type="text" placeholder="门店编号/门店名称">
+                        </div>
+                        <div class="tree">
+                            <div class="all-store">
+                                <input type="checkbox" class="qkj-checkbox all-check">
+                                <div class="name">全部门店</div>
+                            </div>
+                            <ul class="js-selectBarUlL">
+                                <li class="level_1" id="level_1">
+                                    <label>
+                                        <input type="checkbox" class="qkj-checkbox single-check single-check_1" value="1">
+                                        <div class="number">0001</div>
+                                        <div class="name">门店名称-分门店名称1</div>
+                                        <div class="close close-bg js-selectBar-close">×</div>
+                                    </label>
+                                </li>
+                                <li class="level_1" id="level_2">
+                                    <label>
+                                        <input type="checkbox" class="qkj-checkbox single-check single-check_1" value="2">
+                                        <div class="number">0002</div>
+                                        <div class="name">门店名称-分门店名称2</div>
+                                        <div class="close close-bg js-selectBar-close">×</div>
+                                    </label>
+                                </li>
+                                <li class="level_1" id="level_3">
+                                    <label>
+                                        <input type="checkbox" class="qkj-checkbox single-check single-check_1" value="3">
+                                        <div class="number">0003</div>
+                                        <div class="name">门店名称-分门店名称3</div>
+                                        <div class="close close-bg js-selectBar-close">×</div>
+                                    </label>
+                                </li>
+                                <li class="level_1" id="level_4">
+                                    <label>
+                                        <input type="checkbox" class="qkj-checkbox single-check single-check_1" value="4">
+                                        <div class="number">0004</div>
+                                        <div class="name">门店名称-分门店名称4</div>
+                                        <div class="close close-bg js-selectBar-close">×</div>
+                                    </label>
+                                </li>
+                                <li class="level_1" id="level_5">
+                                    <label>
+                                        <input type="checkbox" class="qkj-checkbox single-check single-check_1" value="5">
+                                        <div class="number">0005</div>
+                                        <div class="name">门店名称-分门店名称5</div>
+                                        <div class="close close-bg js-selectBar-close">×</div>
+                                    </label>
+                                </li>
+                                <li class="level_1" id="level_6">
+                                    <label>
+                                        <input type="checkbox" class="qkj-checkbox single-check single-check_1" value="6">
+                                        <div class="number">0006</div>
+                                        <div class="name">门店名称-分门店名称6</div>
+                                        <div class="close close-bg js-selectBar-close">×</div>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="select-bar-operate">
+                        <div class="table-cell">
+                            <a href="javascript:;" class="btn btn-default btn-sm js-select-bar-btn">添加</a>
+                        </div>
+                    </div>
+                    <div class="select-bar-r js-selectBarR">
+                        <div class="title">营销版门店<span>2</span>家(支持<span>5</span>门店)</div>
+                        <div class="tree">
+                            <ul class="js-selectBarUlR"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/common/selectBar.js"></script>
+
+</body>
+</html>

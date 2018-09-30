@@ -1,0 +1,206 @@
+/*主样式*/
+@sider-bg: #444;
+.siderbar, .main-siderbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  width: 150px;
+  background-color: @sider-bg;
+  z-index: 1;
+  .list-group-item {
+    height: 40px;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+}
+
+.siderbar {
+  width: 90px;
+  .logo {
+    height: 51px;
+    line-height: 51px;
+    text-align: center;
+    padding-right: 5px;
+    img {
+      height: 37px;
+    }
+  }
+  .list-group {
+    margin-bottom: 40px;
+    li:first-child+li, li:first-child+li+li+li, li:first-child+li+li+li+li+li+li, li:first-child+li+li+li+li+li+li+li, li:first-child+li+li+li+li+li+li+li+li{
+      margin-top: 20px;
+    }
+  }
+  .list-group-black{
+    .list-group-item {
+      padding: 10px;
+      &.active, &:hover{
+        background-color: #666;
+        cursor: pointer;
+      }
+    }
+  }
+  i {
+    margin-right: 3px;
+    font-size: 16px;
+    .inline-block;
+    vertical-align: text-bottom;
+    width: 21px
+  }
+  .affix {
+    left: 0;
+    bottom: 0;
+    width: 90px;
+    background-color: @sider-bg;
+    z-index: 2;
+  }
+  .icon-home {
+    margin-left: -2px;
+    font-size: 19px;
+  }
+  .icon-set, .icon-loginout {
+    font-size: 18px;
+  }
+}
+
+.main-con {
+  position: relative;
+  margin-left: 90px;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.main-siderbar {
+  left: 90px;
+  background-color: @gray-lighter;
+  border-right: 1px solid @border-color;
+  width: 115px;
+  .title {
+    height: 30px;
+    overflow: hidden;
+    padding-top: 20px;
+    padding-left: 15px;
+    margin-bottom: 20px;
+    font-size: @font-size-h5;
+    background-color: @color-white;
+    box-sizing: content-box;
+    border-bottom: 1px solid @border-color;
+  }
+  li{
+    .list-group-item{
+      padding: 10px 15px;
+    }
+    &:first-child{
+      border-top: none;
+    }
+  }
+  .sub-item{
+    border-top: 1px solid @border-color;
+    > a{
+      font-size: @font-size-h6;
+      color: @gray-light;
+      + ul{
+        margin-bottom: -1px;
+        border-bottom: 1px solid @border-color;
+      }
+      &.active{
+        border-bottom: 1px dotted @border-color;
+        + ul{
+          li{
+            background-color: @color-white;
+          }
+        }
+      }
+    }
+    li a{
+      color: @gray;
+    }
+  }
+}
+
+/*iframe框架内主样式*/
+.m-title {
+  height: 50px;
+  line-height: 35px;
+  padding: 0 @space-padding;
+  font-size: @font-size-base;
+  border-bottom: 1px solid @border-color;
+  box-sizing: content-box;
+  .clearfix;
+  ul{
+    margin: 12px 0 0;
+    overflow: hidden;
+    li {
+      float: left;
+      margin-right: 20px;
+      line-height: 36px;
+      &.active {
+        border-bottom: 3px solid @brand-danger;
+      }
+      a {
+        color: @gray;
+      }
+    }
+  }
+  .navbar-right{
+    margin: 5px 0 0;
+    overflow: inherit;
+    float: right;
+    li{
+      margin: 0;
+      li{
+        float: none;
+        line-height: 1.8;
+      }
+    }
+    .show{
+      margin-top: 10px;
+    }
+  }
+}
+.sub-title{
+  padding-left: 20px;
+  background-color: @gray-lighter;
+  ul{
+    margin-bottom: 0;
+  }
+  li{
+    .inline-block;
+    height: 35px;
+    line-height: 35px;
+    .space-line-no;
+    &.active{
+      a{
+        color: @gray;
+      }
+    }
+  }
+  a{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    color: @gray-light;
+    font-size: @font-size-h6;
+    .space-line;
+  }
+}
+
+.m-content {
+  padding: @space-padding;
+}
+
+.main-content {
+  margin-left: 115px;
+}
+
+.main-siderbar-hide {
+  .main-siderbar {
+    display: none
+  }
+  .main-content {
+    margin-left: 0
+  }
+}
+

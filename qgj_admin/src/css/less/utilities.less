@@ -1,0 +1,440 @@
+//
+// Utility classes
+// --------------------------------------------------
+
+
+// Floats
+// -------------------------
+
+.clearfix {
+  .clearfix();
+}
+.m-auto {
+  .center-block();
+}
+.pull-right {
+  float: right !important;
+}
+.pull-left {
+  float: left !important;
+}
+.no-float{
+  float: none !important;
+}
+
+// Toggling content
+// -------------------------
+
+// Note: Deprecated .hide in favor of .hidden or .sr-only (as appropriate) in v3.0.1
+.hide {
+  display: none !important;
+}
+.show {
+  display: block !important;
+}
+.invisible {
+  visibility: hidden;
+}
+
+// Hide from screenreaders and browsers
+//
+// Credit: HTML5 Boilerplate
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+// For Affix plugin
+// -------------------------
+
+.affix {
+  position: fixed;
+}
+.relative{
+  position: relative;
+}
+.absolutetb0 (){
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom:0;
+  width:100%;
+  height: 100%;
+  min-height: 100%;
+}
+.fixedcenter(){
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.inline-block(){
+  display: inline-block;
+  zoom:1;
+  *display: inline;
+  vertical-align: middle;
+}
+.inline-block{
+  .inline-block;
+}
+
+.text-ellipsis{
+  .text-overflow;
+}
+.text-ellipsis2{
+  .text-ellipsis(2)
+}
+
+.text-indent{
+  text-indent: @space-padding-sm;
+}
+.olul-list-indent{
+  ol,ul{
+    margin-left: 18px;
+  }
+}
+
+
+// 边距
+.pspace{
+  padding: @space-padding-sm;
+}
+.mbspace{
+  margin-bottom: @space-padding-sm;
+}
+.mb0{
+  margin-bottom: 0 !important;
+}
+.mb5{
+  margin-bottom: 5px !important;
+}
+.mb10{
+  margin-bottom: 10px !important;
+}
+.mb15{
+  margin-bottom: 15px !important;
+}
+.mb20{
+  margin-bottom: 20px !important;
+}
+.mb30{
+  margin-bottom: 30px !important;
+}
+.mtb10{
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+.ml5{
+  margin-left: 5px !important;
+}
+.ml10{
+  margin-left: 10px !important;
+}
+.ml20{
+  margin-left: 20px !important;
+}
+.ml30{
+  margin-left: 30px !important;
+}
+.mr5{
+  margin-right: 5px !important;
+}
+.mr10{
+  margin-right: 10px !important;
+}
+.mr20{
+  margin-right: 20px !important;
+}
+.mt5{
+  margin-top: 5px !important;
+}
+.mt10{
+  margin-top: 10px !important;
+}
+.mt15{
+  margin-top: 15px !important;
+}
+.mt20{
+  margin-top: 20px !important;
+}
+.mt30{
+  margin-top: 30px !important;
+}
+.ml1{
+  margin-left: 1px;
+}
+.m0{
+  margin: 0 !important;
+}
+.p0{
+  padding: 0 !important;
+}
+.plr15{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.p10{
+  padding: 10px !important;
+}
+.p15{
+  padding: 15px !important;
+}
+.p20{
+  padding: 20px !important;
+}
+.pt5{
+  padding-top: 5px !important;
+}
+.pt10{
+  padding-top: 10px !important;
+}
+.pt15{
+  padding-top: 15px !important;
+}
+.pb5{
+  padding-bottom: 5px !important;
+}
+.pb10{
+  padding-bottom: 10px !important;
+}
+.ptb5{
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+.ptb15{
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+}
+.ptb50{
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+}
+.ptb80{
+  padding-top: 80px !important;
+  padding-bottom: 80px !important;
+}
+.pl-10{
+  padding-left: 10px !important;
+}
+.pr-10{
+  padding-right: 10px !important;
+}
+.ptbper3{
+  padding-top:3%;
+  padding-bottom:3%;
+}
+.space24{
+  .inline-block;
+  width: 24px;
+}
+.space-line(){
+  &:before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -6px;
+    height: 12px;
+    border-left: 1px solid @gray-light;
+  }
+}
+.space-line-no(){
+  &:first-child a{
+    &:before{
+      border-left: none;
+    }
+  }
+}
+
+
+/*宽高*/
+.wauto{
+  width: auto;
+  min-width: auto !important;
+}
+.widthauto{
+  width: auto !important;
+}
+.w48{
+  width: 48px !important;
+  min-width: auto !important;
+}
+.w80{
+  width: 80px !important;
+  min-width: auto !important;
+}
+.w100{
+  width: 100px !important;
+  min-width: auto !important;
+}
+.w150{
+  width: 150px !important;
+  min-width: auto !important;
+}
+.w200{
+  width: 200px !important;
+}
+.w300{
+  width: 300px !important;
+}
+.w443{
+  width: 443px !important;
+}
+.wper100{
+  width: 100% !important;
+}
+.wper85{
+   width: 85% !important;
+}
+.wper80{
+  width: 80% !important;
+}
+.wper60{
+  width: 61.5% !important;
+}
+.wper47{
+  width: 47% !important;
+}
+.wper30{
+  width: 30% !important;
+}
+.wper20{
+  width: 20% !important;
+}
+.head48{
+  .square(48px)
+}
+.head80{
+  height: 80px;
+  background-color: @gray-lighter;
+}
+.head128_64{
+  .size(128px, 64px)
+}
+.height32{
+  height: 34px;
+}
+.height-sm{
+  height: 100px !important;
+}
+.height-lg{
+  height: 400px;
+}
+.min-height-md{
+  min-height: 200px
+}
+.min-height-lg{
+  min-height: 400px
+}
+.lh-noraml{
+  line-height: @line-height-small !important;
+}
+.line-height30{
+  line-height:32px;
+}
+.line-height40{
+  line-height:40px;
+}
+.square60{
+  .square(60px)
+}
+.h55{
+    height: 55px;
+}
+.max-48{
+    max-width: 48px;
+    max-height: 32px;
+}
+.good_list-img-div{
+    width:48px;
+    height:32px;
+    text-align: center;
+}
+.ellipsis2{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+/*边框*/
+.border(){
+  border:1px solid @border-color;
+}
+.border{
+  .border;
+}
+.noborder{
+  border: none !important;
+}
+.border-l{
+  border-left:1px solid @border-color;
+}
+.border-r{
+  border-right:1px solid @border-color;
+}
+.border-b{
+  border-bottom: 1px solid @border-color;
+}
+.border-t{
+  border-top: 1px solid @border-color;
+}
+
+//whitewrap
+.whitewrap{
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
+.overflow-y{
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+//alert提示框
+.alert{
+  padding: 15px @space-padding-sm;
+  margin-bottom: @space-padding-sm;
+  border: 1px solid transparent;
+  .clearfix;
+}
+.alert-default{
+  color: @gray;
+  background-color: @gray-lighter;
+}
+.alert-info{
+  color: #2187d6;
+  background-color: #e5f4ff;
+  border-color: #b0d6f3;
+}
+.alert-warning{
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+.alert-row{
+  margin: -30px -30px 20px;
+  padding: 5px;
+  text-align: center;
+}
+.nobind{
+  margin: 0;
+  font-size: @font-size-h5half;
+  line-height: 30px;
+  dt,dd{
+    .inline-block;
+    line-height: @line-height-small;
+  }
+  dt{
+    margin-right: 10px;
+    .icon-excalmation{
+      color: @brand-danger;
+      font-size: 49px;
+    }
+  }
+}
+

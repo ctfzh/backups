@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>分销设置</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/webuploader/webuploader.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+    <script src="../../../js/lib/template-web.js"></script>
+
+    <link rel="stylesheet" href="../../../js/lib/uploadify/uploadify.css">
+    <script src="../../../js/lib/uploadify/jquery.uploadify.min.js"></script>
+
+    <link rel="stylesheet" href="../../../umeditor/themes/default/css/umeditor.css">
+    <script src="../../../umeditor/ueditor.config.js"></script>
+    <script src="../../../umeditor/ueditor.all.js"></script>
+
+    <!--颜色选择-->
+    <script src="../../../js/lib/ColorPicker/js/colpick.js"></script>
+    <link rel="stylesheet" href="../../../js/lib/ColorPicker/css/colpick.css">
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../service/service_set/service_set.html" class="list-group-item"><i class="icon-service"></i> 客服</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../wx_applet/manager/list.html" class="list-group-item "><i class="icon-wechatapp"></i> 小程序</a></li>
+        <li><a href="../../mall/goods/good_list.html" class="list-group-item"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="../../distribution/outline/outline.html" class="list-group-item active"><i class="icon-distribution"></i> 分销商</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">分销管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../outline/outline.html" class="list-group-item active">概况</a>
+            </li>
+            <li>
+                <a href="../distributor/list.html" class="list-group-item">分销商</a>
+            </li>
+            <li>
+                <a href="../mall_distribution/list.html" class="list-group-item">商城分销</a>
+            </li>
+            <li>
+                <a href="../commission/withdrawal_cash/list.html" class="list-group-item">佣金管理</a>
+            </li>
+            <li>
+                <a href="../page_set/add.html" class="list-group-item">分销招募</a>
+            </li>
+            <li>
+                <a href="../set/add.html" class="list-group-item">设置</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li><a href="#">分销设置</a></li>
+                <li class="active"><a href="add_rule.html">分销规则</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <!--步骤-->
+            <div class="btn-group btn-group-justified mb30">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default">1、进行分销设置</button>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary">2、设置分销规则</button>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default">3、完成</button>
+                </div>
+            </div>
+
+            <form action="" id="mallSetForm">
+                <div class="mall-set mall-set-nospace">
+                    <!--左边部分-->
+                    <div class="ms-prview">
+                        <div class="ms-title js-ms-title">
+                            <span>分销规则</span>
+                            <input type="hidden" class="hiddenData">
+                        </div>
+                        <div class="ms-bd js-regions p15 olul-list-indent" data-index="1">
+欢迎加入分销商团队，推广商品赚取佣金<br>
+1、申请分销需要进行审核后才能获得分销商资格<br>
+2、分销商推广的商品链接有效期为15天，15天内用户点击链接完成购买即可获得佣金<br>
+3、分销商推广可获得一级分销佣金，佣金比例为20%<br>
+4、如果商品单独设置了佣金比例以商品佣金比例为准，未单独设置以默认佣金比例为准<br>
+                            <img src="../../../img/pic/abstract.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <!--右边部分-->
+                    <div class="pull-left">
+                        <div class="ms-form">
+                            <div class="region-form">
+                                <div class="region-richText-r">
+                                    <h5 class="border-b pb5">富文本</h5>
+                                    <div class="form-horizontal">
+                                        <div class="form-group inline-block mr20">
+                                            背景颜色：
+                                            <input type="hidden" value="#f1f1f1"><!--默认颜色-->
+                                            <input type="text" class="color-set w48 form-control form-control-inline" readonly />
+                                            <span class="reset-color" data-value="#fafafa">重置</span>
+                                        </div>
+                                        <div class="form-group inline-block line-height30">
+                                            是否全屏：<label><input type="checkbox" class="qkj-checkbox js-isFullscreen mt5" /> 全屏显示</label>
+                                        </div>
+                                    </div>
+                                    <textarea id="container"></textarea>
+                                </div>
+                            </div>
+                            <div class="arrow-l"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt20">
+                    <button type="button" class="btn btn-primary" id="mallSetBtn">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/function/distribution/set/add_rule.js"></script>
+
+</body>
+</html>

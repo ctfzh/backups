@@ -1,0 +1,338 @@
+//
+// Forms
+// --------------------------------------------------
+
+// Normalize non-controls
+//
+// Restyle and baseline non-control form elements.
+
+label {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
+  font-weight: normal;
+}
+
+// Normalize form controls
+//
+// While most of our form styles require extra classes, some basic normalization
+// is required to ensure optimum display with or without those classes to better
+// address browser inconsistencies.
+
+// Position radios and checkboxes better
+input[type="radio"],
+input[type="checkbox"] {
+  position: relative;
+  top: 2px;
+  line-height: normal;
+}
+
+.file-style {
+  position: relative;
+  display: inline-block;
+  background: #D0EEFF;
+  border: 1px solid #99D3F5;
+  border-radius: 4px;
+  padding: 4px 12px;
+  overflow: hidden;
+  color: #1E88C7;
+  text-decoration: none;
+  text-indent: 0;
+  line-height: 20px;
+  vertical-align: middle;
+}
+
+.file-style input {
+  position: absolute;
+  font-size: 100px;
+  right: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.file-style:hover {
+  background: #AADFFD;
+  border-color: #78C3F3;
+  color: #004974;
+  text-decoration: none;
+}
+
+// Common form controls
+.form-control {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  min-width: 65px;
+  height: @input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  padding: @padding-small-vertical @padding-base-horizontal;
+  font-size: @font-size-h5;
+  line-height: @line-height-base;
+  color: @gray-light;
+  background-color: @color-white;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid @border-color;
+  .transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
+
+  // Placeholder
+  .placeholder();
+
+  // Disabled and read-only inputs
+  // HTML5 says that controls under a fieldset > legend:first-child won't be
+  // disabled if the fieldset is disabled. Due to implementation difficulty, we
+  // don't honor that edge case; we style them as disabled anyway.
+  &[disabled]{
+    cursor: @cursor-disabled;
+    background-color: @gray-lighter;
+    opacity: 1; // iOS fix for unreadable disabled content
+  }
+
+  &[readonly]{
+    cursor: auto;
+    background-color: @color-white;
+    opacity: 1; // iOS fix for unreadable disabled content
+  }
+
+  // Reset height for `textarea`s
+  textarea& {
+    height: auto;
+    overflow-x: hidden;
+  }
+}
+
+select.form-control{
+  line-height: normal;
+  padding: 5px 0 7px 2px;
+}
+
+
+.form-control-inline {
+  .inline-block;
+  width: auto;
+}
+
+// Form groups
+//
+// Designed to help with the organization and spacing of vertical forms. For
+// horizontal forms, use the predefined grid classes.
+
+.form-group {
+  position: relative;
+  margin-bottom: 15px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  .btn-group>.btn{
+    min-width: 0;
+  }
+}
+
+// Checkboxes and radios
+.radio-group-inline {
+  padding-top: 3px;
+  label {
+    display: inline-block;
+    padding-left: 20px;
+    margin-bottom: 0;
+    vertical-align: middle;
+    font-weight: normal;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+}
+
+//单选框，多选框样式
+.qkj-radio, .qkj-checkbox{
+  position: relative;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  font-size: @font-size-h5;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-transition: bacground-color ease 0.1s;
+  transition: bacground-color ease 0.1s ;
+  background-color: #fff;
+  border: 1px solid #dedede;
+  cursor: pointer;
+  &:before,&:after{
+    content: '';
+    position: absolute;
+    background: transparent;
+    z-index: 2;
+    left: 4px;
+    top: 4px;
+    width: 6px;
+    height: 4px;
+  }
+  &:checked{
+    text-align: center;
+    backgrond-clip: padding-box
+  }
+}
+.qkj-radio{
+  border-radius: 8px;
+  &:checked{
+    border-color: @brand-primary;
+    &:before,&:after{
+      background-color: @brand-primary;
+      height: 6px;
+      border-radius: 50%;
+    }
+  }
+}
+.qkj-checkbox{
+  &:before,&:after{
+    border: 1px solid #fff;
+    border-top: none;
+    border-right: none;
+    border-radius: 0;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  &:checked{
+    background-color: @brand-primary;
+    border: 1px solid @brand-primary;
+  }
+}
+
+.qgj-ck-switch{
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  background-color: transparent;
+  width: 50px;
+  height: 22px;
+  &:before, &:after{
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: 4px;
+    height: 22px;
+  }
+  &:before{
+    right: 0;
+    width: 50px;
+    border-radius: 30px;
+    background-color:@gray-light
+  }
+  &:after{
+    left: 30px;
+    top: 6px;
+    width:18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color:@color-white;
+    -webkit-transition: left ease 0.5s;
+    transition: left ease 0.5s ;
+  }
+  &:checked{
+    &:before{
+      background-color:@brand-primary
+    }
+    &:after{
+      left: 2px;
+    }
+  }
+}
+
+
+// Form control sizing
+//
+// Build on `.form-control` with modifier classes to decrease or increase the
+// height and font-size of form controls.
+
+.input-sm{
+  .input-size(@input-height-small; @padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @input-border-radius-small);
+}
+
+// 横向表单
+.form-horizontal {
+  position: relative;
+
+  // Make form groups behave like rows
+  .form-group {
+    .control-label {
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 130px;
+      padding-left: 10px;
+      em[class*="text-danger"]{
+        position: absolute;
+        left:0;
+        top: 3px;
+      }
+    }
+    .form-group{
+      .control-label{
+        top: 0;
+      }
+    }
+    .control-input {
+      line-height: 30px;
+      min-height: 30px;
+      padding-left: 130px;
+    }
+    .control-input-code {
+      position: relative;
+      width: 61.5%;
+      .form-control {
+        padding-right: 130px;
+      }
+      .code {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 100px;
+        color: @brand-info;
+        background-color: @gray-lighter;
+        text-align: center;
+        border-left: 1px solid @border-color;
+        font-size: 13px;
+        height: 30px;
+        line-height: 30px;
+      }
+    }
+  }
+  .form-group-200 {
+    .control-label {
+      width: 160px;
+    }
+    .control-input {
+      padding-left: 180px;
+    }
+  }
+
+  //按钮定位形式呈现
+  .btn-wrap-pos{
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  //按钮有上边距
+  .btn-wrap-space{
+    margin-top: @space-padding * 1.666;
+  }
+}
+
+.form-add {
+  .form-group {
+    margin-bottom: 20px;
+    .control-label {
+      width: 200px;
+    }
+    .control-input {
+      padding-left: 220px;
+    }
+  }
+}
+
+.form-inline{
+  .form-group{
+    .inline-block;
+  }
+}
+
+
+

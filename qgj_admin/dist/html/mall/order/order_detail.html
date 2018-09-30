@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>订单详情</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item active"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">商城管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../page_set/banner_list.html" class="list-group-item">页面管理</a>
+            </li>
+            <li>
+                <a href="../goods/good_list.html" class="list-group-item">商品管理</a>
+            </li>
+            <li>
+                <a href="../group/group_list.html" class="list-group-item">商品分组</a>
+            </li>
+            <li class="sub-item">
+                <a href="../order/order_list.html" class="list-group-item">订单管理</a>
+                <ul>
+                    <li><a href="../order/order_list.html" class="list-group-item">订单概况</a></li>
+                    <li><a href="../order/order_list.html" class="list-group-item">订单管理</a></li>
+                    <li><a href="../refund/refund_list.html" class="list-group-item">退款订单</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../../marketing/market/market_list.html" class="list-group-item">营销活动</a>
+            </li>
+            <li>
+                <a href="../set/deliveries/delivery_list.html" class="list-group-item">商城设置</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="#">订单详情</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="progress">
+                <ul>
+                    <li>
+                        <div class="p-text">买家下单</div>
+                        <i class="icon-tick-noborder"></i>
+                        <div class="p-time">2017.7.10 10:15:51</div>
+                    </li>
+                    <li>
+                        <div class="p-text">买家付款</div>
+                        <i class="icon-tick-noborder"></i>
+                        <div class="p-time">2017.7.10 10:15:51</div>
+                    </li>
+                    <li>
+                        <div class="p-text">商家接单</div>
+                        <i class="icon-tick-noborder"></i>
+                        <div class="p-time">2017.7.10 10:15:51</div>
+                    </li>
+                    <li>
+                        <div class="p-text">商家发货</div>
+                        <i class="icon-tick-noborder"></i>
+                        <div class="p-time">2017.7.10 10:15:51</div>
+                    </li>
+                    <li>
+                        <div class="p-text">交易完成</div>
+                        <i class="icon-tick-noborder"></i>
+                        <div class="p-time">2017.7.10 10:15:51</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="order-d-info">
+                <div class="order-sider">
+                    <h5>订单信息</h5>
+                    <div class="content">
+                        <dl class="dl-horizontal">
+                            <dt>订单编号</dt>
+                            <dd>2152151215121512152</dd>
+                        </dl>
+                        <dl class="dl-horizontal">
+                            <dt>付款方式</dt>
+                            <dd>微信支付</dd>
+                        </dl>
+                        <dl class="dl-horizontal">
+                            <dt>买家</dt>
+                            <dd>昵称/编号</dd>
+                        </dl>
+                        <dl class="dl-horizontal">
+                            <dt>配送方式</dt>
+                            <dd>同城配送</dd>
+                        </dl>
+                        <dl class="dl-horizontal">
+                            <dt>收货信息</dt>
+                            <dd>地址，姓名，手机号</dd>
+                        </dl>
+                        <dl class="dl-horizontal">
+                            <dt>买家留言</dt>
+                            <dd>买家留言买家留言买家留言买家留言</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="order-con">
+                    <!--买家已下单-->
+                    <dl>
+                        <dt>
+                            <i class="icon-excalmation text-primary"></i>
+                            买家已下单，等待付款
+                        </dt>
+                    </dl>
+
+                    <!--买家已付款，等待商家接单-->
+                    <dl>
+                        <dt>
+                            <i class="icon-excalmation text-primary"></i>
+                            买家已付款，等待商家接单
+                        </dt>
+                        <dd>
+                            <div class="btn-wrap mb20">
+                                <a href="javascript:;" class="btn btn-primary">接单</a>
+                                <a href="javascript:;" class="btn btn-default">拒单</a>
+                            </div>
+                        </dd>
+                    </dl>
+
+                    <!--买家已付款，等待商家发货-->
+                    <dl>
+                        <dt>
+                            <i class="icon-excalmation text-primary"></i>
+                            买家已付款，等待商家发货
+                        </dt>
+                        <dd>
+                            <div class="btn-wrap mb20">
+                                <a href="javascript:;" class="btn btn-primary">发货</a>
+                            </div>
+                        </dd>
+                    </dl>
+
+                    <!--商家已发货，等待交易成功-->
+                    <dl>
+                        <dt>
+                            <i class="icon-excalmation text-primary"></i>
+                            商家已发货，等待交易成功
+                        </dt>
+                        <dd>
+                            <div class="text-gray-light">
+                                <span class="text-danger">提醒：</span><br>
+                                请及时关注你发出的包裹状态，确保能配送至买家手中；<br>
+                                如果买家表示未收到货或者货物有问题，请及时联系买家积极处理，友好协商。
+                            </div>
+                        </dd>
+                    </dl>
+
+                    <!--交易完成-->
+                    <dl>
+                        <dt>
+                            <i class="icon-excalmation text-primary"></i>
+                            交易完成
+                        </dt>
+                        <dd>
+                            <div class="text-gray-light">
+                                <span class="text-danger">提醒：</span><br>
+                                交易已成功，如果买家提出售后要求，请积极与买家协商，做好售后服务。
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="table-responsive mb20">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="active">
+                            <th width="20%">商品</th>
+                            <th>价格（元）</th>
+                            <th>数量</th>
+                            <th>优惠（元）</th>
+                            <th>小计（元）</th>
+                            <th>状态</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="6"><strong>无需物流</strong> 发货门店：李四的店</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="javascript:;" class="text-gray">
+                                    <img src="../../../img/qrcode.png" alt="" class="w48 pull-left mr5">
+                                    <div>
+                                        <p>商品名称</p>
+                                        <p class="m0">10.00</p>
+                                    </div>
+                                </a>
+                            </td>
+                            <td>￥80.00</td>
+                            <td>x1</td>
+                            <td>￥10.00</td>
+                            <td>￥80.00</td>
+                            <td>待发货</td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" class="text-right">
+                                订单共1件商品，合计: <span class="text-danger">￥80.00</span> <span class="h6">（含运费￥0.00）</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function progress(element,num,classname) {
+        var li = $(element).find("li");
+        for(var i=0; i<num; i++){
+            $(li[i]).addClass(classname)
+        }
+    }
+    progress(".progress",2,'active');
+</script>
+
+
+</body>
+</html>

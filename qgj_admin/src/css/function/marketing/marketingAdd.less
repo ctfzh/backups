@@ -1,0 +1,36 @@
+//营销活动添加
+.marketadd {
+  margin-bottom: 30px;
+  i:before {
+    color: @color-white;
+  }
+  .item {
+    margin-bottom: 13px;
+    padding-left: 15px;
+  }
+  .row {
+    position: relative;
+    padding-left: 40px;
+  }
+  .leaderline {
+    .absolutetb0;
+    left: 31px;
+    top: 0;
+    height: 90%;
+    width: 3px;
+    font-size: 0;
+    background-color: #e5e5e5;
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      margin-left: -4px;
+      border: 6px solid transparent;
+      border-top: 8px solid #e5e5e5;
+      width: 0;
+      height: 0;
+      font-size: 0;
+    }
+  }
+}

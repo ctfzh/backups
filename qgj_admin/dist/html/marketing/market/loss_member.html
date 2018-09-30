@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>流失会员赠券</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/masonry-docs.min.js"></script>
+    <script src="../../../js/lib/echarts.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item active"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">营销管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../recharge/recharge_list.html" class="list-group-item">储值活动</a>
+            </li>
+            <li>
+                <a href="../coupon/coupon_list.html" class="list-group-item">优惠券</a>
+            </li>
+            <li>
+                <a href="../market/market_list.html" class="list-group-item active">营销活动</a>
+            </li>
+            <li>
+                <a href="../wx_applet/wx_applet_list.html" class="list-group-item">微信小程序</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li><a href="market_list.html">活动管理</a></li>
+                <li class="active"><a href="market_add.html">营销活动</a></li>
+                <li><a href="market_statistics.html">营销活动统计</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+
+            <form role="form" id="formStore" action="/">
+                <div class="panel panel-default">
+                    <div class="panel-heading">流失会员赠券</div>
+                    <div class="panel-body ptbper3 form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label"><em class="text-danger">*</em> 活动名称</label>
+                            <div class="control-input">
+                                <input type="text" value="" name="storeName" class="form-control wper60 inline-block" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"><em class="text-danger">*</em> 活动对象</label>
+                            <div class="control-input">
+                                <span class="mr10">有消费，且</span>
+                                <select class="form-control inline-block w100 mr10">
+                                    <option value="1">1天</option>
+                                    <option value="2">2天</option>
+                                    <option value="3">3天</option>
+                                    <option value="4">4天</option>
+                                    <option value="5">5天</option>
+                                    <option value="6">6天</option>
+                                    <option value="7">7天</option>
+                                    <option value="8">8天</option>
+                                    <option value="9">9天</option>
+                                    <option value="10">10天</option>
+                                    <option value="11">11天</option>
+                                    <option value="12">12天</option>
+                                    <option value="13">13天</option>
+                                    <option value="14">14天</option>
+                                    <option value="15">15天</option>
+                                    <option value="16">16天</option>
+                                    <option value="17">17天</option>
+                                    <option value="18">18天</option>
+                                    <option value="19">19天</option>
+                                    <option value="20">20天</option>
+                                    <option value="21">21天</option>
+                                    <option value="22">22天</option>
+                                    <option value="23">23天</option>
+                                    <option value="24">24天</option>
+                                    <option value="25">25天</option>
+                                    <option value="26">26天</option>
+                                    <option value="27">27天</option>
+                                    <option value="28">28天</option>
+                                    <option value="29">29天</option>
+                                    <option value="30">30天</option>
+                                </select>
+                                <span class="mr10">内未消费过的会员</span>
+                                <div>共1200人</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"><em class="text-danger">*</em> 活动内容</label>
+                            <div class="control-input">
+                                <button type="button" class="btn btn-default mr10" data-target="#modalCoupon" data-toggle="modal">添加优惠券</button>
+                                <div class="inline-block jsSetMCVal"></div>
+                                <input type="hidden" name="coupon_id" value="">
+                                <input type="hidden" name="coupon_name" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"><em class="text-danger">*</em> 领券提示</label>
+                            <div class="control-input">
+                                <textarea class="form-control wper60" cols="30" rows="5" placeholder="赠券提示" maxlength="50"></textarea>
+                                <div class="text-gray-light">最多50个汉字</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"><em class="text-danger">*</em> 活动时间</label>
+                            <div class="control-input">
+                                <label class="mr10"><input type="radio" name="time_active_type" checked data-index="0"> 立即发券</label>
+                                <label><input type="radio" name="time_active_type" data-index="1"> 自定义时间</label>
+                                <div class="js-times mt10" style="display: none">
+                                    <input type="text" class="form-control wper30" id="time" readonly>
+                                </div>
+                                <div class="text-gray-light">由于发券人数较多，通知可能会有延时</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-wrap text-center">
+                    <button type="button" class="btn btn-primary" id="button">提交保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

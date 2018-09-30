@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>激活码设置</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item active"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">统计管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="javascript:;" class="list-group-item">统计概要</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="list-group-item active">财务统计</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="list-group-item">用户统计</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <div class="pull-right mt10">
+                <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">添加激活码</a>
+            </div>
+            <ul>
+                <li class="active"><a href="#">激活码设置</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="alert alert-warning" role="alert">
+                <p>手机收银台、Exe收银台、POS机收银台，在首次登录的时候需要验证商户并绑定设备，完成激活操作以保证收银坏境的安全。</p>
+                <p class="m0">激活时需要激活码，可根据需求限制激活码的使用次数及有效期</p>
+            </div>
+
+            <div class="table-wrap">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr class="active">
+                        <th>编号</th>
+                        <th>激活码</th>
+                        <th>激活终端数</th>
+                        <th>状态</th>
+                        <th>有效期</th>
+                        <th>创建时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>555728808</td>
+                        <td>10/100</td>
+                        <td>正常</td>
+                        <td>2016.10.08-2016.10.15</td>
+                        <td>2016.10.08-16:15:16</td>
+                        <td>
+                            <a href="#" class="text-blue">使失效</a>
+                            <a href="#" class="text-blue">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>555728808</td>
+                        <td>10/100</td>
+                        <td><span class="text-danger">已过期</span></td>
+                        <td>2016.10.08-2016.10.15</td>
+                        <td>2016.10.08-16:15:16</td>
+                        <td>
+                            <a href="#" class="text-blue">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>555728808</td>
+                        <td>10/100</td>
+                        <td><span class="text-danger">已失效</span></td>
+                        <td>2016.10.08-2016.10.15</td>
+                        <td>2016.10.08-16:15:16</td>
+                        <td>
+                            <a href="#" class="text-blue">删除</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="text-center h5 mt10">暂时无数据</div>
+            </div>
+            <nav class="text-right">
+                <ul class="pagination">
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</div>
+
+<!-- 添加激活码 -->
+<div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="" class="form-horizontal">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title">添加激活码</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label"><em class="text-danger">*</em> 可试用次数</label>
+                        <div class="control-input">
+                            <input type="text" value="" class="form-control wper60 inline-block">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"><em class="text-danger">*</em> 有效期</label>
+                        <div class="control-input">
+                            <input type="text" value="" class="form-control wper60 inline-block" id="time">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">确定</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

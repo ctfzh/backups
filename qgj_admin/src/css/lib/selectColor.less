@@ -1,0 +1,119 @@
+/*
+*  颜色选择
+*/
+
+.colorSelect-wrap{
+  position: relative;
+}
+.colorSelect-pop{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 120;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid @border-color;
+  background-color: @color-white;
+  &:before,&:after{
+    content: "";
+    position: absolute;
+    left: 15%;
+    border-style: solid;
+    border-width: 10px;
+    width: 0;
+  }
+  &:before{
+    top: -20px;
+    border-color: transparent transparent @border-color;
+  }
+  &:after{
+    top: -19px;
+    border-color: transparent transparent @color-white;
+  }
+  .color-static{
+    .clearfix;
+    li {
+      float: left;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      &:nth-child(7n) {
+        margin-right: 0;
+      }
+      a {
+        display: block;
+        width: 22px;
+        height: 22px;
+        text-indent: -573px;
+      }
+    }
+    .bg-color1 a {
+      background-color: #a9d92d
+    }
+
+    .bg-color2 a {
+      background-color: #63b359
+    }
+    .bg-color3 a {
+      background-color: #2c9f67
+    }
+    .bg-color4 a {
+      background-color: #509fc9
+    }
+    .bg-color5 a {
+      background-color: #5885cf
+    }
+    .bg-color6 a {
+      background-color: #9062c0
+    }
+    .bg-color7 a {
+      background-color: #5e6671
+    }
+    .bg-color8 a {
+      background-color: #d09a45
+    }
+    .bg-color9 a {
+      background-color: #e4b138
+    }
+    .bg-color10 a {
+      background-color: #ee903c
+    }
+    .bg-color11 a {
+      background-color: #f08500
+    }
+    .bg-color12 a {
+      background-color: #dd6549
+    }
+    .bg-color13 a {
+      background-color: #cc463d
+    }
+    .bg-color14 a {
+      background-color: #cf3e36
+    }
+    .bg-color15 a {
+      background-color: #f2f3f5
+    }
+    .bg-colorWhite a{
+      background-color: #fff;
+    }
+    .bg-colorBlack a{
+      background-color: #000;
+    }
+  }
+  .nav{
+    margin-bottom: 10px;
+    li{
+      position: relative;
+      .inline-block;
+      padding: 0 10px;
+      line-height: 1;
+      border-right: 1px solid @border-color;
+      color: @gray-light;
+      &:last-child{
+        border-right: none;
+      }
+      &.active{
+        color: @gray-dark;
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>忘记密码</title>
+
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <script src="../../js/lib/lib.min.js"></script>
+    <script src="../../js/lib/dateranger.min.js"></script>
+    <script src="../../js/common/util.js"></script>
+    <script src="../../js/lib/select2.min.js"></script>
+    <script src="../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+
+<div class="login-compenent">
+    <header>
+        <div class="header-r">
+            <span><i class="icon-service1"></i> 400-886-1331</span>
+        </div>
+        <div class="header-l">
+            <img src="../../img/login/login-logo.png" alt="" class="logo">
+            <span class="remark">客户管理及数字化营销专家</span>
+        </div>
+    </header>
+    <main>
+        <div class="btn-group btn-group-justified mb10">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary">1. 忘记密码重置</button>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default">2. 忘记密码重置成功</button>
+            </div>
+        </div>
+        <div class="border ptb50 bg-white">
+            <form action="/" class="form-horizontal">
+                <div class="form-group form-group-200">
+                    <label for="inputText" class="control-label">手机号：</label>
+                    <div class="control-input control-input-code">
+                        <input type="text" class="form-control" id="inputText" placeholder="请输入手机号">
+                        <a href="javascript:;" class="code">获取验证码</a>
+                    </div>
+                </div>
+                <div class="form-group form-group-200">
+                    <label for="inputText" class="control-label">验证码：</label>
+                    <div class="control-input wper60">
+                        <input type="text" class="form-control" placeholder="请输入验证码">
+                    </div>
+                </div>
+                <div class="form-group form-group-200">
+                    <label for="inputText" class="control-label">密码：</label>
+                    <div class="control-input wper60">
+                        <input type="password" class="form-control" placeholder="请输入密码">
+                    </div>
+                </div>
+                <div class="form-group form-group-200">
+                    <label for="inputText" class="control-label">重复密码：</label>
+                    <div class="control-input wper60">
+                        <input type="password" class="form-control" placeholder="请再输入密码">
+                    </div>
+                </div>
+                <div class="form-group form-group-200">
+                    <label for="inputText" class="control-label"> </label>
+                    <div class="control-input">
+                        <button type="submit" class="btn btn-primary">下一步</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <div class="spaceh"></div>
+</div>
+<div class="login-footer">
+    <p class="">Copyright@2017 亲管家版权所有 沪ICP备17004716号</p>
+</div>
+
+
+</html>

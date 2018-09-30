@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>商城首页设置</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <link rel="stylesheet" href="../../../js/lib/uploadify/uploadify.css">
+    <script src="../../../js/lib/uploadify/jquery.uploadify.js"></script>
+    <script src="../../../js/common/common.js"></script>
+    <!-- <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/common/common.js"></script> -->
+</head>
+<body>
+
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../goods/good_list.html" class="list-group-item active"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">商城管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="banner_list.html" class="list-group-item active">页面管理</a>
+            </li>
+            <li>
+                <a href="../goods/good_list.html" class="list-group-item">商品管理</a>
+            </li>
+            <li>
+                <a href="../group/group_list.html" class="list-group-item">商品分组</a>
+            </li>
+            <li>
+                <a href="../order/order_list.html" class="list-group-item">订单管理</a>
+            </li>
+            <li>
+                <a href="../../marketing/market/market_add.html" class="list-group-item">营销活动</a>
+            </li>
+            <li>
+                <a href="../set/deliveries/delivery_list.html" class="list-group-item">商城设置</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="mall_list.html">商城页面</a></li>
+                <li><a href="group_list.html">分组页面</a></li>
+                <li><a href="nav_add.html">导航页面</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="alert alert-default">
+                <div class="pull-right line-height30 text-primary">
+                    <a href="javascript:;" class="btn btn-primary btn-sm btn-outlined mr10 h6">编辑</a>
+                    <a href="javascript:;" class="btn btn-primary btn-sm btn-outlined mr10 h6">投放</a>
+
+                </div>
+                <dl class="nobind">
+                    <dt class="w100"><span class="h4 text-gray">首页</span></dt>
+                    <dd>
+                        <span class="mr20">浏览量：26</span>
+                    </dd>
+                </dl>
+            </div>
+            <div class="mb10 clearfix">
+                <div class="pull-right">
+                    <a class="btn btn-primary" href="mall_add.html">新建页面</a>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="active">
+                            <th width="25%">标题</th>
+                            <th width="25%">创建时间</th>
+                            <th width="25%">访客数/浏览量</th>
+                            <th width="25%">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>我的主页</td>
+                            <td>2017-8-26 18:18:18</td>
+                            <td>5/26</td>
+                            <td>
+                                <a href="#" class="text-blue mr10">编辑</a>
+                                <a href="#" class="text-blue mr10">复制</a>
+                                <span class="mr10">首页</span>
+                                <a href="#" class="text-blue mr10 js-launch-a">投放</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>我的主页</td>
+                            <td>2017-8-26 18:18:18</td>
+                            <td>5/26</td>
+                            <td>
+                                <a href="#" class="text-blue mr10">编辑</a>
+                                <a href="#" class="text-blue mr10">复制</a>
+                                <a href="#" class="text-blue mr10">删除</a>
+                                <a href="#" class="text-blue mr10">设为主页</a>
+                                <a href="#" class="text-blue mr10 js-launch-a">投放</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-center h5 mt10">暂时无数据</div>
+                <div id="page" class="ptb15">
+                    <p>首页</p>
+                    <p>上一页</p>
+                    <a href="#" title="第1页" class="cur">1</a>
+                    <a href="#" title="第2页">2</a>
+                    <a href="#" title="第3页">3</a>
+                    <p class="pageEllipsis">...</p>
+                    <a href="#" title="下一页">下一页</a>
+                    <a href="#" title="尾页">尾页</a>
+                    <p class="pageRemark">共<strong>7</strong>页<strong>7</strong>条数据</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--投放弹出框模板-->
+<div class="QRLaunch-temp-wraper" style="display:none">
+    <div class="QRLaunch-temp QRLaunch-temp-inner">
+        <div class="QRclose-div">
+            <img src="../../../img/icon/qr-close.png" alt="" class="QRclose js-QRclose">
+        </div>
+        <div class="QRLaunch">
+            <div class="QRLaunch-con1 js-QRLaunch-con">
+                <h5>微信“扫一扫”访问小程序</h5>
+                <div class="bd">
+                    <div class="img"><img src="../../../img/mobile_qrcode.png"></div>
+                    <ul class="js-modal-list">
+                        <li><a href="javascript:;" class="js-modal-QRLaunch-pulick">公众号菜单</a></li>
+                        <li><a href="javascript:;" class="js-modal-QRLaunch-wxgroup">发送给微信好友或群</a></li>
+                        <li><a href="javascript:;" class="js-modal-QRLaunch-share">分享到朋友圈</a></li>
+                        <li><a href="javascript:;" class="js-modal-QRLaunch-download">下载小程序码</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="QRLaunch-con2 js-QRLaunch-con" style="display: none">
+                <div class="img"><img src="../../../img/mobile_qrcode.png"></div>
+                <p>微信扫码上方二维码可转发给好友或分享到朋友圈</p>
+                <div class="QRLaunch-copy"><div class="form">
+                    <input type="text" class="text">
+                    <span class="input-copy js-inputCopy">复制</span>
+                </div></div>
+                <a href="javascript:;" class="download">下载二维码</a>
+            </div>
+            <ul class="menu js-QRLaunch-menu">
+                <li class="active">小程序投放</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- 公众号菜单 -->
+<div class="second-level-modal-wraper modal-QRLaunch-pulick" style="display:none">
+    <div class="second-level-modal">
+        <div class="QRclose-div">
+            <img src="../../../img/icon/qr-close.png" alt="" class="QRclose js-QRclose">
+        </div>
+        <div class="gzh-form">
+            <input type="text" class="gzh-text" value="">
+            <span class="gzh-copy js-inputCopy">复制</span>
+        </div>
+        <p class="mt15">复制以上小程序路径添加到微信公众号自定义菜单中即可</p>
+    </div>
+</div>
+<!-- 发送给微信好友或群 -->
+<div class="second-level-modal-wraper modal-QRLaunch-wxgroup" style="display:none">
+    <div class="second-level-modal wxgroup-modal">
+        <div class="QRclose-div">
+            <img src="../../../img/icon/qr-close.png" alt="" class="QRclose js-QRclose">
+        </div>
+        <p>请扫描上方的小程序码进入小程序，点击转发右上角 “更多” 按钮，在点击下方 “转发” 给好友或群即可</p></div>
+    </div>
+</div>
+<!-- 分享到朋友圈 -->
+<div class="second-level-modal-wraper modal-QRLaunch-share" style="display:none">
+    <div class="second-level-modal share-modal">
+        <div class="QRclose-div">
+            <img src="../../../img/icon/qr-close.png" alt="" class="QRclose js-QRclose">
+        </div>
+        <div class="qr-div">
+            <img src="../../../img/mobile_qrcode.png"> 
+        </div>     
+        <p class="mt15 text-center">使用教程</p>  
+        <p class="mt15">第一步：手机扫码上图二维码打开手机网页</p>
+        <p class="mt15">第二步：点击保存小程序码到手机相册再发送到朋友圈</p>
+    </div>
+</div>
+<!-- 请选择所需尺寸下载模板 -->
+<div class="second-level-modal-wraper modal-QRLaunch-download" style="display: none">
+    <div class="second-level-modal download-modal">
+        <div class="QRclose-div">
+            <img src="../../../img/icon/qr-close.png" alt="" class="QRclose js-QRclose">
+        </div>
+        <p>请选择所需尺寸下载</p>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+            <thead>
+            <tr class="active">
+                <th>边长（cm）</th>
+                <th>边长建议扫码距离（m）</th>
+                <th>小程序码</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>8cm</td>
+                <td>0.5cm</td>
+                <td><a href="javascript:;" class="btn btn-sm btn-default" data-index="1">下载</a></td>
+            </tr>
+            <tr>
+                <td>12cm</td>
+                <td>0.8cm</td>
+                <td><a href="javascript:;" class="btn btn-sm btn-default" data-index="2">下载</a></td>
+            </tr>
+            <tr>
+                <td>15cm</td>
+                <td>1cm</td>
+                <td><a href="javascript:;" class="btn btn-sm btn-default" data-index="3">下载</a></td>
+            </tr>
+            <tr>
+                <td>30cm</td>
+                <td>1.5cm</td>
+                <td><a href="javascript:;" class="btn btn-sm btn-default" data-index="4">下载</a></td>
+            </tr>
+            <tr>
+                <td>50cm</td>
+                <td>2.5cm</td>
+                <td><a href="javascript:;" class="btn btn-sm btn-default" data-index="5">下载</a></td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+<script>
+$('.js-launch-a').click(function(){
+    $('.QRLaunch-temp-wraper').attr('style','display:block')
+})
+// 模态框关闭按钮事件
+$('.js-QRclose').click(function(e){
+    e.stopPropagation()
+    $(this).parent().parent().parent().attr('style','display:none');
+})
+// 点击蒙层隐藏模态框
+$('.QRLaunch-temp-wraper').click(function(e){
+    e.stopPropagation();
+    $(this).attr('style','display:none')
+})
+$('.QRLaunch-temp-inner').click(function(e){
+    e.stopPropagation();
+})
+// 四个按钮点击事件
+$('.js-modal-list li a').click(function(e){
+    e.stopPropagation();
+    const classStr = $(this).attr('class');
+    let modalClass = classStr.substr(3);
+    $('.' + modalClass).attr('style','display:block');
+})
+ //复制链接
+//  $(document).on('click', '.gzh-copy', function () {
+//     $(this).prev().select();
+//     document.execCommand("Copy"); // 执行浏览器复制命令
+//     layer.msg('复制成功');
+//     console.log(layer)
+// });
+
+
+</script>
+
+</body>
+</html>

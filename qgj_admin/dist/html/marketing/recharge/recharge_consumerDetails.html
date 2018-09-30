@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>储值消费明细</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/masonry-docs.min.js"></script>
+    <!--日期控件 开始-->
+    <script src="../../../js/lib/layer/layui.js"></script>
+    <link rel="stylesheet" href="../../../js/lib/layer/css/layui.css">
+    <!--日期控件 结束-->
+    <script src="../../../js/lib/echarts.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item active"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">营销管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../recharge/recharge_list.html" class="list-group-item active">储值活动</a>
+            </li>
+            <li>
+                <a href="../coupon/coupon_list.html" class="list-group-item">优惠券</a>
+            </li>
+            <li>
+                <a href="../market/market_list.html" class="list-group-item">营销活动</a>
+            </li>
+            <li>
+                <a href="../wx_applet/wx_applet_list.html" class="list-group-item">微信小程序</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li><a href="recharge_list.html">储值活动</a></li>
+                <li><a href="recharge_code.html">储值码</a></li>
+                <li><a href="recharge_detail.html">储值明细</a></li>
+                <li><a href="recharge_balance.html">储值余额</a></li>
+                <li><a href="recharge_settlement.html">储值结算</a></li>
+                <li class="active"><a href="recharge_consumerDetails.html">储值消费明细</a></li>
+                <li><a href="recharge_account.html">储值收款账号</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <form class="form-horizontal form-search">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label class="control-label">订单号</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">时间</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control" id="time">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">门店</label>
+                        <div class="control-input">
+                            <select class="form-control">
+                                <option value="1">甲门店</option>
+                                <option value="2">乙门店</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">操作员</label>
+                        <div class="control-input">
+                            <select class="form-control">
+                                <option value="1">操作员1</option>
+                                <option value="2">操作员2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">手机号</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label"></label>
+                        <div class="control-input btn-wrap">
+                            <button type="submit" class="btn btn-blue">搜索</button>
+                            <a href="javascript:;" class="ml10">导出execl</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>会员昵称</th>
+                            <th>手机号</th>
+                            <th>交易时间</th>
+                            <th>订单号</th>
+                            <th>交易额</th>
+                            <th>现金额</th>
+                            <th>交易地点</th>
+                            <th>操作员</th>
+                            <th>余额</th>
+                            <th>余额（现金）</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>快递</td>
+                            <td>13000000000</td>
+                            <td>2015-04-08 21:38:11</td>
+                            <td>354518587</td>
+                            <td>300.00</td>
+                            <td>200.00</td>
+                            <td>家门店快点快递</td>
+                            <td>非ieee</td>
+                            <td>1000.00</td>
+                            <td>800.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="page" class="ptb15">
+                <p class="pageRemark">共<strong>7</strong>条</p>
+                <p>首页</p>
+                <p>上一页</p>
+                <input type="text" size="1" class="form-control inline-block wauto" value="1">
+                <a href="#">跳转</a>
+                <p class="pageRemark">1/13</p>
+                <a href="#" title="下一页">下一页</a>
+                <a href="#" title="尾页">尾页</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../../js/function/marketing/recharge/rechargeSettlement.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>会员升级赠券</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/masonry-docs.min.js"></script>
+    <script src="../../../js/lib/echarts.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item active"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">营销管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../recharge/recharge_list.html" class="list-group-item">储值活动</a>
+            </li>
+            <li>
+                <a href="../coupon/coupon_list.html" class="list-group-item">优惠券</a>
+            </li>
+            <li>
+                <a href="../market/market_list.html" class="list-group-item active">营销活动</a>
+            </li>
+            <li>
+                <a href="../wx_applet/wx_applet_list.html" class="list-group-item">微信小程序</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li><a href="market_list.html">活动管理</a></li>
+                <li class="active"><a href="market_add.html">营销活动</a></li>
+                <li><a href="market_statistics.html">营销活动统计</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="alert alert-default">
+                <dl class="nobind">
+                    <dt><i class="icon-excalmation"></i></dt>
+                    <dd>
+                        您已有一个“会员升级赠券”活动正在进行中，继续创建将会停止原有的活动
+                    </dd>
+                </dl>
+            </div>
+
+            <form role="form" id="formStore" action="/">
+                <div class="panel panel-default">
+                    <div class="panel-heading">会员升级赠券</div>
+                    <div class="panel-body ptbper3 form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label"><em class="text-danger">*</em> 活动名称</label>
+                            <div class="control-input">
+                                <input type="text" value="" name="storeName" class="form-control wper60 inline-block" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"><em class="text-danger">*</em> 活动对象</label>
+                            <div class="control-input">
+                                升级会员
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"><em class="text-danger">*</em> 活动时间</label>
+                            <div class="control-input">
+                                <label class="mr10"><input type="radio" name="time_active_type" checked data-index="0"> 长期活动</label>
+                                <label><input type="radio" name="time_active_type" data-index="1"> 自定义时间</label>
+                                <div class="js-times mt10" style="display: none">
+                                    <input type="text" class="form-control wper30" id="time" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"><em class="text-danger">*</em> 活动规则</label>
+                            <div class="control-input">
+                                <div class="js-rule-con mb20">
+                                    <div class="mb10">
+                                        <span class="mr10">会员等级升级到</span>
+                                        <select class="form-control inline-block w150 mr10 selectname" type="select" data-error="请输入会员等级">
+                                            <option value="">请选择会员等级</option>
+                                            <option value="5">会员等级0</option>
+                                            <option value="11">会员等级1</option>
+                                            <option value="2">会员等级2</option>
+                                        </select>
+                                        <!--<input type="text" class="selectname" data-error="请输入数量">-->
+                                        <span class="mr10">赠送</span>
+                                        <input type="hidden" value="puf9V0b9iv_Va7CnZm8ZfUE_cy30,puf9V0UUCTr8gP5JI265qtZdyRFU," data-error="请选择优惠券" class="coupon_id">
+                                        <input type="hidden" value="[{&quot;card_id&quot;:&quot;puf9V0b9iv_Va7CnZm8ZfUE_cy30&quot;,&quot;num&quot;:1},{&quot;card_id&quot;:&quot;puf9V0UUCTr8gP5JI265qtZdyRFU&quot;,&quot;num&quot;:1}]" id="coupon_package">
+                                        <a href="#modalCoupon" class="mr10" data-toggle="modal">添加优惠券</a>
+                                    </div>
+                                    <div class="inline-block mb10">
+                                        <table class="table mt10">
+                                            <thead>
+                                            <tr class="active">
+                                                <th>券类型</th>
+                                                <th width="30%">券名称</th>
+                                                <th>领取限制</th>
+                                                <th>库存</th>
+                                                <th>有效期</th>
+                                                <th>数量</th>
+                                                <th>操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody class="tbody"><tr><td>代金券</td><td>5元代金券</td><td>2</td><td>10</td><td>领取后当天生效,3天有效</td><td><input type="text" name="" value="1" class="form-control jsBCInputNum" size="1" maxlength="5" data-value="2,10"><input type="hidden" class="js-hiddenJson" value="{&quot;card_id&quot;:&quot;puf9V0b9iv_Va7CnZm8ZfUE_cy30&quot;,&quot;num&quot;:1}"></td><td><a href="javascript:;" class="jsBCDelTR" data-value="puf9V0b9iv_Va7CnZm8ZfUE_cy30">删除</a></td></tr><tr><td>代金券</td><td>10元代金券</td><td>2</td><td>5</td><td>2017.02.14-2018.01.31</td><td><input type="text" name="" value="1" class="form-control jsBCInputNum" size="1" maxlength="5" data-value="2,5"><input type="hidden" class="js-hiddenJson" value="{&quot;card_id&quot;:&quot;puf9V0UUCTr8gP5JI265qtZdyRFU&quot;,&quot;num&quot;:1}"></td><td><a href="javascript:;" class="jsBCDelTR" data-value="puf9V0UUCTr8gP5JI265qtZdyRFU">删除</a></td></tr></tbody>
+                                        </table>
+                                        <div class="text-gray-light h6 mt10">建议：单张券的数量不能大于领取限制，不可添加可分享的优惠券</div>
+                                    </div>
+                                    <textarea cols="30" rows="5" placeholder="赠券提示" data-error="请输入赠券提示" class="form-control" style="max-width: 600px">fdfd</textarea>
+                                    <div class="single-error text-danger" style="display: none"></div>
+                                </div>
+                                <a href="javascript:;" class="js-add-rule" data-toggle="modal" data-target="#modalRule">添加规则</a>
+                                <div class="rule-error text-danger"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--<div class="js-rule-con mb20">-->
+                <!--<div class="mb10">-->
+                <!--<span class="mr10">会员等级升级到</span>-->
+                <!--<select class="form-control inline-block w150 mr10 selectname" type="select" data-error="请输入会员等级">-->
+                <!--<option value="">请选择会员等级</option>-->
+                <!--<option value="5">会员等级0</option>-->
+                <!--<option value="11">会员等级1</option>-->
+                <!--<option value="2">会员等级2</option>-->
+                <!--</select>-->
+                <!--&lt;!&ndash;<input type="text" class="selectname" data-error="请输入数量">&ndash;&gt;-->
+                <!--<span class="mr10">赠送</span>-->
+                <!--<span class="coupon-name mr10">优惠券名称</span>-->
+                <!--<input type="hidden" value="121512" data-error="请输入优惠券">-->
+                <!--<a href="javascript:;" class="reset-coupon mr10 btn btn-default">重新选择</a>-->
+                <!--<a href="javascript:;" class="js-del-rule">删除规则</a>-->
+                <!--</div>-->
+                <!--<textarea cols="30" rows="5" placeholder="赠券提示" data-error="请输入赠券提示" class="form-control" style="max-width: 600px">fff</textarea>-->
+                <!--<div class="single-error text-danger" style="display: none"></div>-->
+                <!--</div>-->
+
+                <div class="btn-wrap text-center">
+                    <button type="button" class="btn btn-primary" id="button">提交保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--选择卡券-->
+<div class="modal fade" id="modalCoupon">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">选择卡券</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive overflow-y">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr class="active">
+                            <th width="20"></th>
+                            <th>券类型</th>
+                            <th>券名称</th>
+                            <th>库存</th>
+                            <th>有效期</th>
+                            <th>金额</th>
+                            <th>状态</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="checkboxCoupon" value="puf9V0b9iv_Va7CnZm8ZfUE_cy30">
+                                <input type="hidden" value='{"type":"代金券","name":"5元代金券","limit":"2","stock":"10","valid":"领取后当天生效,3天有效"}'>
+                            </td>
+                            <td>1元代金券</td>
+                            <td>代金券</td>
+                            <td>领取后当天生效3天有效</td>
+                            <td>2017</td>
+                            <td>--</td>
+                            <td>已投放</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="checkboxCoupon" value="puf9V0UUCTr8gP5JI265qtZdyRFU">
+                                <input type="hidden" value='{"type":"代金券","name":"10元代金券","limit":"2","stock":"5","valid":"2017.02.14-2018.01.31"}'>
+                            </td>
+                            <td>22元代金券</td>
+                            <td>折扣券</td>
+                            <td>领取后当天生效3天有效</td>
+                            <td>2017</td>
+                            <td>--</td>
+                            <td>已投放</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="checkboxCoupon" value="puf9V0dTC_A_xBiZ0QX51y0xpE6E">
+                                <input type="hidden" value='{"type":"代金券","name":"5元代金券","limit":"1","stock":"10","valid":"领取后当天生效,3天有效"}'>
+                            </td>
+                            <td>1元代金券</td>
+                            <td>代金券</td>
+                            <td>领取后当天生效3天有效</td>
+                            <td>2017</td>
+                            <td>--</td>
+                            <td>已投放</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnCouponSure" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/function/marketing/market/marketCommon.js"></script>
+<script src="../../../js/function/marketing/market/memberUpgrade.js"></script>
+
+
+</body>
+</html>
+

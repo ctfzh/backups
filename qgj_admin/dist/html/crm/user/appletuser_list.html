@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>小程序用户列表</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/webuploader/webuploader.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item active"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">用户管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../outline/user_increase.html" class="list-group-item">CRM概要</a>
+            </li>
+            <li>
+                <a href="../user/user_list.html" class="list-group-item active">用户管理</a>
+            </li>
+            <li>
+                <a href="../group_list.html" class="list-group-item">用户分组</a>
+            </li>
+            <li>
+                <a href="../member_grade/member_grade_list.html" class="list-group-item">会员等级</a>
+            </li>
+            <li>
+                <a href="../card/member_card_list.html" class="list-group-item">微信会员卡</a>
+            </li>
+            <li>
+                <a href="../point/point_exchange_list.html" class="list-group-item">积分管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href=""><i class="icon-phone h4"></i> 手机版</a>
+                    <div class="dropdown-con p15 w200">
+                        <img src="../../../img/qrcode.png" alt="" class="img-responsive">
+                        <p class="mt10 text-center">扫描二维码进入app下载页</p>
+                    </div>
+                </li>
+                <li><a href=""><i class="icon-msg h4"></i> 消息</a></li>
+                <li><a>上海亲快信息科技有限公司</a></li>
+                <li><a href=""><i class="icon-loginout h4"></i> 退出</a></li>
+            </ul>
+            <ul>
+                <li><a href="member_list.html">用户管理</a></li>
+                <li><a href="fans_list.html">粉丝管理</a></li>
+                <li class="active"><a href="appletuser_list.html">小程序用户</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <form class="form-horizontal form-search form-search-md">
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label class="control-label">选择小程序</label>
+                        <div class="control-input">
+                            <select class="form-control wper30">
+                                <option>全部</option>
+                                <option>小程序A</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">搜索</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control"  placeholder="昵称/姓名/备注">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">最近访问时间</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control"  placeholder="" name="time" id="timeLately">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">首次访问时间</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control"  placeholder="" name="time" id="timeFirst">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">性别</label>
+                        <div class="control-input">
+                            <select class="form-control">
+                                <option>全部</option>
+                                <option>男</option>
+                                <option>女</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">年龄</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control inline-block wper30">
+                            至
+                            <input type="text" class="form-control inline-block wper30">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">地区</label>
+                        <div class="control-input">
+                            <select class="form-control wper30 inline-block">
+                                <option value="">请选择</option>
+                                <option value="0">浙江省</option>
+                                <option value="1">黑龙江省</option>
+                            </select>
+                            <select class="form-control wper30 inline-block">
+                                <option value="">请选择</option>
+                                <option value="0">杭州市</option>
+                            </select>
+                            <select class="form-control wper30 inline-block">
+                                <option value="">请选择</option>
+                                <option value="0">海曙区</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">会员等级</label>
+                        <div class="control-input">
+                            <select class="form-control">
+                                <option value="">全部</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4 col-sm-6">
+                        <label class="control-label"></label>
+                        <div class="control-input btn-wrap">
+                            <button type="submit" class="btn btn-blue">搜索</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="qgj-nav mb10">
+                <div class="btn-group">
+                    <a class="btn btn-default">首次访问时间 <i class="icon-sortdown"></i></a>
+                    <a class="btn btn-default">最近访问时间 <i class="icon-sortup"></i></a>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td width="30%">
+                                <img src="../../../img/qrcode.png" alt="" class="inline-block w48 mr10">
+                                <div class="inline-block">
+                                    <p>微信昵称</p>
+                                    <a href="javascript:;" class="remark-group"><span>备注</span> <i class="icon-edit"></i></a>
+                                    <div class="remark-input" style="display: none; ">
+                                        <input type="text" class="js_remarkName_input" maxlength="30" onchange="console.log(0)">
+                                        <span><em>0</em>/30</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="mb5"><i class="icon-female"></i> 女</div>
+                                <div>中国 浙江 杭州</div>
+                            </td>
+                            <td>
+                                <div class="mb5">18815287460 姓名</div>
+                                <div>会员等级</div>
+                            </td>
+                            <td>
+                                <div>首次访问2017.04.07</div>
+                                <div>最近访问2017.04.07</div>
+                            </td>
+                            <td>
+                                <a href="appletuser_detail.html" class="text-blue">详情</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="30%">
+                                <img src="../../../img/qrcode.png" alt="" class="inline-block w48 mr10">
+                                <div class="inline-block">
+                                    <p>微信昵称</p>
+                                    <a href="javascript:;" class="remark-group"><span>备注</span> <i class="icon-edit"></i></a>
+                                    <div class="remark-input" style="display: none; ">
+                                        <input type="text" class="js_remarkName_input" maxlength="30">
+                                        <span><em>0</em>/30</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="mb5"><i class="icon-male"></i> 男</div>
+                                <div>中国 浙江 杭州</div>
+                            </td>
+                            <td>
+                                <div class="mb5">18815287460 姓名</div>
+                                <div>会员等级</div>
+                            </td>
+                            <td>
+                                <div>首次访问2017.04.07</div>
+                                <div>最近访问2017.04.07</div>
+                            </td>
+                            <td>
+                                <a href="appletuser_detail.html" class="text-blue">详情</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-center h5 mt10">暂时无数据</div>
+            </div>
+            <div id="page" class="ptb15">
+                <p class="pageRemark">共<strong>7</strong>条</p>
+                <p>首页</p>
+                <p>上一页</p>
+                <input type="text" size="1" class="form-control inline-block wauto" value="1">
+                <a href="#">跳转</a>
+                <p class="pageRemark">1/13</p>
+                <a href="#" title="下一页">下一页</a>
+                <a href="#" title="尾页">尾页</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../../js/function/crm/appletuser_list.js"></script>
+
+</body>
+</html>

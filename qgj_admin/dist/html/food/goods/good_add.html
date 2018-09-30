@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>添加商品</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../mall/goods/good_list.html" class="list-group-item active"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">餐饮管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../goods/good_list.html" class="list-group-item active">商品库</a>
+            </li>
+            <li>
+                <a href="../set/sync_store.html" class="list-group-item">商品设置</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li><a href="#" class="text-primary">商品库</a> <span>/ 新建商品</span></li>
+            </ul>
+        </div>
+        <div class="m-content good-add-first">
+
+            <form role="form" id="formStore" action="/">
+                <!--基础信息-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">基础信息</div>
+                    <div class="panel-body ptbper3 form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label">商品名称 <em class="text-danger">*</em></label>
+                            <div class="control-input">
+                                <input type="text" placeholder="最多20个字" maxlength="20" class="form-control form-control-inline wper30">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">商品分组 <em class="text-danger">*</em></label>
+                            <div class="control-input">
+                                <div class="lh-noraml">
+                                    <select class="js-select-group form-control wper30" multiple>
+                                        <option value="0">好抹茶</option>
+                                        <option value="1">好奶茶</option>
+                                    </select>
+                                    <span class="ml10">
+                                        <a href="javascript:;" class="btn btn-default">管理分组</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">指导价格 <em class="text-danger">*</em></label>
+                            <div class="control-input">
+                                <input type="text" class="form-control form-control-inline wper30" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">商品编码</label>
+                            <div class="control-input">
+                                <input type="text" class="form-control form-control-inline wper30">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">商品主图</label>
+                            <div class="control-input">
+                                <div class="pic-list ui-sortable">
+                                    <ul class="image-list js-pic-list">
+                                        <li class="sort">
+                                            <img src="../../../img/pic/abstract.jpg" alt="">
+                                            <a href="javascript:;" class="js-delete-pic close close-bg">×</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;" class="add-pic js-add-pic">加图</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="error hide">上传图片最多15张图片</div>
+                                <div class="text-gray-light mt5">建议上传尺寸为960*720，格式为jpg,jpeg,png的图片，大小不超过2M</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">商品描述</label>
+                            <div class="control-input">
+                                <textarea class="form-control inline-block" maxlength="50" placeholder="最多50个字" style="height: 50px; width: 800px"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--规格/库存-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">规格信息</div>
+                    <div class="panel-body ptbper3 form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label">商品规格</label>
+                            <div class="control-input">
+                                <div class="sku-group">
+                                    <div class="js-sku-list-container">
+                                        <div class="sku-sub-group js-sku-sub-group">
+                                            <div class="sku-title">
+                                                <div class="js-sku-name">
+                                                    <select class="js-example-basic-single form-control w200">
+                                                        <option value="0">颜色</option>
+                                                        <option value="1" selected>尺寸</option>
+                                                        <option value="2">尺码</option>
+                                                        <option value="3">款式</option>
+                                                        <option value="4">净含量</option>
+                                                        <option value="5">种类</option>
+                                                    </select>
+                                                </div>
+                                                <a href="javascript:;" class="close close-bg js-delete-sku-group">×</a>
+                                            </div>
+                                            <div class="sku-bd">
+                                                <div class="sku-bd-list js-sku-bd-list">
+                                                    <div class="sku-item"><span>M</span> <a href="javascript:;" class="close close-bg js-delete-sku-item">×</a> </div>
+                                                </div>
+                                                <a href="javascript:;" class="add-sku js-add-sku" data-value="0">+添加规格值</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="js-add-sku-group add-sku-group">
+                                        <a href="javascript:;" class="btn btn-default">添加规格项目</a>
+                                    </div>
+                                </div>
+
+                                <div class="text-gray-light mt5">
+                                    <dl class="dl-horizontal dl-auto">
+                                        <dt>提示：</dt>
+                                        <dd class="text-gray-light">
+                                            1.如需创建新规格请输入规格后按“Enter”键保存。<br>
+                                            2.先添加规格项目，再添加规格值。
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group jd-shopStock">
+                            <label class="control-label"></label>
+                            <div class="control-input">
+                                <div class="pull-right mb10">
+                                    <a href="javascript:;" class="btn btn-primary">批量规则设置</a>
+                                </div>
+                                <div class="table-responsive js-sku-table">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr class="active">
+                                            <th>颜色</th>
+                                            <th>尺寸</th>
+                                            <th>价格（元）</th>
+                                            <th>库存</th>
+                                            <th>商品编码</th>
+                                            <th>成本价</th>
+                                            <th>销量</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="tBody">
+                                        <!--<tr>-->
+                                        <!--<td rowspan="2">红色</td>-->
+                                        <!--<td>1</td>-->
+                                        <!--<td><input type="text" class="form-control form-control-inline w100"></td>-->
+                                        <!--<td><input type="text" class="form-control form-control-inline w100"></td>-->
+                                        <!--<td><input type="text" class="form-control form-control-inline w100"></td>-->
+                                        <!--<td><input type="text" class="form-control form-control-inline w100"></td>-->
+                                        <!--<td>0</td>-->
+                                        <!--</tr>-->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--属性信息-->
+                <div class="panel panel-default" id="methods_batching">
+                    <div class="panel-heading">属性信息</div>
+
+                    <div class="panel-body ptbper3 form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label mt10">做法</label>
+                            <div class="control-input">
+                                <div class="sku-group">
+                                    <div id="sku_methods_list"><div class="sku-sub-group js-sku-sub-group"><div class="sku-title"><div class="js-sku-name"><select class="js-example-basic-single js-states form-control w200" name="methods[]" onchange="changeMethods($(this))"><option value="7||甜度">甜度</option><option value="8||冰块">冰块</option></select></div><a href="javascript:void(0);" data-value="add_sku_methods_button" class="close close-bg js-delete-sku-group">×</a></div><div class="sku-bd"><div class="sku-bd-list js-sku-bd-list"></div><a href="javascript:;" class="add-sku js-add-sku" onclick="findMethods($(this));">+添加</a></div></div></div>
+                                    <div class="add-sku-group" id="add_sku_methods_button">
+                                        <button type="button" class="btn btn-default addCategory" onclick="AddMethods('sku_methods_list','add_sku_methods_button')">添加做法项目</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label mt10">配料</label>
+                            <div class="control-input">
+                                <div class="sku-group">
+                                    <div class="">
+                                        <div class="sku-sub-group js-sku-sub-group">
+                                            <div class="sku-bd">
+                                                <div class="sku-bd-list js-sku-bd-list" id="sku_batching_list"></div>
+                                                <a href="javascript:;" class="add-sku js-add-sku" onclick="findBatching()">+添加</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--规格/库存-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">销售信息</div>
+                    <div class="panel-body ptbper3 form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label">餐盒数</label>
+                            <div class="control-input">
+                                <div class="input-group wper30">
+                                    <input type="text" class="form-control" value="1">
+                                    <span class="input-group-addon">个</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">餐盒价格</label>
+                            <div class="control-input">
+                                <div class="input-group wper30">
+                                    <input type="text" class="form-control" value="1">
+                                    <span class="input-group-addon">元</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-wrap text-center">
+                    <button type="button" class="btn btn-primary ml5" id="button">保存</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/function/food/goods/shop_add.js"></script>
+
+<!--尺寸选择弹出框-->
+<div class="popover">
+    <select class="js-example-basic-multiple js-states form-control" multiple="multiple">
+        <option value="0">S</option>
+        <option value="1">M</option>
+        <option value="2">L</option>
+        <option value="3">XL</option>
+        <option value="4">XXL</option>
+        <option value="5">XXXL</option>
+    </select>
+    <a href="javascript:;" class="btn btn-primary btn-popover-sure">确定</a>
+    <a href="javascript:;" class="btn btn-default btn-popover-cancel">取消</a>
+</div>
+
+</body>
+</html>

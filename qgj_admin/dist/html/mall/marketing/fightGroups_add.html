@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>新建拼团</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <!--日期控件 开始-->
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/layer/layui.js"></script>
+    <link rel="stylesheet" href="../../../js/lib/layer/css/layui.css">
+    <!--日期控件 结束-->
+    <script src="../../../js/lib/masonry-docs.min.js"></script>
+    <script src="../../../js/lib/echarts.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../wx_applet/manager/list.html" class="list-group-item "><i class="icon-wechatapp"></i> 小程序</a></li>
+        <li><a href="../../mall/goods/good_list.html" class="list-group-item active"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">营销管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../outline/outline.html" class="list-group-item">商城概要</a>
+            </li>
+            <li>
+                <a href="../page_set/banner_list.html" class="list-group-item">页面管理</a>
+            </li>
+            <li>
+                <a href="../goods/good_list.html" class="list-group-item">商品管理</a>
+            </li>
+            <li>
+                <a href="../group/group_list.html" class="list-group-item">商品分组</a>
+            </li>
+            <li>
+                <a href="../order/order_list.html" class="list-group-item">订单管理</a>
+            </li>
+            <li>
+                <a href="../marketing/promotion_list.html" class="list-group-item">营销活动</a>
+            </li>
+            <li>
+                <a href="../set/deliveries/delivery_list.html" class="list-group-item">商城设置</a>
+            </li>
+            <li>
+                <a href="../marketing/discount_list.html" class="list-group-item">限时折扣</a>
+            </li>
+            <li>
+                <a href="../marketing/fightGroups_list.html" class="list-group-item active">拼团</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="../marketing/discount_list.html">拼团</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <form action="">
+                <div class="panel panel-default">
+                    <div class="panel-heading">活动信息</div>
+                    <div class="panel-body">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label"><em class="text-danger">*</em> 活动名称</label>
+                                <div class="control-input">
+                                    <input type="text" name="" class="form-control wper60 inline-block">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label"><em class="text-danger">*</em> 活动时间</label>
+                                <div class="control-input">
+                                    <input type="text" id="time" class="form-control wper60 inline-block">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label"><em class="text-danger">*</em> 拼团人数</label>
+                                <div class="control-input">
+                                    <input type="text" name="time" class="form-control wper60 inline-block">
+                                    <span class="text-gray-light">可设置2-20人</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">限购设置</label>
+                                <div class="control-input">
+                                    <label class="mr20"><input type="radio" class="qkj-radio" name="inputDiscountSet"> 不限购</label>
+                                    <label class="mr20">
+                                        <input type="radio" class="qkj-radio" name="inputDiscountSet">
+                                        每件商品限购
+                                        <input type="text" class="form-control inline-block w80">
+                                        件
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">凑团设置</label>
+                                <div class="control-input">
+                                    <label class="mr20"><input type="checkbox" class="qkj-checkbox"> 开启凑团</label>
+                                    <span class="text-gray-light">开启后活动详情页会显示未成团的团列表，买家可直接任选一个参团</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">团长优惠</label>
+                                <div class="control-input">
+                                    <label class="mr20"><input type="checkbox" class="qkj-checkbox" id="groupOwner"> 开启团长优惠</label>
+                                    <span class="text-gray-light">开启后开团人将享受更优惠价格，可设置团长0元开团</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">选择活动商品</div>
+                    <div class="panel-body">
+                        <ul class="nav nav-tabs js-discount-step">
+                            <li role="presentation"><a href="javascript:;">第一步：选择商品</a></li>
+                            <li role="presentation" class="active"><a href="javascript:;">第二步：设置优惠（<em class="js-shopSelectNum">1</em>）</a></li>
+                        </ul>
+                        <div class="discount-set-items">
+                            <!--第一步-->
+                            <div class="discount-set-item" style="display: none">
+                                <div class="form-horizontal form-search">
+                                    <div class="form-group col-md-4">
+                                        <label class="control-label">商品分组</label>
+                                        <div class="control-input">
+                                            <select class="form-control">
+                                                <option value="0">全部分组</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="control-label">商品名称</label>
+                                        <div class="control-input">
+                                            <input type="text" class="form-control" placeholder="请输入活动名称">
+                                        </div>
+                                    </div>
+                                    <div class="btn-wrap-pos">
+                                        <button type="submit" class="btn btn-blue">搜索</button>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th width="20"><label><input type="checkbox" class="qkj-checkbox js-all-ck"> 全选</label></th>
+                                                <th>商品</th>
+                                                <th>库存</th>
+                                                <th class="text-center">操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><input type="checkbox" class="qkj-checkbox js-single-ck"></td>
+                                                <td>
+                                                    <div class="pull-left w80 p0">
+                                                        <img src="../../../img/qrcode_default.jpg" class="w48">
+                                                    </div>
+                                                    <div class="col-xs-9 p0">
+                                                        <p>商品名称1商品名称1商品名称1商品名称1商品名称1商品名称1商品名称1商品名称1商品名称1</p>
+                                                        <div class="text-danger">￥9.99</div>
+                                                    </div>
+                                                </td>
+                                                <td>10</td>
+                                                <td class="text-center">
+                                                    <div class="discount-goods-opt">
+                                                        <div>
+                                                            <span>已参加</span>
+                                                            <a href="javascript:;" class="btn btn-danger js-cancel-goods">取消参加</a>
+                                                        </div>
+                                                        <a href="javascript:;" class="btn btn-default js-add-goods" style="display: none">参加活动</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox" class="qkj-checkbox js-single-ck"></td>
+                                                <td>
+                                                    <div class="pull-left w80 p0">
+                                                        <img src="../../../img/qrcode_default.jpg" class="w48">
+                                                    </div>
+                                                    <div class="col-xs-9 p0">
+                                                        <p>商品名称1</p>
+                                                        <div class="text-danger">￥9.99</div>
+                                                    </div>
+                                                </td>
+                                                <td>10</td>
+                                                <td class="text-center">已参加其他优惠活动</td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox" class="qkj-checkbox js-single-ck"></td>
+                                                <td>
+                                                    <div class="pull-left w80 p0">
+                                                        <img src="../../../img/qrcode_default.jpg" class="w48">
+                                                    </div>
+                                                    <div class="col-xs-9 p0">
+                                                        <p>商品名称1</p>
+                                                        <div class="text-danger">￥9.99</div>
+                                                    </div>
+                                                </td>
+                                                <td>10</td>
+                                                <td class="text-center">
+                                                    <div class="discount-goods-opt">
+                                                        <div style="display: none">
+                                                            <span>已参加</span>
+                                                            <a href="javascript:;" class="btn btn-danger js-cancel-goods">取消参加</a>
+                                                        </div>
+                                                        <a href="javascript:;" class="btn btn-default js-add-goods">参加活动</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div class="mt20 clearfix">
+                                        <div class="pull-left">
+                                            <a href="javascript:;" class="btn btn-default js-inverse-ck mr10">反选</a>
+                                            <a href="javascript:;" class="btn btn-default mr10">批量参加</a>
+                                            <a href="javascript:;" class="btn btn-default">本页全部参加</a>
+                                        </div>
+                                        <div class="pull-right">
+                                            <div id="page">
+                                                <p>首页</p>
+                                                <p>上一页</p>
+                                                <a href="#" title="第1页" class="cur">1</a>
+                                                <a href="#" title="第2页">2</a>
+                                                <a href="#" title="第3页">3</a>
+                                                <a href="#" title="第4页">4</a>
+                                                <a href="#" title="第5页">5</a>
+                                                <p class="pageEllipsis">...</p>
+                                                <a href="#" title="下一页">下一页</a>
+                                                <a href="#" title="尾页">尾页</a>
+                                                <p class="pageRemark">共<strong>7</strong>页<strong>7</strong>条数据</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--第二步-->
+                            <div class="discount-set-item">
+                                <div class="qgj-nav">
+                                    <div class="pull-left">
+                                        <a href="javascript:;" class="btn btn-default mr10" id="batchDiscount">拼团价</a>
+                                        <a href="javascript:;" class="btn btn-default mr10" id="batchSale">团长优惠价</a>
+                                        <span class="qgj-help" data-value="
+使用批量设置后，你还可以继续单独调整每个商品及规格的拼团价和团长优惠价"></span>
+                                        <a href="javascript:;" class="btn btn-default ml30">批量取消</a>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <div class="border overflow-y">
+                                        <table class="table noborder" id="activity_goods_list">
+                                            <thead>
+                                                <tr>
+                                                    <th width="8%"><label class="mr10"><input type="checkbox" class="qkj-checkbox js-all-ck1"> 全选</label></th>
+                                                    <th>商品</th>
+                                                    <th>规格</th>
+                                                    <th>库存</th>
+                                                    <th>原价（元）</th>
+                                                    <th>拼团价（元）</th>
+                                                    <th>团长优惠价（元）</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody data-value="152" class="discount-set-focus">
+                                                <tr data-sku="80">
+                                                    <td rowspan="3"><input type="checkbox" class="qkj-checkbox js-single-ck1"></td>
+                                                    <td rowspan="3" width="25%" class="border-r"><p>测试1</p></td>
+                                                    <td>尺寸，11寸</td><td>14</td><td>￥<em class="js-price">389.00</em></td>
+                                                    <td><input type="text" value="0.00" class="js-groupPrice-input form-control w100"></td>
+                                                    <td><input type="text" value="0.00" class="js-groupOwnerPrice-input form-control w100"></td>
+                                                    <td class="text-center border-l" rowspan="3"><a href="javascript:;" class="js-cancel-goods-second">取消参加</a></td>
+                                                </tr>
+                                                <tr data-sku="81">
+                                                    <td>尺寸，9寸</td><td>15</td><td>￥<em class="js-price">389.00</em></td>
+                                                    <td><input type="text" value="0.00" class="js-groupPrice-input form-control w100"></td>
+                                                    <td><input type="text" value="0.00" class="js-groupOwnerPrice-input form-control w100"></td>
+                                                </tr>
+                                                <tr data-sku="82">
+                                                    <td>尺寸，8寸</td><td>8</td><td>￥<em class="js-price">0.01</em></td>
+                                                    <td><input type="text" value="0.00" class="js-groupPrice-input form-control w100"></td>
+                                                    <td><input type="text" value="0.00" class="js-groupOwnerPrice-input form-control w100"></td>
+                                                </tr>
+                                            </tbody>
+                                            <tbody data-value="1522" class="discount-set-focus">
+                                                <tr data-sku="80">
+                                                    <td rowspan="3"><input type="checkbox" class="qkj-checkbox js-single-ck1"></td>
+                                                    <td rowspan="3" width="25%" class="border-r"><p>测试1</p></td>
+                                                    <td>尺寸，11寸</td><td>14</td><td>￥<em class="js-price">389.00</em></td>
+                                                    <td><input type="text" value="0.00" class="js-groupPrice-input form-control w100"></td>
+                                                    <td><input type="text" value="0.00" class="js-groupOwnerPrice-input form-control w100"></td>
+                                                    <td class="text-center border-l" rowspan="3"><a href="javascript:;" class="js-cancel-goods-second">取消参加</a></td>
+                                                </tr>
+                                                <tr data-sku="81">
+                                                    <td>尺寸，9寸</td><td>15</td><td>￥<em class="js-price">389.00</em></td>
+                                                    <td><input type="text" value="0.00" class="js-groupPrice-input form-control w100"></td>
+                                                    <td><input type="text" value="0.00" class="js-groupOwnerPrice-input form-control w100"></td>
+                                                </tr>
+                                                <tr data-sku="82">
+                                                    <td>尺寸，8寸</td><td>8</td><td>￥<em class="js-price">0.01</em></td>
+                                                    <td><input type="text" value="0.00" class="js-groupPrice-input form-control w100"></td>
+                                                    <td><input type="text" value="0.00" class="js-groupOwnerPrice-input form-control w100"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt20">
+                    <input type="hidden" value="" id="hiddenData">
+                    <button type="submit" class="btn btn-default">取消</button>
+                    <button type="button" class="btn btn-primary" id="btnSave">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/function/mall/marketing/fight_groups.js"></script>
+
+<script>
+
+    /*这里不用更新*/
+    $(function () {
+        //参加活动按钮点击
+        $(".js-add-goods").click(function () {
+            $(this).hide().prev().show();
+        });
+        //参加活动按钮点击
+        $(".js-cancel-goods").click(function () {
+            $(this).parent().hide().next().show();
+        });
+
+        //表单提交
+        $("#btnSave").click(function () {
+            if($(".js-shopSelectNum").html() > 0){
+                var data = [], dataObj = {}, sku = [], skuObj = {}
+                    ,groupOwnerChecked= $("#groupOwner").prop("checked")
+                    ,value = ''
+                    ,flag = true;  //通过后就存值到隐藏域
+
+                //循环tbody, 然后获取tr，如果tr大于1，则有sku，然后循环tr，判断sku里的input价格，如果成立就存入sku数组
+                $(".discount-set-focus").each(function (i) {
+                    var self = $(this);
+                    var $tr = self.find("tr");
+
+                    if($tr.length > 1){
+                        $.each($tr, function (i,o) {
+                            flag = isPriceValid($(o))[1];
+                            value = isPriceValid($(o))[0];
+
+                            if(flag){
+                                //设置隐藏域的值
+                                skuObj.id = $(o).attr("data-sku");
+                                skuObj.price = parseFloat($(o).find(".js-price").html());
+                                skuObj.group_price = parseFloat($(o).find(".js-groupPrice-input").val());
+                                if(groupOwnerChecked){
+                                    skuObj.group_owner_price = parseFloat($(o).find(".js-groupOwnerPrice-input").val());
+                                }
+
+                                sku.push(skuObj);
+                                skuObj = {}; //清空sku对象值
+                            }else{
+                                tipMsg($(o),value);
+                                return false;
+                            }
+                        });
+
+                        if(flag){
+                            dataObj.id = $(this).attr("data-value");
+                            dataObj.sku = sku;
+
+                            data.push(dataObj);
+                            dataObj = {}; //清空对象值
+                            sku = []; //清空sku
+                        }else{
+                            return false; //不加return 有sku的就不会选中指定的价格错误输入框里
+                        }
+                    }else{
+                        flag = isPriceValid($tr)[1];
+                        value = isPriceValid($tr)[0];
+                        if(flag){
+                            //设置隐藏域的值
+                            dataObj.id = self.attr("data-value");
+                            dataObj.price = parseFloat($tr.find(".js-price").html());
+                            dataObj.group_price = parseFloat($tr.find(".js-groupPrice-input").val());
+                            if(groupOwnerChecked){
+                                dataObj.group_owner_price = parseFloat($tr.find(".js-groupOwnerPrice-input").val());
+                            }
+
+                            data.push(dataObj);
+                            dataObj = {}; //清空对象值
+                        }else{
+                            tipMsg($tr,value);
+                            return false;
+                        }
+                    }
+                });
+
+                if(flag){
+                    $('#hiddenData').val(JSON.stringify(data));
+                    //提交表单
+                }
+            }else{
+                layer.msg("存在没有设置优惠的商品，请检查");
+            }
+
+            //判断拼团价和团长优惠价是否符合规则
+            function isPriceValid(o) {
+                var groupOwnerChecked= $("#groupOwner").prop("checked");
+                var priceVal = parseFloat(o.find(".js-price").html());
+                var group_price = parseFloat(o.find(".js-groupPrice-input").val());
+                var group_owner_price = parseFloat(o.find(".js-groupOwnerPrice-input").val());
+                var arr = [], value = 0, flag = true;
+
+                if( !util.check.isPositive(group_price) || group_price >= priceVal ){ //拼团价输入框，值是否大于0小于原价
+                    value = 1;
+                    flag = false;
+                }else if(groupOwnerChecked && (!util.check.isGreaterZero(group_owner_price) || group_owner_price >= group_price) ) { //团长优惠价是否大于等于0小于拼团价
+                    value = 2;
+                    flag = false;
+                }
+
+                arr.push(value);
+                arr.push(flag);
+                return arr;
+            }
+
+            //不通过，弹出提示框
+            function tipMsg(o, value) {
+                switch (value){
+                    case 1:
+                        layer.msg("拼团价设置有误，请重新设置");
+                        o.find(".js-groupPrice-input").select();
+                        break;
+                    case 2:
+                        layer.msg("团长优惠价设置有误，请重新设置");
+                        o.find(".js-groupOwnerPrice-input").select();
+                        break;
+
+                }
+            }
+        })
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>商品列表</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/webuploader/webuploader.min.js"></script>
+    <script src="../../../js/lib/masonry-docs.min.js"></script>
+    <script src="../../../js/lib/echarts.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../mall/goods/good_list.html" class="list-group-item active"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">商城管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../outline/outline.html" class="list-group-item">商城概要</a>
+            </li>
+            <li>
+                <a href="../page_set/banner_list.html" class="list-group-item">页面管理</a>
+            </li>
+            <li>
+                <a href="../goods/good_list.html" class="list-group-item active">商品管理</a>
+            </li>
+            <li>
+                <a href="../group/group_list.html" class="list-group-item">商品分组</a>
+            </li>
+            <li>
+                <a href="../order/order_list.html" class="list-group-item">订单管理</a>
+            </li>
+            <li>
+                <a href="../marketing/promotion_list.html" class="list-group-item">营销活动</a>
+            </li>
+            <li>
+                <a href="../set/deliveries/delivery_list.html" class="list-group-item">商城设置</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="javascript:;">促销管理</a></li>
+                <li><a href="javascript:;">积分抵现</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <form class="form-horizontal form-search">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label class="control-label">促销类型</label>
+                        <div class="control-input">
+                            <select name="" id="" class="form-control">
+                                <option value="0">全部类型</option>
+                                <option value="1">包邮</option>
+                                <option value="2">减现金</option>
+                                <option value="3">打折</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">关键词</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control"  placeholder="请输入活动名称">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label"></label>
+                        <div class="control-input btn-wrap">
+                            <button type="submit" class="btn btn-blue">搜索</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="mb10 clearfix">
+                <div class="pull-right">
+                    <a class="btn btn-primary" href="promotion_add.html">新建促销活动</a>
+                </div>
+                <div class="btn-group">
+                    <a href="#" class="btn btn-default active">所有促销</a>
+                    <a href="#" class="btn btn-default">未开始</a>
+                    <a href="#" class="btn btn-default">进行中</a>
+                    <a href="#" class="btn btn-default">已结束</a>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="active">
+                            <th width="20%">活动名称</th>
+                            <th>有效时间</th>
+                            <th>优惠门槛</th>
+                            <th>优惠类型</th>
+                            <th width="20%"></th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>北京满99包邮</td>
+                            <td>
+                                2017-09-08 20:03:02 至<br>
+                                2017-09-21 20:02:23
+                            </td>
+                            <td>满99元</td>
+                            <td>包邮<br>减10元</td>
+                            <td>
+                                北京市(<span class="text-gray-light">北京市: 东城区,西城区</span>)、太原市\北京市(<span class="text-gray-light">北京市: 东城区,西城区</span>)、太原市北京市(<span class="text-gray-light">北京市: 东城区,西城区</span>)、太原市北京市(<span class="text-gray-light">北京市: 东城区,西城区</span>)、太原市
+                            </td>
+                            <td>
+                                <a href="#" class="text-blue">编辑</a>
+                                <a href="#" class="text-blue">删除</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>优惠券列表</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/webuploader/webuploader.min.js"></script>
+    <script src="../../../js/lib/masonry-docs.min.js"></script>
+    <script src="../../../js/lib/echarts.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item active"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">营销管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../recharge/recharge_list.html" class="list-group-item">储值活动</a>
+            </li>
+            <li>
+                <a href="coupon_list.html" class="list-group-item active">优惠券</a>
+            </li>
+            <li>
+                <a href="../market/market_list.html" class="list-group-item">营销活动</a>
+            </li>
+            <li>
+                <a href="../wx_applet/wx_applet_list.html" class="list-group-item">微信小程序</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li><a href="coupon_list.html">优惠券管理</a></li>
+                <li><a href="coupon_verification.html">优惠券核销</a></li>
+                <li class="active"><a href="coupon_statistics.html">优惠券统计</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <form class="form-horizontal form-search">
+                <div class="row p15">
+                    <div class="form-group col-md-3">
+                        <label class="control-label">类型</label>
+                        <div class="control-input">
+                            <select class="form-control">
+                                <option value="">类型</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label class="control-label">状态</label>
+                        <div class="control-input">
+                            <select class="form-control">
+                                <option value="">状态</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label class="control-label">优惠券名称</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label class="control-label"></label>
+                        <div class="control-input btn-wrap">
+                            <button type="submit" class="btn btn-blue">搜索</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="mb10 clearfix">
+                <div class="pull-right">
+                    <a class="btn btn-danger" href="coupon_fission_add.html">创建裂变券</a>
+                    <a class="btn btn-primary" href="coupon_add.html">创建优惠券</a>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="active">
+                            <th>类型</th>
+                            <th>名称</th>
+                            <th width="20%">券内容</th>
+                            <th>有效期</th>
+                            <th>领取人/次</th>
+                            <th width="15%">库存</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>代金券</td>
+                            <td>优惠券名称</td>
+                            <td>10元</td>
+                            <td>2017.04.08-2017-05.08</td>
+                            <td>3/3</td>
+                            <td>
+                                <a href="javascript:;" class="remark-group"><span>备注</span> <i class="icon-edit"></i></a>
+                                <div class="remark-input" style="display: none; margin-top: 0">
+                                    <input type="text" class="js_remarkName_input" maxlength="7" size="8">
+                                    <span><em>0</em>/7</span>
+                                </div>
+                            </td>
+                            <td>审核中</td>
+                            <td>
+                                <a href="#" class="text-blue" data-toggle="modal" data-target="#modalCouponThrow">投放</a>
+                                <a href="#" class="text-blue">编辑</a>
+                                <a href="#" class="text-blue">查看</a>
+                                <a href="#" class="text-blue">删除</a>
+                                <a href="#" class="text-blue">报表</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>代金券</td>
+                            <td>优惠券名称</td>
+                            <td>10元</td>
+                            <td>领取后当天生效30天有效</td>
+                            <td>3/3</td>
+                            <td>
+                                <a href="javascript:;" class="remark-group"><span>库存</span> <i class="icon-edit"></i></a>
+                                <div class="remark-input" style="margin-top: 0; display: none">
+                                    <input type="text" class="js_remarkName_input" maxlength="7" size="10">
+                                    <span><em>0</em>/7</span>
+                                </div>
+                            </td>
+                            <td>待投放</td>
+                            <td>
+                                <a href="javascript:;" class="text-blue" data-toggle="modal" data-target="#modalCouponThrow">投放</a>
+                                <a href="#" class="text-blue">编辑</a>
+                                <a href="#" class="text-blue">查看</a>
+                                <a href="#" class="text-blue">删除</a>
+                                <a href="#" class="text-blue">报表</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>裂变券</td>
+                            <td>优惠券名称</td>
+                            <td>10元</td>
+                            <td>领取后当天生效30天有效</td>
+                            <td>3/3</td>
+                            <td>
+                                <a href="javascript:;" class="remark-group"><span>库存</span> <i class="icon-edit"></i></a>
+                                <div class="remark-input" style="margin-top: 0; display: none">
+                                    <input type="text" class="js_remarkName_input" maxlength="7" size="10">
+                                    <span><em>0</em>/7</span>
+                                </div>
+                            </td>
+                            <td>待投放</td>
+                            <td>
+                                <a href="javascript:;" class="text-blue" data-toggle="modal" data-target="#modalCouponThrow">投放</a>
+                                <a href="#" class="text-blue">编辑</a>
+                                <a href="#" class="text-blue">查看</a>
+                                <a href="#" class="text-blue">删除</a>
+                                <a href="#" class="text-blue">报表</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-center h5 mt10">暂时无数据</div>
+                <div id="page" class="ptb15">
+                    <p>首页</p>
+                    <p>上一页</p>
+                    <a href="#" title="第1页" class="cur">1</a>
+                    <a href="#" title="第2页">2</a>
+                    <a href="#" title="第3页">3</a>
+                    <a href="#" title="第4页">4</a>
+                    <a href="#" title="第5页">5</a>
+                    <p class="pageEllipsis">...</p>
+                    <a href="#" title="下一页">下一页</a>
+                    <a href="#" title="尾页">尾页</a>
+                    <p class="pageRemark">共<strong>7</strong>页<strong>7</strong>条数据</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--卡券投放-->
+<div class="modal fade" id="modalCouponThrow" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form action="">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">卡券投放</h4>
+                </div>
+                <div class="modal-body form-horizontal">
+                    <div class="form-group">
+                        <div class="control-input line-height30">
+                            你可以通过以下方式投放卡券
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-input line-height30">
+                            <label for="directSend"><input type="radio" id="directSend" name="radioThrow" value="0"> 直接群发卡券</label>
+                            <div class="text-gray-light">通过公众号消息，直接投放</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="control-input line-height30">
+                            <label for="embedSend"><input type="radio" id="embedSend" name="radioThrow" value="1"> 嵌入图文消息</label>
+                            <div class="text-gray-light">将卡券嵌入图文消息，再由公众号投放</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="control-input line-height30">
+                            <label for="downloadQRCcode"><input type="radio" id="downloadQRCcode" name="radioThrow" value="2"> 下载二维码</label>
+                            <div class="text-gray-light">下载卡券二维码，通过打印张贴或其他渠道发放</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="control-input line-height30">
+                            此外，也可以通过自定义菜单、关键词回复，配置到<a href="#">营销活动</a>进行投放
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btnSure" data-dismiss="modal">确定</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/function/marketing/coupon/coupon.js"></script>
+
+</body>
+</html>

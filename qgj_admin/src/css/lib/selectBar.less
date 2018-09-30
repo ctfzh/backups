@@ -1,0 +1,108 @@
+/*
+* 选择左右菜单栏目内容移动
+*/
+
+.select-bar{
+  text-align: center;
+  ul{
+    padding-left: 20px;
+  }
+  label{
+    display: block;
+    position: relative;
+    padding: 5px 0 5px 10px;
+  }
+  li{
+    padding-left: 10px;
+  }
+  .all-store{
+    padding-left: 20px;
+  }
+  input[type="checkbox"],.name,.number{
+    .inline-block;
+  }
+  input[type="checkbox"]{
+    vertical-align: text-bottom;
+  }
+  .number{
+    margin-right: 20px;
+  }
+  .search{
+    position: relative;
+    padding: 5px 20px;
+    border-top:1px solid @border-color;
+    .icon-search{
+      position: absolute;
+      left: 20px;
+      top: 7px;
+      background: url("../img/icon/icon-search.png") no-repeat;
+      background-size: cover;
+      width: 15px;
+      height: 15px;
+    }
+    input{
+      margin-left: 25px;
+      display: block;
+      border: none;
+      font-size: @font-size-h6;
+    }
+  }
+  .title{
+    padding: 10px 20px;
+    font-size: @font-size-h5;
+  }
+  .tree {
+    padding: 10px 20px 10px 0;
+    height: 250px;
+    overflow-y: auto;
+    border-top: 1px solid @border-color;
+  }
+}
+.select-bar-l,.select-bar-r{
+  .inline-block;
+  vertical-align: top;
+  text-align: left;
+  width: 40%;
+  border: 1px solid @border-color;
+  font-size: @font-size-h6;
+}
+
+.select-bar-r{
+  label{
+    &:hover{
+      background-color: @gray-lighter;
+      .close{
+        display: block;
+        top: 5px;
+        right: 6px;
+      }
+    }
+  }
+  .tree > ul{
+    padding-left: 0;
+  }
+  li li{
+    padding-left: 0;
+  }
+  input[type="checkbox"]{
+    display: none;
+  }
+  .tree{
+    height: 279px;
+  }
+}
+.select-bar-operate{
+  .inline-block;
+  text-align: center;
+  width: 9%;
+  height: 320px;
+  .btn{
+    min-width: 0;
+  }
+  .table-cell{
+    display: table-cell;
+    vertical-align: middle;
+    height: 320px;
+    width: 50%;
+  }
+}

@@ -1,0 +1,82 @@
+/*
+* 选择图片库存模块
+*/
+.select-lib-pic{
+  .clearfix;
+  margin: -15px;
+}
+.SLP-sider{
+  float: left;
+  display: none;
+  padding: 5px 0;
+  width: 192px;
+  min-height: 387px;
+  overflow: auto;
+  border-right:1px solid @border-color;
+  background-color: @color-white;
+  li{
+    a{
+      display: block;
+      padding: 8px 0 8px 15px;
+      font-size: @font-size-h5;
+      color: @gray;
+      &:hover{
+        background-color: @gray-lighter;
+      }
+    }
+  }
+  .add{
+    padding: 5px 15px;
+    color: @gray;
+  }
+}
+.SLP-con{
+  .btn-upload{
+    padding: 10px;
+    text-align: right;
+    border-bottom: 1px solid @border-color;
+  }
+  .list{
+    padding: 15px;
+    max-height: 319px;
+    overflow-y: auto;
+    li{
+      .inline-block;
+      vertical-align: middle;
+      margin: 0 18px 20px 9px;
+      .border;
+      cursor: pointer;
+      .img{
+        position: relative;
+        text-align: center;
+        i{
+          .fixedcenter;
+          font-size: 30px;
+        }
+      }
+      img{
+        width: 100px;
+        height: 100px;
+      }
+      .mask{
+        display: none;
+      }
+      &.active{
+        .mask{
+          .absolutetb0;
+          .bg-opacity;
+          vertical-align: middle;
+          text-align: center;
+          display: block;
+        }
+      }
+
+    }
+    .text{
+      padding: 5px;
+      .text-overflow;
+      width: 100px;
+      border-top: 1px solid @border-color;
+    }
+  }
+}

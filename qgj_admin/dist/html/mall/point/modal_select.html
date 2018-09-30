@@ -1,0 +1,98 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">
+        选择商品
+    </h4>
+</div>
+<div class="modal-body">
+    <!--<div class="btn-group btn-group-border-b mb20">
+        <a href="javascript:;" class="btn btn-default active">普通商品</a>
+        <a href="javascript:;" class="btn btn-default">优惠券</a>
+    </div>-->
+    <form class="form-horizontal form-search">
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label class="control-label">选择分组</label>
+                <div class="control-input">
+                    <select class="form-control">
+                        <option value="1">分组1</option>
+                        <option value="2">分组2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="control-label">商品名称</label>
+                <div class="control-input">
+                    <input type="text" class="form-control"  placeholder="">
+                </div>
+            </div>
+            <div class="btn-wrap btn-wrap-pos">
+                <button type="submit" class="btn btn-primary">搜索</button>
+            </div>
+        </div>
+    </form>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th width="35%">商品</th>
+                <th>库存</th>
+                <th>创建时间</th>
+                <th width="13%"  class="text-center">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <div class="col-xs-3 p0">
+                        <img src="../../../img/qrcode_default.jpg" class="w48">
+                    </div>
+                    <div class="col-xs-9 p0">
+                        <p class="mb0">商品名称1</p>
+                        <div class="text-danger">￥9.99</div>
+                    </div>
+                </td>
+                <td>10</td>
+                <td>2017-08-07 22:47:22</td>
+                <td class="text-center"><a href="pointShop_edit.html" class="btn btn-default">参加兑换</a></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="col-xs-3 p0">
+                        <img src="../../../img/qrcode_default.jpg" class="w48">
+                    </div>
+                    <div class="col-xs-9 p0">
+                        <p class="mb0">商品名称1</p>
+                        <div class="text-danger">￥9.99</div>
+                    </div>
+                </td>
+                <td>10</td>
+                <td>2017-08-07 22:47:22</td>
+                <td class="text-center">已参加</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div id="page" class="ptb15">
+            <p class="pageRemark">共<strong>7</strong>条</p>
+            <p>首页</p>
+            <p>上一页</p>
+            <input type="text" size="1" class="form-control inline-block wauto" value="1">
+            <a href="#">跳转</a>
+            <p class="pageRemark">1/13</p>
+            <a href="#" title="下一页">下一页</a>
+            <a href="#" title="尾页">尾页</a>
+        </div>
+
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" id="btnGoodsSale"  data-dismiss="modal">确定</button>
+</div>
+
+
+<script>
+    function hideModal() {
+        $('#modalGoodsSale').modal('hide');
+    }
+</script>

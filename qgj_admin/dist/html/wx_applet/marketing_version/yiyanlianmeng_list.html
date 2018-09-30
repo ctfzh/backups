@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>异业联盟列表</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <ul class="list-group list-group-black">
+            <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+            <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+            <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+            <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+            <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+            <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+            <li><a href="../../mall/goods/good_list.html" class="list-group-item"><i class="icon-service"></i> 客服</a></li>
+            <li><a href="../../wx_applet/manager/list.html" class="list-group-item active"><i class="icon-wechatapp"></i> 小程序</a></li>
+            <li><a href="../../mall/goods/good_list.html" class="list-group-item"><i class="icon-shop"></i> 商城</a></li>
+            <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+            <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+            <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+        </ul>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">小程序</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../manager/wxapplet_outline.html" class="list-group-item">智慧门店版</a>
+            </li>
+            <li class="sub-item"><!--这个只有在开通后才显示-->
+                <a href="javascript:;" class="list-group-item">智慧门店</a>
+                <ul>
+                    <li><a href="../demo_version/page_add.html" class="list-group-item active">展示</a></li>
+                    <li><a href="#" class="list-group-item ">营销</a></li>
+                    <li><a href="#" class="list-group-item ">行业</a></li>
+                    <li><a href="../statistics/statistics.html" class="list-group-item ">统计</a></li>
+                    <li><a href="../set/wx_authorization.html" class="list-group-item ">设置</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../manager/add_second.html" class="list-group-item">商城版</a>
+            </li>
+            <li>
+                <a href="../manager/list.html" class="list-group-item">版本管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li><a href="../marketing_version/preferential_set.html">优惠页设置</a></li>
+                <li><a href="../demo_version/page_add.html">页面管理</a></li>
+                <li><a href="../../store/store/store_add.html">门店管理</a></li>
+                <li><a href="../../store/ablum/storeAblum_list.html">商家相册</a></li>
+                <li class="active"><a href="../marketing_version/yiyanlianmeng_list.html">异业联盟</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="alert alert-warning">
+                <h4>联盟发券:</h4>
+                <p>1. 加入异业联盟，可实现附近联盟商家相互发券，（同行业商家不相互发券，例如：商家A的优惠券可以出现商家B的小程序中，商家B的优惠也可出现在其他商家的小程序中）只需极低获客成本就能大幅增加门店客流量，通过资源互换实现吸引更多客户到店消费的目的。</p>
+                <p class="mb0">2. 只需“一键加入联盟”，添加优惠券后即可轻松实现联盟发券。</p>
+            </div>
+
+            <div class="alert alert-default">
+                <div class="pull-right">
+                    <a href="javascript:;" class="btn btn-default mr10">统计</a>
+                    <a href="javascript:;" class="btn btn-primary">一键加入联盟</a>
+                </div>
+                <h4 class="line-height30 mb0">
+                    我的亲享分：100
+                    <span class="qgj-help ml10" data-value="在其他商家展示你的优惠券1次消耗1个亲享分<br>展示其他商家优惠券1次获得1个亲享分"></span>
+                    <span class="ml20 h5 text-success">已加入联盟</span>
+                </h4>
+            </div>
+
+            <div class="qgj-nav">
+                <div class="pull-right">
+                    <a href="javascript:;" class="btn btn-primary">添加优惠券</a>
+                </div>
+            </div>
+            <div class="table-wrap">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="active">
+                            <th>类型</th>
+                            <th width="20%">优惠券名称</th>
+                            <th>券内容</th>
+                            <th>有效期</th>
+                            <th>领取人/次</th>
+                            <th>库存</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>代金券</td>
+                            <td>优惠券标题名称</td>
+                            <td>减10元</td>
+                            <td>2017-8-26 至 2017-8-26</td>
+                            <td>0人/0次</td>
+                            <td>10张</td>
+                            <td>已投放</td>
+                            <td>
+                                <a href="javascript:;" class="text-blue mr10">下架</a>
+                                <a href="yiyanlianmeng_statistics.html" class="text-blue">报表</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>代金券</td>
+                            <td>优惠券标题名称</td>
+                            <td>减10元</td>
+                            <td>2017-8-26 至 2017-8-26</td>
+                            <td>0人/0次</td>
+                            <td>10张</td>
+                            <td><span class="text-danger">已失效</span></td>
+                            <td>
+                                <a href="javascript:;" class="text-blue mr10">报表</a>
+                                <a href="javascript:;" class="text-blue">删除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>代金券</td>
+                            <td>优惠券标题名称</td>
+                            <td>减10元</td>
+                            <td>2017-8-26 至 2017-8-26</td>
+                            <td>0人/0次</td>
+                            <td>10张</td>
+                            <td><span class="text-danger">已失效</span></td>
+                            <td>
+                                <a href="javascript:;" class="text-blue mr10">上架</a>
+                                <a href="javascript:;" class="text-blue mr10">报表</a>
+                                <a href="javascript:;" class="text-blue ">删除</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--<div class="text-center h5 mt10">暂时无数据</div>-->
+            </div>
+            <div id="page" class="ptb15">
+                <p>首页</p>
+                <p>上一页</p>
+                <a href="/merchant/store/list.html?page=1" title="第1页" class="cur">1</a>
+                <a href="/merchant/store/list.html?page=2" title="第2页">2</a>
+                <a href="/merchant/store/list.html?page=3" title="第3页">3</a>
+                <a href="/merchant/store/list.html?page=4" title="第4页">4</a>
+                <a href="/merchant/store/list.html?page=5" title="第5页">5</a>
+                <p class="pageEllipsis">...</p>
+                <a href="/merchant/store/list.html?page=2" title="下一页">下一页</a>
+                <a href="/merchant/store/list.html?page=7" title="尾页">尾页</a>
+                <p class="pageRemark">共<strong>7</strong>页<strong>7</strong>条数据</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/function/wx_applet/marketing_version/yiyelianmeng.js"></script>
+
+
+</body>
+</html>

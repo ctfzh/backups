@@ -1,0 +1,20 @@
+.login-inner{
+    margin-left: -16%;
+    margin-top: -15%;
+}
+.login-inner .form-control{
+    *width: 93%;
+ }
+.input-group .form-control {
+    *float: none;
+
+}
+.input-group-addon{
+    *position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 5;
+    *width: 100px;
+    *height: 35px;
+    *line-height: 35px;
+}

@@ -1,0 +1,87 @@
+// 模板选择
+//________________________________
+
+.template-selection{
+  .btn-group{
+    margin-bottom: -1px;
+  }
+  .category{
+    padding: 5px 28px 15px;
+    border: 1px solid @border-color;
+    margin-bottom: -1px;
+    a{
+      color: @brand-primary;
+    }
+    li{
+      padding-top: @space-padding-sm/2;
+      .inline-block;
+      width: 6%;
+      &.active{
+        a{
+          color: @gray;
+        }
+      }
+    }
+    ul{
+      margin-bottom: 0;
+    }
+  }
+  .list{
+    padding-top: @space-padding-sm;
+    border: 1px solid @border-color;
+    li{
+      position: relative;
+      float: left;
+      width: 226px;
+      margin-left: 22px;
+      margin-bottom: 28px;
+      &:hover{
+        .btn{
+          display: block;
+        }
+        .mask{
+          .absolutetb0;
+          bottom: 35px;
+          height: auto;
+          min-height: 0;
+          .bg-opacity;
+        }
+      }
+      &:first-child{
+        margin-left: 28px;
+        .img{
+          line-height: 320px;
+        }
+      }
+    }
+    ul{
+      width: 100%;
+      .clearfix;
+    }
+    .btn{
+      display: none;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -55%);
+      transform: translate(-50%, -55%);
+      z-index: 999;
+    }
+    .img{
+      height: 320px;
+      overflow: hidden;
+      background-color: #ebebeb;
+      text-align: center;
+      img{
+        max-width: 100%;
+      }
+    }
+    .name{
+      text-align: center;
+      height: 35px;
+      line-height: 35px;
+      background-color: @gray-lighter;
+      color: @gray-dark;
+    }
+  }
+}

@@ -1,0 +1,300 @@
+//
+// Typography
+// --------------------------------------------------
+
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+
+  small,
+  .small {
+    font-weight: normal;
+    line-height: 1;
+    color: @headings-small-color;
+  }
+}
+
+h1, h2, h3 {
+  margin-top: @line-height-computed;
+  margin-bottom: (@line-height-computed / 2);
+
+  small,
+  .small {
+    font-size: 65%;
+  }
+}
+
+h4, h5, h6 {
+  //margin-top: (@line-height-computed / 2);
+  margin-bottom: (@line-height-computed / 2);
+
+  small,
+  .small {
+    font-size: 75%;
+  }
+}
+
+.fz-big-large {
+  font-size: @font-size-big-large
+}
+
+h1, .h1 {
+  font-size: @font-size-h1;
+}
+
+h2, .h2 {
+  font-size: @font-size-h2;
+}
+
+h3, .h3 {
+  font-size: @font-size-h3;
+}
+
+.h4Half {
+  font-size: @font-size-h4half;
+}
+
+h4, .h4 {
+  font-size: @font-size-h4;
+}
+
+.h5Half {
+  font-size: @font-size-h5half;
+}
+
+h5, .h5 {
+  font-size: @font-size-h5;
+}
+
+h6, .h6 {
+  font-size: @font-size-h6;
+}
+
+// 字体
+.font-bold {
+  font-weight: bold;
+}
+
+// Body text
+// -------------------------
+
+p {
+  margin: 0 0 (@line-height-computed / 2);
+}
+
+// Emphasis & misc
+// -------------------------
+
+.fw-normal {
+  font-weight: normal
+}
+
+.fw-bold {
+  font-weight: bold
+}
+
+// Alignment
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+// Contextual colors
+.text-black {
+  .text-emphasis-variant(@gray-base);
+}
+
+.text-dark {
+  .text-emphasis-variant(@gray-dark);
+}
+
+.text-gray {
+  .text-emphasis-variant(@gray);
+}
+
+.text-gray-light {
+  .text-emphasis-variant(@gray-light);
+}
+
+.text-white {
+  .text-emphasis-variant(@color-white);
+}
+
+.text-primary {
+  .text-emphasis-variant(@brand-primary);
+}
+
+.text-success {
+  .text-emphasis-variant(@brand-success);
+}
+
+.text-danger {
+  .text-emphasis-variant(@brand-danger);
+}
+
+.text-yellow {
+  .text-emphasis-variant(@brand-yellow);
+}
+
+//提示
+.tip-text{
+  color: @gray-light; font-weight: normal
+}
+
+// Contextual backgrounds
+// For now we'll leave these alongside the text classes until v4 when we can
+// safely shift things around (per SemVer rules).
+.bg-gray {
+  .bg-variant(@gray-base);
+}
+
+.bg-gray-lighter {
+  .bg-variant(@gray-lighter) !important;
+}
+
+.bg-white {
+  .bg-variant(@color-white) !important;
+}
+
+.bg-primary {
+  // Given the contrast here, this is the only class to have its color inverted
+  // automatically.
+  color: #fff;
+  .bg-variant(@brand-primary);
+}
+
+.bg-success {
+  .bg-variant(@brand-success);
+}
+
+.bg-danger {
+  .bg-variant(@brand-danger);
+}
+
+.bg-orange {
+  .bg-variant(@brand-orange);
+}
+
+.bg-yellow {
+  .bg-variant(@brand-yellow);
+}
+
+// Lists
+// -------------------------
+
+// Unordered and Ordered lists
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: (@line-height-computed / 2);
+  ul,
+  ol {
+    margin-bottom: 0;
+  }
+}
+
+// Inline turns list items into inline-block
+.list-inline {
+  margin-left: -5px;
+
+  > li {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+// Description Lists
+dl {
+  margin-top: 0; // Remove browser default
+  margin-bottom: @line-height-computed;
+}
+
+dt,
+dd {
+  line-height: @line-height-base;
+}
+
+dt {
+  color: @gray-light
+}
+
+dd {
+  margin-left: 0; // Undo browser default
+  color: @gray-dark
+}
+
+// Horizontal description lists
+//
+// Defaults to being stacked without any of the below styles applied, until the
+// grid breakpoint is reached (default of ~768px).
+
+.dl-horizontal {
+  margin-bottom: 0;
+  min-height: 31px;
+  dd {
+    &:extend(.clearfix all); // Clear the floated `dt` if an empty `dd` is present
+    padding: 5px 0;
+  }
+
+  @media (min-width: @grid-float-breakpoint) {
+    dt {
+      float: left;
+      width: (@dl-horizontal-offset-sm - 20);
+      clear: left;
+      text-align: left;
+      .text-overflow();
+      padding: 5px 0;
+      color: @gray;
+    }
+
+    dd {
+      margin-left: @dl-horizontal-offset-sm;
+      color: @gray;
+      word-break: break-all;
+      word-wrap: break-word;
+    }
+  }
+  .form-control{
+    height:auto;
+  }
+  &.dl-auto{
+    @media (min-width: @grid-float-breakpoint) {
+      dt {
+        float: none;
+        width: auto;
+        margin-right: 5px;
+        .inline-block;
+        vertical-align: top;
+      }
+
+      dd {
+        float: none;
+        line-height: 1.5;
+        .inline-block;
+        margin-left: 0;
+        vertical-align: top;
+      }
+    }
+  }
+}
+
+// Addresses
+address {
+  margin-bottom: @line-height-computed;
+  font-style: normal;
+  line-height: @line-height-base;
+}

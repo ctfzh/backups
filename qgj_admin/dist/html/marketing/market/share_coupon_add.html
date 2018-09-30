@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>分享赠券</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/masonry-docs.min.js"></script>
+    <script src="../../../js/lib/echarts.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item active"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">营销管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../recharge/recharge_list.html" class="list-group-item">储值活动</a>
+            </li>
+            <li>
+                <a href="../coupon/coupon_list.html" class="list-group-item">优惠券</a>
+            </li>
+            <li>
+                <a href="../market/market_list.html" class="list-group-item active">营销活动</a>
+            </li>
+            <li>
+                <a href="../wx_applet/wx_applet_list.html" class="list-group-item">微信小程序</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li><a href="market_list.html">活动管理</a></li>
+                <li class="active"><a href="market_add.html">营销活动</a></li>
+                <li><a href="market_statistics.html">营销活动统计</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="alert alert-default">
+                <dl class="nobind">
+                    <dt><i class="icon-excalmation"></i></dt>
+                    <dd>
+                        尚未绑定微信公众号<br>
+                        需要绑定认证的微信公众号，且开通微信卡券功能
+                    </dd>
+                </dl>
+            </div>
+
+            <form role="form" id="formStore" action="http://www.baidu.com">
+                <div class="panel panel-default">
+                    <div class="panel-heading">分享赠券</div>
+                    <div class="panel-body ptbper3 form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label"><em class="text-danger">*</em> 活动名称</label>
+                            <div class="control-input">
+                                <input type="text" value="" name="storeName" class="form-control wper60 inline-block" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">分享简介</label>
+                            <div class="control-input">
+                                <textarea class="form-control wper60 inline-block"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">分享简介</label>
+                            <div class="control-input">
+                                <input type="text" value="" name="storeName" class="form-control wper60 inline-block" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">分享图片</label>
+                            <div class="control-input">
+                                <button type="button" class="btn btn-default">上传图片</button>
+                                <div class="text-gray-light">建议上传750*750像素（jpg、peng格式）的图片</div>
+                                <div class="mt10">
+                                    <img src="../../../img/pic/abstract.jpg" class="w100">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"><em class="text-danger">*</em> 活动内容</label>
+                            <div class="control-input">
+                                <button type="button" class="btn btn-default mr10" data-target="#modalCoupon" data-toggle="modal">添加优惠券</button>
+                                <div class="inline-block jsSetMCVal"></div>
+                                <input type="hidden" name="coupon_id" value="">
+                                <input type="hidden" name="coupon_name" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"><em class="text-danger"></em> 领券要求</label>
+                            <div class="control-input">
+                                <label class="checkbox-s show"><input type="checkbox" class="jsConcernMP"> 关注公众号</label>
+                                <div style="display: none">
+                                    <a href="#">添加公众号二维码</a>
+                                    <div class="mt10">
+                                        <img src="../../../img/pic/abstract.jpg" class="w200">
+                                    </div>
+                                    <div class="text-gray-light mt10 h6">公众号二维码，建议尺寸在520px*600px,并提示长按关注公众号</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"><em class="text-danger">*</em> 分享设置</label>
+                            <div class="control-input">
+                                <label class="radio-s mr10"><input type="radio" name="jsShareCouponFR" data-index="0" checked> 分享本活动到朋友圈</label>
+                                <label class="radio-s"><input type="radio" name="jsShareCouponFR" data-index="1"> 分享其他链接到朋友圈</label>
+                                <div class="jsShareCouponFW mt10" style="display: none">
+                                    <input class="form-control inline-block wper60 js-url-input" name="url" id="materialLink" autocomplete="off" type="text">
+                                    <button type="button" class="btn btn-default" id="select-common-link" data-toggle="modal" data-target="#modalLinkSel">选择链接</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"><em class="text-danger">*</em> 活动详情</label>
+                            <div class="control-input">
+                                文本编辑器
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="btn-wrap text-center">
+                    <button type="button" class="btn btn-primary" id="button">提交保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--选择卡券-->
+<div class="modal fade" id="modalCoupon">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">选择卡券</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr class="active">
+                            <th width="20"></th>
+                            <th>卡券名称</th>
+                            <th>卡券类型</th>
+                            <th>卡券有效期</th>
+                            <th>库存</th>
+                            <th>金额</th>
+                            <th>状态</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><input type="radio" name="radioCoupon" value="1"></td>
+                            <td>1元代金券</td>
+                            <td>代金券</td>
+                            <td>领取后当天生效3天有效</td>
+                            <td>2017</td>
+                            <td>--</td>
+                            <td>已投放</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="radioCoupon" value="21"></td>
+                            <td>22元代金券</td>
+                            <td>折扣券</td>
+                            <td>领取后当天生效3天有效</td>
+                            <td>2017</td>
+                            <td>--</td>
+                            <td>已投放</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div id="page" class="ptb15">
+                        <p class="pageRemark">共<strong>7</strong>条</p>
+                        <p>首页</p>
+                        <p>上一页</p>
+                        <input type="text" size="1" class="form-control inline-block wauto" value="1">
+                        <a href="#">跳转</a>
+                        <p class="pageRemark">1/13</p>
+                        <a href="#" title="下一页">下一页</a>
+                        <a href="#" title="尾页">尾页</a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnCouponSure" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/function/marketing/market/shareCoupon.js"></script>
+
+</body>
+</html>

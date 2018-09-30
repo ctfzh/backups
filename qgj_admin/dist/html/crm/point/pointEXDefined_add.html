@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>兑换页面</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+    <script src="../../../js/lib/template-web.js"></script>
+
+    <!--上传图片-->
+    <link rel="stylesheet" href="../../../js/lib/uploadify/uploadify.css">
+    <script src="../../../js/lib/uploadify/jquery.uploadify.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item active"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">会员管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../outline/user_increase.html" class="list-group-item">CRM概要</a>
+            </li>
+            <li>
+                <a href="../user/user_list.html" class="list-group-item">用户管理</a>
+            </li>
+            <li>
+                <a href="../group_list.html" class="list-group-item">用户分组</a>
+            </li>
+            <li>
+                <a href="../member_grade/member_grade_list.html" class="list-group-item">会员等级</a>
+            </li>
+            <li>
+                <a href="../card/member_card_list.html" class="list-group-item">微信会员卡</a>
+            </li>
+            <li>
+                <a href="../set/member_set.html" class="list-group-item">会员中心设置</a>
+            </li>
+            <li>
+                <a href="../point/point_exchange_list.html" class="list-group-item active">积分管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li><a href="point_rule_list.html">积分规则</a></li>
+                <li><a href="point_exchange_list.html">积分兑换</a></li>
+                <li class="active"><a href="pointExDefined_add.html">兑换页面</a></li>
+                <li><a href="pointExDefined_list.html">兑换记录</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="alert alert-default">
+                <div class="pull-right">
+                    <a href="#" class="btn btn-default">停用</a>
+                </div>
+                <div class="h6 lh-noraml">
+                    <div class="text-danger">已开启自定义积分兑换页面</div>
+                    开启页面自定义后，用户将会看到自定义积分兑换页。停用，侧显示默认兑换页面。
+                </div>
+            </div>
+
+            <form id="pointEXDefinedForm" action="http://www.baidu.com">
+                <div class="mall-set" id="pointEXDefined">
+                    <!--左边部分-->
+                    <div class="ms-prview">
+                        <div class="ms-title js-ms-title">
+                            <span>兑换页面</span>
+                            <input type="hidden" class="hiddenData">
+                        </div>
+                        <div class="ms-bd js-regions"></div>
+                    </div>
+                    <!--右边部分-->
+                    <div class="ms-form js-ms-form">
+                        <div class="title border-b pb10 mb10">页面编辑</div>
+                        <div class="region-form js-regions-form form-horizontal"></div>
+                        <a href="javascript:;" class="js-add-activeG btn btn-default mt15">新增活动分组</a>
+                    </div>
+                </div>
+                <input type="hidden" value="" id="content">
+                <div class="text-center mt20">
+                    <button type="button" class="btn btn-primary" id="setBtn">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--选择兑换活动-->
+<div class="modal fade" id="modalActive">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">兑换活动</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive overflow-y">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr class="active">
+                            <th width="20"></th>
+                            <th>券名称</th>
+                            <th>库存</th>
+                            <th>所需积分</th>
+                            <th>活动时间</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <input type="radio" name="radioCoupon" value="21">
+                                <input type="hidden" value='{"type":"兑换券","name":"10元兑换券","activity_id": "1100"}'>
+                            </td>
+                            <td>10元兑换券</td>
+                            <td>30</td>
+                            <td>100</td>
+                            <td>2017.02.14-2018.01.31</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="radio" name="radioCoupon" value="345">
+                                <input type="hidden" value='{"type":"代金券","name":"50元代金券","activity_id": "1210"}'>
+                            </td>
+                            <td>50元代金券</td>
+                            <td>20</td>
+                            <td>500</td>
+                            <td>2017.02.14-2018.01.31</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnActiveSure" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/function/template/template_common.js"></script>
+<script src="../../../js/function/crm/point/pointExDefined.js"></script>
+
+<script>
+    var url_active = 'http://www.qinguanjia.com/active/';
+    $(function () {
+        //模板
+        new tpl_index({
+            tpl_preview:'.js-regions',  //左边模板位置
+            tpl_form: '.js-regions-form', //右边模板位置
+            data: [
+                {
+                    "type":"title",
+                    "name": "fasdfa",  //店铺名字
+                    "description": "", //页面描述
+                    "src": "../../../img/pic/abstract.jpg" //商品样式
+                },
+                {
+                    "type": "banner",
+                    "src": "qrcode_default.jpg",
+                    "url": "",
+                    "activity_id": "0",
+                    "couponType":"",
+                    "name": ""
+                },
+                {
+                    "type": "activeGroup",
+                    "title": "标题1111",
+                    "actG_index": "0",
+                    "list": [
+                        {
+                            "src":"../../../img/qrcode_default.jpg",
+                            "title": "",
+                            "url":"22.jpg",
+                            "activity_id": "10",
+                            "couponType": "",
+                            "name": ""
+                        },
+                        {
+                            "src":"../../../img/qrcode_default.jpg",
+                            "title": "标题",
+                            "url":"11.jpg",
+                            "activity_id": "20",
+                            "couponType": "代金券",
+                            "name": "10元代金券"
+                        }
+                    ]
+                },
+                {
+                    "type": "activeGroup",
+                    "title": "标题22222",
+                    "actG_index": "1",
+                    "list": [
+                        {
+                            "src":"../../../img/qrcode_default.jpg",
+                            "title": "",
+                            "url":"22.jpg",
+                            "activity_id": "10",
+                            "couponType": "",
+                            "name": ""
+                        },
+                        {
+                            "src":"../../../img/qrcode_default.jpg",
+                            "title": "标题",
+                            "url":"11.jpg",
+                            "activity_id": "20",
+                            "couponType": "代金券",
+                            "name": "10元代金券"
+                        }
+                    ]
+                }
+            ],
+            url_img: 'http://www.qinguanjia.com/active/' //默认图片路径
+        });
+
+        //表单验证
+        function checkForm() {
+            var checkFlag = [];
+            $(".js-upload-img").each(function () {
+                checkFlag.push(checkInput($(this), '请上传图片'));
+            });
+            //页面名称验证
+            $(".js-t-title").each(function () {
+                $(this).on("keydown",function () {
+                    if($(this).val() && $(this).parent().find(".error").length){
+                        $(this).parent().find(".error").remove();
+                    }
+                });
+                checkFlag.push(checkInput($(this), '请添加标题'));
+            });
+            //活动分组验证
+            $(".js-actG-title").each(function () {
+                $(this).on("keydown",function () {
+                    if($(this).val() && $(this).parent().find(".error").length){
+                        $(this).parent().find(".error").remove();
+                    }
+                });
+                checkFlag.push(checkInput($(this), '请添加标题'));
+            });
+            //活动验证
+            $(".js-act-title").each(function () {
+                $(this).on("keydown",function () {
+                    if($(this).val() && $(this).parent().find(".error").length){
+                        $(this).parent().find(".error").remove();
+                    }
+                });
+                checkFlag.push( checkInput($(this), '请添加标题'));
+            });
+            //活动验证
+            $(".js-modify-act-input").each(function () {
+                checkFlag.push(checkInput($(this), '请添加活动'));
+            });
+
+            return checkFlag;
+        }
+
+        //表单验证公共方法
+        function checkInput(obj,text){
+            if(!obj.val() && !obj.parent().find(".error").length){
+                obj.after('<div class="text-danger error">'+ text +'</div>');
+                return '0';
+            }else{
+                return '1';
+            }
+        }
+
+        //按钮提交
+        $("#setBtn").click(function () {
+            var data = [],
+                checkForm1 = '';
+
+            $(".error").remove(); //清除错误表单
+            checkForm1 = checkForm();
+
+            $(".hiddenData").each(function (i,o) {
+                data.push(JSON.parse($(o).val()))
+            });
+            $("#content").val(JSON.stringify(data));
+
+            //循环如果有0就不执行
+            for(var i = 0; i<checkForm1.length; i++){
+                if(checkForm1[i] == '0'){
+                    return false;
+                }
+            }
+            $("#pointEXDefinedForm").submit();
+        });
+
+    });
+</script>
+
+
+
+</body>
+</html>

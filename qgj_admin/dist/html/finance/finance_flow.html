@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>财务-财务流水</title>
+
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <script src="../../js/lib/lib.min.js"></script>
+    <script src="../../js/lib/dateranger.min.js"></script>
+    <script src="../../js/common/util.js"></script>
+    <script src="../../js/lib/select2.min.js"></script>
+    <script src="../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../finance/finance_flow.html" class="list-group-item active"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../mall/goods/good_list.html" class="list-group-item"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">财务管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="finance_outline.html" class="list-group-item">财务概要</a>
+            </li>
+            <li class="sub-item">
+                <a href="javascript:;" class="list-group-item">财务管理</a>
+                <ul>
+                    <li><a href="finance_flow.html" class="list-group-item">财务流水</a></li>
+                    <li><a href="finance_total_day.html" class="list-group-item">财务汇总</a></li>
+                    <li><a href="store_total.html" class="list-group-item">门店汇总</a></li>
+                    <li><a href="staff_total.html" class="list-group-item">员工汇总</a></li>
+                </ul>
+            </li>
+            <li class="sub-item">
+                <a href="javascript:;" class="list-group-item">门店交易</a>
+                <ul>
+                    <li><a href="transaction_list.html" class="list-group-item">交易订单</a></li>
+                    <li><a href="transaction_total_day.html" class="list-group-item">交易汇总</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="#">财务流水</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="alert alert-warning alert-row">2017年12月以前的数据，<a href="" class="text-blue">点击这里查看</a></div>
+            <form class="form-horizontal form-search">
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <label for="time" class="control-label">交易时间</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control widthauto inline-block" id="time" placeholder="" readonly="readonly">
+                            <div class="btn-group inline-block">
+                                <a href="#" class="btn btn-default" id="todayMoment">今日</a>
+                                <a href="#" class="btn btn-default" id="sevenMoment">7日</a>
+                                <a href="#" class="btn btn-default" id="thirtyMoment">30日</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">订单/流水</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control"  placeholder="请输入订单号/流水号">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">门店</label>
+                        <div class="control-input">
+                            <button type="button" id="storeSel" class="form-control text-left" placeholder="请选择门店"  data-toggle="modal" data-target="#storeAll">选择门店</button>
+                            <input type="hidden" value="17,414" id="inputStoreSel">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">操作员</label>
+                        <div class="control-input">
+                            <select class="form-control">
+                                <option>小王</option>
+                                <option>小李</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">财务类型</label>
+                        <div class="control-input">
+                            <select class="form-control">
+                                <option value="">全部</option>
+                                <option value="1">门店交易</option>
+                                <option value="2">门店储值</option>
+                                <option value="3">在线储值</option>
+                                <option value="4">营销</option>
+                                <option value="5">商城</option>
+                                <option value="6">接口</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label" >支付方式</label>
+                        <div class="control-input">
+                            <div class="height32 ml1">
+                                <select tabindex="-1" aria-hidden="true" id="id_label_multiple" class="js-example-basic-multiple js-states form-control" multiple="multiple">
+                                    <option>支付宝</option>
+                                    <option>微信</option>
+                                    <option>银联</option>
+                                    <option>现金</option>
+                                    <option>储值</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">银联场景</label>
+                        <div class="control-input">
+                            <select class="form-control">
+                                <option value="">全部</option>
+                                <option value="1">记账</option>
+                                <option value="2">刷卡</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label class="control-label"></label>
+                        <div class="control-input btn-wrap">
+                            <button type="submit" class="btn btn-blue">搜索</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="qgj-nav mb10">
+                <div class="pull-right">
+                    <a href="#" class="line-height30">导出</a>
+                </div>
+                <div class="btn-group" role="group" aria-label="group">
+                    <a class="btn btn-default">全部</a>
+                    <a class="btn btn-default">收款</a>
+                    <a class="btn btn-default">退款</a>
+                    <a class="btn btn-default">含优惠</a>
+                    <a class="btn btn-default">含补贴</a>
+                </div>
+            </div>
+
+            <div class="qgj-datatotal mb15">
+                <ul>
+                    <li>
+                        <h5>收款金额</h5>
+                        <p class="text-primary h3">100.00</p>
+                        <p class="h5"><span class="text-primary">6</span> 笔</p>
+                    </li>
+                    <li>
+                        <h5>优惠金额</h5>
+                        <p class="text-primary h3">-100.00</p>
+                    </li>
+                    <li>
+                        <h5>退款金额</h5>
+                        <p class="text-primary h3">-100.00</p>
+                        <p class="h5"><span class="text-primary">6</span> 笔</p>
+                    </li>
+                    <li>
+                        <h5>实收金额</h5>
+                        <p class="text-primary h3">100.00</p>
+                        <p class="h5">补贴：<span class="text-primary">6</span></p>
+                    </li>
+                </ul>
+                <a href="javascript:;" class="toggleStretch">收起 <i class="icon-pull-down"></i></a>
+                <div class="qgj-detail" style="display: none">
+                    <div class="item">
+                        <div class="col">微信：</div>
+                        <div class="col">0.01 (1笔)</div>
+                        <div class="col">-0.01</div>
+                        <div class="col">-0.00 (1笔)</div>
+                        <div class="col">14900.00（补贴：23.89）</div>
+                    </div>
+                    <div class="item">
+                        <div class="col">银联：</div>
+                        <div class="col">0.01 (1笔)</div>
+                        <div class="col">-0.01</div>
+                        <div class="col">-0.00 (1笔)</div>
+                        <div class="col">0.01</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr class="active">
+                        <th>交易时间</th>
+                        <th>订单/类型</th>
+                        <th>流水/渠道</th>
+                        <th>交易金额</th>
+                        <th>收入/支出</th>
+                        <th>门店/操作员</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            2016.01.15<br>
+                            10:12:25
+                        </td>
+                        <td>
+                            126851215122121<br>
+                            门店交易
+                        </td>
+                        <td>
+                            2000201708182323590012345678<br>
+                            支付宝
+                        </td>
+                        <td>-10</td>
+                        <td>-10.00</td>
+                        <td>啊啊餐饮（江东店）<br> 小金（0001）</td>
+                        <td>
+                            <a href="finance_detail.html" class="text-black">详情</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2016.01.15<br>
+                            10:12:25
+                        </td>
+                        <td>
+                            126851215122121<br>
+                            门店储值
+                        </td>
+                        <td>
+                            2000201708182323590012345678<br>
+                            微信
+                        </td>
+                        <td>-10</td>
+                        <td>-10.00</td>
+                        <td>啊啊餐饮（江东店）<br> 小金（0001）</td>
+                        <td>
+                            <a href="finance_detail1.html" class="text-black">详情</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="text-center h5 mt10">暂时无数据</div>
+            </div>
+            <div id="page" class="ptb15">
+                <p class="pageRemark">共<strong>7</strong>条</p>
+                <p>首页</p>
+                <p>上一页</p>
+                <input type="text" size="1" class="form-control inline-block wauto" value="1">
+                <a href="#">跳转</a>
+                <p class="pageRemark">1/13</p>
+                <a href="#" title="下一页">下一页</a>
+                <a href="#" title="尾页">尾页</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--退款-->
+<div class="modal fade" id="modalRefund" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">退款</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="account_id" value="">
+                <form class="form-horizontal modal-refund-form" role="form" id="aaaaa">
+                    <div class="form-group">
+                        <label class="control-label">订单号</label>
+                        <div class="control-input refund-content"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label ">订单金额</label>
+                        <div class="control-input refund-content">120.00</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label ">支付方式</label>
+                        <div class="control-input refund-content">支付宝条码</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label ">实收金额</label>
+                        <div class="control-input refund-content">100.00</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">退款金额</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control" name="refund_money" id="refund_money" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label ">登录密码</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control" name="pwd" value="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="btnRefundSure">确认退款</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--退款结果-->
+<div class="modal fade" id="modalRefundResult" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">退款</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal modal-refund-form" role="form">
+                    <div class="form-group">
+                        <label class="control-label">退款结果</label>
+                        <div class="control-input">退款成功</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label ">退款时间</label>
+                        <div class="control-input">2016-09-05 14:41</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label ">退款金额</label>
+                        <div class="control-input">10.11</div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="btnRefundResultSure">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--选择门店-->
+<div class="modal fade store-pop" id="storeAll">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">选择门店</h4>
+            </div>
+            <div class="modal-body">
+                <div class="v-select-store">
+                    <div class="form-horizontal mb10">
+                        <input type="text" class="form-control form-control-inline w300" placeholder="门店编号/门店名称">
+                        <input type="submit" class="btn btn-default" value="搜索">
+                    </div>
+
+                    <div class="tree1 treeAll" data-value="12">
+                        <i class="rbArrow"></i>
+                        <input class="parentsBox" type="checkbox"><i class="iconFolder"></i>全部(14)
+                        <div class="comList">
+                            <ul>
+                                <li class="child3">
+                                    <input class="storeBox" value="10" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">3</span>
+                                    <span class="store-name" title="牛牛餐饮海曙店">牛牛餐饮海曙店</span>
+                                    <span class="meta" title="浙江省杭州市桐庐县XX路">浙江省杭州市桐庐县XX路</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="11" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">40000000000</span>
+                                    <span class="store-name" title="牛牛餐饮江北店">牛牛餐饮江北店</span>
+                                    <span class="meta" title="浙江省杭州市桐庐县XX路">浙江省杭州市桐庐县XX路</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="17" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">5</span>
+                                    <span class="store-name" title="牛牛餐饮鄞州店">牛牛餐饮鄞州店</span>
+                                    <span class="meta" title="浙江省杭州市桐庐县XX路">浙江省杭州市桐庐县XX路</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="414" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">6</span>
+                                    <span class="store-name" title="测试大门店(ddd)-ddd">测试大门店(ddd)-ddd</span>
+                                    <span class="meta" title="福建省福州市台江区GV发生的vfs">福建省福州市台江区GV发生的vfs</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="519" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">7</span>
+                                    <span class="store-name" title="测试门店一号-测试">测试门店一号-测试</span>
+                                    <span class="meta" title="">浙江省宁波市江东区高新区华商大厦19楼</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="1512" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">8</span>
+                                    <span class="store-name" title="牛牛科技九亭店">牛牛科技九亭店</span>
+                                    <span class="meta" title="上海市市辖区松江区九亭地铁站">上海市市辖区松江区九亭地铁站</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="1961" type="checkbox">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">9</span>
+                                    <span class="store-name" title="牛牛-泗泾3店">牛牛-泗泾3店</span>
+                                    <span class="meta" title="上海市市辖区松江区泗泾镇对的">上海市市辖区松江区泗泾镇对的</span>
+                                </li>
+                            </ul>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    1513                    	( 2 )</div>
+                                <div class="childWrap" style="display: block;">
+                                    <div class="child3">
+                                        <i class="rbArrow"></i>
+                                        <input class="childBox" type="checkbox">
+                                        <i class="iconFolder"></i>
+                                        1514   ( 2 )
+                                    </div>
+                                    <ul>
+                                        <li class="child3">
+                                            <input class="storeBox" value="2040" type="checkbox">
+                                            <i class="iconFile"></i>
+                                            <span class="store-no">1</span>
+                                            <span class="store-name" title="大口烧 -顾村店">大口烧 -顾村店</span>
+                                            <span class="meta" title="上海市市辖区宝山区顾村公园">上海市市辖区宝山区顾村公园</span>
+                                        </li>
+                                        <li class="child3">
+                                            <input class="storeBox" value="2448" type="checkbox">
+                                            <i class="iconFile"></i>
+                                            <span class="store-no">2</span>
+                                            <span class="store-name" title="SumPAGE -肇嘉浜路店">SumPAGE -肇嘉浜路店</span>
+                                            <span class="meta" title="上海市市辖区徐汇区肇嘉浜路">上海市市辖区徐汇区肇嘉浜路</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    上海 ( 0 )
+                                </div>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap closeFolder">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    餐饮 ( 1 )
+                                </div>
+                                <ul style="display: none;">
+                                    <li class="child3">
+                                        <input class="storeBox" value="2035" type="checkbox">
+                                        <i class="iconFile"></i>
+                                        <span class="store-name" title="麻辣香锅 -杨浦店">麻辣香锅 -杨浦店</span>
+                                        <span class="meta" title="上海市市辖区杨浦区上海市杨浦区">上海市市辖区杨浦区上海市杨浦区</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>
+                                    宁波                    	( 1 )</div>
+                                <ul>
+                                    <li class="child3">
+                                        <input class="storeBox" value="41" type="checkbox">
+                                        <i class="iconFile"></i>
+                                        <span class="store-name" title="牛牛餐饮高新店">牛牛餐饮高新店</span>
+                                        <span class="meta" title="浙江省宁波市鄞州区万达广场">浙江省宁波市鄞州区万达广场</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="child1">
+                                <div class="parentWrap">
+                                    <i class="rbArrow"></i>
+                                    <input class="parentBox" type="checkbox">
+                                    <i class="iconFolder"></i>牛牛( 1 )
+                                </div>
+                                <ul style="display: block;">
+                                    <li class="child3">
+                                        <input class="storeBox" value="618" type="checkbox">
+                                        <i class="iconFile"></i>
+                                        <span class="store-name" title="海底捞 -上海闵行店">海底捞 -上海闵行店</span>
+                                        <span class="meta" title="上海市市辖区闵行区上海市闵行区吴中路1488号">上海市市辖区闵行区上海市闵行区吴中路1488号</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span class="mr5">已选 <em class="text-danger js-store-selected-num">0</em> 家，共 <em class="js-store-total-num">0</em> 家</span>
+                <button type="button" class="btn btn-default" id="btnStoreCancel" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="btnStoreSure">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../js/function/finance/finance.js"></script>
+
+</body>
+</html>

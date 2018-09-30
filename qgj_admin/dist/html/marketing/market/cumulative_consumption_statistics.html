@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>累计消费满赠券报表</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/masonry-docs.min.js"></script>
+    <script src="../../../js/lib/echarts.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item active"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">营销管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../recharge/recharge_list.html" class="list-group-item">储值活动</a>
+            </li>
+            <li>
+                <a href="../coupon/coupon_list.html" class="list-group-item">优惠券</a>
+            </li>
+            <li>
+                <a href="../market/market_list.html" class="list-group-item active">营销活动</a>
+            </li>
+            <li>
+                <a href="../wx_applet/wx_applet_list.html" class="list-group-item">微信小程序</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li><a href="market_list.html">活动管理</a></li>
+                <li class="active"><a href="market_list.html">营销活动</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="table-responsive mb20">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr class="active">
+                        <th>创建时间</th>
+                        <th>活动名称</th>
+                        <th>活动类型</th>
+                        <th>通知人数</th>
+                        <th>活动时间</th>
+                        <th>状态</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>2017.04.07</td>
+                        <td>活动名称</td>
+                        <td>累计消费满赠券</td>
+                        <td>
+                            <div class="dropdown dropdown-arrowl">
+                                <a href="javascript:;">2000 <i class="icon-arrow-down"></i></a>
+                                <div class="dropdown-con w200">
+                                    <dl class="dl-horizontal dl-auto">
+                                        <dt><span class="text-success">成功</span></dt>
+                                        <dd>1995人</dd>
+                                    </dl>
+                                    <dl class="dl-horizontal dl-auto">
+                                        <dt><span class="text-danger">失败</span></dt>
+                                        <dd>
+                                            <p class="mb5">1人（拒绝消息）</p>
+                                            <p class="mb5">2人（未关注）</p>
+                                            <p>2人（其他）</p>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </td>
+                        <td>2017.04.08-2017.05.08</td>
+                        <td>进行中</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5 class="fw-bold">活动趋势</h5>
+            <form class="form-search mb10 time-area">
+                <select class="form-control form-control-inline">
+                    <option value="">全部规则</option>
+                </select>
+                <input type="text" name="time" id="time1" class="form-control form-control-inline w200 mr5" value="2017/02/26-2017/03/05">
+                <a href="javascript:;" class="btn btn-default btn-primary mr5 sevenMoment">最近7天</a>
+                <a href="javascript:;" class="btn btn-default mr5 fifthMoment">最近15天</a>
+                <a href="javascript:;" class="btn btn-default mr5 thirtyMoment">最近30天</a>
+            </form>
+            <div class="container-fluid">
+                <ul class="row qgj-menu">
+                    <li class="col-xs-3 text-center">
+                        <h5>发券数</h5>
+                        <div class="money"><span class="h2 text-primary">25350</span></div>
+                    </li>
+                    <li class="col-xs-3 text-center">
+                        <h5>浏览总数</h5>
+                        <div class="money"><span class="h2 text-primary">8132</span></div>
+                    </li>
+                    <li class="col-xs-3 text-center">
+                        <h5>领取总数</h5>
+                        <div class="money"><span class="h2 text-primary">8132</span></div>
+                    </li>
+                    <li class="col-xs-3 text-center">
+                        <h5>核销总数</h5>
+                        <div class="money"><span class="h2 text-primary">8132</span></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="mb20 p15 border">
+                <div id="echart1" class="height-lg wper100 mb10"></div>
+            </div>
+
+            <h5 class="fw-bold">优惠券拉动消费趋势图</h5>
+            <form class="form-search mb10 time-area">
+                <select class="form-control form-control-inline">
+                    <option value="">全部规则</option>
+                </select>
+                <input type="text" name="time" id="time2" class="form-control form-control-inline w200 mr5" value="2017/02/26-2017/03/05">
+                <a href="javascript:;" class="btn btn-default btn-primary mr5 sevenMoment">最近7天</a>
+                <a href="javascript:;" class="btn btn-default mr5 fifthMoment">最近15天</a>
+                <a href="javascript:;" class="btn btn-default mr5 thirtyMoment">最近30天</a>
+            </form>
+            <div class="container-fluid">
+                <ul class="row qgj-menu">
+                    <li class="col-xs-6 text-center">
+                        <h5>拉动消费总金额</h5>
+                        <div class="money"><span class="h2 text-primary">25350</span></div>
+                    </li>
+                    <li class="col-xs-6 text-center">
+                        <h5>拉动消费总笔数</h5>
+                        <div class="money"><span class="h2 text-primary">8132</span></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="mb20 p15 border">
+                <div id="echart2" class="height-lg wper100 mb10"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../../js/function/marketing/market/singleConsumption.js"></script>
+
+<script type="text/javascript">
+    // 图表
+    $(function () {
+        // 活动趋势
+        charts.line(
+            'echart1', ['发券数','浏览数','领取数','核销数'], '时间',['16-08-04', '16-08-05', '16-08-06', '16-08-07', '16-08-08', '16-08-09', '16-08-10', '16-08-11', '16-08-12', '16-08-13', '16-08-14'], '数量', [{name: '发券数',type: 'line',data: [2000, 50, 90, 20, 281, 247, 741, 2223, 2000, 1200, 2021]},{name: '浏览数',type: 'line',data: [1000, 500, 100, 200, 2811, 247, 70, 125, 552, 999, 1200]},{name: '领取数',type: 'line',data: [50, 152, 300, 1250, 600, 289, 700, 1250, 652, 999, 1200]},{name: '核销数',type: 'line',data: [12, 20, 1520, 200, 2811, 247, 70, 1250, 552, 60, 60]}]
+        );
+        //优惠券拉动消费趋势图
+        charts.line(
+            'echart2', ['数量','金额'], '时间',['16-08-04', '16-08-05', '16-08-06', '16-08-07', '16-08-08', '16-08-09', '16-08-10', '16-08-11', '16-08-12', '16-08-13', '16-08-14'], '数量', [{name: '数量',type: 'line',data: [2000, 50, 90, 20, 281, 247, 741, 2223, 2000, 1200, 2021]},{name: '金额',type: 'line',data: [1000, 500, 100, 200, 2811, 247, 70, 125, 552, 999, 1200]}]
+        );
+    });
+</script>
+
+</body>
+</html>

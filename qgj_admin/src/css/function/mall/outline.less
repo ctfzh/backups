@@ -1,0 +1,114 @@
+// 商城概况
+// ms：mall-outline
+//________________________________
+
+.mall-outline{
+  .qgj-menu{
+    &:nth-of-type(2){
+      li .money{
+        margin-bottom: 40px;
+      }
+    }
+    a{
+      display: inline;
+    }
+    li{
+      text-align: center;
+      cursor: auto;
+      > div{
+        width: 150px;
+        .inline-block;
+        text-align: left;
+        margin-bottom: 0;
+      }
+      &:after{
+        border-left:none
+      }
+      & .money{
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .utility-fun{
+    .con{
+      padding-left: 0;
+    }
+    .media{
+      margin: @space-padding/2 0;
+      width: 25%;
+      text-align: center;
+      > a{
+        .inline-block;
+        width: 125px;
+        text-align: left;
+      }
+    }
+  }
+
+  .add-pic-btn{
+    .inline-block;
+    margin: -9px @space-padding-sm/2 -9px -14px;
+    .uploadify-button{
+      border: none
+    }
+  }
+}
+
+//常用功能
+.icon-m-sprites-fun {
+  .inline-block;
+  width: 40px;
+  height: 40px;
+  background-image: url('../img/mall/outline/sprites_outline.png');
+}
+.icon-m-order {
+  background-position: -10px -10px;
+}
+.icon-m-promotion {
+  background-position: -70px -10px;
+}
+.icon-m-goodAdd {
+  background-position: -10px -70px;
+}
+.icon-m-point {
+  background-position: -70px -70px;
+}
+.icon-m-delivery {
+  background-position: -130px -10px;
+}
+.icon-m-pageSet {
+  background-position: -130px -70px;
+}
+.icon-m-refund {
+  background-position: -10px -130px;
+}
+.icon-m-coupon {
+  background-position: -70px -130px;
+}
+.circle-question-div{
+  display: inline-block;
+  position: relative;
+}
+.circle-question-icon{
+  background: #999;
+  border-radius: 50%;
+  line-height: 16px;
+  display: inline-block;
+  width: 16px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+.question-tips{
+  display: none;
+  border: 1px solid #999;
+  padding: 0 10px;
+  position: absolute;
+  top: 0;
+  left: 25px;
+  width: 230px;
+}
+.circle-question-div:hover >.question-tips{
+  display: inline-block;
+} 

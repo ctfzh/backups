@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>微信公众号授权</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item active"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../service/service_set/service_set.html" class="list-group-item"><i class="icon-service"></i> 客服</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../wx_applet/manager/list.html" class="list-group-item "><i class="icon-wechatapp"></i> 小程序</a></li>
+        <li><a href="../../mall/goods/good_list.html" class="list-group-item"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="../../distribution/outline/outline.html" class="list-group-item"><i class="icon-distribution"></i> 分销商</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">系统设置</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../alipay/alipay_set_list.html" class="list-group-item active">支付宝设置</a>
+            </li>
+            <li>
+                <a href="../wx/wxpay_set_list.html" class="list-group-item">微信设置</a>
+            </li>
+            <li>
+                <a href="../bank/bankacount_set.html" class="list-group-item">银行间连设置</a>
+            </li>
+            <li>
+                <a href="../system/modify_password.html" class="list-group-item">修改密码</a>
+            </li>
+            <li>
+                <a href="../account/account_list.html" class="list-group-item">账户管理</a>
+            </li>
+            <li>
+                <a href="../system/version.html" class="list-group-item">版本信息</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li><a href="wxpay_set_list.html">收款账号</a></li>
+                <li class="active"><a href="wx_authorizationed.html">公众号授权</a></li>
+                <li><a href="wx_interflow1.html">会员互通</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="container-fluid">
+                <div class="row border p15 mb20">
+                    <h4 class="mb10">
+                        绑定微信公众号
+                        <span class="h5 text-danger"><i class="icon-excalmation"></i> 未绑定</span>
+                    </h4>
+                    <h6 class="mb20">绑定后即可在这里管理您的公众号，为保证您在亲管家平台功能的正常使用，授权时请保持默认选择，把权限统一授权给亲管家。</h6>
+                    <div class="mb10">
+                        <a href="#" class="btn btn-primary" role="button">立即绑定公众号</a>
+                    </div>
+                </div>
+            </div>
+
+            <p>微信给不同类型公众号提供不同的接口，亲管家能提供的功能也不相同：</p>
+            <div class="table-responsive">
+                <table class="table table-bordered mb10">
+                    <tr>
+                        <td class="bg-gray-lighter1"></td>
+                        <td class="bg-gray-lighter1">未认证订阅号</td>
+                        <td class="bg-gray-lighter1">认证订阅号</td>
+                        <td class="bg-gray-lighter1">未认证服务号</td>
+                        <td class="bg-gray-lighter1">认证服务号</td>
+                    </tr>
+                    <tr>
+                        <td class="bg-gray-lighter1">消息自动回复</td>
+                        <td><i class="icon-tick-noborder text-success h4"></i></td>
+                        <td><i class="icon-tick-noborder text-success h4"></i></td>
+                        <td><i class="icon-tick-noborder text-success h4"></i></td>
+                        <td><i class="icon-tick-noborder text-success h4"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="bg-gray-lighter1">微信自定义菜单</td>
+                        <td></td>
+                        <td><i class="icon-tick-noborder text-success h4"></i></td>
+                        <td><i class="icon-tick-noborder text-success h4"></i></td>
+                        <td><i class="icon-tick-noborder text-success h4"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="bg-gray-lighter1">群发/定时群发</td>
+                        <td></td>
+                        <td><i class="icon-tick-noborder text-success h4"></i></td>
+                        <td></td>
+                        <td><i class="icon-tick-noborder text-success h4"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="bg-gray-lighter1">高级客户管理</td>
+                        <td></td>
+                        <td>部分功能</td>
+                        <td></td>
+                        <td><i class="icon-tick-noborder text-success h4"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="bg-gray-lighter1">可申请微信支付</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><i class="icon-tick-noborder text-success h4"></i></td>
+                    </tr>
+                </table>
+                <a href="http://kf.qq.com/faq/120911VrYVrA130805byM32u.html">了解更多</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

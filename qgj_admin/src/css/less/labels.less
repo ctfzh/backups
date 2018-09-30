@@ -1,0 +1,42 @@
+//
+// Labels
+// --------------------------------------------------
+
+.label {
+  display: inline-block;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: @color-white;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .15em;
+  &.label-md{
+    font-size: @font-size-h5half;
+  }
+}
+
+// Colors
+// Contextual variations (linked labels get darker on :hover)
+
+.label-default {
+  .label-variant(@gray-light);
+}
+
+.label-primary {
+  .label-variant(@brand-primary);
+}
+
+.label-success {
+  .label-variant(@brand-success);
+}
+
+.label-info {
+  .label-variant(@brand-info);
+}
+
+.label-danger {
+  .label-variant(@brand-danger);
+}

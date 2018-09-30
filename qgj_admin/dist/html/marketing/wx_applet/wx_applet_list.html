@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>微信小程序</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/masonry-docs.min.js"></script>
+    <script src="../../../js/lib/echarts.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item active"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">营销管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../recharge/recharge_list.html" class="list-group-item">储值活动</a>
+            </li>
+            <li>
+                <a href="../coupon/coupon_list.html" class="list-group-item">优惠券</a>
+            </li>
+            <li>
+                <a href="../market/market_list.html" class="list-group-item">营销活动</a>
+            </li>
+            <li>
+                <a href="../wx_applet/wx_applet_list.html" class="list-group-item active">微信小程序</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="wx_applet_list.html">微信小程序</a></li>
+                <li><a href="wx_QR_code.html">微信二维码</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="alert alert-default">
+                <dl class="nobind">
+                    <dt><i class="icon-excalmation"></i></dt>
+                    <dd>
+                        尚未绑定小程序<br>
+                        请先开通小程序（<a href="javascript:;">如何开通？ 立即开通</a>），并授权绑定给亲管家（<a href="javascript:;">去授权绑定</a>）
+                    </dd>
+                </dl>
+            </div>
+            <div class="qgj-nav">
+                <div class="pull-right">
+                    <a href="wx_applet_add.html" class="btn btn-primary">创建微信小程序</a>
+                </div>
+            </div>
+
+            <div class="wx-applet-list">
+                <div class="media-list">
+                    <div class="media">
+                        <div class="media-left">
+                            <img class="media-object" src="../../../img/qrcode.png">
+                        </div>
+                        <div class="media-body">
+                            小程序名称
+                        </div>
+                    </div>
+                    <div class="operate">
+                        <div class="status text-primary">审核中</div>
+                        <div class="btn-wrap">
+                            <a href="javascript:;">发布</a>
+                            <a href="javascript:;">编辑</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-list">
+                    <div class="media">
+                        <div class="media-left">
+                            <img class="media-object" src="../../../img/qrcode.png">
+                        </div>
+                        <div class="media-body">
+                            小程序名称小程序名称小程序名称小程序名称
+                        </div>
+                    </div>
+                    <div class="operate">
+                        <div class="status text-primary">审核中</div>
+                        <div class="btn-wrap">
+                            <a href="javascript:;">发布</a>
+                            <a href="javascript:;">编辑</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-list">
+                    <div class="media">
+                        <div class="media-left">
+                            <img class="media-object" src="../../../img/qrcode.png">
+                        </div>
+                        <div class="media-body">
+                            小程序名称小程序名称小程序名称小程序名称
+                        </div>
+                    </div>
+                    <div class="operate">
+                        <div class="status text-primary">审核中</div>
+                        <div class="btn-wrap">
+                            <a href="javascript:;">发布</a>
+                            <a href="javascript:;">编辑</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-list">
+                    <div class="media">
+                        <div class="media-left">
+                            <img class="media-object" src="../../../img/qrcode.png">
+                        </div>
+                        <div class="media-body">
+                            小程序名称小程序名称小程序名称小程序名称
+                        </div>
+                    </div>
+                    <div class="operate">
+                        <div class="status text-primary">审核中</div>
+                        <div class="btn-wrap">
+                            <a href="javascript:;">发布</a>
+                            <a href="javascript:;">编辑</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-list">
+                    <div class="media">
+                        <div class="media-left">
+                            <img class="media-object" src="../../../img/qrcode.png">
+                        </div>
+                        <div class="media-body">
+                            小程序名称小程序名称小程序名称小程序名称
+                        </div>
+                    </div>
+                    <div class="operate">
+                        <div class="status text-primary">审核中</div>
+                        <div class="btn-wrap">
+                            <a href="javascript:;">发布</a>
+                            <a href="javascript:;">编辑</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-list">
+                    <div class="media">
+                        <div class="media-left">
+                            <img class="media-object" src="../../../img/qrcode.png">
+                        </div>
+                        <div class="media-body">
+                            小程序名称小程序名称小程序名称小程序名称
+                        </div>
+                    </div>
+                    <div class="operate">
+                        <div class="status text-primary">审核中</div>
+                        <div class="btn-wrap">
+                            <a href="javascript:;">发布</a>
+                            <a href="javascript:;">编辑</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-list">
+                    <div class="media">
+                        <div class="media-left">
+                            <img class="media-object" src="../../../img/qrcode.png">
+                        </div>
+                        <div class="media-body">
+                            小程序名称小程序名称小程序名称小程序名称
+                        </div>
+                    </div>
+                    <div class="operate">
+                        <div class="status text-primary">审核中</div>
+                        <div class="btn-wrap">
+                            <a href="javascript:;">发布</a>
+                            <a href="javascript:;">编辑</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-list">
+                    <div class="media">
+                        <div class="media-left">
+                            <img class="media-object" src="../../../img/qrcode.png">
+                        </div>
+                        <div class="media-body">
+                            小程序名称小程序名称小程序名称小程序名称
+                        </div>
+                    </div>
+                    <div class="operate">
+                        <div class="status text-primary">审核中</div>
+                        <div class="btn-wrap">
+                            <a href="javascript:;">发布</a>
+                            <a href="javascript:;">编辑</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

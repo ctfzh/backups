@@ -1,0 +1,14 @@
+// Opacity
+
+.opacity(@opacity) {
+  opacity: @opacity;
+  // IE8 filter
+  @opacity-ie: (@opacity * 100);
+  filter: ~"alpha(opacity=@{opacity-ie})";
+}
+
+.bg-opacity(@opacity:0.5){
+  color: @color-white;
+  background: rgba(0,0,0,@opacity);
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startcolorstr=#7F000000,endcolorstr=#7F000000)"));
+}

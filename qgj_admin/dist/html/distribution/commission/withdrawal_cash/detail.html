@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>提现详情</title>
+
+    <link rel="stylesheet" href="../../../../css/bootstrap.css">
+    <script src="../../../../js/lib/lib.min.js"></script>
+    <script src="../../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../../js/lib/layer/layer.js"></script>
+    <script src="../../../../js/lib/webuploader/webuploader.min.js"></script>
+    <script src="../../../../js/common/util.js"></script>
+    <script src="../../../../js/lib/select2.min.js"></script>
+    <script src="../../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../../index/index.html" class="list-group-item active"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../../service/service_set/service_set.html" class="list-group-item"><i class="icon-service"></i> 客服</a></li>
+        <li><a href="../../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../../wx_applet/manager/list.html" class="list-group-item "><i class="icon-wechatapp"></i> 小程序</a></li>
+        <li><a href="../../../mall/goods/good_list.html" class="list-group-item"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="../../../distribution/outline/outline.html" class="list-group-item"><i class="icon-distribution"></i> 分销商</a></li>
+        <li><a href="../../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">分销管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../../outline/outline.html" class="list-group-item">概况</a>
+            </li>
+            <li>
+                <a href="../../distributor/list.html" class="list-group-item active">分销商</a>
+            </li>
+            <li>
+                <a href="../../mall_distribution/list.html" class="list-group-item">商城分销</a>
+            </li>
+            <li>
+                <a href="../../commission/withdrawal_cash/list.html" class="list-group-item">佣金管理</a>
+            </li>
+            <li>
+                <a href="../../page_set/add.html" class="list-group-item">分销招募</a>
+            </li>
+            <li>
+                <a href="../../set/add.html" class="list-group-item">设置</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="../withdrawal_cash/list.html">提现管理</a></li>
+                <li><a href="../detail/detail.html">佣金明细</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="alert alert-default">
+                <div class="pull-right">
+                    <a href="javascript:;" class="btn btn-default">审核</a>
+                    <a href="javascript:;" class="btn btn-default">驳回</a>
+                </div>
+                <div class="w443 inline-block line-height30 h4">
+                    提现金额：100元
+                </div>
+                <div class="inline-block line-height30 h4">
+                    当前状态：<span class="text-danger">待审核</span>
+                </div>
+            </div>
+
+            <h5><strong>提现人信息</strong></h5>
+            <div class="border p15 mb15">
+                <div class="table-css">
+                    <div class="cell wper20">
+                        <img src="../../../../img/qrcode.png" class="w48">
+                        微信昵称：999
+                    </div>
+                    <div class="cell wper20">姓名：999</div>
+                    <div class="cell wper20">手机号：999</div>
+                    <div class="cell wper20">申请提现时间：2017-04-05 22:47:22</div>
+                </div>
+            </div>
+
+            <h5><strong>结算账户</strong></h5>
+            <div class="border p15 mb15">
+                <div class="row">
+                    <div class="col-xs-3 ptb5">结算方式：人工结算</div>
+                    <div class="col-xs-3 ptb5">提现类型：微信</div>
+                    <div class="col-xs-3 ptb5">微信号：115123151616161166</div>
+                </div>
+            </div>
+            <div class="border p15 mb15">
+                <div class="row">
+                    <div class="col-xs-3 ptb5">结算方式：人工结算</div>
+                    <div class="col-xs-3 ptb5">提现类型：支付宝</div>
+                    <div class="col-xs-3 ptb5">支付宝账号：1312525654455444</div>
+                </div>
+            </div>
+
+            <div class="border p15 mb15">
+                <div class="row">
+                    <div class="col-xs-3 ptb5">结算方式：人工结算</div>
+                    <div class="col-xs-3 ptb5">提现类型：银行卡</div>
+                    <div class="col-xs-3 ptb5">持卡人姓名：abc</div>
+                    <div class="col-xs-3 ptb5">开户行：工商银行</div>
+                    <div class="col-xs-3 ptb5">银行卡号：1231512121512151215</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

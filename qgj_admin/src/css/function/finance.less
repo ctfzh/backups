@@ -1,0 +1,74 @@
+// 财务管理
+//________________________________
+.finace-detail{
+  .panel-body{
+    padding: 0;
+  }
+  .panel{
+    .qgj-datatotal{
+      border: none;
+      background-color: @color-white;
+      li{
+        min-height: 100px;
+      }
+    }
+  }
+  .form-group{
+    padding-top: 0;
+    margin-bottom: 0;
+    border-top:1px solid lighten(@gray-base, 95.2%);
+    .control-label{
+      top: 0;
+      height: 30px;
+      line-height: 30px;
+      padding-left: @space-padding-sm;
+      width: 140px;
+    }
+    .control-input{
+      margin-left: 140px;
+      padding-left: @space-padding-sm;
+      border-left: 1px solid @border-color;
+    }
+    dl{
+      margin-bottom: 0;
+    }
+    &:first-child{
+      border-top: none;
+    }
+    .toggleStretch{
+      margin-right: @space-padding-sm/2;
+    }
+  }
+  .qgj-detail{
+    .control-input{
+      padding: 5px 0 5px 20px;
+    }
+  }
+  .pay-detail{
+    .row{
+      padding: 20px 2% ;
+      .dl-horizontal{
+        padding-left: 15%;
+        dt{
+          margin-right: 2%;
+          width: 25%;
+          font-weight: normal;
+          color: @gray-light;
+        }
+        dd{
+          width: 69%;
+        }
+      }
+      .col-xs-6{
+        padding: 20px 30px 0;
+        &:last-child{
+          padding-top: 0;
+          border-left: 1px solid @border-color;
+          .dl-horizontal{
+            padding-left: 0;
+          }
+        }
+      }
+    }
+  }
+}

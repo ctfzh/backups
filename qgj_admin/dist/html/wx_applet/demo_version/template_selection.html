@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>展示版模板选择</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-service"></i> 客服</a></li>
+        <li><a href="../../mall/goods/good_list.html" class="list-group-item active"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">小程序</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li class="sub-item"><!--这个只有在开通后才显示-->
+                <a href="javascript:;" class="list-group-item">智慧门店</a>
+                <ul>
+                    <li><a href="../demo_version/page_add.html" class="list-group-item">展示</a></li>
+                    <li><a href="../demo_version/template_selection.html" class="list-group-item active">模板选择</a></li>
+                    <li><a href="../statistics/statistics.html" class="list-group-item ">统计</a></li>
+                    <li><a href="../set/wx_authorization.html" class="list-group-item ">设置</a></li>
+                </ul>
+            </li>
+            <li class="sub-item"><!--这个只有在开通后才显示-->
+                <a href="javascript:;" class="list-group-item">商城版</a>
+                <ul>
+                    <li><a href="../manager/list.html" class="list-group-item">页面管理</a></li>
+                    <li><a href="../set/wx_authorization.html" class="list-group-item ">设置</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../manager/list.html" class="list-group-item">版本管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="template_selection.html">模板选择</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="template-selection">
+                <div class="btn-group">
+                    <a class="btn btn-default active">展示版</a>
+                    <a class="btn btn-default">营销版</a>
+                    <a class="btn btn-default">行业版</a>
+                </div>
+                <div class="category">
+                    <ul>
+                        <li class="active"><a href="">全部</a></li>
+                        <li><a href="">餐饮美食</a></li>
+                        <li><a href="">美容美发</a></li>
+                        <li><a href="">婚纱摄影</a></li>
+                        <li><a href="">运动健身</a></li>
+                        <li><a href="">旅游票务</a></li>
+                        <li><a href="">教育培训</a></li>
+                        <li><a href="">鲜花绿植</a></li>
+                        <li><a href="">设计装潢</a></li>
+
+                        <li><a href="">婚纱摄影</a></li>
+                        <li><a href="">运动健身</a></li>
+                        <li><a href="">旅游票务</a></li>
+                        <li><a href="">教育培训</a></li>
+                        <li><a href="">鲜花绿植</a></li>
+                        <li><a href="">设计装潢</a></li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <ul>
+                        <li>
+                            <div class="img"><img src="../../../img/wx_applet/_blank/_blank.png" alt=""></div>
+                            <a href="javascript:;" class="btn btn-primary">空白模板</a>
+                            <div class="name">自定义模版</div>
+                            <div class="mask"></div>
+                        </li>
+                        <li>
+                            <div class="img"><img src="../../../img/wx_applet/meishitiandi/美食天地.jpg" alt=""></div>
+                            <a href="javascript:;" class="btn btn-primary">使用模板</a>
+                            <div class="name">美食天地</div>
+                            <div class="mask"></div>
+                        </li>
+                        <li>
+                            <div class="img"><img src="../../../img/wx_applet/meirongmeifa/美容美发.jpg" alt=""></div>
+                            <a href="javascript:;" class="btn btn-primary">使用模板</a>
+                            <div class="name">美容美发</div>
+                            <div class="mask"></div>
+                        </li>
+                        <li>
+                            <div class="img"><img src="../../../img/wx_applet/hunshasheying/婚纱摄影.jpg" alt=""></div>
+                            <a href="javascript:;" class="btn btn-primary">使用模板</a>
+                            <div class="name">婚纱摄影</div>
+                            <div class="mask"></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="page" class="mt20">
+                    <p>首页</p>
+                    <p>上一页</p>
+                    <a href="#" title="第1页" class="cur">1</a>
+                    <a href="#" title="第2页">2</a>
+                    <a href="#" title="第3页">3</a>
+                    <a href="#" title="第4页">4</a>
+                    <a href="#" title="第5页">5</a>
+                    <p class="pageEllipsis">...</p>
+                    <a href="#" title="下一页">下一页</a>
+                    <a href="#" title="尾页">尾页</a>
+                    <p class="pageRemark">共<strong>7</strong>页<strong>7</strong>条数据</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

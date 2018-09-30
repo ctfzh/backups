@@ -1,0 +1,132 @@
+// 小程序添加
+//________________________________
+
+
+//广告图热区添加
+#bannerAdd{
+  margin-bottom: 0;
+  & + div{
+    margin-bottom: 0;
+  }
+  object{
+    width: 100%;
+    height: 39px;
+    cursor: pointer;
+  }
+  .uploadify-button {
+    position: absolute;
+    width: 100%;
+    height: 51px;
+    background-color: transparent;
+    border: none;
+    span{
+      display: none;
+    }
+  }
+}
+
+.banner-hot{
+  position: relative;
+  cursor: pointer;
+}
+.banner-hot_area{
+  position: absolute !important;
+  left: 5px;
+  top: 5px;
+  width: 113px;
+  height: 113px;
+  background-color: rgba(48,165,255, 0.5);
+  border: 1px solid @brand-primary;
+  cursor: move;
+}
+.banner-hot_area--text{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: @color-white;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+.banner-hot_flag{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  padding: 5px;
+  line-height: 1;
+  border: 1px solid @brand-primary;
+  border-radius: 3px;
+  background-color: rgba(48,165,255,0.5);
+  color: @color-white;
+}
+.banner-hot_link{
+  position: absolute;
+  z-index: 1000;
+  padding: 5px 0 5px 2px;
+  width: 150px;
+}
+.banner-hot_pic{
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+  max-height: 420px;
+  img{
+    max-width: 100%;
+  }
+}
+.banner-hot_step{
+  margin-bottom: @space-padding-sm/2;
+  font-size: @font-size-h6;
+  color: @gray-light;
+  li{
+    .inline-block;
+    margin-right: @space-padding-sm/2;
+  }
+  span{
+    .inline-block;
+    &:nth-of-type(1){
+      width: 26px;
+      height: 26px;
+      line-height: 26px;
+      text-align: center;
+      border: 1px solid @border-color;
+      border-radius: 100%;
+    }
+    &:nth-of-type(2){
+      margin: 0 @space-padding-sm/2;
+    }
+  }
+}
+
+.wx_applet_add{
+  width: 400px;
+  margin: 0 auto;
+  padding-bottom: @space-padding-sm;
+  border: 1px solid @border-color;
+  text-align: center;
+  .desc{
+    padding: @space-padding-sm/2 0;
+    background-color: @gray-lighter;
+    border-bottom: 1px solid @border-color;
+    text-align: center;
+    margin-bottom: @space-padding-sm/2;
+  }
+  .btn-group{
+    margin-top: @space-padding-sm ;
+    >.btn{
+      float: none;
+      .inline-block;
+    }
+  }
+}
+
+//展示板提示页
+.wx-applet-show-tips{
+  width: 500px;
+  margin: 0 auto;
+  padding: 30px 0;
+  text-align: center;
+}

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>门店相册列表</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/lib/template-web.js"></script>
+    <script src="../../../js/lib/jquery-ui.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <link rel="stylesheet" href="../../../js/lib/uploadify/uploadify.css">
+    <script src="../../../js/lib/uploadify/jquery.uploadify.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <ul class="list-group list-group-black">
+            <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+            <li><a href="../store/store_list.html" class="list-group-item active"><i class="icon-merchant"></i> 门店</a></li>
+            <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+            <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+            <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+            <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+            <li><a href="../../wx_applet/manager/list.html" class="list-group-item"><i class="icon-wechatapp"></i> 小程序</a></li>
+            <li><a href="../../mall/goods/good_list.html" class="list-group-item"><i class="icon-shop"></i> 商城</a></li>
+            <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+            <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+            <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+        </ul>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">门店收银管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="storeAblum_list.html" class="list-group-item">门店管理</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="list-group-item">收银员管理</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="list-group-item">收银设置</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="list-group-item">收银台管理</a>
+            </li>
+            <li>
+                <a href="../ablum/storeAblum_list.html" class="list-group-item active">商家相册</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="/store_list.html">门店相册</a></li>
+                <li><a href="commonAblum_edit.html">通用相册</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <form class="form-horizontal form-search">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <input type="text" class="form-control form-control-inline"  placeholder="请输入门店名称或门店编号">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label class="control-label"></label>
+                        <div class="control-input btn-wrap">
+                            <button type="submit" class="btn btn-blue">搜索</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="qgj-nav">
+                <div class="pull-right"><a href="#modalStore" data-toggle="modal" class="btn btn-default">添加门店</a></div>
+            </div>
+
+            <div class="table-wrap">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>门店名称</th>
+                            <th>门店编号</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>明月点</td>
+                            <td>001</td>
+                            <td><a href="storeAblum_edit.html">编辑相册</a></td>
+                        </tr>
+                        <tr>
+                            <td>明月点</td>
+                            <td>001</td>
+                            <td><a href="storeAblum_edit.html">编辑相册</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--<div class="text-center h5 mt10">暂时无数据</div>-->
+            </div>
+            <div id="page" class="ptb15">
+                <p>首页</p>
+                <p>上一页</p>
+                <a href="/merchant/store/list.html?page=1" title="第1页" class="cur">1</a>
+                <a href="/merchant/store/list.html?page=2" title="第2页">2</a>
+                <a href="/merchant/store/list.html?page=3" title="第3页">3</a>
+                <a href="/merchant/store/list.html?page=4" title="第4页">4</a>
+                <a href="/merchant/store/list.html?page=5" title="第5页">5</a>
+                <p class="pageEllipsis">...</p>
+                <a href="/merchant/store/list.html?page=2" title="下一页">下一页</a>
+                <a href="/merchant/store/list.html?page=7" title="尾页">尾页</a>
+                <p class="pageRemark">共<strong>7</strong>页<strong>7</strong>条数据</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--添加门店-->
+<div class="modal fade" id="modalStore">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">
+                    门店选择
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal form-search">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <input type="text" class="form-control form-control-inline"  placeholder="请输入门店名称">
+                        </div>
+
+                        <div class="btn-wrap-pos">
+                            <button type="submit" class="btn btn-blue">搜索</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th width="20"></th>
+                                <th width="35%">门店名称</th>
+                                <th>详细地址</th>
+                                <th>联系电话</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" name="" class="qkj-checkbox" value=""></td>
+                                <td>名称1</td>
+                                <td>
+                                    北京朝阳区
+                                </td>
+                                <td>1515616616</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="" class="qkj-checkbox" value=""></td>
+                                <td>名称1</td>
+                                <td>
+                                    北京朝阳区
+                                </td>
+                                <td>1515616616</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnActivityGoods"  data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

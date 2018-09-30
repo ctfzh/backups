@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>财务-交易明细详情</title>
+
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <script src="../../js/lib/lib.min.js"></script>
+    <script src="../../js/lib/dateranger.min.js"></script>
+    <script src="../../js/common/util.js"></script>
+    <script src="../../js/lib/select2.min.js"></script>
+    <script src="../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../finance/finance_list.html" class="list-group-item active"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">财务管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="finance_outline.html" class="list-group-item">财务概要</a>
+            </li>
+            <li class="sub-item">
+                <a href="javascript:;" class="list-group-item">财务管理</a>
+                <ul>
+                    <li><a href="finance_flow.html" class="list-group-item">财务流水</a></li>
+                    <li><a href="finance_total_day.html" class="list-group-item">财务汇总</a></li>
+                    <li><a href="store_total.html" class="list-group-item">门店汇总</a></li>
+                </ul>
+            </li>
+            <li class="sub-item">
+                <a href="javascript:;" class="list-group-item">门店交易</a>
+                <ul>
+                    <li><a href="transaction_list.html" class="list-group-item active">交易订单</a></li>
+                    <li><a href="transaction_total_day.html" class="list-group-item">交易汇总</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="#">交易详情</a></li>
+            </ul>
+        </div>
+        <div class="m-content finace-detail">
+            <div class="alert alert-default" role="alert">
+                <div class="pull-right">
+                    <a href="javascript:;" class="ml10">退款</a>
+                    <a href="javascript:;" class="ml10">查询订单状态</a>
+                </div>
+                <strong>订单状态：</strong> 部分退款
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">订单信息</div>
+                <div class="panel-body form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label">订单号</label>
+                        <div class="control-input">2016061477821858</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">下单时间</label>
+                        <div class="control-input">
+                            2016-06-15 10:12:25
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">商户名称</label>
+                        <div class="control-input">
+                            上海市浦东新区金杨新村街道梵希餐饮店
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">门店名称</label>
+                        <div class="control-input">
+                            梵希餐饮（闵行店）
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">操作员</label>
+                        <div class="control-input">
+                            小金（001）
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">会员信息</label>
+                        <div class="control-input">
+                            顾俊凯（18758363280）
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">订单金额</label>
+                        <div class="control-input">
+                            100.00
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">不打折金额</label>
+                        <div class="control-input">
+                            20.00
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">优惠金额</label>
+                        <div class="control-input">
+                            <a href="javascript:;" class="toggleStretch pull-right">展开 <i class="icon-pull-down"></i></a>
+                            -9.50
+                        </div>
+                    </div>
+                    <div class="form-group qgj-detail" style="display: none">
+                        <label class="control-label">优惠详情</label>
+                        <div class="control-input">
+                            <dl>
+                                <dt class="inline-block w200">1元代金券（376487659876）</dt>
+                                <dd class="inline-block">-1.00</dd>
+                            </dl>
+                            <dl>
+                                <dt class="inline-block w200">会员折扣（9折）</dt>
+                                <dd class="inline-block">-8.00</dd>
+                            </dl>
+                            <dl>
+                                <dt class="inline-block w200">抹零</dt>
+                                <dd class="inline-block">-0.5</dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">实收金额</label>
+                        <div class="control-input">
+                            90.00
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">备注</label>
+                        <div class="control-input">
+                            备注信息
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">支付信息</div>
+                <div class="panel-body form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label">流水号</label>
+                        <div class="control-input">
+                            2016122921001004480214510281
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">收款账号</label>
+                        <div class="control-input">
+                            支付宝pid：2088811978614197
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">支付渠道</label>
+                        <div class="control-input">支付宝扫码</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">支付账号</label>
+                        <div class="control-input">18820223525</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">支付时间</label>
+                        <div class="control-input">
+                            2016-06-15 10:12:25
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">第三方流水号</label>
+                        <div class="control-input">
+                            2016122921001004480214510281
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">交易金额</label>
+                        <div class="control-input">
+                            90.00
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">支付宝商家优惠</label>
+                        <div class="control-input">
+                            -10.00
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">用户实付</label>
+                        <div class="control-input">
+                            79.88
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">支付宝优惠</label>
+                        <div class="control-input">
+                            0.12
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h5>退款信息</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr class="active">
+                        <th>退款时间</th>
+                        <th>流水号</th>
+                        <th>退款操作员</th>
+                        <th>授权操作员</th>
+                        <th>退款方式</th>
+                        <th>退款金额</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>2017-02-17 14:57:03</td>
+                        <td>20122215121551215125</td>
+                        <td>张一(1251215546578)</td>
+                        <td>--</td>
+                        <td>支付宝</td>
+                        <td>15.00</td>
+                    </tr>
+                    <tr>
+                        <td>2017-02-17 14:57:03</td>
+                        <td>20122215121551215125</td>
+                        <td>张一(1251215546578)</td>
+                        <td>小金（001）</td>
+                        <td>现金</td>
+                        <td>15.00</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../js/function/finance/finance.js"></script>
+
+</body>
+</html>

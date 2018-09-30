@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>关键词自动回复</title>
+
+    <link rel="stylesheet" href="../../../js/lib/uploadify/uploadify.css">
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/uploadify/jquery.uploadify.js"></script>
+    <script src="../../../js/lib/masonry-docs.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item active"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">渠道管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../menu/menu.html" class="list-group-item">自定义菜单</a>
+            </li>
+            <li>
+                <a href="auto_reply.html" class="list-group-item active">自动回复</a>
+            </li>
+            <li>
+                <a href="../broadcast/group_list.html" class="list-group-item">群发广播</a>
+            </li>
+            <li>
+                <a href="../material/material_list.html" class="list-group-item">素材管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="#">自动回复</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="qgj-nav mb10">
+                <div class="pull-right"><a href="javascript:;" class="btn btn-primary">创建新规则</a></div>
+                <div class="btn-group" role="group" aria-label="group">
+                    <a href="auto_reply.html" class="btn btn-default storeSort">被添加自动回复</a>
+                    <a class="btn btn-default storeSort">消息自动回复</a>
+                    <a href="keyword_reply.html" class="btn btn-primary storeSort">关键词自动回复</a>
+                </div>
+            </div>
+            <div class="panel panel-default pspace">
+                <form class="form-horizontal" role="form" id="formStore">
+                    <div class="form-group">
+                        <label class="control-label">规则名</label>
+                        <div class="control-input">
+                            <input type="text" value="" name="input_name" maxlength="30" class="form-control wper60" placeholder="规则名最多30个字符">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">关键词</label>
+                        <div class="control-input radio-group-inline">
+                            <input type="text" value="" name="input_keyword" maxlength="20" class="form-control wper60 inline-block" id="jskwrAdd" placeholder="最多10个关键词，按下回车添加">
+
+                            <span class="text-gray-light ml10 search-match">
+                                <a href="#" class="text-gray text-primary">模糊匹配</a>
+                                |
+                                <a href="#" class="text-gray">精确匹配</a>
+                            </span>
+                            <ul class="keyword-list mt10" id="jskwrAddPos">
+                                <!--<li class="badge">-->
+                                    <!--关键词-->
+                                    <!--<em>×</em>-->
+                                <!--</li>-->
+                                <!--<li class="badge">-->
+                                    <!--关键词-->
+                                    <!--<em>×</em>-->
+                                <!--</li>-->
+                                <!--<li class="badge">-->
+                                    <!--关键词-->
+                                    <!--<em>×</em>-->
+                                <!--</li>-->
+                                <!--<li class="badge">-->
+                                    <!--关键词-->
+                                    <!--<em>×</em>-->
+                                <!--</li>-->
+                            </ul>
+                            <input type="hidden" name="key_words">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">回复内容</label>
+                        <div class="control-input radio-group-inline">
+                            <div class="panel panel-default reply-block">
+                                <div class="panel-heading hide show">
+                                    <ul class="list-inline mb0" id="replayMenu">
+                                        <li data-index="1"><a href="javascript:;"><i class="icon-imgtext"></i> 图文消息</a></li>
+                                        <li data-index="2"><a href="javascript:;"><i class="icon-text"></i> 文字</a></li>
+                                        <li data-index="3"><a href="javascript:;" class="text-black"><i class="icon-pic"></i> 图片</a></li>
+                                        <li data-index="4"><a href="javascript:;"><i class="icon-voice"></i> 语音</a></li>
+                                        <li data-index="5"><a href="javascript:;"><i class="icon-video"></i> 视频</a></li>
+                                        <li data-index="6"><a href="javascript:;"><i class="icon-coupon"></i> 卡券</a></li>
+                                    </ul>
+                                </div>
+                                <div class="panel-body" id="replayBD">
+                                    <div class="image-text hide">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div class="btn-upload-lg" data-target="#modalImgtext" data-toggle="modal">从图文库中选择</div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <a class="btn-upload-lg">新建图文信息</a>
+                                            </div>
+                                        </div>
+                                        <div class="imgt-wrap" style="display: none">
+                                            <div class="list">
+                                                <i class="icon-tick-noborder"></i>
+                                                <div class="title">素材标题</div>
+                                                <div class="item item-first">
+                                                    <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                                                    <div class="text text-ellipsis">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                                                    <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                                                </div>
+                                                <div class="item">
+                                                    <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                                                    <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                                                </div>
+                                            </div>
+                                            <div class="text-center"><a href="#">删除</a> </div>
+                                        </div>
+                                        <input type="hidden" value="" name="aaa">
+                                    </div>
+                                    <textarea name="content" id="replayText" class="wper100 noborder hide" cols="30" rows="10" placeholder="请输入文字" maxlength="600"></textarea>
+                                    <div class="uploader uploader-lg hide show">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div id="uploadify0"></div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div id="uploadify1"></div>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="license_pic" id="license_pic">
+                                        <div class="img">
+                                            <!--<img src="../../img/pic/0.jpg" alt="" class="uploaded-img">-->
+                                            <a href="javascript:;" class="uploader-del hide">删除</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer text-right hide" id="replayFT">
+                                    还可以输入<strong id="maxlimit">600</strong>字
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"> </label>
+                        <div class="control-input">
+                            <button type="button" class="btn btn-primary" id="button">保存</button>
+                            <a href="javascript:;" class="btn btn-default">取消</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="keyword-reply">
+                <div class="item">
+                    <div class="pull-right">
+                        <a href="#">编辑</a>
+                        <a href="javascript:;" onclick="aaa()">删除</a>
+                    </div>
+                    <dl class="dl-horizontal">
+                        <dt>规则名</dt>
+                        <dd> 测试关键词自动回复</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt>关键词</dt>
+                        <dd>
+                            <button type="button" class="btn btn-default mr5">关键词回复</button>
+                            <button type="button" class="btn btn-default mr5">关键词回复</button>
+                            <button type="button" class="btn btn-default mr5">关键词回复</button>
+                        </dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt>回复内容</dt>
+                        <dd>
+                            <button type="button" class="btn btn-default mr5">【文字信息】</button>
+                            测试关键词自动回复
+                        </dd>
+                    </dl>
+                </div>
+                <div class="item">
+                    <div class="pull-right">
+                        <a href="#">编辑</a>
+                        <a href="javascript:;" onclick="aaa()">删除</a>
+                    </div>
+                    <dl class="dl-horizontal">
+                        <dt>规则名</dt>
+                        <dd> 测试关键词自动回复</dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt>关键词</dt>
+                        <dd>
+                            <button type="button" class="btn btn-default mr5">关键词回复</button>
+                            <button type="button" class="btn btn-default mr5">关键词回复</button>
+                            <button type="button" class="btn btn-default mr5">关键词回复</button>
+                        </dd>
+                    </dl>
+                    <dl class="dl-horizontal">
+                        <dt>回复内容</dt>
+                        <dd>
+                            <button type="button" class="btn btn-default mr5">【文字信息】</button>
+                            测试关键词自动回复
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div id="page" class="ptb15">
+                <p class="pageRemark">共<strong>7</strong>条</p>
+                <p>首页</p>
+                <p>上一页</p>
+                <input type="text" size="1" class="form-control inline-block wauto" value="1">
+                <a href="#">跳转</a>
+                <p class="pageRemark">1/13</p>
+                <a href="#" title="下一页">下一页</a>
+                <a href="#" title="尾页">尾页</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function() {
+        $("#uploadify0").uploadify({
+            'swf': '../../js/lib/uploadify/uploadify.swf',
+            'script': 'UploadHandler.ashx',
+            'cancelImg': '../../js/lib/uploadify/uploadify-cancel.png',
+            'folder': 'UploadFile',
+            'queueID': 'fileQueue',
+            'wrapClass': 'uploadify-wrap',
+            'buttonClass':'uploadify-link',
+            'buttonText':'从图片库中选择',
+            'auto': false,
+            'multi': true
+        });
+        $("#uploadify1").uploadify({
+            'swf': '../../js/lib/uploadify/uploadify.swf',
+            'script': 'UploadHandler.ashx',
+            'cancelImg': '../../js/lib/uploadify/uploadify-cancel.png',
+            'folder': 'UploadFile',
+            'queueID': 'fileQueue',
+            'wrapClass': 'uploadify-wrap',
+            'buttonClass':'uploadify-link',
+            'buttonText':'新建图文信息',
+            'auto': false,
+            'multi': true
+        });
+    });
+</script>
+
+<!--选择图文-->
+<div class="modal fade" id="modalImgtext" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">选择图文</h4>
+            </div>
+            <div class="modal-body">
+                <div class="imgt-wrap imgt-wrap-modal">
+                    <div class="list active">
+                        <i class="icon-tick-noborder"></i>
+                        <div class="title">素材标题</div>
+                        <div class="item item-first">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text text-ellipsis">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <i class="icon-tick-noborder"></i>
+                        <div class="title">素材标题</div>
+                        <div class="item item-first">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text text-ellipsis">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <i class="icon-tick-noborder"></i>
+                        <div class="title">素材标题</div>
+                        <div class="item item-first">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text text-ellipsis">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <i class="icon-tick-noborder"></i>
+                        <div class="title">素材标题</div>
+                        <div class="item item-first">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text text-ellipsis">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <i class="icon-tick-noborder"></i>
+                        <div class="title">素材标题</div>
+                        <div class="item item-first">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text text-ellipsis">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <i class="icon-tick-noborder"></i>
+                        <div class="title">素材标题</div>
+                        <div class="item item-first">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text text-ellipsis">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                        <div class="item">
+                            <div class="img"><img src="../../../img/qrcode.png" alt="" class="img-responsive"></div>
+                            <div class="text">标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnSure" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../../js/function/channel/keywordReply.js"></script>
+
+
+<script>
+    function aaa() {
+        //询问框
+        layer.confirm('确定要删除吗？', {
+            btn: ['确定','取消'], //按钮
+            title: '删除框'
+        }, function(){
+            location.reload();
+        }, function(){
+            alert(1)
+        });
+    }
+</script>
+
+</body>
+</html>

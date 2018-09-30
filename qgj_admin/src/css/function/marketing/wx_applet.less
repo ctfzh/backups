@@ -1,0 +1,113 @@
+//小程序
+
+.wx-btn(){
+  clear: both;
+  display: block;
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+  color: @gray-light;
+}
+
+//////////小程序列表
+.wx-applet-list {
+  margin-right: -20px;
+  .media-list {
+    .inline-block;
+    vertical-align: top;
+    padding: 15px;
+    margin: 0 @space-padding-sm @space-padding-sm 0;
+    width: 311px;
+    background-color: @gray-lighter;
+    .media-body, .media-left, .media-right {
+      vertical-align: middle;
+    }
+    .media {
+      float: left;
+      width: 68.88%;
+      margin-right: 1%;
+    }
+    .media-object{
+      padding: 5px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: @color-white;
+    }
+    .operate {
+      float: left;
+      width: 30%;
+      text-align: right;
+      .btn-wrap{
+        margin-top: 42px;
+      }
+    }
+  }
+}
+//////////小程序添加
+.wx-applet-add{
+  .mf-bd{
+    padding-top: 0 !important;
+    .title{
+      margin-bottom: 20px;
+      color: @gray-dark;
+      font-weight: bold;
+    }
+  }
+  .row > div{
+    margin-bottom: 20px;
+  }
+  .ml-bd{
+    height: auto;
+    background-color: @gray-lighter;
+    .btn{
+      min-width: auto;
+      padding: 3px 12px;
+    }
+  }
+  .media-list{
+    margin-bottom: 10px;
+    background-color: @color-white;
+  }
+  .media-title{
+    padding: 10px;
+    border-bottom:1px solid @border-color;
+  }
+  .media{
+    margin-top: 0;
+    padding: @space-padding-sm /2;
+    background-color: @color-white;
+    border-bottom: 1px solid @border-color;
+  }
+  .media-body{
+    width: 260px;
+  }
+  .media-right{
+    text-align: right;
+    p{
+      margin-top: 5px;
+      margin-bottom: 0;
+    }
+  }
+  .recharge{
+    .wx-btn;
+    border-bottom: 1px solid @border-color;
+  }
+  .thumbnail{
+    position: relative;
+    .del{
+      display: none;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width:100%;
+      text-align: center;
+      .bg-opacity;
+    }
+    &:hover{
+      .del{
+        display: block;
+      }
+    }
+  }
+}

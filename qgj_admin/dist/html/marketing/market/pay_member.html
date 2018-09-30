@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>支付即会员</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/masonry-docs.min.js"></script>
+    <script src="../../../js/lib/echarts.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-store"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item active"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="#" class="list-group-item"><i class="icon-apply"></i> 应用</a></li>
+        <li><a href="#" class="list-group-item"><i class="icon-service"></i> 客户</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="#" class="list-group-item"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-set"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">营销管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../recharge/recharge_list.html" class="list-group-item">储值活动</a>
+            </li>
+            <li>
+                <a href="../coupon/coupon_list.html" class="list-group-item">优惠券</a>
+            </li>
+            <li>
+                <a href="../market/market_list.html" class="list-group-item active">营销活动</a>
+            </li>
+            <li>
+                <a href="../wx_applet/wx_applet_list.html" class="list-group-item">微信小程序</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li><a href="market_list.html">活动管理</a></li>
+                <li class="active"><a href="market_add.html">营销活动</a></li>
+                <li><a href="market_statistics.html">营销活动统计</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="alert alert-default">
+                <dl class="nobind">
+                    <dt><i class="icon-excalmation"></i></dt>
+                    <dd>
+                        尚未绑定微信公众号<br>
+                        需要绑定认证的微信公众号，且开通微信卡券功能
+                    </dd>
+                </dl>
+            </div>
+
+            <form role="form" id="formStore" action="http://www.baidu.com">
+                <div class="panel panel-default">
+                    <div class="panel-heading">支付即会员</div>
+                    <div class="panel-body ptbper3 form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label"><em class="text-danger">*</em> 活动名称</label>
+                            <div class="control-input">
+                                <input type="text" value="" name="storeName" class="form-control wper60 inline-block" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"><em class="text-danger">*</em> 活动对象</label>
+                            <div class="control-input">
+                                微信支付用户
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"><em class="text-danger">*</em> 活动时间</label>
+                            <div class="control-input">
+                                <input type="text" class="form-control wper30" id="time" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"><em class="text-danger">*</em> 活动内容</label>
+                            <div class="control-input">
+                                微信会员卡名称
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"><em class="text-danger">*</em> 消费金额</label>
+                            <div class="control-input">
+                                <div class="mb10">
+                                    <span class="mr10">最低消费</span><input type="text" class="form-control inline-block mr10 w150">元
+                                </div>
+                                <div class="mb10">
+                                    <span class="mr10">最高消费</span><input type="text" class="form-control inline-block mr10 w150">元
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"><em class="text-danger">*</em> 收款账号</label>
+                            <div class="control-input">
+                                <div>支付即会员功能，仅支持微信支付商户号主体和制作会员卡公众号主体一致的情况下配置</div>
+                                <a href="#" data-target="#modalMPMAccount" data-toggle="modal">选择收款账号</a>
+                                <ul class="MPMAccount-place"></ul>
+                                <input type="hidden" value="" class="js_MPMAccount_input">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="btn-wrap text-center">
+                    <button type="button" class="btn btn-primary" id="button">提交保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--微信收款账号弹出框-->
+<div class="modal fade" id="modalMPMAccount">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">微信收款账号</h4>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="mb20">
+                        <input type="text" class="form-control inline-block" placeholder="输入关键字">
+                        <input type="submit" class="btn btn-primary" placeholder="搜索">
+                    </div>
+                    <div class="table-responsive overflow-y">
+
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="active">
+                                    <th width="20"></th>
+                                    <th>微信商户号</th>
+                                    <th>AppID</th>
+                                    <th>类型</th>
+                                    <th>备注</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td><label class="checkbox-s"><input type="checkbox" name="checkNname" value="1377272402"></label></td>
+                                    <td>1377272402</td>
+                                    <td>wx3507a77dc7e763f5</td>
+                                    <td>特约商户</td>
+                                    <td>--</td>
+                                </tr>
+                                <tr>
+                                    <td><label class="checkbox-s"><input type="checkbox" name="checkNname" value="1377272401"></label></td>
+                                    <td>1377272401</td>
+                                    <td>wx3507a77dc7e763f5</td>
+                                    <td>普通商户</td>
+                                    <td>上海亲快</td>
+                                </tr>
+                                <tr>
+                                    <td><label class="checkbox-s"><input type="checkbox" name="checkNname" value="1377272401"></label></td>
+                                    <td>1377272401</td>
+                                    <td>wx3507a77dc7e763f5</td>
+                                    <td>普通商户</td>
+                                    <td>上海亲快</td>
+                                </tr>
+                                <tr>
+                                    <td><label class="checkbox-s"><input type="checkbox" name="checkNname" value="1377272401"></label></td>
+                                    <td>1377272401</td>
+                                    <td>wx3507a77dc7e763f5</td>
+                                    <td>普通商户</td>
+                                    <td>上海亲快</td>
+                                </tr>
+                                <tr>
+                                    <td><label class="checkbox-s"><input type="checkbox" name="checkNname" value="1377272401"></label></td>
+                                    <td>1377272401</td>
+                                    <td>wx3507a77dc7e763f5</td>
+                                    <td>普通商户</td>
+                                    <td>上海亲快</td>
+                                </tr>
+                                <tr>
+                                    <td><label class="checkbox-s"><input type="checkbox" name="checkNname" value="1377272401"></label></td>
+                                    <td>1377272401</td>
+                                    <td>wx3507a77dc7e763f5</td>
+                                    <td>普通商户</td>
+                                    <td>上海亲快</td>
+                                </tr>
+                                <tr>
+                                    <td><label class="checkbox-s"><input type="checkbox" name="checkNname" value="1377272401"></label></td>
+                                    <td>1377272401</td>
+                                    <td>wx3507a77dc7e763f5</td>
+                                    <td>普通商户</td>
+                                    <td>上海亲快</td>
+                                </tr>
+                                <tr>
+                                    <td><label class="checkbox-s"><input type="checkbox" name="checkNname" value="1377272401"></label></td>
+                                    <td>1377272401</td>
+                                    <td>wx3507a77dc7e763f5</td>
+                                    <td>普通商户</td>
+                                    <td>上海亲快</td>
+                                </tr>
+                                <tr>
+                                    <td><label class="checkbox-s"><input type="checkbox" name="checkNname" value="1377272401"></label></td>
+                                    <td>1377272401</td>
+                                    <td>wx3507a77dc7e763f5</td>
+                                    <td>普通商户</td>
+                                    <td>上海亲快</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnMPMSure" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/function/marketing/market/payMember.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+.media {
+  // Proper spacing between instances of .media
+  margin-top: @space-padding-sm;
+
+  &:first-child {
+    margin-top: 0;
+  }
+  &.media_td_list{
+    .media-left{
+      width: 70px;
+      height: 45px;
+      vertical-align: middle;
+      img{
+        width: 60px;
+        height: 45px;
+      }
+    }
+  }
+}
+
+.media-right,
+.media > .pull-right {
+  padding-left: 10px;
+}
+
+.media-left,
+.media > .pull-left {
+  padding-right: 10px;
+  text-align: center;
+}
+
+.media-left,
+.media-right,
+.media-body {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.media-middle {
+  vertical-align: middle;
+}
+
+.media-bottom {
+  vertical-align: bottom;
+}
+
+.media-body {
+  p {
+    margin-bottom: 5px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Reset margins on headings for tighter default spacing
+.media-heading {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+// Media list variation
+//
+// Undo default ul/ol styles
+.media-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.media-vertical {
+  .media-left,
+  .media-right,
+  .media-body {
+    vertical-align: middle;
+  }
+}
+
+.media-h {
+  margin: 0 20px 20px 0;
+  padding: @padding-base-horizontal;
+  background-color: @gray-lighter;
+  .inline-block;
+  width: 100%;
+  vertical-align: top;
+  .media-left {
+    .bg {
+      .square(50px);
+      line-height: 50px;
+      text-align: center;
+      background-color: @brand-success;
+      i {
+        color: @color-white;
+      }
+    }
+  }
+  .media-body {
+    color: @gray-light;
+    vertical-align: middle;
+  }
+  .media-heading {
+    color: @gray-dark;
+  }
+  > a {
+    display: block;
+  }
+}

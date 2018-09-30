@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>裂变券添加-设置领券页</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/masonry-docs.min.js"></script>
+    <script src="../../../js/lib/echarts.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <script src="../../../js/lib/ColorPicker/js/colpick.js"></script>
+    <link rel="stylesheet" href="../../../js/lib/ColorPicker/css/colpick.css">
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item active"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">营销管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../recharge/recharge_list.html" class="list-group-item">储值活动</a>
+            </li>
+            <li>
+                <a href="coupon_list.html" class="list-group-item active">优惠券</a>
+            </li>
+            <li>
+                <a href="../market/market_list.html" class="list-group-item">营销活动</a>
+            </li>
+            <li>
+                <a href="../wx_applet/wx_applet_list.html" class="list-group-item">微信小程序</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="">优惠券管理</a></li>
+                <li><a href="coupon_verification.html">优惠券核销</a></li>
+                <li><a href="coupon_statistics.html">优惠券统计</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <!--步骤-->
+            <div class="container-fluid border-b mbspace wper60">
+                <ul class="row qgj-menu">
+                    <li class="col-xs-6 text-center active">
+                        <h5><a href="javascript:;" class="text-gray">1. 创建裂变券</a></h5>
+                    </li>
+                    <li class="col-xs-6 text-center">
+                        <h5><a href="javascript:;" class="text-gray">2. 设置领券页</a></h5>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="menu-manage member-card coupon-add-next">
+                <div class="menu-list">
+                    <div class="coupon-set">
+                        <div class="img"><img src="../../../img/marketing/coupon/fission_head_default.png" class="img-responsive"></div>
+                        <div class="coupon-set-items js-coupon-set-items" data-index="1" style="background-color: #E63D1C">
+                            <div class="coupon-set_item">
+                                <div class="coupon-set_item_bd">
+                                    <div class="price">￥<em>15</em></div>
+                                    <div class="text">
+                                        <h4>拼手气红包</h4>
+                                        <ul>
+                                            <li>满100元可用</li>
+                                            <li>有效期 2018-3-6到期</li>
+                                        </ul>
+                                    </div>
+                                    <div class="btn-wrap">
+                                        <a href="javascript:;" class="btn btn-danger">立即领取</a>
+                                    </div>
+                                </div>
+                                <div class="coupon-set_item_ft">
+                                    <a href="javascript:;"><i class="icon-marketing"></i> 更多优惠</a>
+                                    <a href="javascript:;"><i class="icon-home"></i> 进入首页</a>
+                                </div>
+                            </div>
+
+                            <div class="coupon-set_store">
+                                <div class="coupon-set_store_bd">
+                                    <div class="title">
+                                        <div class="pull-right">1.5km</div>
+                                        <i class="icon-merchant"></i> 每日美鲜
+                                    </div>
+                                    <div class="address">
+                                        <div class="phone"><i class="icon-telphone"></i></div>
+                                        <i class="icon-location"></i> 上海市徐汇区华山路2068号百联
+                                    </div>
+                                </div>
+                                <div class="coupon-set_store_ft">
+                                    <a href="javascript:;">查看全部门店</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-form">
+                    <form action="?" class="form-horizontal">
+                        <div class="mf-body">
+                            <div class="mf-bd">
+                                <div class="mebcard-box">
+                                    <div class="title"><span class="name">领券页设置</span></div>
+                                    <div class="form-group">
+                                        <label class="control-label">头部广告图</label>
+                                        <div class="control-input">
+                                            <img class="w150" src="../../../img/marketing/coupon/fission_head_default.png">
+                                            <div class="text-gray-light mt5">优惠券领券页顶部的广告图，图片建议尺寸：850*350像素，大小不超过2M</div>
+                                            <div id="fileQueue1"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">背景颜色</label>
+                                        <div class="control-input line-height30">
+                                            <div class="colorSelect-wrap">
+                                                <input type="hidden" value="#b51e16" name="page_background_color"><!--默认颜色-->
+                                                <input type="text" class="color-set w48 form-control form-control-inline" style="background-color: rgb(181, 30, 22);">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mf-body">
+                            <div class="mf-bd">
+                                <div class="mebcard-box">
+                                    <div class="title"><span class="name">分享设置</span></div>
+
+                                    <div class="form-group js-flexible">
+                                        <label class="control-label">分享标题</label>
+                                        <div class="control-input">
+                                            <input type="text" class="form-control wper30 inline-block" maxlength="30" placeholder="最多30个汉字">
+                                        </div>
+                                    </div>
+                                    <div class="form-group js-flexible">
+                                        <label class="control-label">分享图片</label>
+                                        <div class="control-input line-height30">
+                                            <div class="card-cover" id="js-card-cover-type1">
+                                                <img id="icon_img_div" class="w150" src="../../../img/marketing/coupon/fission_share_default.png">
+                                                <div class="text-gray-light">在小程序分享裂变券时使用，请添加宽高比为5:4的图片，不超过2M</div>
+                                                <div id="fileQueue0"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="text-center mt20">
+                            <button type="submit" class="btn btn-default">上一步</button>
+                            <button type="submit" class="btn btn-primary">保存</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="../../../js/function/marketing/coupon/coupon_fission_add_next.js"></script>
+
+</body>
+</html>

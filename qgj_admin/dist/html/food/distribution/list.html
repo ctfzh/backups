@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>配送管理</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item active"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">餐饮管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../goods/good_list.html" class="list-group-item">商品库</a>
+            </li>
+            <li>
+                <a href="../set/attribute/specifications.html" class="list-group-item">商品设置</a>
+            </li>
+            <li>
+                <a href="../order_set/ordering.html" class="list-group-item">订单管理</a>
+            </li>
+            <li>
+                <a href="../rate/list.html" class="list-group-item">评价管理</a>
+            </li>
+            <li>
+                <a href="../homeSet.html" class="list-group-item">首页设置</a>
+            </li>
+            <li>
+                <a href="../distribution/list.html" class="list-group-item">配送管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="#">顺丰绑定</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <form class="form-horizontal form-search">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label class="control-label">门店搜索</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control" placeholder="门店名称/门店编号/顺丰编号">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">地区</label>
+                        <div class="control-input">
+                            <select class="form-control wper30 inline-block">
+                                <option value="">请选择</option>
+                                <option value="0">浙江省</option>
+                                <option value="1">黑龙江省</option>
+                            </select>
+                            <select class="form-control wper30 inline-block">
+                                <option value="">请选择</option>
+                                <option value="0">杭州市</option>
+                            </select>
+                            <select class="form-control wper30 inline-block">
+                                <option value="">请选择</option>
+                                <option value="0">海曙区</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">创建时间</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control" id="time" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">绑定状态</label>
+                        <div class="control-input">
+                            <select class="form-control wper30 inline-block">
+                                <option value="">全部</option>
+                                <option value="0">已绑定</option>
+                                <option value="1">未绑定</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label"></label>
+                        <div class="control-input btn-wrap">
+                            <button type="submit" class="btn btn-blue">搜索</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="qgj-nav clearfix">
+                <div class="btn-group">
+                    <a class="btn btn-default active">门店编号 <i class="icon-sortdown"></i></a>
+                    <a class="btn btn-default">创建时间 <i class="icon-sortdown"></i></a>
+                </div>
+            </div>
+
+            <div class="table-wrap">
+                <table class="table table-bordered mb10">
+                    <thead>
+                        <tr>
+                            <th>门店名称</th>
+                            <th>门店编号</th>
+                            <th>顺丰门店编号</th>
+                            <th>详细地址</th>
+                            <th>创建时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>名称1</td>
+                            <td>001</td>
+                            <td>1515616616</td>
+                            <td>北京朝阳区</td>
+                            <td>2017-07-22 14:55:06</td>
+                            <td>
+                                <a href="detail.html" class="text-primary">编辑</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="page" class="ptb15">
+                <p>首页</p>
+                <p>上一页</p>
+                <a href="/merchant/store/list.html?page=1" title="第1页" class="cur">1</a>
+                <a href="/merchant/store/list.html?page=2" title="第2页">2</a>
+                <a href="/merchant/store/list.html?page=3" title="第3页">3</a>
+                <a href="/merchant/store/list.html?page=4" title="第4页">4</a>
+                <a href="/merchant/store/list.html?page=5" title="第5页">5</a>
+                <p class="pageEllipsis">...</p>
+                <a href="/merchant/store/list.html?page=2" title="下一页">下一页</a>
+                <a href="/merchant/store/list.html?page=7" title="尾页">尾页</a>
+                <p class="pageRemark">共<strong>7</strong>页<strong>7</strong>条数据</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/function/food/distribution/list.js"></script>
+
+</body>
+</html>

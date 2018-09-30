@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>储值结算</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/masonry-docs.min.js"></script>
+    <!--日期控件 开始-->
+    <script src="../../../js/lib/layer/layui.js"></script>
+    <link rel="stylesheet" href="../../../js/lib/layer/css/layui.css">
+    <!--日期控件 结束-->
+    <script src="../../../js/lib/echarts.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item active"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">营销管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../recharge/recharge_list.html" class="list-group-item active">储值活动</a>
+            </li>
+            <li>
+                <a href="../coupon/coupon_list.html" class="list-group-item">优惠券</a>
+            </li>
+            <li>
+                <a href="../market/market_list.html" class="list-group-item">营销活动</a>
+            </li>
+            <li>
+                <a href="../wx_applet/wx_applet_list.html" class="list-group-item">微信小程序</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li><a href="recharge_list.html">储值活动</a></li>
+                <li><a href="recharge_code.html">储值码</a></li>
+                <li><a href="recharge_detail.html">储值明细</a></li>
+                <li><a href="recharge_balance.html">储值余额</a></li>
+                <li class="active"><a href="recharge_settlement.html">储值结算</a></li>
+                <li><a href="recharge_consumerDetails.html">储值消费明细</a></li>
+                <li><a href="recharge_account.html">储值收款账号</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+
+            <div class="container-fluid border-b mbspace">
+                <ul class="row qgj-menu">
+                    <li class="col-xs-6 text-center">
+                        <h5>储值账户余额</h5>
+                        <div class="money"><a href="recharge_consumerDetails.html" class="h2 text-primary">15.00</a></div>
+                    </li>
+                    <li class="col-xs-6 text-center">
+                        <h5>储值账户余额（现金）</h5>
+                        <div class="money"><a href="recharge_consumerDetails.html" class="h2 text-primary">13.00</a></div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="border p15">
+                <form class="form-horizontal form-search">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label class="control-label">报表类型</label>
+                            <div class="control-input">
+                                <select class="form-control w150 js-type-switch">
+                                    <option value="1">日报表</option>
+                                    <option value="2">月报表</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 form-group-day">
+                            <label class="control-label">时间</label>
+                            <div class="control-input">
+                                <input type="text" class="form-control inline-block" id="time">
+                            </div>
+                        </div>
+                        <div class="btn-wrap-pos form-group-day">
+                            <button type="submit" class="btn btn-blue">搜索</button>
+                            <a href="javascript:;" class="ml10">导出execl</a>
+                        </div>
+
+                        <div class="form-group col-md-4 form-group-month hide">
+                            <label class="control-label">月份</label>
+                            <div class="control-input">
+                                <input type="text" class="form-control inline-block" id="month">
+                            </div>
+                        </div>
+                        <div class="btn-wrap-pos form-group-month hide">
+                            <button type="submit" class="btn btn-blue">搜索</button>
+                            <a href="javascript:;" class="ml10">导出execl</a>
+                        </div>
+                    </div>
+                </form>
+                <div class="container-fluid border-b mbspace">
+                    <ul class="row qgj-menu">
+                        <li class="col-xs-6 text-center">
+                            <h5>储值金额</h5>
+                            <div class="money"><a href="recharge_settlement_second.html" class="h2 text-primary">9.00</a></div>
+                        </li>
+                        <li class="col-xs-6 text-center">
+                            <h5>储值金额（现金）</h5>
+                            <div class="money"><a href="recharge_settlement_second.html" class="h2 text-primary">8.00</a></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th rowspan="2" class="border-r">下属单位</th>
+                            <th colspan="2" class="text-center">储值消费应收</th>
+                        </tr>
+                        <tr>
+                            <th class="text-center">应收储值金额</th>
+                            <th class="text-center">应收储值金额（现金）</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="border-r">门店名称</td>
+                            <td class="text-center"><a href="recharge_settlement_second.html">9.99</a></td>
+                            <td class="text-center"><a href="recharge_settlement_second.html">10.00</a></td>
+                        </tr>
+                        <tr>
+                            <td class="border-r">门店名称</td>
+                            <td class="text-center"><a href="recharge_settlement_second.html">9.99</a></td>
+                            <td class="text-center"><a href="recharge_settlement_second.html">10.00</a></td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td class="border-r">合计</td>
+                            <td class="text-center">19.98</td>
+                            <td class="text-center">20.00</td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../../js/function/marketing/recharge/rechargeSettlement.js"></script>
+
+</body>
+</html>

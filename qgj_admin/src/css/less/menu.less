@@ -1,0 +1,49 @@
+//
+// menu
+// -------------------------------------------------
+
+.qgj-menu {
+  margin-bottom: 0;
+  border: 1px solid @border-color;
+  border-bottom: none;
+  overflow: hidden;
+  li {
+    position: relative;
+    padding: 15px 0 200px;
+    margin-bottom: -196px;
+    cursor: pointer;
+    &:after{
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      border-left: 1px solid @border-color;
+    }
+    &:first-child {
+      &:after{
+        border-left: none;
+      }
+    }
+    &.active {
+      background-color: @gray-lighter;
+    }
+    & > * {
+      margin-bottom: 12px;
+    }
+    & > div{
+      text-align: center;
+      margin-bottom: 0;
+      &:last-child{
+        margin-bottom: 10px;
+      }
+    }
+    h5{
+      margin-bottom: 15px;
+
+    }
+    h6{
+      min-height: 12.6px;
+    }
+  }
+}

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>素材管理-添加</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/webuploader/webuploader.min.js"></script>
+    <script src="../../../js/lib/masonry-docs.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+    <link rel="stylesheet" href="../../../umeditor/themes/default/css/umeditor.css">
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item active"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">门店收银管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../menu/menu.html" class="list-group-item">自定义菜单</a>
+            </li>
+            <li>
+                <a href="../auto_reply/auto_reply.html" class="list-group-item">自动回复</a>
+            </li>
+            <li>
+                <a href="../broadcast/group_list.html" class="list-group-item">群发广播</a>
+            </li>
+            <li>
+                <a href="material_list.html" class="list-group-item active">素材管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="#">素材管理</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="menu-manage material-comp">
+                <div class="menu-list material-add">
+                    <div class="mater-box">
+                        <div class="m-box-item active" id="imageText0">
+                            <div class="img"><img src="../../../img/pic/abstract.jpg" alt=""></div>
+                            <h5 class="mbi-title">11aaaa1</h5>
+                            <div class="control" style="display:">
+                                <div class="control-r">
+                                    <a href="javascript:;" class="icon-del js-material-del"></a>
+                                </div>
+                                <div class="control-l">
+                                    <a href="javascript:;" class="icon-sortup js-material-up"></a>
+                                    <a href="javascript:;" class="icon-sortdown js-material-down"></a>
+                                </div>
+                            </div>
+
+                            <input type="hidden" value='{"title":"11aaaa1","author":"ddd","media_id":"","wechat_img":"http://mmbiz.qpic.cn/mmbiz_png/DIGcZVj5Fz5kDRHnTKYTccsNof5mM4bXian3XicjX7vOib9LdiczfwvP2c2943bWcLTkIT2wmhxKHFtpMdGtxJDbTw/0?wx_fmt=png","digest":"","url":""}' name="Material[0][content]">
+                        </div>
+                    </div>
+                    <a class="mater-btn" href="javascript:;">+</a>
+                    <p class="text-center pt15">还可以再添加 <em class="js-material-num">7</em> 篇文章</p>
+                </div>
+                <div class="menu-form material-form">
+                    <div class="mf-body">
+                        <form action="" class="form-horizontal">
+
+                            <div class="material-form-item" data-index="0">
+                                <div class="mb20">
+                                    <h5 class="text-black">标题</h5>
+                                    <div class="mb10">
+                                        <input type="text" name="title" id="title0" class="form-control wper80 inline-block" maxlength="64" placeholder="请输入标题"> <span><em>0</em>/64</span>
+                                    </div>
+                                    <div class="text-danger jsInputError titleError mb10" style="display:none;">标题不能为空!</div>
+                                    <div class="mb10">
+                                        <input type="text" name="author" id="author0" class="form-control wper80 inline-block" maxlength="8" placeholder="请输入作者"> <span><em>0</em>/8</span>
+                                    </div>
+                                    <div class="text-danger jsInputError authorError mt10" style="display:none;">请输入作者!</div>
+                                </div>
+                                <div class="mb20">
+                                    <h5 class="text-black">
+                                        封面
+                                        <span class="text-gray-light ml20">大图片建议尺寸900×500像素，小图片建议尺寸200×200像素</span>
+                                    </h5>
+                                    <div class="row" style="width: 83.5%">
+                                        <div class="col-xs-6">
+                                            <div class="btn-upload-lg" data-target="#modalImgtext" data-toggle="modal">从图文库中选择</div>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <a class="btn-upload-lg">新建图文信息</a>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" value="" name="media_id" class="hidden_img">
+                                    <div class="text-danger jsInputError media_idError mt10" style="display:none;">请选择图文消息!</div>
+                                </div>
+                                <!--<div class="mb20">-->
+                                    <!--<h5 class="text-black">-->
+                                        <!--优惠券添加-->
+                                    <!--</h5>-->
+                                    <!--<div class="mb10"><span data-toggle="modal" data-target="#modalCoupon" class="btn btn-sm btn-default">添加优惠券</span></div>-->
+                                    <!--<div class="card-iframe">-->
+                                        <!--<div class="bd">-->
+                                            <!--<img class="media-object" src="../../../img/qrcode.png">-->
+                                            <!--<h4>1元代金券</h4>-->
+                                        <!--</div>-->
+                                        <!--<div class="ft">亲管家</div>-->
+                                    <!--</div>-->
+                                    <!--<input type="hidden" value="" name="">-->
+                                <!--</div>-->
+                                <div class="mb20">
+                                    <h5 class="text-black">
+                                        摘要
+                                        <span class="text-gray-light ml20">选填，如果不填写会默认抓取正文前54个字</span>
+                                    </h5>
+                                    <div>
+                                        <textarea class="form-control wper80 inline-block" cols="30" rows="3" name="digest"></textarea>
+                                        <span><em>0</em>/120</span>
+                                    </div>
+                                    <div class="text-danger jsInputError digestError mt10" style="display:none;">请填写摘要!</div>
+                                </div>
+                                <div class="mb20">
+                                    <h5 class="text-black">
+                                        链接设置
+                                        <span class="text-gray-light ml20">自定义跳转链接，若不设置即跳转到正文内容</span>
+                                    </h5>
+                                    <div>
+                                        <input type="text" placeholder="请输入链接" name="url" class="form-control wper30 inline-block mr5">
+                                        <a class="btn btn-default inline-block">选择链接</a>
+                                    </div>
+                                    <input type="hidden" value="" name="url">
+                                    <div class="text-danger jsInputError urlError mt10" style="display:none;">请输入链接!</div>
+                                </div>
+                                <div class="mb20 text-editor">
+                                    <div class="multi-Media">
+                                        <h5>多媒体</h5>
+                                        <ul>
+                                            <li><a href="javascript:;"><i class="icon-pic h4"></i> 图片</a></li>
+                                            <li><a href="javascript:;"><i class="icon-card h4"></i> 会员卡</a></li>
+                                            <li><a href="javascript:;"><i class="icon-coupon h4"></i> 卡券</a></li>
+                                        </ul>
+                                    </div>
+                                    <!--文本编辑器放置位置-->
+                                    <textarea name="" style="width:100%; height:300px; display: none" id="right_content"></textarea>
+                                    <!-- 加载编辑器的容器 -->
+                                    <script id="container" name="content" type="text/plain"></script>
+                                    <div class="text-danger jsInputError contentError mt10" style="display:none;">请输入正文内容!</div>
+                                </div>
+
+                                <div class="text-center mt20">
+                                    <button type="button" class="btn btn-primary btn-w" id="news-save-btn">保存</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--选择图片库-->
+<div class="modal fade" id="modalImgLib">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">选择图片</h4>
+            </div>
+            <div class="modal-body">
+                <div class="select-lib-pic">
+                    <div class="SLP-sider">
+                        <ul>
+                            <li><a href="javascript:;">全部图片 <span class="text-gray-light">(2)</span></a></li>
+                            <li><a href="javascript:;">未分组 <span class="text-gray-light">(0)</span></a></li>
+                        </ul>
+                        <a href="javascript:;" class="add jsSLPAdd"><i class="icon-plus"></i> 添加分组</a>
+                    </div>
+                    <div class="SLP-con">
+                        <div class="btn-upload">
+                            <a href="#" class="btn btn-primary">本地上传</a>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li class="active">
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png" class="head80">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                                <li>
+                                    <div class="img">
+                                        <img src="../../../img/head_phone.png">
+                                        <div class="mask"><i class="icon-tick-noborder"></i></div>
+                                    </div>
+                                    <div class="text">0.jpg</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnSure" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--选择卡券-->
+<div class="modal fade" id="modalCoupon">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">选择卡券</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="active">
+                                <th width="20"></th>
+                                <th>卡券名称</th>
+                                <th>卡券类型</th>
+                                <th>卡券有效期</th>
+                                <th>库存</th>
+                                <th>金额</th>
+                                <th>状态</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="radio" name="radioCoupon"></td>
+                                <td>1元代金券</td>
+                                <td>代金券</td>
+                                <td>领取后当天生效3天有效</td>
+                                <td>2017</td>
+                                <td>--</td>
+                                <td>已投放</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="radioCoupon"></td>
+                                <td>1元代金券</td>
+                                <td>代金券</td>
+                                <td>领取后当天生效3天有效</td>
+                                <td>2017</td>
+                                <td>--</td>
+                                <td>已投放</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div id="page" class="ptb15">
+                        <p class="pageRemark">共<strong>7</strong>条</p>
+                        <p>首页</p>
+                        <p>上一页</p>
+                        <input type="text" size="1" class="form-control inline-block wauto" value="1">
+                        <a href="#">跳转</a>
+                        <p class="pageRemark">1/13</p>
+                        <a href="#" title="下一页">下一页</a>
+                        <a href="#" title="尾页">尾页</a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnCouponSure" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../../js/function/channel/material.js"></script>
+
+<!--<script src="../../../umeditor/ueditor.config.js"></script>-->
+<!--<script src="../../../umeditor/ueditor.all.min.js"></script>-->
+<script type="text/javascript">
+
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+//    var ue = UE.getEditor('container',{
+//        initialFrameWidth: '100%'
+//    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+// 分页
+// ----------------------
+.pagecommon(){
+    .inline-block;
+    vertical-align: top;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 12px;
+    margin-left: 5px;
+    border:1px solid @border-color;
+    color: @gray;
+    background:#fff;
+    font-size: 14px;
+}
+
+#page,.page{
+    text-align: right;
+    input{
+        min-width: auto;
+    }
+    a,p{
+        .pagecommon;
+    }
+    a:hover, a.cur, p:hover{
+        border:1px solid @brand-primary;
+        color:#fff;
+        background: @brand-primary;
+        text-underline: none;
+        cursor: pointer;
+    }
+    p.pageEllipsis, p.pageRemark{
+        margin-left: 0;
+        border-style:none;
+        background:none;
+        &:hover{
+            color: @gray;
+        }
+    }
+    p.pageEllipsis{
+        line-height:26px;
+        padding: 0 8px;
+    }
+    p.pageRemark strong{
+        color: @brand-danger;
+        margin:0 5px;
+    }
+}

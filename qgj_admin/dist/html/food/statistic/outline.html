@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>营业概要</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/masonry-docs.min.js"></script>
+    <script src="../../../js/lib/echarts.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../service/service_set/service_set.html" class="list-group-item"><i class="icon-service"></i> 客服</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../food/goods/good_list.html" class="list-group-item "><i class="icon-catering"></i> 餐饮</a></li>
+        <li><a href="../../wx_applet/manager/list.html" class="list-group-item "><i class="icon-wechatapp"></i> 小程序</a></li>
+        <li><a href="../../mall/goods/good_list.html" class="list-group-item active"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="../../distribution/outline/outline.html" class="list-group-item"><i class="icon-distribution"></i> 分销商</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">餐饮管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../goods/good_list.html" class="list-group-item">商品管理</a>
+            </li>
+            <li>
+                <a href="../order/order_list.html" class="list-group-item">订单管理</a>
+            </li>
+            <li>
+                <a href="" class="list-group-item">点餐</a>
+            </li>
+            <li>
+                <a href="" class="list-group-item">设置</a>
+            </li>
+            <li>
+                <a href="" class="list-group-item">数据统计</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="outline.html">营业概要</a></li>
+                <li><a href="store.html">门店统计</a></li>
+                <li><a href="sale.html">销售统计</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="alert alert-default">
+                <h4 class="fw-bold inline-block mb0 w200">今日实时</h4>
+                <span>更新时间：2016-06-15  10:12:25</span>
+                <div class="pull-right">
+                    <span class="qgj-help"></span>
+                </div>
+            </div>
+            <form class="form-search mb10 time-area form-horizontal">
+                <div class="form-group col-md-3">
+                    <label class="control-label">选择门店</label>
+                    <div class="control-input">
+                        <button type="button" id="storeSel1" class="form-control text-left" data-index="1" placeholder="请选择门店"  data-toggle="modal" data-target="#storeAll">选择门店</button>
+                        <input type="hidden" value="17,414" id="inputStoreSel1">
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="control-label">交易类型</label>
+                    <div class="control-input">
+                        <select class="form-control">
+                            <option value="">全部</option>
+                            <option value="">点餐</option>
+                            <option value="">外卖</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="control-label"></label>
+                    <div class="control-input">
+                        <input type="submit" value="搜索" class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+            <div class="container-fluid border-b mbspace">
+                <ul class="row qgj-menu">
+                    <li class="col-xs-3 text-center">
+                        <h5>营业额</h5>
+                        <div class="money mb15">￥<span class="h2 text-primary">0.00</span></div>
+                        <h5>昨日：￥32.80</h5>
+                    </li>
+                    <li class="col-xs-3 text-center">
+                        <h5>订单数</h5>
+                        <div class="money mb15"><span class="h2 text-primary">8000</span> </div>
+                        <h5>昨日：5000</h5>
+                    </li>
+                    <li class="col-xs-3 text-center">
+                        <h5>支付客户数</h5>
+                        <div class="money mb15"><span class="h2 text-primary">8000</span> </div>
+                        <h5>昨日：5000</h5>
+                    </li>
+                    <li class="col-xs-3 text-center">
+                        <h5>客单价</h5>
+                        <div class="money mb15"><span class="h2 text-primary">15</span> </div>
+                        <h5>昨日：15</h5>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="alert alert-default">
+                <h4 class="fw-bold inline-block mb0 w200">营业统计</h4>
+                <div class="pull-right">
+                    <span class="qgj-help"></span>
+                </div>
+            </div>
+            <form class="form-search mb10 time-area form-horizontal">
+                <div class="form-group inline-block">
+                    <input type="text" name="time" class="form-control form-control-inline w200 mr5 time" value="2017/02/26-2017/03/05">
+                    <a href="javascript:;" class="btn btn-default btn-primary mr5 w80 sevenMoment">近7天</a>
+                    <a href="javascript:;" class="btn btn-default mr5 w80 fifthMoment">近15天</a>
+                    <a href="javascript:;" class="btn btn-default mr5 w80 thirtyMoment">近30天</a>
+                </div>
+                <div class="form-group inline-block">
+                    <label class="control-label">选择门店</label>
+                    <div class="control-input">
+                        <button type="button" id="storeSel2" class="form-control text-left" data-index="2" placeholder="请选择门店"  data-toggle="modal" data-target="#storeAll">选择门店</button>
+                        <input type="hidden" value="17,414" id="inputStoreSel2">
+                    </div>
+                </div>
+                <div class="form-group inline-block">
+                    <label class="control-label">交易类型</label>
+                    <div class="control-input">
+                        <select class="form-control w80">
+                            <option value="">全部</option>
+                            <option value="">点餐</option>
+                            <option value="">外卖</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group inline-block ml10">
+                    <input type="submit" value="搜索" class="btn btn-primary w80">
+                </div>
+            </form>
+            <div class="container-fluid">
+                <ul class="row qgj-menu">
+                    <li class="col-xs-6 text-center">
+                        <h5>营业额</h5>
+                        <div class="money">￥<span class="h2 text-primary">186253.00</span></div>
+                    </li>
+                    <li class="col-xs-6 text-center">
+                        <h5>订单数</h5>
+                        <div class="money"><span class="h2 text-primary">186253</span>笔</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="mb20 p15 border">
+                <div id="echart1" class="height-lg wper100 mb10"></div>
+            </div>
+
+            <div class="alert alert-default">
+                <h4 class="fw-bold inline-block mb0 w200">浏览趋势</h4>
+                <div class="pull-right">
+                    <span class="qgj-help"></span>
+                </div>
+            </div>
+            <form class="form-search mb10 time-area form-horizontal">
+                <div class="form-group col-md-4">
+                    <input type="text" name="time" class="form-control form-control-inline w200 mr5 time" value="2017/02/26-2017/03/05">
+                    <a href="javascript:;" class="btn btn-default btn-primary mr5 sevenMoment">近7天</a>
+                    <a href="javascript:;" class="btn btn-default mr5 fifthMoment">近15天</a>
+                    <a href="javascript:;" class="btn btn-default mr5 thirtyMoment">近30天</a>
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="control-label"></label>
+                    <div class="control-input">
+                        <input type="submit" value="搜索" class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+            <div class="mb20 p15 border">
+                <div id="echart2" class="height-lg wper100 mb10"></div>
+            </div>
+
+            <div class="alert alert-default">
+                <h4 class="fw-bold inline-block mb0 w200">门店排名</h4>
+            </div>
+            <form class="form-search mb10 time-area form-horizontal">
+                <div class="form-group col-md-4">
+                    <input type="text" name="time" class="form-control form-control-inline w200 mr5 time" value="2017/02/26-2017/03/05">
+                    <a href="javascript:;" class="btn btn-default mr5 yesterdayMoment">昨日</a>
+                    <a href="javascript:;" class="btn btn-default btn-primary mr5 sevenMoment">近7天</a>
+                    <a href="javascript:;" class="btn btn-default mr5 fifthMoment">近15天</a>
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="control-label">交易类型</label>
+                    <div class="control-input">
+                        <select class="form-control">
+                            <option value="">全部</option>
+                            <option value="">点餐</option>
+                            <option value="">外卖</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="control-label"></label>
+                    <div class="control-input">
+                        <input type="submit" value="搜索" class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="active">
+                                    <th colspan="3">
+                                        <div class="pull-right"><a href="javascript:;" class="text-primary">更多</a></div>
+                                        营业额排名top10 <i class="icon-sortdown"></i>
+                                    </th>
+                                </tr>
+                                <tr class="active">
+                                    <th>排名</th>
+                                    <th>门店</th>
+                                    <th class="text-right">营业额</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>门店名称-分门店名称</td>
+                                    <td class="text-right">￥34583.00</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>门店名称-分门店名称</td>
+                                    <td class="text-right">￥34583.00</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>门店名称-分门店名称</td>
+                                    <td class="text-right">￥34583.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="active">
+                                    <th colspan="3">
+                                        <div class="pull-right"><a href="javascript:;" class="text-primary">更多</a></div>
+                                        订单数排名top10 <i class="icon-sortdown"></i>
+                                    </th>
+                                </tr>
+                                <tr class="active">
+                                    <th>排名</th>
+                                    <th>门店</th>
+                                    <th class="text-right">订单数</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>门店名称-分门店名称</td>
+                                    <td class="text-right">34583</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>门店名称-分门店名称</td>
+                                    <td class="text-right">583</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>门店名称-分门店名称</td>
+                                    <td class="text-right">3453</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/function/food/statistic/outline.js"></script>
+<script>
+    // 营业统计
+    charts.line(
+        'echart1', ['金额'], '时间',['16-08-04', '16-08-05', '16-08-06', '16-08-07', '16-08-08', '16-08-09', '16-08-10', '16-08-11', '16-08-12', '16-08-13', '16-08-14'], '金额', [{name: '金额',type: 'line',data: [2000, 50, 90, 20, 281, 247, 741, 2223, 2000, 1200, 2021]}],["#469DF7"]
+    );
+    // 浏览趋势
+    charts.line(
+        'echart2', ['浏览量','访客数','新客数'], '时间',['16-08-04', '16-08-05', '16-08-06', '16-08-07', '16-08-08', '16-08-09', '16-08-10', '16-08-11', '16-08-12', '16-08-13', '16-08-14'], '数量', [{name: '浏览量',type: 'line',data: [2000, 50, 90, 20, 281, 247, 741, 2223, 2000, 1200, 2021]},{name: '访客数',type: 'line',data: [1000, 500, 100, 200, 2811, 247, 70, 125, 552, 999, 1200]},{name: '新客数',type: 'line',data: [55, 500, 910, 210, 281, 247, 741, 2223, 1300, 3205, 1200]}],["#469DF7", "#3cb035", '#FFB980']
+    );
+</script>
+
+<!--选择门店-->
+<div class="modal fade store-pop" id="storeAll">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">选择门店</h4>
+            </div>
+            <div class="modal-body">
+                <div class="v-select-store">
+                    <div class="form-horizontal mb10">
+                        <input type="text" class="form-control form-control-inline w300" placeholder="门店编号/门店名称">
+                        <input type="submit" class="btn btn-default" value="搜索">
+                    </div>
+
+                    <div class="tree1 treeAll" data-value="12">
+                        <i class="rbArrow"></i>
+                        <input class="storeBox" type="radio" value="" name="1"><i class="iconFolder"></i>全部(14)
+                        <div class="comList">
+                            <ul>
+                                <li class="child3">
+                                    <input class="storeBox" value="10" type="radio" name="1">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">3</span>
+                                    <span class="store-name" title="牛牛餐饮海曙店">牛牛餐饮海曙店</span>
+                                    <span class="meta" title="浙江省杭州市桐庐县XX路">浙江省杭州市桐庐县XX路</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="11" type="radio" name="1">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">40000000000</span>
+                                    <span class="store-name" title="牛牛餐饮江北店">牛牛餐饮江北店</span>
+                                    <span class="meta" title="浙江省杭州市桐庐县XX路">浙江省杭州市桐庐县XX路</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="17" type="radio" name="1">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">5</span>
+                                    <span class="store-name" title="牛牛餐饮鄞州店">牛牛餐饮鄞州店</span>
+                                    <span class="meta" title="浙江省杭州市桐庐县XX路">浙江省杭州市桐庐县XX路</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="414" type="radio" name="1">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">6</span>
+                                    <span class="store-name" title="测试大门店(ddd)-ddd">测试大门店(ddd)-ddd</span>
+                                    <span class="meta" title="福建省福州市台江区GV发生的vfs">福建省福州市台江区GV发生的vfs</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="519" type="radio" name="1">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">7</span>
+                                    <span class="store-name" title="测试门店一号-测试">测试门店一号-测试</span>
+                                    <span class="meta" title="">浙江省宁波市江东区高新区华商大厦19楼</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="1512" type="radio" name="1">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">8</span>
+                                    <span class="store-name" title="牛牛科技九亭店">牛牛科技九亭店</span>
+                                    <span class="meta" title="上海市市辖区松江区九亭地铁站">上海市市辖区松江区九亭地铁站</span>
+                                </li>
+                                <li class="child3">
+                                    <input class="storeBox" value="1961" type="radio" name="1">
+                                    <i class="iconFile"></i>
+                                    <span class="store-no">9</span>
+                                    <span class="store-name" title="牛牛-泗泾3店">牛牛-泗泾3店</span>
+                                    <span class="meta" title="上海市市辖区松江区泗泾镇对的">上海市市辖区松江区泗泾镇对的</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span class="mr5">已选 <em class="text-danger js-store-selected-num">0</em> 家，共 <em class="js-store-total-num">0</em> 家</span>
+                <button type="button" class="btn btn-default" id="btnStoreCancel" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="btnStoreSure">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--今日实时提示文字-->
+<div class="tips1" style="display: none">
+    <dl class="dl-horizontal">
+        <dt>订单数：</dt>
+        <dd>统计时间内，支付成功的订单数量，不包含退款订单；</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>营业额：</dt>
+        <dd>统计时间内，产生支付的实际订单支付金额（去除优惠金额），包含运费，不包含退款金额。</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>支付客户数：</dt>
+        <dd>统计时间内，实际支付订单的客户数量，一个人在统计时间内支付多次记为一个。</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>客单价：</dt>
+        <dd>统计时间内的客单价=营业额/支付客户数。</dd>
+    </dl>
+</div>
+<!--营业统计提示文字-->
+<div class="tips2" style="display: none">
+    <dl class="dl-horizontal">
+        <dt>订单数：</dt>
+        <dd>统计时间内，支付成功的订单数量，不包含退款订单；</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>营业额：</dt>
+        <dd>统计时间内，产生支付的实际订单支付金额（去除优惠金额），包含运费，不包含退款金额。</dd>
+    </dl>
+</div>
+<!--浏览趋势提示文字-->
+<div class="tips3" style="display: none">
+    <dl class="dl-horizontal">
+        <dt>浏览量：</dt>
+        <dd>统计时间内，小程序所有页面（包括主页、微页面、其他详情页等）被访问的次数，一个人在统计时间内访问多次记为多次；</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>访客数：</dt>
+        <dd>统计时间内，小程序所有页面（包括主页、微页面、其他详情页等）被访问的去重人数，一个人在统计时间范围内访问多次只记为一个；</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>新客数：</dt>
+        <dd>统计时间内，打开小程序的新用户。首次打开小程序并授权成功的用户定义为新用户，一个人在统计时间内访问多次记为一次。</dd>
+    </dl>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>桌台管理</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/lib/jquery-ui.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item active"><i class="icon-store"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="#" class="list-group-item"><i class="icon-apply"></i> 应用</a></li>
+        <li><a href="#" class="list-group-item"><i class="icon-service"></i> 客户</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="#" class="list-group-item"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-set"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">餐饮管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../goods/good_list.html" class="list-group-item">商品管理</a>
+            </li>
+            <li>
+                <a href="../order_set/takeout_food.html" class="list-group-item">订单管理</a>
+            </li>
+            <li class="active">
+                <a href="" class="list-group-item">设置</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li><a href="ordering.html">点餐设置</a></li>
+                <li><a href="takeout_food.html">外卖设置</a></li>
+                <li class="active"><a href="table_manage.html">桌台管理</a></li>
+                <li><a href="print.html">打印设置</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="qgj-nav mb10">
+                <div class="pull-right">
+                    <a href="#modalArea" data-toggle="modal" class="btn btn-default">添加区域</a>
+                    <a href="#modalDownloadTable" data-toggle="modal" class="btn btn-default">下载桌台码</a>
+                </div>
+                <div class="btn-group">
+                    <a class="btn btn-default active">大厅区（10）</a>
+                    <a class="btn btn-default">二楼（10）</a>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="inline-block w100">大厅区</span>
+                    <span class="inline-block w200 h6 text-primary"><a href="#modalArea" data-toggle="modal">编辑</a> | <a href="javascript:;" class="js-area-del">删除</a></span>
+                    <a href="#modalTableType" data-toggle="modal" class="btn btn-default">桌台类型管理</a>
+                    <div class="pull-right"><a href="#modalTable" data-toggle="modal" class="btn btn-default">新建桌台</a></div>
+                </div>
+                <div class="panel-body">
+                    <ul class="food-table-manage sortable">
+                       <li>
+                           <div class="number1">A01</div>
+                           <div class="type">大桌</div>
+                           <div class="number2">4人</div>
+                           <div class="operate">
+                               <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                               <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                               <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                           </div>
+                       </li>
+                        <li>
+                            <div class="number1">A02</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A03</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A04</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A05</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A06</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="number1">A07</div>
+                            <div class="type">大桌</div>
+                            <div class="number2">4人</div>
+                            <div class="operate">
+                                <a href="#modalTable" data-toggle="modal"><i class="icon-edit"></i></a>
+                                <a href="javascript:;"><i class="icon-sortdown"></i></a>
+                                <a href="javascript:;"><i class="icon-del js-table-del"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/function/food/order_set/table_manage.js"></script>
+
+<!--新建区域弹出框-->
+<div class="modal fade" id="modalArea">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加区域</h4>
+            </div>
+            <div class="modal-body min-height-md">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label">区域名称 <em class="text-danger">*</em></label>
+                        <div class="control-input">
+                            <input type="text" class="form-control form-control-inline w200" placeholder="请输入不超过6个字" maxlength="6">
+                            <span class="text-gray-light">例如：大厅、二楼</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">区域编号</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control w200" placeholder="请输入3位数字编码" maxlength="3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="btnAreaSure">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--下载桌台码弹出框-->
+<div class="modal fade" id="modalDownloadTable">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">下载桌台码</h4>
+            </div>
+            <div class="modal-body min-height-md">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label">选择区域</label>
+                        <div class="control-input">
+                            <select class="form-control">
+                                <option value="">全部</option>
+                                <option value="">大厅</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">桌台类型</label>
+                        <div class="control-input">
+                            <label class="mr20"><input type="checkbox" class="qkj-checkbox js-all-ck"> 全部</label>
+                            <label class="mr20"><input type="checkbox" class="qkj-checkbox js-single-ck"> 散座</label>
+                            <label class="mr20"><input type="checkbox" class="qkj-checkbox js-single-ck"> 包厢</label>
+                            <label class="mr20"><input type="checkbox" class="qkj-checkbox js-single-ck"> 卡座</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">二维码类型</label>
+                        <div class="control-input">
+                            <label><input type="radio" class="qkj-radio"> 小程序点餐码</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="btnRefundResultSure">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--新建桌台弹出框-->
+<div class="modal fade" id="modalTable">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">新建/编辑桌台</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label">桌台名称 <em class="text-danger">*</em></label>
+                        <div class="control-input">
+                            <input type="text" class="form-control form-control-inline w200" placeholder="请输入不超过6个字" maxlength="6">
+                            <span class="text-gray-light">例如：A01、A02</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">桌台编号</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control w200" placeholder="请输入3位数字编号" maxlength="3">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">桌台类型 <em class="text-danger">*</em></label>
+                        <div class="control-input">
+                            <label class="w100"><input type="radio" class="qkj-radio"> 散座</label>
+                            <label class="w100"><input type="radio" class="qkj-radio"> 包厢</label>
+                            <label class="w100"><input type="radio" class="qkj-radio"> 卡座</label>
+                            <label class="w100"><input type="radio" class="qkj-radio"> 散座</label>
+                            <label class="w100"><input type="radio" class="qkj-radio"> 包厢</label>
+                            <label class="w100"><input type="radio" class="qkj-radio"> 卡座</label>
+                            <a href="#modalTableType" data-toggle="modal" class="btn btn-sm btn-default">管理</a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">所属区域</label>
+                        <div class="control-input">大厅区</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">建议人数 <em class="text-danger">*</em></label>
+                        <div class="control-input">
+                            <input type="text" class="form-control form-control-inline" placeholder="请输入建议就餐人数"> 人
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="btnTableSure">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--桌台类型管理弹出框-->
+<div class="modal fade" id="modalTableType">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">桌台类型管理</h4>
+            </div>
+            <div class="modal-body min-height-md">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label">桌台类型</label>
+                        <div class="control-input">
+                            <div class="item mb10">
+                                <input type="text" class="form-control form-control-inline mr20" placeholder="请输入不超过6个字" maxlength="6">
+                                <a href="javascript:;" class="text-primary js-tableType-del">删除</a>
+                            </div>
+                            <a href="javascript:;" class="btn btn-default js-tableType-add">新建桌台类型</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="btnTableTypeSure">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+// 商城管理---商品管理
+//________________________________
+
+//背景色
+.sku-bg(){
+  padding: @space-padding-sm/2;
+  background-color: @gray-lighter;
+}
+
+//-----商品添加-----//
+.good-add-first{
+  .select2{
+    line-height: @line-height-base;
+  }
+ .btn-group{
+   margin-bottom: @space-padding;
+ }
+}
+.good-add-third{
+  .menu-list{
+    .text{
+      padding: 10px 15px;
+      margin-bottom: @space-padding-sm*0.75;
+      background-color: @color-white;
+    }
+    .row{
+      padding-top: @space-padding-sm/2;
+      border-top: 1px solid @border-color;
+    }
+  }
+  .list-group-item{
+    border-left: none;
+    border-right: none;
+  }
+}
+.sku-sub-group{
+  position: relative;
+  &:hover{
+    .sku-title .close{
+      display: block;
+    }
+  }
+}
+.sku-title{
+  .sku-bg;
+  .close-bg{
+    top: 15px;
+    right: 10px;
+  }
+}
+.sku-bd{
+  padding: @space-padding-sm/2;
+  margin-bottom: @space-padding-sm;
+}
+.sku-bd-list{
+  .inline-block;
+}
+.sku-item{
+  position: relative;
+  .inline-block;
+  padding: @space-padding-sm/4 @space-padding-sm/2;
+  margin-right: @space-padding-sm/2;
+  margin-bottom: @space-padding-sm/2;
+  min-width: 80px;
+  text-align: center;
+  border: 1px solid @border-color;
+  font-size:@font-size-h6;
+  cursor: pointer;
+  &:hover{
+    .close{
+      display: block;
+    }
+  }
+}
+
+//尺码弹出框
+.popover{
+  position: absolute;
+  display: none;
+  padding: 10px;
+  border: 1px solid @border-color;
+  background-color: @color-white;
+  .arrow-t;
+  z-index: 120;
+  &:before {
+    top: -11px;
+  }
+  &:after {
+    top: -9px;
+  }
+  .btn{
+    min-width: 60px;
+  }
+  .select2-container{
+    max-width: none;
+  }
+}
+
+//添加sku组的按钮
+.add-sku-group{
+  margin-top: @space-padding-sm;
+  .sku-bg;
+}

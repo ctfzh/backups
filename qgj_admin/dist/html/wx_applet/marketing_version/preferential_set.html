@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>优惠页设置</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/lib/template-web.js"></script>
+    <script src="../../../js/lib/jquery-ui.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--颜色选择-->
+    <script src="../../../js/lib/ColorPicker/js/colpick.js"></script>
+    <link rel="stylesheet" href="../../../js/lib/ColorPicker/css/colpick.css">
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-service"></i> 客服</a></li>
+        <li><a href="../../mall/goods/good_list.html" class="list-group-item active"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">小程序</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li class="sub-item"><!--这个只有在开通后才显示-->
+                <a href="javascript:;" class="list-group-item">智慧门店</a>
+                <ul>
+                    <li><a href="../demo_version/page_add.html" class="list-group-item active">展示</a></li>
+                    <li><a href="#" class="list-group-item ">营销</a></li>
+                    <li><a href="../statistics/statistics.html" class="list-group-item ">统计</a></li>
+                    <li><a href="../set/wx_authorization.html" class="list-group-item ">设置</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="../manager/list.html" class="list-group-item">版本管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="../marketing_version/preferential_set.html">优惠页设置</a></li>
+                <li><a href="../demo_version/page_add.html">页面管理</a></li>
+                <li><a href="../../store/store/store_add.html">门店管理</a></li>
+                <li><a href="../../store/ablum/storeAblum_list.html">商家相册</a></li>
+                <li><a href="../marketing_version/yiyanlianmeng_list.html">异业联盟</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="menu-manage member-card preferential-set">
+                <div class="menu-list">
+                    <div class="ml-hd">优惠</div>
+                    <div class="ml-bd">
+                        <div class="card-panel" style="background-color: #f1f1f1">
+                            <div class="link"><a href="javascript:;" class="js-storeSwitch" data-index="2">切换门店 <i class="icon-arrow-down"></i></a></div>
+                            <div class="card-pic" id="jsCardPic" style="background-image: url('../../../img/pic/abstract.jpg')">
+                                <div class="pull-right js-card-pic-color">aaaaaaaaa</div>
+                                <div class="logo-area">
+                                    <span class="logo"><img src="../../../img/pic/abstract.jpg" alt="" class="img-circle"></span>
+                                    <span class="text js-card-pic-color">
+                                        <span>金牌会员</span>
+                                    </span>
+                                    <div class="name js-card-pic-color">昵称</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu">
+                            <ul>
+                                <li class="menu-yellow">
+                                    <a href="javascript:;">
+                                        <div class="img"><img src="" alt=""></div>
+                                        <div class="text">点餐</div>
+                                    </a>
+                                </li>
+                                <li class="menu-blue">
+                                    <a href="javascript:;">
+                                        <div class="img"><img src="" alt=""></div>
+                                        <div class="text">买单</div>
+                                    </a>
+                                </li>
+                                <li class="menu-orange">
+                                    <a href="javascript:;">
+                                        <div class="img"><img src="" alt=""></div>
+                                        <div class="text">充值</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="coupon">
+                            <div class="items">
+                                <div class="item item-orange">
+                                    <div class="item-l">
+                                        <div class="price">¥<em>10</em></div>
+                                        <p>满100元可用</p>
+                                    </div>
+                                    <div class="item-m">
+                                        <div class="name">优惠券名称1优惠券名称1</div>
+                                    </div>
+                                    <div class="item-r">
+                                        <a href="">立即领取</a>
+                                    </div>
+                                </div>
+                                <div class="item item-orange">
+                                    <div class="item-l">
+                                        <div class="price"><em>8</em>折</div>
+                                        <p>满100元可用</p>
+                                    </div>
+                                    <div class="item-m">
+                                        <div class="name">优惠券名称1</div>
+                                    </div>
+                                    <div class="item-r">
+                                        <a href="">立即领取</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="javascript:;" class="more">查看全部优惠</a>
+                            <div class="items">
+                                <div class="item item-yellow">
+                                    <div class="item-l">
+                                        <div class="price">¥<em>10</em></div>
+                                        <p>满100元可用</p>
+                                    </div>
+                                    <div class="item-m">
+                                        <div class="name text-gray-light">商家名称</div>
+                                        <div class="name">优惠券名称1优惠券名称1</div>
+                                    </div>
+                                    <div class="item-r">
+                                        <a href="">立即领取</a>
+                                    </div>
+                                </div>
+                                <div class="item item-yellow">
+                                    <div class="item-l">
+                                        <div class="price">¥<em>10</em></div>
+                                        <p>满100元可用</p>
+                                    </div>
+                                    <div class="item-m">
+                                        <div class="name text-gray-light">商家名称</div>
+                                        <div class="name">优惠券名称1优惠券名称1</div>
+                                    </div>
+                                    <div class="item-r">
+                                        <a href="">立即领取</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ml-ft">
+                        <div class="menu">
+                            <ul>
+                                <li><a href="">
+                                    <div class="img"><img src="../../../img/icon/home.png" alt=""></div>
+                                    <div class="text">首页</div>
+                                </a></li>
+                                <li class="active"><a href="">
+                                    <div class="img"><img src="../../../img/icon/icon-coupon.png" alt=""></div>
+                                    <div class="text">优惠</div>
+                                </a></li>
+                                <li><a href="">
+                                    <div class="img"><img src="../../../img/icon/user.png" alt=""></div>
+                                    <div class="text">我的</div>
+                                </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-form">
+                    <form action="" class="form-horizontal">
+                        <div class="mf-body">
+                            <div class="mf-bd">
+                                <div class="mebcard-box">
+                                    <div class="form-group">
+                                        <label class="control-label">会员卡功能</label>
+                                        <div class="control-input">
+                                            <label><input type="checkbox" value="" class="qkj-checkbox"> 开启</label>
+                                            <a href="javascript:;" class="h6 ml10 text-primary">微信会员卡设置</a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">会员卡面</label>
+                                        <div class="control-input line-height30">
+                                            <label class="mr10"><input type="radio" name="a" class="cover-radio2" data-index="0" checked> 颜色</label>
+                                            <label><input type="radio" name="a" class="cover-radio2" data-index="1"> 图片</label>
+                                            <div class="card-cover">
+                                                <div class="dropdown-m">
+                                                    <a href="javascript:;" class="dropdown-switch js-DropdownBt">
+                                                        <span class="js-bt-label" style="background-color: #a9d92d">#a9d92d</span>
+                                                    </a>
+                                                    <ul class="dropdown-data js-dropdownList">
+                                                        <li class="bg-color1"><a href="javascript:;" class="js-dropdownItem" data-value="#a9d92d" data-index="0">#a9d92d</a></li>
+                                                        <li class="bg-color2"><a href="javascript:;" class="js-dropdownItem" data-value="#63b359" data-index="1">#63b359</a></li>
+                                                        <li class="bg-color3"><a href="javascript:;" class="js-dropdownItem" data-value="#2c9f67" data-index="2">#2c9f67</a></li>
+                                                        <li class="bg-color4"><a href="javascript:;" class="js-dropdownItem" data-value="#509fc9" data-index="3">#509fc9</a></li>
+                                                        <li class="bg-color5"><a href="javascript:;" class="js-dropdownItem" data-value="#5885cf" data-index="4">#5885cf</a></li>
+
+                                                        <li class="bg-color6"><a href="javascript:;" class="js-dropdownItem" data-value="#9062c0" data-index="5">#9062c0</a></li>
+                                                        <li class="bg-color7"><a href="javascript:;" class="js-dropdownItem" data-value="#5e6671" data-index="6">#5e6671</a></li>
+                                                        <li class="bg-color8"><a href="javascript:;" class="js-dropdownItem" data-value="#d09a45" data-index="7">#d09a45</a></li>
+                                                        <li class="bg-color9"><a href="javascript:;" class="js-dropdownItem" data-value="#e4b138" data-index="8">#e4b138</a></li>
+                                                        <li class="bg-color10"><a href="javascript:;" class="js-dropdownItem" data-value="#ee903c" data-index="9">#ee903c</a></li>
+
+                                                        <li class="bg-color11"><a href="javascript:;" class="js-dropdownItem" data-value="#f08500" data-index="10">#f08500</a></li>
+                                                        <li class="bg-color12"><a href="javascript:;" class="js-dropdownItem" data-value="#dd6549" data-index="11">#dd6549</a></li>
+                                                        <li class="bg-color13"><a href="javascript:;" class="js-dropdownItem" data-value="#cc463d" data-index="11">#cc463d</a></li>
+                                                        <li class="bg-color14"><a href="javascript:;" class="js-dropdownItem" data-value="#cf3e36" data-index="11">#cf3e36</a></li>
+                                                    </ul>
+                                                </div>
+                                                <input type="hidden" value="#2c9f67">
+                                            </div>
+                                            <div class="card-cover" style="display: none">
+                                                <div class="text-gray-light">建议上传750*375像素（jpg、peng格式）的图片</div>
+
+                                                <button class="btn btn-primary uploadify-button">从图文库中选择</button>
+                                                <div class="img-default mt5"><img src="../../../img/pic/abstract.jpg" class="w200"> </div>
+                                            </div>
+
+                                            <div class="form-group mt20">
+                                                <div class="control-label">卡面字体颜色</div>
+                                                <div class="control-input">
+                                                    <input type="hidden" value="#ffffff">
+                                                    <div class="color-set js-color-set1 w48 form-control form-control-inline" data-value="1" ></div>
+                                                    <span class="reset-color js-reset-color1" data-value="#fafafa">重置</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">背景设计</label>
+                                        <div class="control-input line-height30">
+                                            <label class="mr10"><input type="radio" name="coverRadio1" class="cover-radio1" data-index="0" checked> 默认配色</label>
+                                            <label><input type="radio" name="coverRadio1" class="cover-radio1" data-index="1"> 自定义</label>
+
+                                            <div class="card-cover" id="js-card-cover-type1">
+                                                <div class="dropdown-m">
+                                                    <a href="javascript:;" class="dropdown-switch js-DropdownBt">
+                                                        <span class="js-bt-label" style="background-color: #f2f3f5"></span>
+                                                    </a>
+                                                    <ul class="dropdown-data js-dropdownList">
+                                                        <li class="bg-color15"><a href="javascript:;" class="js-dropdownItem" data-value="#f2f3f5" data-index="15"></a></li>
+                                                        <li class="bg-color1"><a href="javascript:;" class="js-dropdownItem" data-value="#a9d92d" data-index="0">#a9d92d</a></li>
+                                                        <li class="bg-color2"><a href="javascript:;" class="js-dropdownItem" data-value="#63b359" data-index="1">#63b359</a></li>
+                                                        <li class="bg-color3"><a href="javascript:;" class="js-dropdownItem" data-value="#2c9f67" data-index="2">#2c9f67</a></li>
+                                                        <li class="bg-color4"><a href="javascript:;" class="js-dropdownItem" data-value="#509fc9" data-index="3">#509fc9</a></li>
+                                                        <li class="bg-color5"><a href="javascript:;" class="js-dropdownItem" data-value="#5885cf" data-index="4">#5885cf</a></li>
+
+                                                        <li class="bg-color6"><a href="javascript:;" class="js-dropdownItem" data-value="#9062c0" data-index="5">#9062c0</a></li>
+                                                        <li class="bg-color7"><a href="javascript:;" class="js-dropdownItem" data-value="#5e6671" data-index="6">#5e6671</a></li>
+                                                        <li class="bg-color8"><a href="javascript:;" class="js-dropdownItem" data-value="#d09a45" data-index="7">#d09a45</a></li>
+                                                        <li class="bg-color9"><a href="javascript:;" class="js-dropdownItem" data-value="#e4b138" data-index="8">#e4b138</a></li>
+                                                        <li class="bg-color10"><a href="javascript:;" class="js-dropdownItem" data-value="#ee903c" data-index="9">#ee903c</a></li>
+
+                                                        <li class="bg-color11"><a href="javascript:;" class="js-dropdownItem" data-value="#f08500" data-index="10">#f08500</a></li>
+                                                        <li class="bg-color12"><a href="javascript:;" class="js-dropdownItem" data-value="#dd6549" data-index="11">#dd6549</a></li>
+                                                        <li class="bg-color13"><a href="javascript:;" class="js-dropdownItem" data-value="#cc463d" data-index="11">#cc463d</a></li>
+                                                        <li class="bg-color14"><a href="javascript:;" class="js-dropdownItem" data-value="#cf3e36" data-index="11">#cf3e36</a></li>
+                                                    </ul>
+                                                </div>
+                                                <input type="hidden" value="#2c9f67">
+                                            </div>
+                                            <div class="card-cover" id="js-card-cover-type2" style="display: none">
+                                                <div class="form-group">
+                                                    <div class="control-label">背景图片</div>
+                                                    <div class="control-input">
+                                                        <div class="text-gray-light">请上传750*512像素且不超过2M的图片（支持jpg、peng格式）</div>
+                                                        <div id="fileQueue0"></div>
+
+                                                        <div class="img-default mt5"><img src="../../../img/pic/abstract.jpg" class="w200"> </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group mt20">
+                                                <div class="control-label">背景字体颜色</div>
+                                                <div class="control-input">
+                                                    <input type="hidden" value="#232323">
+                                                    <div class="color-set js-color-set2 w48 form-control form-control-inline" data-value="1" ></div>
+                                                    <span class="reset-color js-reset-color2" data-value="#fafafa">重置</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">开卡说明</label>
+                                        <div class="control-input">
+                                            <input type="text" placeholder="最多添加15个字" class="form-control wper60 inline-block text-limit" maxlength="15">
+                                            <div class="text-gray-light mt5">吸引新用户进行开卡的标语，例如：开卡激活即送大礼包</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">开启功能</label>
+                                        <div class="control-input">
+                                            <label class="w150"><input type="checkbox" class="qkj-checkbox"> 买单</label>
+                                            <label class="w150"><input type="checkbox" class="qkj-checkbox"> 充值</label>
+                                            <div class="text-gray-light mt5">吸引新用户进行开卡的标语，例如：开卡激活即送大礼包</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">分享简介</label>
+                                        <div class="control-input">
+                                            <textarea class="form-control wper60 inline-block"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">领券设置</label>
+                                        <div class="control-input">
+                                            <button type="button" class="btn btn-default mr10" data-target="#modalCoupon" data-toggle="modal">添加优惠券</button>
+                                            <input type="hidden" name="" id="coupon_id" value="fasdfasdfasdfas1,11,">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <table class="table mt10">
+                                            <thead>
+                                                <tr class="active">
+                                                    <th>类型</th>
+                                                    <th width="15%">优惠券名称</th>
+                                                    <th>券内容</th>
+                                                    <th>有效期</th>
+                                                    <th>领取人/次</th>
+                                                    <th>库存</th>
+                                                    <th>状态</th>
+                                                    <th width="8%">操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tbody"></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt20">
+                            <button type="button" id="button" class="btn btn-primary">保存并发布</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../../js/function/wx_applet/marketing_version/preferential_set.js"></script>
+
+<!--选择卡券-->
+<div class="modal fade" id="modalCoupon">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">选择卡券</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive overflow-y">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr class="active">
+                            <th width="20"></th>
+                            <th>券类型</th>
+                            <th>券名称</th>
+                            <th>库存</th>
+                            <th>有效期</th>
+                            <th>金额</th>
+                            <th>状态</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="qkj-checkbox" name="checkboxCoupon" value="1">
+                                <input type="hidden" value='{"type":"代金券","name":"5元代金券","content":"10元，10个","times":"0人/0次","stock":"10","valid":"领取后当天生效,3天有效","status":"未开始"}'>
+                            </td>
+                            <td>5元代金券</td>
+                            <td>代金券</td>
+                            <td>领取后当天生效3天有效</td>
+                            <td>2017</td>
+                            <td>--</td>
+                            <td>已投放</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="qkj-checkbox" name="checkboxCoupon" value="21">
+                                <input type="hidden" value='{"type":"代金券","name":"10元代金券","content":"减10元","times":"0人/0次","stock":"5","valid":"2017.02.14-2018.01.31","status":"已结束"}'>
+                            </td>
+                            <td>10元代金券</td>
+                            <td>折扣券</td>
+                            <td>领取后当天生效3天有效</td>
+                            <td>2017</td>
+                            <td>--</td>
+                            <td>已投放</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="qkj-checkbox" name="checkboxCoupon" value="345">
+                                <input type="hidden" value='{"type":"代金券","name":"100元代金券","content":"减10元","times":"0人/0次","stock":"5","valid":"2017.02.14-2018.01.31","status":"已结束"}'>
+                            </td>
+                            <td>100元代金券</td>
+                            <td>代金券</td>
+                            <td>领取后当天生效3天有效</td>
+                            <td>2017</td>
+                            <td>--</td>
+                            <td>已投放</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnCouponSure" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

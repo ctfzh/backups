@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>会员规则添加</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/lib/layer/layer.js"></script>
+    <script src="../../../js/lib/webuploader/webuploader.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="../../../img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="../../index/index.html" class="list-group-item"><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="../../store/store/store_list.html" class="list-group-item"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="../../finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="../../crm/user/user_list.html" class="list-group-item active"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="../../marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <li><a href="../../channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="../../statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="../../system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <li class="affix"><a href="../../login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>
+    </ul>
+</div>
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">微信会员卡</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="../outline/user_increase.html" class="list-group-item">CRM概要</a>
+            </li>
+            <li>
+                <a href="../user/user_list.html" class="list-group-item">用户管理</a>
+            </li>
+            <li>
+                <a href="../group_list.html" class="list-group-item">用户分组</a>
+            </li>
+            <li>
+                <a href="../member_grade/member_grade_list.html" class="list-group-item active">会员等级</a>
+            </li>
+            <li>
+                <a href="../card/member_card_list.html" class="list-group-item">微信会员卡</a>
+            </li>
+            <li>
+                <a href="../set/member_set.html" class="list-group-item">会员中心设置</a>
+            </li>
+            <li>
+                <a href="../point/point_exchange_list.html" class="list-group-item">积分管理</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li><a href="#">会员等级</a></li>
+                <li class="active"><a href="#">会员规则</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <div class="alert alert-default">用户成为会员，需要完成以下条件</div>
+            <div class="panel panel-default">
+                <div class="panel-heading">成为会员的规则</div>
+                <div class="panel-body form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label p0">会员规则</label>
+                        <div class="control-input">
+                            <div class="mb10">
+                                <label><input type="radio" class="qkj-radio"> 系统自主注册</label>
+                                <div class="text-gray-light">当用户进入用户主页时，系统自动帮用户注册成会员</div>
+                            </div>
+                            <div class="mb10">
+                                <label><input type="radio" class="qkj-radio"> 获取手机号</label>
+                                <div class="text-gray-light">当用户进入用户主页时，需要先完成手机号认证</div>
+                            </div>
+                            <div class="mb10">
+                                <label><input type="radio" class="qkj-radio"> 领卡</label>
+                                <div class="text-gray-light">当用户进入用户主页时，需要先领取微信会员卡</div>
+                                <a href="javascript:;" class="text-primary">领卡设置</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-wrap text-center">
+                <button type="button" class="btn btn-primary btn">提交保存</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../../js/function/crm/memberGrade.js"></script>
+
+</body>
+</html>

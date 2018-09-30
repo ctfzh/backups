@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"><!--360让它显示webkit内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>用户概括</title>
+
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="../../../js/lib/lib.min.js"></script>
+    <script src="../../../js/lib/dateranger.min.js"></script>
+    <script src="../../../js/common/util.js"></script>
+    <script src="../../../js/lib/select2.min.js"></script>
+    <script src="../../../js/common/common.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="../../../js/lib/ie8.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="siderbar" id="siderbar">
+    <div class="logo"><img src="/qgj_admin/dist/img/logo.png"> </div>
+    <ul class="list-group list-group-black">
+        <li><a href="/qgj_admin/dist/html/index/index.html" class="list-group-item "><i class="icon-home h5"></i> 首页</a></li>
+        <li><a href="/qgj_admin/dist/html/store/store/store_list.html" class="list-group-item active"><i class="icon-merchant"></i> 门店</a></li>
+        <li><a href="/qgj_admin/dist/html/finance/finance_flow.html" class="list-group-item"><i class="icon-finance"></i> 财务</a></li>
+        <li><a href="/qgj_admin/dist/html/crm/user/user_list.html" class="list-group-item"><i class="icon-crm"></i> CRM</a></li>
+        <li><a href="/qgj_admin/dist/html/marketing/market/market_list.html" class="list-group-item"><i class="icon-marketing"></i> 营销</a></li>
+        <!--<li><a href="#" class="list-group-item"><i class="icon-apply"></i> 应用</a></li>-->
+        <!--<li><a href="#" class="list-group-item"><i class="icon-service"></i> 客户</a></li>-->
+        <li><a href="/qgj_admin/dist/html/channel/menu/menu.html" class="list-group-item"><i class="icon-channel"></i> 渠道</a></li>
+        <li><a href="/qgj_admin/dist/html/food/goods/good_list.html" class="list-group-item"><i class="icon-catering"></i> 餐饮</a></li>
+        <li><a href="/qgj_admin/dist/html/mall/goods/good_list.html" class="list-group-item"><i class="icon-shop"></i> 商城</a></li>
+        <li><a href="/qgj_admin/dist/html/distribution/outline/outline.html" class="list-group-item"><i class="icon-distribution"></i> 分销商</a></li>
+        <li><a href="/qgj_admin/dist/html/wx_applet/manager/list.html" class="list-group-item "><i class="icon-wechatapp"></i> 小程序</a></li>
+        <li><a href="/qgj_admin/dist/html/service/service_set/service_set.html" class="list-group-item"><i class="icon-service"></i> 客服</a></li>
+        <li><a href="/qgj_admin/dist/html/statistics/outline.html" class="list-group-item"><i class="icon-statistics"></i> 统计</a></li>
+        <li><a href="/qgj_admin/dist/html/system/system/modify_password.html" class="list-group-item"><i class="icon-system"></i> 设置</a></li>
+        <!--<li class="affix"><a href="/qgj_admin/dist/html/login/login.html" class="list-group-item"><i class="icon-loginout"></i> 退出</a></li>-->
+    </ul>
+</div>
+
+<div class="main-con"><!--main-siderbar-hide隐藏二级加这个样式-->
+    <div class="main-siderbar " id="mSiderbar">
+        <div class="title">门店收银管理</div>
+        <ul class="list-group list-group-gray-lighter">
+            <li>
+                <a href="store_list.html" class="list-group-item active">门店管理</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="list-group-item">收银员管理</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="list-group-item">收银设置</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="list-group-item">收银台管理</a>
+            </li>
+            <li>
+                <a href="../ablum/storeAblum_list.html" class="list-group-item">商家相册</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" id="mainContent">
+        <div class="m-title">
+            <ul>
+                <li class="active"><a href="#">门店管理</a></li>
+            </ul>
+        </div>
+        <div class="m-content">
+            <form class="form-horizontal form-search">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label class="control-label">门店分组</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control"  placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">门店版本</label>
+                        <div class="control-input">
+                            <select class="form-control">
+                                <option value="">全部</option>
+                                <option value="1">收银版</option>
+                                <option value="2">营销版</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-sm col-md-4">
+                        <label class="control-label">门店地区</label>
+                        <div class="control-input">
+                            <select class="form-control wper30 inline-block">
+                                <option value="">请选择</option>
+                                <option value="0">浙江省</option>
+                            </select>
+                            <select class="form-control wper30 inline-block">
+                                <option value="">请选择</option>
+                                <option value="0">杭州市</option>
+                            </select>
+                            <select class="form-control wper30 inline-block">
+                                <option value="">请选择</option>
+                                <option value="0">海曙区</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">门店搜索</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control"  placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">口碑门店</label>
+                        <div class="control-input">
+                            <select class="form-control">
+                                <option value="">全部</option>
+                                <option value="1">未开通</option>
+                                <option value="2">审核中</option>
+                                <option value="3">已开通</option>
+                                <option value="4">驳回</option>
+                                <option value="5">已关闭</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">创建时间</label>
+                        <div class="control-input">
+                            <input type="text" class="form-control"  placeholder="" id="time">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label"></label>
+                        <div class="control-input btn-wrap">
+                            <button type="submit" class="btn btn-blue">搜索</button>
+                            <button type="submit" class="btn btn-default">清除条件</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="qgj-nav clearfix">
+                <div class="pull-right">
+                    <a href="store_add.html" class="btn btn-primary">创建门店</a>
+                    <input class="btn btn-primary" type="button" value="导出">
+                </div>
+                <div class="btn-group" role="group" aria-label="group" id="jsSort">
+                    <!--<a class="btn btn-default pull-left">排序</a>-->
+                    <button class="btn btn-default storeSort">门店编号<i class="icon-sortdown"></i></button>
+                    <button class="btn btn-default storeSort">创建时间<i class="icon-sortup"></i></button>
+                </div>
+            </div>
+
+            <div class="table-wrap">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="active">
+                            <th>收款码</th>
+                            <th colspan="2">门店</th>
+                            <th>收款账号</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="javascript:;" data-toggle="modal" data-target=".storeQrcode" class="text-blue"></a>
+                            </td>
+                            <td>
+                                <p><strong>宁波雅戈尔服饰有限公司无锡人民路专卖店</strong></p>
+                                <p class="m0">nb0001</p>
+                            </td>
+                            <td>
+                                <p>内蒙古自治区呼伦贝尔市牙克石市</p>
+                                <p class="m0">18815287432</p>
+                            </td>
+                            <td>
+                                <p><i class="icon-alipay"></i> <a href="../../system" class="text-gray">APPID：2088811978614197（授权账号）</a></p>
+                                <p><i class="icon-union"></i> 商户号：1276280301（上级账号）</p>
+                                <p class="m0"><i class="icon-wx"></i> 商户号：1276280301（上级账号）</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <span class="text-gray-light">营销版：2016.06.20到期<a href="#" class="ml10">续费</a></span>
+                            </td>
+                            <td colspan="2">
+                                <div class="pull-right">
+                                    <a href="#" data-toggle="modal">编辑</a>
+                                </div>
+                                <span class="time text-gray-light">创建时间：2016.06.20</span>
+                            </td>
+                        </tr>
+                        <tr class="tr-space">
+                            <td colspan="4">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="javascript:;" data-toggle="modal" data-target=".storeQrcode" class="text-blue"><img src="../../../img/qrcode.png" alt="" width="40"></a>
+                            </td>
+                            <td>
+                                <p><strong>宁波雅戈尔服饰有限公司无锡人民路专卖店</strong></p>
+                                <p class="m0">nb0001</p>
+                            </td>
+                            <td>
+                                <p>内蒙古自治区呼伦贝尔市牙克石市</p>
+                                <p class="m0">18815287432</p>
+                            </td>
+                            <td>
+                                <p><i class="icon-alipay"></i> <a href="#" class="text-gray">APPID：2088811978614197（授权账号）</a></p>
+                                <p class="m0"><i class="icon-wx"></i> 商户号：1276280301（上级账号）</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <span class="text-gray-light">营销版：2016.06.20到期<a href="#" class="ml10">续费</a></span>
+                            </td>
+                            <td colspan="2">
+                                <div class="pull-right">
+                                    <a href="#" data-toggle="modal">编辑</a>
+                                </div>
+                                <span class="time text-gray-light">创建时间：2016.06.20</span>
+                            </td>
+                        </tr>
+                        <tr class="tr-space">
+                            <td colspan="4">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="javascript:;" data-toggle="modal" data-target=".storeQrcode" class="text-blue"><img src="../../../img/qrcode.png" alt="" width="40"></a>
+                            </td>
+                            <td>
+                                <p><strong>宁波雅戈尔服饰有限公司无锡人民路专卖店</strong></p>
+                                <p class="m0">nb0001</p>
+                            </td>
+                            <td>
+                                <p>内蒙古自治区呼伦贝尔市牙克石市</p>
+                                <p class="m0">18815287432</p>
+                            </td>
+                            <td>
+                                <p><i class="icon-alipay"></i> <a href="#" class="text-gray">APPID：2088811978614197（授权账号）</a></p>
+                                <p class="m0"><i class="icon-wx"></i> 商户号：1276280301（上级账号）</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <span class="text-gray-light">营销版：2016.06.20到期<a href="#" class="ml10">续费</a></span>
+                            </td>
+                            <td colspan="2">
+                                <div class="pull-right">
+                                    <a href="#" data-toggle="modal">编辑</a>
+                                </div>
+                                <span class="time text-gray-light">创建时间：2016.06.20</span>
+                            </td>
+                        </tr>
+                        <tr class="tr-space">
+                            <td colspan="4">
+                                <div></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--<div class="text-center h5 mt10">暂时无数据</div>-->
+            </div>
+            <div id="page" class="ptb15">
+                <p>首页</p>
+                <p>上一页</p>
+                <a href="/merchant/store/list.html?page=1" title="第1页" class="cur">1</a>
+                <a href="/merchant/store/list.html?page=2" title="第2页">2</a>
+                <a href="/merchant/store/list.html?page=3" title="第3页">3</a>
+                <a href="/merchant/store/list.html?page=4" title="第4页">4</a>
+                <a href="/merchant/store/list.html?page=5" title="第5页">5</a>
+                <p class="pageEllipsis">...</p>
+                <a href="/merchant/store/list.html?page=2" title="下一页">下一页</a>
+                <a href="/merchant/store/list.html?page=7" title="尾页">尾页</a>
+                <p class="pageRemark">共<strong>7</strong>页<strong>7</strong>条数据</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- 添加手机授权二维码 -->
+<div class="modal fade storeQrcode" tabindex="1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h5 class="modal-title">门店收款二维码</h5>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <p><img src="../../../img/qrcode.png" alt="" class="wper60"></p>
+                    <p>
+                        <a href="" class="btn btn-primary">下载后打印</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../../js/function/store/store.js"></script>
+
+
+</body>
+</html>

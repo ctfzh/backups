@@ -1,0 +1,591 @@
+/*公共的模块的样式*/
+
+.data-detail {
+  display: none;
+  & > td {
+    padding: 0 !important;
+  }
+  tr {
+    background-color: @gray-lighter;
+  }
+}
+
+//颜色设置
+.color-set{
+  position: relative;
+  height: 28px;
+  box-shadow: 0 0 0 4px #fff inset;
+  cursor: pointer;
+}
+.reset-color{
+  border: 1px solid #e7e7e7;
+  background-color: #fff;
+  padding: 4px 5px;
+  margin-left: 15px;
+  .inline-block;
+  line-height: @line-height-base;
+  cursor: pointer;
+}
+
+//在线客服
+.c-service {
+  padding: 0 10px;
+  margin-bottom: @space-padding-sm;
+  background-color: @color-white;
+  li {
+    border-bottom: 1px dotted @border-color;
+    line-height: 60px;
+    text-align: center;
+    &:last-child {
+      border-bottom: none;
+    }
+    a {
+      display: block;
+    }
+  }
+  .icon-telphone:before{
+    content: '';
+  }
+}
+
+//公告
+.c-notice {
+  margin-bottom: @space-padding-sm;
+  background-color: @color-white;
+  .clearfix;
+  padding: 10px 15px;
+  li {
+    padding: 5px 0 5px 12px;
+    font-size: @font-size-h6;
+    .clearfix;
+  }
+  a{
+    color: @gray;
+  }
+}
+.c-ad {
+  .clearfix;
+  padding: 10px 15px;
+}
+
+//搜索框
+.form-search {
+  margin-bottom: 15px;
+  line-height: 1.5;
+  .clearfix;
+  .form-control {
+    min-width: 200px;
+  }
+  .form-group {
+    margin-bottom: 10px;
+    min-height: 34px;
+    .control-label {
+      width: 80px;
+      text-align: left;
+    }
+    .control-input {
+      padding-left: 90px;
+      line-height: inherit;
+    }
+  }
+  .row {
+    margin: 0;
+  }
+  .col-md-3, .col-md-4, .col-md-6, .col-md-8, .col-md-12 {
+    padding-left: 0;
+    padding-right: 40px;
+    min-width: 360px;
+  }
+  .wper30 {
+    width: 32% !important;
+    min-width: 70px;
+  }
+  .form-control.wper47, select.form-control {
+    min-width: auto;
+  }
+  .p15{
+    padding: 0 !important;
+  }
+
+  &.form-search-auto{
+    .form-group {
+      .control-label {
+        position: static;
+        width: auto;
+        .inline-block;
+        margin-right: 20px;
+      }
+      .control-input {
+        padding-left: 0;
+        .inline-block;
+      }
+    }
+  }
+  &.form-search-md{
+    .form-group {
+      .control-label {
+        width: 100px;
+      }
+      .control-input {
+        padding-left: 110px;
+      }
+    }
+  }
+  &.row{
+    .btn-wrap-pos{
+      margin-right: 20px;
+    }
+  }
+}
+
+//导航外层
+.qgj-nav {
+  .clearfix;
+  margin-bottom: 10px;
+  .media{
+    margin-top: 0;
+  }
+}
+
+// 提示
+.qgj-help{
+  position: relative;
+  .inline-block;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  color: @color-white;
+  background-color: @gray-light;
+  border-radius: 50%;
+  &:before{
+    content:"?";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    font: 100 12px/16px arial;
+  }
+}
+.qgj-tips,.qgj-tips1 {
+  position: absolute;
+  left: 500px;
+  top: 0;
+  padding: 30px @space-padding-sm @space-padding-sm;
+  width: 250px;
+  background-color: @color-white;
+  border: 1px solid @border-color;
+  border-radius: @border-radius-base;
+  display: none;
+  z-index: 2000;
+  .close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+  }
+  .img{
+    margin-bottom: 10px;
+  }
+}
+.qgj-tips{
+  .img{
+    width: 167px;
+    height: 167px;
+  }
+}
+.qgj-tips1{
+  .img{
+    width: 208px;
+    height: 208px;
+  }
+}
+//小程序投放
+.QRLaunch{
+  h5{
+    padding: 20px 30px 0;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  .img{
+    padding:30px;
+    text-align: center;
+  }
+  .menu{
+    .clearfix;
+    margin-bottom: 0;
+    li{
+      float: left;
+      width: 100%;
+      line-height: 39px;
+      text-align: center;
+      background-color: @color-white;
+      border-top: 1px solid @border-color;
+      border-right: 1px solid @border-color;
+      cursor: pointer;
+      &:last-child{
+        border-right: none;
+      }
+      &.active{
+        background-color: @gray-lighter;
+      }
+    }
+  }
+  .QRLaunch-con1{
+    height: 478px;
+    img{
+      width: 195px;
+      height: 195px;
+    }
+
+    .bd{
+      background-color: @color-white;
+      ul{
+        .clearfix;
+        text-align: center;
+        padding-top: 18px;
+        border-top: 1px solid @border-color;
+      }
+      li{
+        .inline-block;
+        width: 45%;
+        line-height: 50px;
+        margin:0 5px 10px;
+        text-align: center;
+        border: 1px solid @border-color;
+        a{
+          display: block;
+        }
+      }
+    }
+  }
+  .QRLaunch-con2{
+    height: 480px;
+    padding:0 15px;
+    text-align: center;
+    .img{
+      margin: 0 -15px 15px;
+      border-bottom: 1px solid @border-color;
+    }
+    img{
+      width: 215px;
+      height: 215px;
+    }
+    .download{
+      .inline-block;
+      margin-bottom: 15px;
+    }
+  }
+}
+.QRLaunch-copy{
+  margin: 20px 30px;
+  .form{
+    .clearfix;
+    border: 1px solid @border-color;
+  }
+  .input-copy{
+    float: left;
+    width: 20%;
+    padding: 0 5px;
+    height: 28px;
+    line-height: 28px;
+    border-left:1px solid @border-color;
+    background-color: @gray-lighter;
+    cursor: pointer;
+    text-align: center;
+  }
+  .text{
+    float: left;
+    width: 80%;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 5px;
+    border: none;
+  }
+}
+.QRLaunch-shareFriends{
+  padding: 20px;
+  .img{
+    padding:30px;
+    text-align: center;
+    img{
+      width: 250px;
+      height: 250px;
+    }
+  }
+}
+.QRLaunch-wxgroup{
+  padding: 20px;
+  p{
+    margin-bottom: 0;
+  }
+}
+
+//数据统计
+.qgj-datatotal {
+  padding-top: 10px;
+  background-color: @gray-lighter;
+  border: 1px solid @border-color;
+  ul {
+    .clearfix;
+    margin: 0;
+  }
+  li {
+    .pull-left;
+    padding: 15px;
+    width: 25%;
+    text-align: center;
+    &:last-child {
+      border-right: none;
+    }
+  }
+  /* three items */
+  li:first-child:nth-last-child(3),
+  li:first-child:nth-last-child(3) ~ li {
+    width: 33.3333%;
+  }
+
+  /* four items */
+  li:first-child:nth-last-child(4),
+  li:first-child:nth-last-child(4) ~ li {
+    width: 25%;
+  }
+
+  .toggleStretch {
+    text-align: center;
+    padding: 5px 0;
+    display: block;
+    color: @gray;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .qgj-detail {
+    .clearfix;
+    border-top: 1px solid @border-color;
+    background-color: @gray-lighter;
+    .col {
+      float: left;
+      width: 25%;
+      text-align: center;
+      padding: 10px 0;
+      border-top: 1px dotted @border-color;
+      &:first-child {
+        width: 10%;
+        border-top: none;
+      }
+      &:nth-child(2) {
+        width: 15%;
+        text-align: left;
+      }
+    }
+  }
+}
+
+.multi-Media {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  li {
+    padding: 5px 5px 5px 20px;
+    margin-top: -1px;
+    width: 150px;
+    line-height: 40px;
+    font-size: @font-size-base;
+    border: 1px solid @border-color;
+    a {
+      display: block;
+      color: @gray;
+    }
+    i {
+      margin-right: 10px;
+    }
+    &:hover {
+      outline: 1px solid @brand-primary;
+    }
+  }
+}
+
+//排序值设置
+.seq-num{
+  span{
+    .inline-block;
+    min-width: 20px;
+    color: @brand-primary;
+    cursor: pointer;
+  }
+  input{
+    border: 1px solid @border-color;
+    padding:3px 5px;
+    max-width: 60px;
+    display: none;
+  }
+}
+
+//门店切换
+.store-switch{
+  padding: 12px 20px 0 0 ;
+  .current{
+    .inline-block;
+  }
+  .store-select{
+    .inline-block;
+    margin-left:20px;
+  }
+}
+
+//复制弹出框
+.pop-path{
+  position: absolute;
+  z-index: 2000;
+  padding: @space-padding-sm/4;
+  background-color: @color-white;
+  border: 1px solid @border-color;
+  box-shadow: 0 1px 2px #e1e1e1;
+  width: auto;
+  &:hover{
+    .close-bg{
+      display: block;
+    }
+  }
+  .text{
+    padding: 3px 5px;
+    width: 218px;
+    height: 25px;
+    line-height: 25px;
+    border: 1px solid @border-color;
+  }
+  .input-copy,.cancel{
+    padding: 3px 5px;
+    height: 26px;
+    line-height: 26px;
+    border: 1px solid @border-color;
+    border-left:none;
+    cursor: pointer;
+    font-size: @font-size-h5;
+  }
+  .icon-arrow{
+    position: absolute;
+    top: 45%;
+  }
+  &.pop-path-l{
+    .icon-arrow{
+      left: 0;
+      .arrow-l;
+      &:before {
+        bottom: -7px;
+        margin-left: -12px;
+      }
+      &:after {
+        bottom: -7px;
+        margin-left: -11px;
+      }
+    }
+    .close-bg{
+      right: -10px;
+    }
+  }
+  &.pop-path-r{
+    .icon-arrow{
+      right: -12px;
+      .arrow-r;
+    }
+    .close-bg{
+      left: -10px;
+    }
+  }
+}
+
+//备注内容编辑
+.remark-input {
+  position: relative;
+  padding: 3px 5px;
+  line-height: 1.5;
+  margin-top: -6px;
+  background-color: @color-white;
+  border: 1px solid @border-color;
+  input {
+    height: 18px;
+    border: none;
+  }
+}
+
+//链接选择组件
+.tab-wrap {
+  .tab-title {
+    display: block;
+    margin-bottom: 20px;
+    .clearfix;
+    > li {
+      float: left;
+      padding: @padding-base-vertical @padding-base-horizontal;
+      margin-left: -1px;
+      width: 20%;
+      border: 1px solid @border-color;
+      background-color: @gray-lighter;
+      text-align: center;
+      &:first-child {
+        margin-left: 0;
+      }
+      a {
+        color: @gray;
+      }
+      &.active {
+        background-color: @brand-blue;
+        a {
+          color: @color-white;
+        }
+      }
+    }
+  }
+  .tab-item {
+    display: none;
+    min-height: 200px;
+    li {
+      .inline-block;
+      padding: @padding-base-vertical @padding-base-horizontal;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      border-radius: 3px;
+      background-color: @gray-lighter;
+      cursor: pointer;
+      &.active {
+        background-color: @brand-blue;
+        color: @color-white;
+      }
+    }
+  }
+}
+
+//文本编辑器右侧的多媒体说明
+.text-editor {
+  position: relative;
+  padding-right: 190px;
+  border: 1px solid @border-color;
+  textarea {
+    width: auto;
+  }
+}
+
+//常用功能
+.utility-fun {
+  .clearfix;
+  h5 {
+    font-weight: bold;
+    span {
+      font-weight: normal;
+    }
+  }
+  .con {
+    padding-left: 12px;
+  }
+  .media {
+    float: left;
+    vertical-align: top;
+    width: 20%;
+    height: 46px;
+    margin: 10px 0 10px 0;
+    .media-body {
+      vertical-align: middle;
+    }
+  }
+}

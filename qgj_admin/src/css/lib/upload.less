@@ -1,0 +1,231 @@
+/* 上传图片样式 */
+.webuploader-container {
+  position: relative;
+}
+
+.webuploader-element-invisible {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.webuploader-pick {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  background: #00aaf2;
+  padding: 3px 10px;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.webuploader-pick-hover {
+  background: #03b4ff;
+}
+
+.webuploader-pick-disable {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.file-item {
+  position: relative;
+  .file-panel {
+    display: none;
+    position: absolute;
+    height: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 300;
+    text-align: center;
+  }
+  &:hover {
+    .file-panel {
+      display: block;
+    }
+  }
+  .file-delete {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    text-indent: -9999px;
+    overflow: hidden;
+    background: url(../../img/icon/del.png) no-repeat;
+    margin-top: 5px;
+    cursor: pointer;
+    color: #fff;
+  }
+}
+
+.uploader {
+  .img {
+    width: 200px;
+    text-align: center;
+    img {
+      max-width: 100%;
+    }
+    a {
+      display: block;
+      margin-top: 5px;
+    }
+  }
+}
+
+.uploader-lg {
+  padding: 15px;
+  .webuploader-pick {
+    position: relative;
+    width: 400px;
+    height: 250px;
+    padding-top: 140px;
+    background-color: transparent;
+    border: 1px dashed @border-color;
+    color: @gray;
+    &:before {
+      content: "+";
+      position: absolute;
+      left: 50%;
+      top: 50px;
+      margin-left: -30px;
+      width: 60px;
+      height: 60px;
+      font-size: 80px;
+      font-family: serif;
+      color: @gray-lighter;
+    }
+  }
+  .info {
+    display: none;
+  }
+  .uploader-list {
+    max-width: 200px;
+  }
+  .file-item {
+    .file-delete {
+      background: none;
+      text-indent: 0;
+      width: auto;
+    }
+
+  }
+}
+
+.uploadify-wrap{
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  .uploadify-link{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    font: 100 14px @font-family-base;
+    padding-top: 140px;
+    background-color: transparent;
+    text-align: center;
+    line-height: 34px !important;
+    background: @color-white;
+    border: 1px dashed darken(@border-color, 5%);
+    box-shadow: none;
+    border-radius: 3px;
+    color: @gray;
+    cursor: pointer;
+    &:before {
+      content: "+";
+      position: absolute;
+      left: 50%;
+      top: 80px;
+      margin-left: -30px;
+      width: 60px;
+      height: 60px;
+      font-size: 80px;
+      font-family: serif;
+      box-shadow: none;
+      color: @gray-light85;
+    }
+    &:hover{
+      background: #fff !important;
+    }
+  }
+  object{
+    width: 100%;
+    height: 250px;
+    cursor: pointer;
+  }
+}
+
+// 上传样式
+@addPicW: 80px;
+@addPicH: 80px;
+.add-pic-btn{
+  position: relative;
+  display: block;
+  width: @addPicW;
+  height: @addPicH;
+  .img{
+    width: @addPicW;
+    height: @addPicH;
+    display: table-cell;
+    vertical-align: middle;
+    background-color: #fff;
+  }
+  img{
+    max-height: 100%;
+    max-width: 100%;
+  }
+  .uploadify{
+    .absolutetb0;
+    &:hover .uploadify-button{
+      background-color: transparent !important;
+      &:before{
+        content: "+";
+        position: absolute;
+        top:29%;
+        left: 37%;
+        font-family: "Times New Roman", Symbola, serif;
+        font-size: 40px;
+        z-index: 2;
+      }
+      &:after{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        .bg-opacity(0.3);
+        cursor: pointer;
+      }
+    }
+  }
+  object{
+    width: @addPicW;
+    height: @addPicH;
+    min-width: auto !important;
+    z-index: 22 !important;
+  }
+  .uploadify-button{
+    width: @addPicW !important;
+    height: @addPicH !important;
+    border-radius: 0;
+    background-color: transparent;
+    border: 1px dashed @border-color;
+  }
+  .uploadify-button-text{
+    display: none;
+  }
+  .uploadify-queue{
+    display: none;
+  }
+}
+

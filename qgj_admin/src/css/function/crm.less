@@ -1,0 +1,502 @@
+// crm管理
+//________________________________
+
+.card-img{
+  width: 48px;
+  height: 28px;
+}
+
+.member-card {
+  .card-ariticle-desc {
+    float: right;
+    width: 30%;
+
+  }
+  .card-ariticle {
+    .inline-block;
+    width: 60%;
+  }
+  .card-ariticle-box {
+    padding: 10px;
+    border: 1px solid @border-color;
+  }
+  .card-ariticle-preview {
+    position: relative;
+    .text {
+      padding: 5px;
+      background-color: @gray-lighter;
+    }
+    .ca-p-list {
+      margin-bottom: 10px;
+      &:hover{
+        .article-toolbar{
+          display: block;
+        }
+      }
+      &:first-child{
+        .icon-sortup{
+          display: none;
+        }
+      }
+      &:last-child{
+        .icon-sortdown{
+          display: none;
+        }
+      }
+    }
+    .article-toolbar{
+      display: none;
+      padding: 5px;
+      .bg-opacity;
+      .fixedcenter;
+      i{
+        padding: 0 2px;
+        font-size: 24px;
+      }
+      .icon-edit{
+        color:@gray-light;
+        font-size: 20px;
+      }
+      .icon-del{
+        font-size: 26px;
+      }
+    }
+  }
+  .card-article-img {
+    position: relative;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    min-height: 54px;
+    background-color: @gray-lighter;
+    a{
+      .fixedcenter;
+      color: @gray-light;
+      z-index: 12;
+    }
+    i {
+      font-size: @font-size-h1;
+    }
+    .mask{
+      .absolutetb0;
+      .bg-opacity;
+      display: none;
+    }
+  }
+  .cd-article-has-img{
+    .mask{
+      display: block;
+    }
+  }
+  .card-article-desc{
+    margin-bottom: 20px;
+    border: 1px solid @border-color;
+    .form-control{
+      border:none;
+    }
+    .textarea_append{
+      margin-top:5px;
+      margin-right:5px;
+      text-align: right;
+    }
+  }
+  .card-article-btn{
+    text-align: right;
+  }
+  .card-article-add{
+    padding: 10px;
+    border:1px dashed @border-color;
+    text-align: center;
+    cursor: pointer;
+    &.editting{
+      background-color: @gray-lighter;
+    }
+    i{
+      font-size: 48px;
+      color: @gray-light;
+    }
+  }
+  .edit-url-add{
+    padding-top: 20px;
+    border-top: 1px solid @border-color;
+  }
+  .js-card-article-editor{
+    margin-bottom: 10px;
+  }
+  .menu-list {
+    background-color: @gray-lighter;
+    .card-panel {
+      position: relative;
+      padding: @space-padding;
+      background-color: @color-white;
+    }
+    .card-pic {
+      position: relative;
+      padding: @space-padding;
+      overflow: hidden;
+      border-radius: 12px;
+      background-color: rgb(55, 58, 103);
+      background-size: cover;
+      background-position: top center;
+      .logo-area {
+        position: relative;
+        > span {
+          .inline-block;
+        }
+      }
+      .logo {
+        background-color: @color-white;
+        border:1px solid @color-white;
+        border-radius: 50%;
+        padding: 1px;
+        img{
+          width: 40px;
+          height: 40px;
+        }
+      }
+      .mask {
+        .absolutetb0;
+        .bg-opacity;
+        border-radius: 12px;
+      }
+      .msg-area {
+        margin-top: 50px;
+        position: relative;
+        color: @color-white;
+        font-size: @font-size-h4;
+      }
+      .qrcode {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        margin-top: -18px;
+        .square(36px);
+        background: url("../img/qrcode_36.png") no-repeat;
+      }
+      .text {
+        color: @color-white;
+        > span{
+          display: block;
+        }
+      }
+    }
+    .card-list {
+      li {
+        border-left: none;
+        border-top: 1px solid @border-color;
+      }
+    }
+    .tips-pre {
+      color: @gray-light;
+    }
+  }
+  .menu{
+    position: relative;
+    padding: 10px 0;
+    background-color: @color-white;
+    overflow: hidden;
+    ul{
+      position: relative;
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      margin-bottom: 0;
+      z-index: 1;
+    }
+    li{
+      display: table-cell;
+      text-align: center;
+      &.menu-yellow{
+        .img{
+          #gradient > .radial(#F7C623;#FFAF38);
+        }
+      }
+      &.menu-orange{
+        .img{
+          #gradient > .radial(#FF8E1C;#FF6B2B);
+        }
+      }
+      &.menu-blue{
+        .img{
+          #gradient > .radial(#1FB4FF;#4096FF);
+        }
+      }
+    }
+    img{
+      max-width: 100%;
+      max-height: 100%;
+    }
+    .img{
+      .inline-block;
+      height: 40px;
+      line-height: 40px;
+      width: 40px;
+      margin-bottom: 5px;
+      border-radius: 50%;
+    }
+    .text{
+      color: @gray;
+    }
+  }
+  .mf-bd {
+    padding-top: 0 !important;
+    .title {
+      margin-bottom: 20px;
+      color: @gray-dark;
+      .name{
+        font-weight: bold;
+      }
+    }
+  }
+  .ml-ft{
+    border: 1px solid @border-color;
+    border-top: none;
+    .menu{
+      padding: 5px 0;
+    }
+    .img{
+      height: 20px;
+      line-height:20px;
+      width: 20px;
+    }
+    .active{
+      .text{
+        color: @brand-danger;
+      }
+    }
+  }
+  .mebcard-box {
+    margin-bottom: 20px;
+  }
+}
+
+.dropdown-m {
+  .inline-block;
+  position: relative;
+  width: 116px;
+  .dropdown-switch {
+    position: relative;
+    border: 1px solid @border-color;
+    color: @gray-darker;
+    height: 30px;
+    line-height: 30px;
+    *line-height: 28px;
+    width: auto;
+    display: block;
+    span {
+      display: block;
+      cursor: pointer;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 22px;
+      height: 22px;
+      text-indent: -100px;
+      margin-top: 3px;
+      margin-left: 5px;
+      margin-right: 25px;
+      box-shadow: 0 0 1px #ccc;
+    }
+    &:hover {
+      background-color: @gray-lighter;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      margin-top: -2.5px;
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-width: 5px;
+      border-style: dashed;
+      border-color: transparent;
+      border-bottom-width: 0;
+      border-top-color: #c6c6c6;
+      border-top-style: solid;
+    }
+  }
+  .dropdown-data {
+    display: none;
+    position: absolute;
+    top: 100%;
+    margin-top: -1px;
+    left: 0;
+    z-index: 2202;
+    padding: 5px;
+    min-width: 100%;
+    width: 197px;
+    *width: 100%;
+    background-color: #fff;
+    border: 1px solid @border-color;
+    overflow: hidden;
+    li {
+      float: left;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      &:nth-child(7n) {
+        margin-right: 0;
+      }
+      a {
+        display: block;
+        width: 22px;
+        height: 22px;
+        text-indent: -573px;
+      }
+    }
+    .bg-color1 a {
+      background-color: #a9d92d
+    }
+
+    .bg-color2 a {
+      background-color: #63b359
+    }
+    .bg-color3 a {
+      background-color: #2c9f67
+    }
+    .bg-color4 a {
+      background-color: #509fc9
+    }
+    .bg-color5 a {
+      background-color: #5885cf
+    }
+    .bg-color6 a {
+      background-color: #9062c0
+    }
+    .bg-color7 a {
+      background-color: #5e6671
+    }
+    .bg-color8 a {
+      background-color: #d09a45
+    }
+    .bg-color9 a {
+      background-color: #e4b138
+    }
+    .bg-color10 a {
+      background-color: #ee903c
+    }
+    .bg-color11 a {
+      background-color: #f08500
+    }
+    .bg-color12 a {
+      background-color: #dd6549
+    }
+    .bg-color13 a {
+      background-color: #cc463d
+    }
+    .bg-color14 a {
+      background-color: #cf3e36
+    }
+    .bg-color15 a {
+      background-color: #f2f3f5
+    }
+    .bg-colorWhite a{
+      background-color: #fff;
+    }
+    .bg-colorBlack a{
+      background-color: #000;
+    }
+  }
+  &.open {
+    .dropdown-data {
+      display: block;
+    }
+  }
+}
+
+//会员中心设置
+.member-set{
+  .ml-bd{
+    height: auto;
+    background-color: @gray-lighter;
+  }
+  .logo-area{
+    display: table-cell;
+    text-align: center;
+    width: 384px;
+    height: 150px;
+    vertical-align: middle;
+    .logo{
+      .inline-block;
+      width: 60px;
+      height: 60px;
+      img{
+        max-width: 100%;
+      }
+    }
+    .text{
+      display: block;
+      margin-top: @space-padding-sm/2;
+      color: @color-white;
+      text-shadow: 0 0 3px #666;
+    }
+  }
+  .card-data{
+    padding-top: @space-padding-sm;
+    dt{
+      color: @gray-base;
+    }
+    dd{
+      color: @gray-light;
+    }
+  }
+  .card-pic {
+    border-top: 1px solid @border-color;
+    border-bottom: 1px solid @border-color;
+  }
+  .order{
+    .list-group-item{
+      border-left: none;
+      border-right: none;
+    }
+    .card-data{
+      dl{
+        width: 18%
+      }
+    }
+  }
+
+}
+
+//兑换页面
+#pointEXDefined{
+  padding-left: 0;
+  .ms-form{
+    width: 600px;
+    .dl-horizontal{
+      padding: 0;
+    }
+  }
+  .t15{
+    top: 15px;
+  }
+  .ms-goods-list{
+    padding-top: 7%;
+    .title{
+      color: @gray-base;
+    }
+    .pic{
+      margin: 1px;
+      border-radius: 5px;
+    }
+    li{
+      border-radius: 5px;
+      overflow: hidden;
+      .title{
+        text-align: center;
+        color: @gray-light;
+        font-size: @font-size-h6;
+        font-weight: 600;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .form-group:hover{
+    .close{
+      display: block;
+    }
+  }
+  .placeholder_auto:before{
+    margin-top: 60%;
+  }
+}
